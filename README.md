@@ -9,6 +9,6 @@ https://paypal.me/TienPD3?country.x=VN&locale.x=vi_VN
 
 # iAP Fake QuantumultX
 
-https://raw.githubusercontent.com/TienPD3/iAPFake/main/iAPFake.conf
-https://raw.githubusercontent.com/TienPD3/iAPFake/main/iAPFakeHacked.conf
-https://raw.githubusercontent.com/TienPD3/iAPFake/main/iAPFakePremium.conf
+https://tienpd3.github.io/iAPFakePurchased/iAPFake.conf
+https://tienpd3.github.io/iAPFakePurchased/iAPFakeHacked.conf
+https://tienpd3.github.io/iAPFakePurchased/iAPFakePremium.conf
