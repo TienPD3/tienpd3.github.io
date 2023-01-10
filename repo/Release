@@ -1,0 +1,12 @@
+Origin: TienPD3's Repo
+Label: TienPD3's Repo
+Suite: stable
+Version: 1.0
+Codename: tienpd3repo
+Architectures: iphoneos-arm
+Components: main
+Description: TienPD3's Repo
+MD5Sum:
+ cbaaa2c9e1ebb612381c50f77961ebeb 5097 Packages
+SHA256:
+ e6fccd529aa7ab81a3acd809bc792d92adc3a9ee0c75391b17df3ee4ca692d74 5097 Packages
