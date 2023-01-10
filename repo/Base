@@ -1,0 +1,8 @@
+Origin: Lillie's Repo
+Label: Lillie's Repo
+Suite: stable
+Version: 1.0
+Codename: lillierepo
+Architectures: iphoneos-arm
+Components: main
+Description: Lillie's Repo
