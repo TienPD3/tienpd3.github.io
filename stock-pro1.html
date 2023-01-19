@@ -5,18 +5,30 @@
     <title>SpreadJS ExcelIO URL</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
     <link href="website/css/gc.spread.sheets.excel2013white.16.0.2.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="website/scripts/gc.spread.sheets.all.12.0.7.min.js"></script>
-    <script type="text/javascript" src="website/scripts/interop/gc.spread.excelio.12.0.7.min.js"></script>
-    <script type="text/javascript" src="website/license.js"></script>
+    <script type="text/javascript" src="website/scripts/gc.spread.sheets.all.16.0.2.min.js"></script>
+    <script type="text/javascript" src="website/scripts/interop/gc.spread.excelio.16.0.2.min.js"></script>
+    <script type="text/javascript" src="website/license-30trail.js"></script>
     <script type="text/javascript" src="website/common/function.js"> </script>
+    <script type="text/javascript" src="website/common/spreadjs.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
     <script>
-        var workbook, excelIO;
+        var spread, excelIO;
         window.onload = function () {
     
-            workbook = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+            spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
             excelIo = new GC.Spread.Excel.IO();
-    
+            
+            document.getElementById("btnInvisible").addEventListener('click',function() {
+                var sheet = spread.getActiveSheet();
+                if (sheet) {
+                    var activeIndex = spread.getActiveSheetIndex();
+                    if (activeIndex - 1 >= 0) {
+                        spread.setActiveSheetIndex(activeIndex - 1);
+                    }
+                    sheet.visible(false);
+                }
+            });
+            loadFile();
         }
 
         function loadFile() {
@@ -37,17 +49,22 @@
                     var tmpStrLatestVCSH = getLatestVCSH();
                     var tmpFinancial = getFinancial();
                     
-                    spreadJson = spreadJson.replace("#VCSH", tmpStrLatestVCSH);
+                    spreadJson = spreadJson.replace('"#VCSH"', tmpStrLatestVCSH);
                     spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
-                    spreadJson = spreadJson.replace("#TGCP", tmpStrTGCP);
-                    spreadJson = spreadJson.replace("#TSLCP", tmpStrKLCPDLH);
+                    spreadJson = spreadJson.replace('"#TGCP"', tmpStrTGCP);
+                    spreadJson = spreadJson.replace('"#TSLCP"', tmpStrKLCPDLH);
+                    spreadJson = spreadJson.replace('"#ROA"', tmpFinancial.ROA);
+                    spreadJson = spreadJson.replace('"#ROE"', Number(tmpFinancial.ROE));
+                    spreadJson = spreadJson.replace('"#PE"', tmpFinancial.PE);
                     for (let i = 0; i < tmpArrayLNST.length; i++) {
                         const strLNST = tmpArrayLNST[i];
-                        spreadJson = spreadJson.replace("#Q" + i, strLNST);
+                        spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
                     }
                     spreadJson = JSON.parse(spreadJson);
 
-                    workbook.fromJSON(spreadJson);
+                    spread.fromJSON(spreadJson);
+                    hideEvaluationVersion(spread);
+                    
                 }, function (message) {
                     console.log(message);
                 });
@@ -57,9 +74,10 @@
     </script>
 </head>
 <body>
-    <div id="spreadSheet" style="width: 860px; height: 498px; border: 1px solid gray"></div>
+    <div id="spreadSheet" style="width: 100%; height: 498px;"></div>
     <!-- <input id="importUrl" value="http://cdn.grapecity.com/spreadjs/hosted/samples/SpreadJSExcelIOURL/Test.xlsx" /> -->
     <input id="importUrl" value="website/file/template.xlsx" />
-    <input id="btnExcelUpload" type="button" onclick="loadFile()" value="Load Excel File" />
+    <input type="button" id="btnVisible" value="Show Sheet" />
+    <input type="button" id="btnInvisible" value="Hide Sheet" />
 </body>
 </html>
