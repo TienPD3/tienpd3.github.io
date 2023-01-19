@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+    <meta charset = "utf-8"/> 
+    <meta  name = "viewport"  content = "width = device-width, initial-scale = 1.0"/> 
+    <!- a) Add SpreadJS scripts and CSS. -> 
+    <!-A1) Add the SpreadJS script file. -> 
+    <script  type = "text/javascript" 
+            src = "website/scripts/gc.spread.sheets.all.16.0.2.min.js" > </script> 
+    <!-A2) Add the CSS file. -> 
+    <script type="text/css"
+            src = "website/css/gc.spread.sheets.excel2013white.16.0.2.css"> </script> 
+    <!-D1) Add the ExcelIO script file. -> 
+    <script type = "text/javascript" 
+            src = "website/scripts/interop/gc.spread.excelio.16.0.2.min.js"> </script> 
+    <script type = "text/javascript" 
+            src = "website/common/function.js"> </script> 
+    <style>
+        .spread-container {
+            height: 550px;
+        }
+    </style> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            console.log(getLNST());
+        });
+    </script>
+</head> 
+<body> 
+    <h1> Import files into SpreadJS </h1> 
+    <div  class = "sample-container" > 
+        <!-B) Create a target DOM element for SpreadJS. -> 
+        <div  id = "ss"  class = "spread-container"> </div> 
+    </div > 
+    <h1 id="div1">Section 3: Importing files to SpreadJS</h1>
+    <div>
+        Select file to import:
+    </div>
+        <input type="file" value="website/file/template.xlsx" onchange="processFileSelected()" id="fileSelector" />
+        <form name="htmltest">
+            <!--Here, by default we have tried
+                to implement a file path using 
+                the value attribute. But it 
+                will not work here. -->
+            <input type="file" value="D:\Working\tienpd3.github.io\website\file\template.xlsx" id="fileSelector1">
+        </form>
+        <input type="button" onclick="tien();">
+    <br />
+    <div id="ss" style="height:700px;width:900px"></div>
+</body> 
+<script>
+    // c) Initialize the spread container SpreadJS with the "ss" ID of the div.
+    window.onload = function () {
+        var spread = new GC.Spread.Sheets.Workbook (
+            document.getElementById ("ss"),
+            {sheetCount: 1}
+        );
+        processFileSelected();
+
+        // d2) Create an instance of ExcelIO.
+        excelIO = new GC.Spread.Excel.IO ();
+    };
+
+    function processFileSelected() {
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'website/file/template.json', true);
+        request.onload = function() {
+            var spreadJson = request.response;
+            var tmpArrayLNST = getLNST();
+            var tmpStrKLCPDLH = getKLCPDLH();
+            for (let i = 0; i < tmpArrayLNST.length; i++) {
+                const strLNST = tmpArrayLNST[i];
+                spreadJson = spreadJson.replace("#Q" + i, strLNST);
+            }
+            spreadJson = JSON.parse(spreadJson);
+            importJSON(spreadJson);
+        };
+        request.send();
+    }
+
+    // Create importJSON()
+    function importJSON(spreadJson) {
+
+        var ss = GC.Spread.Sheets.findControl(document.getElementById("ss"));
+        if (spreadJson.version && spreadJson.sheets) {
+            // Load the object from the JSON string spreadJSON
+            ss.fromJSON(spreadJson);
+            // Focus the workbook component
+            ss.focus();
+        }
+    }
+</script> 
+</html>

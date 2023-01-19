@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SpreadJS V11 Client Side ExcelIO</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <link href="website/css/gc.spread.sheets.excel2013white.16.0.2.css" rel="stylesheet"/>
+    <script src="website/scripts/gc.spread.sheets.all.16.0.2.min.js" type="application/javascript"></script>
+    <!--For client-side excel i/o-->
+    <script src="website/scripts/interop/gc.spread.excelio.16.0.2.min.js"></script>
+</head>
+<body>
+<div>
+    <input type="file" name="files[]" id="fileDemo" accept=".xlsx" onchange="ImportFile()"/>
+    <input type="button" class="btn btn-default" id="saveExcel" value="Export" onclick="ExportFile()"/>
+    <div id="ss" style="width:100%;height: 672px;"></div>
+</div>
+</div>
+</body>
+<script>
+    var workbook, excelIO;
+    window.onload = function () {
+        workbook = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
+        excelIO = new GC.Spread.Excel.IO();
+    }
+    function ImportFile() {
+        var excelFile = document.getElementById("fileDemo").files[0];
+        excelIO.open(excelFile, function (json) {
+            var workbookObj = json;
+           workbook.fromJSON(workbookObj);
+        }, function (e) {
+            console.log(e);
+        });
+    }
+    function ExportFile() {
+        var fileName = document.getElementById("fileDemo").files[0].name;
+        if (fileName.substr(-5, 5) !== '.xlsx') {
+            fileName += '.xlsx';
+        }
+        var json = JSON.stringify(workbook.toJSON());
+        download(json, fileName.substr(0, fileName.length - 5) + ".json", "text/plain");
+        // excelIO.save(json, function (blob) {
+        //     saveAs(blob, fileName);
+        // }, function (e) {
+        //     console.log(e);
+        // });
+    }
+    function download(content, fileName, contentType) {
+        const a = document.createElement("a");
+        const file = new Blob([content], { type: contentType });
+        a.href = URL.createObjectURL(file);
+        a.download = fileName;
+        a.click();
+    }
+</script>
+</html>
