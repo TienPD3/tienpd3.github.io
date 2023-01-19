@@ -23,6 +23,7 @@
         excelIO = new GC.Spread.Excel.IO();
     }
     function ImportFile() {
+        
         var excelFile = document.getElementById("fileDemo").files[0];
         excelIO.open(excelFile, function (json) {
             var workbookObj = json;

@@ -134,7 +134,7 @@ function getTGCP() {
 
     if (strTGCP === null) {
         financialReports = getFinancialReports();
-        const elmHeader = $(financialReports).find('div.dltlu-point.eq');
+        const elmHeader = $(financialReports).find('div.dltlu-point');
         strTGCP = convertNumber(elmHeader.text()) * 1000;
         return strTGCP;
     }
