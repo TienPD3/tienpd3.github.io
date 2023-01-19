@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>SpreadJS ExcelIO URL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+    <link href="website/css/gc.spread.sheets.excel2013white.16.0.2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="website/scripts/gc.spread.sheets.all.12.0.7.min.js"></script>
+    <script type="text/javascript" src="website/scripts/interop/gc.spread.excelio.12.0.7.min.js"></script>
+    <script type="text/javascript" src="website/license.js"></script>
+    <script type="text/javascript" src="website/common/function.js"> </script>
+    
+    <script>
+        var workbook, excelIO;
+        window.onload = function () {
+    
+            workbook = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+            excelIo = new GC.Spread.Excel.IO();
+    
+        }
+
+        function loadFile() {
+            var excelUrl = document.getElementById("importUrl").value;
+
+            var oReq = new XMLHttpRequest();
+            oReq.open('get', excelUrl, true);
+            oReq.responseType = 'blob';
+            oReq.onload = function () {
+                var blob = oReq.response;
+                excelIo.open(blob, function (json) {
+
+                    var spreadJson = JSON.stringify(json);
+                    var tmpArrayLNST = getLNST();
+                    var tmpStrCTBTM = getCTBTM();
+                    var tmpStrTGCP = getTGCP();
+                    var tmpStrKLCPDLH = getKLCPDLH();
+                    var tmpStrLatestVCSH = getLatestVCSH();
+                    var tmpFinancial = getFinancial();
+                    
+                    spreadJson = spreadJson.replace("#VCSH", tmpStrLatestVCSH);
+                    spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
+                    spreadJson = spreadJson.replace("#TGCP", tmpStrTGCP);
+                    spreadJson = spreadJson.replace("#TSLCP", tmpStrKLCPDLH);
+                    for (let i = 0; i < tmpArrayLNST.length; i++) {
+                        const strLNST = tmpArrayLNST[i];
+                        spreadJson = spreadJson.replace("#Q" + i, strLNST);
+                    }
+                    spreadJson = JSON.parse(spreadJson);
+
+                    workbook.fromJSON(spreadJson);
+                }, function (message) {
+                    console.log(message);
+                });
+            };
+            oReq.send(null);
+        }
+    </script>
+</head>
+<body>
+    <div id="spreadSheet" style="width: 860px; height: 498px; border: 1px solid gray"></div>
+    <!-- <input id="importUrl" value="http://cdn.grapecity.com/spreadjs/hosted/samples/SpreadJSExcelIOURL/Test.xlsx" /> -->
+    <input id="importUrl" value="website/file/template.xlsx" />
+    <input id="btnExcelUpload" type="button" onclick="loadFile()" value="Load Excel File" />
+</body>
+</html>

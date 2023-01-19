@@ -69,7 +69,16 @@
         request.onload = function() {
             var spreadJson = request.response;
             var tmpArrayLNST = getLNST();
+            var tmpStrCTBTM = getCTBTM();
+            var tmpStrTGCP = getTGCP();
             var tmpStrKLCPDLH = getKLCPDLH();
+            var tmpStrLatestVCSH = getLatestVCSH();
+            var tmpFinancial = getFinancial();
+            
+            spreadJson = spreadJson.replace("#VCSH", tmpStrLatestVCSH);
+            spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
+            spreadJson = spreadJson.replace("#TGCP", tmpStrTGCP);
+            spreadJson = spreadJson.replace("#TSLCP", tmpStrKLCPDLH);
             for (let i = 0; i < tmpArrayLNST.length; i++) {
                 const strLNST = tmpArrayLNST[i];
                 spreadJson = spreadJson.replace("#Q" + i, strLNST);
