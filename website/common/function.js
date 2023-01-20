@@ -2,6 +2,11 @@ var accessToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkdYdExONz
 var urlFinancialReports = 'https://s.cafef.vn/hastc/CPC-cong-ty-co-phan-thuoc-sat-trung-can-tho.chn';
 var urlFinancial = 'https://e.cafef.vn/fi.ashx?symbol=CPC'
 
+var symbol = null;
+function setSymbol (val) {
+    symbol = val;
+}
+
 // Lấy chỉ số tài chính
 var arrayFinancial = null;
 function getFinancial () {
@@ -94,6 +99,93 @@ function getVCSH () {
         return arrayVCSH;
     }
     return arrayVCSH;
+}
+
+// Lấy doanh thu bán hàng và CCDV
+var arrayDTBH = [];
+function listDTBH () {
+    
+    if (arrayDTBH.length === 0) {
+        financialReports = getFinancialReports();
+        var elmHeader = $(financialReports).find('#ContentPlaceHolder1_CompanyInfo_FinanceStatement1_rptNhomChiTieu_rptData_0_TrData_0 > td')
+        elmHeader.splice(0, 1);
+        elmHeader.splice(elmHeader.length - 1, 1);
+        for (let i = 0; i < elmHeader.length; i++) {
+            // Theo đơn vị 1.000 VNĐ
+            const elmValue = elmHeader[i];
+            // Đổi đợn vị theo tỷ VNĐ
+            var number = convertNumber(elmValue.innerText) / 1000000
+            arrayDTBH.push(numberRound(number));
+        }
+        return arrayDTBH;
+    }
+    return arrayDTBH;
+}
+
+// Lấy doanh thu tăng đều theo biểu đồ (Đạt = 1, Không đạt = 0)
+var strDTBH = null;
+function isGrowUpDTBH () {
+
+    if (strDTBH === null) {
+        var tmpArrayDTBH = listDTBH();
+        var tmpValueBefore = 0
+        for (let i = 0; i < tmpArrayDTBH.length; i++) {
+            const elmValue = tmpArrayDTBH[i];
+            if (tmpValueBefore < elmValue) {
+                strDTBH = 1
+                tmpValueBefore = elmValue;
+            } else {
+                strDTBH = 0;
+                break;
+            }
+        }
+        return strDTBH;
+    }
+    return strDTBH;
+}
+
+
+// Lấy lợi nhuận gộp về BH và CCDV
+var arrayLNG = [];
+function listLNG () {
+    
+    if (arrayLNG.length === 0) {
+        financialReports = getFinancialReports();
+        var elmHeader = $(financialReports).find('#ContentPlaceHolder1_CompanyInfo_FinanceStatement1_rptNhomChiTieu_rptData_0_TrData_2 > td')
+        elmHeader.splice(0, 1);
+        elmHeader.splice(elmHeader.length - 1, 1);
+        for (let i = 0; i < elmHeader.length; i++) {
+            // Theo đơn vị 1.000 VNĐ
+            const elmValue = elmHeader[i];
+            // Đổi đợn vị theo tỷ VNĐ
+            var number = convertNumber(elmValue.innerText) / 1000000
+            arrayLNG.push(numberRound(number));
+        }
+        return arrayLNG;
+    }
+    return arrayLNG;
+}
+
+// Lấy lợi nhuận gộp tăng đều theo biểu đồ (Đạt=1, Không đạt = 0)
+var strLNG = null;
+function isGrowUpLNG () {
+
+    if (strLNG === null) {
+        var tmpArrayLNG = listDTBH();
+        var tmpValueBefore = 0
+        for (let i = 0; i < tmpArrayLNG.length; i++) {
+            const elmValue = tmpArrayLNG[i];
+            if (tmpValueBefore < elmValue) {
+                strLNG = 1
+                tmpValueBefore = elmValue;
+            } else {
+                strLNG = 0;
+                break;
+            }
+        }
+        return strLNG;
+    }
+    return strLNG;
 }
 
 // Lấy vốn chủ sở hữu (mới nhất)

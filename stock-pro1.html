@@ -4,17 +4,39 @@
     <meta charset="utf-8" />
     <title>SpreadJS ExcelIO URL</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
-    <link href="website/css/gc.spread.sheets.excel2013white.16.0.2.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="website/scripts/gc.spread.sheets.all.16.0.2.min.js"></script>
-    <script type="text/javascript" src="website/scripts/interop/gc.spread.excelio.16.0.2.min.js"></script>
-    <script type="text/javascript" src="website/license-30trail.js"></script>
+    <link href="website/css/spreadjs/gc.spread.sheets.excel2016colorful.16.0.2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="website/scripts/spreadjs/gc.spread.sheets.all.16.0.2.min.js"></script>
+    <script type="text/javascript" src="website/scripts/spreadjs/interop/gc.spread.excelio.16.0.2.min.js"></script>
+    <script type="text/javascript" src="website/license/spreadjs/license-30trail.js"></script>
     <script type="text/javascript" src="website/common/function.js"> </script>
     <script type="text/javascript" src="website/common/spreadjs.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
+    <script type="text/javascript" src="website/scripts/select2/select2.full.min.js"> </script>
+    <link href='website/css/select2/select2.min.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+    <script>
+        $(document).ready(function() {
+
+            var data = [];
+            oc.forEach(elmValue => {
+                var symbol = elmValue.c.replace('@', '')
+                if (symbol.length === 3) {
+                    data.push({id: symbol, text: symbol + ': ' + elmValue.m})
+                }
+            });
+            $("#selSymbol").select2({ data: data });
+            $('#selSymbol').on('select2:select', function (e) { 
+                var rSymbol = $(this).val();
+                var name = $(this).find('option:selected').text();
+                loadData(rSymbol);
+            });
+        });
+    </script>
     <script>
         var spread, excelIO;
         window.onload = function () {
-    
+
             spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
             excelIo = new GC.Spread.Excel.IO();
             
@@ -28,6 +50,11 @@
                     sheet.visible(false);
                 }
             });
+            loadFile();
+        }
+
+        function loadData(pSymbol) {
+            setSymbol(pSymbol);
             loadFile();
         }
 
@@ -48,14 +75,23 @@
                     var tmpStrKLCPDLH = getKLCPDLH();
                     var tmpStrLatestVCSH = getLatestVCSH();
                     var tmpFinancial = getFinancial();
+                    var tmpStrDTBHUp = isGrowUpDTBH();
+                    var tmpStrLNGUp = isGrowUpLNG();
                     
+                    // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
                     spreadJson = spreadJson.replace('"#VCSH"', tmpStrLatestVCSH);
                     spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
                     spreadJson = spreadJson.replace('"#TGCP"', tmpStrTGCP);
                     spreadJson = spreadJson.replace('"#TSLCP"', tmpStrKLCPDLH);
+
+                    // NHỮNG TIÊU CHUẨN ĐỂ ĐỊNH GIÁ MỘT DOANH NGHIỆP TÔT
+                    spreadJson = spreadJson.replace('"#DTUP"', tmpStrDTBHUp);
+                    spreadJson = spreadJson.replace('"#LNGUP"', tmpStrDTBHUp);
+                    spreadJson = spreadJson.replace('"#GOS"', tmpFinancial.GOS);
                     spreadJson = spreadJson.replace('"#ROA"', tmpFinancial.ROA);
                     spreadJson = spreadJson.replace('"#ROE"', Number(tmpFinancial.ROE));
                     spreadJson = spreadJson.replace('"#PE"', tmpFinancial.PE);
+
                     for (let i = 0; i < tmpArrayLNST.length; i++) {
                         const strLNST = tmpArrayLNST[i];
                         spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
@@ -64,6 +100,7 @@
 
                     spread.fromJSON(spreadJson);
                     hideEvaluationVersion(spread);
+                    activeSheet(spread, 'ĐỊNH GIÁ')
                     
                 }, function (message) {
                     console.log(message);
@@ -74,6 +111,9 @@
     </script>
 </head>
 <body>
+    <!-- Dropdown -->       
+    <select id='selSymbol'></select>
+
     <div id="spreadSheet" style="width: 100%; height: 498px;"></div>
     <!-- <input id="importUrl" value="http://cdn.grapecity.com/spreadjs/hosted/samples/SpreadJSExcelIOURL/Test.xlsx" /> -->
     <input id="importUrl" value="website/file/template.xlsx" />
