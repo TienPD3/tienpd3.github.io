@@ -75,13 +75,13 @@
                     spreadJson = spreadJson.replace('#SYMBOL', pSymbol);
 
                     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
-                    
                     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
                     var tmpStrLatestVCSH = getLatestVCSH();
                     spreadJson = spreadJson.replace('"#VCSH"', tmpStrLatestVCSH);
                     // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
-                    var tmpStrCTBTM = getCTBTM();
-                   spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
+                    var tmpArrayLatestCT = getLatestCT();
+                    spreadJson = spreadJson.replace("#TLCT", tmpArrayLatestCT.dividendPercent);
+                    spreadJson = spreadJson.replace("#CT", tmpArrayLatestCT.dividend);
                     // THỊ GIÁ CỔ PHIẾU (đồng/cp)
                     var tmpStrLatestTGCP = getLatestTGCP();
                     spreadJson = spreadJson.replace('"#TGCP"', tmpStrLatestTGCP);

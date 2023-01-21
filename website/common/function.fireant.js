@@ -1,21 +1,21 @@
 // Nguồn fireant.vn
 var accessToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkdYdExONzViZlZQakdvNERWdjV4QkRITHpnSSIsImtpZCI6IkdYdExONzViZlZQakdvNERWdjV4QkRITHpnSSJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmZpcmVhbnQudm4iLCJhdWQiOiJodHRwczovL2FjY291bnRzLmZpcmVhbnQudm4vcmVzb3VyY2VzIiwiZXhwIjoxOTc0MDQ3ODkwLCJuYmYiOjE2NzQwNDc4OTAsImNsaWVudF9pZCI6ImZpcmVhbnQudHJhZGVzdGF0aW9uIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiZW1haWwiLCJhY2NvdW50cy1yZWFkIiwiYWNjb3VudHMtd3JpdGUiLCJvcmRlcnMtcmVhZCIsIm9yZGVycy13cml0ZSIsImNvbXBhbmllcy1yZWFkIiwiaW5kaXZpZHVhbHMtcmVhZCIsImZpbmFuY2UtcmVhZCIsInBvc3RzLXdyaXRlIiwicG9zdHMtcmVhZCIsInN5bWJvbHMtcmVhZCIsInVzZXItZGF0YS1yZWFkIiwidXNlci1kYXRhLXdyaXRlIiwidXNlcnMtcmVhZCIsInNlYXJjaCIsImFjYWRlbXktcmVhZCIsImFjYWRlbXktd3JpdGUiLCJibG9nLXJlYWQiLCJpbnZlc3RvcGVkaWEtcmVhZCJdLCJzdWIiOiJiN2RiZDEzZC1lZGFhLTQ4ZWQtOGM1YS1iYmI3NzUxZjFhZTMiLCJhdXRoX3RpbWUiOjE2NzQwNDc4ODksImlkcCI6Ikdvb2dsZSIsIm5hbWUiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJzZWN1cml0eV9zdGFtcCI6ImE3N2ZhZTY1LWQ5YzctNGYxMS1iZGVmLWI2MzNkMWFlZmM4NiIsImp0aSI6IjEzMGFhNTFhZDUyMWE4NTZiNTJkMTEyYjJiOTFiOWVjIiwiYW1yIjpbImV4dGVybmFsIl19.txx7fO_78xSzbtt605WQl9aMxn8ao8K5bkjes-sPPFCZNScq0EjgwU1fbiYwNRevzp1K6I9j_5Cyz1Z3cl3BKruX68aQ1I_H6CaO_whmiASL5WSCBpdrH0tBNehWE6hav4g_NNMNOjMNILirvSwB4hzuOSaqApCYJFOBTQU96ycgyxRkij3HuU4WL_6Ph22irDTyVHt13GfzAra3NBj06XAaqE6Kx5dBcciVTnpyk9GStz6GUt-yINzAveTp7EC6AUU1-QHnn2Ood8SMVC5H6vvI3O29_Ag9e5b0yfHFxjhgYzbcD2khowSiT7lgCoqYwKzq3A6jwQYKZ5MZ0sR7xA';
-var urlTransactionInformation = 'https://restv2.fireant.vn/symbols/${symbol}/financial-reports?type=BS&period=Q&compact=true&offset=0&limit=4';
-var urlEconomicInformationQuarterly = 'https://restv2.fireant.vn/symbols/${symbol}/financial-reports?type=IS&period=Q&compact=true&offset=0&limit=4';
-var urlFinancialIndicators = 'https://restv2.fireant.vn/symbols/${symbol}/financial-indicators'
-// Giao dịch
-var urlHolderTransactions = 'https://restv2.fireant.vn/symbols/${symbol}/holder-transactions?startDate=&endDate=&executedOnly=false&offset=0&limit=1';
-// Tổng quan (tổ hợp)
-var urlFundamental = 'https://restv2.fireant.vn/symbols/${symbol}/fundamental';
-// Cân đối kế toán (toàn bộ)
-var urlFullBalanceSheet = 'https://restv2.fireant.vn/symbols/${symbol}/full-financial-reports?type=1&year=2023&quarter=1&limit=4'
-// Kết quả kinh doanh (toàn bộ)
-var urlFullBusinessResults = 'https://restv2.fireant.vn/symbols/${symbol}/full-financial-reports?type=2&year=2023&quarter=1&limit=4'
-// Giá quá khứ
-var urlHistoricalQuotes = 'https://restv2.fireant.vn/symbols/${symbol}/historical-quotes?startDate=&endDate=&offset=0&limit=1'
+var urlTransactionInformation = '';
+var urlEconomicInformationQuarterly = '';
+var urlFinancialIndicators = ''
+// Nguồn fireant.vn - Giao dịch
+var urlHolderTransactions = '';
+// Nguồn fireant.vn - Tổng quan (tổ hợp)
+var urlFundamental = '';
+// Nguồn fireant.vn - Cân đối kế toán (toàn bộ)
+var urlFullBalanceSheet = ''
+// Nguồn fireant.vn - Kết quả kinh doanh (toàn bộ)
+var urlFullBusinessResults = ''
+// Nguồn fireant.vn - Giá quá khứ
+var urlHistoricalQuotes = ''
 
-// Nguồn cafef.vn
-var urlFinancialReports = 'https://s.cafef.vn/hastc/CPC-cong-ty-co-phan-thuoc-sat-trung-can-tho.chn';
+// Nguồn cafef.vn - Hoạt động kinh doanh
+var urlActiveBusiness = '';
 
 function setParameter (pSymbol, pName, pExchange) {
     buildUrl(pSymbol, pName.stringEnglishHyphen(), pExchange);
@@ -51,49 +51,51 @@ function buildUrl(pSymbol, pName, pExchange) {
     urlFullBusinessResults = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/full-financial-reports?type=2&year=' + year + '&quarter=1&limit=4'
     // Giá quá khứ
     urlHistoricalQuotes = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/historical-quotes?startDate=1900-01-01&endDate=' + today.toISO() + '&offset=0&limit=1'
-    // Nguồn cafef.vn
-    urlFinancialReports = 'https://s.cafef.vn/' + pExchange + '/' + pSymbol + '-' + pName + '.chn';
+    // Nguồn cafef.vn - Hoạt động kinh doanh
+    urlActiveBusiness = 'https://e.cafef.vn/khkd.ashx?symbol=' + pSymbol;
 }
 
 // --- START Cafef.vn -----
 
-var financialReports = null;
-function getFinancialReports() {
+var activeBusiness = null;
+function getAjaxActiveBusiness() {
 
-    if (financialReports === null) {
-        strCTBTM = null;
+    if (activeBusiness === null) {
+        strCT = null;
 
         $.ajax({
-            url: urlFinancialReports,
+            url: urlActiveBusiness,
             async: false,
-            type: 'GET',
-            dataType: "text",
-            contentType: "text/plain; charset=utf-8",
+            dataType : 'json',
             success: function(reps){
-                financialReports = reps;
+                activeBusiness = reps;
             }
         });
     }
-    return financialReports;
+    return activeBusiness;
 }
 
-// Lấy cổ tức bằng tiền mặt
-var strCTBTM = null;
-function getCTBTM() {
+// Lấy cổ tức
+var arrayLatestCT = null;
+function getLatestCT() {
 
-    if (strCTBTM === null || financialReports === null) {
-        financialReports = getFinancialReports();
-        const elmHeader = $(financialReports).find('div.l:contains("Cổ tức bằng tiền mặt")');
-        strCTBTM = removePercent(elmHeader.next().text());
-        if (strCTBTM === 'N/A') {
-            strCTBTM = '0';
+    if (arrayLatestCT === null || activeBusiness === null) {
+        activeBusiness = getAjaxActiveBusiness();
+        arrayLatestCT = {};
+        if (activeBusiness[0].Dividend !== 0) {
+            arrayLatestCT.dividendPercent = activeBusiness[0].Dividend + '%';
+            arrayLatestCT.dividend = 'tiền mặt';
+        } else if (activeBusiness[0].DivStock !== 0) {
+            arrayLatestCT.dividendPercent = activeBusiness[0].DivStock + '%';
+            arrayLatestCT.dividend = 'cổ phiếu';
+        } else {
+            arrayLatestCT.dividendPercent = '0%';
+            arrayLatestCT.dividend = 'không có';
         }
-        strCTBTM = strCTBTM.split('-');
-        strCTBTM = strCTBTM[0] + '%';
-        return strCTBTM;
+        return arrayLatestCT;
     }
 
-    return strCTBTM;
+    return arrayLatestCT;
 }
 
 // ----- END Cafef.vn -----
@@ -104,6 +106,7 @@ var historicalQuotes = null;
 function getAjaxHistoricalQuotes() {
 
     if (historicalQuotes === null) {
+        strLatestTGCP = null;
 
         $.ajax({
             url: urlHistoricalQuotes,
@@ -126,7 +129,7 @@ function getLatestTGCP() {
 
     if (strLatestTGCP === null || historicalQuotes === null) {
         historicalQuotes = getAjaxHistoricalQuotes();
-        strLatestTGCP = historicalQuotes.priceClose;
+        strLatestTGCP = historicalQuotes[0].priceClose * 1000;
         return strLatestTGCP;
     }
     return strLatestTGCP;
@@ -580,7 +583,8 @@ function getFinancialIndicators () {
 
 // Common
 function resetData() {
-    financialReports = null;
+    activeBusiness = null;
+    historicalQuotes = null;
     fundamental = null;
     holderTransactions = null;
     fullBalanceSheet = null;
