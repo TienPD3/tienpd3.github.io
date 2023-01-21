@@ -1,4 +1,4 @@
-var arrayObj = JSON.parse($response.body);
+var obj = JSON.parse($response.body);
 
 obj.isTrialCourse = true;
 obj.courseExpiredDate = '9999-12-31';
