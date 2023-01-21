@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Stock Pro - TienPD3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <link href="website/css/spreadjs/gc.spread.sheets.excel2016colorful.16.0.2.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="website/scripts/spreadjs/gc.spread.sheets.all.16.0.2.min.js"></script>
+    <script type="text/javascript" src="website/scripts/spreadjs/interop/gc.spread.excelio.16.0.2.min.js"></script>
+    <script type="text/javascript" src="website/license/spreadjs/license-30trail.js"></script>
+    <script type="text/javascript" src="website/common/function.fireant.js"> </script>
+    <script type="text/javascript" src="website/common/const.js"> </script>
+    <script type="text/javascript" src="website/common/spreadjs.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
+    <script type="text/javascript" src="website/scripts/select2/select2.full.min.js"> </script>
+    <link href='website/css/select2/select2.min.css' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+    <script>
+        $(document).ready(function() {
+
+            var data = [];
+            oc.forEach(elmValue => {
+                var symbol = elmValue.c;
+                if (elmValue.c.length === 3) {
+                    data.push({id: symbol, text: symbol + ': ' + elmValue.m, name: elmValue.m, exchange: getExchange(elmValue.san)});
+                }
+            });
+            $("#selSymbol").select2({ data: data });
+            
+            $('#selSymbol').on('change', function (e) { 
+                var rSymbol = $(this).val();
+                var rName = $(this).find('option:selected').data().data.name;
+                var rExchange = $(this).find('option:selected').data().data.exchange;
+                loadData(rSymbol, rName, rExchange);
+            });
+
+            $('#selSymbol').val('CPC').trigger('change');
+        });
+    </script>
+    <script>
+        var spread, excelIO;
+        window.onload = function () {
+            spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+            //loadFile();
+        }
+
+        function loadData(pSymbol, pName, pExchange) {
+            setParameter(pSymbol, pName, pExchange);
+            loadFile(pSymbol);
+        }
+
+        function loadFile(pSymbol) {
+            spread.destroy();
+            resetData();
+            spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+            excelIo = new GC.Spread.Excel.IO();
+            var excelUrl = document.getElementById("importUrl").value;
+
+            var oReq = new XMLHttpRequest();
+            oReq.open('get', excelUrl, true);
+            oReq.responseType = 'blob';
+            oReq.onload = function () {
+                var blob = oReq.response;
+                excelIo.open(blob, function (json) {
+
+                    var spreadJson = JSON.stringify(json);
+                    
+                    // LNST 4 qúy gần nhất	
+                    var tmpArrayLNST = listLNST();
+                    for (let i = 0; i < tmpArrayLNST.length; i++) {
+                        const strLNST = tmpArrayLNST[i];
+                        spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
+                    }
+
+                    spreadJson = spreadJson.replace('#SYMBOL', pSymbol);
+
+                    // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
+                    var tmpArrayFundamental = listFundamental();
+                    // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
+                    var tmpStrLatestVCSH = getLatestVCSH();
+                    spreadJson = spreadJson.replace('"#VCSH"', tmpStrLatestVCSH);
+                    // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
+                    var tmpStrCTBTM = getCTBTM();
+                    spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
+                    // THỊ GIÁ CỔ PHIẾU (đồng/cp)
+                    var tmpStrTGCP = getTGCP();
+                    spreadJson = spreadJson.replace('"#TGCP"', tmpStrTGCP);
+                    // TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)
+                    spreadJson = spreadJson.replace('"#TSLCP"', tmpArrayFundamental.sharesOutstanding / 1000000);
+
+                    // NHỮNG TIÊU CHUẨN ĐỂ ĐỊNH GIÁ MỘT DOANH NGHIỆP TÔT
+                    var tmpFinancial = getFinancialIndicators();
+                    // Doanh thu tăng đều theo biểu đồ (Đạt = 1, Không đạt = 0)
+                    var tmpIsUpDTT = isGrowUpDTT();
+                    spreadJson = spreadJson.replace('"#DTUP"', tmpIsUpDTT);
+                    // Lợi nhuận gộp tăng đều theo biểu đồ (Đạt=1, Không đạt = 0)  
+                    var tmpIsUpLNG = isGrowUpLNG();
+                    spreadJson = spreadJson.replace('"#LNGUP"', tmpIsUpLNG);
+                    // Tỷ lệ lãi gộp lớn hơn hoặc bằng 15%
+                    spreadJson = spreadJson.replace('"#GOS"', tmpFinancial.LAI_GOP);
+                    // Tỷ lệ lãi ròng lớn hơn hoặc bằng 5
+                    spreadJson = spreadJson.replace('"#NPM"', tmpFinancial.LAI_RONG);
+                    // ROA lớn hơn hoặc bằng 5%
+                    spreadJson = spreadJson.replace('"#ROA"', tmpFinancial.ROA);
+                    // ROE lớn hơn hoặc bằng 15%
+                    spreadJson = spreadJson.replace('"#ROE"', tmpFinancial.ROE);
+                    // ROIC lớn hơn hoặc bằng 10%
+                    spreadJson = spreadJson.replace('"#ROIC"', tmpFinancial.ROIC);
+                    // Nợ/VCSH nhỏ hơn hoặc =1
+                    spreadJson = spreadJson.replace('"#NOVCSH"', tmpFinancial.NOVCSH);
+                    // P/E <15(có thể 20) nhỏ hơn hoặc bằng 15
+                    spreadJson = spreadJson.replace('"#PE"', tmpFinancial.PE);
+                    // P/B<2(nhỏ hơn hoặc bằng 2)
+                    spreadJson = spreadJson.replace('"#PB"', tmpFinancial.PB);
+
+                    // Ban lãnh đạo mua bán cố phần (Đạt = 1, Không đạt = 0)
+                    var tmpIsBLDMB = isLatestBLDMB();
+                    spreadJson = spreadJson.replace('"#BLDMB"', tmpIsBLDMB);
+                    // Dòng tiền từ hoạt động Kinh doanh dương (Đạt = 1, Không đạt = 0)
+                    var tmpIsPositiveLNTHDKD = isPositiveLNTHDKD();
+                    spreadJson = spreadJson.replace('"#DTP"', tmpIsPositiveLNTHDKD);
+                    // Nợ dài hạn/LNST (quý hiện tại) nhỏ hơn  hoặc bằng 5
+                    var tmpStrLatestNDH = getLatestNDH();
+                    var tmpStrLatestLNST = getLatestLNST();
+                    spreadJson = spreadJson.replace('"#NDHLNST"', (tmpStrLatestNDH / tmpStrLatestLNST).round());
+
+                    spreadJson = JSON.parse(spreadJson);
+                    
+                    spread.fromJSON(spreadJson);
+                    hideEvaluationVersion(spread);
+                    activeSheet(spread, 'ĐỊNH GIÁ')
+                    
+                }, function (message) {
+                    console.log(message);
+                });
+            };
+            oReq.send(null);
+        }
+    </script>
+</head>
+<body>
+    <!-- Dropdown -->       
+    <select id='selSymbol'></select>
+    <div id="spreadSheet" style="width: 100%; height: 498px;"></div>
+    <input type="hidden" id="importUrl" value="website/file/template.xlsx" />
+</body>
+</html>

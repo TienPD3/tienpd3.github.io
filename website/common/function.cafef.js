@@ -201,7 +201,7 @@ function getLatestVCSH () {
 
 // Lấy lợi nhuận sau thuế
 var arrayLNST = [];
-function getLNST () {
+function listLNST () {
     
     if (arrayLNST.length === 0) {
         financialReports = getFinancialReports();
@@ -275,6 +275,7 @@ function getFinancialReports() {
         $.ajax({
             url: urlFinancialReports,
             async: false,
+            type: 'GET',
             success: function(reps){
                 financialReports = reps;
             }
