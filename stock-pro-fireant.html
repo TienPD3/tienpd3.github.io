@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Pro - TienPD3</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
     <link href="website/css/spreadjs/gc.spread.sheets.excel2016colorful.16.0.2.css" rel="stylesheet" type="text/css" />
@@ -42,7 +43,6 @@
         var spread, excelIO;
         window.onload = function () {
             spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
-            //loadFile();
         }
 
         function loadData(pSymbol, pName, pExchange) {
@@ -51,9 +51,8 @@
         }
 
         function loadFile(pSymbol) {
-            spread.destroy();
+
             resetData();
-            spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
             excelIo = new GC.Spread.Excel.IO();
             var excelUrl = document.getElementById("importUrl").value;
 
@@ -129,7 +128,9 @@
                     
                     spread.fromJSON(spreadJson);
                     hideEvaluationVersion(spread);
-                    activeSheet(spread, 'ĐỊNH GIÁ')
+                    activeSheet(spread, 'ĐỊNH GIÁ');
+                    spread.options.showVerticalScrollbar = false;
+                    spread.options.scrollbarShowMax = false;
                     
                 }, function (message) {
                     console.log(message);
