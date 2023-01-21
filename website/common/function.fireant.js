@@ -11,6 +11,8 @@ var urlFundamental = 'https://restv2.fireant.vn/symbols/${symbol}/fundamental';
 var urlFullBalanceSheet = 'https://restv2.fireant.vn/symbols/${symbol}/full-financial-reports?type=1&year=2023&quarter=1&limit=4'
 // Kết quả kinh doanh (toàn bộ)
 var urlFullBusinessResults = 'https://restv2.fireant.vn/symbols/${symbol}/full-financial-reports?type=2&year=2023&quarter=1&limit=4'
+// Giá quá khứ
+var urlHistoricalQuotes = 'https://restv2.fireant.vn/symbols/${symbol}/historical-quotes?startDate=&endDate=&offset=0&limit=1'
 
 // Nguồn cafef.vn
 var urlFinancialReports = 'https://s.cafef.vn/hastc/CPC-cong-ty-co-phan-thuoc-sat-trung-can-tho.chn';
@@ -32,6 +34,9 @@ function getExchange(exchange) {
 }
 
 function buildUrl(pSymbol, pName, pExchange) {
+    var today = new Date();
+    var year = today.getFullYear();
+
     // Nguồn fireant.vn
     urlTransactionInformation = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=BS&period=Q&compact=true&offset=0&limit=4';
     urlEconomicInformationQuarterly = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Q&compact=true&offset=0&limit=4';
@@ -41,10 +46,11 @@ function buildUrl(pSymbol, pName, pExchange) {
     // Tổng quan (tổ hợp)
     urlFundamental = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/fundamental';
     // Cân đối kế toán (toàn bộ)
-    urlFullBalanceSheet = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/full-financial-reports?type=1&year=2023&quarter=1&limit=4'
+    urlFullBalanceSheet = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/full-financial-reports?type=1&year=' + year + '&quarter=1&limit=4'
     // Kết quả kinh doanh (toàn bộ)
-    urlFullBusinessResults = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/full-financial-reports?type=2&year=2023&quarter=1&limit=4'
-
+    urlFullBusinessResults = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/full-financial-reports?type=2&year=' + year + '&quarter=1&limit=4'
+    // Giá quá khứ
+    urlHistoricalQuotes = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/historical-quotes?startDate=1900-01-01&endDate=' + today.toISO() + '&offset=0&limit=1'
     // Nguồn cafef.vn
     urlFinancialReports = 'https://s.cafef.vn/' + pExchange + '/' + pSymbol + '-' + pName + '.chn';
 }
@@ -55,31 +61,20 @@ var financialReports = null;
 function getFinancialReports() {
 
     if (financialReports === null) {
-        strTGCP = null;
         strCTBTM = null;
 
         $.ajax({
             url: urlFinancialReports,
             async: false,
+            type: 'GET',
+            dataType: "text",
+            contentType: "text/plain; charset=utf-8",
             success: function(reps){
                 financialReports = reps;
             }
         });
     }
     return financialReports;
-}
-
-// Lấy thị giá cổ phiếu (đồng/cp)
-var strTGCP = null;
-function getTGCP() {
-
-    if (strTGCP === null || financialReports === null) {
-        financialReports = getFinancialReports();
-        const elmHeader = $(financialReports).find('div.dltlu-point');
-        strTGCP = convertNumber(elmHeader.text()) * 1000;
-        return strTGCP;
-    }
-    return strTGCP;
 }
 
 // Lấy cổ tức bằng tiền mặt
@@ -101,15 +96,51 @@ function getCTBTM() {
     return strCTBTM;
 }
 
-// --- END Cafef.vn -----
+// ----- END Cafef.vn -----
+
+// ----- START Giá quá khứ -----
+
+var historicalQuotes = null;
+function getAjaxHistoricalQuotes() {
+
+    if (historicalQuotes === null) {
+
+        $.ajax({
+            url: urlHistoricalQuotes,
+            async: false,
+            dataType : 'json',
+            headers: {
+                authorization : accessToken
+            },
+            success: function(reps){
+                historicalQuotes = reps;
+            }
+        });
+    }
+    return historicalQuotes;
+}
+
+// Lấy thị giá cổ phiếu (đồng/cp)
+var strLatestTGCP = null;
+function getLatestTGCP() {
+
+    if (strLatestTGCP === null || historicalQuotes === null) {
+        historicalQuotes = getAjaxHistoricalQuotes();
+        strLatestTGCP = historicalQuotes.priceClose;
+        return strLatestTGCP;
+    }
+    return strLatestTGCP;
+}
+
+// ----- END Giá quá khứ -----
 
 // ----- START Tổng quan (tổ hợp) -----
 
 var fundamental = null;
-function getFundamental() {
+function getAjaxFundamental() {
 
     if (fundamental === null) {
-        arrayFundamental = null;
+        strKPCPDLH = null;
 
         $.ajax({
             url: urlFundamental,
@@ -126,15 +157,16 @@ function getFundamental() {
     return fundamental;
 }
 
-var arrayFundamental = null;
-function listFundamental() {
+// TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)
+var strKPCPDLH = null;
+function getKPCPDLH() {
 
-    if (arrayFundamental === null || fundamental === null) {
-        fundamental = getFundamental();
-        arrayFundamental = fundamental;
-        return arrayFundamental;
+    if (strKPCPDLH === null || fundamental === null) {
+        fundamental = getAjaxFundamental();
+        strKPCPDLH = fundamental.sharesOutstanding / 1000000;
+        return strKPCPDLH;
     }
-    return arrayFundamental;
+    return strKPCPDLH;
 }
 
 // ----- END Tổng quan (tổ hợp) -----
@@ -673,6 +705,13 @@ Number.prototype.round = function() {
     } else {
         return 0.00;
     }
+};
+
+Date.prototype.toISO = function() {
+
+    var input = this;
+    input = input.toISOString();
+    return input.split("T")[0];
 };
 
 function convertNumber(value) {

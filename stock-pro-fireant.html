@@ -72,22 +72,22 @@
                         const strLNST = tmpArrayLNST[i];
                         spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
                     }
-
                     spreadJson = spreadJson.replace('#SYMBOL', pSymbol);
 
                     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
-                    var tmpArrayFundamental = listFundamental();
+                    
                     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
                     var tmpStrLatestVCSH = getLatestVCSH();
                     spreadJson = spreadJson.replace('"#VCSH"', tmpStrLatestVCSH);
                     // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
                     var tmpStrCTBTM = getCTBTM();
-                    spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
+                   spreadJson = spreadJson.replace("#TLCT", tmpStrCTBTM);
                     // THỊ GIÁ CỔ PHIẾU (đồng/cp)
-                    var tmpStrTGCP = getTGCP();
-                    spreadJson = spreadJson.replace('"#TGCP"', tmpStrTGCP);
+                    var tmpStrLatestTGCP = getLatestTGCP();
+                    spreadJson = spreadJson.replace('"#TGCP"', tmpStrLatestTGCP);
                     // TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)
-                    spreadJson = spreadJson.replace('"#TSLCP"', tmpArrayFundamental.sharesOutstanding / 1000000);
+                    var tmpStrKPCPDLH = getKPCPDLH();
+                    spreadJson = spreadJson.replace('"#TSLCP"', tmpStrKPCPDLH);
 
                     // NHỮNG TIÊU CHUẨN ĐỂ ĐỊNH GIÁ MỘT DOANH NGHIỆP TÔT
                     var tmpFinancial = getFinancialIndicators();
