@@ -24,7 +24,7 @@
             oc.forEach(elmValue => {
                 var symbol = elmValue.c;
                 if (elmValue.c.length === 3) {
-                    data.push({id: symbol, text: symbol + ': ' + elmValue.m, name: elmValue.m, exchange: getExchange(elmValue.san)});
+                    data.push({id: symbol, text: symbol, name: elmValue.m, exchange: getExchange(elmValue.san)});
                 }
             });
             $("#selSymbol").select2({ data: data });
@@ -47,10 +47,10 @@
 
         function loadData(pSymbol, pName, pExchange) {
             setParameter(pSymbol, pName, pExchange);
-            loadFile(pSymbol);
+            loadFile(pSymbol, pName);
         }
 
-        function loadFile(pSymbol) {
+        function loadFile(pSymbol, pName) {
 
             resetData();
             excelIo = new GC.Spread.Excel.IO();
@@ -71,7 +71,7 @@
                         const strLNST = tmpArrayLNST[i];
                         spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
                     }
-                    spreadJson = spreadJson.replace('#SYMBOL', pSymbol);
+                    spreadJson = spreadJson.replace('#SYMBOL', pSymbol + ': ' + pName);
 
                     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
                     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
@@ -142,7 +142,7 @@
 </head>
 <body>
     <!-- Dropdown -->       
-    <select id='selSymbol'></select>
+    <select id='selSymbol' style="width: 100px;"></select>
     <div id="spreadSheet" style="width: 100%; height: 498px;"></div>
     <input type="hidden" id="importUrl" value="website/file/template.xlsx" />
 </body>
