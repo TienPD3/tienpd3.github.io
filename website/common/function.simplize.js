@@ -43,7 +43,7 @@ function buildDropdownStockList(idStockFilter) {
             name: 'drpdStockList'
         });
 
-        stockListSimplize.sort(function(a, b){
+        stockListSimplize.sort(function(a, b) {
             return a.id > b.id ? 1 : (a.id === b.id ? 0 : -1 );
         });
 
@@ -117,7 +117,7 @@ function buildDropdownStockCode(idStockCode, pId, pRules) {
     }
 
     var tmpStockCodeSimplize = null;
-    if (arrayStockCodeSimplize[pId] === undefined) {
+    if (arrayStockCodeSimplize[pId] === undefined || arrayStockCodeSimplize[pId] === null) {
         tmpStockCodeSimplize = getAjaxStockCodeSimplize(pRules);
         arrayStockCodeSimplize[pId] = tmpStockCodeSimplize;
         updateLocalStoreStockCode(arrayStockCodeSimplize);

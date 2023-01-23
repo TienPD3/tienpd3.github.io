@@ -30,7 +30,7 @@
         $(document).ready(function() {
             buildUrlSimplize();
             var firstValue = buildDropdownStockList($('#idStockList'));
-            initBuildDropdownStockCode(firstValue.id, firstValue.symbol, firstValue.rules)
+            initBuildDropdownStockCode(firstValue.id, firstValue.rules)
 
             $(document).on('change', '#drpdStockList', function() {
                 const id = $(this).find('option:selected').attr('id');
