@@ -4,27 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Pro - TienPD3</title>
+
+    <!-- spreadjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
-    <link href="website/css/spreadjs/gc.spread.sheets.excel2016colorful.16.0.2.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="website/css/spreadjs/gc.spread.sheets.excel2016colorful.16.0.2.css"></link>
     <script type="text/javascript" src="website/scripts/spreadjs/gc.spread.sheets.all.16.0.2.min.js"></script>
     <script type="text/javascript" src="website/scripts/spreadjs/interop/gc.spread.excelio.16.0.2.min.js"></script>
     <script type="text/javascript" src="website/license/spreadjs/license-30trail.js"></script>
-    <script type="text/javascript" src="website/common/function.fireant.js"> </script>
-    <script type="text/javascript" src="website/common/function.update.js"> </script>
-    <script type="text/javascript" src="website/common/const.js"> </script>
-    <script type="text/javascript" src="website/common/spreadjs.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
-
-    <script type="text/javascript" src="website/scripts/select2/select2.full.min.js"> </script>
-    <link href='website/css/select2/select2.min.css' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+    <!-- / spreadjs -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
 
     <!-- aui.atlassian.com -->
-    <script type="text/javascript" src="website/common/function.simplize.js"> </script>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@atlassian/aui@9.5.1/dist/aui/aui-prototyping.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
-    <script src="https://unpkg.com/@atlassian/aui@9.5.1/dist/aui/aui-prototyping.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.css"></link>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/15.0.1/sinon.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.js"></script>
     <!-- / aui.atlassian.com -->
+
+    <!-- common -->
+    <script type="text/javascript" src="website/common/function.fireant.js"> </script>
+    <script type="text/javascript" src="website/common/function.simplize.js"></script>
+    <script type="text/javascript" src="website/common/function.update.js"></script>
+    <script type="text/javascript" src="website/common/const.js"> </script>
+    <script type="text/javascript" src="website/common/spreadjs.js"> </script>
+    <!-- / common -->
+
+    <!-- site -->
+    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+    <!-- / site -->
 
     <script>
         $(document).ready(function() {
@@ -45,6 +52,10 @@
                 onChangeStockCode();
             });
 
+            $(document).on('click', '#btnNext', function() {
+                $('#drpdStockCode > option:selected').next().attr('selected', 'selected');
+                onChangeStockCode();
+            });
         });
 
         function initBuildDropdownStockCode(pId, pRules) {
@@ -56,6 +67,7 @@
         }
 
         function onChangeStockCode() {
+            AJS.$("#drpdStockCode").auiSelect2();
             var pSymbol = $('#drpdStockCode').find('option:selected').attr('id');
             var filter = $(oc).filter(function (i, elm) {
                 return elm.c === pSymbol
@@ -185,7 +197,7 @@
                     spreadJson = spreadJson.replaceExcel('#NDH', tmpLatestNDH, true);
                     spreadJson = spreadJson.replaceExcel('#LNST', tmpLatestLNST.latestLNST, true);
 
-                    getAjaxFullBusinessResults();
+                    // getAjaxFullBusinessResults();
                     spreadJson = JSON.parse(spreadJson);
                     
                     spread.fromJSON(spreadJson);
@@ -204,18 +216,17 @@
 </head>
 <body>
     <form class="aui">
-        <div class="field-group" id="idStockList">
-            <label for="drpdStockList">Bộ lọc chứng khoán</label>
-        </div>
-        <div class="field-group" id="idStockCode">
-            <label for="drpdStockCode">Mã chứng khoán</label>
-            <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán">
-            </select>
+        <label for="drpdStockList">Bộ lọc chứng khoán</label>
+        <div id="idStockList"></div>
+        <label for="drpdStockCode">Mã chứng khoán</label>
+        <div id="idStockCode">
+            <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán"></select>
         </div>
     </form>
 
-    <!-- Dropdown -->       
-    <div id="spreadSheet" style="width: 100%; height: 498px;"></div>
+    <div id="spreadSheet" style="width: 100%; height: 470px;"></div>
     <input type="hidden" id="importUrl" value="website/file/template.xlsx" />
+
+    <button id="btnNext" class="aui-button aui-button-primary">Kiểm tra mã tiếp theo</button>
 </body>
 </html>
