@@ -2,6 +2,7 @@
 var accessToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkdYdExONzViZlZQakdvNERWdjV4QkRITHpnSSIsImtpZCI6IkdYdExONzViZlZQakdvNERWdjV4QkRITHpnSSJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmZpcmVhbnQudm4iLCJhdWQiOiJodHRwczovL2FjY291bnRzLmZpcmVhbnQudm4vcmVzb3VyY2VzIiwiZXhwIjoxOTc0MDQ3ODkwLCJuYmYiOjE2NzQwNDc4OTAsImNsaWVudF9pZCI6ImZpcmVhbnQudHJhZGVzdGF0aW9uIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiZW1haWwiLCJhY2NvdW50cy1yZWFkIiwiYWNjb3VudHMtd3JpdGUiLCJvcmRlcnMtcmVhZCIsIm9yZGVycy13cml0ZSIsImNvbXBhbmllcy1yZWFkIiwiaW5kaXZpZHVhbHMtcmVhZCIsImZpbmFuY2UtcmVhZCIsInBvc3RzLXdyaXRlIiwicG9zdHMtcmVhZCIsInN5bWJvbHMtcmVhZCIsInVzZXItZGF0YS1yZWFkIiwidXNlci1kYXRhLXdyaXRlIiwidXNlcnMtcmVhZCIsInNlYXJjaCIsImFjYWRlbXktcmVhZCIsImFjYWRlbXktd3JpdGUiLCJibG9nLXJlYWQiLCJpbnZlc3RvcGVkaWEtcmVhZCJdLCJzdWIiOiJiN2RiZDEzZC1lZGFhLTQ4ZWQtOGM1YS1iYmI3NzUxZjFhZTMiLCJhdXRoX3RpbWUiOjE2NzQwNDc4ODksImlkcCI6Ikdvb2dsZSIsIm5hbWUiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJzZWN1cml0eV9zdGFtcCI6ImE3N2ZhZTY1LWQ5YzctNGYxMS1iZGVmLWI2MzNkMWFlZmM4NiIsImp0aSI6IjEzMGFhNTFhZDUyMWE4NTZiNTJkMTEyYjJiOTFiOWVjIiwiYW1yIjpbImV4dGVybmFsIl19.txx7fO_78xSzbtt605WQl9aMxn8ao8K5bkjes-sPPFCZNScq0EjgwU1fbiYwNRevzp1K6I9j_5Cyz1Z3cl3BKruX68aQ1I_H6CaO_whmiASL5WSCBpdrH0tBNehWE6hav4g_NNMNOjMNILirvSwB4hzuOSaqApCYJFOBTQU96ycgyxRkij3HuU4WL_6Ph22irDTyVHt13GfzAra3NBj06XAaqE6Kx5dBcciVTnpyk9GStz6GUt-yINzAveTp7EC6AUU1-QHnn2Ood8SMVC5H6vvI3O29_Ag9e5b0yfHFxjhgYzbcD2khowSiT7lgCoqYwKzq3A6jwQYKZ5MZ0sR7xA';
 var urlTransactionInformation = '';
 var urlEconomicInformationQuarterly = '';
+var urlEconomicInformationYear = '';
 var urlFinancialIndicators = ''
 // Nguồn fireant.vn - Giao dịch
 var urlHolderTransactions = '';
@@ -40,6 +41,7 @@ function buildUrl(pSymbol, pName, pExchange) {
     // Nguồn fireant.vn
     urlTransactionInformation = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=BS&period=Q&compact=true&offset=0&limit=4';
     urlEconomicInformationQuarterly = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Q&compact=true&offset=0&limit=4';
+    urlEconomicInformationYear = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Y&compact=true&offset=0&limit=4';
     urlFinancialIndicators = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-indicators'
     // Giao dịch
     urlHolderTransactions = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/holder-transactions?startDate=&endDate=&executedOnly=false&offset=0&limit=1';
@@ -251,7 +253,7 @@ function listNDH () {
                 var values = elm.values;
                 for (let j = 0; j < values.length; j++) {
                     const value = values[j].value / 1000000000;
-                    arrayNDH.push(value.round());
+                    arrayNDH.push(roundEmpty(value));
                 }
                 break;
             }
@@ -281,8 +283,8 @@ var transactionInformation = null;
 function getTransactionInformationn() {
 
     if (transactionInformation === null) {
-        arrayVCSH = [];
-        strLatestVCSH = null;
+        objectVCSH = null;
+        latestVCSH = null;
 
         $.ajax({
             url: urlTransactionInformation,
@@ -300,33 +302,52 @@ function getTransactionInformationn() {
 }
 
 // Lấy vốn chủ sở hữu
-var arrayVCSH = [];
+var objectVCSH = null;
 function listVCSH () {
     
-    if (arrayVCSH.length === 0 || transactionInformation === null) {
+    if (objectVCSH === null || transactionInformation === null) {
+        
+        var tmpArrayVCSH = [];
         transactionInformation = getTransactionInformationn();
+        var elmHeaderYear = transactionInformation.columns;
+        elmHeaderYear.splice(0, 2);
         var elmHeader = transactionInformation.rows[2];
         elmHeader.splice(0, 2);
         for (let i = 0; i < elmHeader.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
             const value = elmHeader[i] / 1000000000;
-            arrayVCSH.push(value.round());
+            tmpArrayVCSH.push(roundEmpty(value));
         }
-        return arrayVCSH;
+
+        objectVCSH = {};
+        objectVCSH.arrayVCSH = tmpArrayVCSH;
+        objectVCSH.year = elmHeaderYear;
+        return objectVCSH;
     }
-    return arrayVCSH;
+    return objectVCSH;
 }
 
 // Lấy vốn chủ sở hữu (mới nhất)
-var strLatestVCSH = null;
+var latestVCSH = null;
 function getLatestVCSH () {
     
-    if (strLatestVCSH === null || transactionInformation === null) {
-        arrayVCSH = listVCSH();
-        strLatestVCSH = arrayVCSH[arrayVCSH.length - 1];
-        return strLatestVCSH;
+    if (latestVCSH === null || transactionInformation === null) {
+        
+        objectVCSH = listVCSH();
+
+        var tmpLatestVCSH = objectVCSH.arrayVCSH;
+        tmpLatestVCSH = tmpLatestVCSH[tmpLatestVCSH.length - 1];
+        
+        var tmpLatestVCSHYear = objectVCSH.year;
+        tmpLatestVCSHYear = tmpLatestVCSHYear[tmpLatestVCSHYear.length - 1];
+
+        latestVCSH = {};
+        latestVCSH.latestVCSH = tmpLatestVCSH;
+        latestVCSH.latestVCSHYear = tmpLatestVCSHYear;
+
+        return latestVCSH;
     }
-    return strLatestVCSH;
+    return latestVCSH;
 }
 
 // ----- END Cân đối kế toán -----
@@ -334,7 +355,7 @@ function getLatestVCSH () {
 // ----- START Kết quả kinh doanh (toàn bộ) -----
 
 var fullBusinessResults = null;
-function getEconomicInformation() {
+function getAjaxFullBusinessResults() {
 
     if (fullBusinessResults === null) {
         $.ajax({
@@ -367,8 +388,8 @@ function getEconomicInformation() {
         isUpLNG = null;
         arrayLNTHDKD = [];
         isUpPositiveLNTHDKD = null
-        arrayLNST = [];
-        strLatestLNST = null;
+        objectLNST = null;
+        latestLNST = null;
 
         $.ajax({
             url: urlEconomicInformationQuarterly,
@@ -378,9 +399,29 @@ function getEconomicInformation() {
                 authorization : accessToken
             },
             success: function(reps){
-                economicInformation = reps;
+                if (reps) {
+                    economicInformation = reps;
+                    economicInformation.isYear = false;
+                }
             }
         });
+
+        if (economicInformation === null) {
+            $.ajax({
+                url: urlEconomicInformationYear,
+                async: false,
+                dataType : 'json',
+                headers: {
+                    authorization : accessToken
+                },
+                success: function(reps){
+                    if (reps) {
+                        economicInformation = reps;
+                        economicInformation.isYear = true;
+                    }
+                }
+            });
+        }
     }
     return economicInformation;
 }
@@ -396,7 +437,7 @@ function listDTT () {
         for (let i = 0; i < elmHeader.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
             const value = elmHeader[i] / 1000000000;
-            arrayDTT.push(value.round());
+            arrayDTT.push(roundEmpty(value));
         }
         return arrayDTT;
     }
@@ -436,7 +477,7 @@ function listLNG () {
         for (let i = 0; i < elmHeader.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
             const value = elmHeader[i] / 1000000000;
-            arrayLNG.push(value.round());
+            arrayLNG.push(roundEmpty(value));
         }
         return arrayLNG;
     }
@@ -476,7 +517,7 @@ function listLNTHDKD () {
         for (let i = 0; i < elmHeader.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
             const value = elmHeader[i] / 1000000000;
-            arrayLNTHDKD.push(value.round());
+            arrayLNTHDKD.push(roundEmpty(value));
         }
         return arrayLNTHDKD;
     }
@@ -502,32 +543,47 @@ function isPositiveLNTHDKD() {
 }
 
 // Lấy LN sau thuế
-var arrayLNST = [];
+var objectLNST = null;
 function listLNST () {
     
-    if (arrayLNST.length === 0 || economicInformation === null) {
+    if (objectLNST === null || economicInformation === null) {
+        objectLNST = {};
+        var tmpArrayLNST = [];
         economicInformation = getEconomicInformation();
-        var elmHeader = economicInformation.rows[3];
-        elmHeader.splice(0, 2);
-        for (let i = 0; i < elmHeader.length; i++) {
+        var elmHeaderRows = economicInformation.rows[3];
+        var elmHeaderColums = economicInformation.columns;
+        elmHeaderColums.splice(0, 2);
+        elmHeaderRows.splice(0, 2);
+        for (let i = 0; i < elmHeaderRows.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
-            const value = elmHeader[i] / 1000000000;
-            arrayLNST.push(value.round());
+            const value = elmHeaderRows[i] / 1000000000;
+            tmpArrayLNST.push(roundEmpty(value));
         }
-        return arrayLNST;
+        objectLNST.year = elmHeaderColums;
+        objectLNST.arrayLNST = tmpArrayLNST;
+        return objectLNST;
     }
-    return arrayLNST;
+    return objectLNST;
 }
 
-var strLatestLNST = null;
+var latestLNST = null;
 function getLatestLNST() {
 
-    if (strLatestLNST === null || economicInformation === null) {
-        var tmpArrayLNST = listLNST();
-        strLatestLNST = tmpArrayLNST[tmpArrayLNST.length - 1]
-        return strLatestLNST;
+    if (latestLNST === null || economicInformation === null) {
+        objectLNST = listLNST();
+
+        var tmpLatestLNST = objectLNST.arrayLNST;
+        tmpLatestLNST = tmpLatestLNST[tmpLatestLNST.length - 1]
+
+        var tmpLatestLNSTYear = objectLNST.year;
+        tmpLatestLNSTYear = tmpLatestLNSTYear[tmpLatestLNSTYear.length - 1]
+
+        latestLNST = {};
+        latestLNST.latestLNST = tmpLatestLNST;
+        latestLNST.latestLNSTYear = tmpLatestLNSTYear;
+        return latestLNST;
     }
-    return strLatestLNST;
+    return latestLNST;
 }
 
 // ----- END Kết quả kinh doanh -----
@@ -570,7 +626,7 @@ function getFinancialIndicators () {
             const shortName = elmValue.shortName.stringEnglishUppercase();
 
             // Build lại thành JSON của mình mong muốn
-            arrayFinancialIndicators[shortName] = elmValue.value.round();
+            arrayFinancialIndicators[shortName] = roundEmpty(elmValue.value);
             arrayFinancialIndicators[shortName + '_NAME'] = elmValue.name
             arrayFinancialIndicators[shortName + '_DESCRIPTION'] = elmValue.description
         }
@@ -716,6 +772,15 @@ Date.prototype.toISO = function() {
     var input = this;
     input = input.toISOString();
     return input.split("T")[0];
+};
+
+function roundEmpty(input) {
+
+    if (input) {
+        return input.round();
+    } else {
+        return 0.00;
+    }
 };
 
 function convertNumber(value) {

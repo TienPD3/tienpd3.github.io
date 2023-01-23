@@ -10,6 +10,7 @@
     <script type="text/javascript" src="website/scripts/spreadjs/interop/gc.spread.excelio.16.0.2.min.js"></script>
     <script type="text/javascript" src="website/license/spreadjs/license-30trail.js"></script>
     <script type="text/javascript" src="website/common/function.fireant.js"> </script>
+    <script type="text/javascript" src="website/common/function.update.js"> </script>
     <script type="text/javascript" src="website/common/const.js"> </script>
     <script type="text/javascript" src="website/common/spreadjs.js"> </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
@@ -17,35 +18,63 @@
     <script type="text/javascript" src="website/scripts/select2/select2.full.min.js"> </script>
     <link href='website/css/select2/select2.min.css' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+
+    <!-- aui.atlassian.com -->
+    <script type="text/javascript" src="website/common/function.simplize.js"> </script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@atlassian/aui@9.5.1/dist/aui/aui-prototyping.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.js"></script>
+    <script src="https://unpkg.com/@atlassian/aui@9.5.1/dist/aui/aui-prototyping.js"></script>
+    <!-- / aui.atlassian.com -->
+
     <script>
         $(document).ready(function() {
+            buildUrlSimplize();
+            var firstValue = buildDropdownStockList($('#idStockList'));
+            initBuildDropdownStockCode(firstValue.id, firstValue.symbol, firstValue.rules)
 
-            var data = [];
-            oc.forEach(elmValue => {
-                var symbol = elmValue.c;
-                if (elmValue.c.length === 3) {
-                    data.push({id: symbol, text: symbol, name: elmValue.m, exchange: getExchange(elmValue.san)});
-                }
-            });
-            $("#selSymbol").select2({ data: data });
-            
-            $('#selSymbol').on('change', function (e) { 
-                var rSymbol = $(this).val();
-                var rName = $(this).find('option:selected').data().data.name;
-                var rExchange = $(this).find('option:selected').data().data.exchange;
-                loadData(rSymbol, rName, rExchange);
+            $(document).on('change', '#drpdStockList', function() {
+                const id = $(this).find('option:selected').attr('id');
+                const rules = $(this).find('option:selected').attr('rules');
+                initBuildDropdownStockCode(id, rules)
+                var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected')) || {};
+                drpdSelected.stockListSelected = id;
+                localStorage.setItem('drpdSelected', JSON.stringify(drpdSelected))
             });
 
-            $('#selSymbol').val('CPC').trigger('change');
+            $(document).on('change', '#drpdStockCode', function() {
+                onChangeStockCode();
+            });
+
         });
+
+        function initBuildDropdownStockCode(pId, pRules) {
+
+            buildDropdownStockCode($('#idStockCode'), pId, pRules);
+            AJS.$("#drpdStockCode").auiSelect2();
+            
+            onChangeStockCode();
+        }
+
+        function onChangeStockCode() {
+            var pSymbol = $('#drpdStockCode').find('option:selected').attr('id');
+            var filter = $(oc).filter(function (i, elm) {
+                return elm.c === pSymbol
+            })[0];
+            loadData(filter.c, filter.m, filter.san);
+            var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected')) || {};
+            drpdSelected.stockCodeSelected = pSymbol;
+            localStorage.setItem('drpdSelected', JSON.stringify(drpdSelected))
+        }
     </script>
     <script>
         var spread, excelIO;
         window.onload = function () {
             spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+            
         }
 
         function loadData(pSymbol, pName, pExchange) {
+            
             setParameter(pSymbol, pName, pExchange);
             loadFile(pSymbol, pName);
         }
@@ -54,7 +83,7 @@
 
             resetData();
             excelIo = new GC.Spread.Excel.IO();
-            var excelUrl = document.getElementById("importUrl").value;
+            var excelUrl = document.getElementById("importUrl").value + '?cache=' + uuidv4();
 
             var oReq = new XMLHttpRequest();
             oReq.open('get', excelUrl, true);
@@ -65,18 +94,45 @@
 
                     var spreadJson = JSON.stringify(json);
                     
-                    // LNST 4 qúy gần nhất	
-                    var tmpArrayLNST = listLNST();
+                    // LNST 4 qúy gần nhất
+                    var tmpEconomicInformation = getEconomicInformation();
+                    var tmpObjectLNST = listLNST();
+                    var tmpArrayLNST = tmpObjectLNST.arrayLNST;
+                    var tmpArrayLNSTYear = tmpObjectLNST.year;
                     for (let i = 0; i < tmpArrayLNST.length; i++) {
+
+                        // Chuyển năm hoặc quý
+                        const strLNSTYear = tmpArrayLNSTYear[i];
+                        spreadJson = spreadJson.replace("#QFY" + i, strLNSTYear);
+
                         const strLNST = tmpArrayLNST[i];
+                        if (tmpEconomicInformation.isYear) {
+                            if (i !== tmpArrayLNST.length - 1) {
+                                spreadJson = spreadJson.replace('"#Q' + i +'"', '0.00');
+                            }
+                        }
                         spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
                     }
+
+                    // Chuyển 1 năm hay 4 quý
+                    if (tmpEconomicInformation.isYear) {
+                        spreadJson = spreadJson.replace('#QGN', '1 năm gấn nhất');
+                    } else {
+                        spreadJson = spreadJson.replace('#QGN', '4 quý gấn nhất');
+                    }
+
+                    // Chuyển mã chứng khoán
                     spreadJson = spreadJson.replace('#SYMBOL', pSymbol + ': ' + pName);
 
                     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
                     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
-                    var tmpStrLatestVCSH = getLatestVCSH();
-                    spreadJson = spreadJson.replace('"#VCSH"', tmpStrLatestVCSH);
+                    var tmpLatestVCSH = getLatestVCSH();
+                    // if (tmpEconomicInformation.isYear) {
+                    //     tmpStrLatestVCSH = (tmpStrLatestVCSH / 4).round();
+                    // }
+                    
+                    spreadJson = spreadJson.replace("#VCSHFY", tmpLatestVCSH.latestVCSHYear);
+                    spreadJson = spreadJson.replace('"#VCSH"', tmpLatestVCSH.latestVCSH);
                     // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
                     var tmpArrayLatestCT = getLatestCT();
                     spreadJson = spreadJson.replace("#TLCT", tmpArrayLatestCT.dividendPercent);
@@ -120,10 +176,12 @@
                     var tmpIsPositiveLNTHDKD = isPositiveLNTHDKD();
                     spreadJson = spreadJson.replace('"#DTP"', tmpIsPositiveLNTHDKD);
                     // Nợ dài hạn/LNST (quý hiện tại) nhỏ hơn  hoặc bằng 5
-                    var tmpStrLatestNDH = getLatestNDH();
-                    var tmpStrLatestLNST = getLatestLNST();
-                    spreadJson = spreadJson.replace('"#NDHLNST"', (tmpStrLatestNDH / tmpStrLatestLNST).round());
+                    var tmpLatestNDH = getLatestNDH();
+                    var tmpLatestLNST = getLatestLNST();
+                    spreadJson = spreadJson.replace("#NDHLNSTFY", tmpLatestLNST.latestLNSTYear);
+                    spreadJson = spreadJson.replace('"#NDHLNST"', (tmpLatestNDH / tmpLatestLNST.latestLNST).round());
 
+                    getAjaxFullBusinessResults();
                     spreadJson = JSON.parse(spreadJson);
                     
                     spread.fromJSON(spreadJson);
@@ -141,8 +199,18 @@
     </script>
 </head>
 <body>
+    <form class="aui">
+        <div class="field-group" id="idStockList">
+            <label for="drpdStockList">Bộ lọc chứng khoán</label>
+        </div>
+        <div class="field-group" id="idStockCode">
+            <label for="drpdStockCode">Mã chứng khoán</label>
+            <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán">
+            </select>
+        </div>
+    </form>
+
     <!-- Dropdown -->       
-    <select id='selSymbol' style="width: 100px;"></select>
     <div id="spreadSheet" style="width: 100%; height: 498px;"></div>
     <input type="hidden" id="importUrl" value="website/file/template.xlsx" />
 </body>
