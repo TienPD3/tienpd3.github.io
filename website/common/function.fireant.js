@@ -783,6 +783,46 @@ function roundEmpty(input) {
     }
 };
 
+function convertZero(value) {
+
+    if (value) {
+        return value;
+    } else {
+        return 0.00;
+    }
+}
+
+function isValidNumber (num) {
+    return typeof num === 'number' && !isNaN(num);
+}
+
+String.prototype.replaceExcel = function(regex, value, isString = false) {
+
+    var input = this;
+
+    if (isValidNumber(value)) {
+        if (isString === false) {
+            return input.replace('"' + regex + '"', value);
+        } else {
+            return input.replace(regex, value);
+        }
+    } else {
+        if (value !== undefined) {
+            return input.replace(regex, value);
+        }
+    }
+    return input.replace(regex, convertNA(value));
+};
+
+function convertNA(value) {
+
+    if (value) {
+        return value;
+    } else {
+        return 'N/A';
+    }
+}
+
 function convertNumber(value) {
 
     return Number(value.replace(/\n/g, '').replace(/\s/g, '').replace(/,/g, ''));

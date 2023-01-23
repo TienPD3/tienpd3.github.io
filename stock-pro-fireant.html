@@ -83,7 +83,7 @@
 
             resetData();
             excelIo = new GC.Spread.Excel.IO();
-            var excelUrl = document.getElementById("importUrl").value + '?cache=' + uuidv4();
+            var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
 
             var oReq = new XMLHttpRequest();
             oReq.open('get', excelUrl, true);
@@ -103,83 +103,87 @@
 
                         // Chuyển năm hoặc quý
                         const strLNSTYear = tmpArrayLNSTYear[i];
-                        spreadJson = spreadJson.replace("#QFY" + i, strLNSTYear);
+                        spreadJson = spreadJson.replaceExcel('#QFY' + i, strLNSTYear);
 
                         const strLNST = tmpArrayLNST[i];
                         if (tmpEconomicInformation.isYear) {
                             if (i !== tmpArrayLNST.length - 1) {
-                                spreadJson = spreadJson.replace('"#Q' + i +'"', '0.00');
+                                spreadJson = spreadJson.replace('#Q' + i, '0.00');
                             }
                         }
-                        spreadJson = spreadJson.replace('"#Q' + i +'"', strLNST);
+                        spreadJson = spreadJson.replaceExcel('#Q' + i, strLNST);
                     }
 
                     // Chuyển 1 năm hay 4 quý
                     if (tmpEconomicInformation.isYear) {
-                        spreadJson = spreadJson.replace('#QGN', '1 năm gấn nhất');
+                        spreadJson = spreadJson.replaceExcel('#QGN', '1 năm gấn nhất');
                     } else {
-                        spreadJson = spreadJson.replace('#QGN', '4 quý gấn nhất');
+                        spreadJson = spreadJson.replaceExcel('#QGN', '4 quý gấn nhất');
                     }
 
                     // Chuyển mã chứng khoán
-                    spreadJson = spreadJson.replace('#SYMBOL', pSymbol + ': ' + pName);
+                    spreadJson = spreadJson.replaceExcel('#SYMBOL', pSymbol + ': ' + pName);
 
                     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
                     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
                     var tmpLatestVCSH = getLatestVCSH();
-                    // if (tmpEconomicInformation.isYear) {
-                    //     tmpStrLatestVCSH = (tmpStrLatestVCSH / 4).round();
-                    // }
                     
-                    spreadJson = spreadJson.replace("#VCSHFY", tmpLatestVCSH.latestVCSHYear);
-                    spreadJson = spreadJson.replace('"#VCSH"', tmpLatestVCSH.latestVCSH);
+                    spreadJson = spreadJson.replaceExcel('#VCSHFY', tmpLatestVCSH.latestVCSHYear);
+                    spreadJson = spreadJson.replaceExcel('#VCSH', tmpLatestVCSH.latestVCSH);
                     // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
                     var tmpArrayLatestCT = getLatestCT();
-                    spreadJson = spreadJson.replace("#TLCT", tmpArrayLatestCT.dividendPercent);
-                    spreadJson = spreadJson.replace("#CT", tmpArrayLatestCT.dividend);
+                    spreadJson = spreadJson.replaceExcel('#TLCT', tmpArrayLatestCT.dividendPercent);
+                    spreadJson = spreadJson.replaceExcel('#CT', tmpArrayLatestCT.dividend);
                     // THỊ GIÁ CỔ PHIẾU (đồng/cp)
                     var tmpStrLatestTGCP = getLatestTGCP();
-                    spreadJson = spreadJson.replace('"#TGCP"', tmpStrLatestTGCP);
+                    spreadJson = spreadJson.replaceExcel('#TGCP', tmpStrLatestTGCP);
                     // TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)
                     var tmpStrKPCPDLH = getKPCPDLH();
-                    spreadJson = spreadJson.replace('"#TSLCP"', tmpStrKPCPDLH);
+                    spreadJson = spreadJson.replaceExcel('#TSLCP', tmpStrKPCPDLH);
 
                     // NHỮNG TIÊU CHUẨN ĐỂ ĐỊNH GIÁ MỘT DOANH NGHIỆP TÔT
                     var tmpFinancial = getFinancialIndicators();
-                    // Doanh thu tăng đều theo biểu đồ (Đạt = 1, Không đạt = 0)
+                    // Doanh thu tăng đều (Đạt = 1, Không đạt = 0)
                     var tmpIsUpDTT = isGrowUpDTT();
-                    spreadJson = spreadJson.replace('"#DTUP"', tmpIsUpDTT);
-                    // Lợi nhuận gộp tăng đều theo biểu đồ (Đạt=1, Không đạt = 0)  
+                    spreadJson = spreadJson.replaceExcel('#DTUP', tmpIsUpDTT);
+                    // Lợi nhuận gộp tăng đều  (Đạt=1, Không đạt = 0)  
                     var tmpIsUpLNG = isGrowUpLNG();
-                    spreadJson = spreadJson.replace('"#LNGUP"', tmpIsUpLNG);
-                    // Tỷ lệ lãi gộp lớn hơn hoặc bằng 15%
-                    spreadJson = spreadJson.replace('"#GOS"', tmpFinancial.LAI_GOP);
-                    // Tỷ lệ lãi ròng lớn hơn hoặc bằng 5
-                    spreadJson = spreadJson.replace('"#NPM"', tmpFinancial.LAI_RONG);
-                    // ROA lớn hơn hoặc bằng 5%
-                    spreadJson = spreadJson.replace('"#ROA"', tmpFinancial.ROA);
-                    // ROE lớn hơn hoặc bằng 15%
-                    spreadJson = spreadJson.replace('"#ROE"', tmpFinancial.ROE);
-                    // ROIC lớn hơn hoặc bằng 10%
-                    spreadJson = spreadJson.replace('"#ROIC"', tmpFinancial.ROIC);
-                    // Nợ/VCSH nhỏ hơn hoặc =1
-                    spreadJson = spreadJson.replace('"#NOVCSH"', tmpFinancial.NOVCSH);
-                    // P/E <15(có thể 20) nhỏ hơn hoặc bằng 15
-                    spreadJson = spreadJson.replace('"#PE"', tmpFinancial.PE);
-                    // P/B<2(nhỏ hơn hoặc bằng 2)
-                    spreadJson = spreadJson.replace('"#PB"', tmpFinancial.PB);
-
-                    // Ban lãnh đạo mua bán cố phần (Đạt = 1, Không đạt = 0)
+                    spreadJson = spreadJson.replaceExcel('#LNGUP', tmpIsUpLNG);
+                    // Tỷ lệ lãi gộp (>= 15%)
+                    spreadJson = spreadJson.replaceExcel('#GOS', tmpFinancial.LAI_GOP);
+                    // Tỷ lệ lãi ròng (>= 5)
+                    spreadJson = spreadJson.replaceExcel('#NPM', tmpFinancial.LAI_RONG);
+                    // ROA (>= 5%)
+                    spreadJson = spreadJson.replaceExcel('#ROA', tmpFinancial.ROA);
+                    // ROE (>= 15%)
+                    spreadJson = spreadJson.replaceExcel('#ROE', tmpFinancial.ROE);
+                    // ROIC (>= 10%)
+                    spreadJson = spreadJson.replaceExcel('#ROIC', tmpFinancial.ROIC);
+                    // Nợ/VCSH (<= 1)
+                    spreadJson = spreadJson.replaceExcel('#NOVCSH', tmpFinancial.NOVCSH);
+                    // P/E <15(có thể 20) <=15
+                    spreadJson = spreadJson.replaceExcel('#PE', tmpFinancial.PE);
+                    // P/B<2(<= 2)
+                    spreadJson = spreadJson.replaceExcel('#PB', tmpFinancial.PB);
+                    // Mô hình đơn giản tập chung (Đạt = 1, Không đạt = 0)
+                    // Pending
+                    // BBan lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0)
                     var tmpIsBLDMB = isLatestBLDMB();
-                    spreadJson = spreadJson.replace('"#BLDMB"', tmpIsBLDMB);
-                    // Dòng tiền từ hoạt động Kinh doanh dương (Đạt = 1, Không đạt = 0)
+                    spreadJson = spreadJson.replaceExcel('#BLDMB', tmpIsBLDMB);
+                    // Dòng tiền từ HĐKD dương (Đạt = 1, Không đạt = 0)
                     var tmpIsPositiveLNTHDKD = isPositiveLNTHDKD();
-                    spreadJson = spreadJson.replace('"#DTP"', tmpIsPositiveLNTHDKD);
-                    // Nợ dài hạn/LNST (quý hiện tại) nhỏ hơn  hoặc bằng 5
+                    spreadJson = spreadJson.replaceExcel('#DTP', tmpIsPositiveLNTHDKD);
+                    // Nợ dài hạn(N/A)/LNST(N/A) (Q3/2022) <= 5
                     var tmpLatestNDH = getLatestNDH();
                     var tmpLatestLNST = getLatestLNST();
-                    spreadJson = spreadJson.replace("#NDHLNSTFY", tmpLatestLNST.latestLNSTYear);
-                    spreadJson = spreadJson.replace('"#NDHLNST"', (tmpLatestNDH / tmpLatestLNST.latestLNST).round());
+                    spreadJson = spreadJson.replaceExcel('#NDHLNSTFY', tmpLatestLNST.latestLNSTYear);
+                    var tmpNDHLNST = 'N/A';
+                    if (tmpLatestNDH !== undefined && tmpLatestLNST.latestLNST !== undefined) {
+                        tmpNDHLNST = (convertZero(tmpLatestNDH) / tmpLatestLNST.latestLNST).round()
+                    } 
+                    spreadJson = spreadJson.replaceExcel('#NDHLNST', tmpNDHLNST);
+                    spreadJson = spreadJson.replaceExcel('#NDH', tmpLatestNDH, true);
+                    spreadJson = spreadJson.replaceExcel('#LNST', tmpLatestLNST.latestLNST, true);
 
                     getAjaxFullBusinessResults();
                     spreadJson = JSON.parse(spreadJson);
