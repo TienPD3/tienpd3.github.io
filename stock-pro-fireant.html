@@ -212,14 +212,12 @@
                             },
                             loaded: function () {
                                 loadingStatus.value = 0;
+                                activeSheet(spread, 'ĐỊNH GIÁ');
+                                spread.options.showVerticalScrollbar = false;
+                                spread.options.scrollbarShowMax = false;
                             }
                         }
                     });
-                    hideEvaluationVersion(spread);
-                    activeSheet(spread, 'ĐỊNH GIÁ');
-                    spread.options.showVerticalScrollbar = false;
-                    spread.options.scrollbarShowMax = false;
-                    
                 }, function (message) {
                     console.log(message);
                 });
