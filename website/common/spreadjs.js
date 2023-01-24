@@ -19,7 +19,6 @@ function initStatusBar(spread) {
     var statusBarDOM = document.getElementById('statusBar');
     var statusBar = new GC.Spread.Sheets.StatusBar.StatusBar(statusBarDOM);
     statusBar.bind(spread);
-    statusBar.remove("zoom");
     statusBar.remove("cellMode");
     statusBar.remove("zoomSlider");
     return statusBar;
