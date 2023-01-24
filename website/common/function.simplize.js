@@ -107,7 +107,7 @@ function getAjaxStockCodeSimplize(pRules) {
 
 var arrayStockCodeSimplize = {};
 var drpdStockCode = null;
-function buildDropdownStockCode(idStockCode, pId, pRules) {
+function buildDropdownStockCode(pId, pRules) {
 
     const updateVersion = getUpdateVersion();
     if (updateVersion.isUpdate) {
@@ -152,7 +152,6 @@ function buildDropdownStockCode(idStockCode, pId, pRules) {
         arrayHtmlStockCode.push($('<option>', tmpSetting));
     }
     drpdStockCode.append(arrayHtmlStockCode);
-    idStockCode.append(drpdStockCode);
 }
 
 // ----- END Các mã chứng khoán -----
