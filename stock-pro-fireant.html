@@ -113,17 +113,17 @@
                     
                     if (!spread) {
                         spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
-                        // var statusBar = initStatusBar(spread)
-                        // loadingStatus = new LoadingStatus('LoadingStatus', { tipText: 'LoadingStatus' });
-                        // statusBar.add(loadingStatus);
+                        var statusBar = initStatusBar(spread)
+                        loadingStatus = new LoadingStatus('LoadingStatus', { tipText: 'LoadingStatus' });
+                        statusBar.add(loadingStatus);
                     }
                     spread.fromJSON(jsonExcel, {
                         incrementalLoading: {
                             loading: function (progress, args) {
-                                //loadingStatus.updateProgress(progress, args);
+                                loadingStatus.updateProgress(progress, args);
                             },
                             loaded: function () {
-                                //loadingStatus.updateText("Đã lấy dữ liệu thành công");
+                                loadingStatus.updateText("Đã lấy dữ liệu thành công");
                             }
                         }
                     });
