@@ -53,6 +53,7 @@
             });
 
             $(document).on('click', '#btnNext', function() {
+                
                 $('#drpdStockCode > option:selected').next().attr('selected', 'selected');
                 onChangeStockCode();
             });
@@ -81,7 +82,7 @@
     <script>
         var spread, excelIO;
         window.onload = function () {
-            spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+            
             
         }
 
@@ -92,7 +93,7 @@
         }
 
         function loadFile(pSymbol, pName) {
-
+            
             resetData();
             excelIo = new GC.Spread.Excel.IO();
             var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
@@ -104,7 +105,7 @@
                 var blob = oReq.response;
                 excelIo.open(blob, function (json) {
 
-                    var spreadJson = JSON.stringify(json);
+                    var jsonExcel = JSON.stringify(json);
                     
                     // LNST 4 qúy gần nhất
                     var tmpEconomicInformation = getEconomicInformation();
@@ -115,92 +116,105 @@
 
                         // Chuyển năm hoặc quý
                         const strLNSTYear = tmpArrayLNSTYear[i];
-                        spreadJson = spreadJson.replaceExcel('#QFY' + i, strLNSTYear);
+                        jsonExcel = jsonExcel.replaceExcel('#QFY' + i, strLNSTYear);
 
                         const strLNST = tmpArrayLNST[i];
                         if (tmpEconomicInformation.isYear) {
                             if (i !== tmpArrayLNST.length - 1) {
-                                spreadJson = spreadJson.replace('#Q' + i, '0.00');
+                                jsonExcel = jsonExcel.replace('#Q' + i, '0.00');
                             }
                         }
-                        spreadJson = spreadJson.replaceExcel('#Q' + i, strLNST);
+                        jsonExcel = jsonExcel.replaceExcel('#Q' + i, strLNST);
                     }
 
                     // Chuyển 1 năm hay 4 quý
                     if (tmpEconomicInformation.isYear) {
-                        spreadJson = spreadJson.replaceExcel('#QGN', '1 năm gấn nhất');
+                        jsonExcel = jsonExcel.replaceExcel('#QGN', '1 năm gấn nhất');
                     } else {
-                        spreadJson = spreadJson.replaceExcel('#QGN', '4 quý gấn nhất');
+                        jsonExcel = jsonExcel.replaceExcel('#QGN', '4 quý gấn nhất');
                     }
 
                     // Chuyển mã chứng khoán
-                    spreadJson = spreadJson.replaceExcel('#SYMBOL', pSymbol + ': ' + pName);
+                    jsonExcel = jsonExcel.replaceExcel('#SYMBOL', pSymbol + ': ' + pName);
 
                     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
                     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
                     var tmpLatestVCSH = getLatestVCSH();
                     
-                    spreadJson = spreadJson.replaceExcel('#VCSHFY', tmpLatestVCSH.latestVCSHYear);
-                    spreadJson = spreadJson.replaceExcel('#VCSH', tmpLatestVCSH.latestVCSH);
+                    jsonExcel = jsonExcel.replaceExcel('#VCSHFY', tmpLatestVCSH.latestVCSHYear);
+                    jsonExcel = jsonExcel.replaceExcel('#VCSH', tmpLatestVCSH.latestVCSH);
                     // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
                     var tmpArrayLatestCT = getLatestCT();
-                    spreadJson = spreadJson.replaceExcel('#TLCT', tmpArrayLatestCT.dividendPercent);
-                    spreadJson = spreadJson.replaceExcel('#CT', tmpArrayLatestCT.dividend);
+                    jsonExcel = jsonExcel.replaceExcel('#TLCT', tmpArrayLatestCT.dividendPercent);
+                    jsonExcel = jsonExcel.replaceExcel('#CT', tmpArrayLatestCT.dividend);
                     // THỊ GIÁ CỔ PHIẾU (đồng/cp)
                     var tmpStrLatestTGCP = getLatestTGCP();
-                    spreadJson = spreadJson.replaceExcel('#TGCP', tmpStrLatestTGCP);
+                    jsonExcel = jsonExcel.replaceExcel('#TGCP', tmpStrLatestTGCP);
                     // TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)
                     var tmpStrKPCPDLH = getKPCPDLH();
-                    spreadJson = spreadJson.replaceExcel('#TSLCP', tmpStrKPCPDLH);
+                    jsonExcel = jsonExcel.replaceExcel('#TSLCP', tmpStrKPCPDLH);
 
                     // NHỮNG TIÊU CHUẨN ĐỂ ĐỊNH GIÁ MỘT DOANH NGHIỆP TÔT
                     var tmpFinancial = getFinancialIndicators();
                     // Doanh thu tăng đều (Đạt = 1, Không đạt = 0)
                     var tmpIsUpDTT = isGrowUpDTT();
-                    spreadJson = spreadJson.replaceExcel('#DTUP', tmpIsUpDTT);
+                    jsonExcel = jsonExcel.replaceExcel('#DTUP', tmpIsUpDTT);
                     // Lợi nhuận gộp tăng đều  (Đạt=1, Không đạt = 0)  
                     var tmpIsUpLNG = isGrowUpLNG();
-                    spreadJson = spreadJson.replaceExcel('#LNGUP', tmpIsUpLNG);
+                    jsonExcel = jsonExcel.replaceExcel('#LNGUP', tmpIsUpLNG);
                     // Tỷ lệ lãi gộp (>= 15%)
-                    spreadJson = spreadJson.replaceExcel('#GOS', tmpFinancial.LAI_GOP);
+                    jsonExcel = jsonExcel.replaceExcel('#GOS', tmpFinancial.LAI_GOP);
                     // Tỷ lệ lãi ròng (>= 5)
-                    spreadJson = spreadJson.replaceExcel('#NPM', tmpFinancial.LAI_RONG);
+                    jsonExcel = jsonExcel.replaceExcel('#NPM', tmpFinancial.LAI_RONG);
                     // ROA (>= 5%)
-                    spreadJson = spreadJson.replaceExcel('#ROA', tmpFinancial.ROA);
+                    jsonExcel = jsonExcel.replaceExcel('#ROA', tmpFinancial.ROA);
                     // ROE (>= 15%)
-                    spreadJson = spreadJson.replaceExcel('#ROE', tmpFinancial.ROE);
+                    jsonExcel = jsonExcel.replaceExcel('#ROE', tmpFinancial.ROE);
                     // ROIC (>= 10%)
-                    spreadJson = spreadJson.replaceExcel('#ROIC', tmpFinancial.ROIC);
+                    jsonExcel = jsonExcel.replaceExcel('#ROIC', tmpFinancial.ROIC);
                     // Nợ/VCSH (<= 1)
-                    spreadJson = spreadJson.replaceExcel('#NOVCSH', tmpFinancial.NOVCSH);
+                    jsonExcel = jsonExcel.replaceExcel('#NOVCSH', tmpFinancial.NOVCSH);
                     // P/E <15(có thể 20) <=15
-                    spreadJson = spreadJson.replaceExcel('#PE', tmpFinancial.PE);
+                    jsonExcel = jsonExcel.replaceExcel('#PE', tmpFinancial.PE);
                     // P/B<2(<= 2)
-                    spreadJson = spreadJson.replaceExcel('#PB', tmpFinancial.PB);
+                    jsonExcel = jsonExcel.replaceExcel('#PB', tmpFinancial.PB);
                     // Mô hình đơn giản tập chung (Đạt = 1, Không đạt = 0)
                     // Pending
                     // BBan lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0)
                     var tmpIsBLDMB = isLatestBLDMB();
-                    spreadJson = spreadJson.replaceExcel('#BLDMB', tmpIsBLDMB);
+                    jsonExcel = jsonExcel.replaceExcel('#BLDMB', tmpIsBLDMB);
                     // Dòng tiền từ HĐKD dương (Đạt = 1, Không đạt = 0)
                     var tmpIsPositiveLNTHDKD = isPositiveLNTHDKD();
-                    spreadJson = spreadJson.replaceExcel('#DTP', tmpIsPositiveLNTHDKD);
+                    jsonExcel = jsonExcel.replaceExcel('#DTP', tmpIsPositiveLNTHDKD);
                     // Nợ dài hạn(N/A)/LNST(N/A) (Q3/2022) <= 5
                     var tmpLatestNDH = getLatestNDH();
                     var tmpLatestLNST = getLatestLNST();
-                    spreadJson = spreadJson.replaceExcel('#NDHLNSTFY', tmpLatestLNST.latestLNSTYear);
+                    jsonExcel = jsonExcel.replaceExcel('#NDHLNSTFY', tmpLatestLNST.latestLNSTYear);
                     var tmpNDHLNST = 'N/A';
                     if (tmpLatestNDH !== undefined && tmpLatestLNST.latestLNST !== undefined) {
                         tmpNDHLNST = (convertZero(tmpLatestNDH) / tmpLatestLNST.latestLNST).round()
                     } 
-                    spreadJson = spreadJson.replaceExcel('#NDHLNST', tmpNDHLNST);
-                    spreadJson = spreadJson.replaceExcel('#NDH', tmpLatestNDH, true);
-                    spreadJson = spreadJson.replaceExcel('#LNST', tmpLatestLNST.latestLNST, true);
+                    jsonExcel = jsonExcel.replaceExcel('#NDHLNST', tmpNDHLNST);
+                    jsonExcel = jsonExcel.replaceExcel('#NDH', tmpLatestNDH, true);
+                    jsonExcel = jsonExcel.replaceExcel('#LNST', tmpLatestLNST.latestLNST, true);
 
                     // getAjaxFullBusinessResults();
-                    spreadJson = JSON.parse(spreadJson);
+                    jsonExcel = JSON.parse(jsonExcel);
                     
-                    spread.fromJSON(spreadJson);
+                    if (!spread) {
+                        spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+                    }
+                    spread.fromJSON(jsonExcel, {
+                        incrementalLoading: {
+                            loading: function (progress, args) {
+                                progress = progress * 100;
+                                loadingStatus.value = progress;
+                            },
+                            loaded: function () {
+                                loadingStatus.value = 0;
+                            }
+                        }
+                    });
                     hideEvaluationVersion(spread);
                     activeSheet(spread, 'ĐỊNH GIÁ');
                     spread.options.showVerticalScrollbar = false;
@@ -216,6 +230,7 @@
 </head>
 <body>
     <form class="aui">
+        <aui-progressbar id="loadingStatus"></aui-progressbar>
         <label for="drpdStockList">Bộ lọc chứng khoán</label>
         <div id="idStockList"></div>
         <label for="drpdStockCode">Mã chứng khoán</label>
@@ -224,7 +239,7 @@
         </div>
     </form>
 
-    <div id="spreadSheet" style="width: 100%; height: 470px;"></div>
+    <div id="spreadSheet" style="width: 100%; height: 485px;"></div>
     <input type="hidden" id="importUrl" value="website/file/template.xlsx" />
 
     <button id="btnNext" class="aui-button aui-button-primary">Kiểm tra mã tiếp theo</button>

@@ -84,16 +84,22 @@ function getLatestCT() {
     if (arrayLatestCT === null || activeBusiness === null) {
         activeBusiness = getAjaxActiveBusiness();
         arrayLatestCT = {};
-        if (activeBusiness[0].Dividend !== 0) {
-            arrayLatestCT.dividendPercent = activeBusiness[0].Dividend + '%';
-            arrayLatestCT.dividend = 'tiền mặt';
-        } else if (activeBusiness[0].DivStock !== 0) {
-            arrayLatestCT.dividendPercent = activeBusiness[0].DivStock + '%';
-            arrayLatestCT.dividend = 'cổ phiếu';
+        if (activeBusiness) {
+            if (activeBusiness[0].Dividend !== 0) {
+                arrayLatestCT.dividendPercent = activeBusiness[0].Dividend + '%';
+                arrayLatestCT.dividend = 'tiền mặt';
+            } else if (activeBusiness[0].DivStock !== 0) {
+                arrayLatestCT.dividendPercent = activeBusiness[0].DivStock + '%';
+                arrayLatestCT.dividend = 'cổ phiếu';
+            } else {
+                arrayLatestCT.dividendPercent = '0%';
+                arrayLatestCT.dividend = 'không có';
+            }
         } else {
             arrayLatestCT.dividendPercent = '0%';
             arrayLatestCT.dividend = 'không có';
         }
+        
         return arrayLatestCT;
     }
 
@@ -168,7 +174,11 @@ function getKPCPDLH() {
 
     if (strKPCPDLH === null || fundamental === null) {
         fundamental = getAjaxFundamental();
-        strKPCPDLH = fundamental.sharesOutstanding / 1000000;
+        if (fundamental !== null) {
+            strKPCPDLH = convertZero(fundamental.sharesOutstanding) / 1000000;
+        } else {
+            strKPCPDLH = 0.00;
+        }
         return strKPCPDLH;
     }
     return strKPCPDLH;
@@ -206,10 +216,14 @@ function isLatestBLDMB() {
     if (isBLDMB === null || holderTransactions === null) {
         holderTransactions = getHolderTransactions();
         const elm = holderTransactions[0];
-        if (elm.type === 1) {
-            isBLDMB = 0;
+        if (elm) {
+            if (elm.type === 1) {
+                isBLDMB = 0;
+            } else {
+                isBLDMB = 1;
+            }
         } else {
-            isBLDMB = 1;
+            isBLDMB = 'N/A';
         }
         return isBLDMB;
     }
