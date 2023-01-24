@@ -41,7 +41,7 @@ LoadingStatus.prototype.onCreateItemView = function (container) {
 };
 LoadingStatus.prototype.updateProgress = function (progress, args) {
 	progress = progress * 100;
-	this.contentDiv.children[0].innerText = "Đang xử lý(" + args.sheet.name() + "): " + progress.toFixed(2) + "%";
+	this.contentDiv.children[0].innerText = "Đang xử lý: " + progress.toFixed(2) + "%";
 	this.contentDiv.children[1].style.display = "inline-block";
 	this.contentDiv.children[1].children[0].style.width = progress * 1.5 + "px";
 };
