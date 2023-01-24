@@ -846,3 +846,101 @@ function removePercent(value) {
 
     return value.replace(/\s/g, '').replace(/%/g, '');
 }
+
+function getDataJson(jsonExcel, pSymbol, pName) {
+            
+    // LNST 4 qúy gần nhất
+    var tmpEconomicInformation = getEconomicInformation();
+    var tmpObjectLNST = listLNST();
+    var tmpArrayLNST = tmpObjectLNST.arrayLNST;
+    var tmpArrayLNSTYear = tmpObjectLNST.year;
+    for (let i = 0; i < tmpArrayLNST.length; i++) {
+
+        // Chuyển năm hoặc quý
+        const strLNSTYear = tmpArrayLNSTYear[i];
+        jsonExcel = jsonExcel.replaceExcel('#QFY' + i, strLNSTYear);
+
+        const strLNST = tmpArrayLNST[i];
+        if (tmpEconomicInformation.isYear) {
+            if (i !== tmpArrayLNST.length - 1) {
+                jsonExcel = jsonExcel.replace('#Q' + i, '0.00');
+            }
+        }
+        jsonExcel = jsonExcel.replaceExcel('#Q' + i, strLNST);
+    }
+
+    // Chuyển 1 năm hay 4 quý
+    if (tmpEconomicInformation.isYear) {
+        jsonExcel = jsonExcel.replaceExcel('#QGN', '1 năm gấn nhất');
+    } else {
+        jsonExcel = jsonExcel.replaceExcel('#QGN', '4 quý gấn nhất');
+    }
+
+    // Chuyển mã chứng khoán
+    jsonExcel = jsonExcel.replaceExcel('#SYMBOL', pSymbol + ': ' + pName);
+
+    // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
+    // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
+    var tmpLatestVCSH = getLatestVCSH();
+
+    jsonExcel = jsonExcel.replaceExcel('#VCSHFY', tmpLatestVCSH.latestVCSHYear);
+    jsonExcel = jsonExcel.replaceExcel('#VCSH', tmpLatestVCSH.latestVCSH);
+    // TỶ LỆ CỔ TỨC (tính theo mệnh giá)
+    var tmpArrayLatestCT = getLatestCT();
+    jsonExcel = jsonExcel.replaceExcel('#TLCT', tmpArrayLatestCT.dividendPercent);
+    jsonExcel = jsonExcel.replaceExcel('#CT', tmpArrayLatestCT.dividend);
+    // THỊ GIÁ CỔ PHIẾU (đồng/cp)
+    var tmpStrLatestTGCP = getLatestTGCP();
+    jsonExcel = jsonExcel.replaceExcel('#TGCP', tmpStrLatestTGCP);
+    // TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)
+    var tmpStrKPCPDLH = getKPCPDLH();
+    jsonExcel = jsonExcel.replaceExcel('#TSLCP', tmpStrKPCPDLH);
+
+    // NHỮNG TIÊU CHUẨN ĐỂ ĐỊNH GIÁ MỘT DOANH NGHIỆP TÔT
+    var tmpFinancial = getFinancialIndicators();
+    // Doanh thu tăng đều (Đạt = 1, Không đạt = 0)
+    var tmpIsUpDTT = isGrowUpDTT();
+    jsonExcel = jsonExcel.replaceExcel('#DTUP', tmpIsUpDTT);
+    // Lợi nhuận gộp tăng đều  (Đạt=1, Không đạt = 0)  
+    var tmpIsUpLNG = isGrowUpLNG();
+    jsonExcel = jsonExcel.replaceExcel('#LNGUP', tmpIsUpLNG);
+    // Tỷ lệ lãi gộp (>= 15%)
+    jsonExcel = jsonExcel.replaceExcel('#GOS', tmpFinancial.LAI_GOP);
+    // Tỷ lệ lãi ròng (>= 5)
+    jsonExcel = jsonExcel.replaceExcel('#NPM', tmpFinancial.LAI_RONG);
+    // ROA (>= 5%)
+    jsonExcel = jsonExcel.replaceExcel('#ROA', tmpFinancial.ROA);
+    // ROE (>= 15%)
+    jsonExcel = jsonExcel.replaceExcel('#ROE', tmpFinancial.ROE);
+    // ROIC (>= 10%)
+    jsonExcel = jsonExcel.replaceExcel('#ROIC', tmpFinancial.ROIC);
+    // Nợ/VCSH (<= 1)
+    jsonExcel = jsonExcel.replaceExcel('#NOVCSH', tmpFinancial.NOVCSH);
+    // P/E <15(có thể 20) <=15
+    jsonExcel = jsonExcel.replaceExcel('#PE', tmpFinancial.PE);
+    // P/B<2(<= 2)
+    jsonExcel = jsonExcel.replaceExcel('#PB', tmpFinancial.PB);
+    // Mô hình đơn giản tập chung (Đạt = 1, Không đạt = 0)
+    // Pending
+    // BBan lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0)
+    var tmpIsBLDMB = isLatestBLDMB();
+    jsonExcel = jsonExcel.replaceExcel('#BLDMB', tmpIsBLDMB);
+    // Dòng tiền từ HĐKD dương (Đạt = 1, Không đạt = 0)
+    var tmpIsPositiveLNTHDKD = isPositiveLNTHDKD();
+    jsonExcel = jsonExcel.replaceExcel('#DTP', tmpIsPositiveLNTHDKD);
+    // Nợ dài hạn(N/A)/LNST(N/A) (Q3/2022) <= 5
+    var tmpLatestNDH = getLatestNDH();
+    var tmpLatestLNST = getLatestLNST();
+    jsonExcel = jsonExcel.replaceExcel('#NDHLNSTFY', tmpLatestLNST.latestLNSTYear);
+    var tmpNDHLNST = 'N/A';
+    if (tmpLatestNDH !== undefined && tmpLatestLNST.latestLNST !== undefined) {
+        tmpNDHLNST = (convertZero(tmpLatestNDH) / tmpLatestLNST.latestLNST).round()
+    } 
+    jsonExcel = jsonExcel.replaceExcel('#NDHLNST', tmpNDHLNST);
+    jsonExcel = jsonExcel.replaceExcel('#NDH', tmpLatestNDH, true);
+    jsonExcel = jsonExcel.replaceExcel('#LNST', tmpLatestLNST.latestLNST, true);
+
+    // getAjaxFullBusinessResults();
+
+    return JSON.parse(jsonExcel);
+}
