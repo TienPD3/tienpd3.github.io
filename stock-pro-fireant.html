@@ -22,8 +22,8 @@
     <!-- / aui.atlassian.com -->
 
     <!-- common -->
-    <script type="text/javascript" src="website/common/const.js"> </script>
-    <script type="text/javascript" src="website/common/spreadjs.js"> </script>
+    <script type="text/javascript" src="website/common/const.js"></script>
+    <script type="text/javascript" src="website/common/spreadjs.js"></script>
     <script type="text/javascript" src="website/common/function.update.js"></script>
     <script type="text/javascript" src="website/common/function.simplize.js"></script>
     <script type="text/javascript" src="website/common/function.fireant.js"> </script>
@@ -54,7 +54,7 @@
 
             $(document).on('click', '#btnNext', function() {
                 
-                $('#drpdStockCode > option:selected').next().attr('selected', 'selected');
+                $("#drpdStockCode > option:selected").prop("selected", false).next().prop("selected", true);
                 onChangeStockCode();
             });
         });
