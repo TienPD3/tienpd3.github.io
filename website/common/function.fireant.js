@@ -40,8 +40,8 @@ function buildUrl(pSymbol, pName, pExchange) {
 
     // Nguồn fireant.vn
     urlTransactionInformation = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=BS&period=Q&compact=true&offset=0&limit=4';
-    urlEconomicInformationQuarterly = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Q&compact=true&offset=0&limit=4';
-    urlEconomicInformationYear = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Y&compact=true&offset=0&limit=4';
+    urlEconomicInformationQuarterly = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Q&compact=true&offset=0&limit=5';
+    urlEconomicInformationYear = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-reports?type=IS&period=Y&compact=true&offset=0&limit=5';
     urlFinancialIndicators = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/financial-indicators'
     // Giao dịch
     urlHolderTransactions = 'https://restv2.fireant.vn/symbols/' + pSymbol + '/holder-transactions?startDate=&endDate=&executedOnly=false&offset=0&limit=1';

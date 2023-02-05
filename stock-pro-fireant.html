@@ -124,7 +124,7 @@
                                 loadingStatus.updateProgress(progress, args);
                             },
                             loaded: function () {
-                                loadingStatus.updateText("Lấy dự liệu " + pSymbol + " thành công");
+                                loadingStatus.updateText("Lấy dữ liệu " + pSymbol + " thành công");
                                 $('.gc-play-loading').addClass('hide');
                             }
                         }
@@ -134,6 +134,8 @@
                     spread.options.scrollbarAppearance = GC.Spread.Sheets.ScrollbarAppearance.mobile;
                     spread.options.showVerticalScrollbar = false;
                     spread.options.scrollbarShowMax = false;
+                    spread.options.tabStripVisible = false;
+                    
                 }, function (message) {
                     console.log(message);
                 });
@@ -153,7 +155,7 @@
     </form>
     <!-- Spinner -->
     <div class="gc-playground_view">
-        <div id="spreadSheet" style="width: 100%; height: 485px;"></div>
+        <div id="spreadSheet" style="width: 100%; height: 450px;"></div>
         <div class="gc-play-loading">
             <div class="indicator-wrapper gcim_hidden">
                 <div class="loading-ring" style="height: 30px; width: 30px;">
