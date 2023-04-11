@@ -58,6 +58,8 @@
                 $("#drpdStockCode > option:selected").prop("selected", false).next().prop("selected", true);
                 onChangeStockCode();
             });
+
+            $('#idWarning').text(stockListSimplizeNewData);
         });
 
         function initBuildDropdownStockCode(pId, pRules) {
@@ -82,9 +84,6 @@
     </script>
     <script>
         var spread, excelIO, loadingStatus;
-        window.onload = function () {
-            
-        }
 
         function loadData(pSymbol, pName, pExchange) {
             
@@ -146,6 +145,8 @@
 </head>
 <body>
     <form class="aui">
+        <i class="red" id="idWarning" for="warning"></i>
+        <div></div>
         <label for="drpdStockList">Bộ lọc chứng khoán</label>
         <div id="idStockList"></div>
         <label for="drpdStockCode">Mã chứng khoán</label>

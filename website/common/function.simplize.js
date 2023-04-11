@@ -6,12 +6,14 @@ var urlStockFilterSimplize = '';
 function buildUrlSimplize() {
 
     urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/list';
+    urlStockListSimplizeError = 'website/dummy/simplize-list.json';
     urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter'
 }
 
 // ----- START Các tiêu chí -----
 
 var stockListSimplize = null;
+var stockListSimplizeNewData = null;
 function getAjaxStockListSimplize() {
 
     if (stockListSimplize === null) {
@@ -25,6 +27,18 @@ function getAjaxStockListSimplize() {
             },
             success: function(reps){
                 stockListSimplize = reps.data;
+                stockListSimplizeNewData = "";
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                $.ajax({
+                    url: urlStockListSimplizeError,
+                    async: false,
+                    dataType : 'json',
+                    success: function(reps){
+                        stockListSimplize = reps.data;
+                        stockListSimplizeNewData = 'Bộ lọc chứng khoán chưa phải data mới nhất'
+                    }
+                });
             }
         });
     }
