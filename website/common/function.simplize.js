@@ -1,4 +1,4 @@
-var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJleHAiOjE2NzY2NDYzOTB9.saxcAMYdHQMNDZEkT-o44_o1Ct_XvL6e-STDi1mW1Ro8_HgcCz2xUf0hSa0Ni3tZx4d0HtiaDB5ZrUvMVL7a6g';
+var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJleHAiOjE2Nzk0NjQ3MjJ9.IChqwe_0E0qQy1g9VR4L0sG0kena1yeH5giWRTzQljHW44oxwv432MipKucNaOWLvVm5rYoU7eAwnOB0MIg1vw';
 
 var urlStockListSimplize = '';
 var urlStockFilterSimplize = '';
