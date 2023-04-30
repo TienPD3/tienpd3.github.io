@@ -816,16 +816,16 @@ String.prototype.replaceExcel = function(regex, value, isString = false) {
 
     if (isValidNumber(value)) {
         if (isString === false) {
-            return input.replace('"' + regex + '"', value);
+            return input.replaceAll('"' + regex + '"', value);
         } else {
-            return input.replace(regex, value);
+            return input.replaceAll(regex, value);
         }
     } else {
         if (value !== undefined) {
-            return input.replace(regex, value);
+            return input.replaceAll(regex, value);
         }
     }
-    return input.replace(regex, convertNA(value));
+    return input.replaceAll(regex, convertNA(value));
 };
 
 function convertNA(value) {
