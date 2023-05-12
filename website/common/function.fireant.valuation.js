@@ -1,5 +1,4 @@
 // Nguồn fireant.vn
-var accessToken = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkdYdExONzViZlZQakdvNERWdjV4QkRITHpnSSIsImtpZCI6IkdYdExONzViZlZQakdvNERWdjV4QkRITHpnSSJ9.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmZpcmVhbnQudm4iLCJhdWQiOiJodHRwczovL2FjY291bnRzLmZpcmVhbnQudm4vcmVzb3VyY2VzIiwiZXhwIjoxOTc0MDQ3ODkwLCJuYmYiOjE2NzQwNDc4OTAsImNsaWVudF9pZCI6ImZpcmVhbnQudHJhZGVzdGF0aW9uIiwic2NvcGUiOlsib3BlbmlkIiwicHJvZmlsZSIsInJvbGVzIiwiZW1haWwiLCJhY2NvdW50cy1yZWFkIiwiYWNjb3VudHMtd3JpdGUiLCJvcmRlcnMtcmVhZCIsIm9yZGVycy13cml0ZSIsImNvbXBhbmllcy1yZWFkIiwiaW5kaXZpZHVhbHMtcmVhZCIsImZpbmFuY2UtcmVhZCIsInBvc3RzLXdyaXRlIiwicG9zdHMtcmVhZCIsInN5bWJvbHMtcmVhZCIsInVzZXItZGF0YS1yZWFkIiwidXNlci1kYXRhLXdyaXRlIiwidXNlcnMtcmVhZCIsInNlYXJjaCIsImFjYWRlbXktcmVhZCIsImFjYWRlbXktd3JpdGUiLCJibG9nLXJlYWQiLCJpbnZlc3RvcGVkaWEtcmVhZCJdLCJzdWIiOiJiN2RiZDEzZC1lZGFhLTQ4ZWQtOGM1YS1iYmI3NzUxZjFhZTMiLCJhdXRoX3RpbWUiOjE2NzQwNDc4ODksImlkcCI6Ikdvb2dsZSIsIm5hbWUiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJzZWN1cml0eV9zdGFtcCI6ImE3N2ZhZTY1LWQ5YzctNGYxMS1iZGVmLWI2MzNkMWFlZmM4NiIsImp0aSI6IjEzMGFhNTFhZDUyMWE4NTZiNTJkMTEyYjJiOTFiOWVjIiwiYW1yIjpbImV4dGVybmFsIl19.txx7fO_78xSzbtt605WQl9aMxn8ao8K5bkjes-sPPFCZNScq0EjgwU1fbiYwNRevzp1K6I9j_5Cyz1Z3cl3BKruX68aQ1I_H6CaO_whmiASL5WSCBpdrH0tBNehWE6hav4g_NNMNOjMNILirvSwB4hzuOSaqApCYJFOBTQU96ycgyxRkij3HuU4WL_6Ph22irDTyVHt13GfzAra3NBj06XAaqE6Kx5dBcciVTnpyk9GStz6GUt-yINzAveTp7EC6AUU1-QHnn2Ood8SMVC5H6vvI3O29_Ag9e5b0yfHFxjhgYzbcD2khowSiT7lgCoqYwKzq3A6jwQYKZ5MZ0sR7xA';
 var urlTransactionInformation = '';
 var urlEconomicInformationQuarterly = '';
 var urlEconomicInformationYear = '';
@@ -121,7 +120,7 @@ function getAjaxHistoricalQuotes() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 historicalQuotes = reps;
@@ -158,7 +157,7 @@ function getAjaxFundamental() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 fundamental = reps;
@@ -199,7 +198,7 @@ function getHolderTransactions() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 holderTransactions = reps;
@@ -246,7 +245,7 @@ function getFullBalanceSheet() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 fullBalanceSheet = reps;
@@ -305,7 +304,7 @@ function getTransactionInformationn() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 transactionInformation = reps;
@@ -377,7 +376,7 @@ function getAjaxFullBusinessResults() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 fullBusinessResults = reps;
@@ -410,7 +409,7 @@ function getEconomicInformation() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 if (reps) {
@@ -426,7 +425,7 @@ function getEconomicInformation() {
                 async: false,
                 dataType : 'json',
                 headers: {
-                    authorization : accessToken
+                    authorization : ACCESS_TOKEN_FIREANT
                 },
                 success: function(reps){
                     if (reps) {
@@ -615,7 +614,7 @@ function getAjaxFinancialIndicators() {
             async: false,
             dataType : 'json',
             headers: {
-                authorization : accessToken
+                authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps){
                 financialIndicators = reps;
@@ -664,130 +663,6 @@ function resetData() {
     financialIndicators = null;
 }
 
-String.prototype.stringEnglish = function() {
-
-    var input = this;
-    input = input.trim();
-    
-    var retVal = '';
-    var arrayInputChar = input.split('');
-    var arrayEnglishChar = ENGLISH_CHAR.split('');
-    var pos;
-    for (var i = 0; i < arrayInputChar.length; i++){
-        pos = VIETNAMESE_CHAR.indexOf(arrayInputChar[i]);
-        if (pos >= 0) {
-            retVal+= arrayEnglishChar[pos];
-        } else {
-            retVal+= arrayInputChar[i];
-        }
-    }
-    return retVal;
-};
-
-String.prototype.stringEnglishHyphen = function() {
-
-    var input = this;
-    input = input.trim();
-
-    var strChar = 'abcdefghiklmnopqrstxyzuvxw0123456789 ';
-    
-    var str = input.replace("–", "");
-    str = str.replace("  ", " ");
-    str = str.toLowerCase().stringEnglish();
-    var s = str.split('');
-    var sReturn = "";
-    for (var i = 0; i < s.length; i++){
-        if (strChar.indexOf(s[i]) >-1){
-            if (s[i] != ' ') sReturn+= s[i];
-            else if (i > 0 && s[i-1] != ' ' && s[i-1] != '-') sReturn+= "-";
-        }
-    }
-    return sReturn;
-};
-
-String.prototype.stringEnglishUppercase = function() {
-
-    var input = this;
-    var retVal = '';
-    input = input.trim();
-
-    // Loại bỏ kí tự đặc biệt
-    input = input.replace(/\/|%/g, '')
-    input = input.replace(/\s/g, '_')
-
-    var arrayInputChar = input.split('');
-    var arrayEnglishChar = ENGLISH_CHAR.split('');
-    var pos;
-    for (var i = 0; i < arrayInputChar.length; i++){
-        pos = VIETNAMESE_CHAR.indexOf(arrayInputChar[i]);
-        if (pos >= 0) {
-            retVal+= arrayEnglishChar[pos].toLocaleUpperCase();
-        } else {
-            retVal+= arrayInputChar[i].toLocaleUpperCase();
-        }
-    }
-    return retVal;
-};
-
-String.prototype.ltrim = function() {
-
-    var input = this;
-    if (input) {
-        return input.toString().replace(/^\s+/, '');
-    } else {
-        return '';
-    }
-};
-
-String.prototype.rtrim = function() {
-
-    var input = this;
-    if (input) {
-        return input.toString().replace(/\s+$/, '');
-    } else {
-        return '';
-    }
-};
-
-String.prototype.trim = function() {
-
-    var input = this;
-    if (input) {
-        return input.toString().replace(/^\s+|\s+$/g, '');
-    } else {
-        return '';
-    }
-};
-
-String.prototype.contains = function(value) {
-
-    var input = this;
-    if (input.indexOf(value) !== -1) {
-        return true;
-    }
-    return false;
-};
-
-Number.prototype.round = function() {
-
-    var input = this;
-    if (input) {
-        if (input === 'N/A' || input === 'NA') {
-            return 0.00;
-        }
-        return Number(input.toFixed(2));
-    } else {
-        return 0.00;
-    }
-};
-
-Date.prototype.toISO = function() {
-
-    var input = this;
-    input = input.toISOString();
-    return input.split("T")[0];
-};
-
 function roundEmpty(input) {
 
     if (input) {
@@ -809,24 +684,6 @@ function convertZero(value) {
 function isValidNumber (num) {
     return typeof num === 'number' && !isNaN(num);
 }
-
-String.prototype.replaceExcel = function(regex, value, isString = false) {
-
-    var input = this;
-
-    if (isValidNumber(value)) {
-        if (isString === false) {
-            return input.replaceAll('"' + regex + '"', value);
-        } else {
-            return input.replaceAll(regex, value);
-        }
-    } else {
-        if (value !== undefined) {
-            return input.replaceAll(regex, value);
-        }
-    }
-    return input.replaceAll(regex, convertNA(value));
-};
 
 function convertNA(value) {
 

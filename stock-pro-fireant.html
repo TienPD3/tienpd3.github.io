@@ -24,10 +24,11 @@
 
     <!-- common -->
     <script type="text/javascript" src="website/common/const.js"></script>
-    <script type="text/javascript" src="website/common/spreadjs.js"></script>
+    <script type="text/javascript" src="website/common/function.common.js"></script>
+    <script type="text/javascript" src="website/common/function.spreadjs.js"></script>
     <script type="text/javascript" src="website/common/function.update.js"></script>
     <script type="text/javascript" src="website/common/function.simplize.js"></script>
-    <script type="text/javascript" src="website/common/function.fireant.js"> </script>
+    <script type="text/javascript" src="website/common/function.fireant.valuation.js"> </script>
     <!-- / common -->
 
     <!-- site -->
@@ -133,7 +134,16 @@
                     spread.options.scrollbarAppearance = GC.Spread.Sheets.ScrollbarAppearance.mobile;
                     spread.options.showVerticalScrollbar = false;
                     spread.options.scrollbarShowMax = false;
-                    spread.options.tabStripVisible = false;
+                    // Cho phép edit tên sheet hay không?
+                    spread.options.tabEditable = true; // false: disable, true: enable
+                    // Cho phép ẩn sheet hay không?
+                    // spread.options.tabStripVisible = true; // true: show, false: hide
+                    // Cho phép thêm sheet hày không?
+                    spread.options.newTabVisible = true; // false: hide, true: show
+                    // Cho phép ẩn mũi tên ở sheet hay không?
+                    spread.options.tabNavigationVisible = false; // false: hide, true: show
+                    // Setting vị trí sheet
+                    spread.options.tabStripPosition = GC.Spread.Sheets.TabStripPosition.top;
                     
                 }, function (message) {
                     console.log(message);

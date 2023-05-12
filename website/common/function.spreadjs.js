@@ -27,6 +27,7 @@ function initStatusBar(spread) {
 function LoadingStatus(name, options) {
 	GC.Spread.Sheets.StatusBar.StatusItem.call(this, name, options);
 }
+
 LoadingStatus.prototype = new GC.Spread.Sheets.StatusBar.StatusItem();
 LoadingStatus.prototype.onCreateItemView = function (container) {
 	var statusBarDiv = this.contentDiv = document.createElement('div');
@@ -38,12 +39,14 @@ LoadingStatus.prototype.onCreateItemView = function (container) {
 	statusBarDiv.style.padding = "0 3px";
 	container.appendChild(statusBarDiv);
 };
+
 LoadingStatus.prototype.updateProgress = function (progress, args) {
 	progress = progress * 100;
 	this.contentDiv.children[0].innerText = "Đang xử lý: " + progress.toFixed(2) + "%";
 	this.contentDiv.children[1].style.display = "inline-block";
 	this.contentDiv.children[1].children[0].style.width = progress * 1.5 + "px";
 };
+
 LoadingStatus.prototype.updateText = function (text) {
 	this.contentDiv.children[0].innerText = text;
 	this.contentDiv.children[1].style.display = "none";
