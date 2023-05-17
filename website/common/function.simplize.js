@@ -1,13 +1,16 @@
 var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJleHAiOjE2ODU0NTUxMjR9.i4pR17ZtJQ99RIwrdNDCgaIJ2FVDWOmmhR8xFqa0JGpQS9uW12FHv02EPFaW-EodAqw_PXC7IaVVeh0JF9xzKA';
 
 var urlStockListSimplize = '';
+var urlStockListSimplizeError = '';
 var urlStockFilterSimplize = '';
+var urlSectorPerformanceSimplize = '';
 
 function buildUrlSimplize() {
 
     urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/list';
     urlStockListSimplizeError = 'website/dummy/simplize-list.json';
-    urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter'
+    urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter';
+    urlSectorPerformanceSimplize = 'https://api.simplize.vn/api/company/se/sector-performance'
 }
 
 // ----- START Các tiêu chí -----
@@ -169,3 +172,57 @@ function buildDropdownStockCode(pId, pRules) {
 }
 
 // ----- END Các mã chứng khoán -----
+
+// ----- START P/E của các ngành -----
+function getAjaxSectorPerformanceSimplize() {
+
+    var sectorPerformanceSimplize = null;
+    $.ajax({
+        url: urlSectorPerformanceSimplize,
+        async: false,
+        contentType: "application/json",
+        dataType : 'json',
+        type: 'GET',
+        headers: {
+            authorization : accessTokenSimplize
+        },
+        success: function(reps) {
+            sectorPerformanceSimplize = reps.data;
+        }
+    });
+    return sectorPerformanceSimplize;
+}
+
+function listTrend() {
+
+    var arraySectorPerformances = [];
+
+    var tmpSectorPerformance = getAjaxSectorPerformanceSimplize();
+    var sectorPerformances = tmpSectorPerformance.sectorPerformances;
+    var tmpBDS = sectorPerformances.filter(element => element.bcEconomicSectorId == 10)[0];
+    var tmpCN = sectorPerformances.filter(element => element.bcEconomicSectorId == 8)[0];
+    var tmpHHKTY = sectorPerformances.filter(element => element.bcEconomicSectorId == 4)[0];
+    var tmpHHTT = sectorPerformances.filter(element => element.bcEconomicSectorId == 5)[0];
+    var tmpCNG = sectorPerformances.filter(element => element.bcEconomicSectorId == 3)[0];
+    var tmpNL = sectorPerformances.filter(element => element.bcEconomicSectorId == 1)[0];
+    var tmpCSSK = sectorPerformances.filter(element => element.bcEconomicSectorId == 7)[0];
+    var tmpTC = sectorPerformances.filter(element => element.bcEconomicSectorId == 6)[0];
+    var tmpTI = sectorPerformances.filter(element => element.bcEconomicSectorId == 9)[0];
+    var tmpNVL = sectorPerformances.filter(element => element.bcEconomicSectorId == 2)[0];
+    var tmpDVHTGD = sectorPerformances.filter(element => element.bcEconomicSectorId == 13)[0];
+    arraySectorPerformances.bds = tmpBDS.peRatio;
+    arraySectorPerformances.cn = tmpCN.peRatio;
+    arraySectorPerformances.hhkty = tmpHHKTY.peRatio;
+    arraySectorPerformances.hhty = tmpHHTT.peRatio;
+    arraySectorPerformances.cng = tmpCNG.peRatio;
+    arraySectorPerformances.nl = tmpNL.peRatio;
+    arraySectorPerformances.cssk = tmpCSSK.peRatio;
+    arraySectorPerformances.tc = tmpTC.peRatio;
+    arraySectorPerformances.ti = tmpTI.peRatio;
+    arraySectorPerformances.nvl = tmpNVL.peRatio;
+    arraySectorPerformances.dvhtgd = tmpDVHTGD.peRatio;
+    arraySectorPerformances.trend = tmpSectorPerformance.statements[0].description.replace("<br/>", "");
+
+    return arraySectorPerformances;
+}
+// ----- END P/E của các ngành -----

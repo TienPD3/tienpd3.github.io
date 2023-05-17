@@ -705,7 +705,22 @@ function removePercent(value) {
 }
 
 function getDataJson(jsonExcel, pSymbol, pName) {
-            
+          
+    // Xu hướng
+    var tmpArraySectorPerformances = listTrend();
+    jsonExcel = jsonExcel.replaceExcel('#0PEBDS', tmpArraySectorPerformances.bds);
+    jsonExcel = jsonExcel.replaceExcel('#0PECN', tmpArraySectorPerformances.cn);
+    jsonExcel = jsonExcel.replaceExcel('#0PEHHKTY', tmpArraySectorPerformances.hhkty);
+    jsonExcel = jsonExcel.replaceExcel('#0PEHHTT', tmpArraySectorPerformances.hhty);
+    jsonExcel = jsonExcel.replaceExcel('#0PECNG', tmpArraySectorPerformances.cng);
+    jsonExcel = jsonExcel.replaceExcel('#0PENL', tmpArraySectorPerformances.nl);
+    jsonExcel = jsonExcel.replaceExcel('#0PECSSK', tmpArraySectorPerformances.cssk);
+    jsonExcel = jsonExcel.replaceExcel('#0PETC', tmpArraySectorPerformances.tc);
+    jsonExcel = jsonExcel.replaceExcel('#0PETI', tmpArraySectorPerformances.ti);
+    jsonExcel = jsonExcel.replaceExcel('#0PENVL', tmpArraySectorPerformances.nvl);
+    jsonExcel = jsonExcel.replaceExcel('#0PEDVHTGD', tmpArraySectorPerformances.dvhtgd);
+    jsonExcel = jsonExcel.replaceExcel('#0TREND', tmpArraySectorPerformances.trend);
+
     // LNST 4 qúy gần nhất
     var tmpEconomicInformation = getEconomicInformation();
     var tmpObjectLNST = listLNST();
