@@ -1,0 +1,38 @@
+---
+Đổi folder htdocs in xampp
+ + File: C:/xampp/apache/conf/httpd.conf
+ + Line: DocumentRoot, Directory đổi Path: C:/xampp/htdocs -> Example: 
+Refer: httpd.conf - https://www.daipho.com/blog/thay-doi-thu-muc-webroot-htdocs-cua-xampp/
+---
+Lấy chứng chỉ https in xampp
+ + CopyFolder: crt vào C:\xampp\apache
+ + Click make-cert.bat nhập tienpd3.com
+ + server.crt đã tạo ở trên Chọn: Local Machine, chọn Trusted Root Certification Authorities.
+ + File: C:\xampp\apache\conf\extra\httpd-xampp.conf và thêm đoạn bên dưới:
+#
+# website: tienpd3.com
+#
+<VirtualHost *:80>
+     DocumentRoot "D:/Working/tienpd3.github.io"
+     ServerName tienpd3.com
+     ServerAlias *.tienpd3.com
+</VirtualHost>
+<VirtualHost *:443>
+     DocumentRoot "D:/Working/tienpd3.github.io"
+     ServerName tienpd3.com
+     ServerAlias *.tienpd3.com
+     SSLEngine on
+     SSLCertificateFile "crt/tienpd3.com/server.crt"
+     SSLCertificateKeyFile "crt/tienpd3.com/server.key"
+</VirtualHost>
+Refer: - https://wiki.ngoisaoso.vn/May-chu/meo-huong-dan-cau-hinh-ssl-tren-localhost-cho-xampp-329.html
+
+---
+Convert mysql in xampp
+install mysql - link: https://dev.mysql.com/downloads/mysql/
+Fix lỗi để run được trên xampp
+C:\xampp\phpMyAdmin\config.inc.php
+$cfg['Servers'][$i]['user'] = 'root';
+$cfg['Servers'][$i]['password'] = 'admin';
+$cfg['Servers'][$i]['controluser'] = 'root'; 
+$cfg['Servers'][$i]['controlpass'] = 'admin';
