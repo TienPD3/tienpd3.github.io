@@ -705,7 +705,11 @@ function removePercent(value) {
 }
 
 function getDataJson(jsonExcel, pSymbol, pName) {
-          
+
+    // Định giá simplize
+    var overallIntrinsicValue = getOverallIntrinsicValue(pSymbol);
+    jsonExcel = jsonExcel.replaceExcel('#DGN', overallIntrinsicValue);
+
     // Xu hướng
     var tmpArraySectorPerformances = listTrend();
     jsonExcel = jsonExcel.replaceExcel('#0PEBDS', tmpArraySectorPerformances.bds);

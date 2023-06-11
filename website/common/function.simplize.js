@@ -4,18 +4,50 @@ var urlStockListSimplize = '';
 var urlStockListSimplizeError = '';
 var urlStockFilterSimplize = '';
 var urlSectorPerformanceSimplize = '';
+var urlAnalysisSimplize = '';
 var headerDataSimplize = {
     authorization : accessTokenSimplize,
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+    //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
 }
 
 function buildUrlSimplize() {
 
-    urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/suggest';
+    // urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/suggest';
     urlStockListSimplizeError = 'website/dummy/simplize-list.json';
+    urlStockListSimplize = urlStockListSimplizeError;
     urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter';
     urlSectorPerformanceSimplize = 'https://api.simplize.vn/api/company/se/sector-performance'
+    urlAnalysisSimplize = 'https://api.simplize.vn/api/company/analysis-metrics-detail/{0}'
 }
+
+
+// ----- START Định giá cổ phiếu -----
+var analysisSimplize = null;
+function getAjaxAnalysisSimplize(stockCode) {
+
+    $.ajax({
+        url: urlAnalysisSimplize.replace('{0}', stockCode),
+        async: false,
+        contentType: "application/json",
+        dataType : 'json',
+        type: 'GET',
+        headers: headerDataSimplize,
+        success: function(reps) {
+            analysisSimplize = reps.data;
+        }
+    });
+    return analysisSimplize;
+}
+
+var overallIntrinsicValue = null;
+function getOverallIntrinsicValue(stockCode) {
+
+    analysisSimplize = getAjaxAnalysisSimplize(stockCode);
+    overallIntrinsicValue = analysisSimplize.combined.overallIntrinsicValue;
+    return overallIntrinsicValue;
+}
+
+// ----- END Định giá cổ phiếu -----
 
 // ----- START Các tiêu chí -----
 
@@ -23,30 +55,27 @@ var stockListSimplize = null;
 var stockListSimplizeNewData = null;
 function getAjaxStockListSimplize() {
 
-    if (stockListSimplize === null) {
-
-        $.ajax({
-            url: urlStockListSimplize,
-            async: false,
-            dataType : 'json',
-            headers: headerDataSimplize,
-            success: function(reps){
-                stockListSimplize = reps.data;
-                stockListSimplizeNewData = "";
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                $.ajax({
-                    url: urlStockListSimplizeError,
-                    async: false,
-                    dataType : 'json',
-                    success: function(reps){
-                        stockListSimplize = reps.data;
-                        stockListSimplizeNewData = 'Bộ lọc chứng khoán chưa phải data mới nhất'
-                    }
-                });
-            }
-        });
-    }
+    $.ajax({
+        url: urlStockListSimplize,
+        async: false,
+        dataType : 'json',
+        headers: headerDataSimplize,
+        success: function(reps){
+            stockListSimplize = reps.data;
+            stockListSimplizeNewData = "";
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            $.ajax({
+                url: urlStockListSimplizeError,
+                async: false,
+                dataType : 'json',
+                success: function(reps){
+                    stockListSimplize = reps.data;
+                    stockListSimplizeNewData = 'Bộ lọc chứng khoán chưa phải data mới nhất'
+                }
+            });
+        }
+    });
     return stockListSimplize;
 }
 
@@ -68,16 +97,6 @@ function buildDropdownStockList(idStockFilter) {
 
         var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected'));
         var arrayHtmlStockList = [];
-
-        // Thêm phần từ All
-        firstValue.id = 0;
-        firstValue.rules = "[{\"id\":\"peRatio\",\"val\":0,\"op\":\">=\"}]";
-        var tmpSetting = {
-            id: 0,
-            text: 'Tất cả',
-            rules: "[{\"id\":\"peRatio\",\"val\":0,\"op\":\">=\"}]"
-        };
-        arrayHtmlStockList.push($('<option>', tmpSetting));
 
         for (let i = 0; i < stockListSimplize.length; i++) {
             const object = stockListSimplize[i];
