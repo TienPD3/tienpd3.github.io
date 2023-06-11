@@ -1,13 +1,17 @@
-var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJleHAiOjE2ODU0NTUxMjR9.i4pR17ZtJQ99RIwrdNDCgaIJ2FVDWOmmhR8xFqa0JGpQS9uW12FHv02EPFaW-EodAqw_PXC7IaVVeh0JF9xzKA';
+var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQHNvY3Nvbi5vcmciLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo4ODU1MCwic2lkIjoiZmZmNGFmOWYtODVhNi00M2Q2LTg4MGMtNGY3NmY1MDBjNTMwIiwiZXhwIjoxNjg5MDU0OTgzfQ.ObDm7eIK06MGBZ7g-p5WkRJCczKI0JtPle_Ognij3ujHenj9J4ECdVh3alR2D7131ahrBWMj6mQe2dnd29ypWw';
 
 var urlStockListSimplize = '';
 var urlStockListSimplizeError = '';
 var urlStockFilterSimplize = '';
 var urlSectorPerformanceSimplize = '';
+var headerDataSimplize = {
+    authorization : accessTokenSimplize,
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+}
 
 function buildUrlSimplize() {
 
-    urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/list';
+    urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/suggest';
     urlStockListSimplizeError = 'website/dummy/simplize-list.json';
     urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter';
     urlSectorPerformanceSimplize = 'https://api.simplize.vn/api/company/se/sector-performance'
@@ -25,9 +29,7 @@ function getAjaxStockListSimplize() {
             url: urlStockListSimplize,
             async: false,
             dataType : 'json',
-            headers: {
-                authorization : accessTokenSimplize
-            },
+            headers: headerDataSimplize,
             success: function(reps){
                 stockListSimplize = reps.data;
                 stockListSimplizeNewData = "";
@@ -61,11 +63,22 @@ function buildDropdownStockList(idStockFilter) {
         });
 
         stockListSimplize.sort(function(a, b) {
-            return a.id > b.id ? 1 : (a.id === b.id ? 0 : -1 );
+            return a.id > b.id ? 1 : (a.id === b.id ? 0 : -1);
         });
 
         var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected'));
         var arrayHtmlStockList = [];
+
+        // Thêm phần từ All
+        firstValue.id = 0;
+        firstValue.rules = "[{\"id\":\"peRatio\",\"val\":0,\"op\":\">=\"}]";
+        var tmpSetting = {
+            id: 0,
+            text: 'Tất cả',
+            rules: "[{\"id\":\"peRatio\",\"val\":0,\"op\":\">=\"}]"
+        };
+        arrayHtmlStockList.push($('<option>', tmpSetting));
+
         for (let i = 0; i < stockListSimplize.length; i++) {
             const object = stockListSimplize[i];
             if (i === 0) {
@@ -112,9 +125,7 @@ function getAjaxStockCodeSimplize(pRules) {
             size: 1618,
             rules: pRules
         }),
-        headers: {
-            authorization : accessTokenSimplize
-        },
+        headers: headerDataSimplize,
         success: function(reps) {
             stockCodeSimplize = reps.data;
         }
@@ -183,9 +194,7 @@ function getAjaxSectorPerformanceSimplize() {
         contentType: "application/json",
         dataType : 'json',
         type: 'GET',
-        headers: {
-            authorization : accessTokenSimplize
-        },
+        headers: headerDataSimplize,
         success: function(reps) {
             sectorPerformanceSimplize = reps.data;
         }
