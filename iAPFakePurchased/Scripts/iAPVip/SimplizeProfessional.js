@@ -16,4 +16,4 @@ obj["data"]["membershipStatus"] = true;
 
 obj["data"]["systemMessage"]["visible"] = true;
 
-$done({body: JSON.stringify(obj)});
+$done({body: JSON.stringify(obj)}); 
