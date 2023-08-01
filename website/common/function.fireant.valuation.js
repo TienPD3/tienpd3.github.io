@@ -363,6 +363,29 @@ function getLatestVCSH () {
     return latestVCSH;
 }
 
+// Lấy vốn chủ sở hữu tăng đều
+var increaseVCSH = null;
+function isGrowUpVCSH () {
+    
+    if (increaseVCSH === null || transactionInformation === null) {
+        
+        objectVCSH = listVCSH();
+
+        var before = 0;
+        var tmpIncreaseVCSH = true;
+        objectVCSH.forEach(object => {
+            if (before > object) {
+                tmpIncreaseVCSH = false;
+            }
+            before = object;
+        });
+
+        increaseVCSH = tmpIncreaseVCSH
+        return increaseVCSH;
+    }
+    return increaseVCSH;
+}
+
 // ----- END Cân đối kế toán -----
 
 // ----- START Kết quả kinh doanh (toàn bộ) -----
@@ -710,7 +733,7 @@ function getDataJson(jsonExcel, pSymbol, pName) {
     var overallIntrinsicValue = getOverallIntrinsicValue(pSymbol);
     jsonExcel = jsonExcel.replaceExcel('#DGN', overallIntrinsicValue);
 
-    // Xu hướng
+    // Tab Xu hướng
     var tmpArraySectorPerformances = listTrend();
     jsonExcel = jsonExcel.replaceExcel('#0PEBDS', tmpArraySectorPerformances.bds);
     jsonExcel = jsonExcel.replaceExcel('#0PECN', tmpArraySectorPerformances.cn);
@@ -777,9 +800,12 @@ function getDataJson(jsonExcel, pSymbol, pName) {
     // Doanh thu tăng đều (Đạt = 1, Không đạt = 0)
     var tmpIsUpDTT = isGrowUpDTT();
     jsonExcel = jsonExcel.replaceExcel('#DTUP', tmpIsUpDTT);
-    // Lợi nhuận gộp tăng đều  (Đạt=1, Không đạt = 0)  
+    // Lợi nhuận gộp tăng đều (Đạt=1, Không đạt = 0)  
     var tmpIsUpLNG = isGrowUpLNG();
     jsonExcel = jsonExcel.replaceExcel('#LNGUP', tmpIsUpLNG);
+    // Vốn chủ sở hữu tăng đều (Đạt=1, Không đạt = 0) 
+    var tmpIsGrowUpVCSH = isGrowUpVCSH();
+    jsonExcel = jsonExcel.replaceExcel('#VCSHUP', tmpIsGrowUpVCSH);
     // Tỷ lệ lãi gộp (>= 15%)
     jsonExcel = jsonExcel.replaceExcel('#GOS', tmpFinancial.LAI_GOP);
     // Tỷ lệ lãi ròng (>= 5)
