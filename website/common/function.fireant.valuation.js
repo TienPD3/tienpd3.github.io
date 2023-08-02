@@ -298,6 +298,7 @@ function getTransactionInformationn() {
     if (transactionInformation === null) {
         objectVCSH = null;
         latestVCSH = null;
+        increaseVCSH = null;
 
         $.ajax({
             url: urlTransactionInformation,
@@ -316,7 +317,7 @@ function getTransactionInformationn() {
 
 // Lấy vốn chủ sở hữu
 var objectVCSH = null;
-function listVCSH () {
+function listVCSH (pName) {
     
     if (objectVCSH === null || transactionInformation === null) {
         
@@ -324,7 +325,14 @@ function listVCSH () {
         transactionInformation = getTransactionInformationn();
         var elmHeaderYear = transactionInformation.columns;
         elmHeaderYear.splice(0, 2);
-        var elmHeader = transactionInformation.rows[2];
+        var targetValue = '';
+        if (pName.indexOf('Ngân hàng') === -1) {
+            targetValue = 'Nguồn VCSH';
+        } else {
+            targetValue = 'Vốn và các quỹ';
+        }
+        
+        var elmHeader = getRowTarget(transactionInformation.rows, targetValue)
         elmHeader.splice(0, 2);
         for (let i = 0; i < elmHeader.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
@@ -342,11 +350,11 @@ function listVCSH () {
 
 // Lấy vốn chủ sở hữu (mới nhất)
 var latestVCSH = null;
-function getLatestVCSH () {
+function getLatestVCSH (pName) {
     
     if (latestVCSH === null || transactionInformation === null) {
         
-        objectVCSH = listVCSH();
+        objectVCSH = listVCSH(pName);
 
         var tmpLatestVCSH = objectVCSH.arrayVCSH;
         tmpLatestVCSH = tmpLatestVCSH[tmpLatestVCSH.length - 1];
@@ -365,22 +373,23 @@ function getLatestVCSH () {
 
 // Lấy vốn chủ sở hữu tăng đều
 var increaseVCSH = null;
-function isGrowUpVCSH () {
+function isGrowUpVCSH (pName) {
     
     if (increaseVCSH === null || transactionInformation === null) {
-        
-        objectVCSH = listVCSH();
+        increaseVCSH = {};
+        objectVCSH = listVCSH(pName);
 
         var before = 0;
-        var tmpIncreaseVCSH = true;
-        objectVCSH.forEach(object => {
+        var tmpIncreaseVCSH = 1;
+        objectVCSH.arrayVCSH.forEach(object => {
             if (before > object) {
-                tmpIncreaseVCSH = false;
+                tmpIncreaseVCSH = 0;
             }
             before = object;
         });
 
-        increaseVCSH = tmpIncreaseVCSH
+        increaseVCSH.isGrowUpVCSH = tmpIncreaseVCSH;
+        increaseVCSH.commaVCSH = objectVCSH.arrayVCSH.join(', ');
         return increaseVCSH;
     }
     return increaseVCSH;
@@ -686,6 +695,19 @@ function resetData() {
     financialIndicators = null;
 }
 
+function getRowTarget (lstData, targetValue) {
+
+    var object = null;
+    lstData.forEach(row => {
+        if (row[0] == targetValue) {
+            object = row;
+            return false;
+        }
+    });
+
+    return object;
+}
+
 function roundEmpty(input) {
 
     if (input) {
@@ -780,7 +802,7 @@ function getDataJson(jsonExcel, pSymbol, pName) {
 
     // LỢI NHUẬN SAU THUẾ 4 QUÝ GẦN NHẤT (tỷ đồng)
     // VỐN CHỦ SỞ HỮU HIỆN TẠI (tỷ đồng)
-    var tmpLatestVCSH = getLatestVCSH();
+    var tmpLatestVCSH = getLatestVCSH(pName);
 
     jsonExcel = jsonExcel.replaceExcel('#VCSHFY', tmpLatestVCSH.latestVCSHYear);
     jsonExcel = jsonExcel.replaceExcel('#VCSH', tmpLatestVCSH.latestVCSH);
@@ -804,8 +826,9 @@ function getDataJson(jsonExcel, pSymbol, pName) {
     var tmpIsUpLNG = isGrowUpLNG();
     jsonExcel = jsonExcel.replaceExcel('#LNGUP', tmpIsUpLNG);
     // Vốn chủ sở hữu tăng đều (Đạt=1, Không đạt = 0) 
-    var tmpIsGrowUpVCSH = isGrowUpVCSH();
-    jsonExcel = jsonExcel.replaceExcel('#VCSHUP', tmpIsGrowUpVCSH);
+    var tmpIsGrowUpVCSH = isGrowUpVCSH(pName);
+    jsonExcel = jsonExcel.replaceExcel('#VCSHUP', tmpIsGrowUpVCSH.isGrowUpVCSH);
+    jsonExcel = jsonExcel.replaceExcel('#CVCSH', tmpIsGrowUpVCSH.commaVCSH);
     // Tỷ lệ lãi gộp (>= 15%)
     jsonExcel = jsonExcel.replaceExcel('#GOS', tmpFinancial.LAI_GOP);
     // Tỷ lệ lãi ròng (>= 5)
