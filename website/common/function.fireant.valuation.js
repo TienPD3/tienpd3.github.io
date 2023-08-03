@@ -191,7 +191,7 @@ var holderTransactions = null;
 function getHolderTransactions() {
 
     if (holderTransactions === null) {
-        isBLDMB = null;
+        objectBLDMB = null;
 
         $.ajax({
             url: urlHolderTransactions,
@@ -209,24 +209,35 @@ function getHolderTransactions() {
 }
 
 // Ban lãnh đạo mua bán cố phần (Đạt = 1, Không đạt = 0)
-var isBLDMB = null;
+var objectBLDMB = null;
 function isLatestBLDMB() {
 
-    if (isBLDMB === null || holderTransactions === null) {
+    if (objectBLDMB === null || holderTransactions === null) {
         holderTransactions = getHolderTransactions();
+
+        objectBLDMB = {}
         const elm = holderTransactions[0];
         if (elm) {
-            if (elm.type === 1) {
-                isBLDMB = 0;
+            var saleText = 'Đăng ký '
+            if (elm.executionVolume === null) {
+                saleText = 'Đã '
+            }
+
+            if (elm.type === 1) { // 1: Bán, 0: Mua
+                objectBLDMB.isBLDMB = 0;
+                objectBLDMB.transactionText = saleText + 'bán: ' + nvl(elm.registeredVolume, elm.executionVolume) + ' (' + elm.startDate + ')';
             } else {
-                isBLDMB = 1;
+                objectBLDMB.isBLDMB = 1;
+                objectBLDMB.transactionText = saleText + 'mua: ' + nvl(elm.registeredVolume, elm.executionVolume) + ' (' + elm.startDate + ')';
             }
         } else {
-            isBLDMB = 'N/A';
+            objectBLDMB.isBLDMB = 'N/A';
+            objectBLDMB.transactionText = 'N/A'
         }
-        return isBLDMB;
+
+        return objectBLDMB;
     }
-    return isBLDMB;
+    return objectBLDMB;
 }
 
 // ----- END Giao dịch -----
@@ -326,7 +337,7 @@ function listVCSH (pName) {
         var elmHeaderYear = transactionInformation.columns;
         elmHeaderYear.splice(0, 2);
         var targetValue = '';
-        if (pName.indexOf('Ngân hàng') === -1) {
+        if (pName.indexOf('Ngân hàng') == -1) {
             targetValue = 'Nguồn VCSH';
         } else {
             targetValue = 'Vốn và các quỹ';
@@ -699,13 +710,22 @@ function getRowTarget (lstData, targetValue) {
 
     var object = null;
     lstData.forEach(row => {
-        if (row[0] == targetValue) {
+        if (row[0].trim() == targetValue.trim()) {
             object = row;
             return false;
         }
     });
 
     return object;
+}
+
+function nvl (sourceValue, targetValue) {
+
+    if (sourceValue === null || sourceValue.length === 0) {
+        return targetValue;
+    }
+
+    return sourceValue;
 }
 
 function roundEmpty(input) {
@@ -847,9 +867,10 @@ function getDataJson(jsonExcel, pSymbol, pName) {
     jsonExcel = jsonExcel.replaceExcel('#PB', tmpFinancial.PB);
     // Mô hình đơn giản tập chung (Đạt = 1, Không đạt = 0)
     // Pending
-    // BBan lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0)
-    var tmpIsBLDMB = isLatestBLDMB();
-    jsonExcel = jsonExcel.replaceExcel('#BLDMB', tmpIsBLDMB);
+    // Ban lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0)
+    var tmpObjectBLDMB = isLatestBLDMB();
+    jsonExcel = jsonExcel.replaceExcel('#BLDMB', tmpObjectBLDMB.isBLDMB);
+    jsonExcel = jsonExcel.replaceExcel('#IBLDMB', tmpObjectBLDMB.transactionText);
     // Dòng tiền từ HĐKD dương (Đạt = 1, Không đạt = 0)
     var tmpIsPositiveLNTHDKD = isPositiveLNTHDKD();
     jsonExcel = jsonExcel.replaceExcel('#DTP', tmpIsPositiveLNTHDKD);
