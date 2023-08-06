@@ -139,3 +139,75 @@ String.prototype.replaceExcel = function(regex, value, isString = false) {
     }
     return input.replaceAll(regex, convertNA(value));
 };
+
+Number.prototype.numberFormat = function() { 
+
+    var input = this;
+    return input.toLocaleString("en");
+}
+
+String.prototype.dateFormat = function (pattern) {
+    
+    var input = this;
+
+    var monthNames=["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var todayDate = new Date(input);                                 
+    var date = todayDate.getDate().toString();
+    var month = todayDate.getMonth().toString(); 
+    var year = todayDate.getFullYear().toString(); 
+    var formattedMonth = (todayDate.getMonth() < 10) ? "0" + month : month;
+    var formattedDay = (todayDate.getDate() < 10) ? "0" + date : date;
+    var result = "";
+
+    switch (pattern) {
+        case "M/d/yyyy": 
+            formattedMonth = formattedMonth.indexOf("0") == 0 ? formattedMonth.substring(1, 2) : formattedMonth;
+            formattedDay = formattedDay.indexOf("0") == 0 ? formattedDay.substring(1, 2) : formattedDay;
+            result  = formattedMonth + '/' + formattedDay + '/' + year;
+            break;
+        case "M/d/yy": 
+            formattedMonth = formattedMonth.indexOf("0") == 0 ? formattedMonth.substring(1, 2) : formattedMonth;
+            formattedDay = formattedDay.indexOf("0") == 0 ? formattedDay.substring(1, 2) : formattedDay;
+            result = formattedMonth + '/' + formattedDay + '/' + year.substr(2);
+            break;
+        case "MM/dd/yy":
+            result = formattedMonth + '/' + formattedDay + '/' + year.substr(2);
+            break;
+        case "MM/dd/yyyy":
+            result = formattedMonth + '/' + formattedDay + '/' + year;
+            break;
+        case "yy/MM/dd":
+            result = year.substr(2) + '/' + formattedMonth + '/' + formattedDay;
+            break;
+        case "yyyy-MM-dd":
+            result = year + '-' + formattedMonth + '-' + formattedDay;
+            break;
+        case "yyyy/MM/dd":
+            result = year + '/' + formattedMonth + '/' + formattedDay;
+            break;
+        case "dd-MMM-yy":
+            result = formattedDay + '-' + monthNames[todayDate.getMonth()].substr(3) + '-' + year.substr(2);
+            break;
+        case "MMMM d, yyyy":
+            result = todayDate.toLocaleDateString("en-us", { day: 'numeric', month: 'long', year: 'numeric' });
+            break;
+    }
+
+    return result;
+}
+
+function generateUUID() { // Public Domain/MIT
+    var d = new Date().getTime();//Timestamp
+    var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now()*1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16;//random number between 0 and 16
+        if(d > 0){//Use timestamp until depleted
+            r = (d + r)%16 | 0;
+            d = Math.floor(d/16);
+        } else {//Use microseconds since page-load if supported
+            r = (d2 + r)%16 | 0;
+            d2 = Math.floor(d2/16);
+        }
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}

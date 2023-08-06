@@ -1,6 +1,7 @@
-var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQHNvY3Nvbi5vcmciLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo4ODU1MCwic2lkIjoiZmZmNGFmOWYtODVhNi00M2Q2LTg4MGMtNGY3NmY1MDBjNTMwIiwiZXhwIjoxNjg5MDU0OTgzfQ.ObDm7eIK06MGBZ7g-p5WkRJCczKI0JtPle_Ognij3ujHenj9J4ECdVh3alR2D7131ahrBWMj6mQe2dnd29ypWw';
+var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJzaWQiOiI5Y2M2ZDcyNS1kOTYwLTQzMzgtYmRjZC1jNjNlZjFhYjg0OWYiLCJwZSI6ZmFsc2UsImV4cCI6MTY5MTQ2NzI5N30._-4IqL7kzPGCEQeSRV0QT_qsckT62g-xpOEkxIyr_XuGg7FJJHpNE_T1oJ2fioQDBrYCC4oo9fedNBr234-PmA';
 
-var urlStockListSimplize = '';
+var urlStockListSimplizeCustom = '';
+var urlStockListSimplizeDefault = '';
 var urlStockListSimplizeError = '';
 var urlStockFilterSimplize = '';
 var urlSectorPerformanceSimplize = '';
@@ -12,9 +13,10 @@ var headerDataSimplize = {
 
 function buildUrlSimplize() {
 
-    // urlStockListSimplize = 'https://api.simplize.vn/api/personalize/screener/suggest';
-    urlStockListSimplizeError = 'website/dummy/simplize-list.json';
-    urlStockListSimplize = urlStockListSimplizeError;
+    urlStockListSimplizeCustom = 'website/dummy/dummy-all.json?cache=' + uuidv4();
+    urlStockListSimplizeDefault = 'https://api.simplize.vn/api/personalize/screener/suggest';
+    urlStockListSimplizeError = 'website/dummy/simplize-list.json?cache=' + uuidv4();
+    //urlStockListSimplize = urlStockListSimplizeError;
     urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter';
     urlSectorPerformanceSimplize = 'https://api.simplize.vn/api/company/se/sector-performance'
     urlAnalysisSimplize = 'https://api.simplize.vn/api/company/analysis-metrics-detail/{0}'
@@ -56,12 +58,22 @@ var stockListSimplizeNewData = null;
 function getAjaxStockListSimplize() {
 
     $.ajax({
-        url: urlStockListSimplize,
+        url: urlStockListSimplizeCustom,
         async: false,
         dataType : 'json',
         headers: headerDataSimplize,
-        success: function(reps){
+        success: function(reps) {
             stockListSimplize = reps.data;
+        }
+    });
+
+    $.ajax({
+        url: urlStockListSimplizeDefault,
+        async: false,
+        dataType : 'json',
+        headers: headerDataSimplize,
+        success: function(reps){ 
+            stockListSimplize = $.merge($.merge([], stockListSimplize), reps.data);
             stockListSimplizeNewData = "";
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -69,13 +81,15 @@ function getAjaxStockListSimplize() {
                 url: urlStockListSimplizeError,
                 async: false,
                 dataType : 'json',
-                success: function(reps){
-                    stockListSimplize = reps.data;
-                    stockListSimplizeNewData = 'Bộ lọc chứng khoán chưa phải data mới nhất'
+                success: function(reps) {
+                    stockListSimplize = $.merge($.merge([], stockListSimplize), reps.data);
+                    stockListSimplizeNewData = ''
+                    // stockListSimplizeNewData = 'Bộ lọc chứng khoán chưa phải data mới nhất'
                 }
             });
         }
     });
+
     return stockListSimplize;
 }
 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="website/image/favicon.ico">
     <title>Stock Pro - TienPD3</title>
 
     <!-- spreadjs -->
@@ -56,8 +57,11 @@
             });
 
             $(document).on('click', '#btnNext', function() {
-                
-                $("#drpdStockCode > option:selected").prop("selected", false).next().prop("selected", true);
+                var last = $("#drpdStockCode > option").last();
+                var current = $("#drpdStockCode > option:selected");
+                if (last[0] != current[0]) {
+                    current.prop("selected", false).next().prop("selected", true);
+                }
                 onChangeStockCode();
             });
 
@@ -78,7 +82,9 @@
             var filter = $(oc).filter(function (i, elm) {
                 return elm.c === pSymbol
             })[0];
-            loadData(filter.c, filter.m, filter.san);
+            if (filter !== undefined) {
+                loadData(filter.c, filter.m, filter.san);
+            }
             var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected')) || {};
             drpdSelected.stockCodeSelected = pSymbol;
             localStorage.setItem('drpdSelected', JSON.stringify(drpdSelected))

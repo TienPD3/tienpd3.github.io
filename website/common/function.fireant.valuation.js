@@ -58,10 +58,10 @@ function buildUrl(pSymbol, pName, pExchange) {
 
 // --- START Cafef.vn -----
 
-var activeBusiness = null;
+var arrayActiveBusiness = null;
 function getAjaxActiveBusiness() {
 
-    if (activeBusiness === null) {
+    if (arrayActiveBusiness === null) {
         strCT = null;
 
         $.ajax({
@@ -69,34 +69,34 @@ function getAjaxActiveBusiness() {
             async: false,
             dataType : 'json',
             success: function(reps){
-                activeBusiness = reps;
+                arrayActiveBusiness = reps;
             }
         });
     }
-    return activeBusiness;
+    return arrayActiveBusiness;
 }
 
 // Lấy cổ tức
 var arrayLatestCT = null;
 function getLatestCT() {
 
-    if (arrayLatestCT === null || activeBusiness === null) {
-        activeBusiness = getAjaxActiveBusiness();
+    if (arrayLatestCT === null || arrayActiveBusiness === null) {
+        arrayActiveBusiness = getAjaxActiveBusiness();
         arrayLatestCT = {};
-        if (activeBusiness) {
-            if (activeBusiness[0].Dividend !== 0) {
-                arrayLatestCT.dividendPercent = activeBusiness[0].Dividend + '%';
-                arrayLatestCT.dividend = 'tiền mặt';
-            } else if (activeBusiness[0].DivStock !== 0) {
-                arrayLatestCT.dividendPercent = activeBusiness[0].DivStock + '%';
-                arrayLatestCT.dividend = 'cổ phiếu';
-            } else {
-                arrayLatestCT.dividendPercent = '0%';
-                arrayLatestCT.dividend = 'không có';
+        arrayLatestCT.dividendPercent = '0%';
+        arrayLatestCT.dividend = 'không có';
+
+        if (arrayActiveBusiness) {
+            var filterActiveBusiness = arrayActiveBusiness.filter(element => element.KYear == new Date().getFullYear());
+            if (filterActiveBusiness.length > 0) {
+                if (filterActiveBusiness[0].Dividend !== 0) {
+                    arrayLatestCT.dividendPercent = filterActiveBusiness[0].Dividend + '%';
+                    arrayLatestCT.dividend = 'tiền mặt';
+                } else if (filterActiveBusiness[0].DivStock !== 0) {
+                    arrayLatestCT.dividendPercent = filterActiveBusiness[0].DivStock + '%';
+                    arrayLatestCT.dividend = 'cổ phiếu';
+                }
             }
-        } else {
-            arrayLatestCT.dividendPercent = '0%';
-            arrayLatestCT.dividend = 'không có';
         }
         
         return arrayLatestCT;
@@ -223,12 +223,13 @@ function isLatestBLDMB() {
                 saleText = 'Đã '
             }
 
+            var transactionTextLast = nvl(elm.registeredVolume, elm.executionVolume).numberFormat() + ' (' + elm.startDate.dateFormat('yyyy/MM/dd') + ')';
             if (elm.type === 1) { // 1: Bán, 0: Mua
                 objectBLDMB.isBLDMB = 0;
-                objectBLDMB.transactionText = saleText + 'bán: ' + nvl(elm.registeredVolume, elm.executionVolume) + ' (' + elm.startDate + ')';
+                objectBLDMB.transactionText = saleText + 'bán: ' + transactionTextLast;
             } else {
                 objectBLDMB.isBLDMB = 1;
-                objectBLDMB.transactionText = saleText + 'mua: ' + nvl(elm.registeredVolume, elm.executionVolume) + ' (' + elm.startDate + ')';
+                objectBLDMB.transactionText = saleText + 'mua: ' + transactionTextLast;
             }
         } else {
             objectBLDMB.isBLDMB = 'N/A';
@@ -337,10 +338,10 @@ function listVCSH (pName) {
         var elmHeaderYear = transactionInformation.columns;
         elmHeaderYear.splice(0, 2);
         var targetValue = '';
-        if (pName.indexOf('Ngân hàng') == -1) {
-            targetValue = 'Nguồn VCSH';
-        } else {
+        if (pName.indexOf('Ngân hàng') == 0) {
             targetValue = 'Vốn và các quỹ';
+        } else {
+            targetValue = 'Nguồn VCSH';
         }
         
         var elmHeader = getRowTarget(transactionInformation.rows, targetValue)
@@ -695,7 +696,7 @@ function getFinancialIndicators () {
 
 // Common
 function resetData() {
-    activeBusiness = null;
+    arrayActiveBusiness = null;
     historicalQuotes = null;
     fundamental = null;
     holderTransactions = null;
