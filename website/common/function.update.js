@@ -25,8 +25,14 @@ function getUpdateVersion() {
 
     var tmpUpdVerClient = localStorage.getItem('updVer');
     tmpUpdVerClient = JSON.parse(tmpUpdVerClient);
+    const timeNow = new Date();
+    var timeOld = null;
     const tmpUpdVerServer = getAjaxUpdateVersion();
-    if (tmpUpdVerClient === null || tmpUpdVerClient.version !== tmpUpdVerServer.version) {
+    if (tmpUpdVerClient !== null) {
+        timeOld = new Date(tmpUpdVerClient.versionTime);
+        timeOld.setDate(timeOld.getDate() + 7);
+    }
+    if (tmpUpdVerClient === null || tmpUpdVerClient.versoin !== tmpUpdVerServer.versoin || timeOld < timeNow) {
         localStorage.setItem('updVer', JSON.stringify(tmpUpdVerServer));
         tmpUpdVerServer.isUpdate = true;
         return tmpUpdVerServer;
@@ -40,5 +46,6 @@ function updateLocalStoreStockCode(arrayStockCodeSimplize) {
     var tmpUpdVerClient = localStorage.getItem('updVer');
     tmpUpdVerClient = JSON.parse(tmpUpdVerClient);
     tmpUpdVerClient.data.arrayStockCodeSimplize = JSON.stringify(arrayStockCodeSimplize);
+    tmpUpdVerClient.versionTime = new Date();
     localStorage.setItem('updVer', JSON.stringify(tmpUpdVerClient));
 }
