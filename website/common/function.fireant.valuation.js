@@ -223,7 +223,7 @@ function isLatestBLDMB() {
                 saleText = 'Đã '
             }
 
-            var transactionTextLast = nvl(elm.registeredVolume, elm.executionVolume).numberFormat() + ' cổ phiếu (' + elm.startDate.dateFormat('yyyy/MM/dd') + ')';
+            var transactionTextLast = nvl(elm.registeredVolume, elm.executionVolume).numberFormat() + ' cổ phiếu (' + nvl(elm.startDate, elm.executionDate).dateFormat('yyyy/MM/dd') + ')';
             if (elm.type === 1) { // 1: Bán, 0: Mua
                 objectBLDMB.isBLDMB = 0;
                 objectBLDMB.transactionText = saleText + 'bán: ' + transactionTextLast;
