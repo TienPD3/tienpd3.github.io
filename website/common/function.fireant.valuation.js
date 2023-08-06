@@ -223,7 +223,7 @@ function isLatestBLDMB() {
                 saleText = 'Đã '
             }
 
-            var transactionTextLast = nvl(elm.registeredVolume, elm.executionVolume).numberFormat() + ' (' + elm.startDate.dateFormat('yyyy/MM/dd') + ')';
+            var transactionTextLast = nvl(elm.registeredVolume, elm.executionVolume).numberFormat() + ' cổ phiếu (' + elm.startDate.dateFormat('yyyy/MM/dd') + ')';
             if (elm.type === 1) { // 1: Bán, 0: Mua
                 objectBLDMB.isBLDMB = 0;
                 objectBLDMB.transactionText = saleText + 'bán: ' + transactionTextLast;
@@ -393,7 +393,9 @@ function isGrowUpVCSH (pName) {
 
         var before = 0;
         var tmpIncreaseVCSH = 1;
+        var arrayVCSHFormat = [];
         objectVCSH.arrayVCSH.forEach(object => {
+            arrayVCSHFormat.push(object.roundInteger().numberFormat());
             if (before > object) {
                 tmpIncreaseVCSH = 0;
             }
@@ -401,7 +403,7 @@ function isGrowUpVCSH (pName) {
         });
 
         increaseVCSH.isGrowUpVCSH = tmpIncreaseVCSH;
-        increaseVCSH.commaVCSH = objectVCSH.arrayVCSH.join(', ');
+        increaseVCSH.commaVCSH = arrayVCSHFormat.join('、');
         return increaseVCSH;
     }
     return increaseVCSH;
@@ -885,9 +887,7 @@ function getDataJson(jsonExcel, pSymbol, pName) {
     } 
     jsonExcel = jsonExcel.replaceExcel('#NDHLNST', tmpNDHLNST);
     jsonExcel = jsonExcel.replaceExcel('#NDH', tmpLatestNDH, true);
-    jsonExcel = jsonExcel.replaceExcel('#LNST', tmpLatestLNST.latestLNST, true);
-
-    // getAjaxFullBusinessResults();
+    jsonExcel = jsonExcel.replaceExcel('#LNST', tmpLatestLNST.latestLNST.numberFormat(), true);
 
     return JSON.parse(jsonExcel);
 }

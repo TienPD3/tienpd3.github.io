@@ -13,9 +13,10 @@ var headerDataSimplize = {
 
 function buildUrlSimplize() {
 
-    urlStockListSimplizeCustom = 'website/dummy/dummy-all.json?cache=' + uuidv4();
-    urlStockListSimplizeDefault = 'https://api.simplize.vn/api/personalize/screener/suggest';
-    urlStockListSimplizeError = 'website/dummy/simplize-list.json?cache=' + uuidv4();
+    urlStockListSimplizeCustom = 'website/dummy/simplize-screener-list.json?cache=' + uuidv4();
+    urlStockListSimplizeError = 'website/dummy/simplize-screener-suggest.json?cache=' + uuidv4();
+    // urlStockListSimplizeDefault = 'https://api.simplize.vn/api/personalize/screener/suggest';
+    urlStockListSimplizeDefault = urlStockListSimplizeError;
     //urlStockListSimplize = urlStockListSimplizeError;
     urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter';
     urlSectorPerformanceSimplize = 'https://api.simplize.vn/api/company/se/sector-performance'
@@ -64,6 +65,9 @@ function getAjaxStockListSimplize() {
         headers: headerDataSimplize,
         success: function(reps) {
             stockListSimplize = reps.data;
+            stockListSimplize.sort(function(a, b) {
+                return a.id > b.id ? 1 : (a.id === b.id ? 0 : -1);
+            });
         }
     });
 
@@ -105,13 +109,11 @@ function buildDropdownStockList(idStockFilter) {
             name: 'drpdStockList'
         });
 
-        stockListSimplize.sort(function(a, b) {
-            return a.id > b.id ? 1 : (a.id === b.id ? 0 : -1);
-        });
-
         var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected'));
         var arrayHtmlStockList = [];
 
+        // Setting Caterory
+        var categoryBranch = null;
         for (let i = 0; i < stockListSimplize.length; i++) {
             const object = stockListSimplize[i];
             if (i === 0) {
@@ -119,6 +121,20 @@ function buildDropdownStockList(idStockFilter) {
                 firstValue.rules = object.rules;
             }
             
+            // Setting Caterory
+            
+            if (i === 1) {
+                var tmpSettingCaterory = {
+                    label: 'Ngành'
+                };
+                categoryBranch = $('<optgroup>', tmpSettingCaterory);
+            } else if (i === 12) {
+                var tmpSettingCaterory = {
+                    label: 'Bộ lọc gợi ý'
+                };
+                categoryBranch = $('<optgroup>', tmpSettingCaterory);
+            }
+
             var tmpSetting = {
                 id: object.id,
                 text: object.name,
@@ -132,7 +148,13 @@ function buildDropdownStockList(idStockFilter) {
                 }
             }
 
-            arrayHtmlStockList.push($('<option>', tmpSetting));
+            if (i !== 0) {
+                categoryBranch = categoryBranch.append($('<option>', tmpSetting));
+                arrayHtmlStockList.push(categoryBranch);
+            } else {
+                arrayHtmlStockList.push($('<option>', tmpSetting));
+            }
+            
         }
         drpdStockList.append(arrayHtmlStockList);
         idStockFilter.append(drpdStockList);
