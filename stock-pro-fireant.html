@@ -145,6 +145,9 @@
                                 $('.gc-play-loading').addClass('hide');
                                 if ($('#chkAutoStockNoValue').is(":checked")) {
                                     autoNextStock();
+                                } else {
+                                    $('#btnNext').prop('disabled', false);
+                                    $('#btnNext').text('Kiểm tra mã tiếp theo');
                                 }
                             }
                         }
@@ -171,7 +174,9 @@
             oReq.send(null);
         }
 
+        var sleepNext = null;
         function autoNextStock() {
+            clearInterval(sleepNext);
             var sheet = spread.getActiveSheet();
             // Lấy CELL Nợ dài hạn(X)/LNST(X) (X) <= 5
             var cellValueNDHLNST = sheet.getText(28, 2);
@@ -182,7 +187,7 @@
             
             if (cellValueNDHLNST === 'NO' || cellValueLV < 10 || cellValueBLDMBCP === 'NO') {
                 var idx = 5
-                var sleepNext = setInterval(function () {
+                sleepNext = setInterval(function () {
                     if (idx <= 0) {
                         clearInterval(sleepNext);
                         $('#btnNext').prop('disabled', false);
