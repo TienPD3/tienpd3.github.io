@@ -92,6 +92,12 @@
             drpdSelected.stockCodeSelected = pSymbol;
             localStorage.setItem('drpdSelected', JSON.stringify(drpdSelected))
         }
+
+        $(document).on('change', '#chkAutoStockNoValue', function() {
+            if(this.checked) {
+                autoNextStock();
+            }
+        });
     </script>
     <script>
         var spread, excelIO, loadingStatus;
@@ -100,6 +106,7 @@
             
             setParameter(pSymbol, pName, pExchange);
             loadFile(pSymbol, pName);
+            
         }
 
         function loadFile(pSymbol, pName) {
@@ -136,6 +143,9 @@
                             loaded: function () {
                                 loadingStatus.updateText("Lấy dữ liệu " + pSymbol + " thành công");
                                 $('.gc-play-loading').addClass('hide');
+                                if ($('#chkAutoStockNoValue').is(":checked")) {
+                                    autoNextStock();
+                                }
                             }
                         }
                     });
@@ -154,12 +164,39 @@
                     spread.options.tabNavigationVisible = false; // false: hide, true: show
                     // Setting vị trí sheet
                     spread.options.tabStripPosition = GC.Spread.Sheets.TabStripPosition.top;
-                    
                 }, function (message) {
                     console.log(message);
                 });
             };
             oReq.send(null);
+        }
+
+        function autoNextStock() {
+            var sheet = spread.getActiveSheet();
+            // Lấy CELL Nợ dài hạn(X)/LNST(X) (X) <= 5
+            var cellValueNDHLNST = sheet.getText(28, 2);
+            // Lấy CELL TỔNG LỢI ÍCH
+            var cellValueLV = (Number(sheet.getValue(11, 2)) * 100).round();
+            // Lấy CELL Ban lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0) Đăng ký bán: X cổ phiếu (X)
+            var cellValueBLDMBCP = sheet.getText(26, 2);
+            
+            if (cellValueNDHLNST === 'NO' || cellValueLV < 10 || cellValueBLDMBCP === 'NO') {
+                var idx = 5
+                var sleepNext = setInterval(function () {
+                    if (idx <= 0) {
+                        clearInterval(sleepNext);
+                        $('#btnNext').prop('disabled', false);
+                        $('#btnNext').click();
+                    }
+                    $('#btnNext').prop('disabled', true);
+                    $('#btnNext').text('Tự động nhấn trong ' + idx + ' giây');
+                    idx--;
+                }, 1000);
+               
+            } else {
+                $('#btnNext').prop('disabled', false);
+                $('#btnNext').text('Kiểm tra mã tiếp theo');
+            }
         }
     </script>
 </head>
@@ -172,6 +209,8 @@
         <label for="drpdStockCode">Mã chứng khoán</label>
         <div id="idStockCode">
             <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán"></select>
+            <input type="checkbox" name="chkAutoStockNoValue" id="chkAutoStockNoValue">
+            <label for="chkAutoStockNoValue">Tự động bỏ qua cổ phiếu không giá trị</label>
         </div>
     </form>
     <!-- Spinner -->
