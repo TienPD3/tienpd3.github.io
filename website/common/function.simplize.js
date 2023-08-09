@@ -64,8 +64,10 @@ function getAjaxStockListSimplize() {
         dataType : 'json',
         headers: headerDataSimplize,
         success: function(reps) {
-            stockListSimplize = reps.data;
-            stockListSimplize.sort(function(a, b) {
+            stockListSimplize = {};
+            stockListSimplize.data = reps.data;
+            stockListSimplize.sizeCustom = reps.data.length;
+            stockListSimplize.data.sort(function(a, b) {
                 return a.id > b.id ? 1 : (a.id === b.id ? 0 : -1);
             });
         }
@@ -77,7 +79,7 @@ function getAjaxStockListSimplize() {
         dataType : 'json',
         headers: headerDataSimplize,
         success: function(reps){ 
-            stockListSimplize = $.merge($.merge([], stockListSimplize), reps.data);
+            stockListSimplize.data = $.merge($.merge([], stockListSimplize.data), reps.data);
             stockListSimplizeNewData = "";
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -86,7 +88,7 @@ function getAjaxStockListSimplize() {
                 async: false,
                 dataType : 'json',
                 success: function(reps) {
-                    stockListSimplize = $.merge($.merge([], stockListSimplize), reps.data);
+                    stockListSimplize.data = $.merge($.merge([], stockListSimplize.data), reps.data);
                     stockListSimplizeNewData = ''
                     // stockListSimplizeNewData = 'Bộ lọc chứng khoán chưa phải data mới nhất'
                 }
@@ -109,13 +111,13 @@ function buildDropdownStockList(idStockFilter) {
             name: 'drpdStockList'
         });
 
-        var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected'));
+        var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected'));
         var arrayHtmlStockList = [];
 
         // Setting Caterory
         var categoryBranch = null;
-        for (let i = 0; i < stockListSimplize.length; i++) {
-            const object = stockListSimplize[i];
+        for (let i = 0; i < stockListSimplize.data.length; i++) {
+            const object = stockListSimplize.data[i];
             if (i === 0) {
                 firstValue.id = object.id;
                 firstValue.rules = object.rules;
@@ -128,7 +130,7 @@ function buildDropdownStockList(idStockFilter) {
                     label: 'Ngành'
                 };
                 categoryBranch = $('<optgroup>', tmpSettingCaterory);
-            } else if (i === 12) {
+            } else if (i === stockListSimplize.sizeCustom) {
                 var tmpSettingCaterory = {
                     label: 'Bộ lọc gợi ý'
                 };
@@ -217,7 +219,7 @@ function buildDropdownStockCode(pId, pRules) {
         return (ORDER_STOCK_CODE[a.stockExchange] || 0) - (ORDER_STOCK_CODE[b.stockExchange] || 0);
     });
 
-    var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected'));
+    var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected'));
     var arrayHtmlStockCode = [];
     for (let i = 0; i < tmpStockCodeSimplize.length; i++) {
         const object = tmpStockCodeSimplize[i];

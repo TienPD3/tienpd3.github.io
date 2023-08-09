@@ -42,6 +42,7 @@
 
     <script>
         $(document).ready(function() {
+            localStorage.removeStorageExpires();
             buildUrlSimplize();
             var firstValue = buildDropdownStockList($('#idStockList'));
             initBuildDropdownStockCode(firstValue.id, firstValue.rules)
@@ -50,9 +51,9 @@
                 const id = $(this).find('option:selected').attr('id');
                 const rules = $(this).find('option:selected').attr('rules');
                 initBuildDropdownStockCode(id, rules)
-                var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected')) || {};
+                var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
                 drpdSelected.stockListSelected = id;
-                localStorage.setItem('drpdSelected', JSON.stringify(drpdSelected))
+                localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected), null)
             });
 
             $(document).on('change', '#drpdStockCode', function() {
@@ -88,9 +89,9 @@
             if (filter !== undefined) {
                 loadData(filter.c, filter.m, filter.san);
             }
-            var drpdSelected = JSON.parse(localStorage.getItem('drpdSelected')) || {};
+            var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
             drpdSelected.stockCodeSelected = pSymbol;
-            localStorage.setItem('drpdSelected', JSON.stringify(drpdSelected))
+            localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected), null)
         }
 
         $(document).on('change', '#chkAutoStockNoValue', function() {

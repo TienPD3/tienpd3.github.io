@@ -23,7 +23,7 @@ function uuidv4() {
 
 function getUpdateVersion() {
 
-    var tmpUpdVerClient = localStorage.getItem('updVer');
+    var tmpUpdVerClient = localStorage.getStorage('updVer');
     tmpUpdVerClient = JSON.parse(tmpUpdVerClient);
     const timeNow = new Date();
     var timeOld = null;
@@ -33,7 +33,7 @@ function getUpdateVersion() {
         timeOld.setDate(timeOld.getDate() + 7);
     }
     if (tmpUpdVerClient === null || tmpUpdVerClient.versoin !== tmpUpdVerServer.versoin || timeOld < timeNow) {
-        localStorage.setItem('updVer', JSON.stringify(tmpUpdVerServer));
+        localStorage.setStorage('updVer', JSON.stringify(tmpUpdVerServer), DAY_7);
         tmpUpdVerServer.isUpdate = true;
         return tmpUpdVerServer;
     }
@@ -43,9 +43,10 @@ function getUpdateVersion() {
 
 function updateLocalStoreStockCode(arrayStockCodeSimplize) {
 
-    var tmpUpdVerClient = localStorage.getItem('updVer');
+    var tmpUpdVerClient = localStorage.getStorage('updVer');
+    
     tmpUpdVerClient = JSON.parse(tmpUpdVerClient);
     tmpUpdVerClient.data.arrayStockCodeSimplize = JSON.stringify(arrayStockCodeSimplize);
     tmpUpdVerClient.versionTime = new Date();
-    localStorage.setItem('updVer', JSON.stringify(tmpUpdVerClient));
+    localStorage.setStorage('updVer', JSON.stringify(tmpUpdVerClient), DAY_7);
 }

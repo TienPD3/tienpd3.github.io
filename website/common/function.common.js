@@ -208,3 +208,66 @@ String.prototype.dateFormat = function (pattern) {
 
     return result;
 }
+
+Storage.prototype.removeStorage = function (name) {
+    try {
+        localStorage.removeItem(name);
+        localStorage.removeItem(name + '_expiresIn');
+    } catch(e) {
+        return false;
+    }
+    return true;
+}
+
+Storage.prototype.removeStorageExpires = function () {
+    try {
+        var keys = Object.keys(localStorage);
+
+        for (let i = 0; i < keys.length; i++) {
+            localStorage.getStorage(keys[i]);
+        }
+    } catch(e) {
+        return false;
+    }
+    return true;
+}
+
+Storage.prototype.getStorage = function (key) {
+
+    if (key.indexOf('_expiresIn') > 0) {
+        return null;
+    }
+
+    var now = Date.now();  // epoch time, lets deal only with integer
+    // set expiration for storage
+    var expiresIn = localStorage.getItem(key + '_expiresIn');
+    if (expiresIn === undefined || expiresIn === null) { 
+        expiresIn = 0; 
+    }
+
+    var value = localStorage.getItem(key);
+    if (Number(expiresIn) < now) { // Expired
+        localStorage.removeStorage(key);
+    } 
+    return value;
+}
+const DAY_30 = 24 * 60 * 60 * 30;
+const DAY_7 = 24 * 60 * 60 * 7;
+Storage.prototype.setStorage = function (key, value, expires) {
+
+    if (expires === undefined || expires === null) {
+        expires = (DAY_30);  // default: seconds for 30 day
+    } else {
+        expires = Math.abs(expires); // make sure it's positive
+    }
+
+    var now = Date.now();  // millisecs since epoch time, lets deal only with integer
+    var schedule = now + expires * 1000; 
+    try {
+        localStorage.setItem(key, value);
+        localStorage.setItem(key + '_expiresIn', schedule);
+    } catch(e) {
+        return false;
+    }
+    return true;
+}
