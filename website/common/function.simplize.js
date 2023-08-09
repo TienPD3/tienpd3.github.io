@@ -1,4 +1,4 @@
-var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJzaWQiOiI5Y2M2ZDcyNS1kOTYwLTQzMzgtYmRjZC1jNjNlZjFhYjg0OWYiLCJwZSI6ZmFsc2UsImV4cCI6MTY5MTQ2NzI5N30._-4IqL7kzPGCEQeSRV0QT_qsckT62g-xpOEkxIyr_XuGg7FJJHpNE_T1oJ2fioQDBrYCC4oo9fedNBr234-PmA';
+var accessTokenSimplize = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0aWVucGQzQGljbG91ZC5jb20iLCJhdXRoIjoiUk9MRV9VU0VSIiwidWlkIjo5NDc0LCJzaWQiOiIyNGRlN2I0MS03M2NlLTQzOGUtOTlmNC05OGQ1YjhmMjNiOTMiLCJwZSI6ZmFsc2UsImV4cCI6MTY5MTc2MTQzMn0.sdZrprpCZQE3IB2WZmG_doFMDzkftI9StZEO2OFj6Tr4obwWl-etGAncAI1G8Akaciz9JuXTbtICBYqeNBTnaw';
 
 var urlStockListSimplizeCustom = '';
 var urlStockListSimplizeDefault = '';
@@ -99,17 +99,13 @@ function getAjaxStockListSimplize() {
     return stockListSimplize;
 }
 
-function buildDropdownStockList(idStockFilter) {
+function buildDropdownStockList() {
 
     var firstValue = {};
     if (stockListSimplize === null) {
         stockListSimplize = getAjaxStockListSimplize();
 
-        const drpdStockList = $('<select>', {
-            class: 'select',
-            id: 'drpdStockList',
-            name: 'drpdStockList'
-        });
+        const drpdStockList = $('#drpdStockList');
 
         var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected'));
         var arrayHtmlStockList = [];
@@ -159,7 +155,6 @@ function buildDropdownStockList(idStockFilter) {
             
         }
         drpdStockList.append(arrayHtmlStockList);
-        idStockFilter.append(drpdStockList);
     }
     return firstValue;
 }
@@ -179,7 +174,7 @@ function getAjaxStockCodeSimplize(pRules) {
         type: 'POST',
         data: JSON.stringify({
             page: 0,
-            size: 1618,
+            size: 9999,
             rules: pRules
         }),
         headers: headerDataSimplize,

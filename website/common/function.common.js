@@ -246,23 +246,33 @@ Storage.prototype.getStorage = function (key) {
     }
 
     var value = localStorage.getItem(key);
-    if (Number(expiresIn) < now) { // Expired
-        localStorage.removeStorage(key);
-    } 
+    if (UNLIMITED !== expiresIn) {
+        if (Number(expiresIn) < now) { // Expired
+            localStorage.removeStorage(key);
+        }
+    }
     return value;
 }
+
 const DAY_30 = 24 * 60 * 60 * 30;
 const DAY_7 = 24 * 60 * 60 * 7;
+const UNLIMITED = 'Unlimited'
 Storage.prototype.setStorage = function (key, value, expires) {
 
-    if (expires === undefined || expires === null) {
-        expires = (DAY_30);  // default: seconds for 30 day
+    var schedule = null;
+    if (UNLIMITED === expires) {
+        schedule = UNLIMITED;
     } else {
-        expires = Math.abs(expires); // make sure it's positive
+        if (expires === undefined || expires === null) {
+            expires = (DAY_30);  // default: seconds for 30 day
+        } else {
+            expires = Math.abs(expires); // make sure it's positive
+        }
+    
+        var now = Date.now();  // millisecs since epoch time, lets deal only with integer
+        schedule = now + expires * 1000; 
     }
-
-    var now = Date.now();  // millisecs since epoch time, lets deal only with integer
-    var schedule = now + expires * 1000; 
+    
     try {
         localStorage.setItem(key, value);
         localStorage.setItem(key + '_expiresIn', schedule);

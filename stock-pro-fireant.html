@@ -44,7 +44,7 @@
         $(document).ready(function() {
             localStorage.removeStorageExpires();
             buildUrlSimplize();
-            var firstValue = buildDropdownStockList($('#idStockList'));
+            var firstValue = buildDropdownStockList();
             initBuildDropdownStockCode(firstValue.id, firstValue.rules)
 
             $(document).on('change', '#drpdStockList', function() {
@@ -211,12 +211,16 @@
         <i class="red" id="idWarning" for="warning"></i>
         <div></div>
         <label for="drpdStockList">Bộ lọc chứng khoán</label>
-        <div id="idStockList"></div>
+        <div id="idStockList">
+            <select class="select" id="drpdStockList" name="drpdStockList"></select>
+            <input type="checkbox" name="chkAutoStockNoValue" id="chkAutoStockNoValue">
+            <label for="chkAutoStockNoValue">Tự động bỏ qua cổ phiếu không giá trị</label>
+        </div>
         <label for="drpdStockCode">Mã chứng khoán</label>
         <div id="idStockCode">
             <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán"></select>
-            <input type="checkbox" name="chkAutoStockNoValue" id="chkAutoStockNoValue">
-            <label for="chkAutoStockNoValue">Tự động bỏ qua cổ phiếu không giá trị</label>
+            <input type="checkbox" name="chkSaveWhitelist" id="chkSaveWhitelist">
+            <label for="chkSaveWhitelist">Lưu Whitelist</label>
         </div>
     </form>
     <!-- Spinner -->
