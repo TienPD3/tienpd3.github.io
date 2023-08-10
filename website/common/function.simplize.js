@@ -197,13 +197,24 @@ function buildDropdownStockCode(pId, pRules) {
     }
 
     var tmpStockCodeSimplize = null;
-    if (arrayStockCodeSimplize[pId] === undefined || arrayStockCodeSimplize[pId] === null) {
-        tmpStockCodeSimplize = getAjaxStockCodeSimplize(pRules);
-        arrayStockCodeSimplize[pId] = tmpStockCodeSimplize;
-        updateLocalStoreStockCode(arrayStockCodeSimplize);
+    if (pRules.length > 0) {
+        if (arrayStockCodeSimplize[pId] === undefined || arrayStockCodeSimplize[pId] === null) {
+            tmpStockCodeSimplize = getAjaxStockCodeSimplize(pRules);
+            arrayStockCodeSimplize[pId] = tmpStockCodeSimplize;
+            updateLocalStoreStockCode(arrayStockCodeSimplize);
+        } else {
+            tmpStockCodeSimplize = arrayStockCodeSimplize[pId];
+        }
     } else {
-        tmpStockCodeSimplize = arrayStockCodeSimplize[pId];
+        var tmpStockValueList = localStorage.getStorage('stockValue');
+        if (tmpStockValueList === null) {
+            tmpStockValueList = [];
+        } else {
+            tmpStockValueList = JSON.parse(tmpStockValueList);
+        }
+        tmpStockCodeSimplize = tmpStockValueList
     }
+
     if (drpdStockCode === null) {
         drpdStockCode = $('#drpdStockCode');
     } else {
@@ -218,10 +229,17 @@ function buildDropdownStockCode(pId, pRules) {
     var arrayHtmlStockCode = [];
     for (let i = 0; i < tmpStockCodeSimplize.length; i++) {
         const object = tmpStockCodeSimplize[i];
+        
+        var tickerStockExchange = null;
+        if (pRules.length > 0) {
+            tickerStockExchange = object.ticker + ': ' + object.stockExchange
+        } else {
+            tickerStockExchange = object.stockExchange;
+        }
 
         var tmpSetting = {
             id: object.ticker,
-            text: object.ticker + ': ' + object.stockExchange
+            text: tickerStockExchange
         };
         if (drpdSelected !== null && drpdSelected.stockCodeSelected !== undefined) {
             if (drpdSelected.stockCodeSelected === object.ticker) {

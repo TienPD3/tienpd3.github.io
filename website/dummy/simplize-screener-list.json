@@ -10,6 +10,13 @@
             "guid": "a1e039f0-1e27-437e-b47b-444e7cc60b54"
         },
         {
+            "id": -98,
+            "name": "WhiteList",
+            "description": "",
+            "rules": "",
+            "guid": ""
+        },
+        {
             "id": -3,
             "name": "Sàn HOSE",
             "description": "",

@@ -337,14 +337,18 @@ function listVCSH (pName) {
         transactionInformation = getTransactionInformationn();
         var elmHeaderYear = transactionInformation.columns;
         elmHeaderYear.splice(0, 2);
-        var targetValue = '';
+        var targetValue = 'Nguồn VCSH';
         if (pName.indexOf('Ngân hàng') == 0) {
             targetValue = 'Vốn và các quỹ';
-        } else {
-            targetValue = 'Nguồn VCSH';
         }
         
         var elmHeader = getRowTarget(transactionInformation.rows, targetValue)
+        if (elmHeader === null) {
+            if (targetValue === 'Nguồn VCSH') {
+                targetValue = 'Vốn và các quỹ';
+            }
+            elmHeader = getRowTarget(transactionInformation.rows, targetValue)
+        }
         elmHeader.splice(0, 2);
         for (let i = 0; i < elmHeader.length; i++) {
             // Đổi đợn vị theo tỷ VNĐ
