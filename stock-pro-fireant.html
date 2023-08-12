@@ -61,16 +61,27 @@
             });
 
             $(document).on('click', '#btnNext', function() {
-                var last = $("#drpdStockCode > option").last();
-                var current = $("#drpdStockCode > option:selected");
-                if (last[0] != current[0]) {
-                    current.prop("selected", false).next().prop("selected", true);
-                }
-                onChangeStockCode();
+                saveWhiteList();
             });
 
             $('#idWarning').text(stockListSimplizeNewData);
         });
+
+        function saveWhiteList() {
+            var tmpSymbol = $('#drpdStockCode').find('option:selected').attr('id');
+            var tmpTickerStockExchange = $('#drpdStockCode').find('option:selected').text();
+            saveGoodStock(tmpSymbol, tmpTickerStockExchange);
+            doNext();
+        }
+
+        function doNext() {
+            var last = $("#drpdStockCode > option").last();
+            var current = $("#drpdStockCode > option:selected");
+            if (last[0] != current[0]) {
+                current.prop("selected", false).next().prop("selected", true);
+            }
+            onChangeStockCode();
+        }
 
         function initBuildDropdownStockCode(pId, pRules) {
 
@@ -96,9 +107,7 @@
 
         $(document).on('change', '#chkAutoStockNoValue', function() {
             if(this.checked) {
-                var tmpSymbol = $('#drpdStockCode').find('option:selected').attr('id');
-                var tmpTickerStockExchange = $('#drpdStockCode').find('option:selected').text();
-                autoNextStock(tmpSymbol, tmpTickerStockExchange);
+                saveWhiteList();
             }
         });
     </script>
@@ -109,7 +118,6 @@
             
             setParameter(pSymbol, pName, pExchange);
             loadFile(pSymbol, pName);
-            
         }
 
         function loadFile(pSymbol, pName) {
@@ -146,14 +154,7 @@
                             loaded: function () {
                                 loadingStatus.updateText("Lấy dữ liệu " + pSymbol + " thành công");
                                 $('.gc-play-loading').addClass('hide');
-                                if ($('#chkAutoStockNoValue').is(":checked")) {
-                                    var tmpSymbol = $('#drpdStockCode').find('option:selected').attr('id');
-                                    var tmpTickerStockExchange = $('#drpdStockCode').find('option:selected').text();
-                                    autoNextStock(tmpSymbol, tmpTickerStockExchange);
-                                } else {
-                                    $('#btnNext').prop('disabled', false);
-                                    $('#btnNext').text('Kiểm tra mã tiếp theo');
-                                }
+                                autoNextStock();
                             }
                         }
                     });
@@ -179,77 +180,91 @@
             oReq.send(null);
         }
 
-        var sleepNext = null;
-        function autoNextStock(pSymbol, tickerStockExchange) {
-            clearInterval(sleepNext);
+        function autoNextStock() {
             var sheet = spread.getActiveSheet();
-            // Lấy CELL Nợ dài hạn(X)/LNST(X) (X) <= 5
-            var cellValueNDHLNST = sheet.getText(28, 2);
-            // Lấy CELL TĂNG GIÁ TRỊ
-            var cellValueTGT = (Number(sheet.getValue(10, 2)) * 100).round();
-            // Lấy CELL TỔNG LỢI ÍCH
-            var cellValueTLI = (Number(sheet.getValue(11, 2)) * 100).round();
-            // Lấy CELL Ban lãnh đạo mua/bán cố phần (Đạt = 1, Không đạt = 0) Đăng ký bán: X cổ phiếu (X)
-            var cellValueBLDMBCP = sheet.getText(26, 2);
-            
-            if ($('#chkSaveWhitelist').is(":checked")) {
-                var tmpStockValueList = localStorage.getStorage('stockValue');
-                if (tmpStockValueList === null) {
-                    tmpStockValueList = [];
-                } else {
-                    tmpStockValueList = JSON.parse(tmpStockValueList);
-                }
+            // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
+            var cellValue = sheet.getText(13, 3);
+            var tempIsGoodStock = false;
+            if (cellValue == 'YES') {
+                tempIsGoodStock = true;
             }
 
-            if (cellValueNDHLNST === 'NO' || cellValueTLI < 10 || cellValueTGT <= 0 || cellValueBLDMBCP === 'NO') {
-                var idx = 5
-                sleepNext = setInterval(function () {
-                    if (idx <= 0) {
-                        clearInterval(sleepNext);
-                        $('#btnNext').prop('disabled', false);
-                        $('#btnNext').click();
-                    }
-                    $('#btnNext').prop('disabled', true);
-                    $('#btnNext').text('Cố phiếu không tốt, tiếp tục sau ' + idx + ' giây');
-                    idx--;
-                }, 1000);
-
-                if ($('#chkSaveWhitelist').is(":checked")) {
-                    var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
-                    if(tmpStockValue !== null) {
-                        tmpStockValueList = tmpStockValueList.filter(function(row) {
-                            return row.ticker !== pSymbol;
-                        });
-                    }
-                }
-            } else {
+            var sleepNext = null;
+            if ($('#chkAutoStockNoValue').is(":checked")) {
                 if ($('#chkSaveWhitelist').is(":checked")) {
                     var idx = 5
                     sleepNext = setInterval(function () {
                         if (idx <= 0) {
                             clearInterval(sleepNext);
                             $('#btnNext').prop('disabled', false);
-                            $('#btnNext').click();
+                            saveWhiteList();
                         }
                         $('#btnNext').prop('disabled', true);
-                        $('#btnNext').text('Cố phiếu cần đánh giá, tiếp tục sau ' + idx + ' giây');
+                        if (tempIsGoodStock) {
+                            $('#btnNext').text('Cổ phiếu cần đánh giá, tiếp tục sau ' + idx + ' giây');
+                        } else {
+                            $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
+                        }
                         idx--;
                     }, 1000);
-
-                    var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
-                    if(tmpStockValue.length === 0) {
-                        tmpStockValue = {
-                            ticker: pSymbol,
-                            stockExchange: tickerStockExchange
-                        }
-                        tmpStockValueList.push(tmpStockValue)
-                    }
                 } else {
-                    $('#btnNext').prop('disabled', false);
-                    $('#btnNext').text('Kiểm tra mã tiếp theo');
+                    if (!tempIsGoodStock) {
+                        var idx = 5
+                        sleepNext = setInterval(function () {
+                            if (idx <= 0) {
+                                clearInterval(sleepNext);
+                                $('#btnNext').prop('disabled', false);
+                                saveWhiteList();
+                            }
+                            $('#btnNext').prop('disabled', true);
+                            $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
+                            idx--;
+                        }, 1000);
+                    } else {
+                        $('#btnNext').prop('disabled', false);
+                        $('#btnNext').text('Kiểm tra mã tiếp theo');
+                    }
                 }
+            } else {
+                $('#btnNext').prop('disabled', false);
+                $('#btnNext').text('Kiểm tra mã tiếp theo');
             }
-            localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
+        }
+
+        function saveGoodStock(pSymbol, tickerStockExchange) {
+
+            var sheet = spread.getActiveSheet();
+            // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
+            var cellValue = sheet.getText(13, 3);
+            
+            var tmpStockValueList = localStorage.getStorage('stockValue');
+            if (tmpStockValueList === null) {
+                tmpStockValueList = [];
+            } else {
+                tmpStockValueList = JSON.parse(tmpStockValueList);
+            }
+
+            if (cellValue === 'NO') {
+                var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
+                if(tmpStockValue !== null) {
+                    tmpStockValueList = tmpStockValueList.filter(function(row) {
+                        return row.ticker !== pSymbol;
+                    });
+                }
+                localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
+                return false;
+            } else {
+                var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
+                if(tmpStockValue.length === 0) {
+                    tmpStockValue = {
+                        ticker: pSymbol,
+                        stockExchange: tickerStockExchange
+                    }
+                    tmpStockValueList.push(tmpStockValue)
+                }
+                localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
+                return true;
+            }
         }
     </script>
 </head>
@@ -267,7 +282,7 @@
         <div id="idStockCode">
             <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán"></select>
             <input type="checkbox" name="chkSaveWhitelist" id="chkSaveWhitelist">
-            <label for="chkSaveWhitelist">Lưu Whitelist</label>
+            <label for="chkSaveWhitelist">Tự động lưu Whitelist</label>
         </div>
     </form>
     <!-- Spinner -->
