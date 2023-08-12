@@ -120,8 +120,8 @@ function buildDropdownStockList() {
             }
             
             // Setting Caterory
-            
-            if (i === 1) {
+            var idxStart = 2;
+            if (i === idxStart) {
                 var tmpSettingCaterory = {
                     label: 'Ngành'
                 };
@@ -146,7 +146,7 @@ function buildDropdownStockList() {
                 }
             }
 
-            if (i !== 0) {
+            if (i >= idxStart) {
                 categoryBranch = categoryBranch.append($('<option>', tmpSetting));
                 arrayHtmlStockList.push(categoryBranch);
             } else {

@@ -726,7 +726,7 @@ function getRowTarget (lstData, targetValue) {
     return object;
 }
 
-function nvl (sourceValue, targetValue) {
+function nvl(sourceValue, targetValue) {
 
     if (sourceValue === null || sourceValue.length === 0) {
         return targetValue;
