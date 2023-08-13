@@ -78,9 +78,20 @@
             var last = $("#drpdStockCode > option").last();
             var current = $("#drpdStockCode > option:selected");
             if (last[0] != current[0]) {
+                if (!$('#chkAutoStockNoValue').is(":checked")) {
+                    $('#btnNext').prop('disabled', false);
+                }
                 current.prop("selected", false).next().prop("selected", true);
+            } else {
+                $('#btnNext').prop('disabled', true);
             }
             onChangeStockCode();
+        }
+
+        function isCheckElementStockCodeLast() {
+            var last = $("#drpdStockCode > option").last();
+            var current = $("#drpdStockCode > option:selected");
+            return last[0] == current[0];
         }
 
         function initBuildDropdownStockCode(pId, pRules) {
@@ -180,7 +191,9 @@
             oReq.send(null);
         }
 
+        var sleepNext = null;
         function autoNextStock() {
+            clearInterval(sleepNext);
             var sheet = spread.getActiveSheet();
             // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
             var cellValue = sheet.getText(13, 3);
@@ -189,15 +202,18 @@
                 tempIsGoodStock = true;
             }
 
-            var sleepNext = null;
             if ($('#chkAutoStockNoValue').is(":checked")) {
                 if ($('#chkSaveWhitelist').is(":checked")) {
                     var idx = 5
                     sleepNext = setInterval(function () {
                         if (idx <= 0) {
                             clearInterval(sleepNext);
-                            $('#btnNext').prop('disabled', false);
-                            saveWhiteList();
+                            if (isCheckElementStockCodeLast()) {
+                                $('#btnNext').prop('disabled', true);
+                                $('#btnNext').text('Kiểm tra mã tiếp theo');
+                            } else {
+                                saveWhiteList();
+                            }
                         }
                         $('#btnNext').prop('disabled', true);
                         if (tempIsGoodStock) {
@@ -213,20 +229,32 @@
                         sleepNext = setInterval(function () {
                             if (idx <= 0) {
                                 clearInterval(sleepNext);
-                                $('#btnNext').prop('disabled', false);
-                                saveWhiteList();
+                                if (isCheckElementStockCodeLast()) {
+                                    $('#btnNext').prop('disabled', true);
+                                    $('#btnNext').text('Kiểm tra mã tiếp theo');
+                                } else {
+                                    saveWhiteList();
+                                }
                             }
                             $('#btnNext').prop('disabled', true);
                             $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
                             idx--;
                         }, 1000);
                     } else {
-                        $('#btnNext').prop('disabled', false);
+                        if (isCheckElementStockCodeLast()) {
+                            $('#btnNext').prop('disabled', true);
+                        } else {
+                            $('#btnNext').prop('disabled', false);
+                        }
                         $('#btnNext').text('Kiểm tra mã tiếp theo');
                     }
                 }
             } else {
-                $('#btnNext').prop('disabled', false);
+                if (isCheckElementStockCodeLast()) {
+                    $('#btnNext').prop('disabled', true);
+                } else {
+                    $('#btnNext').prop('disabled', false);
+                }
                 $('#btnNext').text('Kiểm tra mã tiếp theo');
             }
         }
