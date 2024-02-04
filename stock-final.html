@@ -136,7 +136,7 @@
 
         function loadFile(pSymbol, pName) {
             
-            getFinancial(pSymbol)
+            getFinancial(pSymbol, false);
 
             excelIo = new GC.Spread.Excel.IO();
             var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
@@ -151,12 +151,11 @@
             oReq.onload = function () {
                 var blob = oReq.response;
                 excelIo.open(blob, function (json) {
-                    getFinancialReports1();
                     var jsonExcel = JSON.stringify(json);
                     
                     var idxQuarter = 0;
                     const mpYearMonthDataSort = new Map([...mpYearMonthData].sort().reverse());
-                    console.log(lstYearMonth);
+                    debugger;
                     mpYearMonthDataSort.forEach((data, keys) => {
                         // 1. CÁC CHỈ SỐ TÀI CHÍNH:
                         jsonExcel = jsonExcel.replaceExcel('#Q' + idxQuarter, keys);

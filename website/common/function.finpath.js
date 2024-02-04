@@ -2,24 +2,22 @@ var pathFinpath = 'https://api.finpath.vn';
 var pathFireant = 'https://restv2.fireant.vn';
 
 // Create variable
-const lstYearMonth = new Set();
 const mpYearMonthData = new Map();
-const lstYear = new Set();
 const mpYearData = new Map();
 const SIZE_DEFAULT = 5
 
-getFinancial = function(stockCode, size = SIZE_DEFAULT) {
+getFinancial = function(stockCode, isYear = false, size = SIZE_DEFAULT) {
     // Finpath - The first
-    financialratios(stockCode, size);
-    fullincomestatementsFinpath(stockCode, size);
-    fullbalancesheetsFinpath(stockCode, size);
+    financialratios(stockCode, isYear, size);
+    fullincomestatementsFinpath(stockCode, isYear, size);
+    fullbalancesheetsFinpath(stockCode, isYear, size);
     // Fireant - The second
-    fullbalancesheetsFireant(stockCode, size);
-    fullincomestatementsFireant(stockCode, size);
+    fullbalancesheetsFireant(stockCode, isYear, size);
+    fullincomestatementsFireant(stockCode, isYear, size);
 }
 
 // Finpath - Phân tích tài chính
-financialratios = function(stockCode, size) {
+financialratios = function(stockCode, isYear, size) {
 
     $.ajax({
         url: '{0}/api/stocks/financialratios/{1}'.format(pathFinpath, stockCode),
@@ -29,14 +27,30 @@ financialratios = function(stockCode, size) {
         type: 'GET',
         headers: {},
         success: function(reps) {
-            $.each(reps.data.quarterlyProfits, function(idx, obj) {
-                if (idx < size) {
-                    var keyYearMonth = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
-                    lstYearMonth.add(keyYearMonth);
 
-                    var data = mpYearMonthData.get(keyYearMonth) || {};
-                    // BV
+            var dataReps = null;
+            if (isYear) {
+                dataReps = reps.data.yearlyProfits;
+            } else {
+                dataReps = reps.data.quarterlyProfits;
+            }
+
+            $.each(dataReps, function(idx, obj) {
+                if (idx < size) {
                     
+                    var key = '';
+                    var data = {};
+                    if (isYear) {
+                        // Lấy theo Quý
+                        key = '{0}'.format(obj.yearReport);
+                        data = mpYearData.get(key) || {};
+                    } else {
+                        // Lấy theo Năm
+                        key = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
+                        data = mpYearMonthData.get(key) || {};
+                    }
+
+                    // BV
                     // P/B - OK
                     data.PB = {new: obj.pb, old: null};
                     // P/E - OK
@@ -51,34 +65,11 @@ financialratios = function(stockCode, size) {
                     // GOS
                     // DAR
 
-                    mpYearMonthData.set(keyYearMonth, data)
-                }
-            });
-
-            $.each(reps.data.yearlyProfits, function(idx, obj) {
-                if (idx < size) {
-                    // Các chỉ số tài chính
-                    var keyYear = '{0}'.format(obj.yearReport);
-                    lstYear.add(keyYear);
-
-                    var data = mpYearData.get(keyYear) || {};
-                    // BV
-                    
-                    // P/B - OK
-                    data.PB = {new: obj.pb, old: null};
-                    // P/E - OK
-                    data.PE = {new: obj.pe, old: null};
-                    // ROA - OK
-                    data.ROA = {new: obj.roa, old: null};
-                    // ROE - OK
-                    data.ROE = {new: obj.roe, old: null};
-                    // EPS - OK
-                    data.EPS = {new: obj.eps, old: null};
-                    // ROS
-                    // GOS
-                    // DAR
-
-                    mpYearData.set(keyYear, data)
+                    if (isYear) {
+                        mpYearData.set(key, data)
+                    } else {
+                        mpYearMonthData.set(key, data)
+                    }
                 }
             });
         }
@@ -88,7 +79,7 @@ financialratios = function(stockCode, size) {
 }
 
 // Finpath - Báo cáo tài chính - Kết quả kinh doanh
-fullincomestatementsFinpath = function(stockCode, size) {
+fullincomestatementsFinpath = function(stockCode, isYear, size) {
 
     $.ajax({
         url: '{0}/api/stocks/fullincomestatements/{1}'.format(pathFinpath, stockCode),
@@ -98,13 +89,28 @@ fullincomestatementsFinpath = function(stockCode, size) {
         type: 'GET',
         headers: {},
         success: function(reps) {
-            $.each(reps.data.quarterlys, function(idx, obj) {
-                if (idx < size) {
-                    //
-                    var keyYearMonth = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
-                    lstYearMonth.add(keyYearMonth);
 
-                    var data = mpYearMonthData.get(keyYearMonth) || {};
+            var dataReps = null;
+            if (isYear) {
+                dataReps = reps.data.yearlys;
+            } else {
+                dataReps = reps.data.quarterlys;
+            }
+
+            $.each(reps.data.dataReps, function(idx, obj) {
+                if (idx < size) {
+
+                    var key = '';
+                    var data = {};
+                    if (isYear) {
+                        // Lấy theo Quý
+                        key = '{0}'.format(obj.yearReport);
+                        data = mpYearData.get(key) || {};
+                    } else {
+                        // Lấy theo Năm
+                        key = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
+                        data = mpYearMonthData.get(key) || {};
+                    }
                     // isa3: Doanh số thuần - Danh thu thuần
                     data.DTT = {new: obj.isa3, old: null};
                     // isa5: Lãi gộp - Lợi nhuận gộp
@@ -112,7 +118,11 @@ fullincomestatementsFinpath = function(stockCode, size) {
                     // isa22: Lợi nhuận của Cổ đông của Công ty mẹ - Lợi nhuận sau thuế
                     data.LNST = {new: obj.isa22, old: null};
 
-                    mpYearMonthData.set(keyYearMonth, data)
+                    if (isYear) {
+                        mpYearData.set(key, data)
+                    } else {
+                        mpYearMonthData.set(key, data)
+                    }
                 }
             });
         }
@@ -121,7 +131,7 @@ fullincomestatementsFinpath = function(stockCode, size) {
 }
 
 // Fireant - Tài chính - Kết quả kinh doanh
-fullincomestatementsFireant = function(stockCode, size) {
+fullincomestatementsFireant = function(stockCode, isYear, size) {
 
     $.ajax({
         // type: Loại báo cáo (1: Cân đối kế toán, 2: Kết quả SXKD, 3: Lưu chuyển tiền tệ trực tiếp, 4: Lưu chuyển tiền tệ gián tiếp)
@@ -140,18 +150,18 @@ fullincomestatementsFireant = function(stockCode, size) {
             var mpData = arrayToMap(reps);
             
             // Doanh thu thuần
-            setValueFireantYearMonth(mpData, 'Doanh thu thuần', 'DTT');
+            setValueFireantYearMonth(mpData, 'Doanh thu thuần', 'DTT', isYear);
             // Lợi nhuận gộp
-            setValueFireantYearMonth(mpData, 'Lợi nhuận gộp', 'LNG');
-            // Lợi nhuận sau thuế của cổ đông của công ty mẹ (19)-(20)
-            setValueFireantYearMonth(mpData, 'Lợi nhuận sau thuế của cổ đông của công ty mẹ', 'LNST');
+            setValueFireantYearMonth(mpData, 'Lợi nhuận gộp', 'LNG', isYear);
+            // Lợi nhuận sau thuế của cổ đông của công ty mẹ
+            setValueFireantYearMonth(mpData, 'Lợi nhuận sau thuế của cổ đông của công ty mẹ', 'LNST', isYear);
         }
     });
     return;
 }
 
 // Finpath - Báo cáo tài chính - Cân đối kế toán
-fullbalancesheetsFinpath = function(stockCode, size) {
+fullbalancesheetsFinpath = function(stockCode, isYear, size) {
     
     $.ajax({
         url: '{0}/api/stocks/fullbalancesheets/{1}'.format(pathFinpath, stockCode),
@@ -161,13 +171,28 @@ fullbalancesheetsFinpath = function(stockCode, size) {
         type: 'GET',
         headers: {},
         success: function(reps) {
-            $.each(reps.data.quarterlys, function(idx, obj) {
-                if (idx < size) {
-                    //
-                    var keyYearMonth = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
-                    lstYearMonth.add(keyYearMonth);
 
-                    var data = mpYearMonthData.get(keyYearMonth) || {};
+            var dataReps = null;
+            if (isYear) {
+                dataReps = reps.data.yearlys;
+            } else {
+                dataReps = reps.data.quarterlys;
+            }
+
+            $.each(dataReps, function(idx, obj) {
+                if (idx < size) {
+
+                    var key = '';
+                    var data = {};
+                    if (isYear) {
+                        // Lấy theo Quý
+                        key = '{0}'.format(obj.yearReport);
+                        data = mpYearData.get(key) || {};
+                    } else {
+                        // Lấy theo Năm
+                        key = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
+                        data = mpYearMonthData.get(key) || {};
+                    }
                     // bsa53: TỔNG CỘNG TÀI SẢN
                     data.TTS = {new: obj.bsa53, old: null};
                     // bsa54: NỢ PHẢI TRẢ
@@ -175,7 +200,11 @@ fullbalancesheetsFinpath = function(stockCode, size) {
                     // bsa78: VỐN CHỦ SỞ HỮU
                     data.VCSH = {new: obj.bsa78, old: null};
 
-                    mpYearMonthData.set(keyYearMonth, data)
+                    if (isYear) {
+                        mpYearData.set(key, data)
+                    } else {
+                        mpYearMonthData.set(key, data)
+                    }
                 }
             });
         }
@@ -184,7 +213,7 @@ fullbalancesheetsFinpath = function(stockCode, size) {
 }
 
 // Fireant - Tài chính - Cân đối kế toán
-fullbalancesheetsFireant = function(stockCode, size) {
+fullbalancesheetsFireant = function(stockCode, isYear, size) {
 
     $.ajax({
         // type: Loại báo cáo (1: Cân đối kế toán, 2: Kết quả SXKD, 3: Lưu chuyển tiền tệ trực tiếp, 4: Lưu chuyển tiền tệ gián tiếp)
@@ -203,11 +232,11 @@ fullbalancesheetsFireant = function(stockCode, size) {
             var mpData = arrayToMap(reps);
 
             // TỔNG CỘNG TÀI SẢN
-            setValueFireantYearMonth(mpData, 'TỔNG CỘNG TÀI SẢN', 'TTS');
+            setValueFireantYearMonth(mpData, 'TỔNG CỘNG TÀI SẢN', 'TTS', isYear);
             // Nợ phải trả
-            setValueFireantYearMonth(mpData, 'Nợ phải trả', 'NO');
+            setValueFireantYearMonth(mpData, 'Nợ phải trả', 'NO', isYear);
             // Nguồn vốn chủ sở hữu
-            setValueFireantYearMonth(mpData, 'Nguồn vốn chủ sở hữu', 'VCSH');
+            setValueFireantYearMonth(mpData, 'Nguồn vốn chủ sở hữu', 'VCSH', isYear);
         }
     });
     return;
@@ -226,16 +255,30 @@ arrayToMap = function(input) {
       }
     return map;
 }
-setValueFireantYearMonth = function(mpData, key, set) {
+setValueFireantYearMonth = function(mpData, key, set, isYear) {
+
     mpData.get(key).forEach(obj => {
-        var keyYearMonth = '{0}{1}{2}'.format(obj.year, 'Q', obj.quarter);
-        lstYearMonth.add(keyYearMonth);
-        var data = mpYearMonthData.get(keyYearMonth) || {};
+        var key = '';
+        var data = {};
+        if (isYear) {
+            // Lấy theo Quý
+            key = '{0}'.format(obj.year);
+            data = mpYearData.get(key) || {};
+        } else {
+            // Lấy theo Năm
+            key = '{0}{1}{2}'.format(obj.year, 'Q', obj.quarter);
+            data = mpYearMonthData.get(key) || {};
+        }
         if (data[set] === undefined) {
             data[set] = {new: obj.value, old: null};
         } else if (data[set].new !== obj.value) {
             data[set] = {new: obj.value, old: data[set].new};
         }
-        mpYearMonthData.set(keyYearMonth, data)
+
+        if (isYear) {
+            mpYearData.set(key, data)
+        } else {
+            mpYearMonthData.set(key, data)
+        }
     });
 }
