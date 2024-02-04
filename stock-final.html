@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/website/image/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/website/image/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/website/image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/website/image/favicon-16x16.png">
+    <title>Stock Pro - TienPD3</title>
+
+    <!-- spreadjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="website/css/common/function.spreadjs.css"></link>
+    <link rel="stylesheet" type="text/css" href="website/css/spreadjs/gc.spread.sheets.excel2013white.16.0.2.css"></link>
+    <script type="text/javascript" src="website/scripts/spreadjs/gc.spread.sheets.all.16.0.2.min.latest.js"></script>
+    <script type="text/javascript" src="website/scripts/spreadjs/interop/gc.spread.excelio.16.0.2.min.latest.js"></script>
+    <script type="text/javascript" src="website/license/spreadjs/license-grapecity.js"></script>
+    <!-- / spreadjs -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
+
+    <!-- aui.atlassian.com -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.css"></link>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/15.0.1/sinon.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.js"></script>
+    <!-- / aui.atlassian.com -->
+
+    <!-- common -->
+    <script type="text/javascript" src="website/common/const.js"></script>
+    <script type="text/javascript" src="website/common/DatetimeUtils.js"></script>
+    <script type="text/javascript" src="website/common/function.common.js"></script>
+    <script type="text/javascript" src="website/common/function.spreadjs.js"></script>
+    <script type="text/javascript" src="website/common/function.update.js"></script>
+    <script type="text/javascript" src="website/common/function.finpath.js"></script>
+    <script type="text/javascript" src="website/common/function.simplize.js"></script>
+    <script type="text/javascript" src="website/common/function.vietstock.js"></script>
+    <script type="text/javascript" src="website/common/function.fireant.trend.js"> </script>
+    <script type="text/javascript" src="website/common/function.fireant.valuation.js"> </script>
+    <!-- / common -->
+
+    <!-- site -->
+    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+    <!-- / site -->
+
+    <script>
+        $(document).ready(function() {
+            localStorage.removeStorageExpires();
+            buildUrlSimplize();
+            var firstValue = buildDropdownStockList();
+            initBuildDropdownStockCode(firstValue.id, firstValue.rules)
+
+            $(document).on('change', '#drpdStockList', function() {
+                const id = $(this).find('option:selected').attr('id');
+                const rules = $(this).find('option:selected').attr('rules');
+                initBuildDropdownStockCode(id, rules)
+                var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
+                drpdSelected.stockListSelected = id;
+                localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected), null)
+            });
+
+            $(document).on('change', '#drpdStockCode', function() {
+                onChangeStockCode();
+            });
+
+            $(document).on('click', '#btnNext', function() {
+                saveWhiteList();
+            });
+
+            $('#idWarning').text(stockListSimplizeNewData);
+        });
+
+        function saveWhiteList() {
+            var tmpSymbol = $('#drpdStockCode').find('option:selected').attr('id');
+            var tmpTickerStockExchange = $('#drpdStockCode').find('option:selected').text();
+            saveGoodStock(tmpSymbol, tmpTickerStockExchange);
+            doNext();
+        }
+
+        function doNext() {
+            var last = $("#drpdStockCode > option").last();
+            var current = $("#drpdStockCode > option:selected");
+            if (last[0] != current[0]) {
+                if (!$('#chkAutoStockNoValue').is(":checked")) {
+                    $('#btnNext').prop('disabled', false);
+                }
+                current.prop("selected", false).next().prop("selected", true);
+            } else {
+                $('#btnNext').prop('disabled', true);
+            }
+            onChangeStockCode();
+        }
+
+        function isCheckElementStockCodeLast() {
+            var last = $("#drpdStockCode > option").last();
+            var current = $("#drpdStockCode > option:selected");
+            return last[0] == current[0];
+        }
+
+        function initBuildDropdownStockCode(pId, pRules) {
+
+            buildDropdownStockCode(pId, pRules);
+            AJS.$("#drpdStockCode").auiSelect2();
+            
+            onChangeStockCode();
+        }
+
+        function onChangeStockCode() {
+            AJS.$("#drpdStockCode").auiSelect2();
+            var pSymbol = $('#drpdStockCode').find('option:selected').attr('id');
+            var filter = $(oc).filter(function (i, elm) {
+                return elm.c === pSymbol
+            })[0];
+            if (filter !== undefined) {
+                loadData(filter.c, filter.m, filter.san);
+            }
+            var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
+            drpdSelected.stockCodeSelected = pSymbol;
+            localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected), null)
+        }
+
+        $(document).on('change', '#chkAutoStockNoValue', function() {
+            if(this.checked) {
+                saveWhiteList();
+            }
+        });
+    </script>
+    <script>
+        var spread, excelIO, loadingStatus;
+
+        function loadData(pSymbol, pName, pExchange) {
+            
+            setParameter(pSymbol, pName, pExchange);
+            loadFile(pSymbol, pName);
+        }
+
+        function loadFile(pSymbol, pName) {
+            
+            getFinancial(pSymbol)
+
+            excelIo = new GC.Spread.Excel.IO();
+            var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
+            if (loadingStatus) {
+                loadingStatus.updateText("Đang xử lý");
+                $('.gc-play-loading').removeClass('hide');
+            }
+
+            var oReq = new XMLHttpRequest();
+            oReq.open('get', excelUrl, true);
+            oReq.responseType = 'blob';
+            oReq.onload = function () {
+                var blob = oReq.response;
+                excelIo.open(blob, function (json) {
+                    getFinancialReports1();
+                    var jsonExcel = JSON.stringify(json);
+                    
+                    var idxQuarter = 0;
+                    const mpYearMonthDataSort = new Map([...mpYearMonthData].sort().reverse());
+                    console.log(lstYearMonth);
+                    mpYearMonthDataSort.forEach((data, keys) => {
+                        // 1. CÁC CHỈ SỐ TÀI CHÍNH:
+                        jsonExcel = jsonExcel.replaceExcel('#Q' + idxQuarter, keys);
+                        jsonExcel = jsonExcel.replaceExcel('#EPSQVal' + idxQuarter, data.EPS?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#PBQVal' + idxQuarter, data.PB?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#PEQVal' + idxQuarter, data.PE?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#ROAQVal' + idxQuarter, data.ROA?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#ROEQVal' + idxQuarter, data.ROE?.new);
+                        // 2. BCTC
+                        jsonExcel = jsonExcel.replaceExcel('#TTSQVal' + idxQuarter, data.TTS?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#NOQVal' + idxQuarter, data.NO?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#VCSHQVal' + idxQuarter, data.VCSH?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#DTTQVal' + idxQuarter, data.DTT?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#LNGQVal' + idxQuarter, data.LNG?.new);
+                        // 
+                        jsonExcel = jsonExcel.replaceExcel('#LNSTQVal' + idxQuarter, data.LNST?.new);
+                        idxQuarter++;
+                    });
+
+                    var idxYear = 0;
+                    mpYearData.forEach((data, keys) => {
+                        jsonExcel = jsonExcel.replaceExcel('#FY' + idxYear, keys);
+                        jsonExcel = jsonExcel.replaceExcel('#EPSFYVal' + idxYear, data.EPS?.new);
+                        // jsonExcel = jsonExcel.replaceExcel('#EPSGFYVal' + i, earningsPerShareByYear.epsGrowthYear);
+                        idxYear++;
+                    });
+
+                    jsonExcel = jsonExcel.replaceExcel('#Symbol', pSymbol);
+                    jsonExcel = JSON.parse(jsonExcel)
+
+                    // jsonExcel = getDataJson(jsonExcel, pSymbol, pName);
+                    
+                    if (!spread) {
+                        spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+                        var statusBar = initStatusBar(spread)
+                        loadingStatus = new LoadingStatus('LoadingStatus', { tipText: 'Đang xử lý' });
+                        statusBar.add(loadingStatus);
+                    }
+                    spread.fromJSON(jsonExcel, {
+                        incrementalLoading: {
+                            loading: function (progress, args) {
+                                loadingStatus.updateProgress(progress, args);
+                            },
+                            loaded: function () {
+                                loadingStatus.updateText("Lấy dữ liệu " + pSymbol + " thành công");
+                                $('.gc-play-loading').addClass('hide');
+                                autoNextStock();
+                            }
+                        }
+                    });
+
+                    activeSheet(spread, 'Định giá');
+                    spread.options.scrollbarAppearance = GC.Spread.Sheets.ScrollbarAppearance.mobile;
+                    spread.options.showVerticalScrollbar = false;
+                    spread.options.scrollbarShowMax = false;
+                    // Cho phép edit tên sheet hay không?
+                    spread.options.tabEditable = true; // false: disable, true: enable
+                    // Cho phép ẩn sheet hay không?
+                    // spread.options.tabStripVisible = true; // true: show, false: hide
+                    // Cho phép thêm sheet hày không?
+                    spread.options.newTabVisible = true; // false: hide, true: show
+                    // Cho phép ẩn mũi tên ở sheet hay không?
+                    spread.options.tabNavigationVisible = false; // false: hide, true: show
+                    // Setting vị trí sheet
+                    spread.options.tabStripPosition = GC.Spread.Sheets.TabStripPosition.top;
+                }, function (message) {
+                    console.log(message);
+                });
+            };
+            oReq.send(null);
+        }
+
+        var sleepNext = null;
+        function autoNextStock() {
+            clearInterval(sleepNext);
+            var sheet = spread.getActiveSheet();
+            // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
+            var cellValue = sheet.getText(13, 3);
+            var tempIsGoodStock = false;
+            if (cellValue == 'YES') {
+                tempIsGoodStock = true;
+            }
+
+            if ($('#chkAutoStockNoValue').is(":checked")) {
+                if ($('#chkSaveWhitelist').is(":checked")) {
+                    var idx = 5
+                    sleepNext = setInterval(function () {
+                        if (idx <= 0) {
+                            clearInterval(sleepNext);
+                            if (isCheckElementStockCodeLast()) {
+                                $('#btnNext').prop('disabled', true);
+                                $('#btnNext').text('Kiểm tra mã tiếp theo');
+                            } else {
+                                saveWhiteList();
+                            }
+                        }
+                        $('#btnNext').prop('disabled', true);
+                        if (tempIsGoodStock) {
+                            $('#btnNext').text('Cổ phiếu cần đánh giá, tiếp tục sau ' + idx + ' giây');
+                        } else {
+                            $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
+                        }
+                        idx--;
+                    }, 1000);
+                } else {
+                    if (!tempIsGoodStock) {
+                        var idx = 5
+                        sleepNext = setInterval(function () {
+                            if (idx <= 0) {
+                                clearInterval(sleepNext);
+                                if (isCheckElementStockCodeLast()) {
+                                    $('#btnNext').prop('disabled', true);
+                                    $('#btnNext').text('Kiểm tra mã tiếp theo');
+                                } else {
+                                    saveWhiteList();
+                                }
+                            }
+                            $('#btnNext').prop('disabled', true);
+                            $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
+                            idx--;
+                        }, 1000);
+                    } else {
+                        if (isCheckElementStockCodeLast()) {
+                            $('#btnNext').prop('disabled', true);
+                        } else {
+                            $('#btnNext').prop('disabled', false);
+                        }
+                        $('#btnNext').text('Kiểm tra mã tiếp theo');
+                    }
+                }
+            } else {
+                if (isCheckElementStockCodeLast()) {
+                    $('#btnNext').prop('disabled', true);
+                } else {
+                    $('#btnNext').prop('disabled', false);
+                }
+                $('#btnNext').text('Kiểm tra mã tiếp theo');
+            }
+        }
+
+        function saveGoodStock(pSymbol, tickerStockExchange) {
+
+            var sheet = spread.getActiveSheet();
+            // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
+            var cellValue = sheet.getText(13, 3);
+            
+            var tmpStockValueList = localStorage.getStorage('stockValue');
+            if (tmpStockValueList === null) {
+                tmpStockValueList = [];
+            } else {
+                tmpStockValueList = JSON.parse(tmpStockValueList);
+            }
+
+            if (cellValue === 'NO') {
+                var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
+                if(tmpStockValue !== null) {
+                    tmpStockValueList = tmpStockValueList.filter(function(row) {
+                        return row.ticker !== pSymbol;
+                    });
+                }
+                localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
+                return false;
+            } else {
+                var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
+                if(tmpStockValue.length === 0) {
+                    tmpStockValue = {
+                        ticker: pSymbol,
+                        stockExchange: tickerStockExchange
+                    }
+                    tmpStockValueList.push(tmpStockValue)
+                }
+                localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form class="aui">
+        <i class="red" id="idWarning" for="warning"></i>
+        <div></div>
+        <label for="drpdStockList">Bộ lọc chứng khoán</label>
+        <div id="idStockList">
+            <select class="select" id="drpdStockList" name="drpdStockList"></select>
+            <input type="checkbox" name="chkAutoStockNoValue" id="chkAutoStockNoValue">
+            <label for="chkAutoStockNoValue">Tự động bỏ qua cổ phiếu không giá trị</label>
+        </div>
+        <label for="drpdStockCode">Mã chứng khoán</label>
+        <div id="idStockCode">
+            <select class="select" id="drpdStockCode" name="drpdStockCode" placeholder="Vui lòng chọn mã chứng khoán"></select>
+            <input type="checkbox" name="chkSaveWhitelist" id="chkSaveWhitelist">
+            <label for="chkSaveWhitelist">Tự động lưu Whitelist</label>
+        </div>
+    </form>
+    <!-- Spinner -->
+    <div class="gc-playground_view">
+        <div id="spreadSheet" style="width: 100%; height: 550px;"></div>
+        <div class="gc-play-loading">
+            <div class="indicator-wrapper gcim_hidden">
+                <div class="loading-ring" style="height: 30px; width: 30px;">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="statusBar"></div>
+    <!-- / Spinner -->
+    <input type="hidden" id="importUrl" value="website/file/stock_template.xlsx" />
+    <button id="btnNext" class="aui-button aui-button-primary">Kiểm tra mã tiếp theo</button>
+</body>
+</html>
