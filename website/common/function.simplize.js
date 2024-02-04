@@ -6,6 +6,8 @@ var urlStockListSimplizeError = '';
 var urlStockFilterSimplize = '';
 var urlSectorPerformanceSimplize = '';
 var urlAnalysisSimplize = '';
+var urlFinancialIndicatorsQuarterSimplize = '';
+var urlFinancialIndicatorsYearSimplize = '';
 var headerDataSimplize = {
     authorization : accessTokenSimplize,
     //'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
@@ -21,7 +23,86 @@ function buildUrlSimplize() {
     urlStockFilterSimplize = 'https://api.simplize.vn/api/company/screener/filter';
     urlSectorPerformanceSimplize = 'https://api.simplize.vn/api/company/se/sector-performance'
     urlAnalysisSimplize = 'https://api.simplize.vn/api/company/analysis-metrics-detail/{0}'
+    // Chỉ số tài chính
+    urlFinancialIndicatorsQuarterSimplize = 'https://api.simplize.vn/api/company/fi/ratio//{0}?period=Q&size=5'
+    urlFinancialIndicatorsYearSimplize = 'https://api.simplize.vn/api/company/fi/ratio//{0}?period=Y&size=3'
 }
+// ----- START Chỉ số tài chính -----
+var financialIndicatorsQuarterSimplize = null;
+var financialIndicatorsYearSimplize = null;
+function getAjaxFinancialIndicatorsQuarterSimplize(stockCode) {
+    $.ajax({
+        url: urlFinancialIndicatorsQuarterSimplize.replace('{0}', stockCode),
+        async: false,
+        contentType: "application/json",
+        dataType : 'json',
+        type: 'GET',
+        headers: headerDataSimplize,
+        success: function(reps) {
+            financialIndicatorsQuarterSimplize = reps.data;
+        }
+    });
+    return financialIndicatorsQuarterSimplize;
+}
+function getAjaxFinancialIndicatorsYearSimplize(stockCode) {
+    $.ajax({
+        url: urlFinancialIndicatorsYearSimplize.replace('{0}', stockCode),
+        async: false,
+        contentType: "application/json",
+        dataType : 'json',
+        type: 'GET',
+        headers: headerDataSimplize,
+        success: function(reps) {
+            financialIndicatorsYearSimplize = reps.data;
+        }
+    });
+    return financialIndicatorsYearSimplize;
+}
+
+var arrayEarningsPerShareByQuarter = null;
+var arrayEarningsPerShareByYear = null;
+function earningsPerShareByQuarter(stockCode) {
+    financialIndicatorsQuarterSimplize = getAjaxFinancialIndicatorsQuarterSimplize(stockCode);
+    arrayEarningsPerShareByQuarter = [];
+    for (let i = 0; i < financialIndicatorsQuarterSimplize.items.length; i++) {
+        const itemCurrent = financialIndicatorsQuarterSimplize.items[i];
+        const itemBefore = financialIndicatorsQuarterSimplize.items[i + 1];
+        var earningsPerShareByQuarter = {};
+        earningsPerShareByQuarter.quarter = itemCurrent.periodDateName;
+        earningsPerShareByQuarter.epsQuarter = itemCurrent.op4;
+        if (i + 1 != financialIndicatorsQuarterSimplize.items.length) {
+            earningsPerShareByQuarter.epsGrowthQuarter = ((itemBefore.op4 - itemCurrent.op4) / itemCurrent.op4);
+        } else {
+            earningsPerShareByQuarter.epsGrowthQuarter = '';
+        }
+        arrayEarningsPerShareByQuarter.push(earningsPerShareByQuarter);
+    }
+    return arrayEarningsPerShareByQuarter;
+}
+
+function earningsPerShareByYear(stockCode) {
+    financialIndicatorsYearSimplize = getAjaxFinancialIndicatorsYearSimplize(stockCode);
+    arrayEarningsPerShareByYear = [];
+    for (let i = 0; i < financialIndicatorsYearSimplize.items.length; i++) {
+        const itemCurrent = financialIndicatorsYearSimplize.items[i];
+        const itemBefore = financialIndicatorsYearSimplize.items[i + 1];
+        var earningsPerShareByYear = {};
+        earningsPerShareByYear.year = itemCurrent.periodDateName;
+        earningsPerShareByYear.epsYear = itemCurrent.op4;
+        if (i + 1 != financialIndicatorsYearSimplize.items.length) {
+            earningsPerShareByYear.epsGrowthYear = ((itemCurrent.op4 - itemBefore.op4) / Math.abs(itemBefore.op4));
+        } else {
+            earningsPerShareByYear.epsGrowthYear = '';
+        }
+        arrayEarningsPerShareByYear.push(earningsPerShareByYear);
+    }
+    arrayEarningsPerShareByYear.push({year: '', epsYear: '', epsGrowthYear: ''});
+    arrayEarningsPerShareByYear.push({year: '', epsYear: '', epsGrowthYear: ''});
+
+    return arrayEarningsPerShareByYear;
+}
+// ----- END Chỉ số tài chính -----
+
 
 
 // ----- START Định giá cổ phiếu -----

@@ -39,6 +39,11 @@ String.prototype.stringEnglishHyphen = function() {
     return sReturn;
 };
 
+Number.prototype.padWithLeadingZeros = function () {
+    var input = this;
+    return String(input).padStart(2, '0');
+}
+
 String.prototype.stringEnglishUppercase = function() {
 
     var input = this;
@@ -100,6 +105,16 @@ String.prototype.contains = function(value) {
         return true;
     }
     return false;
+};
+
+String.prototype.format = function() {
+    var s = this,
+        i = arguments.length;
+
+    while (i--) {
+        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+    }
+    return s;
 };
 
 Number.prototype.round = function() {
