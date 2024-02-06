@@ -6,14 +6,21 @@ const mpYearMonthData = new Map();
 const mpYearData = new Map();
 const SIZE_DEFAULT = 5
 
-getFinancial = function(stockCode, isYear = false, size = SIZE_DEFAULT) {
+getFinancial = function(stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
+
+    isBank = false;
+    if (stockName.indexOf('Ngân hàng') == 0) {
+        isBank = true;
+    }
+    console.log(isBank);
+
     // Finpath - The first
     financialratios(stockCode, isYear, size);
-    fullincomestatementsFinpath(stockCode, isYear, size);
+    fullincomestatementsFinpath(stockCode, isBank, isYear, size);
     fullbalancesheetsFinpath(stockCode, isYear, size);
     // Fireant - The second
-    fullbalancesheetsFireant(stockCode, isYear, size);
-    fullincomestatementsFireant(stockCode, isYear, size);
+    //fullbalancesheetsFireant(stockCode, isYear, size);
+    //fullincomestatementsFireant(stockCode, isYear, size);
 }
 
 // Finpath - Phân tích tài chính
@@ -79,7 +86,7 @@ financialratios = function(stockCode, isYear, size) {
 }
 
 // Finpath - Báo cáo tài chính - Kết quả kinh doanh
-fullincomestatementsFinpath = function(stockCode, isYear, size) {
+fullincomestatementsFinpath = function(stockCode, isBank, isYear, size) {
 
     $.ajax({
         url: '{0}/api/stocks/fullincomestatements/{1}'.format(pathFinpath, stockCode),
@@ -97,9 +104,9 @@ fullincomestatementsFinpath = function(stockCode, isYear, size) {
                 dataReps = reps.data.quarterlys;
             }
 
-            $.each(reps.data.dataReps, function(idx, obj) {
+            $.each(dataReps, function(idx, obj) {
                 if (idx < size) {
-
+                    
                     var key = '';
                     var data = {};
                     if (isYear) {
@@ -111,10 +118,21 @@ fullincomestatementsFinpath = function(stockCode, isYear, size) {
                         key = '{0}{1}{2}'.format(obj.yearReport, 'Q', obj.quarterReport);
                         data = mpYearMonthData.get(key) || {};
                     }
-                    // isa3: Doanh số thuần - Danh thu thuần
-                    data.DTT = {new: obj.isa3, old: null};
-                    // isa5: Lãi gộp - Lợi nhuận gộp
-                    data.LNG = {new: obj.isa5, old: null};
+
+                    // Kiểm tra xem có phải thuộc mã Ngân hàng không?
+                    if (isBank) {
+                        // isb25: Thu nhập lãi và các khoản thu nhập tương tự - Danh thu thuần
+                        data.DTT = {new: obj.isb25, old: null};
+                        // isb27: Thu nhập lãi thuần - Lợi nhuận gộp
+                        data.LNG = {new: obj.isb27, old: null};
+                    } else {
+                        // isa3: Doanh số thuần - Danh thu thuần
+                        data.DTT = {new: obj.isa3, old: null};
+                        // isa5: Lãi gộp - Lợi nhuận gộp
+                        data.LNG = {new: obj.isa5, old: null};
+                    }
+                    
+                    
                     // isa22: Lợi nhuận của Cổ đông của Công ty mẹ - Lợi nhuận sau thuế
                     data.LNST = {new: obj.isa22, old: null};
 
@@ -220,7 +238,7 @@ fullbalancesheetsFireant = function(stockCode, isYear, size) {
         // year: Năm lấy báo cáo
         // quarter: Quý lấy báo cáo
         // limit: Số lượng tối đa bản ghi lấy về (Mặc địch là SIZE_DEFAULT)
-        url: '{0}/symbols/{1}/full-financial-reports?type=1&year={2}&quarter=1&limit={3}'.format(pathFireant, stockCode, DatetimeUtils.getYear(), size),
+        url: '{0}/symbols/{1}/full-financial-reports?type=1&year={2}&quarter={3}&limit={4}'.format(pathFireant, stockCode, DatetimeUtils.getYear(), isYear? 0: 1, size),
         async: false,
         contentType: "application/json",
         dataType : 'json',

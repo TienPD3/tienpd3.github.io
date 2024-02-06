@@ -136,7 +136,8 @@
 
         function loadFile(pSymbol, pName) {
             
-            getFinancial(pSymbol, false);
+            var isYear = true;
+            getFinancial(pSymbol, pName, isYear);
 
             excelIo = new GC.Spread.Excel.IO();
             var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
@@ -152,35 +153,33 @@
                 var blob = oReq.response;
                 excelIo.open(blob, function (json) {
                     var jsonExcel = JSON.stringify(json);
-                    
-                    var idxQuarter = 0;
-                    const mpYearMonthDataSort = new Map([...mpYearMonthData].sort().reverse());
-                    debugger;
-                    mpYearMonthDataSort.forEach((data, keys) => {
-                        // 1. CÁC CHỈ SỐ TÀI CHÍNH:
-                        jsonExcel = jsonExcel.replaceExcel('#Q' + idxQuarter, keys);
-                        jsonExcel = jsonExcel.replaceExcel('#EPSQVal' + idxQuarter, data.EPS?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#PBQVal' + idxQuarter, data.PB?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#PEQVal' + idxQuarter, data.PE?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#ROAQVal' + idxQuarter, data.ROA?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#ROEQVal' + idxQuarter, data.ROE?.new);
-                        // 2. BCTC
-                        jsonExcel = jsonExcel.replaceExcel('#TTSQVal' + idxQuarter, data.TTS?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#NOQVal' + idxQuarter, data.NO?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#VCSHQVal' + idxQuarter, data.VCSH?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#DTTQVal' + idxQuarter, data.DTT?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#LNGQVal' + idxQuarter, data.LNG?.new);
-                        // 
-                        jsonExcel = jsonExcel.replaceExcel('#LNSTQVal' + idxQuarter, data.LNST?.new);
-                        idxQuarter++;
-                    });
 
-                    var idxYear = 0;
-                    mpYearData.forEach((data, keys) => {
-                        jsonExcel = jsonExcel.replaceExcel('#FY' + idxYear, keys);
-                        jsonExcel = jsonExcel.replaceExcel('#EPSFYVal' + idxYear, data.EPS?.new);
-                        // jsonExcel = jsonExcel.replaceExcel('#EPSGFYVal' + i, earningsPerShareByYear.epsGrowthYear);
-                        idxYear++;
+                    var mpDataSort = new Map([...mpYearMonthData].sort().reverse());
+                    if (isYear) {
+                        mpDataSort = new Map([...mpYearData].sort().reverse());
+                    }
+                    
+                    var idxFYQ = 0;
+                    jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM': 'QUÝ');
+                    mpDataSort.forEach((data, keys) => {
+
+                        // 1. CÁC CHỈ SỐ TÀI CHÍNH:
+                        jsonExcel = jsonExcel.replaceExcel('#FYQ' + idxFYQ, keys);
+                        
+                        jsonExcel = jsonExcel.replaceExcel('#EPSVal' + idxFYQ, data.EPS?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#PBVal' + idxFYQ, data.PB?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#PEVal' + idxFYQ, data.PE?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#ROAVal' + idxFYQ, data.ROA?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#ROEVal' + idxFYQ, data.ROE?.new);
+                        // 2. BCTC
+                        jsonExcel = jsonExcel.replaceExcel('#TTSVal' + idxFYQ, data.TTS?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#NOVal' + idxFYQ, data.NO?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#VCSHVal' + idxFYQ, data.VCSH?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#DTTVal' + idxFYQ, data.DTT?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#LNGVal' + idxFYQ, data.LNG?.new);
+                        // 
+                        jsonExcel = jsonExcel.replaceExcel('#LNSTVal' + idxFYQ, data.LNST?.new);
+                        idxFYQ++;
                     });
 
                     jsonExcel = jsonExcel.replaceExcel('#Symbol', pSymbol);
