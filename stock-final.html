@@ -29,6 +29,7 @@
     <!-- common -->
     <script type="text/javascript" src="website/common/const.js"></script>
     <script type="text/javascript" src="website/common/DatetimeUtils.js"></script>
+    <script type="text/javascript" src="website/common/StringUtils.js"></script>
     <script type="text/javascript" src="website/common/function.common.js"></script>
     <script type="text/javascript" src="website/common/function.spreadjs.js"></script>
     <script type="text/javascript" src="website/common/function.update.js"></script>
@@ -158,7 +159,7 @@
                     if (isYear) {
                         mpDataSort = new Map([...mpYearData].sort().reverse());
                     }
-                    
+                    console.log(mpDataSort);
                     var idxFYQ = 0;
                     jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM': 'QUÝ');
                     mpDataSort.forEach((data, keys) => {
@@ -172,13 +173,25 @@
                         jsonExcel = jsonExcel.replaceExcel('#ROAVal' + idxFYQ, data.ROA?.new);
                         jsonExcel = jsonExcel.replaceExcel('#ROEVal' + idxFYQ, data.ROE?.new);
                         // 2. BCTC
+                        // TÀI SẢN
                         jsonExcel = jsonExcel.replaceExcel('#TTSVal' + idxFYQ, data.TTS?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#TTSOldVal' + idxFYQ, data.TTS?.old);
+                        // NỢ
                         jsonExcel = jsonExcel.replaceExcel('#NOVal' + idxFYQ, data.NO?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#NOOldVal' + idxFYQ, data.NO?.old);
+                        // VCSH
                         jsonExcel = jsonExcel.replaceExcel('#VCSHVal' + idxFYQ, data.VCSH?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#VCSHOldVal' + idxFYQ, data.VCSH?.old);
+                        // DOANH THU
                         jsonExcel = jsonExcel.replaceExcel('#DTTVal' + idxFYQ, data.DTT?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#DTTOldVal' + idxFYQ, data.DTT?.old);
+                        // LNG
                         jsonExcel = jsonExcel.replaceExcel('#LNGVal' + idxFYQ, data.LNG?.new);
-                        // 
+                        jsonExcel = jsonExcel.replaceExcel('#LNGOldVal' + idxFYQ, data.LNG?.old);
+                        // LNST 
                         jsonExcel = jsonExcel.replaceExcel('#LNSTVal' + idxFYQ, data.LNST?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#LNSTOldVal' + idxFYQ, data.LNST?.old);
+
                         idxFYQ++;
                     });
 
