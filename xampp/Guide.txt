@@ -1,8 +1,9 @@
 ---
 Đổi folder htdocs in xampp
  + File: C:/xampp/apache/conf/httpd.conf
- + Line: DocumentRoot, Directory đổi Path: C:/xampp/htdocs -> Example: 
+ + Line: DocumentRoot, Directory đổi Path: C:/xampp/htdocs -> Example: Path cần đổi
 Refer: httpd.conf - https://www.daipho.com/blog/thay-doi-thu-muc-webroot-htdocs-cua-xampp/
+
 ---
 Lấy chứng chỉ https in xampp
  + CopyFolder: crt vào C:\xampp\apache

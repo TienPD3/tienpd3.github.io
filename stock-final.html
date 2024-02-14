@@ -26,14 +26,21 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.js"></script>
     <!-- / aui.atlassian.com -->
 
+    <!-- momentjs -->
+    <script type="text/javascript" src="website/scripts/momentjs/moment.min.js"></script>
+    <!-- / momentjs -->
+
     <!-- common -->
-    <script type="text/javascript" src="website/common/const.js"></script>
+    <script type="text/javascript" src="website/common/VersionUtils.js"></script>
     <script type="text/javascript" src="website/common/DatetimeUtils.js"></script>
-    <script type="text/javascript" src="website/common/StringUtils.js"></script>
+    <script>
+        VersionUtils.importPlugin('/website/common/function.finpath.js');
+        VersionUtils.importPlugin('/website/common/StringUtils.js');
+    </script>
+    <script>document.write('<script src="/website/common/const.js?version=' + DatetimeUtils.getSystemDateTime() + '"\><\/script>');</script>
     <script type="text/javascript" src="website/common/function.common.js"></script>
     <script type="text/javascript" src="website/common/function.spreadjs.js"></script>
     <script type="text/javascript" src="website/common/function.update.js"></script>
-    <script type="text/javascript" src="website/common/function.finpath.js"></script>
     <script type="text/javascript" src="website/common/function.simplize.js"></script>
     <script type="text/javascript" src="website/common/function.vietstock.js"></script>
     <script type="text/javascript" src="website/common/function.fireant.trend.js"> </script>
@@ -137,7 +144,7 @@
 
         function loadFile(pSymbol, pName) {
             
-            var isYear = true;
+            var isYear = false;
             getFinancial(pSymbol, pName, isYear);
 
             excelIo = new GC.Spread.Excel.IO();
@@ -155,11 +162,47 @@
                 excelIo.open(blob, function (json) {
                     var jsonExcel = JSON.stringify(json);
 
+                    // Tạo Sheet Định giá
+                    jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', currentDataFireant.PC);
+                    jsonExcel = jsonExcel.replaceExcel('#DGCPLHVal', currentDataFireant.CPLH);
+
+                    // Tạo Sheet chi tiết
                     var mpDataSort = new Map([...mpYearMonthData].sort().reverse());
-                    if (isYear) {
-                        mpDataSort = new Map([...mpYearData].sort().reverse());
+                    var mpDataQSort = mpDataSort;
+
+
+                    // Xóa phần tử thừa Quý
+                    
+                    if (mpYearData.size > 5) {
+                        const [lastKey] = [...mpYearData].at(-1) || '';
+                        mpYearData.delete(lastKey);
                     }
-                    console.log(mpDataSort);
+
+                    var mpDataYSortDESC = new Map([...mpYearData].sort().reverse());
+                    var mpDataYSortASC = new Map([...mpYearData].sort());
+                    
+                    debugger;
+                    // Theo Quý
+                    var idxQ = 0;
+                    mpDataQSort.forEach((data, keys) => {
+                        // LNST theo Quý
+                        jsonExcel = jsonExcel.replaceExcel('#DGLNSTValQ' + idxQ, data.LNST?.new / 1000000000);
+                        // VCSH theo Quý
+                        jsonExcel = jsonExcel.replaceExcel('#DGVCSHValQ' + idxQ, data.VCSH?.new / 1000000000);
+
+                        idxQ++;
+                    });
+
+                    // Theo năm
+                    var idxY = 0;
+                    mpDataYSortASC.forEach((data, keys) => {
+                        jsonExcel = jsonExcel.replaceExcel('#HLNSTValY' + idxY, data.LNST?.new / 1000000000);
+
+                        idxY++;
+                    });
+
+                    
+
                     var idxFYQ = 0;
                     jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM': 'QUÝ');
                     mpDataSort.forEach((data, keys) => {
@@ -361,6 +404,24 @@
             <input type="checkbox" name="chkSaveWhitelist" id="chkSaveWhitelist">
             <label for="chkSaveWhitelist">Tự động lưu Whitelist</label>
         </div>
+        <legend><span>Radio buttons</span></legend>
+        <div class="radio">
+            <input
+                type="radio"
+                checked="checked"
+                name="radiobuttons"
+                id="radioButtonOne"
+            >
+            <label for="radioButtonOne">Quý</label>
+        </div>
+        <div class="radio">
+            <input
+                type="radio"
+                name="radiobuttons"
+                id="radioButtonTwo"
+            >
+            <label for="radioButtonTwo">Name</label>
+        </div>
     </form>
     <!-- Spinner -->
     <div class="gc-playground_view">
@@ -378,7 +439,7 @@
     </div>
     <div id="statusBar"></div>
     <!-- / Spinner -->
-    <input type="hidden" id="importUrl" value="website/file/stock_template.xlsx" />
+    <input type="hidden" id="importUrl" value="website/file/template_final.xlsx" />
     <button id="btnNext" class="aui-button aui-button-primary">Kiểm tra mã tiếp theo</button>
 </body>
 </html>

@@ -5,9 +5,20 @@ const pathSimplize = 'https://api.simplize.vn'
 // Create variable
 var mpYearMonthData = new Map();
 var mpYearData = new Map();
+var currentDataFireant = {};
 const SIZE_DEFAULT = 5
 
-getFinancial = function(stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
+/**
+ * Init
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} stockName
+ * @param {boolean} [isYear=false]
+ * @param {*} [size=SIZE_DEFAULT]
+ */
+function getFinancial(stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
 
     mpYearMonthData = new Map();
     mpYearData = new Map();
@@ -19,17 +30,29 @@ getFinancial = function(stockCode, stockName, isYear = false, size = SIZE_DEFAUL
 
     // Finpath - The first
     financialratiosFinpath(stockCode, isYear, size);
-    fullincomestatementsFinpath(stockCode, isBank, isYear, size);
+    fullincomestatementsFinpath(stockCode, isBank, true, size);
+    fullincomestatementsFinpath(stockCode, isBank, false, size);
     fullbalancesheetsFinpath(stockCode, isYear, size);
     // Simplize - The second
     financialratiosSimplize(stockCode, isYear, size);
     // Fireant - The thrid
+    financialIndicatorsFireant(stockCode);
     fullbalancesheetsFireant(stockCode, isYear, size);
-    fullincomestatementsFireant(stockCode, isBank, isYear, size);
+    fullincomestatementsFireant(stockCode, isBank, true, size);
+    fullincomestatementsFireant(stockCode, isBank, false, size);
     holdersFireant(stockCode);
+    historicalQuotesFireant(stockCode);
+    fundamentalFireant(stockCode);
 }
 
-holdersFireant = function(stockCode) {
+/**
+ * Fireant - Cổ đông
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ */
+function holdersFireant(stockCode) {
     $.ajax({
         url: '{0}/symbols/{1}/holders'.format(pathFireant, stockCode),
         async: false,
@@ -47,8 +70,131 @@ holdersFireant = function(stockCode) {
     });
 }
 
-// Finpath - Phân tích tài chính
-financialratiosFinpath = function(stockCode, isYear, size) {
+
+/**
+ * Fireant - Giá quá khứ
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ */
+function historicalQuotesFireant(stockCode) {
+
+    if (historicalQuotes === null) {
+        strLatestTGCP = null;
+
+        $.ajax({
+            url: '{0}/symbols/{1}/historical-quotes?startDate=1900-01-01&endDate={2}&offset=0&limit=1'.format(pathFireant, stockCode, DatetimeUtils.getSystemDate()),
+            async: false,
+            contentType: "application/json",
+            dataType : 'json',
+            type: 'GET',
+            headers: {
+                authorization : ACCESS_TOKEN_FIREANT
+            },
+            success: function(reps) {
+                currentDataFireant['PC'] = (reps[0].priceClose * 1000).toFixed();
+            }
+        });
+    }
+}
+
+/**
+ * Fireant - Tổng quan - Tổng hợp
+ * 
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ */
+function fundamentalFireant(stockCode) {
+
+    if (historicalQuotes === null) {
+        strLatestTGCP = null;
+
+        $.ajax({
+            url: '{0}/symbols/{1}/fundamental'.format(pathFireant, stockCode),
+            async: false,
+            contentType: "application/json",
+            dataType : 'json',
+            type: 'GET',
+            headers: {
+                authorization : ACCESS_TOKEN_FIREANT
+            },
+            success: function(reps) {
+                debugger;
+                currentDataFireant['CPLH'] = reps.sharesOutstanding / 1000000;
+            }
+        });
+    }
+}
+
+/**
+ * Fireant - Chỉ số
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ */
+function financialIndicatorsFireant(stockCode) {
+    $.ajax({
+        url: '{0}/symbols/{1}/financial-indicators'.format(pathFireant, stockCode),
+        async: false,
+        contentType: "application/json",
+        dataType : 'json',
+        type: 'GET',
+        headers: {
+            authorization : ACCESS_TOKEN_FIREANT
+        },
+        success: function(reps) {
+            
+            $.each(reps, function(idx, obj) {
+                // P/E (Price to Earning per share) là tỷ lệ giữa giá thị trường và lợi nhuận ròng trên mỗi cổ phiếu.
+                setValueFinancialIndicatorsFireant('P/E', 'PB', obj);
+                // P/B (Price to Book value per share) là tỷ lệ giữa giá thị trường và giá trị sổ sách trên mỗi cổ phiếu.
+                setValueFinancialIndicatorsFireant('P/B', 'PB', obj);
+                // Tỷ lệ lãi ròng hay còn gọi là biên lợi nhuận sau thuế (Net profit margin) được tính bằng tỷ lệ giữa lợi nhuận sau thuế và doanh thu thuần.
+                setValueFinancialIndicatorsFireant('%Lãi ròng', 'NPM', obj);
+                // Tỷ lệ lãi gộp hay biên lợi nhuận gộp (Gross margin), được tính bằng tỷ lệ giữa lợi nhuận gộp và doanh thu thuần.
+                setValueFinancialIndicatorsFireant('%Lãi gộp', 'GM', obj);
+                // ROA (Return on Assets) là hệ số lợi nhuận trên tài sản, được tính bằng tỷ lệ giữa lợi nhuận sau thuế và tổng tài sản.
+                setValueFinancialIndicatorsFireant('ROA', 'ROA', obj);
+                // ROE (Return on Equity) là hệ số lợi nhuận trên vốn chủ sở hữu, được tính bằng tỷ lệ giữa lợi nhuận sau thuế và tổng nguồn vốn chủ sở hữu.
+                setValueFinancialIndicatorsFireant('ROE', 'ROE', obj);
+                // ROIC (Return on invested Capital) là hệ số lợi nhuận trên vốn đầu tư, được tính bằng tỷ lệ giữa EBIT*(1-thuế suất) và vốn đầu tư.
+                setValueFinancialIndicatorsFireant('ROIC', 'ROIC', obj);
+                // Hệ số nợ trên vốn chủ sở hữu (Debt On Equity), được tính bằng tỷ lệ giữa tổng nợ phải trả và tổng nguồn vốn chủ sở hữu.
+                setValueFinancialIndicatorsFireant('Nợ/VCSH', 'DOE', obj);
+            });
+        }
+    });
+}
+
+/**
+ * Set value financial indicators fireant
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} getName
+ * @param {*} setName
+ * @param {*} obj
+ */
+function setValueFinancialIndicatorsFireant(getName, setName, obj) {
+    if (obj.shortName === getName) {
+        currentDataFireant[setName] = obj.value;
+    }
+}
+
+/**
+ * Finpath - Phân tích tài chính
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} isYear
+ * @param {*} size
+ * @return {*} 
+ */
+function financialratiosFinpath(stockCode, isYear, size) {
 
     $.ajax({
         url: '{0}/api/stocks/financialratios/{1}'.format(pathFinpath, stockCode),
@@ -81,20 +227,12 @@ financialratiosFinpath = function(stockCode, isYear, size) {
                         data = mpYearMonthData.get(key) || {};
                     }
 
-                    // BV
-                    // P/B - OK
-                    data.PB = {new: obj.pb, old: ''};
-                    // P/E - OK
-                    data.PE = {new: obj.pe, old: ''};
-                    // ROA - OK
-                    data.ROA = {new: obj.roa, old: ''};
-                    // ROE - OK
-                    data.ROE = {new: obj.roe, old: ''};
-                    // EPS - OK
+                    // EPS
                     data.EPS = {new: obj.eps, old: ''};
-                    // ROS
-                    // GOS
-                    // DAR
+                    // P/B
+                    data.PB = {new: obj.pb, old: ''};
+                    // P/E
+                    data.PE = {new: obj.pe, old: ''};
 
                     if (isYear) {
                         mpYearData.set(key, data)
@@ -109,8 +247,17 @@ financialratiosFinpath = function(stockCode, isYear, size) {
     return;
 }
 
-// Simplize - Chỉ số tài chính
-financialratiosSimplize = function(stockCode, isYear, size) {
+/**
+ * Simplize - Chỉ số tài chính
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} isYear
+ * @param {*} size
+ * @return {*} 
+ */
+function financialratiosSimplize(stockCode, isYear, size) {
 
     $.ajax({
         url: '{0}/api/company/fi/ratio//{1}?period={2}&size={3}'.format(pathSimplize, stockCode, isYear? 'Y': 'Q', isYear? 3: 12),
@@ -138,8 +285,18 @@ financialratiosSimplize = function(stockCode, isYear, size) {
     return;
 }
 
-// Finpath - Báo cáo tài chính - Kết quả kinh doanh
-fullincomestatementsFinpath = function(stockCode, isBank, isYear, size) {
+/**
+ * Finpath - Báo cáo tài chính - Kết quả kinh doanh
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} isBank
+ * @param {*} isYear
+ * @param {*} size
+ * @return {*} 
+ */
+function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
 
     $.ajax({
         url: '{0}/api/stocks/fullincomestatements/{1}'.format(pathFinpath, stockCode),
@@ -201,8 +358,18 @@ fullincomestatementsFinpath = function(stockCode, isBank, isYear, size) {
     return;
 }
 
-// Fireant - Tài chính - Kết quả kinh doanh
-fullincomestatementsFireant = function(stockCode, isBank, isYear, size) {
+/**
+ * Fireant - Tài chính - Kết quả kinh doanh
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} isBank
+ * @param {*} isYear
+ * @param {*} size
+ * @return {*} 
+ */
+function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
 
     $.ajax({
         // type: Loại báo cáo (1: Cân đối kế toán, 2: Kết quả SXKD, 3: Lưu chuyển tiền tệ trực tiếp, 4: Lưu chuyển tiền tệ gián tiếp)
@@ -218,7 +385,7 @@ fullincomestatementsFireant = function(stockCode, isBank, isYear, size) {
             authorization: ACCESS_TOKEN_FIREANT
         },
         success: function(reps) {
-            var mpData = arrayToMap(reps);
+            var mpData = arrayToMapFireant(reps);
             
             if (isBank) {
                 // Doanh thu thuần
@@ -240,8 +407,17 @@ fullincomestatementsFireant = function(stockCode, isBank, isYear, size) {
     return;
 }
 
-// Finpath - Báo cáo tài chính - Cân đối kế toán
-fullbalancesheetsFinpath = function(stockCode, isYear, size) {
+/**
+ * Finpath - Báo cáo tài chính - Cân đối kế toán
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} isYear
+ * @param {*} size
+ * @return {*} 
+ */
+function fullbalancesheetsFinpath(stockCode, isYear, size) {
     
     $.ajax({
         url: '{0}/api/stocks/fullbalancesheets/{1}'.format(pathFinpath, stockCode),
@@ -292,8 +468,17 @@ fullbalancesheetsFinpath = function(stockCode, isYear, size) {
     return;
 }
 
-// Fireant - Tài chính - Cân đối kế toán
-fullbalancesheetsFireant = function(stockCode, isYear, size) {
+/**
+ * Fireant - Tài chính - Cân đối kế toán
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ * @param {*} isYear
+ * @param {*} size
+ * @return {*} 
+ */
+function fullbalancesheetsFireant(stockCode, isYear, size) {
 
     $.ajax({
         // type: Loại báo cáo (1: Cân đối kế toán, 2: Kết quả SXKD, 3: Lưu chuyển tiền tệ trực tiếp, 4: Lưu chuyển tiền tệ gián tiếp)
@@ -309,7 +494,7 @@ fullbalancesheetsFireant = function(stockCode, isYear, size) {
             authorization : ACCESS_TOKEN_FIREANT
         },
         success: function(reps) {
-            var mpData = arrayToMap(reps);
+            var mpData = arrayToMapFireant(reps);
 
             // TỔNG CỘNG TÀI SẢN
             setValueFireant(mpData, 'TỔNG CỘNG TÀI SẢN', 'TTS', isYear);
@@ -321,7 +506,16 @@ fullbalancesheetsFireant = function(stockCode, isYear, size) {
     });
     return;
 }
-arrayToMap = function(input) {
+
+/**
+ * Convvert array to map of Fireant
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} input
+ * @return {*} 
+ */
+function arrayToMapFireant(input) {
     const map = new Map();
     for (let obj of input) {
         let arrName = obj.name.split('.');
@@ -336,7 +530,17 @@ arrayToMap = function(input) {
     return map;
 }
 
-setValueFireant = function(mpData, mpKey, set, isYear) {
+/**
+ * Set value of Fireant
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} mpData
+ * @param {*} mpKey
+ * @param {*} set
+ * @param {*} isYear
+ */
+function setValueFireant(mpData, mpKey, set, isYear) {
 
     mpData.get(mpKey).forEach(obj => {
         var key = '';
@@ -365,7 +569,17 @@ setValueFireant = function(mpData, mpKey, set, isYear) {
     });
 }
 
-setValueSimplize = function(obj, set, get, isYear) {
+/**
+ * Set value of Simplize
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} obj
+ * @param {*} set
+ * @param {*} get
+ * @param {*} isYear
+ */
+function setValueSimplize(obj, set, get, isYear) {
 
     var key = '';
     var data = {};
@@ -376,7 +590,7 @@ setValueSimplize = function(obj, set, get, isYear) {
     } else {
         // Lấy theo Năm
         var arrPeriodDate = obj.periodDateName.split('/');
-        key = '{0}{1}{2}'.format(arrPeriodDate[1], 'Q', arrPeriodDate[0]);
+        key = '{0}{1}'.format(arrPeriodDate[1], arrPeriodDate[0]);
         data = mpYearMonthData.get(key) || {};
     }
 
