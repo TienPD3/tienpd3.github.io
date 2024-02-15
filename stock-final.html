@@ -163,28 +163,27 @@
                     var jsonExcel = JSON.stringify(json);
 
                     // Tạo Sheet Định giá
-                    jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', currentDataFireant.PC);
-                    jsonExcel = jsonExcel.replaceExcel('#DGCPLHVal', currentDataFireant.CPLH);
+                    jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', dataFACurrent.PC);
+                    jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.TSLCP);
+                    jsonExcel = jsonExcel.replaceExcel('#DGTLCTVal', dataFACurrent.dividendPercent);
+                    jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
 
                     // Tạo Sheet chi tiết
-                    var mpDataSort = new Map([...mpYearMonthData].sort().reverse());
-                    var mpDataQSort = mpDataSort;
+                    var mpDataQSortDESC = new Map([...mpYearMonthData].sort().reverse());
+                    var mpDataQSort = new Map([...mpYearMonthData].sort());
 
 
                     // Xóa phần tử thừa Quý
-                    
-                    if (mpYearData.size > 5) {
-                        const [lastKey] = [...mpYearData].at(-1) || '';
-                        mpYearData.delete(lastKey);
-                    }
-
                     var mpDataYSortDESC = new Map([...mpYearData].sort().reverse());
-                    var mpDataYSortASC = new Map([...mpYearData].sort());
+                    mpDataYSortDESC = [...mpDataYSortDESC].splice(0, 5);
                     
-                    debugger;
-                    // Theo Quý
+                    var mpDataYSortASC = new Map([...mpDataYSortDESC].sort());
+                    
+                    // Theo quý
                     var idxQ = 0;
-                    mpDataQSort.forEach((data, keys) => {
+                    mpDataQSortDESC.forEach((data, keys) => {
+                        // Title quý
+                        jsonExcel = jsonExcel.replaceExcel('#DGQ' + idxQ, keys);
                         // LNST theo Quý
                         jsonExcel = jsonExcel.replaceExcel('#DGLNSTValQ' + idxQ, data.LNST?.new / 1000000000);
                         // VCSH theo Quý
@@ -196,16 +195,15 @@
                     // Theo năm
                     var idxY = 0;
                     mpDataYSortASC.forEach((data, keys) => {
+                        jsonExcel = jsonExcel.replaceExcel('#HY' + idxY, keys);
                         jsonExcel = jsonExcel.replaceExcel('#HLNSTValY' + idxY, data.LNST?.new / 1000000000);
 
                         idxY++;
                     });
 
-                    
-
                     var idxFYQ = 0;
                     jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM': 'QUÝ');
-                    mpDataSort.forEach((data, keys) => {
+                    mpDataYSortDESC.forEach((data, keys) => {
 
                         // 1. CÁC CHỈ SỐ TÀI CHÍNH:
                         jsonExcel = jsonExcel.replaceExcel('#FYQ' + idxFYQ, keys);

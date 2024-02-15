@@ -1,12 +1,13 @@
 const pathFinpath = 'https://api.finpath.vn';
 const pathFireant = 'https://restv2.fireant.vn';
-const pathSimplize = 'https://api.simplize.vn'
+const pathSimplize = 'https://api.simplize.vn';
+const pathCafef = 'https://e.cafef.vn';
+const SIZE_DEFAULT = 5;
 
 // Create variable
 var mpYearMonthData = new Map();
 var mpYearData = new Map();
-var currentDataFireant = {};
-const SIZE_DEFAULT = 5
+var dataFACurrent = {};
 
 /**
  * Init
@@ -40,9 +41,43 @@ function getFinancial(stockCode, stockName, isYear = false, size = SIZE_DEFAULT)
     fullbalancesheetsFireant(stockCode, isYear, size);
     fullincomestatementsFireant(stockCode, isBank, true, size);
     fullincomestatementsFireant(stockCode, isBank, false, size);
-    holdersFireant(stockCode);
+    // holdersFireant(stockCode); // Không sử dụng
+    profileFireant(stockCode);
     historicalQuotesFireant(stockCode);
     fundamentalFireant(stockCode);
+    fundamentalFireant(stockCode);
+    // Cafef - The four
+    khkdCafef(stockCode);
+}
+
+/**
+ * Cafef - Lấy cổ tức
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ */
+function khkdCafef(stockCode) {
+    $.ajax({
+        url: '{0}/khkd.ashx?symbol={1}'.format(pathCafef, stockCode),
+        async: false,
+        dataType : 'json',
+        type: 'GET',
+        success: function(reps) {
+            var dataCurrent = reps.filter(element => element.KYear == DatetimeUtils.getYear());
+            dataFACurrent.dividendPercent = '0%';
+            dataFACurrent.dividend = 'không có';
+            if (dataCurrent.length > 0) {
+                if (dataCurrent[0].Dividend !== 0) {
+                    dataFACurrent.dividendPercent = dataCurrent[0].Dividend + '%';
+                    dataFACurrent.dividend = 'tiền mặt';
+                } else if (dataCurrent[0].DivStock !== 0) {
+                    dataFACurrent.dividendPercent = dataCurrent[0].DivStock + '%';
+                    dataFACurrent.dividend = 'cổ phiếu';
+                }
+            }
+        }
+    });
 }
 
 /**
@@ -70,6 +105,28 @@ function holdersFireant(stockCode) {
     });
 }
 
+/**
+ * Fireant - Hồ sơ
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} stockCode
+ */
+function profileFireant(stockCode) {
+    $.ajax({
+        url: '{0}/symbols/{1}/profile'.format(pathFireant, stockCode),
+        async: false,
+        contentType: "application/json",
+        dataType : 'json',
+        type: 'GET',
+        headers: {
+            authorization : ACCESS_TOKEN_FIREANT
+        },
+        success: function(reps) {
+            dataFACurrent['TSLCP'] = reps.listingVolume/ 1000000;
+        }
+    });
+}
 
 /**
  * Fireant - Giá quá khứ
@@ -93,7 +150,7 @@ function historicalQuotesFireant(stockCode) {
                 authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps) {
-                currentDataFireant['PC'] = (reps[0].priceClose * 1000).toFixed();
+                dataFACurrent['PC'] = (reps[0].priceClose * 1000).toFixed();
             }
         });
     }
@@ -121,8 +178,7 @@ function fundamentalFireant(stockCode) {
                 authorization : ACCESS_TOKEN_FIREANT
             },
             success: function(reps) {
-                debugger;
-                currentDataFireant['CPLH'] = reps.sharesOutstanding / 1000000;
+                dataFACurrent['CPLH'] = reps.sharesOutstanding / 1000000;
             }
         });
     }
@@ -180,7 +236,7 @@ function financialIndicatorsFireant(stockCode) {
  */
 function setValueFinancialIndicatorsFireant(getName, setName, obj) {
     if (obj.shortName === getName) {
-        currentDataFireant[setName] = obj.value;
+        dataFACurrent[setName] = obj.value;
     }
 }
 
@@ -192,7 +248,6 @@ function setValueFinancialIndicatorsFireant(getName, setName, obj) {
  * @param {*} stockCode
  * @param {*} isYear
  * @param {*} size
- * @return {*} 
  */
 function financialratiosFinpath(stockCode, isYear, size) {
 
@@ -243,8 +298,6 @@ function financialratiosFinpath(stockCode, isYear, size) {
             });
         }
     });
-    
-    return;
 }
 
 /**
@@ -255,7 +308,6 @@ function financialratiosFinpath(stockCode, isYear, size) {
  * @param {*} stockCode
  * @param {*} isYear
  * @param {*} size
- * @return {*} 
  */
 function financialratiosSimplize(stockCode, isYear, size) {
 
@@ -281,8 +333,6 @@ function financialratiosSimplize(stockCode, isYear, size) {
             });
         }
     });
-    
-    return;
 }
 
 /**
@@ -294,7 +344,6 @@ function financialratiosSimplize(stockCode, isYear, size) {
  * @param {*} isBank
  * @param {*} isYear
  * @param {*} size
- * @return {*} 
  */
 function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
 
@@ -355,7 +404,6 @@ function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
             });
         }
     });
-    return;
 }
 
 /**
@@ -367,7 +415,6 @@ function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
  * @param {*} isBank
  * @param {*} isYear
  * @param {*} size
- * @return {*} 
  */
 function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
 
@@ -404,7 +451,6 @@ function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
             }
         }
     });
-    return;
 }
 
 /**
@@ -415,7 +461,6 @@ function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
  * @param {*} stockCode
  * @param {*} isYear
  * @param {*} size
- * @return {*} 
  */
 function fullbalancesheetsFinpath(stockCode, isYear, size) {
     
@@ -465,7 +510,6 @@ function fullbalancesheetsFinpath(stockCode, isYear, size) {
             });
         }
     });
-    return;
 }
 
 /**
@@ -476,7 +520,6 @@ function fullbalancesheetsFinpath(stockCode, isYear, size) {
  * @param {*} stockCode
  * @param {*} isYear
  * @param {*} size
- * @return {*} 
  */
 function fullbalancesheetsFireant(stockCode, isYear, size) {
 
@@ -504,7 +547,6 @@ function fullbalancesheetsFireant(stockCode, isYear, size) {
             setValueFireant(mpData, 'Nguồn vốn chủ sở hữu', 'VCSH', isYear);
         }
     });
-    return;
 }
 
 /**
@@ -513,7 +555,7 @@ function fullbalancesheetsFireant(stockCode, isYear, size) {
  * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
  * @date 2024/02/14
  * @param {*} input
- * @return {*} 
+ * @return {*}
  */
 function arrayToMapFireant(input) {
     const map = new Map();
