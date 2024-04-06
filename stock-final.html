@@ -36,6 +36,7 @@
     <script>
         VersionUtils.importPlugin('/website/common/function.finpath.js');
         VersionUtils.importPlugin('/website/common/StringUtils.js');
+        VersionUtils.importPlugin('/website/common/BusinessRuleUtils.js');
     </script>
     <script>document.write('<script src="/website/common/const.js?version=' + DatetimeUtils.getSystemDateTime() + '"\><\/script>');</script>
     <script type="text/javascript" src="website/common/function.common.js"></script>
@@ -144,7 +145,7 @@
 
         function loadFile(pSymbol, pName) {
             
-            var isYear = false;
+            var isYear = true;
             getFinancial(pSymbol, pName, isYear);
 
             excelIo = new GC.Spread.Excel.IO();
@@ -163,10 +164,6 @@
                     var jsonExcel = JSON.stringify(json);
 
                     // Tạo Sheet Định giá
-                    jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', dataFACurrent.PC);
-                    jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.TSLCP);
-                    jsonExcel = jsonExcel.replaceExcel('#DGTLCTVal', dataFACurrent.dividendPercent);
-                    jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
 
                     // Tạo Sheet chi tiết
                     var mpDataQSortDESC = new Map([...mpYearMonthData].sort().reverse());
@@ -175,22 +172,71 @@
 
                     // Xóa phần tử thừa Quý
                     var mpDataYSortDESC = new Map([...mpYearData].sort().reverse());
-                    mpDataYSortDESC = [...mpDataYSortDESC].splice(0, 5);
+                    mpDataYSortDESC = new Map([...mpDataYSortDESC].splice(0, 5));
                     
                     var mpDataYSortASC = new Map([...mpDataYSortDESC].sort());
                     
                     // Theo quý
                     var idxQ = 0;
+                    let clazzNetRevenue = new BusinessRuleUtils();
+                    let clazzGrossProfit = new BusinessRuleUtils();
+                    let clazzOwnerEquity = new BusinessRuleUtils();
+                    let clazzNetIncomeStatement = new BusinessRuleUtils();
                     mpDataQSortDESC.forEach((data, keys) => {
                         // Title quý
                         jsonExcel = jsonExcel.replaceExcel('#DGQ' + idxQ, keys);
                         // LNST theo Quý
-                        jsonExcel = jsonExcel.replaceExcel('#DGLNSTValQ' + idxQ, data.LNST?.new / 1000000000);
+                        jsonExcel = jsonExcel.replaceExcel('#DGLNSTValQ' + idxQ, StringUtils.formatCashBillion(data.LNST?.new));
                         // VCSH theo Quý
-                        jsonExcel = jsonExcel.replaceExcel('#DGVCSHValQ' + idxQ, data.VCSH?.new / 1000000000);
+                        jsonExcel = jsonExcel.replaceExcel('#DGVCSHValQ' + idxQ, StringUtils.formatCashBillion(data.ownerEquity?.new));
+
+                        // Nợ/LNST
+                        let NDHLNST = data.longTermDebt?.new ? (data.longTermDebt?.new / data.LNST?.new): '';
+                        jsonExcel = jsonExcel.replaceExcel('#DGNDHLNSTValQ' + idxQ, StringUtils.formatCashComma(NDHLNST));
+                        jsonExcel = jsonExcel.replaceExcel('#DGNDHValQ' + idxQ, StringUtils.formatCashBillionComma(data.longTermDebt?.new));
+
+                        // Tính toán doanh thu tăng đều
+                        clazzNetRevenue.isGrowUp(data.netRevenue?.new);
+                        // Tính toán lợi nhuận gộp tăng đều
+                        clazzGrossProfit.isGrowUp(data.grossProfit?.new);
+                        // Tính toán vốn chủ sở hữu tăng đều
+                        clazzOwnerEquity.isGrowUp(data.ownerEquity?.new);
+                        // Tính toán dòng tiền dương từ HĐKD dương
+                        clazzNetIncomeStatement.isPositiveCashFlow(data.netIncomeStatement?.new);
 
                         idxQ++;
                     });
+                    // Thị giá cổ phiếu
+                    jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', dataFACurrent.priceClose);
+                    // Tổng số lượng cổ phiếu
+                    jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.listingVolume);
+                    // Tỷ lệ cổ tức
+                    jsonExcel = jsonExcel.replaceExcel('#DGTLCTVal', dataFACurrent.dividendPercent);
+                    jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
+                    // Doanh thu tăng đều
+                    jsonExcel = jsonExcel.replaceExcel('#DGDTTUpVal', clazzNetRevenue.varObj.isGrowUp);
+                    // Lợi nhuận gộp tăng đều
+                    jsonExcel = jsonExcel.replaceExcel('#DGLNGUpVal', clazzGrossProfit.varObj.isGrowUp);
+                    // Vốn chủ sở hữu tăng đều
+                    jsonExcel = jsonExcel.replaceExcel('#DGVCSHUpVal', clazzOwnerEquity.varObj.isGrowUp);
+                    // Tỷ lệ lãi gộp
+                    jsonExcel = jsonExcel.replaceExcel('#DGGOSVal', dataFACurrent.grossMargin);
+                    // Tỷ lệ lãi ròng
+                    jsonExcel = jsonExcel.replaceExcel('#DGNPMVal', dataFACurrent.netProfitMargin);
+                    // ROA
+                    jsonExcel = jsonExcel.replaceExcel('#DGROAVal', dataFACurrent.ROA);
+                    // ROE
+                    jsonExcel = jsonExcel.replaceExcel('#DGROEVal', dataFACurrent.ROE);
+                    // ROIC
+                    jsonExcel = jsonExcel.replaceExcel('#DGROICVal', dataFACurrent.ROIC);
+                    // Nợ/VCSH
+                    jsonExcel = jsonExcel.replaceExcel('#DGDOEVal', dataFACurrent.debtOnEquity);
+                    // PE
+                    jsonExcel = jsonExcel.replaceExcel('#DGPEVal', dataFACurrent.PE);
+                    // PB
+                    jsonExcel = jsonExcel.replaceExcel('#DGPBVal', dataFACurrent.PB);
+                    // Dòng tiền từ HĐKD dương
+                    jsonExcel = jsonExcel.replaceExcel('#DGHDKDVal', clazzNetIncomeStatement.varObj.isPositiveCashFlow);
 
                     // Theo năm
                     var idxY = 0;
@@ -202,8 +248,12 @@
                     });
 
                     var idxFYQ = 0;
+                    var mpDataFYQ = mpDataQSortDESC;
+                    if (isYear) {
+                        mpDataFYQ = mpDataYSortDESC;
+                    }
                     jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM': 'QUÝ');
-                    mpDataYSortDESC.forEach((data, keys) => {
+                    mpDataFYQ.forEach((data, keys) => {
 
                         // 1. CÁC CHỈ SỐ TÀI CHÍNH:
                         jsonExcel = jsonExcel.replaceExcel('#FYQ' + idxFYQ, keys);
@@ -221,14 +271,14 @@
                         jsonExcel = jsonExcel.replaceExcel('#NOVal' + idxFYQ, data.NO?.new);
                         jsonExcel = jsonExcel.replaceExcel('#NOOldVal' + idxFYQ, data.NO?.old);
                         // VCSH
-                        jsonExcel = jsonExcel.replaceExcel('#VCSHVal' + idxFYQ, data.VCSH?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#VCSHOldVal' + idxFYQ, data.VCSH?.old);
+                        jsonExcel = jsonExcel.replaceExcel('#VCSHVal' + idxFYQ, data.ownerEquity?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#VCSHOldVal' + idxFYQ, data.ownerEquity?.old);
                         // DOANH THU
-                        jsonExcel = jsonExcel.replaceExcel('#DTTVal' + idxFYQ, data.DTT?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#DTTOldVal' + idxFYQ, data.DTT?.old);
+                        jsonExcel = jsonExcel.replaceExcel('#DTTVal' + idxFYQ, data.netRevenue?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#DTTOldVal' + idxFYQ, data.netRevenue?.old);
                         // LNG
-                        jsonExcel = jsonExcel.replaceExcel('#LNGVal' + idxFYQ, data.LNG?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#LNGOldVal' + idxFYQ, data.LNG?.old);
+                        jsonExcel = jsonExcel.replaceExcel('#LNGVal' + idxFYQ, data.grossProfit?.new);
+                        jsonExcel = jsonExcel.replaceExcel('#LNGOldVal' + idxFYQ, data.grossProfit?.old);
                         // LNST 
                         jsonExcel = jsonExcel.replaceExcel('#LNSTVal' + idxFYQ, data.LNST?.new);
                         jsonExcel = jsonExcel.replaceExcel('#LNSTOldVal' + idxFYQ, data.LNST?.old);
