@@ -10,4 +10,3 @@ echo.
 echo -----
 echo The certificate was provided.
 echo.
-pause

@@ -9,7 +9,7 @@ Lấy chứng chỉ https in xampp
  + CopyFolder: crt vào C:\xampp\apache
  + Click make-cert.bat nhập tienpd3.com
  + server.crt đã tạo ở trên Chọn: Local Machine, chọn Trusted Root Certification Authorities.
- + File: C:\xampp\apache\conf\extra\httpd-xampp.conf và thêm đoạn bên dưới:
+ + File: C:\xampp\apache\conf\extra\httpd-vhosts.conf và thêm đoạn bên dưới:
 #
 # website: tienpd3.com
 #
