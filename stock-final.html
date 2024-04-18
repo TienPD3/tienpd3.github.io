@@ -182,6 +182,11 @@
                     let clazzGrossProfit = new BusinessRuleUtils();
                     let clazzOwnerEquity = new BusinessRuleUtils();
                     let clazzNetIncomeStatement = new BusinessRuleUtils();
+
+                    var arrNetRevenue = new Array();
+                    var arrGrossProfit = new Array();
+                    var arrOwnerEquity = new Array();
+
                     mpDataQSortDESC.forEach((data, keys) => {
                         // Title quý
                         jsonExcel = jsonExcel.replaceExcel('#DGQ' + idxQ, keys);
@@ -192,15 +197,24 @@
 
                         // Nợ/LNST
                         let NDHLNST = data.longTermDebt?.new ? (data.longTermDebt?.new / data.LNST?.new): '';
-                        jsonExcel = jsonExcel.replaceExcel('#DGNDHLNSTValQ' + idxQ, StringUtils.formatCashComma(NDHLNST));
+                        jsonExcel = jsonExcel.replaceExcel('#DGNDHLNSTValQ' + idxQ, NDHLNST);
                         jsonExcel = jsonExcel.replaceExcel('#DGNDHValQ' + idxQ, StringUtils.formatCashBillionComma(data.longTermDebt?.new));
 
                         // Tính toán doanh thu tăng đều
                         clazzNetRevenue.isGrowUp(data.netRevenue?.new);
+                        if (arrNetRevenue.length <= 4) {
+                            arrNetRevenue.push(StringUtils.formatCashBillionComma(data.netRevenue?.new));
+                        }
                         // Tính toán lợi nhuận gộp tăng đều
                         clazzGrossProfit.isGrowUp(data.grossProfit?.new);
+                        if (arrGrossProfit.length <= 4) {
+                            arrGrossProfit.push(StringUtils.formatCashBillionComma(data.grossProfit?.new));
+                        }
                         // Tính toán vốn chủ sở hữu tăng đều
                         clazzOwnerEquity.isGrowUp(data.ownerEquity?.new);
+                        if (arrOwnerEquity.length <= 4) {
+                            arrOwnerEquity.push(StringUtils.formatCashBillionComma(data.ownerEquity?.new));
+                        }
                         // Tính toán dòng tiền dương từ HĐKD dương
                         clazzNetIncomeStatement.isPositiveCashFlow(data.netIncomeStatement?.new);
 
@@ -215,10 +229,13 @@
                     jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
                     // Doanh thu tăng đều
                     jsonExcel = jsonExcel.replaceExcel('#DGDTTUpVal', clazzNetRevenue.varObj.isGrowUp);
+                    jsonExcel = jsonExcel.replaceExcel('#DGArrayDTTVal', arrNetRevenue.join(', '));
                     // Lợi nhuận gộp tăng đều
                     jsonExcel = jsonExcel.replaceExcel('#DGLNGUpVal', clazzGrossProfit.varObj.isGrowUp);
+                    jsonExcel = jsonExcel.replaceExcel('#DGArrayLNGVal', arrGrossProfit.join(', '));
                     // Vốn chủ sở hữu tăng đều
                     jsonExcel = jsonExcel.replaceExcel('#DGVCSHUpVal', clazzOwnerEquity.varObj.isGrowUp);
+                    jsonExcel = jsonExcel.replaceExcel('#DGArrayVCSHVal', arrOwnerEquity.join(', '));
                     // Tỷ lệ lãi gộp
                     jsonExcel = jsonExcel.replaceExcel('#DGGOSVal', dataFACurrent.grossMargin);
                     // Tỷ lệ lãi ròng
@@ -468,7 +485,7 @@
                 name="radiobuttons"
                 id="radioButtonTwo"
             >
-            <label for="radioButtonTwo">Name</label>
+            <label for="radioButtonTwo">Năm</label>
         </div>
     </form>
     <!-- Spinner -->
