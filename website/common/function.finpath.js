@@ -1,7 +1,7 @@
 const pathFinpath = 'https://api.finpath.vn';
 const pathFireant = 'https://restv2.fireant.vn';
 const pathSimplize = 'https://api.simplize.vn';
-const pathCafef = 'https://e.cafef.vn';
+const pathCafef = 'https://s.cafef.vn';
 const SIZE_DEFAULT = 5;
 
 // Create variable
@@ -19,7 +19,7 @@ var dataFACurrent = {};
  * @param {boolean} [isYear=false]
  * @param {*} [size=SIZE_DEFAULT]
  */
-function getFinancial(stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
+function getFinancial(exchangeCd, stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
 
     mpYearMonthData = new Map();
     mpYearData = new Map();
@@ -51,11 +51,30 @@ function getFinancial(stockCode, stockName, isYear = false, size = SIZE_DEFAULT)
     // holdersFireant(stockCode); // Không sử dụng
     profileFireant(stockCode);
     historicalQuotesFireant(stockCode);
-    // fundamentalFireant(stockCode); Không sử dụng
+    fundamentalFireant(stockCode);
 
     // ----- Cafef - The four -----
     // Cafef - Lấy cổ tức
-    khkdCafef(stockCode);
+    bussinessPlan(exchangeCd, stockCode, stockName);
+}
+
+/**
+ * Cafef - Lấy sàn giao dịch
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} exchangeCd
+ */
+function getExchange(exchangeCd) {
+    if (exchangeCd == '2') {
+        return 'hastc';
+    } else if (exchangeCd == '8') {
+        return 'otc';
+    } if (exchangeCd == '9') {
+        return 'upcom';
+    } else {
+        return 'hose';
+    }
 }
 
 /**
@@ -63,25 +82,34 @@ function getFinancial(stockCode, stockName, isYear = false, size = SIZE_DEFAULT)
  *
  * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
  * @date 2024/02/14
- * @param {*} stockCode
+ * @param {*} exchange
+ * @param {*} stockName
  */
-function khkdCafef(stockCode) {
+function bussinessPlan(exchangeCd, stockCode, stockName) {
+
+    let keyUrl = stockCode.stringEnglishHyphen() + '-' + stockName.stringEnglishHyphen() + '.chn';
+
     $.ajax({
-        url: '{0}/khkd.ashx?symbol={1}'.format(pathCafef, stockCode),
+        url: '{0}/{1}/{2}'.format(pathCafef, getExchange(exchangeCd), keyUrl),
         async: false,
-        dataType : 'json',
+        dataType : 'html',
         type: 'GET',
         success: function(reps) {
-            var dataCurrent = reps.filter(element => element.KYear == DatetimeUtils.getYear());
-            dataFACurrent.dividendPercent = '0%';
-            dataFACurrent.dividend = 'không có';
-            if (dataCurrent.length > 0) {
-                if (dataCurrent[0].Dividend !== 0) {
-                    dataFACurrent.dividendPercent = dataCurrent[0].Dividend + '%';
-                    dataFACurrent.dividend = 'tiền mặt';
-                } else if (dataCurrent[0].DivStock !== 0) {
-                    dataFACurrent.dividendPercent = dataCurrent[0].DivStock + '%';
-                    dataFACurrent.dividend = 'cổ phiếu';
+            let elmBussinessPlan = $(reps).find('.kehoachkd');
+            let strHeader = elmBussinessPlan.find('h2.cattitle.noborder').text();
+            var year = strHeader.match(/[0-9]+/i);
+            var dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng tiền mặt")').siblings(1).text();
+            if (dataCurrent != 'N/A') {
+                dataFACurrent.dividend = 'tiền mặt[' + year + ']';
+                dataFACurrent.dividendPercent = dataCurrent;
+            } else {
+                dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng cổ phiếu")').siblings(1).text();
+                if (dataCurrent != 'N/A') {
+                    dataFACurrent.dividend = 'cổ phiếu[' + year + ']';
+                    dataFACurrent.dividendPercent = dataCurrent;
+                } else {
+                    dataFACurrent.dividend = 'không có[' + year + ']';
+                    dataFACurrent.dividendPercent = '0%';
                 }
             }
         }
@@ -132,7 +160,7 @@ function profileFireant(stockCode) {
         },
         success: function(reps) {
             // Khối lượng cổ phiếu đang niêm yết
-            dataFACurrent.listingVolume = reps.listingVolume/ 1000000;
+            dataFACurrent.listingVolume = StringUtils.formatCashMillion(reps.listingVolume);
         }
     });
 }
@@ -189,7 +217,7 @@ function fundamentalFireant(stockCode) {
             },
             success: function(reps) {
                 // Cổ phiếu đang lưu hành
-                dataFACurrent.sharesOutstanding = reps.sharesOutstanding / 1000000;
+                dataFACurrent.sharesOutstanding = StringUtils.formatCashMillion(reps.sharesOutstanding)
             }
         });
     }

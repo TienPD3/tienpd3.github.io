@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/website/image/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/website/image/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/website/image/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/website/image/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/website/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/website/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/website/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/website/images/favicon-16x16.png">
     <title>Stock Pro - TienPD3</title>
 
     <!-- spreadjs -->
@@ -140,13 +140,13 @@
         function loadData(pSymbol, pName, pExchange) {
             
             setParameter(pSymbol, pName, pExchange);
-            loadFile(pSymbol, pName);
+            loadFile(pExchange, pSymbol, pName);
         }
 
-        function loadFile(pSymbol, pName) {
+        function loadFile(pExchange, pSymbol, pName) {
             
             var isYear = true;
-            getFinancial(pSymbol, pName, isYear);
+            getFinancial(pExchange, pSymbol, pName, isYear);
 
             excelIo = new GC.Spread.Excel.IO();
             var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
@@ -162,6 +162,9 @@
                 var blob = oReq.response;
                 excelIo.open(blob, function (json) {
                     var jsonExcel = JSON.stringify(json);
+
+                    // Chuyển mã chứng khoán
+                    jsonExcel = jsonExcel.replaceExcel('#SYMBOL', pSymbol + ': ' + pName);
 
                     // Tạo Sheet Định giá
 
@@ -223,7 +226,7 @@
                     // Thị giá cổ phiếu
                     jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', dataFACurrent.priceClose);
                     // Tổng số lượng cổ phiếu
-                    jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.listingVolume);
+                    jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.sharesOutstanding);
                     // Tỷ lệ cổ tức
                     jsonExcel = jsonExcel.replaceExcel('#DGTLCTVal', dataFACurrent.dividendPercent);
                     jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
