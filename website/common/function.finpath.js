@@ -99,16 +99,16 @@ function bussinessPlan(exchangeCd, stockCode, stockName) {
             let strHeader = elmBussinessPlan.find('h2.cattitle.noborder').text();
             var year = strHeader.match(/[0-9]+/i);
             var dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng tiền mặt")').siblings(1).text();
-            if (dataCurrent != 'N/A') {
+            if (dataCurrent != 'N/A' && dataCurrent != '') {
                 dataFACurrent.dividend = 'tiền mặt[' + year + ']';
                 dataFACurrent.dividendPercent = dataCurrent;
             } else {
                 dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng cổ phiếu")').siblings(1).text();
-                if (dataCurrent != 'N/A') {
+                if (dataCurrent != 'N/A'  && dataCurrent != '') {
                     dataFACurrent.dividend = 'cổ phiếu[' + year + ']';
                     dataFACurrent.dividendPercent = dataCurrent;
                 } else {
-                    dataFACurrent.dividend = 'không có[' + year + ']';
+                    dataFACurrent.dividend = 'không có';
                     dataFACurrent.dividendPercent = '0%';
                 }
             }
@@ -631,7 +631,7 @@ function arrayToMapFireant(input) {
  * @param {*} isYear
  */
 function setValueFireant(mpData, mpKey, set, isYear) {
-
+debugger;
     mpData.get(mpKey).forEach(obj => {
         var key = '';
         var data = {};
