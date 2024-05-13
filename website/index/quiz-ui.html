@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/common/function.quiz.css" />
+  </head>
+  <body>
+    <div class="quiz_wrapper">
+      <div class="quiz_header">
+        <div class="quiz_timer">
+          <i class="fa-regular fa-clock"></i>
+          <div class="quiz_timer_text">
+            <span>Time remaining</span>
+            <p id="timer">15:00</p>
+          </div>
+        </div>
+        <button id="quiz_submit">SUBMIT</button>
+      </div>
+      <div class="quiz_container">
+        <div class="quiz_question">
+          <h5>Question 1 of 10</h5>
+          <p id="quiz_title"></p>
+          <ul>
+            <li><span>A.</span><span class="quiz_answer_item"></span></li>
+            <li><span>B.</span><span class="quiz_answer_item"></span></li>
+            <li><span>C.</span><span class="quiz_answer_item"></span></li>
+            <li><span>D.</span><span class="quiz_answer_item"></span></li>
+          </ul>
+        </div>
+        <div class="quiz_progress">
+          <svg>
+            <circle r="50"></circle>
+            <circle id="progress" r="50"></circle>
+          </svg>
+          <span id="progress_text">0/10</span>
+        </div>
+      </div>
+      <div class="quiz_numbers">
+        <button id="quiz_prev">Prev</button>
+        <ul></ul>
+        <button id="quiz_next">Next</button>
+      </div>
+    </div>
+  </body>
+  <script src="../scripts/common/function.quiz.js"></script>
+</html>
