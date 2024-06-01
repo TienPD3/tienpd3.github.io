@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanji</title>
+    <link rel="stylesheet" href="../css/common/function.kanji.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+    <script src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
+    <script src="/website/scripts/wanakana/wanakana.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        /* Custom Spinner styles */
+        .spinner-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none;
+        }
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .spinner-icon {
+            font-size: 50px;
+        }
+        .loading-text {
+            margin-top: 10px;
+        }
+        .highlight-incorrect {
+            color: red;
+            font-weight: bold;
+        }
+        .highlight-wrapper {
+            display: inline-block;
+        }
+        /* Icon button styles */
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #007BFF;
+        }
+        .icon-button:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kanji</h1>
+        <div class="question">
+            <p>
+                Hiragana of「<strong id="idQuestion"></strong>」
+                <span class="tooltip-icon">
+                    <i class="fas fa-question-circle"></i>
+                    <span class="tooltip" id="idSuggestion">Loading...</span>
+                </span>
+            </p>
+            <input type="text" id="txtAnswer" onkeyup="submitAnswer(event)" placeholder="Please enter your answer">
+        </div>
+        <div class="messageArea info" data-type="info">
+            <i class="fas fa-check-circle"></i>
+            <span></span>
+        </div>
+        <div class="messageArea error" data-type="error">
+            <i class="fas fa-times-circle"></i>
+            <span></span>
+        </div>
+        <div class="messageArea warn" data-type="warn">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span></span>
+        </div>
+        <div class="submit-container">
+            <button onclick="submitAnswer(event)">Submit</button>
+            <button class="icon-button" onclick="speakAnswer()">
+                <i class="fas fa-volume-up"></i>
+            </button>
+        </div>
+        <div class="footer">
+            <span>Your Score: 0 of 20</span>
+            <span>Question 1 of 2</span>
+        </div>
+    </div>
+
+    <!-- Custom Spinner -->
+    <div class="spinner-overlay" id="spinner">
+        <div class="spinner">
+            <i class="fas fa-spinner fa-spin spinner-icon"></i>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </div>
+
+    <script>
+        const kuroshiro = new Kuroshiro();
+        kuroshiro.init(new KuromojiAnalyzer()).then(() => {
+            console.log('Kuroshiro initialized.');
+            hideSpinner(); // Hide spinner once Kuroshiro is initialized
+            $(document).ready(async function() {
+                var input = document.getElementById('txtAnswer');
+                wanakana.bind(input);
+                
+                // Fetch question asynchronously
+                await fetchQuestion();
+            });
+        })
+        .catch((error) => {
+            console.error('Error initializing Kuroshiro:', error);
+            hideSpinner(); // Hide spinner on error
+        });
+
+        // Function to fetch question
+        async function fetchQuestion() {
+            showSpinner(); // Show spinner while fetching question
+            try {
+                const resp = await $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec",
+                });
+                $('#idQuestion').text(resp);
+                const kanjiQuestion = $('#idQuestion').text().trim();
+                const hiraganaTooltip = await convertKanjiToHiragana(kanjiQuestion);
+                $('#idSuggestion').text(hiraganaTooltip);
+            } catch (error) {
+                console.error('Error fetching question:', error);
+            } finally {
+                hideSpinner(); // Hide spinner after fetching question
+            }
+        }
+
+        // Function to convert Kanji to Hiragana using Kuroshiro
+        async function convertKanjiToHiragana(kanji) {
+            try {
+                const hiragana = await kuroshiro.convert(kanji, { to: 'hiragana' });
+                return hiragana;
+            } catch (error) {
+                console.error('Error converting Kanji to Hiragana:', error);
+                return '';
+            }
+        }
+
+        async function submitAnswer(e) {
+            var key = e.keyCode || e.which;
+            if (key == 13 || key == 1) {
+                const kanjiQuestion = document.getElementById('idQuestion').firstChild.nodeValue.trim();
+                const hiraganaAnswer = document.getElementById('txtAnswer').value.trim();
+            
+                if (hiraganaAnswer !== '') {
+                    const hiraganaQuestion = await convertKanjiToHiragana(kanjiQuestion);
+                    if (hiraganaAnswer === hiraganaQuestion) {
+                        showMessageAreaInfo("Correct: That's right! You chose the correct response.");
+                    } else {
+                        highlightIncorrect(hiraganaAnswer, hiraganaQuestion);
+                        showMessageAreaError(`Incorrect: You did not choose the correct response. Expected: 「${hiraganaQuestion}」`);
+                    }
+                } else {
+                    showMessageAreaWarn("This is a warning message.");
+                }
+            }
+        }
+
+        function highlightIncorrect(input, expected) {
+            let highlightedText = '';
+            let inputIndex = 0;
+            let expectedIndex = 0;
+
+            while (expectedIndex < expected.length) {
+                if (inputIndex < input.length && input[inputIndex] === expected[expectedIndex]) {
+                    highlightedText += expected[expectedIndex];
+                    inputIndex++;
+                } else {
+                    highlightedText += `<span class="highlight-incorrect">${expected[expectedIndex]}</span>`;
+                }
+                expectedIndex++;
+            }
+
+            document.getElementById('txtAnswer').value = '';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'highlight-wrapper';
+            wrapper.innerHTML = highlightedText;
+            document.getElementById('txtAnswer').insertAdjacentElement('beforebegin', wrapper);
+        }
+
+        function showMessageAreaInfo(message) {
+            showMessageArea('info', message);
+        }
+
+        function showMessageAreaError(message) {
+            showMessageArea('error', message);
+        }
+
+        function showMessageAreaWarn(message) {
+            showMessageArea('warn', message);
+        }
+
+        function showMessageArea(type, message) {
+            hideMessageArea();
+            $(`.messageArea.${type} > span`).text(message);
+            $(`.messageArea.${type}`).show();
+        }
+
+        function hideMessageArea() {
+            $('.messageArea').hide()
+        }
+
+        function showSpinner() {
+            $('.spinner-overlay').fadeIn();
+        }
+
+        function hideSpinner() {
+            $('.spinner-overlay').fadeOut();
+        }
+
+        function speakAnswer(hiraganaAnswer) {
+            if (hiraganaAnswer !== '') {
+                const utterance = new SpeechSynthesisUtterance(hiraganaAnswer);
+                utterance.lang = 'ja-JP'; // Set language to Japanese
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+</html>

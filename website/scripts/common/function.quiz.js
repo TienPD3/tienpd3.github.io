@@ -15,10 +15,12 @@ let quizQuestions = document.querySelectorAll(".quiz_numbers ul li");
 const quizQuestionList = document.querySelector(".quiz_numbers ul");
 const quizAnswersItem = document.querySelectorAll(".quiz_answer_item");
 const quizTitle = document.querySelector("#quiz_title");
+const elmLession = document.querySelector("#txtLesson");
 let currentIndex = null;
 let listSubmit = []; // Lưu index đáp án đã chọn
 let listResults = []; // Lưu index kết quả đúng, theo mảng đã random
 let isSubmit = false;
+let isReset = false;
 function randomArray(array) {
   return (array = array.sort(() => Math.random() - Math.random()));
 }
@@ -32,9 +34,7 @@ const quiz = {
 
   getQuestions: async function () {
     try {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const lesson = urlParams.get('lesson');
+      const lesson = elmLession.value;
 
       const response = await fetch(`${API}?category=japanese&lesson=${lesson}`);
       const data = await response.json();
@@ -109,6 +109,10 @@ const quiz = {
         _this.getResults();
       }
       if (isSubmit) {
+        clearInterval(intervalId);
+      }
+
+      if (isReset) {
         clearInterval(intervalId);
       }
     }
@@ -230,6 +234,12 @@ const quiz = {
     this.handleProgress(correct);
     quizQuestions[0].click();
   },
+  handleOnFocusoutLesson: function() {
+    elmLession.addEventListener("focusout", () => {
+      isReset = true;
+      quiz.reset();
+    });
+  },
   handleKeyDown: function () {
     document.addEventListener("keydown", (e) => {
       console.log(e.key);
@@ -255,12 +265,31 @@ const quiz = {
     this.handlePrev();
     this.handleKeyDown();
     this.handleSubmit();
+    this.handleOnFocusoutLesson();
   },
+
+  handleReset: function () {
+    this.handleQuestionList();
+    this.handleAnswer();
+    this.handleNext();
+    this.handlePrev();
+    this.handleKeyDown();
+    this.handleSubmit();
+  },
+
   start: async function () {
     await this.getQuestions();
     this.randomQuestions();
     this.render();
     this.handle();
+  },
+
+  reset: async function () {
+    await this.getQuestions();
+    this.randomQuestions();
+    this.render();
+    this.handleReset();
+    isReset = false;
   },
 };
 quiz.start();

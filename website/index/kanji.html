@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="/website/images/kanji/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/website/images/kanji/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/website/images/kanji/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/website/images/kanji/favicon-16x16.png">
+    <title>Kanji</title>
+    <link rel="stylesheet" href="../css/common/function.kanji.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+    <script src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
+    <script src="/website/scripts/wanakana/wanakana.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+  <div class="container">
+    <h1>Hack não Kanji</h1>
+    <div class="question">
+        <p>
+          Đây là「<strong id="idQuenstion"></strong>」
+          <span class="tooltip-icon">
+            <i class="fas fa-question-circle"></i>
+            <span class="tooltip" id="idSuggest"></span>
+          </span>
+          <span class="speaker-icon" onclick="speakAnswer(event)">
+            <i class="fas fa-volume-up"></i>
+          </span>
+        </p>
+        <input type="text" value="" id="txtAnswer" onkeyup="submitAnswer(event)" placeholder="Vui lòng nhập kết quả Hiragana">
+    </div>
+    <div class="messageArea info" data-type="info">
+      <i class="fas fa-check-circle"></i>
+      <span></span>
+    </div>
+    <div class="messageArea error" data-type="error">
+      <i class="fas fa-times-circle"></i>
+      <span></span>
+    </div>
+    <div class="messageArea warn" data-type="warn">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span></span>
+    </div>
+    <!-- <div class="submit-container">
+        <button onclick="submitAnswer(event)">Submit</button>
+    </div>
+    <div class="footer">
+        <span>Your Score: 0 of 20</span>
+        <span>Question 1 of 2</span>
+    </div> -->
+  </div>
+
+  <!-- Custom Spinner -->
+  <div class="spinner-overlay" id="spinner">
+    <div class="spinner">
+        <i class="fas fa-spinner fa-spin spinner-icon"></i>
+        <div class="loading-text">Loading...</div>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
+    let indexHistory = 1;
+
+    const kuroshiro = new Kuroshiro();
+    kuroshiro.init(new KuromojiAnalyzer()).then(() => {
+      $(document).ready(async function() {
+        var input = document.getElementById('txtAnswer');
+        wanakana.bind(input);
+        onInitData();
+      });
+    })
+    .catch((error) => {
+      console.error('Error initializing Kuroshiro:', error);
+    });
+
+    function onInitData () {
+      $.ajax({
+          type: "GET",
+          async: true,
+          url: API_URL, 
+          success: async function(resp) {
+            setData(resp)
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            hideSpinner()
+          }
+      });
+    }
+
+    async function setData(resp) {
+      hideSpinner(); 
+      $('#idQuenstion').text(resp.kanji);
+      indexHistory = resp.index;
+      const kanjiQuestion = $('#idQuenstion').text().trim();
+      const hiraganaTooltip = await convertKanjiToHiragana(kanjiQuestion);
+      $('#idSuggest').text(hiraganaTooltip);
+      $('.container').show();
+    }
+
+    function updataData() {
+      const postData = {
+        'index': indexHistory
+      };
+      
+      showSpinner();
+
+      $.ajax({
+        type: "POST",
+        async: true,
+        url: `${API_URL}`, 
+        data: JSON.stringify(postData),
+        success: async function(resp) {
+          setData(resp);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          hideSpinner()
+        }
+      });
+    }
+
+    // Function to convert Kanji to Hiragana using Kuroshiro
+    async function convertKanjiToHiragana(kanji) {
+      try {
+        const hiragana = await kuroshiro.convert(kanji, { to: 'hiragana' });
+        return hiragana;
+      } catch (error) {
+        return '';
+      }
+    }
+
+    async function submitAnswer(e) {
+      hideMessageArea();
+
+      var key=e.keyCode || e.which;
+      if (key == 13 || key == 1) {
+        const kanjiQuestion = document.getElementById('idQuenstion').firstChild.nodeValue.trim();
+        const hiraganaAnswer = document.getElementById('txtAnswer').value.trim();
+      
+        if (hiraganaAnswer !== '') {
+          const hiraganaQuestion = await convertKanjiToHiragana(kanjiQuestion);
+          if (hiraganaAnswer == hiraganaQuestion) {
+            showMessageAreaInfo(`Đúng rồi quá đỉnh!「${kanjiQuestion}」→「${hiraganaAnswer}」`);
+            speakAnswer(kanjiQuestion);
+            updataData();
+          } else {
+            const wrapper = highlightIncorrect(hiraganaAnswer, hiraganaQuestion);
+            showMessageAreaError(`Tuyệt vời, đúng phải là「${hiraganaAnswer}」→「${wrapper}」`);
+            speakAnswer(kanjiQuestion);
+          }
+        } else {
+          showMessageAreaWarn("Vui lòng nhập câu trả lời");
+        }
+        $('#txtAnswer').val('');
+      }
+    }
+
+    function speakAnswer(e) {
+      const kanjiQuestion = document.getElementById('idQuenstion').firstChild.nodeValue.trim();
+      if (kanjiQuestion !== '') {
+        const utterance = new SpeechSynthesisUtterance(kanjiQuestion);
+        utterance.lang = 'ja-JP'; // Set language to Japanese
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function highlightIncorrect(input, expected) {
+      let highlightedText = '';
+      let inputIndex = 0;
+      let expectedIndex = 0;
+
+      while (expectedIndex < expected.length) {
+          if (inputIndex < input.length && input[inputIndex] === expected[expectedIndex]) {
+              highlightedText += expected[expectedIndex];
+              inputIndex++;
+          } else {
+              highlightedText += `<span class="highlight-incorrect">${expected[expectedIndex]}</span>`;
+          }
+          expectedIndex++;
+      }
+
+      return highlightedText;
+    }
+
+    function showMessageAreaInfo(message) {
+      showMessageArea('info', message);
+    }
+
+    function showMessageAreaError(message) {
+      showMessageArea('error', message);
+    }
+
+    function showMessageAreaWarn(message) {
+      showMessageArea('warn', message);
+    }
+
+    function showMessageArea(type, message) {
+      hideMessageArea();
+      $(`.messageArea.${type} > span`).html(message);
+      $(`.messageArea.${type}`).show();
+    }
+
+    function hideMessageArea() {
+      $('.messageArea').hide()
+    }
+
+    function showSpinner() {
+      $('.spinner-overlay').fadeIn();
+    }
+
+    function hideSpinner() {
+      $('.spinner-overlay').fadeOut();
+    }
+
+  </script>
+  </body>
+</html>
