@@ -17,10 +17,11 @@
   </head>
   <body>
   <div class="container">
-    <h1>Hack não Kanji</h1>
+    <h1>Hack não Kanji </h1>
+    <h3><a href="#" onclick="reloadKanji(event)">Học từ mới</a></h3>
     <div class="question">
         <p>
-          Đây là「<strong id="idQuenstion"></strong>」
+          Đây là「<strong id="idQuenstion"></strong>」 
           <span class="tooltip-icon">
             <i class="fas fa-question-circle"></i>
             <span class="tooltip" id="idSuggest"></span>
@@ -62,7 +63,7 @@
 
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
-    let indexHistory = 1;
+    let historyIndex = 1;
 
     const kuroshiro = new Kuroshiro();
     kuroshiro.init(new KuromojiAnalyzer()).then(() => {
@@ -93,7 +94,7 @@
     async function setData(resp) {
       hideSpinner(); 
       $('#idQuenstion').text(resp.kanji);
-      indexHistory = resp.index;
+      historyIndex = resp.index;
       const kanjiQuestion = $('#idQuenstion').text().trim();
       const hiraganaTooltip = await convertKanjiToHiragana(kanjiQuestion);
       $('#idSuggest').text(hiraganaTooltip);
@@ -102,7 +103,8 @@
 
     function updataData() {
       const postData = {
-        'index': indexHistory
+        'index': historyIndex, 
+        'action': 0
       };
       
       showSpinner();
@@ -116,7 +118,7 @@
           setData(resp);
         },
         error: function (xhr, ajaxOptions, thrownError) {
-          hideSpinner()
+          hideSpinner();
         }
       });
     }
@@ -157,12 +159,47 @@
       }
     }
 
+    async function reloadKanji(e) {
+      const postData = {
+        'index': historyIndex, 
+        'action': 1
+      };
+
+      showSpinner();
+
+      $.ajax({
+        type: "POST",
+        async: true,
+        url: `${API_URL}`, 
+        data: JSON.stringify(postData),
+        success: async function(resp) {
+          setData(resp);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+          hideSpinner();
+        }
+      });
+    }
+
     function speakAnswer(e) {
       const kanjiQuestion = document.getElementById('idQuenstion').firstChild.nodeValue.trim();
       if (kanjiQuestion !== '') {
-        const utterance = new SpeechSynthesisUtterance(kanjiQuestion);
-        utterance.lang = 'ja-JP'; // Set language to Japanese
-        window.speechSynthesis.speak(utterance);
+        // Check if the Web Speech API is supported
+        if ('speechSynthesis' in window) {
+          var utterance = new SpeechSynthesisUtterance(kanjiQuestion);
+          utterance.lang = 'ja-JP'; // Set language to Japanese
+
+            // Fix for iOS Safari to enable speech synthesis
+            utterance.onstart = function(event) {
+                // Hack to force iOS Safari to recognize the speech synthesis event
+                var audio = new Audio();
+                audio.play().catch(function(error) { /* Ignore the error */ });
+            };
+
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("Sorry, your browser doesn't support text to speech!");
+        }
       }
     }
 
