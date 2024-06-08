@@ -29,34 +29,184 @@ function getFinancial(exchangeCd, stockCode, stockName, isYear = false, size = S
         isBank = true;
     }
 
-    // ----- Finpath - The first -----
-    financialratiosFinpath(stockCode, true, size);
-    financialratiosFinpath(stockCode, false, size);
-    fullincomestatementsFinpath(stockCode, isBank, true, size);
-    fullincomestatementsFinpath(stockCode, isBank, false, size);
-    fullbalancesheetsFinpath(stockCode, true, size);
-    fullbalancesheetsFinpath(stockCode, false, size);
-    // shareholderstructure(stock);
+    const fnFinancialratiosFinpathYear = new Promise((resolve, reject) => {
+        try {
+            financialratiosFinpath(stockCode, true, size)
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+    const fnFinancialratiosFinpath = new Promise((resolve, reject) => {
+        try {
+            financialratiosFinpath(stockCode, false, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
 
-    // ----- Simplize - The second -----
-    financialratiosSimplize(stockCode, true, size);
-    financialratiosSimplize(stockCode, false, size);
+    const fnFullIncomeStatementsFinpathYear = new Promise((resolve, reject) => {
+        try {
+            fullincomestatementsFinpath(stockCode, isBank, true, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
 
-    // ----- Fireant - The thrid -----
-    financialIndicatorsFireant(stockCode);
-    fullbalancesheetsFireant(stockCode, true, size);
-    fullbalancesheetsFireant(stockCode, false, size);
-    fullincomestatementsFireant(stockCode, isBank, true, size);
-    fullincomestatementsFireant(stockCode, isBank, false, size);
-    // holdersFireant(stockCode); // Không sử dụng
-    profileFireant(stockCode);
-    historicalQuotesFireant(stockCode);
-    fundamentalFireant(stockCode);
+    const fnFullIncomeStatementsFinpathQuarter = new Promise((resolve, reject) => {
+        try {
+            fullincomestatementsFinpath(stockCode, isBank, false, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
 
-    // ----- Cafef - The four -----
-    // Cafef - Lấy cổ tức
-    bussinessPlan(exchangeCd, stockCode, stockName);
+    const fnFullBalanceSheetsFinpathYear = new Promise((resolve, reject) => {
+        try {
+            fullbalancesheetsFinpath(stockCode, true, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFullBalanceSheetsFinpathQuarter = new Promise((resolve, reject) => {
+        try {
+            fullbalancesheetsFinpath(stockCode, false, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFinancialRatiosSimplizeYear = new Promise((resolve, reject) => {
+        try {
+            financialratiosSimplize(stockCode, true, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFinancialRatiosSimplizeQuarter = new Promise((resolve, reject) => {
+        try {
+            financialratiosSimplize(stockCode, false, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFinancialIndicatorsFireant = new Promise((resolve, reject) => {
+        try {
+            financialIndicatorsFireant(stockCode);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFullBalanceSheetsFireantYear = new Promise((resolve, reject) => {
+        try {
+            fullbalancesheetsFireant(stockCode, true, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFullBalanceSheetsFireantQuarter = new Promise((resolve, reject) => {
+        try {
+            fullbalancesheetsFireant(stockCode, false, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFullIncomeStatementsFireantYear = new Promise((resolve, reject) => {
+        try {
+            fullincomestatementsFireant(stockCode, isBank, true, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFullIncomeStatementsFireantQuarter = new Promise((resolve, reject) => {
+        try {
+            fullincomestatementsFireant(stockCode, isBank, false, size);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnProfileFireant = new Promise((resolve, reject) => {
+        try {
+            profileFireant(stockCode);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnHistoricalQuotesFireant = new Promise((resolve, reject) => {
+        try {
+            historicalQuotesFireant(stockCode);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnFundamentalFireant = new Promise((resolve, reject) => {
+        try {
+            fundamentalFireant(stockCode);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    const fnBussinessPlan = new Promise((resolve, reject) => {
+        try {
+            bussinessPlan(exchangeCd, stockCode, stockName);
+            resolve("OK");
+        } catch (error) {
+            reject(error);
+        }
+    });
+
+    Promise.all([
+        fnFinancialratiosFinpathYear, 
+        fnFinancialratiosFinpath,
+        fnFullIncomeStatementsFinpathYear,
+        fnFullIncomeStatementsFinpathQuarter,
+        fnFullBalanceSheetsFinpathYear,
+        fnFullBalanceSheetsFinpathQuarter,
+        fnFinancialRatiosSimplizeYear,
+        fnFinancialRatiosSimplizeQuarter,
+        fnFinancialIndicatorsFireant,
+        fnFullBalanceSheetsFireantYear,
+        fnFullBalanceSheetsFireantQuarter,
+        fnFullIncomeStatementsFireantYear,
+        fnFullIncomeStatementsFireantQuarter,
+        fnProfileFireant,
+        fnHistoricalQuotesFireant,
+        fnFundamentalFireant,
+        fnBussinessPlan
+    ]).then(results => {
+        console.log("All promises resolved successfully:", results);
+    }).catch(error => {
+        console.error("An error occurred with one of the promises:", error);
+    });
 }
+
+
 
 /**
  * Cafef - Lấy sàn giao dịch
@@ -631,7 +781,7 @@ function arrayToMapFireant(input) {
  * @param {*} isYear
  */
 function setValueFireant(mpData, mpKey, set, isYear) {
-debugger;
+
     mpData.get(mpKey).forEach(obj => {
         var key = '';
         var data = {};
