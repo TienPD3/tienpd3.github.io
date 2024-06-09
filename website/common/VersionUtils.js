@@ -8,15 +8,17 @@
 class VersionUtils {
 
     /**
-     * import CSS/JS
+     * Import CSS/JS
      *
      * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
      * @date 2024/02/14
      * @static
-     * @param {*} input
+     * @param {string} input
      * @memberof VersionUtils
      */
     static importPlugin(input) {
-        document.write('<script src="' + input + '?v=' + DatetimeUtils.getSystemDateTime() + '"\><\/script>');
+        const script = document.createElement('script');
+        script.src = `${input}?v=${DatetimeUtils.getSystemDateTime()}`;
+        document.head.appendChild(script);
     }
 }

@@ -5,9 +5,9 @@ const pathCafef = 'https://s.cafef.vn';
 const SIZE_DEFAULT = 5;
 
 // Create variable
-var mpYearMonthData = new Map();
-var mpYearData = new Map();
-var dataFACurrent = {};
+const mpYearMonthData = new Map();
+const mpYearData = new Map();
+const dataFACurrent = {};
 
 /**
  * Init
@@ -19,194 +19,42 @@ var dataFACurrent = {};
  * @param {boolean} [isYear=false]
  * @param {*} [size=SIZE_DEFAULT]
  */
-function getFinancial(exchangeCd, stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
+async function getFinancial(exchangeCd, stockCode, stockName, isYear = false, size = SIZE_DEFAULT) {
 
-    mpYearMonthData = new Map();
-    mpYearData = new Map();
+    mpYearMonthData.clear();
+    mpYearData.clear();
 
-    isBank = false;
-    if (stockName.indexOf('Ngân hàng') == 0) {
-        isBank = true;
+    const isBank = stockName.startsWith('Ngân hàng');
+
+    // Start all asynchronous operations at once
+    const promises = [
+        financialratiosFinpath(stockCode, true, size),
+        financialratiosFinpath(stockCode, false, size),
+        fullincomestatementsFinpath(stockCode, isBank, true, size),
+        fullincomestatementsFinpath(stockCode, isBank, false, size),
+        fullbalancesheetsFinpath(stockCode, true, size),
+        fullbalancesheetsFinpath(stockCode, false, size),
+        financialratiosSimplize(stockCode, true, size),
+        financialratiosSimplize(stockCode, false, size),
+        financialIndicatorsFireant(stockCode),
+        fullbalancesheetsFireant(stockCode, true, size),
+        fullbalancesheetsFireant(stockCode, false, size),
+        fullincomestatementsFireant(stockCode, isBank, true, size),
+        fullincomestatementsFireant(stockCode, isBank, false, size),
+        profileFireant(stockCode),
+        historicalQuotesFireant(stockCode),
+        fundamentalFireant(stockCode),
+        bussinessPlan(exchangeCd, stockCode, stockName)
+    ];
+
+    try {
+        // Wait for all promises to resolve
+        await Promise.all(promises);
+        console.log('All promises resolved successfully');
+    } catch (error) {
+        console.error('An error occurred with one of the promises:', error);
     }
-
-    const fnFinancialratiosFinpathYear = new Promise((resolve, reject) => {
-        try {
-            financialratiosFinpath(stockCode, true, size)
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-    const fnFinancialratiosFinpath = new Promise((resolve, reject) => {
-        try {
-            financialratiosFinpath(stockCode, false, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullIncomeStatementsFinpathYear = new Promise((resolve, reject) => {
-        try {
-            fullincomestatementsFinpath(stockCode, isBank, true, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullIncomeStatementsFinpathQuarter = new Promise((resolve, reject) => {
-        try {
-            fullincomestatementsFinpath(stockCode, isBank, false, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullBalanceSheetsFinpathYear = new Promise((resolve, reject) => {
-        try {
-            fullbalancesheetsFinpath(stockCode, true, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullBalanceSheetsFinpathQuarter = new Promise((resolve, reject) => {
-        try {
-            fullbalancesheetsFinpath(stockCode, false, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFinancialRatiosSimplizeYear = new Promise((resolve, reject) => {
-        try {
-            financialratiosSimplize(stockCode, true, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFinancialRatiosSimplizeQuarter = new Promise((resolve, reject) => {
-        try {
-            financialratiosSimplize(stockCode, false, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFinancialIndicatorsFireant = new Promise((resolve, reject) => {
-        try {
-            financialIndicatorsFireant(stockCode);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullBalanceSheetsFireantYear = new Promise((resolve, reject) => {
-        try {
-            fullbalancesheetsFireant(stockCode, true, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullBalanceSheetsFireantQuarter = new Promise((resolve, reject) => {
-        try {
-            fullbalancesheetsFireant(stockCode, false, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullIncomeStatementsFireantYear = new Promise((resolve, reject) => {
-        try {
-            fullincomestatementsFireant(stockCode, isBank, true, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFullIncomeStatementsFireantQuarter = new Promise((resolve, reject) => {
-        try {
-            fullincomestatementsFireant(stockCode, isBank, false, size);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnProfileFireant = new Promise((resolve, reject) => {
-        try {
-            profileFireant(stockCode);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnHistoricalQuotesFireant = new Promise((resolve, reject) => {
-        try {
-            historicalQuotesFireant(stockCode);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnFundamentalFireant = new Promise((resolve, reject) => {
-        try {
-            fundamentalFireant(stockCode);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    const fnBussinessPlan = new Promise((resolve, reject) => {
-        try {
-            bussinessPlan(exchangeCd, stockCode, stockName);
-            resolve("OK");
-        } catch (error) {
-            reject(error);
-        }
-    });
-
-    Promise.all([
-        fnFinancialratiosFinpathYear, 
-        fnFinancialratiosFinpath,
-        fnFullIncomeStatementsFinpathYear,
-        fnFullIncomeStatementsFinpathQuarter,
-        fnFullBalanceSheetsFinpathYear,
-        fnFullBalanceSheetsFinpathQuarter,
-        fnFinancialRatiosSimplizeYear,
-        fnFinancialRatiosSimplizeQuarter,
-        fnFinancialIndicatorsFireant,
-        fnFullBalanceSheetsFireantYear,
-        fnFullBalanceSheetsFireantQuarter,
-        fnFullIncomeStatementsFireantYear,
-        fnFullIncomeStatementsFireantQuarter,
-        fnProfileFireant,
-        fnHistoricalQuotesFireant,
-        fnFundamentalFireant,
-        fnBussinessPlan
-    ]).then(results => {
-        console.log("All promises resolved successfully:", results);
-    }).catch(error => {
-        console.error("An error occurred with one of the promises:", error);
-    });
 }
-
-
 
 /**
  * Cafef - Lấy sàn giao dịch
@@ -216,15 +64,12 @@ function getFinancial(exchangeCd, stockCode, stockName, isYear = false, size = S
  * @param {*} exchangeCd
  */
 function getExchange(exchangeCd) {
-    if (exchangeCd == '2') {
-        return 'hastc';
-    } else if (exchangeCd == '8') {
-        return 'otc';
-    } if (exchangeCd == '9') {
-        return 'upcom';
-    } else {
-        return 'hose';
-    }
+    const exchangeMap = {
+        '2': 'hastc',
+        '8': 'otc',
+        '9': 'upcom'
+    };
+    return exchangeMap[exchangeCd] || 'hose';
 }
 
 /**
@@ -235,35 +80,44 @@ function getExchange(exchangeCd) {
  * @param {*} exchange
  * @param {*} stockName
  */
-function bussinessPlan(exchangeCd, stockCode, stockName) {
+async function bussinessPlan(exchangeCd, stockCode, stockName) {
+    const keyUrl = `${stockCode.stringEnglishHyphen()}-${stockName.stringEnglishHyphen()}.chn`;
+    const url = `${pathCafef}/${getExchange(exchangeCd)}/${keyUrl}`;
 
-    let keyUrl = stockCode.stringEnglishHyphen() + '-' + stockName.stringEnglishHyphen() + '.chn';
-
-    $.ajax({
-        url: '{0}/{1}/{2}'.format(pathCafef, getExchange(exchangeCd), keyUrl),
-        async: false,
-        dataType : 'html',
-        type: 'GET',
-        success: function(reps) {
-            let elmBussinessPlan = $(reps).find('.kehoachkd');
-            let strHeader = elmBussinessPlan.find('h2.cattitle.noborder').text();
-            var year = strHeader.match(/[0-9]+/i);
-            var dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng tiền mặt")').siblings(1).text();
-            if (dataCurrent != 'N/A' && dataCurrent != '') {
-                dataFACurrent.dividend = 'tiền mặt[' + year + ']';
-                dataFACurrent.dividendPercent = dataCurrent;
-            } else {
-                dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng cổ phiếu")').siblings(1).text();
-                if (dataCurrent != 'N/A'  && dataCurrent != '') {
-                    dataFACurrent.dividend = 'cổ phiếu[' + year + ']';
-                    dataFACurrent.dividendPercent = dataCurrent;
-                } else {
-                    dataFACurrent.dividend = 'không có';
-                    dataFACurrent.dividendPercent = '0%';
-                }
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'text/html'
             }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+
+        const responseText = await response.text();
+        const elmBussinessPlan = $(responseText).find('.kehoachkd');
+        const strHeader = elmBussinessPlan.find('h2.cattitle.noborder').text();
+        const year = strHeader.match(/[0-9]+/i);
+        let dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng tiền mặt")').siblings(1).text();
+
+        if (dataCurrent === 'N/A' || dataCurrent === '') {
+            dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng cổ phiếu")').siblings(1).text();
+            if (dataCurrent === 'N/A' || dataCurrent === '') {
+                dataFACurrent.dividend = 'không có';
+                dataFACurrent.dividendPercent = '0%';
+            } else {
+                dataFACurrent.dividend = `cổ phiếu[${year}]`;
+                dataFACurrent.dividendPercent = dataCurrent;
+            }
+        } else {
+            dataFACurrent.dividend = `tiền mặt[${year}]`;
+            dataFACurrent.dividendPercent = dataCurrent;
+        }
+    } catch (error) {
+        console.error('Failed to fetch business plan:', error);
+    }
 }
 
 /**
@@ -273,22 +127,25 @@ function bussinessPlan(exchangeCd, stockCode, stockName) {
  * @date 2024/02/14
  * @param {*} stockCode
  */
-function holdersFireant(stockCode) {
-    $.ajax({
-        url: '{0}/symbols/{1}/holders'.format(pathFireant, stockCode),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {
-            authorization : ACCESS_TOKEN_FIREANT
-        },
-        success: function(reps) {
-
-            var result = reps.reduce((partialSum, obj) => partialSum + obj.ownership * 100, 0);
-            console.log(result);
+async function holdersFireant(stockCode) {
+    try {
+        const response = await fetch(`${pathFireant}/symbols/${stockCode}/holders`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': ACCESS_TOKEN_FIREANT
+            },
+            cache: 'no-store' // Ensure fresh data is fetched
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+        const data = await response.json();
+        const totalOwnership = data.reduce((acc, holder) => acc + (holder.ownership * 100 || 0), 0);
+        console.log(`Total ownership percentage: ${totalOwnership}%`);
+    } catch (error) {
+        console.error('Error fetching holders data:', error);
+    }
 }
 
 /**
@@ -298,21 +155,25 @@ function holdersFireant(stockCode) {
  * @date 2024/02/14
  * @param {*} stockCode
  */
-function profileFireant(stockCode) {
-    $.ajax({
-        url: '{0}/symbols/{1}/profile'.format(pathFireant, stockCode),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {
-            authorization : ACCESS_TOKEN_FIREANT
-        },
-        success: function(reps) {
-            // Khối lượng cổ phiếu đang niêm yết
-            dataFACurrent.listingVolume = StringUtils.formatCashMillion(reps.listingVolume);
+async function profileFireant(stockCode) {
+    try {
+        const response = await fetch(`${pathFireant}/symbols/${stockCode}/profile`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': ACCESS_TOKEN_FIREANT
+            },
+            cache: 'no-store' // Ensure fresh data is fetched
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+        const data = await response.json();
+        // Khối lượng cổ phiếu đang niêm yết
+        dataFACurrent.listingVolume = StringUtils.formatCashMillion(data.listingVolume);
+    } catch (error) {
+        console.error('Error fetching profile data:', error);
+    }
 }
 
 /**
@@ -322,25 +183,30 @@ function profileFireant(stockCode) {
  * @date 2024/02/14
  * @param {*} stockCode
  */
-function historicalQuotesFireant(stockCode) {
-
+async function historicalQuotesFireant(stockCode) {
     if (historicalQuotes === null) {
         strLatestTGCP = null;
+        const url = `${pathFireant}/symbols/${stockCode}/historical-quotes?startDate=1900-01-01&endDate=${DatetimeUtils.getSystemDate()}&offset=0&limit=1`;
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': ACCESS_TOKEN_FIREANT
+        };
 
-        $.ajax({
-            url: '{0}/symbols/{1}/historical-quotes?startDate=1900-01-01&endDate={2}&offset=0&limit=1'.format(pathFireant, stockCode, DatetimeUtils.getSystemDate()),
-            async: false,
-            contentType: "application/json",
-            dataType : 'json',
-            type: 'GET',
-            headers: {
-                authorization : ACCESS_TOKEN_FIREANT
-            },
-            success: function(reps) {
-                // Giá đóng cửa của ngày hôm nay
-                dataFACurrent.priceClose = (reps[0].priceClose * 1000).toFixed();
+        try {
+            const response = await fetch(url, { method: 'GET', headers });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        });
+            const reps = await response.json();
+            if (reps.length > 0) {
+                // Giá đóng cửa của ngày hôm nay
+                dataFACurrent.priceClose = Math.round(reps[0].priceClose * 1000);
+            } else {
+                console.warn('No historical quotes data available');
+            }
+        } catch (error) {
+            console.error('Error fetching historical quotes:', error);
+        }
     }
 }
 
@@ -351,25 +217,27 @@ function historicalQuotesFireant(stockCode) {
  * @date 2024/02/14
  * @param {*} stockCode
  */
-function fundamentalFireant(stockCode) {
-
+async function fundamentalFireant(stockCode) {
     if (historicalQuotes === null) {
         strLatestTGCP = null;
 
-        $.ajax({
-            url: '{0}/symbols/{1}/fundamental'.format(pathFireant, stockCode),
-            async: false,
-            contentType: "application/json",
-            dataType : 'json',
-            type: 'GET',
-            headers: {
-                authorization : ACCESS_TOKEN_FIREANT
-            },
-            success: function(reps) {
-                // Cổ phiếu đang lưu hành
-                dataFACurrent.sharesOutstanding = StringUtils.formatCashMillion(reps.sharesOutstanding)
+        try {
+            const response = await fetch(`${pathFireant}/symbols/${stockCode}/fundamental`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': ACCESS_TOKEN_FIREANT
+                }
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        });
+            const data = await response.json();
+            // Cổ phiếu đang lưu hành
+            dataFACurrent.sharesOutstanding = StringUtils.formatCashMillion(data.sharesOutstanding);
+        } catch (error) {
+            console.error('Error fetching fundamental data:', error);
+        }
     }
 }
 
@@ -380,38 +248,41 @@ function fundamentalFireant(stockCode) {
  * @date 2024/02/14
  * @param {*} stockCode
  */
-function financialIndicatorsFireant(stockCode) {
-    $.ajax({
-        url: '{0}/symbols/{1}/financial-indicators'.format(pathFireant, stockCode),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {
-            authorization : ACCESS_TOKEN_FIREANT
-        },
-        success: function(reps) {
-            
-            $.each(reps, function(idx, obj) {
-                // P/E (Price to Earning per share) là tỷ lệ giữa giá thị trường và lợi nhuận ròng trên mỗi cổ phiếu.
-                setValueFinancialIndicatorsFireant('P/E', 'PE', obj);
-                // P/B (Price to Book value per share) là tỷ lệ giữa giá thị trường và giá trị sổ sách trên mỗi cổ phiếu.
-                setValueFinancialIndicatorsFireant('P/B', 'PB', obj);
-                // Tỷ lệ lãi ròng hay còn gọi là biên lợi nhuận sau thuế (Net profit margin) được tính bằng tỷ lệ giữa lợi nhuận sau thuế và doanh thu thuần.
-                setValueFinancialIndicatorsFireant('%Lãi ròng', 'netProfitMargin', obj);
-                // Tỷ lệ lãi gộp hay biên lợi nhuận gộp (Gross margin), được tính bằng tỷ lệ giữa lợi nhuận gộp và doanh thu thuần.
-                setValueFinancialIndicatorsFireant('%Lãi gộp', 'grossMargin', obj);
-                // ROA (Return on Assets) là hệ số lợi nhuận trên tài sản, được tính bằng tỷ lệ giữa lợi nhuận sau thuế và tổng tài sản.
-                setValueFinancialIndicatorsFireant('ROA', 'ROA', obj);
-                // ROE (Return on Equity) là hệ số lợi nhuận trên vốn chủ sở hữu, được tính bằng tỷ lệ giữa lợi nhuận sau thuế và tổng nguồn vốn chủ sở hữu.
-                setValueFinancialIndicatorsFireant('ROE', 'ROE', obj);
-                // ROIC (Return on invested Capital) là hệ số lợi nhuận trên vốn đầu tư, được tính bằng tỷ lệ giữa EBIT*(1-thuế suất) và vốn đầu tư.
-                setValueFinancialIndicatorsFireant('ROIC', 'ROIC', obj);
-                // Hệ số nợ trên vốn chủ sở hữu (Debt On Equity), được tính bằng tỷ lệ giữa tổng nợ phải trả và tổng nguồn vốn chủ sở hữu.
-                setValueFinancialIndicatorsFireant('Nợ/VCSH', 'debtOnEquity', obj);
-            });
+async function financialIndicatorsFireant(stockCode) {
+    try {
+        const response = await fetch(`${pathFireant}/symbols/${stockCode}/financial-indicators`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': ACCESS_TOKEN_FIREANT
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+
+        const reps = await response.json();
+        const indicatorsMap = {
+            'P/E': 'PE',
+            'P/B': 'PB',
+            '%Lãi ròng': 'netProfitMargin',
+            '%Lãi gộp': 'grossMargin',
+            'ROA': 'ROA',
+            'ROE': 'ROE',
+            'ROIC': 'ROIC',
+            'Nợ/VCSH': 'debtOnEquity'
+        };
+
+        reps.forEach(obj => {
+            const setName = indicatorsMap[obj.shortName];
+            if (setName) {
+                setValueFinancialIndicatorsFireant(obj.shortName, setName, obj);
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching financial indicators:', error);
+    }
 }
 
 /**
@@ -424,6 +295,7 @@ function financialIndicatorsFireant(stockCode) {
  * @param {*} obj
  */
 function setValueFinancialIndicatorsFireant(getName, setName, obj) {
+    // Gán giá trị cho dataFACurrent dựa trên tên được đặt nếu tên ngắn của đối tượng trùng với tên lấy được
     if (obj.shortName === getName) {
         dataFACurrent[setName] = obj.value;
     }
@@ -438,55 +310,35 @@ function setValueFinancialIndicatorsFireant(getName, setName, obj) {
  * @param {*} isYear
  * @param {*} size
  */
-function financialratiosFinpath(stockCode, isYear, size) {
-
-    $.ajax({
-        url: '{0}/api/stocks/financialratios/{1}'.format(pathFinpath, stockCode),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {},
-        success: function(reps) {
-
-            var dataReps = null;
-            if (isYear) {
-                dataReps = reps.data.yearlyProfits;
-            } else {
-                dataReps = reps.data.quarterlyProfits;
+async function financialratiosFinpath(stockCode, isYear, size) {
+    const url = `${pathFinpath}/api/stocks/financialratios/${stockCode}`;
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
             }
-
-            $.each(dataReps, function(idx, obj) {
-                if (idx < size) {
-                    
-                    var key = '';
-                    var data = {};
-                    if (isYear) {
-                        // Lấy theo Quý
-                        key = '{0}'.format(obj.yearReport);
-                        data = mpYearData.get(key) || {};
-                    } else {
-                        // Lấy theo Năm
-                        key = '{0}/Q{1}'.format(obj.yearReport, obj.quarterReport);
-                        data = mpYearMonthData.get(key) || {};
-                    }
-
-                    // EPS
-                    data.EPS = {new: obj.eps, old: ''};
-                    // P/B
-                    data.PB = {new: obj.pb, old: ''};
-                    // P/E
-                    data.PE = {new: obj.pe, old: ''};
-
-                    if (isYear) {
-                        mpYearData.set(key, data)
-                    } else {
-                        mpYearMonthData.set(key, data)
-                    }
-                }
-            });
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+        const reps = await response.json();
+        const dataReps = isYear ? reps.data.yearlyProfits : reps.data.quarterlyProfits;
+        const dataMap = isYear ? mpYearData : mpYearMonthData;
+
+        dataReps.slice(0, size).forEach(obj => {
+            const key = isYear ? `${obj.yearReport}` : `${obj.yearReport}/Q${obj.quarterReport}`;
+            const data = dataMap.get(key) || {};
+
+            data.EPS = { new: obj.eps, old: '' };
+            data.PB = { new: obj.pb, old: '' };
+            data.PE = { new: obj.pe, old: '' };
+
+            dataMap.set(key, data);
+        });
+    } catch (error) {
+        console.error('Error fetching financial ratios:', error);
+    }
 }
 
 /**
@@ -498,30 +350,33 @@ function financialratiosFinpath(stockCode, isYear, size) {
  * @param {*} isYear
  * @param {*} size
  */
-function financialratiosSimplize(stockCode, isYear, size) {
+async function financialratiosSimplize(stockCode, isYear, size) {
+    const period = isYear ? 'Y' : 'Q';
+    const periodSize = isYear ? 3 : 12;
+    const url = `${pathSimplize}/api/company/fi/ratio/${stockCode}?period=${period}&size=${periodSize}`;
 
-    $.ajax({
-        url: '{0}/api/company/fi/ratio//{1}?period={2}&size={3}'.format(pathSimplize, stockCode, isYear? 'Y': 'Q', isYear? 3: 12),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {
-            authorization: ACCESS_TOKEN_SIMPLIZE
-        },
-        success: function(reps) {
-            $.each(reps.data.items, function(idx, obj) {
-                if (idx < size) {
-                    // op2: P/B
-                    setValueSimplize(obj, 'PB', 'op2', isYear);
-                    // op1: P/E
-                    setValueSimplize(obj, 'PE', 'op1', isYear);
-                    // op4: EPS
-                    setValueSimplize(obj, 'EPS', 'op4', isYear);
-                }
-            });
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': ACCESS_TOKEN_SIMPLIZE
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+
+        const reps = await response.json();
+        reps.data.items.slice(0, size).forEach(obj => {
+            setValueSimplize(obj, 'PB', 'op2', isYear); // P/B
+            setValueSimplize(obj, 'PE', 'op1', isYear); // P/E
+            setValueSimplize(obj, 'EPS', 'op4', isYear); // EPS
+        });
+    } catch (error) {
+        console.error('Error fetching financial ratios:', error);
+    }
 }
 
 /**
@@ -534,69 +389,48 @@ function financialratiosSimplize(stockCode, isYear, size) {
  * @param {*} isYear
  * @param {*} size
  */
-function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
+async function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
+    const url = `${pathFinpath}/api/stocks/fullincomestatements/${stockCode}`;
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
-    $.ajax({
-        url: '{0}/api/stocks/fullincomestatements/{1}'.format(pathFinpath, stockCode),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {},
-        success: function(reps) {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
 
-            var dataReps = null;
-            if (isYear) {
-                dataReps = reps.data.yearlys;
+        const reps = await response.json();
+        const dataReps = isYear ? reps.data.yearlys : reps.data.quarterlys;
+
+        const dataMap = isYear ? mpYearData : mpYearMonthData;
+
+        dataReps.slice(0, size).forEach(obj => {
+            const key = isYear ? `${obj.yearReport}` : `${obj.yearReport}/Q${obj.quarterReport}`;
+            const data = dataMap.get(key) || {};
+
+            if (isBank) {
+                data.netRevenue = { new: obj.isb25, old: '' }; // Thu nhập lãi và các khoản thu nhập tương tự - Danh thu thuần
+                data.grossProfit = { new: obj.isb27, old: '' }; // Thu nhập lãi thuần - Lợi nhuận gộp
+                data.netIncomeStatement = { new: obj.isb38, old: '' }; // Dòng tiền từ HĐKD - Tổng thu nhập từ hoạt động
             } else {
-                dataReps = reps.data.quarterlys;
+                data.netRevenue = { new: obj.isa3, old: '' }; // Doanh số thuần - Danh thu thuần
+                data.grossProfit = { new: obj.isa5, old: '' }; // Lãi gộp - Lợi nhuận gộp
+                data.netIncomeStatement = { new: obj.isa11, old: '' }; // Dòng tiền từ HĐKD - Lãi/(lỗ) từ hoạt động kinh doanh
             }
 
-            $.each(dataReps, function(idx, obj) {
-                if (idx < size) {
-                    
-                    var key = '';
-                    var data = {};
-                    if (isYear) {
-                        // Lấy theo Quý
-                        key = '{0}'.format(obj.yearReport);
-                        data = mpYearData.get(key) || {};
-                    } else {
-                        // Lấy theo Năm
-                        key = '{0}/Q{1}'.format(obj.yearReport, obj.quarterReport);
-                        data = mpYearMonthData.get(key) || {};
-                    }
+            data.LNST = { new: obj.isa22, old: '' }; // Lợi nhuận của Cổ đông của Công ty mẹ - Lợi nhuận sau thuế
 
-                    // Kiểm tra xem có phải thuộc mã Ngân hàng không?
-                    if (isBank) {
-                        // isb25: Thu nhập lãi và các khoản thu nhập tương tự - Danh thu thuần
-                        data.netRevenue = {new: obj.isb25, old: ''};
-                        // isb27: Thu nhập lãi thuần - Lợi nhuận gộp
-                        data.grossProfit = {new: obj.isb27, old: ''};
-                        // isb38: Dòng tiền từ HĐKD - Tổng thu nhập từ hoạt động
-                        data.netIncomeStatement = {new: obj.isb38, old: ''};
-                    } else {
-                        // isa3: Doanh số thuần - Danh thu thuần
-                        data.netRevenue = {new: obj.isa3, old: ''};
-                        // isa5: Lãi gộp - Lợi nhuận gộp
-                        data.grossProfit = {new: obj.isa5, old: ''};
-                        // isa11: Dòng tiền từ HĐKD - Lãi/(lỗ) từ hoạt động kinh doanh
-                        data.netIncomeStatement = {new: obj.isa11, old: ''};
-                    }
-                    
-                    // isa22: Lợi nhuận của Cổ đông của Công ty mẹ - Lợi nhuận sau thuế
-                    data.LNST = {new: obj.isa22, old: ''};
-
-                    if (isYear) {
-                        mpYearData.set(key, data)
-                    } else {
-                        mpYearMonthData.set(key, data)
-                    }
-                }
-            });
-        }
-    });
+            dataMap.set(key, data);
+        });
+    } catch (error) {
+        console.error('Error fetching financial statements:', error);
+    }
 }
+
 
 /**
  * Fireant - Tài chính - Kết quả kinh doanh
@@ -608,45 +442,44 @@ function fullincomestatementsFinpath(stockCode, isBank, isYear, size) {
  * @param {*} isYear
  * @param {*} size
  */
-function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
+async function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
+    const year = DatetimeUtils.getYear();
+    const quarter = isYear ? 0 : 1;
+    const url = `${pathFireant}/symbols/${stockCode}/full-financial-reports?type=2&year=${year}&quarter=${quarter}&limit=${size}`;
 
-    $.ajax({
-        // type: Loại báo cáo (1: Cân đối kế toán, 2: Kết quả SXKD, 3: Lưu chuyển tiền tệ trực tiếp, 4: Lưu chuyển tiền tệ gián tiếp)
-        // year: Năm lấy báo cáo
-        // quarter: Quý lấy báo cáo
-        // limit: Số lượng tối đa bản ghi lấy về (Mặc địch là SIZE_DEFAULT)
-        url: '{0}/symbols/{1}/full-financial-reports?type=2&year={2}&quarter={3}&limit={4}'.format(pathFireant, stockCode, DatetimeUtils.getYear(), isYear? 0: 1, size),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {
-            authorization: ACCESS_TOKEN_FIREANT
-        },
-        success: function(reps) {
-            var mpData = arrayToMapFireant(reps);
-  
-            if (isBank) {
-                // Doanh thu thuần
-                setValueFireant(mpData, 'Thu nhập từ lãi và các khoản thu nhập tương tự', 'netRevenue', isYear);
-                // Lợi nhuận gộp
-                setValueFireant(mpData, 'Thu nhập lãi thuần', 'grossProfit', isYear);
-                // Lợi nhuận thuần từ hoạt động kinh doanh
-                setValueFireant(mpData, 'Tổng lợi nhuận trước thuế', 'netIncomeStatement', isYear);
-                // Lợi nhuận sau thuế
-                setValueFireant(mpData, 'Lợi nhuận sau thuế thu nhập doanh nghiệp', 'LNST', isYear);
-            } else {
-                // Doanh thu thuần
-                setValueFireant(mpData, 'Doanh thu thuần', 'netRevenue', isYear);
-                // Lợi nhuận gộp
-                setValueFireant(mpData, 'Lợi nhuận gộp', 'grossProfit', isYear);
-                // Lợi nhuận thuần từ hoạt động kinh doanh
-                setValueFireant(mpData, 'Lợi nhuận thuần từ hoạt động kinh doanh', 'netIncomeStatement', isYear);
-                // Lợi nhuận sau thuế
-                setValueFireant(mpData, 'Lợi nhuận sau thuế của cổ đông của công ty mẹ', 'LNST', isYear);
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': ACCESS_TOKEN_FIREANT
             }
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+
+        const reps = await response.json();
+        const mpData = arrayToMapFireant(reps);
+        const financialFields = isBank ? {
+            netRevenue: 'Thu nhập từ lãi và các khoản thu nhập tương tự',
+            grossProfit: 'Thu nhập lãi thuần',
+            netIncomeStatement: 'Tổng lợi nhuận trước thuế',
+            LNST: 'Lợi nhuận sau thuế thu nhập doanh nghiệp'
+        } : {
+            netRevenue: 'Doanh thu thuần',
+            grossProfit: 'Lợi nhuận gộp',
+            netIncomeStatement: 'Lợi nhuận thuần từ hoạt động kinh doanh',
+            LNST: 'Lợi nhuận sau thuế của cổ đông của công ty mẹ'
+        };
+
+        Object.entries(financialFields).forEach(([key, value]) => {
+            setValueFireant(mpData, value, key, isYear);
+        });
+    } catch (error) {
+        console.error('Error fetching financial statements:', error);
+    }
 }
 
 /**
@@ -658,54 +491,41 @@ function fullincomestatementsFireant(stockCode, isBank, isYear, size) {
  * @param {*} isYear
  * @param {*} size
  */
-function fullbalancesheetsFinpath(stockCode, isYear, size) {
-    
-    $.ajax({
-        url: '{0}/api/stocks/fullbalancesheets/{1}'.format(pathFinpath, stockCode),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {},
-        success: function(reps) {
-
-            var dataReps = null;
-            if (isYear) {
-                dataReps = reps.data.yearlys;
-            } else {
-                dataReps = reps.data.quarterlys;
+async function fullbalancesheetsFinpath(stockCode, isYear, size) {
+    const url = `${pathFinpath}/api/stocks/fullbalancesheets/${stockCode}`;
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
             }
-            
-            $.each(dataReps, function(idx, obj) {
-                if (idx < size) {
+        });
 
-                    var key = '';
-                    var data = {};
-                    if (isYear) {
-                        // Lấy theo Quý
-                        key = '{0}'.format(obj.yearReport);
-                        data = mpYearData.get(key) || {};
-                    } else {
-                        // Lấy theo Năm
-                        key = '{0}/Q{1}'.format(obj.yearReport, obj.quarterReport);
-                        data = mpYearMonthData.get(key) || {};
-                    }
-                    // bsa53: TỔNG CỘNG TÀI SẢN
-                    data.TTS = {new: obj.bsa53, old: ''};
-                    // bsa54: NỢ PHẢI TRẢ
-                    data.NO = {new: obj.bsa54, old: ''};
-                    // bsa78: VỐN CHỦ SỞ HỮU
-                    data.ownerEquity = {new: obj.bsa78, old: ''};
-
-                    if (isYear) {
-                        mpYearData.set(key, data)
-                    } else {
-                        mpYearMonthData.set(key, data)
-                    }
-                }
-            });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+
+        const reps = await response.json();
+        const dataReps = isYear ? reps.data.yearlys : reps.data.quarterlys;
+
+        const mapData = isYear ? mpYearData : mpYearMonthData;
+
+        dataReps.slice(0, size).forEach(obj => {
+            const key = isYear ? `${obj.yearReport}` : `${obj.yearReport}/Q${obj.quarterReport}`;
+            const data = mapData.get(key) || {};
+
+            // bsa53: TỔNG CỘNG TÀI SẢN
+            data.TTS = { new: obj.bsa53, old: '' };
+            // bsa54: NỢ PHẢI TRẢ
+            data.NO = { new: obj.bsa54, old: '' };
+            // bsa78: VỐN CHỦ SỞ HỮU
+            data.ownerEquity = { new: obj.bsa78, old: '' };
+
+            mapData.set(key, data);
+        });
+    } catch (error) {
+        console.error('Error fetching balance sheets:', error);
+    }
 }
 
 /**
@@ -717,34 +537,40 @@ function fullbalancesheetsFinpath(stockCode, isYear, size) {
  * @param {*} isYear
  * @param {*} size
  */
-function fullbalancesheetsFireant(stockCode, isYear, size) {
+async function fullbalancesheetsFireant(stockCode, isYear, size) {
+    const year = DatetimeUtils.getYear();
+    const quarter = isYear ? 0 : 1;
+    const url = `${pathFireant}/symbols/${stockCode}/full-financial-reports?type=1&year=${year}&quarter=${quarter}&limit=${size}`;
 
-    $.ajax({
-        // type: Loại báo cáo (1: Cân đối kế toán, 2: Kết quả SXKD, 3: Lưu chuyển tiền tệ trực tiếp, 4: Lưu chuyển tiền tệ gián tiếp)
-        // year: Năm lấy báo cáo
-        // quarter: Quý lấy báo cáo
-        // limit: Số lượng tối đa bản ghi lấy về (Mặc địch là SIZE_DEFAULT)
-        url: '{0}/symbols/{1}/full-financial-reports?type=1&year={2}&quarter={3}&limit={4}'.format(pathFireant, stockCode, DatetimeUtils.getYear(), isYear? 0: 1, size),
-        async: false,
-        contentType: "application/json",
-        dataType : 'json',
-        type: 'GET',
-        headers: {
-            authorization : ACCESS_TOKEN_FIREANT
-        },
-        success: function(reps) {
-            var mpData = arrayToMapFireant(reps);
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': ACCESS_TOKEN_FIREANT
+            }
+        });
 
-            // TỔNG CỘNG TÀI SẢN
-            setValueFireant(mpData, 'TỔNG CỘNG TÀI SẢN', 'TTS', isYear);
-            // Nợ phải trả
-            setValueFireant(mpData, 'Nợ phải trả', 'NO', isYear);
-            // Nợ dài hạn
-            setValueFireant(mpData, 'Nợ dài hạn', 'longTermDebt', isYear);
-            // Nguồn vốn chủ sở hữu
-            setValueFireant(mpData, 'Nguồn vốn chủ sở hữu', 'ownerEquity', isYear);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
-    });
+
+        const reps = await response.json();
+        const mpData = arrayToMapFireant(reps);
+
+        const keys = [
+            { mpKey: 'TỔNG CỘNG TÀI SẢN', set: 'TTS' },
+            { mpKey: 'Nợ phải trả', set: 'NO' },
+            { mpKey: 'Nợ dài hạn', set: 'longTermDebt' },
+            { mpKey: 'Nguồn vốn chủ sở hữu', set: 'ownerEquity' }
+        ];
+
+        keys.forEach(({ mpKey, set }) => {
+            setValueFireant(mpData, mpKey, set, isYear);
+        });
+    } catch (error) {
+        console.error('Error fetching balance sheets:', error);
+    }
 }
 
 /**
@@ -757,16 +583,12 @@ function fullbalancesheetsFireant(stockCode, isYear, size) {
  */
 function arrayToMapFireant(input) {
     const map = new Map();
-    for (let obj of input) {
-        let arrName = obj.name.split('.');
-        let name = ''
-        if (arrName.length == 1) {
-            name = obj.name.replace(/-|\(\d+\)|\+/g, '').trim();
-        } else {
-            name = arrName[1].replace(/-|\(\d+\)|\+/g, '').trim();
-        }
+    const regex = /-|\(\d+\)|\+/g;
+    input.forEach(obj => {
+        const arrName = obj.name.split('.');
+        const name = (arrName.length === 1 ? arrName[0] : arrName[1]).replace(regex, '').trim();
         map.set(name, obj.values);
-      }
+    });
     return map;
 }
 
@@ -781,31 +603,24 @@ function arrayToMapFireant(input) {
  * @param {*} isYear
  */
 function setValueFireant(mpData, mpKey, set, isYear) {
+    const entries = mpData.get(mpKey);
+    if (!entries) return;
 
-    mpData.get(mpKey).forEach(obj => {
-        var key = '';
-        var data = {};
-        if (isYear) {
-            // Lấy theo Quý
-            key = '{0}'.format(obj.year);
-            data = mpYearData.get(key) || {};
+    const dataMap = isYear ? mpYearData : mpYearMonthData;
+
+    entries.forEach(obj => {
+        const key = isYear ? `${obj.year}` : `${obj.year}/Q${obj.quarter}`;
+        const data = dataMap.get(key) || {};
+
+        // Lấy theo Quý hoặc Năm
+        if (data[set]) {
+            data[set].old = data[set].new;
+            data[set].new = obj.value;
         } else {
-            // Lấy theo Năm
-            key = '{0}/Q{1}'.format(obj.year, obj.quarter);
-            data = mpYearMonthData.get(key) || {};
+            data[set] = { new: obj.value, old: '' };
         }
 
-        if (data[set] === undefined) {
-            data[set] = {new: obj.value, old: ''};
-        } else if (data[set].new !== obj.value) {
-            data[set] = {new: obj.value, old: data[set].new};
-        }
-
-        if (isYear) {
-            mpYearData.set(key, data)
-        } else {
-            mpYearMonthData.set(key, data)
-        }
+        dataMap.set(key, data);
     });
 }
 
@@ -820,29 +635,20 @@ function setValueFireant(mpData, mpKey, set, isYear) {
  * @param {*} isYear
  */
 function setValueSimplize(obj, set, get, isYear) {
+    const periodDateNameParts = obj.periodDateName.split('/');
+    const key = isYear ? obj.periodDate : `${periodDateNameParts[1]}/${periodDateNameParts[0]}`;
+    const dataMap = isYear ? mpYearData : mpYearMonthData;
+    const data = dataMap.get(key) || {};
 
-    var key = '';
-    var data = {};
-    if (isYear) {
-        // Lấy theo Quý
-        key = '{0}'.format(obj.periodDate);
-        data = mpYearData.get(key) || {};
+    // Lấy theo Quý hoặc Năm
+    if (data[set]) {
+        data[set].old = data[set].new;
+        data[set].new = obj[get];
     } else {
-        // Lấy theo Năm
-        var arrPeriodDate = obj.periodDateName.split('/');
-        key = '{0}/{1}'.format(arrPeriodDate[1], arrPeriodDate[0]);
-        data = mpYearMonthData.get(key) || {};
+        data[set] = { new: obj[get], old: '' };
     }
 
-    if (data[set] === undefined) {
-        data[set] = {new: obj[get], old: ''};
-    } else if (data[set].new !== obj[get]) {
-        data[set] = {new: obj[get], old: data[set].new};
-    }
-
-    if (isYear) {
-        mpYearData.set(key, data)
-    } else {
-        mpYearMonthData.set(key, data)
-    }
+    dataMap.set(key, data);
 }
+
+

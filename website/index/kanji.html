@@ -10,10 +10,10 @@
     <title>Kanji</title>
     <link rel="stylesheet" href="../css/common/function.kanji.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <script src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
-    <script src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
-    <script src="/website/scripts/wanakana/wanakana.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script defer src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+    <script defer src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
+    <script defer src="/website/scripts/wanakana/wanakana.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
   <div class="container">
@@ -22,7 +22,7 @@
     <div class="question">
         <p>
           Đây là「<strong id="idQuenstion"></strong>」 
-          <span class="tooltip-icon">
+          <span class="tooltip-icon" onclick="toggleTooltip(event)">
             <i class="fas fa-question-circle"></i>
             <span class="tooltip" id="idSuggest"></span>
           </span>
@@ -44,13 +44,6 @@
       <i class="fas fa-exclamation-triangle"></i>
       <span></span>
     </div>
-    <!-- <div class="submit-container">
-        <button onclick="submitAnswer(event)">Submit</button>
-    </div>
-    <div class="footer">
-        <span>Your Score: 0 of 20</span>
-        <span>Question 1 of 2</span>
-    </div> -->
   </div>
 
   <!-- Custom Spinner -->
@@ -64,41 +57,35 @@
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
     let historyIndex = 1;
+    let kuroshiro;
 
-    const kuroshiro = new Kuroshiro();
-    kuroshiro.init(new KuromojiAnalyzer()).then(() => {
-      $(document).ready(async function() {
-        var input = document.getElementById('txtAnswer');
+    document.addEventListener('DOMContentLoaded', async () => {
+      kuroshiro = new Kuroshiro();
+      try {
+        await kuroshiro.init(new KuromojiAnalyzer());
+        const input = document.getElementById('txtAnswer');
         wanakana.bind(input);
         onInitData();
-      });
-    })
-    .catch((error) => {
-      console.error('Error initializing Kuroshiro:', error);
+      } catch (error) {
+        console.error('Error initializing Kuroshiro:', error);
+      }
     });
 
-    function onInitData () {
-      $.ajax({
-          type: "GET",
-          async: true,
-          url: API_URL, 
-          success: async function(resp) {
-            setData(resp)
-          },
-          error: function (xhr, ajaxOptions, thrownError) {
-            hideSpinner()
-          }
-      });
+    function onInitData() {
+      fetch(API_URL)
+        .then(response => response.json())
+        .then(data => setData(data))
+        .catch(error => hideSpinner());
     }
 
     async function setData(resp) {
       hideSpinner(); 
-      $('#idQuenstion').text(resp.kanji);
+      document.getElementById('idQuenstion').textContent = resp.kanji;
       historyIndex = resp.index;
-      const kanjiQuestion = $('#idQuenstion').text().trim();
+      const kanjiQuestion = resp.kanji.trim();
       const hiraganaTooltip = await convertKanjiToHiragana(kanjiQuestion);
-      $('#idSuggest').text(hiraganaTooltip);
-      $('.container').show();
+      document.getElementById('idSuggest').textContent = hiraganaTooltip;
+      document.querySelector('.container').style.display = 'block';
     }
 
     function updataData() {
@@ -109,21 +96,18 @@
       
       showSpinner();
 
-      $.ajax({
-        type: "POST",
-        async: true,
-        url: `${API_URL}`, 
-        data: JSON.stringify(postData),
-        success: async function(resp) {
-          setData(resp);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-          hideSpinner();
+      fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+          'Content-Type': 'application/json'
         }
-      });
+      })
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => hideSpinner());
     }
 
-    // Function to convert Kanji to Hiragana using Kuroshiro
     async function convertKanjiToHiragana(kanji) {
       try {
         const hiragana = await kuroshiro.convert(kanji, { to: 'hiragana' });
@@ -136,9 +120,9 @@
     async function submitAnswer(e) {
       hideMessageArea();
 
-      var key=e.keyCode || e.which;
+      const key = e.keyCode || e.which;
       if (key == 13 || key == 1) {
-        const kanjiQuestion = document.getElementById('idQuenstion').firstChild.nodeValue.trim();
+        const kanjiQuestion = document.getElementById('idQuenstion').textContent.trim();
         const hiraganaAnswer = document.getElementById('txtAnswer').value.trim();
       
         if (hiraganaAnswer !== '') {
@@ -155,7 +139,7 @@
         } else {
           showMessageAreaWarn("Vui lòng nhập câu trả lời");
         }
-        $('#txtAnswer').val('');
+        document.getElementById('txtAnswer').value = '';
       }
     }
 
@@ -167,38 +151,47 @@
 
       showSpinner();
 
-      $.ajax({
-        type: "POST",
-        async: true,
-        url: `${API_URL}`, 
-        data: JSON.stringify(postData),
-        success: async function(resp) {
-          setData(resp);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-          hideSpinner();
+      fetch(API_URL, {
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+          'Content-Type': 'application/json'
         }
-      });
+      })
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => hideSpinner());
     }
 
     function speakAnswer(e) {
-      const kanjiQuestion = document.getElementById('idQuenstion').firstChild.nodeValue.trim();
+      const kanjiQuestion = document.getElementById('idQuenstion').textContent.trim();
       if (kanjiQuestion !== '') {
-        // Check if the Web Speech API is supported
         if ('speechSynthesis' in window) {
-          var utterance = new SpeechSynthesisUtterance(kanjiQuestion);
-          utterance.lang = 'ja-JP'; // Set language to Japanese
-
-            // Fix for iOS Safari to enable speech synthesis
-            utterance.onstart = function(event) {
-                // Hack to force iOS Safari to recognize the speech synthesis event
-                var audio = new Audio();
-                audio.play().catch(function(error) { /* Ignore the error */ });
-            };
-
-            window.speechSynthesis.speak(utterance);
+          const utterance = new SpeechSynthesisUtterance(kanjiQuestion);
+          utterance.lang = 'ja-JP';
+          utterance.onstart = function(event) {
+            const audio = new Audio();
+            audio.play().catch(error => {});
+          };
+          window.speechSynthesis.speak(utterance);
         } else {
-            alert("Sorry, your browser doesn't support text to speech!");
+          fetch(`https://translate.google.com/translate_tts?ie=UTF-8&tl=ja-JP&client=tw-ob&q=${encodeURIComponent(kanjiQuestion)}`)
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+              return response.blob();
+            })
+            .then(blob => {
+              const audioUrl = URL.createObjectURL(blob);
+              const audio = new Audio(audioUrl);
+              audio.play().catch(error => {
+                console.log("Sorry, your browser doesn't support text to speech!");
+              });
+            })
+            .catch(error => {
+              console.log("Sorry, your browser doesn't support text to speech!");
+            });
         }
       }
     }
@@ -209,13 +202,16 @@
       let expectedIndex = 0;
 
       while (expectedIndex < expected.length) {
-          if (inputIndex < input.length && input[inputIndex] === expected[expectedIndex]) {
-              highlightedText += expected[expectedIndex];
-              inputIndex++;
-          } else {
-              highlightedText += `<span class="highlight-incorrect">${expected[expectedIndex]}</span>`;
+        if (inputIndex < input.length && input[inputIndex] === expected[expectedIndex]) {
+          highlightedText += expected[expectedIndex];
+          inputIndex++;
+        } else {
+          highlightedText += `<span class="highlight-incorrect">${expected[expectedIndex]}</span>`;
+          if (inputIndex < input.length) {
+            inputIndex++;
           }
-          expectedIndex++;
+        }
+        expectedIndex++;
       }
 
       return highlightedText;
@@ -235,20 +231,29 @@
 
     function showMessageArea(type, message) {
       hideMessageArea();
-      $(`.messageArea.${type} > span`).html(message);
-      $(`.messageArea.${type}`).show();
+      document.querySelector(`.messageArea.${type} > span`).innerHTML = message;
+      document.querySelector(`.messageArea.${type}`).style.display = 'block';
     }
 
     function hideMessageArea() {
-      $('.messageArea').hide()
+      document.querySelectorAll('.messageArea').forEach(el => el.style.display = 'none');
     }
 
     function showSpinner() {
-      $('.spinner-overlay').fadeIn();
+      document.querySelector('.spinner-overlay').style.display = 'flex';
     }
 
     function hideSpinner() {
-      $('.spinner-overlay').fadeOut();
+      document.querySelector('.spinner-overlay').style.display = 'none';
+    }
+
+    function toggleTooltip(e) {
+      const tooltip = e.currentTarget.querySelector('.tooltip');
+      if (tooltip.style.display === 'block') {
+        tooltip.style.display = 'none';
+      } else {
+        tooltip.style.display = 'block';
+      }
     }
 
   </script>

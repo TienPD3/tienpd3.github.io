@@ -11,8 +11,8 @@
 
     <!-- spreadjs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="website/css/common/function.spreadjs.css"></link>
-    <link rel="stylesheet" type="text/css" href="website/css/spreadjs/gc.spread.sheets.excel2013white.16.0.2.css"></link>
+    <link rel="stylesheet" type="text/css" href="website/css/common/function.spreadjs.css">
+    <link rel="stylesheet" type="text/css" href="website/css/spreadjs/gc.spread.sheets.excel2013white.16.0.2.css">
     <script type="text/javascript" src="website/scripts/spreadjs/gc.spread.sheets.all.16.0.2.min.latest.js"></script>
     <script type="text/javascript" src="website/scripts/spreadjs/interop/gc.spread.excelio.16.0.2.min.latest.js"></script>
     <script type="text/javascript" src="website/license/spreadjs/license-grapecity.js"></script>
@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script> 
 
     <!-- aui.atlassian.com -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/15.0.1/sinon.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/aui/9.5.1/aui/aui-prototyping.min.js"></script>
     <!-- / aui.atlassian.com -->
@@ -34,22 +34,25 @@
     <script type="text/javascript" src="website/common/VersionUtils.js"></script>
     <script type="text/javascript" src="website/common/DatetimeUtils.js"></script>
     <script>
-        VersionUtils.importPlugin('/website/common/function.finpath.js');
-        VersionUtils.importPlugin('/website/common/StringUtils.js');
-        VersionUtils.importPlugin('/website/common/BusinessRuleUtils.js');
+        const plugins = [
+            '/website/common/function.finpath.js',
+            '/website/common/StringUtils.js',
+            '/website/common/BusinessRuleUtils.js'
+        ];
+        plugins.forEach(plugin => VersionUtils.importPlugin(plugin));
     </script>
-    <script>document.write('<script src="/website/common/const.js?version=' + DatetimeUtils.getSystemDateTime() + '"\><\/script>');</script>
+    <script>document.write('<script src="/website/common/const.js?version=' + DatetimeUtils.getSystemDateTime() + '"><\/script>');</script>
     <script type="text/javascript" src="website/common/function.common.js"></script>
     <script type="text/javascript" src="website/common/function.spreadjs.js"></script>
     <script type="text/javascript" src="website/common/function.update.js"></script>
     <script type="text/javascript" src="website/common/function.simplize.js"></script>
     <script type="text/javascript" src="website/common/function.vietstock.js"></script>
-    <script type="text/javascript" src="website/common/function.fireant.trend.js"> </script>
-    <script type="text/javascript" src="website/common/function.fireant.valuation.js"> </script>
+    <script type="text/javascript" src="website/common/function.fireant.trend.js"></script>
+    <script type="text/javascript" src="website/common/function.fireant.valuation.js"></script>
     <!-- / common -->
 
     <!-- site -->
-    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"> </script>
+    <script type="text/javascript" src="https://e.cafef.vn/kby.ashx"></script>
     <!-- / site -->
 
     <script>
@@ -57,39 +60,38 @@
             localStorage.removeStorageExpires();
             buildUrlSimplize();
             var firstValue = buildDropdownStockList();
-            initBuildDropdownStockCode(firstValue.id, firstValue.rules)
+            initBuildDropdownStockCode(firstValue.id, firstValue.rules);
 
-            $(document).on('change', '#drpdStockList', function() {
-                const id = $(this).find('option:selected').attr('id');
-                const rules = $(this).find('option:selected').attr('rules');
-                initBuildDropdownStockCode(id, rules)
+            $('#drpdStockList').on('change', function() {
+                const selectedOption = $(this).find('option:selected');
+                const id = selectedOption.attr('id');
+                const rules = selectedOption.attr('rules');
+                initBuildDropdownStockCode(id, rules);
+                
                 var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
                 drpdSelected.stockListSelected = id;
-                localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected), null)
+                localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected));
             });
 
-            $(document).on('change', '#drpdStockCode', function() {
-                onChangeStockCode();
-            });
+            $('#drpdStockCode').on('change', onChangeStockCode);
 
-            $(document).on('click', '#btnNext', function() {
-                saveWhiteList();
-            });
+            $('#btnNext').on('click', saveWhiteList);
 
             $('#idWarning').text(stockListSimplizeNewData);
         });
 
         function saveWhiteList() {
-            var tmpSymbol = $('#drpdStockCode').find('option:selected').attr('id');
-            var tmpTickerStockExchange = $('#drpdStockCode').find('option:selected').text();
+            const selectedOption = $('#drpdStockCode').find('option:selected');
+            const tmpSymbol = selectedOption.attr('id');
+            const tmpTickerStockExchange = selectedOption.text();
             saveGoodStock(tmpSymbol, tmpTickerStockExchange);
             doNext();
         }
 
         function doNext() {
-            var last = $("#drpdStockCode > option").last();
-            var current = $("#drpdStockCode > option:selected");
-            if (last[0] != current[0]) {
+            const last = $("#drpdStockCode > option").last();
+            const current = $("#drpdStockCode > option:selected");
+            if (last[0] !== current[0]) {
                 if (!$('#chkAutoStockNoValue').is(":checked")) {
                     $('#btnNext').prop('disabled', false);
                 }
@@ -101,35 +103,31 @@
         }
 
         function isCheckElementStockCodeLast() {
-            var last = $("#drpdStockCode > option").last();
-            var current = $("#drpdStockCode > option:selected");
-            return last[0] == current[0];
+            const last = $("#drpdStockCode > option").last();
+            const current = $("#drpdStockCode > option:selected");
+            return last[0] === current[0];
         }
 
         function initBuildDropdownStockCode(pId, pRules) {
-
             buildDropdownStockCode(pId, pRules);
             AJS.$("#drpdStockCode").auiSelect2();
-            
             onChangeStockCode();
         }
 
         function onChangeStockCode() {
             AJS.$("#drpdStockCode").auiSelect2();
-            var pSymbol = $('#drpdStockCode').find('option:selected').attr('id');
-            var filter = $(oc).filter(function (i, elm) {
-                return elm.c === pSymbol
-            })[0];
-            if (filter !== undefined) {
+            const pSymbol = $('#drpdStockCode').find('option:selected').attr('id');
+            const filter = oc.find(elm => elm.c === pSymbol);
+            if (filter) {
                 loadData(filter.c, filter.m, filter.san);
             }
-            var drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
+            const drpdSelected = JSON.parse(localStorage.getStorage('drpdSelected')) || {};
             drpdSelected.stockCodeSelected = pSymbol;
-            localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected), null)
+            localStorage.setStorage('drpdSelected', JSON.stringify(drpdSelected));
         }
 
         $(document).on('change', '#chkAutoStockNoValue', function() {
-            if(this.checked) {
+            if (this.checked) {
                 saveWhiteList();
             }
         });
@@ -138,317 +136,259 @@
         var spread, excelIO, loadingStatus;
 
         function loadData(pSymbol, pName, pExchange) {
-            
             setParameter(pSymbol, pName, pExchange);
             loadFile(pExchange, pSymbol, pName);
         }
 
         function loadFile(pExchange, pSymbol, pName) {
-            
-            var isYear = true;
-            getFinancial(pExchange, pSymbol, pName, isYear);
+            const isYear = true;
+            getFinancial(pExchange, pSymbol, pName, isYear).then(() => {
+                excelIo = new GC.Spread.Excel.IO();
+                const excelUrl = `${document.getElementById('importUrl').value}?cache=${uuidv4()}`;
+                if (loadingStatus) {
+                    loadingStatus.updateText("Đang xử lý");
+                    $('.gc-play-loading').removeClass('hide');
+                }
 
-            excelIo = new GC.Spread.Excel.IO();
-            var excelUrl = document.getElementById('importUrl').value + '?cache=' + uuidv4();
-            if (loadingStatus) {
-                loadingStatus.updateText("Đang xử lý");
-                $('.gc-play-loading').removeClass('hide');
-            }
+                const oReq = new XMLHttpRequest();
+                oReq.open('get', excelUrl, true);
+                oReq.responseType = 'blob';
+                oReq.onload = function () {
+                    const blob = oReq.response;
+                    excelIo.open(blob, function (json) {
+                        let jsonExcel = JSON.stringify(json);
 
-            var oReq = new XMLHttpRequest();
-            oReq.open('get', excelUrl, true);
-            oReq.responseType = 'blob';
-            oReq.onload = function () {
-                var blob = oReq.response;
-                excelIo.open(blob, function (json) {
-                    var jsonExcel = JSON.stringify(json);
+                        // Chuyển mã chứng khoán
+                        jsonExcel = jsonExcel.replaceExcel('#SYMBOL', `${pSymbol}: ${pName}`);
 
-                    // Chuyển mã chứng khoán
-                    jsonExcel = jsonExcel.replaceExcel('#SYMBOL', pSymbol + ': ' + pName);
+                        // Tạo Sheet Định giá
+                        // Tạo Sheet chi tiết
+                        const mpDataQSortDESC = new Map([...mpYearMonthData].sort().reverse());
+                        const mpDataQSort = new Map([...mpYearMonthData].sort());
 
-                    // Tạo Sheet Định giá
+                        // Xóa phần tử thừa Quý
+                        let mpDataYSortDESC = new Map([...mpYearData].sort().reverse());
+                        mpDataYSortDESC = new Map([...mpDataYSortDESC].splice(0, 5));
+                        const mpDataYSortASC = new Map([...mpDataYSortDESC].sort());
 
-                    // Tạo Sheet chi tiết
-                    var mpDataQSortDESC = new Map([...mpYearMonthData].sort().reverse());
-                    var mpDataQSort = new Map([...mpYearMonthData].sort());
+                        // Theo quý
+                        let idxQ = 0;
+                        const clazzNetRevenue = new BusinessRuleUtils();
+                        const clazzGrossProfit = new BusinessRuleUtils();
+                        const clazzOwnerEquity = new BusinessRuleUtils();
+                        const clazzNetIncomeStatement = new BusinessRuleUtils();
 
+                        const arrNetRevenue = [];
+                        const arrGrossProfit = [];
+                        const arrOwnerEquity = [];
 
-                    // Xóa phần tử thừa Quý
-                    var mpDataYSortDESC = new Map([...mpYearData].sort().reverse());
-                    mpDataYSortDESC = new Map([...mpDataYSortDESC].splice(0, 5));
-                    
-                    var mpDataYSortASC = new Map([...mpDataYSortDESC].sort());
-                    
-                    // Theo quý
-                    var idxQ = 0;
-                    let clazzNetRevenue = new BusinessRuleUtils();
-                    let clazzGrossProfit = new BusinessRuleUtils();
-                    let clazzOwnerEquity = new BusinessRuleUtils();
-                    let clazzNetIncomeStatement = new BusinessRuleUtils();
+                        mpDataQSortDESC.forEach((data, keys) => {
+                            // Title quý
+                            jsonExcel = jsonExcel.replaceExcel(`#DGQ${idxQ}`, keys);
+                            // LNST theo Quý
+                            jsonExcel = jsonExcel.replaceExcel(`#DGLNSTValQ${idxQ}`, StringUtils.formatCashBillion(data.LNST?.new));
+                            // VCSH theo Quý
+                            jsonExcel = jsonExcel.replaceExcel(`#DGVCSHValQ${idxQ}`, StringUtils.formatCashBillion(data.ownerEquity?.new));
 
-                    var arrNetRevenue = new Array();
-                    var arrGrossProfit = new Array();
-                    var arrOwnerEquity = new Array();
+                            // Nợ/LNST
+                            const NDHLNST = data.longTermDebt?.new ? (data.longTermDebt?.new / data.LNST?.new) : '';
+                            jsonExcel = jsonExcel.replaceExcel(`#DGNDHLNSTValQ${idxQ}`, NDHLNST);
+                            jsonExcel = jsonExcel.replaceExcel(`#DGNDHValQ${idxQ}`, StringUtils.formatCashBillionComma(data.longTermDebt?.new));
 
-                    mpDataQSortDESC.forEach((data, keys) => {
-                        // Title quý
-                        jsonExcel = jsonExcel.replaceExcel('#DGQ' + idxQ, keys);
-                        // LNST theo Quý
-                        jsonExcel = jsonExcel.replaceExcel('#DGLNSTValQ' + idxQ, StringUtils.formatCashBillion(data.LNST?.new));
-                        // VCSH theo Quý
-                        jsonExcel = jsonExcel.replaceExcel('#DGVCSHValQ' + idxQ, StringUtils.formatCashBillion(data.ownerEquity?.new));
-
-                        // Nợ/LNST
-                        let NDHLNST = data.longTermDebt?.new ? (data.longTermDebt?.new / data.LNST?.new): '';
-                        jsonExcel = jsonExcel.replaceExcel('#DGNDHLNSTValQ' + idxQ, NDHLNST);
-                        jsonExcel = jsonExcel.replaceExcel('#DGNDHValQ' + idxQ, StringUtils.formatCashBillionComma(data.longTermDebt?.new));
-
-                        // Tính toán doanh thu tăng đều
-                        clazzNetRevenue.isGrowUp(data.netRevenue?.new);
-                        if (arrNetRevenue.length <= 4) {
-                            arrNetRevenue.push(StringUtils.formatCashBillionComma(data.netRevenue?.new));
-                        }
-                        // Tính toán lợi nhuận gộp tăng đều
-                        clazzGrossProfit.isGrowUp(data.grossProfit?.new);
-                        if (arrGrossProfit.length <= 4) {
-                            arrGrossProfit.push(StringUtils.formatCashBillionComma(data.grossProfit?.new));
-                        }
-                        // Tính toán vốn chủ sở hữu tăng đều
-                        clazzOwnerEquity.isGrowUp(data.ownerEquity?.new);
-                        if (arrOwnerEquity.length <= 4) {
-                            arrOwnerEquity.push(StringUtils.formatCashBillionComma(data.ownerEquity?.new));
-                        }
-                        // Tính toán dòng tiền dương từ HĐKD dương
-                        clazzNetIncomeStatement.isPositiveCashFlow(data.netIncomeStatement?.new);
-
-                        idxQ++;
-                    });
-                    // Thị giá cổ phiếu
-                    jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', dataFACurrent.priceClose);
-                    // Tổng số lượng cổ phiếu
-                    jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.sharesOutstanding);
-                    // Tỷ lệ cổ tức
-                    jsonExcel = jsonExcel.replaceExcel('#DGTLCTVal', dataFACurrent.dividendPercent);
-                    jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
-                    // Doanh thu tăng đều
-                    jsonExcel = jsonExcel.replaceExcel('#DGDTTUpVal', clazzNetRevenue.varObj.isGrowUp);
-                    jsonExcel = jsonExcel.replaceExcel('#DGArrayDTTVal', arrNetRevenue.join(', '));
-                    // Lợi nhuận gộp tăng đều
-                    jsonExcel = jsonExcel.replaceExcel('#DGLNGUpVal', clazzGrossProfit.varObj.isGrowUp);
-                    jsonExcel = jsonExcel.replaceExcel('#DGArrayLNGVal', arrGrossProfit.join(', '));
-                    // Vốn chủ sở hữu tăng đều
-                    jsonExcel = jsonExcel.replaceExcel('#DGVCSHUpVal', clazzOwnerEquity.varObj.isGrowUp);
-                    jsonExcel = jsonExcel.replaceExcel('#DGArrayVCSHVal', arrOwnerEquity.join(', '));
-                    // Tỷ lệ lãi gộp
-                    jsonExcel = jsonExcel.replaceExcel('#DGGOSVal', dataFACurrent.grossMargin);
-                    // Tỷ lệ lãi ròng
-                    jsonExcel = jsonExcel.replaceExcel('#DGNPMVal', dataFACurrent.netProfitMargin);
-                    // ROA
-                    jsonExcel = jsonExcel.replaceExcel('#DGROAVal', dataFACurrent.ROA);
-                    // ROE
-                    jsonExcel = jsonExcel.replaceExcel('#DGROEVal', dataFACurrent.ROE);
-                    // ROIC
-                    jsonExcel = jsonExcel.replaceExcel('#DGROICVal', dataFACurrent.ROIC);
-                    // Nợ/VCSH
-                    jsonExcel = jsonExcel.replaceExcel('#DGDOEVal', dataFACurrent.debtOnEquity);
-                    // PE
-                    jsonExcel = jsonExcel.replaceExcel('#DGPEVal', dataFACurrent.PE);
-                    // PB
-                    jsonExcel = jsonExcel.replaceExcel('#DGPBVal', dataFACurrent.PB);
-                    // Dòng tiền từ HĐKD dương
-                    jsonExcel = jsonExcel.replaceExcel('#DGHDKDVal', clazzNetIncomeStatement.varObj.isPositiveCashFlow);
-
-                    // Theo năm
-                    var idxY = 0;
-                    mpDataYSortASC.forEach((data, keys) => {
-                        jsonExcel = jsonExcel.replaceExcel('#HY' + idxY, keys);
-                        jsonExcel = jsonExcel.replaceExcel('#HLNSTValY' + idxY, data.LNST?.new / 1000000000);
-
-                        idxY++;
-                    });
-
-                    var idxFYQ = 0;
-                    var mpDataFYQ = mpDataQSortDESC;
-                    if (isYear) {
-                        mpDataFYQ = mpDataYSortDESC;
-                    }
-                    jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM': 'QUÝ');
-                    mpDataFYQ.forEach((data, keys) => {
-
-                        // 1. CÁC CHỈ SỐ TÀI CHÍNH:
-                        jsonExcel = jsonExcel.replaceExcel('#FYQ' + idxFYQ, keys);
-                        
-                        jsonExcel = jsonExcel.replaceExcel('#EPSVal' + idxFYQ, data.EPS?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#PBVal' + idxFYQ, data.PB?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#PEVal' + idxFYQ, data.PE?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#ROAVal' + idxFYQ, data.ROA?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#ROEVal' + idxFYQ, data.ROE?.new);
-                        // 2. BCTC
-                        // TÀI SẢN
-                        jsonExcel = jsonExcel.replaceExcel('#TTSVal' + idxFYQ, data.TTS?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#TTSOldVal' + idxFYQ, data.TTS?.old);
-                        // NỢ
-                        jsonExcel = jsonExcel.replaceExcel('#NOVal' + idxFYQ, data.NO?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#NOOldVal' + idxFYQ, data.NO?.old);
-                        // VCSH
-                        jsonExcel = jsonExcel.replaceExcel('#VCSHVal' + idxFYQ, data.ownerEquity?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#VCSHOldVal' + idxFYQ, data.ownerEquity?.old);
-                        // DOANH THU
-                        jsonExcel = jsonExcel.replaceExcel('#DTTVal' + idxFYQ, data.netRevenue?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#DTTOldVal' + idxFYQ, data.netRevenue?.old);
-                        // LNG
-                        jsonExcel = jsonExcel.replaceExcel('#LNGVal' + idxFYQ, data.grossProfit?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#LNGOldVal' + idxFYQ, data.grossProfit?.old);
-                        // LNST 
-                        jsonExcel = jsonExcel.replaceExcel('#LNSTVal' + idxFYQ, data.LNST?.new);
-                        jsonExcel = jsonExcel.replaceExcel('#LNSTOldVal' + idxFYQ, data.LNST?.old);
-
-                        idxFYQ++;
-                    });
-
-                    jsonExcel = jsonExcel.replaceExcel('#Symbol', pSymbol);
-                    jsonExcel = JSON.parse(jsonExcel)
-
-                    // jsonExcel = getDataJson(jsonExcel, pSymbol, pName);
-                    
-                    if (!spread) {
-                        spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
-                        var statusBar = initStatusBar(spread)
-                        loadingStatus = new LoadingStatus('LoadingStatus', { tipText: 'Đang xử lý' });
-                        statusBar.add(loadingStatus);
-                    }
-                    spread.fromJSON(jsonExcel, {
-                        incrementalLoading: {
-                            loading: function (progress, args) {
-                                loadingStatus.updateProgress(progress, args);
-                            },
-                            loaded: function () {
-                                loadingStatus.updateText("Lấy dữ liệu " + pSymbol + " thành công");
-                                $('.gc-play-loading').addClass('hide');
-                                autoNextStock();
+                            // Tính toán doanh thu tăng đều
+                            clazzNetRevenue.isGrowUp(data.netRevenue?.new);
+                            if (arrNetRevenue.length <= 4) {
+                                arrNetRevenue.push(StringUtils.formatCashBillionComma(data.netRevenue?.new));
                             }
-                        }
-                    });
+                            // Tính toán lợi nhuận gộp tăng đều
+                            clazzGrossProfit.isGrowUp(data.grossProfit?.new);
+                            if (arrGrossProfit.length <= 4) {
+                                arrGrossProfit.push(StringUtils.formatCashBillionComma(data.grossProfit?.new));
+                            }
+                            // Tính toán vốn chủ sở hữu tăng đều
+                            clazzOwnerEquity.isGrowUp(data.ownerEquity?.new);
+                            if (arrOwnerEquity.length <= 4) {
+                                arrOwnerEquity.push(StringUtils.formatCashBillionComma(data.ownerEquity?.new));
+                            }
+                            // Tính toán dòng tiền dương từ HĐKD dương
+                            clazzNetIncomeStatement.isPositiveCashFlow(data.netIncomeStatement?.new);
 
-                    activeSheet(spread, 'Định giá');
-                    spread.options.scrollbarAppearance = GC.Spread.Sheets.ScrollbarAppearance.mobile;
-                    spread.options.showVerticalScrollbar = false;
-                    spread.options.scrollbarShowMax = false;
-                    // Cho phép edit tên sheet hay không?
-                    spread.options.tabEditable = true; // false: disable, true: enable
-                    // Cho phép ẩn sheet hay không?
-                    // spread.options.tabStripVisible = true; // true: show, false: hide
-                    // Cho phép thêm sheet hày không?
-                    spread.options.newTabVisible = true; // false: hide, true: show
-                    // Cho phép ẩn mũi tên ở sheet hay không?
-                    spread.options.tabNavigationVisible = false; // false: hide, true: show
-                    // Setting vị trí sheet
-                    spread.options.tabStripPosition = GC.Spread.Sheets.TabStripPosition.top;
-                }, function (message) {
-                    console.log(message);
-                });
-            };
-            oReq.send(null);
+                            idxQ++;
+                        });
+
+                        // Thị giá cổ phiếu
+                        jsonExcel = jsonExcel.replaceExcel('#DGTGCPVal', dataFACurrent.priceClose);
+                        // Tổng số lượng cổ phiếu
+                        jsonExcel = jsonExcel.replaceExcel('#DGTSLCPVal', dataFACurrent.sharesOutstanding);
+                        // Tỷ lệ cổ tức
+                        jsonExcel = jsonExcel.replaceExcel('#DGTLCTVal', dataFACurrent.dividendPercent);
+                        jsonExcel = jsonExcel.replaceExcel('#DGCT', dataFACurrent.dividend);
+                        // Doanh thu tăng đều
+                        jsonExcel = jsonExcel.replaceExcel('#DGDTTUpVal', clazzNetRevenue.varObj.isGrowUp);
+                        jsonExcel = jsonExcel.replaceExcel('#DGArrayDTTVal', arrNetRevenue.join(', '));
+                        // Lợi nhuận gộp tăng đều
+                        jsonExcel = jsonExcel.replaceExcel('#DGLNGUpVal', clazzGrossProfit.varObj.isGrowUp);
+                        jsonExcel = jsonExcel.replaceExcel('#DGArrayLNGVal', arrGrossProfit.join(', '));
+                        // Vốn chủ sở hữu tăng đều
+                        jsonExcel = jsonExcel.replaceExcel('#DGVCSHUpVal', clazzOwnerEquity.varObj.isGrowUp);
+                        jsonExcel = jsonExcel.replaceExcel('#DGArrayVCSHVal', arrOwnerEquity.join(', '));
+                        // Tỷ lệ lãi gộp
+                        jsonExcel = jsonExcel.replaceExcel('#DGGOSVal', dataFACurrent.grossMargin);
+                        // Tỷ lệ lãi ròng
+                        jsonExcel = jsonExcel.replaceExcel('#DGNPMVal', dataFACurrent.netProfitMargin);
+                        // ROA
+                        jsonExcel = jsonExcel.replaceExcel('#DGROAVal', dataFACurrent.ROA);
+                        // ROE
+                        jsonExcel = jsonExcel.replaceExcel('#DGROEVal', dataFACurrent.ROE);
+                        // ROIC
+                        jsonExcel = jsonExcel.replaceExcel('#DGROICVal', dataFACurrent.ROIC);
+                        // Nợ/VCSH
+                        jsonExcel = jsonExcel.replaceExcel('#DGDOEVal', dataFACurrent.debtOnEquity);
+                        // PE
+                        jsonExcel = jsonExcel.replaceExcel('#DGPEVal', dataFACurrent.PE);
+                        // PB
+                        jsonExcel = jsonExcel.replaceExcel('#DGPBVal', dataFACurrent.PB);
+                        // Dòng tiền từ HĐKD dương
+                        jsonExcel = jsonExcel.replaceExcel('#DGHDKDVal', clazzNetIncomeStatement.varObj.isPositiveCashFlow);
+
+                        // Theo năm
+                        let idxY = 0;
+                        mpDataYSortASC.forEach((data, keys) => {
+                            jsonExcel = jsonExcel.replaceExcel(`#HY${idxY}`, keys);
+                            jsonExcel = jsonExcel.replaceExcel(`#HLNSTValY${idxY}`, data.LNST?.new / 1000000000);
+                            idxY++;
+                        });
+
+                        let idxFYQ = 0;
+                        let mpDataFYQ = mpDataQSortDESC;
+                        if (isYear) {
+                            mpDataFYQ = mpDataYSortDESC;
+                        }
+                        jsonExcel = jsonExcel.replaceExcel('#EPSTitle', isYear ? 'NĂM' : 'QUÝ');
+                        mpDataFYQ.forEach((data, keys) => {
+                            // 1. CÁC CHỈ SỐ TÀI CHÍNH:
+                            jsonExcel = jsonExcel.replaceExcel(`#FYQ${idxFYQ}`, keys);
+                            jsonExcel = jsonExcel.replaceExcel(`#EPSVal${idxFYQ}`, data.EPS?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#PBVal${idxFYQ}`, data.PB?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#PEVal${idxFYQ}`, data.PE?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#ROAVal${idxFYQ}`, data.ROA?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#ROEVal${idxFYQ}`, data.ROE?.new);
+                            // 2. BCTC
+                            // TÀI SẢN
+                            jsonExcel = jsonExcel.replaceExcel(`#TTSVal${idxFYQ}`, data.TTS?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#TTSOldVal${idxFYQ}`, data.TTS?.old);
+                            // NỢ
+                            jsonExcel = jsonExcel.replaceExcel(`#NOVal${idxFYQ}`, data.NO?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#NOOldVal${idxFYQ}`, data.NO?.old);
+                            // VCSH
+                            jsonExcel = jsonExcel.replaceExcel(`#VCSHVal${idxFYQ}`, data.ownerEquity?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#VCSHOldVal${idxFYQ}`, data.ownerEquity?.old);
+                            // DOANH THU
+                            jsonExcel = jsonExcel.replaceExcel(`#DTTVal${idxFYQ}`, data.netRevenue?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#DTTOldVal${idxFYQ}`, data.netRevenue?.old);
+                            // LNG
+                            jsonExcel = jsonExcel.replaceExcel(`#LNGVal${idxFYQ}`, data.grossProfit?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#LNGOldVal${idxFYQ}`, data.grossProfit?.old);
+                            // LNST 
+                            jsonExcel = jsonExcel.replaceExcel(`#LNSTVal${idxFYQ}`, data.LNST?.new);
+                            jsonExcel = jsonExcel.replaceExcel(`#LNSTOldVal${idxFYQ}`, data.LNST?.old);
+
+                            idxFYQ++;
+                        });
+
+                        jsonExcel = jsonExcel.replaceExcel('#Symbol', pSymbol);
+                        jsonExcel = JSON.parse(jsonExcel);
+
+                        if (!spread) {
+                            spread = new GC.Spread.Sheets.Workbook(document.getElementById("spreadSheet"));
+                            const statusBar = initStatusBar(spread);
+                            loadingStatus = new LoadingStatus('LoadingStatus', { tipText: 'Đang xử lý' });
+                            statusBar.add(loadingStatus);
+                        }
+                        spread.fromJSON(jsonExcel, {
+                            incrementalLoading: {
+                                loading: (progress, args) => loadingStatus.updateProgress(progress, args),
+                                loaded: () => {
+                                    loadingStatus.updateText(`Lấy dữ liệu ${pSymbol} thành công`);
+                                    $('.gc-play-loading').addClass('hide');
+                                    autoNextStock();
+                                }
+                            }
+                        });
+
+                        activeSheet(spread, 'Định giá');
+                        spread.options.scrollbarAppearance = GC.Spread.Sheets.ScrollbarAppearance.mobile;
+                        spread.options.showVerticalScrollbar = false;
+                        spread.options.scrollbarShowMax = false;
+                        spread.options.tabEditable = true;
+                        spread.options.newTabVisible = true;
+                        spread.options.tabNavigationVisible = false;
+                        spread.options.tabStripPosition = GC.Spread.Sheets.TabStripPosition.top;
+                    }, console.log);
+                };
+                oReq.send(null);
+            });
         }
 
-        var sleepNext = null;
+        let sleepNext = null;
         function autoNextStock() {
             clearInterval(sleepNext);
-            var sheet = spread.getActiveSheet();
-            // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
-            var cellValue = sheet.getText(13, 3);
-            var tempIsGoodStock = false;
-            if (cellValue == 'YES') {
-                tempIsGoodStock = true;
-            }
+            const sheet = spread.getActiveSheet();
+            const cellValue = sheet.getText(13, 3);
+            const tempIsGoodStock = cellValue === 'YES';
 
             if ($('#chkAutoStockNoValue').is(":checked")) {
                 if ($('#chkSaveWhitelist').is(":checked")) {
-                    var idx = 5
-                    sleepNext = setInterval(function () {
+                    let idx = 5;
+                    sleepNext = setInterval(() => {
                         if (idx <= 0) {
                             clearInterval(sleepNext);
                             if (isCheckElementStockCodeLast()) {
-                                $('#btnNext').prop('disabled', true);
-                                $('#btnNext').text('Kiểm tra mã tiếp theo');
+                                $('#btnNext').prop('disabled', true).text('Kiểm tra mã tiếp theo');
                             } else {
                                 saveWhiteList();
                             }
                         }
-                        $('#btnNext').prop('disabled', true);
-                        if (tempIsGoodStock) {
-                            $('#btnNext').text('Cổ phiếu cần đánh giá, tiếp tục sau ' + idx + ' giây');
-                        } else {
-                            $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
-                        }
+                        $('#btnNext').prop('disabled', true).text(tempIsGoodStock ? `Cổ phiếu cần đánh giá, tiếp tục sau ${idx} giây` : `Cổ phiếu không tốt, tiếp tục sau ${idx} giây`);
                         idx--;
                     }, 1000);
                 } else {
                     if (!tempIsGoodStock) {
-                        var idx = 5
-                        sleepNext = setInterval(function () {
+                        let idx = 5;
+                        sleepNext = setInterval(() => {
                             if (idx <= 0) {
                                 clearInterval(sleepNext);
                                 if (isCheckElementStockCodeLast()) {
-                                    $('#btnNext').prop('disabled', true);
-                                    $('#btnNext').text('Kiểm tra mã tiếp theo');
+                                    $('#btnNext').prop('disabled', true).text('Kiểm tra mã tiếp theo');
                                 } else {
                                     saveWhiteList();
                                 }
                             }
-                            $('#btnNext').prop('disabled', true);
-                            $('#btnNext').text('Cổ phiếu không tốt, tiếp tục sau ' + idx + ' giây');
+                            $('#btnNext').prop('disabled', true).text(`Cổ phiếu không tốt, tiếp tục sau ${idx} giây`);
                             idx--;
                         }, 1000);
                     } else {
-                        if (isCheckElementStockCodeLast()) {
-                            $('#btnNext').prop('disabled', true);
-                        } else {
-                            $('#btnNext').prop('disabled', false);
-                        }
-                        $('#btnNext').text('Kiểm tra mã tiếp theo');
+                        $('#btnNext').prop('disabled', isCheckElementStockCodeLast()).text('Kiểm tra mã tiếp theo');
                     }
                 }
             } else {
-                if (isCheckElementStockCodeLast()) {
-                    $('#btnNext').prop('disabled', true);
-                } else {
-                    $('#btnNext').prop('disabled', false);
-                }
-                $('#btnNext').text('Kiểm tra mã tiếp theo');
+                $('#btnNext').prop('disabled', isCheckElementStockCodeLast()).text('Kiểm tra mã tiếp theo');
             }
         }
 
         function saveGoodStock(pSymbol, tickerStockExchange) {
-
-            var sheet = spread.getActiveSheet();
-            // Lấy CELL TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT
-            var cellValue = sheet.getText(13, 3);
-            
-            var tmpStockValueList = localStorage.getStorage('stockValue');
-            if (tmpStockValueList === null) {
-                tmpStockValueList = [];
-            } else {
-                tmpStockValueList = JSON.parse(tmpStockValueList);
-            }
+            const sheet = spread.getActiveSheet();
+            const cellValue = sheet.getText(13, 3);
+            let tmpStockValueList = localStorage.getStorage('stockValue');
+            tmpStockValueList = tmpStockValueList ? JSON.parse(tmpStockValueList) : [];
 
             if (cellValue === 'NO') {
-                var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
-                if(tmpStockValue !== null) {
-                    tmpStockValueList = tmpStockValueList.filter(function(row) {
-                        return row.ticker !== pSymbol;
-                    });
-                }
+                tmpStockValueList = tmpStockValueList.filter(row => row.ticker !== pSymbol);
                 localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
                 return false;
             } else {
-                var tmpStockValue = tmpStockValueList.filter(row => row.ticker === pSymbol);
-                if(tmpStockValue.length === 0) {
-                    tmpStockValue = {
-                        ticker: pSymbol,
-                        stockExchange: tickerStockExchange
-                    }
-                    tmpStockValueList.push(tmpStockValue)
+                if (!tmpStockValueList.some(row => row.ticker === pSymbol)) {
+                    tmpStockValueList.push({ ticker: pSymbol, stockExchange: tickerStockExchange });
                 }
                 localStorage.setStorage('stockValue', JSON.stringify(tmpStockValueList), UNLIMITED);
                 return true;
@@ -474,20 +414,11 @@
         </div>
         <legend><span>Radio buttons</span></legend>
         <div class="radio">
-            <input
-                type="radio"
-                checked="checked"
-                name="radiobuttons"
-                id="radioButtonOne"
-            >
+            <input type="radio" checked="checked" name="radiobuttons" id="radioButtonOne">
             <label for="radioButtonOne">Quý</label>
         </div>
         <div class="radio">
-            <input
-                type="radio"
-                name="radiobuttons"
-                id="radioButtonTwo"
-            >
+            <input type="radio" name="radiobuttons" id="radioButtonTwo">
             <label for="radioButtonTwo">Năm</label>
         </div>
     </form>

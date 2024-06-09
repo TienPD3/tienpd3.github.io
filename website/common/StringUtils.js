@@ -18,7 +18,7 @@ class StringUtils {
      * @memberof StringUtils
      */
     static convertBlank(input) {
-        return input.length == 0? input: '';
+        return input ? '' : input;
     }
 
     /**
@@ -32,12 +32,8 @@ class StringUtils {
      * @memberof StringUtils
      */
     static formatCashBillion(input) {
-
-        if (input === undefined || input.length === 0) {
-            return 'N/A';
-        }
-        input = Number(input) / 1000000000;
-        return input.toFixed(2);
+        const num = parseFloat(input);
+        return isNaN(num) ? 'N/A' : (num / 1000000000).toFixed(2);
     }
 
     /**
@@ -51,13 +47,12 @@ class StringUtils {
      * @memberof StringUtils
      */
     static formatCashBillionComma(input) {
-
-        if (input === undefined || input.length === 0) {
+        const num = parseFloat(input);
+        if (isNaN(num)) {
             return 'N/A';
         }
-        input = Number(input) / 1000000000;
-        input = input.toFixed(2);
-        return input.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        const formattedNum = (num / 1000000000).toFixed(2);
+        return formattedNum.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
     /**
@@ -71,12 +66,14 @@ class StringUtils {
      * @memberof StringUtils
      */
     static formatCashMillion(input) {
-
-        if (input === undefined || input.length === 0) {
+        if (!input) {
             return 'N/A';
         }
-        input = Number(input) / 1000000;
-        return input.toFixed(2);
+        const num = Number(input);
+        if (isNaN(num)) {
+            return 'N/A';
+        }
+        return (num / 1000000).toFixed(2);
     }
 
     /**
@@ -90,13 +87,15 @@ class StringUtils {
      * @memberof StringUtils
      */
     static formatCashMillionComma(input) {
-
-        if (input === undefined || input.length === 0) {
+        if (input == null || input === '') {
             return 'N/A';
         }
-        input = Number(input) / 1000000;
-        input = input.toFixed(2);
-        return input.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        const num = Number(input);
+        if (isNaN(num)) {
+            return 'N/A';
+        }
+        const formattedNum = (num / 1000000).toFixed(2);
+        return formattedNum.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
     /**
@@ -110,12 +109,14 @@ class StringUtils {
      * @memberof StringUtils
      */
     static formatCash(input) {
-
-        if (input === undefined || input.length === 0) {
+        if (input == null || input === '') {
             return 'N/A';
         }
-        input = Number(input);
-        return input = input.toFixed(2);
+        const num = Number(input);
+        if (isNaN(num)) {
+            return 'N/A';
+        }
+        return num.toFixed(2);
     }
 
     /**
@@ -129,12 +130,14 @@ class StringUtils {
      * @memberof StringUtils
      */
     static formatCashComma(input) {
-
-        if (input === undefined || input.length === 0) {
+        if (input == null || input === '') {
             return 'N/A';
         }
-        input = Number(input);
-        input = input.toFixed(2);
-        return input.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        const num = Number(input);
+        if (isNaN(num)) {
+            return 'N/A';
+        }
+        return num.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 }
+
