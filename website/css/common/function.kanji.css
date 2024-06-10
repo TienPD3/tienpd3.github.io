@@ -176,6 +176,10 @@ button:hover {
   color: #555;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Media Queries for Mobile Devices */
 @media (max-width: 600px) {
   .container {

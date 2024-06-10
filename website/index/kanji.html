@@ -3,6 +3,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="no-referrer">
     <link rel="shortcut icon" type="image/x-icon" href="/website/images/kanji/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/website/images/kanji/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/website/images/kanji/favicon-32x32.png">
@@ -27,6 +28,7 @@
             <span class="tooltip" id="idSuggest"></span>
           </span>
           <span class="speaker-icon" onclick="speakAnswer(event)">
+            <audio controls id="tts-audio" class="hidden"/>
             <i class="fas fa-volume-up"></i>
           </span>
         </p>
@@ -175,26 +177,20 @@
           };
           window.speechSynthesis.speak(utterance);
         } else {
-          fetch(`https://translate.google.com/translate_tts?ie=UTF-8&tl=ja-JP&client=tw-ob&q=${encodeURIComponent(kanjiQuestion)}`)
-            .then(response => {
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              return response.blob();
-            })
-            .then(blob => {
-              const audioUrl = URL.createObjectURL(blob);
-              const audio = new Audio(audioUrl);
-              audio.play().catch(error => {
-                console.log("Sorry, your browser doesn't support text to speech!");
-              });
-            })
-            .catch(error => {
-              console.log("Sorry, your browser doesn't support text to speech!");
-            });
-        }
+          playTTS(encodeURIComponent(kanjiQuestion), 'ja-JP');
       }
     }
+
+    const playTTS = (text, lang) => {
+      // Get the audio element
+      const audioEl = document.getElementById('tts-audio');
+      const url= `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${text}`;
+
+      // add the sound to the audio element
+      audioEl.src = url;
+      //For auto playing the sound
+      audioEl.play();
+    };
 
     function highlightIncorrect(input, expected) {
       let highlightedText = '';
