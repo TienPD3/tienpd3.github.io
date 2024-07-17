@@ -46,7 +46,7 @@ var line last_sell_line = na
 var bool first_sell_displayed = false
 
 if bull and (disable_repeating_signals_param ? (last_signal != 'buy' ? true : na) : true)
-    buy_label_text = str.tostring(low, '#,###.###') + '\nBUY'
+    buy_label_text = str.tostring(close, '#,###.###') + '\nBUY'
     if label_style == 'text bubble'
         label.new(bull ? bar_index : na, low, buy_label_text, color=buy_label_color, style=label.style_label_up, textcolor=label_text_color, size=label_size)
     else if label_style == 'triangle'
@@ -57,12 +57,12 @@ if bull and (disable_repeating_signals_param ? (last_signal != 'buy' ? true : na
         line.delete(last_buy_line)
     last_buy_line := line.new(x1=bar_index, y1=low, x2=bar_index + 1, y2=low, color=GREEN_T0, width=1, extend=extend.right, style=line.style_dotted)
     last_signal := 'buy'
-    last_buy_price := low
+    last_buy_price := close
     last_buy_bar_index := bar_index
     first_sell_displayed := false
     
 if bear and (disable_repeating_signals_param ? (last_signal != 'sell' ? true : na) : true)
-    sell_label_text = 'SELL\n' + str.tostring(high, '#,###.###')
+    sell_label_text = 'SELL\n' + str.tostring(close, '#,###.###')
     if label_style == 'text bubble'
         label.new(bear ? bar_index : na, high, sell_label_text, color=sell_label_color, style=label.style_label_down, textcolor=label_text_color, size=label_size)
     else if label_style == 'triangle'
@@ -73,7 +73,7 @@ if bear and (disable_repeating_signals_param ? (last_signal != 'sell' ? true : n
         line.delete(last_sell_line)
     last_sell_line := line.new(x1=bar_index, y1=high, x2=bar_index + 1, y2=high, color=RED_T0, width=1, extend=extend.right, style=line.style_dotted)
     if not na(last_buy_price) and not first_sell_displayed
-        percent_change = ((high - last_buy_price) / last_buy_price) * 100
+        percent_change = ((close - last_buy_price) / last_buy_price) * 100
         days_held = bar_index - last_buy_bar_index
         profit_label_color = percent_change < 0 ? RED_T0 : GREEN_T0
         label.new(bar_index, low, str.tostring(days_held) + ' times: ' + str.tostring(percent_change, '#.##') + '%' , color=BLUE, style=label.style_label_up, textcolor=profit_label_color, size=label_size)

@@ -1,0 +1,40 @@
+{
+    "status": 200,
+    "message": "Success",
+    "data": {
+        "membership": {
+            "type": "PROFESSIONAL",
+            "endDateStr": "Không giới hạn"
+        },
+        "credit": {
+            "creditAmount": 4.0,
+            "totalAmount": 4.0,
+            "remainAmountWeek": 3.0
+        },
+        "features": {
+            "QUY_DAU_TU_QUY_NUOC_NGOAI": "0",
+            "LOC_CO_PHIEU_GIAO_DICH_NOI_BO": "0",
+            "LOC_CO_PHIEU_NANG_CAO": "0",
+            "REWARD_STOCK": "0",
+            "LOC_CO_PHIEU_BIEN_AN_TOAN": "0",
+            "PHAN_TICH_GIA_HANG_HOA": "0",
+            "STOCK_RELATIVE_STRENGTH": "0",
+            "LIMIT_VIEW_COMPANY": "0"
+        },
+        "featuresData": {},
+        "remainExpiredTime": 999,
+        "hasMembership": true,
+        "hasMembershipYear": true,
+        "membershipStatus": true,
+        "systemMessage": {
+            "code": "REMIND_UPGRADE",
+            "visible": true,
+            "type": "MEMBERSHIP"
+        },
+        "cash": {
+            "totalNumber": 99,
+            "remainingNumber": 99,
+            "expiringNumber": 99
+        }
+    }
+}

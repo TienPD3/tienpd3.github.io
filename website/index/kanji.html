@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="referrer" content="no-referrer">
     <link rel="shortcut icon" type="image/x-icon" href="/website/images/kanji/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/website/images/kanji/apple-touch-icon.png">
@@ -20,6 +20,8 @@
   <div class="container">
     <h1>Hack não Kanji </h1>
     <h3><a href="#" onclick="reloadKanji(event)">Học từ mới</a></h3>
+    <select id="idDatabase" onchange="onChangeDropdown(this)">
+    </select>
     <div class="question">
         <p>
           Đây là「<strong id="idQuenstion"></strong>」 
@@ -33,6 +35,7 @@
           </span>
         </p>
         <input type="text" value="" id="txtAnswer" onkeyup="submitAnswer(event)" placeholder="Vui lòng nhập kết quả Hiragana">
+        <input type="hidden" value="" id="txtMean">
     </div>
     <div class="messageArea info" data-type="info">
       <i class="fas fa-check-circle"></i>
@@ -58,6 +61,7 @@
 
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
+    const DATABASE = 'DATABASE'
     let historyIndex = 1;
     let kuroshiro;
 
@@ -67,33 +71,73 @@
         await kuroshiro.init(new KuromojiAnalyzer());
         const input = document.getElementById('txtAnswer');
         wanakana.bind(input);
-        onInitData();
+        getDropdown();
+        
       } catch (error) {
         console.error('Error initializing Kuroshiro:', error);
       }
     });
 
-    function onInitData() {
-      fetch(API_URL)
+    function getDropdown() {
+      fetch(`${API_URL}?isDropdown=1`)
         .then(response => response.json())
-        .then(data => setData(data))
+        .then(data => {
+
+          const database = localStorage.getItem(DATABASE);
+
+          for (var i = 0; i < data.length; i++) {
+              var option = document.createElement("option");
+              option.value = data[i];
+              option.text = data[i];
+              if (database == data[i]) {
+                option.selected = true;
+              }
+              document.getElementById('idDatabase').appendChild(option);
+          }
+
+          if (!database || database == 'undefined') {
+            onInitData(data[0]);
+          } else {
+            onInitData(database);
+          }
+        })
         .catch(error => hideSpinner());
     }
 
-    async function setData(resp) {
+    function onChangeDropdown(e) {
+      showSpinner();
+
+      var database = e.value;
+      onInitData(database);
+    }
+
+    function onInitData(database) {
+
+      fetch(`${API_URL}?database=${database}&isDropdown=0`)
+        .then(response => response.json())
+        .then(data => setData(data, database))
+        .catch(error => hideSpinner());
+    }
+
+    async function setData(resp, database) {
       hideSpinner(); 
       document.getElementById('idQuenstion').textContent = resp.kanji;
       historyIndex = resp.index;
       const kanjiQuestion = resp.kanji.trim();
       const hiraganaTooltip = await convertKanjiToHiragana(kanjiQuestion);
       document.getElementById('idSuggest').textContent = hiraganaTooltip;
-      document.querySelector('.container').style.display = 'block';
+      document.getElementById('txtMean').value = resp.mean;
+
+      localStorage.setItem(DATABASE, database);
     }
 
     function updataData() {
+
+      const selected = document.getElementById('idDatabase').value;
       const postData = {
         'index': historyIndex, 
-        'action': 0
+        'action': 0,
+        'database': selected
       };
       
       showSpinner();
@@ -102,7 +146,7 @@
         method: 'POST',
         body: JSON.stringify(postData),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "text/plain;charset=utf-8",
         }
       })
       .then(response => response.json())
@@ -126,11 +170,12 @@
       if (key == 13 || key == 1) {
         const kanjiQuestion = document.getElementById('idQuenstion').textContent.trim();
         const hiraganaAnswer = document.getElementById('txtAnswer').value.trim();
+        const mean = document.getElementById('txtMean').value.trim();
       
         if (hiraganaAnswer !== '') {
           const hiraganaQuestion = await convertKanjiToHiragana(kanjiQuestion);
           if (hiraganaAnswer == hiraganaQuestion) {
-            showMessageAreaInfo(`Đúng rồi quá đỉnh!「${kanjiQuestion}」→「${hiraganaAnswer}」`);
+            showMessageAreaInfo(`Đúng rồi quá đỉnh!「${kanjiQuestion}: ${mean}」→「${hiraganaAnswer}」`);
             speakAnswer(kanjiQuestion);
             updataData();
           } else {
@@ -146,9 +191,12 @@
     }
 
     async function reloadKanji(e) {
+
+      const selected = document.getElementById('idDatabase').value;
       const postData = {
         'index': historyIndex, 
-        'action': 1
+        'action': 1,
+        'database': selected
       };
 
       showSpinner();
@@ -157,7 +205,7 @@
         method: 'POST',
         body: JSON.stringify(postData),
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "text/plain;charset=utf-8",
         }
       })
       .then(response => response.json())
@@ -178,6 +226,7 @@
           window.speechSynthesis.speak(utterance);
         } else {
           playTTS(encodeURIComponent(kanjiQuestion), 'ja-JP');
+        }
       }
     }
 
@@ -241,6 +290,7 @@
 
     function hideSpinner() {
       document.querySelector('.spinner-overlay').style.display = 'none';
+      document.querySelector('.container').style.display = 'block';
     }
 
     function toggleTooltip(e) {
@@ -251,7 +301,6 @@
         tooltip.style.display = 'block';
       }
     }
-
   </script>
   </body>
 </html>
