@@ -21,21 +21,23 @@
     <h1>Hack não Kanji </h1>
     <h3><a href="#" onclick="reloadKanji(event)">Học từ mới</a></h3>
     <select id="idDatabase" onchange="onChangeDropdown(this)">
+    <input id="chkVietnamese" type="checkbox" onchange="onChangeCheckbox(this)"> Vietnamese
     </select>
     <div class="question">
         <p>
-          Đây là「<strong id="idQuenstion"></strong>」 
+          Đây là「<strong id="idDisplay"></strong>」 
+          <input type="hidden" id="hdnQuenstion" value="" />
           <span class="tooltip-icon" onclick="toggleTooltip(event)">
             <i class="fas fa-question-circle"></i>
             <span class="tooltip" id="idSuggest"></span>
           </span>
           <span class="speaker-icon" onclick="speakAnswer(event)">
-            <audio controls id="tts-audio" class="hidden"/>
             <i class="fas fa-volume-up"></i>
+            <audio controls id="tts-audio" class="hidden"></audio>
           </span>
         </p>
         <input type="text" value="" id="txtAnswer" onkeyup="submitAnswer(event)" placeholder="Vui lòng nhập kết quả Hiragana">
-        <input type="hidden" value="" id="txtMean">
+        <input type="hidden" value="" id="hdnMean">
     </div>
     <div class="messageArea info" data-type="info">
       <i class="fas fa-check-circle"></i>
@@ -62,12 +64,13 @@
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
     const DATABASE = 'DATABASE'
+    const CHECKBOX_VIETNAMESE = 'CHECKBOX_VIETNAMESE'
     let historyIndex = 1;
     let kuroshiro;
 
     document.addEventListener('DOMContentLoaded', async () => {
       kuroshiro = new Kuroshiro();
-      try {
+      try { 
         await kuroshiro.init(new KuromojiAnalyzer());
         const input = document.getElementById('txtAnswer');
         wanakana.bind(input);
@@ -119,14 +122,32 @@
         .catch(error => hideSpinner());
     }
 
+    function onChangeCheckbox(e) {
+      if (e.checked) {
+        document.getElementById('idDisplay').textContent = document.getElementById('hdnMean').value
+      } else {
+        document.getElementById('idDisplay').textContent = document.getElementById('hdnQuenstion').value
+      }
+      localStorage.setItem(CHECKBOX_VIETNAMESE, e.checked)
+    }
+
     async function setData(resp, database) {
       hideSpinner(); 
-      document.getElementById('idQuenstion').textContent = resp.kanji;
+
+      document.getElementById('chkVietnamese').checked = (/true/i).test(localStorage.getItem(CHECKBOX_VIETNAMESE));
+     
+      const checked = document.getElementById('chkVietnamese').checked;
+      if (checked) {
+        document.getElementById('idDisplay').textContent = resp.mean;
+      } else {
+        document.getElementById('idDisplay').textContent = resp.kanji;
+      }
+      document.getElementById('hdnQuenstion').value = resp.kanji;
       historyIndex = resp.index;
       const kanjiQuestion = resp.kanji.trim();
       const hiraganaTooltip = await convertKanjiToHiragana(kanjiQuestion);
       document.getElementById('idSuggest').textContent = hiraganaTooltip;
-      document.getElementById('txtMean').value = resp.mean;
+      document.getElementById('hdnMean').value = resp.mean;
 
       localStorage.setItem(DATABASE, database);
     }
@@ -150,7 +171,7 @@
         }
       })
       .then(response => response.json())
-      .then(data => setData(data))
+      .then(data => setData(data, selected))
       .catch(error => hideSpinner());
     }
 
@@ -163,17 +184,42 @@
       }
     }
 
+    async function convertKatakanaToHiragana(kanji) {
+      try {
+        if (await Kuroshiro.Util.hasKatakana(kanji)) {
+          const hiragana = await Kuroshiro.Util.kanaToHiragna(kanji);
+          return hiragana;
+        }
+        return kanji;
+      } catch (error) {
+        return '';
+      }
+    }
+
+    function replaceSpecial(input) {
+      if (input.length > 0) {
+        input = input.trim();
+        input = input.replace('～', '〜');
+        input = input.replace('~', '〜');
+        input = input.replace(/\s/g, '');
+      }
+      return input;
+    }
+    
     async function submitAnswer(e) {
       hideMessageArea();
 
       const key = e.keyCode || e.which;
       if (key == 13 || key == 1) {
-        const kanjiQuestion = document.getElementById('idQuenstion').textContent.trim();
-        const hiraganaAnswer = document.getElementById('txtAnswer').value.trim();
-        const mean = document.getElementById('txtMean').value.trim();
+        const kanjiQuestion = document.getElementById('hdnQuenstion').value.trim();
+        let hiraganaAnswer = document.getElementById('txtAnswer').value.trim();
+        hiraganaAnswer = replaceSpecial(hiraganaAnswer);
+        const mean = document.getElementById('hdnMean').value.trim();
       
         if (hiraganaAnswer !== '') {
-          const hiraganaQuestion = await convertKanjiToHiragana(kanjiQuestion);
+          let hiraganaQuestion = await convertKanjiToHiragana(kanjiQuestion);
+          hiraganaQuestion = await convertKatakanaToHiragana(hiraganaQuestion);
+          hiraganaQuestion = replaceSpecial(hiraganaQuestion);
           if (hiraganaAnswer == hiraganaQuestion) {
             showMessageAreaInfo(`Đúng rồi quá đỉnh!「${kanjiQuestion}: ${mean}」→「${hiraganaAnswer}」`);
             speakAnswer(kanjiQuestion);
@@ -214,7 +260,7 @@
     }
 
     function speakAnswer(e) {
-      const kanjiQuestion = document.getElementById('idQuenstion').textContent.trim();
+      const kanjiQuestion = document.getElementById('hdnQuenstion').value.trim();
       if (kanjiQuestion !== '') {
         if ('speechSynthesis' in window) {
           const utterance = new SpeechSynthesisUtterance(kanjiQuestion);
