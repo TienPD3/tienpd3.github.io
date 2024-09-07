@@ -1,84 +1,347 @@
+ 
+// THIS CODE USES CODE FROM AI SIGNALS GOLD!!!
+//why ? because i was bored and i was lazy so i did not want to put all my
+freetime on this but i did add extra options
+// disclaimer : this does nt contain all options... if there is something you
+would like me to add dm me
+// @ moneymovesalgo
+//
+//-----------------------------------------
+====================================================-------------------------------
+\\
+//
+\\
 //@version=5
-// 15': 0.5, 50, 5
-// 30': 0.7, 60, 7
+indicator("EzAlgo V1.0", shorttitle='EzAlgo V1.0', overlay=true)
+// -------------------------- user inputs ----------------------- \\
+enSignals = input.bool(true, 'Enable Signals', group='Buy & Sell')
+per1 = input.int(defval=3, minval=1, title='Sensitiviy', group='Buy & Sell')
+enObOs = input.bool(true, 'Show OverBought & Oversold', group='Signals')
+enrevser = input.bool(true, 'Reversal Signals', group='Signals')
+RSI_Period = input(14, title='Overall Reversal Sensitivitiy', group='Reversal
+Signals')
+SF = input(5, title='Reversal Agility', group='Reversal Signals')
+KQE = input(4.238, title='Reversal Fast Senstivity', group='Reversal Signals')
+ThreshHold = input(10, title='Reversal Thresh-hold', group='Reversal Signals')
+ensr = input.bool(true, 'Enable Support And Resistance', group='S & R')
+ensra = input.bool(true, 'Enable Support And Resistance Zones', group='S & R')
+enCloud = input.bool(true, 'Enable Trend Ribbon', group='Cloud')
+volBands = input.bool(true, 'Show Bands', group='Cloud')
+mal = input.bool(false, 'Show Trend Moving Average Line', inline='s')
+mals = input.int(80, '', inline='s')
+showSwings = input.bool(false, 'Show Swing Highs And Lows', group='Swing Higher
+Highs & Lower Lows')
+lb = input.int(5, title='L', minval=1, inline='HHLL', group='Swing Higher Highs &
+Lower Lows')
+rb = input.int(5, title='R', minval=1, inline='HHLL', group='Swing Higher Highs &
+Lower Lows')
+color colsh = input.color(color.new(#0dbbff, 18), 'High\'s', inline='sH',
+group='Swing Higher Highs & Lower Lows')
+color colsl = input.color(color.new(#e93e63, 18), 'Low\'s', inline='sH',
+group='Swing Higher Highs & Lower Lows')
+levelsl = input.bool(false, "Sl 1", group="TP & SL")
+levels1 = input.bool(false, "TP 1", group="TP & SL", inline='tp1')
+r1 = input.float(0.7, '', group='TP & SL', inline='tp1')
+levels2 = input.bool(false, "TP 2", group="TP & SL", inline='tp2')
+r2 = input.float(1.2, '', group='TP & SL', inline='tp2')
+levels3 = input.bool(false, "TP 3", group="TP & SL", inline='tp3')
+r3 = input.float(1.5, '', group='TP & SL', inline='tp3')
+atrRisk = input.int(defval=4, minval=1, maxval=4, title="Risk To Reward",
+group="TP & SL")
+// -------------------------- signal function ------------------------ \\ based on
+free algo's ai signal gold
+supertrend(_src, factor, atrLen) =>
+AD
+Download to read ad-free.
+ 
+atr = ta.atr(atrLen)
+upperBand = _src + factor * atr
+lowerBand = _src - factor * atr
+prevLowerBand = nz(lowerBand[1])
+prevUpperBand = nz(upperBand[1])
+lowerBand := lowerBand > prevLowerBand or close[1] < prevLowerBand ?
+lowerBand : prevLowerBand
+upperBand := upperBand < prevUpperBand or close[1] > prevUpperBand ?
+upperBand : prevUpperBand
+int direction = na
+float superTrend = na
+prevSuperTrend = superTrend[1]
+if na(atr[1])
+direction := 1
+else if prevSuperTrend == prevUpperBand
+direction := close > upperBand ? -1 : 1
+else
+direction := close < lowerBand ? 1 : -1
+superTrend := direction == -1 ? lowerBand : upperBand
+[superTrend, direction]
+[supertrend, direction] = supertrend(close, per1, 11)
+sma9 = ta.sma(close, 13)
+bull = ta.crossover(close, supertrend)
+bear = ta.crossunder(close, supertrend)
+y1 = low - (ta.atr(30) * 2)
+y2 = high + (ta.atr(30) * 2)
+// -------------------------------- new buy functions
+---------------------------- //
+mult1 = 1.5
+per2 = 50
+mult2 = 3
+smoothrng(x, t, m) =>
+ wper = t * 2 - 1
+ avrng = ta.ema(math.abs(x - x[1]), t)
+ smoothrng = ta.ema(avrng, wper) * m
+ smoothrng
+smrng1 = smoothrng(close, per1 *9, mult1)
+smrng2 = smoothrng(close, per2, mult2)
+smrng = (smrng1 + smrng2) / 2
+// -------------------- \\
+rngfilt(x, r) =>
+ rngfilt = x
+ rngfilt := x > nz(rngfilt[1]) ? x - r < nz(rngfilt[1]) ? nz(rngfilt[1]) : x - r
+: x + r > nz(rngfilt[1]) ? nz(rngfilt[1]) : x + r
+ rngfilt
+filt = rngfilt(close, smrng)
+upward = 0.0
+upward := filt > filt[1] ? nz(upward[1]) + 1 : filt < filt[1] ? 0 : nz(upward[1])
+downward = 0.0
+downward := filt < filt[1] ? nz(downward[1]) + 1 : filt > filt[1] ? 0 :
+nz(downward[1])
+AD
+Download to read ad-free.
+ 
+hband = filt + smrng
+lband = filt - smrng
+longCond = bool(na)
+shortCond = bool(na)
+longCond := close > filt and close > close[1] and upward > 0 or close > filt and
+close < close[1] and upward > 0
+shortCond := close < filt and close < close[1] and downward > 0 or close < filt and
+close > close[1] and downward > 0
+CondIni = 0
+CondIni := longCond ? 1 : shortCond ? -1 : CondIni[1]
+long = longCond and CondIni[1] == -1
+short = shortCond and CondIni[1] == 1
+// ---------------------------------- plot buy & sell signal
+-------------------------- \\
+// Plotting
+plotshape(long, title='Long', text='Buy', style=shape.labelup,
+textcolor=color.new(color.white, 0), size=size.normal, location=location.belowbar,
+color=color.new(#0dbbff, 0), editable=false)
+plotshape(short, title='Short', text='Sell', style=shape.labeldown,
+textcolor=color.new(color.white, 0), size=size.normal, location=location.abovebar,
+color=color.new(#e93e63, 0), editable=false)
+// Alerts
+alertcondition(long and enSignals, title='Buy Signal' , message='Buy Signal Has
+Appeared For EzAlgo V.5' )
+alertcondition(short and enSignals, title='Sell Signal', message='Sell Signal Has
+Appeared For EzAlgo V.5')
+// ---------------------------- cloud ---------------------------- \\
+candle = ta.sma(close, 5)
+reach = ta.sma(close, 8)
+candlep = plot(enCloud ? candle : na, color=color.new(color.white, 100))
+reachp = plot(enCloud ? reach : na, color=color.new(color.white, 100))
+fill(reachp, candlep, color= candle > reach ? color.new(#00DBFF, 75) :
+color.new(#E93E63, 75))
+barcolor(close > filt ? #00DBFF99 : #E93E6399)
+// ====================--------------------- tp & sl -----------------
+=================== \\ based on free algo's ai signal gold
+lvlLines = (true)
+linesStyle = ("SOLID")
+lvlDecimals = (4)
+lvlDistance = (1)
+atrLen = (14)
+decimals = lvlDecimals == 1 ? "#.#" : lvlDecimals == 2 ? "#.##" : lvlDecimals == 3
+You're Reading a Preview
 
-indicator('RSI Index Pro', overlay=true, max_labels_count=500)
+Upload your documents to download.
 
-candle_stability_index_param = input.float(0.5, 'Candle Stability Index', 0, 1, step=0.1, group='Technical', tooltip='Candle Stability Index measures the ratio between the body and the wicks of a candle. Higher - more stable.')
-rsi_index_param = input.int(50, 'RSI Index', 0, 100, group='Technical', tooltip='RSI Index measures how overbought/oversold is the market. Higher - more overbought/oversold.')
-candle_delta_length_param  = input.int(5, 'Candle Delta Length', 3, group='Technical', tooltip='Candle Delta Length measures the period over how many candles the price increased/decreased. Higher - longer period.')
-disable_repeating_signals_param = input.bool(false, 'Disable Repeating Signals', group='Technical', tooltip='Removes repeating signals. Useful for removing clusters of signals and general clarity')
+OR
 
-GREEN = color.rgb(0, 128, 0, 65)
-GREEN_T0 = color.rgb(0, 128, 0, 0)
-BLUE = color.rgb(0, 0, 255, 65)
-WHITE = color.rgb(255, 255, 255, 65)
-RED = color.rgb(128, 0, 0, 65)
-RED_T0 = color.rgb(128, 0, 0, 0)
-TRANSPARENT = color.rgb(0, 0, 0, 65)
+Become a Scribd member for full access. Your first 30 days are free.
 
-label_size = input.string('normal', 'Label Size', options=['huge', 'large', 'normal', 'small', 'tiny'], group='Cosmetic')
-label_style = input.string('text bubble', 'Label Style', ['text bubble', 'triangle', 'arrow'], group='Cosmetic')
-buy_label_color = input(GREEN, 'BUY Label Color', inline='Highlight', group='Cosmetic')
-sell_label_color = input(RED, 'SELL Label Color', inline='Highlight', group='Cosmetic')
-label_text_color = input(WHITE, 'Label Text Color', inline='Highlight', group='Cosmetic')
+Continue for Free
+AD
+Download to read ad-free.
+ 
+? "#.###" : lvlDecimals == 4 ? "#.####" : lvlDecimals == 5 ? "#.#####" :
+lvlDecimals == 6 ? "#.######" : lvlDecimals == 7 ? "#.#######" : "#.########"
+trigger = bull ? 1 : 0
+trigger2 = bear ? 0 : 1
+atrBand = ta.atr(atrLen) * atrRisk
+atrStop = trigger == 1 ? low - atrBand : high + atrBand
+atrStop2 = trigger2 == -1 ? high + atrBand : low - atrBand
+countBull = ta.barssince(bull)
+countBear = ta.barssince(bear)
+lastTrade(src) => ta.valuewhen((bull) or (bear), src, 0)
+entry = levelsl or levels1 or levels2 or levels3 ? label.new(time, close, "Entry |
+" + str.tostring(lastTrade(close), decimals), xloc.bar_time, yloc.price,
+color.new(color.gray ,0), label.style_label_left, color.white, size.small) : na
+label.set_x(entry, label.get_x(entry) + math.round(ta.change(time) * lvlDistance))
+label.set_y(entry, lastTrade(close))
+label.delete(entry[1])
+stop_y = lastTrade(atrStop)
+stop = levelsl ? label.new(time, close, "Stop Loss | " + str.tostring(stop_y,
+decimals), xloc.bar_time, yloc.price, color.rgb(255,82,83,0),
+label.style_label_left, color.new(color.white, 10), size.small) : na
+label.set_x(stop, label.get_x(stop) + math.round(ta.change(time) * lvlDistance))
+label.set_y(stop, stop_y)
+label.delete(stop[1])
+tp1_y = (lastTrade(close)-lastTrade(atrStop))*r1 + lastTrade(close)
+tp1 = levels1 ? label.new(time, close, "Take Profit 1 | " + str.tostring(tp1_y,
+decimals), xloc.bar_time, yloc.price, color.rgb(0,217,252), label.style_label_left,
+color.black, size.small) : na
+label.set_x(tp1, label.get_x(tp1) + math.round(ta.change(time) * lvlDistance))
+label.set_y(tp1, tp1_y)
+label.delete(tp1[1])
+tp1s = ta.crossover(close, tp1_y) and not bull and close>supertrend
+plotshape(tp1s, text='', style=shape.xcross, location=location.abovebar,
+size=size.tiny, color=color.new(#ff000099, 68), textcolor=#2157f999)
+tp1sd = ta.crossunder(close, tp1_y) and not bull and not bear and close<supertrend
+plotshape(tp1sd, text='', style=shape.xcross, location=location.belowbar,
+size=size.tiny, color=color.new(#2157f999, 68), textcolor=#ff000099)
+tp15_y = (lastTrade(close)-lastTrade(atrStop))*r2 + lastTrade(close)
+tp15 = levels2 ? label.new(time, close, "Take Profit 2 | " + str.tostring(tp15_y,
+decimals), xloc.bar_time, yloc.price, color.rgb(0,217,252), label.style_label_left,
+color.black, size.small) : na
+label.set_x(tp15, label.get_x(tp15) + math.round(ta.change(time) * lvlDistance))
+label.set_y(tp15, tp15_y)
+label.delete(tp15[1])
+tp2s = ta.crossover(close, tp15_y) and not bull and close>supertrend
+plotshape(tp2s, text='', style=shape.xcross, location=location.abovebar,
+size=size.tiny, color=color.new(#ff000099, 68), textcolor=#2157f999)
+tp2sd = ta.crossunder(close, tp15_y) and not bull and not bear and close<supertrend
+You're Reading a Preview
 
-stable_candle = math.abs(close - open) / ta.tr > candle_stability_index_param
-rsi = ta.rsi(close, 14)
+Upload your documents to download.
 
-bullish_engulfing = close[1] < open[1] and close > open and close > open[1]
-rsi_below = rsi < rsi_index_param
-decrease_over = close < close[candle_delta_length_param]
+OR
 
-bull = bullish_engulfing and stable_candle and rsi_below and decrease_over and barstate.isconfirmed
+Become a Scribd member for full access. Your first 30 days are free.
 
-bearish_engulfing = close[1] > open[1] and close < open and close < open[1]
-rsi_above = rsi > 100 - rsi_index_param
-increase_over = close > close[candle_delta_length_param]
+Continue for Free
+AD
+Download to read ad-free.
+ 
+plotshape(tp2sd, text='', style=shape.xcross, location=location.belowbar,
+size=size.tiny, color=color.new(#2157f999, 68), textcolor=#ff000099)
+tp2_y = (lastTrade(close)-lastTrade(atrStop))*r3 + lastTrade(close)
+tp2 = levels3 ? label.new(time, close, "Take Profit 3 | " + str.tostring(tp2_y,
+decimals), xloc.bar_time, yloc.price, color.rgb(0,217,252), label.style_label_left,
+color.black, size.small) : na
+label.set_x(tp2, label.get_x(tp2) + math.round(ta.change(time) * lvlDistance))
+label.set_y(tp2, tp2_y)
+label.delete(tp2[1])
+tp3s = ta.crossover(close, tp2_y) and not bull and close>supertrend
+plotshape(tp3s, text='', style=shape.xcross, location=location.abovebar,
+size=size.tiny, color=color.new(#ff000099, 68), textcolor=#2157f999)
+tp3sd = ta.crossunder(close, tp2_y) and not bull and not bear and close<supertrend
+plotshape(tp3sd, text='', style=shape.xcross, location=location.belowbar,
+size=size.tiny, color=color.new(#2157f999, 68), textcolor=#ff000099)
+style = linesStyle == "SOLID" ? line.style_solid : linesStyle == "DASHED" ?
+line.style_dashed : line.style_dotted
+lineEntry = levelsl or levels1 or levels2 or levels3 and lvlLines ?
+line.new(bar_index - (trigger == 0 ? countBull : countBear), lastTrade(close),
+bar_index + lvlDistance, lastTrade(close), xloc.bar_index, extend.none,
+color.new(color.gray, 0), style, 2) : na, line.delete(lineEntry[1])
+lineStop = levelsl and lvlLines ? line.new(bar_index - (trigger == 0 ? countBull :
+countBear), stop_y, bar_index + lvlDistance, stop_y, xloc.bar_index, extend.none,
+color.new(#E93E63, 0), style, 2) : na, line.delete(lineStop[1])
+lineTp1 = levels1 and lvlLines ? line.new(bar_index - (trigger == 0 ? countBull :
+countBear), tp1_y, bar_index + lvlDistance, tp1_y, xloc.bar_index, extend.none,
+color.rgb(0,217,252), style, 2) : na, line.delete(lineTp1[1])
+lineTp15 = levels2 and lvlLines ? line.new(bar_index - (trigger == 0 ? countBull :
+countBear), tp15_y, bar_index + lvlDistance, tp15_y, xloc.bar_index, extend.none,
+color.rgb(0,217,252), style, 2) : na, line.delete(lineTp15[1])
+lineTp2 = levels3 and lvlLines ? line.new(bar_index - (trigger == 0 ? countBull :
+countBear), tp2_y, bar_index + lvlDistance, tp2_y, xloc.bar_index, extend.none,
+color.rgb(0,217,252), style, 2) : na, line.delete(lineTp2[1])
+// ----------------------------------------- bands
+----------------------------------- \\
+useEma = true
+int volBandsSen = 5
+gray = volBands ? #787B86 : na, gray40 = volBands ? color.new(gray, 60) : na,
+gray5 = volBands ? color.new(gray, 95) : na, gray20 = volBands ?
+color.new(gray, 80) : na
+//
+f_kc(src, len, mult) =>
+ float basis = useEma ? ta.ema(src, len) : ta.sma(src, len)
+ float span = useEma ? ta.ema(ta.tr, len) : ta.sma(ta.tr, len)
+ [basis + span * mult, basis - span * mult]
+ 
+[upperKC1, lowerKC1] = f_kc(close, 35, 4.5 )
+[upperKC2, lowerKC2] = f_kc(close, 35, 6.4 )
+[upperKC3, lowerKC3] = f_kc(close, 35, 8.3 )
+You're Reading a Preview
 
-bear = bearish_engulfing and stable_candle and rsi_above and increase_over and barstate.isconfirmed
+Upload your documents to download.
 
-var last_signal = ''
-var float last_buy_price = na
-var int last_buy_bar_index = na
-var line last_buy_line = na
-var line last_sell_line = na
-var bool first_sell_displayed = false
+OR
 
-if bull and (disable_repeating_signals_param ? (last_signal != 'buy' ? true : na) : true)
-    buy_label_text = str.tostring(close, '#,###.###') + '\nBUY'
-    if label_style == 'text bubble'
-        label.new(bull ? bar_index : na, low, buy_label_text, color=buy_label_color, style=label.style_label_up, textcolor=label_text_color, size=label_size)
-    else if label_style == 'triangle'
-        label.new(bull ? bar_index : na, low, buy_label_text, yloc=yloc.belowbar, color=buy_label_color, style=label.style_triangleup, textcolor=TRANSPARENT, size=label_size)
-    else if label_style == 'arrow'
-        label.new(bull ? bar_index : na, low, buy_label_text, yloc=yloc.belowbar, color=buy_label_color, style=label.style_arrowup, textcolor=TRANSPARENT, size=label_size)
-    if not na(last_buy_line)
-        line.delete(last_buy_line)
-    last_buy_line := line.new(x1=bar_index, y1=low, x2=bar_index + 1, y2=low, color=GREEN_T0, width=1, extend=extend.right, style=line.style_dotted)
-    last_signal := 'buy'
-    last_buy_price := close
-    last_buy_bar_index := bar_index
-    first_sell_displayed := false
-    
-if bear and (disable_repeating_signals_param ? (last_signal != 'sell' ? true : na) : true)
-    sell_label_text = 'SELL\n' + str.tostring(close, '#,###.###')
-    if label_style == 'text bubble'
-        label.new(bear ? bar_index : na, high, sell_label_text, color=sell_label_color, style=label.style_label_down, textcolor=label_text_color, size=label_size)
-    else if label_style == 'triangle'
-        label.new(bear ? bar_index : na, high, sell_label_text, yloc=yloc.abovebar, color=sell_label_color, style=label.style_triangledown, textcolor=TRANSPARENT, size=label_size)
-    else if label_style == 'arrow'
-        label.new(bear ? bar_index : na, high, sell_label_text, yloc=yloc.abovebar, color=sell_label_color, style=label.style_arrowdown, textcolor=TRANSPARENT, size=label_size)
-    if not na(last_sell_line)
-        line.delete(last_sell_line)
-    last_sell_line := line.new(x1=bar_index, y1=high, x2=bar_index + 1, y2=high, color=RED_T0, width=1, extend=extend.right, style=line.style_dotted)
-    if not na(last_buy_price) and not first_sell_displayed
-        percent_change = ((close - last_buy_price) / last_buy_price) * 100
-        days_held = bar_index - last_buy_bar_index
-        profit_label_color = percent_change < 0 ? RED_T0 : GREEN_T0
-        label.new(bar_index, low, str.tostring(days_held) + ' times: ' + str.tostring(percent_change, '#.##') + '%' , color=BLUE, style=label.style_label_up, textcolor=profit_label_color, size=label_size)
-        first_sell_displayed := true
-    last_signal := 'sell'
+Become a Scribd member for full access. Your first 30 days are free.
 
-alertcondition(bull, 'BUY Signals', 'New signal: BUY')
-alertcondition(bear, 'SELL Signals', 'New signal: SELL')
+Continue for Free
+AD
+Download to read ad-free.
+ 
+b1 = plot(upperKC1, "", color.new(#E93E63, 75), editable=false)
+b2 = plot(upperKC2, "", color.new(#E93E63, 85), editable=false)
+b3 = plot(upperKC3, "", color.new(#E93E63, 90), editable=false)
+b4 = plot(lowerKC1, "", color.new(#00DBFF, 75), editable=false)
+b5 = plot(lowerKC2, "", color.new(#00DBFF, 85), editable=false)
+b6 = plot(lowerKC3, "", color.new(#00DBFF, 90), editable=false)
+// ---------------------------- moving average line
+------------------------------------- \\
+shortem = ta.ema(close, 23)
+intm = ta.ema(close, 200)
+longem = ta.ema(close, mals)
+// set bull
+mal_is_bull = (shortem > intm ? color.new(#00DBFF, 75) : color.new(#E93E63, 75))
+// plot it
+plot(mal ? longem : na, color = mal_is_bull, linewidth=4)
+//--------------------------- reversal signals --------------------------- \\
+//number
+rsiLength = 14
+rsiOverbought = 66
+rsiOversold = 35
+drawOnRT = true
+// Check to see if RSI has crossed our threshold
+rsi = ta.rsi(close, rsiLength)
+rsiOB = rsi >= rsiOverbought
+rsiOS = rsi <= rsiOversold
+// Plot signals and trigger any alerts
+plotshape(enObOs and rsiOS and (barstate.ishistory or drawOnRT), title="Oversold",
+location=location.belowbar, color=color.new(#0dbbff, 68), style=shape.diamond,
+text="", size=size.tiny)
+plotshape(enObOs and rsiOB and (barstate.ishistory or drawOnRT),
+title="Overbought", color=color.new(#e93e63, 68), style=shape.diamond, text="",
+size=size.tiny)
+alertcondition(rsiOB or rsiOS, title="OB or OS Alert!", message="Overbought or
+OverSold Alert for {{ticker}}")
+// ------------------------------ support and resistance --------------------------
+\\
+left = 50
+right = 25
+quick_right = 5 // Used to try and detect a more recent significant swing.
+pivot_high = ta.pivothigh(high, left, right)
+pivot_lows = ta.pivotlow(low, left, right)
+quick_pivot_high = ta.pivothigh(high, left, quick_right)
+quick_pivot_lows = ta.pivotlow(low, left, quick_right)
+level1 = ta.valuewhen(quick_pivot_high, high[quick_right], 0)
+level2 = ta.valuewhen(quick_pivot_lows, low[quick_right], 0)
+level3 = ta.valuewhen(pivot_high, high[right], 0)
+You're Reading a Preview
+
+Upload your documents to download.
+
+OR
+
+Become a Scribd member for full access. Your first 30 days are free.
+
+Continue for Free
+AD
+Download to read ad-free.
+AD
+Download to read ad-free.
+AD
+Download to read ad-free.
+AD
+Download to read ad-free.
