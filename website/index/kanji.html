@@ -18,7 +18,7 @@
   </head>
   <body>
   <div class="container">
-    <h1>Hack não Kanji </h1>
+    <h1>Hack não Kanji <a href="#" onClick="flashCard()">Flash Card</a></h1> 
     <h3><a href="#" onclick="reloadKanji(event)">Học từ mới</a></h3>
     <select id="idDatabase" onchange="onChangeDropdown(this)">
     <input id="chkVietnamese" type="checkbox" onchange="onChangeCheckbox(this)"> Vietnamese
@@ -63,7 +63,7 @@
 
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
-    const DATABASE = 'DATABASE'
+    const DATABASE = 'N5'
     const CHECKBOX_VIETNAMESE = 'CHECKBOX_VIETNAMESE'
     let historyIndex = 1;
     let kuroshiro;
@@ -80,6 +80,11 @@
         console.error('Error initializing Kuroshiro:', error);
       }
     });
+
+    function flashCard() {
+      const selected = document.getElementById('idDatabase').value;
+      window.location = `./flash-card.html?database=${selected}`;
+    }
 
     function getDropdown() {
       fetch(`${API_URL}?isDropdown=1`)
