@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="referrer" content="no-referrer">
-    <link rel="shortcut icon" type="image/x-icon" href="/website/images/kanji/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/website/images/kanji/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/website/images/kanji/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/website/images/kanji/favicon-16x16.png">
-    <title>Kanji</title>
+    <title>Hack não Kanji Flash Card</title>
     <link rel="stylesheet" href="../css/common/function.kanji.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script defer src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
     <script defer src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
     <script defer src="/website/scripts/wanakana/wanakana.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  </head>
-  <body>
-  <div class="container">
-    <h1>Hack não Kanji <a href="#" onClick="flashCard()">Flash Card</a></h1> 
-    <h3><a href="#" onclick="reloadKanji(event)">Học từ mới</a></h3>
-    <select id="idDatabase" onchange="onChangeDropdown(this)">
-    <input id="chkVietnamese" type="checkbox" onchange="onChangeCheckbox(this)"> Vietnamese
-    </select>
-    <div class="question">
-        <p>
-          Đây là「<strong id="idDisplay"></strong>」 
-          <input type="hidden" id="hdnQuenstion" value="" />
-          <span class="tooltip-icon" onclick="toggleTooltip(event)">
-            <i class="fas fa-question-circle"></i>
-            <span class="tooltip" id="idSuggest"></span>
-          </span>
-          <span class="speaker-icon" onclick="speakAnswer(event)">
-            <i class="fas fa-volume-up"></i>
-            <audio controls id="tts-audio" class="hidden"></audio>
-          </span>
-        </p>
-        <input type="text" value="" id="txtAnswer" onkeyup="submitAnswer(event)" placeholder="Vui lòng nhập kết quả Hiragana">
-        <input type="hidden" value="" id="hdnMean">
+</head>
+<body>
+    <div class="container">
+        <h1>Hack não Kanji <a href="#" onClick="flashCard()">Flash Card</a></h1>
+        <a href="#" class="link" onclick="reloadKanji(event)">Học từ mới</a>
+        <div class="form-group">
+            <select id="idDatabase" onchange="onChangeDropdown(this)"></select>
+            <input type="checkbox" id="chkVietnamese" onchange="onChangeCheckbox(this)">
+            <label for="chkVietnamese" style="text-align: left;">Vietnamese</label>
+        </div>
+        <div class="form-group">
+            <label>
+                Đây là 「<strong id="idDisplay"></strong>」
+                <input type="hidden" id="hdnQuenstion" value="" />
+                <span class="tooltip-icon" onclick="toggleTooltip(event)">
+                  <i class="fas fa-question-circle"></i>
+                  <span class="tooltip" id="idSuggest"></span>
+                </span>
+                <span class="speaker-icon" onclick="speakAnswer(event)">
+                  <i class="fas fa-volume-up"></i>
+                  <audio controls id="tts-audio" class="hidden"></audio>
+                </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Vui lòng nhập kết quả Hiragana" id="txtAnswer" onkeyup="submitAnswer(event)">
+            <input type="hidden" value="" id="hdnMean">
+        </div>
+        <!-- Message -->
+        <div class="messageArea info" data-type="info">
+          <i class="fas fa-check-circle"></i>
+          <span></span>
+        </div>
+        <div class="messageArea error" data-type="error">
+          <i class="fas fa-times-circle"></i>
+          <span></span>
+        </div>
+        <div class="messageArea warn" data-type="warn">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span></span>
+        </div>
     </div>
-    <div class="messageArea info" data-type="info">
-      <i class="fas fa-check-circle"></i>
-      <span></span>
+    <!-- Custom Spinner -->
+    <div class="spinner-overlay" id="spinner">
+      <div class="spinner">
+          <i class="fas fa-spinner fa-spin spinner-icon"></i>
+          <div class="loading-text">Loading...</div>
+      </div>
     </div>
-    <div class="messageArea error" data-type="error">
-      <i class="fas fa-times-circle"></i>
-      <span></span>
-    </div>
-    <div class="messageArea warn" data-type="warn">
-      <i class="fas fa-exclamation-triangle"></i>
-      <span></span>
-    </div>
-  </div>
-
-  <!-- Custom Spinner -->
-  <div class="spinner-overlay" id="spinner">
-    <div class="spinner">
-        <i class="fas fa-spinner fa-spin spinner-icon"></i>
-        <div class="loading-text">Loading...</div>
-    </div>
-  </div>
-
+    
   <script>
     const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
     const DATABASE = 'N5'
@@ -251,6 +251,7 @@
       };
 
       showSpinner();
+      hideMessageArea();
 
       fetch(API_URL, {
         method: 'POST',
@@ -353,5 +354,5 @@
       }
     }
   </script>
-  </body>
+</body>
 </html>
