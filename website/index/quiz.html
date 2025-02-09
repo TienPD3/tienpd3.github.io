@@ -87,6 +87,18 @@
             right: 20px;
             z-index: 1000;
         }
+        #retest {
+            position: fixed;
+            bottom: 20px;
+            right: 130px;
+            z-index: 1000;
+        }
+        #resetting {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -96,6 +108,9 @@
 
     <!-- Cài đặt Quiz -->
     <div class="settings">
+        <label>Chọn file JSON:</label>
+        <input type="text" id="jsonFileName" placeholder="Nhập tên file JSON" style="width: 100%;" value="ba01.json">
+
         <label>Từ câu:</label>
         <input type="number" id="startQuestion" value="1" min="1" style="width: 50px;">
 
@@ -114,6 +129,8 @@
 
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
+        <button class="btn" id="resetting">Setting</button>
+        <button class="btn" id="retest">Làm lại</button>
         <button class="btn" id="submitQuiz">Nộp bài</button>
         <div id="result" class="result"></div>
     </div>
@@ -123,40 +140,49 @@
     let questions = [];  // Lưu dữ liệu từ JSON
     let selectedQuestions = [];
 
-    // Load JSON từ file
-    $.getJSON("../file/business_analysis_questions.json", function (data) {
-        questions = data;
-    }).fail(function () {
-        alert("Không thể tải dữ liệu câu hỏi!");
-    });
-
     // Bắt đầu quiz
     $("#startQuiz").click(function () {
-        if (questions.length === 0) {
-            alert("Dữ liệu câu hỏi chưa được tải!");
+        let fileName = $("#jsonFileName").val().trim();
+        if (!fileName) {
+            alert("Vui lòng nhập tên file JSON!");
             return;
         }
 
-        let start = parseInt($("#startQuestion").val());
-        let end = parseInt($("#endQuestion").val());
+        let filePath = `../file/quiz/${fileName}`;
+        // Load JSON từ file
+        $.getJSON(filePath, function (data) {
+            questions = data;
 
-        if (start < 1 || end > questions.length || start > end) {
-            alert(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
-            return;
-        }
+            if (questions.length === 0) {
+                alert("Dữ liệu câu hỏi chưa được tải!");
+                return;
+            }
 
-        let isRandom = $("input[name='order']:checked").val() === "random";
-        selectedQuestions = questions.slice(start - 1, end);
+            let start = parseInt($("#startQuestion").val());
+            let end = parseInt($("#endQuestion").val());
 
-        if (isRandom) {
-            selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
-        }
+            if (start < 1 || end > questions.length || start > end) {
+                alert(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                return;
+            }
 
-        renderQuiz();
-        $("#quizContainer").show();
+            let isRandom = $("input[name='order']:checked").val() === "random";
+            selectedQuestions = questions.slice(start - 1, end);
 
-        // Ẩn kết quả cũ khi bắt đầu lại
-        $("#result").hide();
+            if (isRandom) {
+                selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
+            }
+
+            renderQuiz();
+            $("#quizContainer").show();
+
+            // Ẩn kết quả cũ khi bắt đầu lại
+            $("#result").hide().empty();
+            $('.settings').hide();
+            $('#startQuiz').hide();
+        }).fail(function () {
+            alert("Không thể tải dữ liệu câu hỏi!");
+        });
     });
 
     function renderQuiz() {
@@ -180,7 +206,7 @@
         });
     }
 
-    $("#submitQuiz").click(function () {
+    $("#submitQuiz #retest").click(function () {
         let score = 0;
         $("#result").empty();
 
@@ -202,6 +228,12 @@
         // Hiện kết quả cũ khi bắt đầu lại
         $("#result").show();
         $("#result").html(`Bạn trả lời đúng ${score}/${selectedQuestions.length} câu.`);
+    });
+
+    $("#resetting").click(function () {
+      $('.settings').show();
+      $('#startQuiz').show();
+      $('#quizContainer').hide();
     });
 </script>
 
