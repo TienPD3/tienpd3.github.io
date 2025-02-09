@@ -123,6 +123,9 @@
         <label>
             <input type="radio" name="order" value="random"> Ngẫu nhiên
         </label>
+        <label>
+            <input type="checkbox" id="shuffleAnswers"> Ngẫu nhiên câu trả lời
+        </label>
     </div>
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
@@ -188,12 +191,27 @@
     function renderQuiz() {
         $("#quiz").empty();
         selectedQuestions.forEach((q, index) => {
+            let optionsArray = q.options;
+            if ($("#shuffleAnswers").is(":checked")) {
+                optionsArray = Object.entries(q.options);
+                optionsArray.sort(() => Math.random() - 0.5);
+            }
+
+            let tmpNo = ['A', 'B', 'C', 'D'];
+            let idxNo = -1
             let optionsHtml = "";
-            $.each(q.options, function (key, value) {
+            $.each(optionsArray, function (tmpKey, tmpValue) {
+                let key = tmpKey;
+                let value = tmpValue;
+                if ($("#shuffleAnswers").is(":checked")) {
+                    key = tmpValue[0];
+                    value = tmpValue[1];
+                }
+                idxNo++
                 optionsHtml += `
                     <label>
                         <input type="radio" name="q${index}" value="${key}">
-                        ${key}. ${value}
+                        ${tmpNo[idxNo]}. ${value}
                     </label>
                 `;
             });
