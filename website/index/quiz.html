@@ -12,7 +12,7 @@
             font-weight: normal;
             font-style: normal;
         }
-        body, button {
+        body, button, input {
             font-family: 'UTM Bauhaus', sans-serif !important;
         }
         body {
@@ -141,7 +141,7 @@
     let selectedQuestions = [];
 
     // Bắt đầu quiz
-    $("#startQuiz").click(function () {
+    $("#startQuiz, #retest").click(function () {
         let fileName = $("#jsonFileName").val().trim();
         if (!fileName) {
             alert("Vui lòng nhập tên file JSON!");
@@ -206,7 +206,7 @@
         });
     }
 
-    $("#submitQuiz #retest").click(function () {
+    $("#submitQuiz").click(function () {
         let score = 0;
         $("#result").empty();
 
@@ -231,6 +231,7 @@
     });
 
     $("#resetting").click(function () {
+      $('body').scrollTop(0);
       $('.settings').show();
       $('#startQuiz').show();
       $('#quizContainer').hide();
