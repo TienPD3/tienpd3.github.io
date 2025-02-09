@@ -1,0 +1,502 @@
+[
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+        "options": {
+            "A": "Analytical approach",
+            "B": "Strategic approach",
+            "C": "Predictive approach",
+            "D": "Adaptive approach"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+        "options": {
+            "A": "Throw-away, evolutionary, functional",
+            "B": "Logical, physical, formal, informal",
+            "C": "Text, matrices, diagrams",
+            "D": "Text, matrices, graphical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+        "options": {
+            "A": "Evaluation criteria",
+            "B": "Business rules",
+            "C": "Acceptance criteria",
+            "D": "Solution options"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+        "options": {
+            "A": "Market analysis",
+            "B": "A feasibility study",
+            "C": "A benchmark study",
+            "D": "A focus group"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+        "options": {
+            "A": "Process analysis",
+            "B": "Brainstorming",
+            "C": "Interviews",
+            "D": "Process modeling"
+        },
+        "correct_answer": "A"
+    }
+]
