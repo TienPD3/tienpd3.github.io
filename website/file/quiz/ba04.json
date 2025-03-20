@@ -1,0 +1,502 @@
+[
+    {
+        "question": "The main reason for implementing appropriate levels of abstraction is because:",
+        "options": {
+            "A": "Not all stakeholders find value in the entire set of requirements",
+            "B": "Requirements do not have necessary attributes",
+            "C": "Requirements have missing components",
+            "D": "Stakeholders don’t have an interest"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following activities are performed during the requirements life cycle management phase?",
+        "options": {
+            "A": "Elicit Requirements",
+            "B": "Prioritize Designs",
+            "C": "Trace Requirements",
+            "D": "Maintain Attributes"
+        },
+        "correct_answer": ""
+    },
+    {
+        "question": "What tool is used by a business analyst (BA) for quality control when verifying requirements and designs?",
+        "options": {
+            "A": "Interviews",
+            "B": "Estimation",
+            "C": "Benchmarking",
+            "D": "Checklists"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "What is a logical data model used for?",
+        "options": {
+            "A": "Abstracting a \"conceptual data model\" to incorporate the rules of normalization to manage data integrity and relationships",
+            "B": "Abstracting a \"physical data model\" to describe the physical organization of data and its relationships within a database",
+            "C": "Defining the logical rules that govern decisions in an organization and that define, constrain, or enable organizational operations.",
+            "D": "Defining a solution independent view of how a business perceives its information without applying any constraints."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following is an activity that a business analyst (BA) performs to prepare for elicitation?",
+        "options": {
+            "A": "Assess risk",
+            "B": "Trace requirements",
+            "C": "Secure supporting material",
+            "D": "Analyze performance measures"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which core concept defines a specific way of satisfying one or more needs in a context?",
+        "options": {
+            "A": "Value",
+            "B": "Change",
+            "C": "Solution",
+            "D": "Priority"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "What type of requirements describes the needs of those participating in or impacted by business analysis activities?",
+        "options": {
+            "A": "Solution",
+            "B": "Business",
+            "C": "Stakeholder",
+            "D": "Technical"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "A set of conventions that define how requirements will be represented; organized and related is known as:",
+        "options": {
+            "A": "Views",
+            "B": "Viewpoints",
+            "C": "Architecture",
+            "D": "Attributes"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "When should prioritization of requirements take place?",
+        "options": {
+            "A": "At the very beginning of an initiative only",
+            "B": "After the maintain requirements and trace requirements tasks have been completed",
+            "C": "Continually throughout the initiative",
+            "D": "After the maintain requirements task has been completed"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which of the following is the integrated output that correctly reflects captured information agreed to by business analysts (BAs) and other stakeholders?",
+        "options": {
+            "A": "Activity plan",
+            "B": "Business analysis information",
+            "C": "Concept model",
+            "D": "Confirmed elicitation results"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "An atomic requirement:",
+        "options": {
+            "A": "is understood independently of other requirements or designs.",
+            "B": "contains no extraneous or unnecessary content.",
+            "C": "uses common terminology understood by the audience.",
+            "D": "aligns with the identified needs of the stakeholders."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "In the define design options task, which of the following relates to the identify improvement opportunities element?",
+        "options": {
+            "A": "Assess issues, define risks, confirm elicitation results",
+            "B": "Create flow diagrams, purchase solutions components, secure resources",
+            "C": "Increase efficiencies, identify additional capabilities, improve access to information",
+            "D": "Define change strategy, analyze current state, prioritize requirements"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "What is a risk that business analysts (BAs) look for when managing stakeholder engagement?",
+        "options": {
+            "A": "Scope creep",
+            "B": "Delayed approvals",
+            "C": "Inaccurate cost estimated",
+            "D": "Resource shortfalls"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following describes how all of the business analysis information for a change relates including the relationship between various types of information?",
+        "options": {
+            "A": "Business analysis information architecture",
+            "B": "Architectural framework",
+            "C": "Viewpoints",
+            "D": "Views"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following provides a plan to transition from the current state to the future state?",
+        "options": {
+            "A": "Business policies",
+            "B": "Change strategy",
+            "C": "Current state description",
+            "D": "BA performance assessment"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "While assessing requirements changes, a business analyst (BA) will determine the formality of the assessment process based on:",
+        "options": {
+            "A": "governance approach.",
+            "B": "business analysis approach.",
+            "C": "change strategy.",
+            "D": "potential value."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Who is responsible for identifying the appropriate elicitation communication channels?",
+        "options": {
+            "A": "Project manager",
+            "B": "Subject matter expert",
+            "C": "Business analyst",
+            "D": "Business sponsor"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which criteria are necessary when the requirements express contractual obligations?",
+        "options": {
+            "A": "Evaluation",
+            "B": "Solution",
+            "C": "Acceptance",
+            "D": "Approval"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Who is responsible for discovering, synthesizing, and analyzing information within an enterprise?",
+        "options": {
+            "A": "Project manager",
+            "B": "Business analyst",
+            "C": "Programmer",
+            "D": "Project sponsor"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "A business analyst (BA) is someone who elicits the actual needs of organizational stakeholders:",
+        "options": {
+            "A": "in any capacity, regardless of job title.",
+            "B": "in a project team, with an \"analyst” job title.",
+            "C": "in a project team, regardless of job title.",
+            "D": "in any capacity, with an \"analyst” job title."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following prioritization factors considers consequences resulting from not implementing a requirement?",
+        "options": {
+            "A": "Benefit",
+            "B": "Penalty",
+            "C": "Cost",
+            "D": "Risk"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "The business analyst is evaluating and comparing solution options to one another to recommend one option for the solution. The BA is using weighted criteria to score each option. Which method is the BA employing?",
+        "options": {
+            "A": "Decision trees",
+            "B": "Decision indicator",
+            "C": "Trade-offs",
+            "D": "Decision matrices"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Which of the following techniques is used to identify the elements and boundaries of the requirements architecture?",
+        "options": {
+            "A": "Functional decomposition",
+            "B": "Environmental scan",
+            "C": "Scope modelling",
+            "D": "Interface analysis"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which of the following are criteria used to determine quality requirements relationships?",
+        "options": {
+            "A": "Necessity, validate, derive",
+            "B": "Complexity, stability, status",
+            "C": "Necessary, consistent, correct",
+            "D": "Penalty, benefit, cost"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "What requirements are good candidates for reuse?",
+        "options": {
+            "A": "Requirements without direct ties to a particular tool",
+            "B": "Requirements expressed in more detail",
+            "C": "Requirements at low levels of abstraction",
+            "D": "Requirements with specific references to departments"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Video conferencing, electronic calendars, and electronic voting are examples of:",
+        "options": {
+            "A": "knowledge management tools.",
+            "B": "mapping tools.",
+            "C": "collaboration tools.",
+            "D": "word processing tools."
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which of the following business analysis activities might be undertaken to verify requirements?",
+        "options": {
+            "A": "Identifying a previously documented business need",
+            "B": "Comparing a model with another relevant model",
+            "C": "Organizing requirements into structures",
+            "D": "Evaluating alignment with solution scope"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "When can a change to requirements occur?",
+        "options": {
+            "A": "As soon as the testing process has begun",
+            "B": "At any time during the project lifecycle",
+            "C": "Only after requirements have been approved",
+            "D": "Only after the solution has been designed"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "What is Testable characteristic of Verify Requirements in the Requirements Analysis and Design Definition?",
+        "options": {
+            "A": "Reasonable and possible within the agreed-upon risk, schedule, and budget,or considered feasible enough to investigate further through.",
+            "B": "Able to verify that the requirement or design has been fulfilled. Acceptable levels of everifying fulfillment depen on the level of abstraction of the requirement or design.",
+            "C": "Aligned with the identified needs of the stakeholders and not conflicting with other requirements.",
+            "D": "Self-contained and capable of being understood independently of other requirements or designs."
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "A business analyst wants to use a requirements elicitation technique to produce a broad set of options for an identified problem. Which of the following requirement elicitation activities would be the best approach to satisfy these requirements?",
+        "options": {
+            "A": "Brainstorming",
+            "B": "Mind mapping",
+            "C": "Affinity mapping",
+            "D": "Benchmarking"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following can be used for quality control when verifying requirements and designs?",
+        "options": {
+            "A": "Data model",
+            "B": "Templates",
+            "C": "Information management approach",
+            "D": "Checklists"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "What are characteristics of effective communication of business analysis information?",
+        "options": {
+            "A": "Concise and consistent",
+            "B": "Timely and segmented",
+            "C": "Detailed and verbal",
+            "D": "Bi-directional and iterative"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "What technique is used to elicit business analysis information, including contextual understanding and requirements, by examining available materials that describe either the business environment or existing organizational assets?",
+        "options": {
+            "A": "Organizational modeling",
+            "B": "Document analysis",
+            "C": "Functional decomposition",
+            "D": "Data flow diagrams"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "Which business analysis activity ensures that a set of requirements or designs delivers business value and supports the organization’s goal and objectives?",
+        "options": {
+            "A": "Functional decomposition",
+            "B": "Verify requirements",
+            "C": "Validate requirements",
+            "D": "Define requirements architecture"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which input is used to prepare for elicitation?",
+        "options": {
+            "A": "Activity plan",
+            "B": "Business analysis information",
+            "C": "Stakeholder engagement approach",
+            "D": "Change strategy"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Which of the following tasks is included in the requirements analysis and design definition knowledge area?",
+        "options": {
+            "A": "Assess requirements changes",
+            "B": "Recommend actions to increase solution value",
+            "C": "Analyze potential value and recommend solution",
+            "D": "Define change strategy"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "What is the main purpose of the \"Approve Requirements\" task?",
+        "options": {
+            "A": "Obtain agreement",
+            "B": "Establish requirements baseline",
+            "C": "Select appropriate techniques",
+            "D": "Assess alternative approaches"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "Which business analysis technique draws on frameworks and methodologies such as Six Sigma and Lean?",
+        "options": {
+            "A": "Document analysis",
+            "B": "Business rules analysis",
+            "C": "Data flow diagrams",
+            "D": "Process analysis"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "The task that uses the elicitation activity plan to draw out, explore and identify information relevant to the change is:",
+        "options": {
+            "A": "conduct elicitation.",
+            "B": "prepare for elicitation.",
+            "C": "plan business analysis information.",
+            "D": "confirm elicitation results."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "A business analyst is working with a team of stakeholders to assess the feasibility of alternative solutions after calculating their return-on-investment. What is this team most like doing?",
+        "options": {
+            "A": "Developing a business case.",
+            "B": "Identifying non-financial benefits of the brainstormed solutions.",
+            "C": "Identifying non-functional requirements.",
+            "D": "Refining the solution scope."
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "Which of the following characteristics verifies that a requirement has been fulfilled?",
+        "options": {
+            "A": "Atomic",
+            "B": "Concise",
+            "C": "Feasible",
+            "D": "Testable"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Stakeholders commonly face challenges in prioritizing requirements due to",
+        "options": {
+            "A": "lack of knowledge",
+            "B": "project time constraints.",
+            "C": "different perceived values.",
+            "D": "inability to work with others."
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "The sponsor provided guidance to the business analyst who was inundated with requests to \"address the high priority items and get to the rest when you can.\" What technique could the business analyst leverage to execute the sponsor's guidance?",
+        "options": {
+            "A": "Facilitation",
+            "B": "Creative thinking",
+            "C": "Prioritization",
+            "D": "Backlog management"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Which of the following is an example of a requirements viewpoint?",
+        "options": {
+            "A": "Use case",
+            "B": "Mind map",
+            "C": "Expert judgement",
+            "D": "Item tracking"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "What type of knowledge equips a business analyst (BA) with understanding market forces, customer segments, services, products, and regulations?",
+        "options": {
+            "A": "Organizational",
+            "B": "Industry",
+            "C": "Solution",
+            "D": "Methodological"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "Which of the following is expressed as conditions that increase the likelihood or severity of a negative impact to value?",
+        "options": {
+            "A": "Influences",
+            "B": "Impact",
+            "C": "Tolerance",
+            "D": "Risks"
+        },
+        "correct_answer": "D"
+    },
+    {
+        "question": "Which of the following is a basis to initially prioritize requirements?",
+        "options": {
+            "A": "Business benefits",
+            "B": "Market demands",
+            "C": "Organizational policy",
+            "D": "Technological dependency"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "For which part of an initiative is the business analyst (BA) responsible?",
+        "options": {
+            "A": "Authorizing the project",
+            "B": "Approving solution execution plans",
+            "C": "Defining the solution approach",
+            "D": "Accepting risk mitigation plans"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "The requirements elicitation technique used to iteratively validate the needs of stakeholders that interact with the application is:",
+        "options": {
+            "A": "interface analysis",
+            "B": "observation",
+            "C": "prototyping",
+            "D": "reverse engineering."
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "Inputs to prepare for elicitation include:",
+        "options": {
+            "A": "information management approach and solution scope.",
+            "B": "needs and stakeholder engagement approach.",
+            "C": "future state description and risk analysis results.",
+            "D": "requirements and designs."
+        },
+        "correct_answer": "B"
+    }
+]
