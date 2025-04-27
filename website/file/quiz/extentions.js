@@ -40,8 +40,9 @@ if (!quizContainer) {
   const uniqueQuestions = [];
   const questionSet = new Set();
   questions.forEach(q => {
-    if (!questionSet.has(q.question)) {
-      questionSet.add(q.question);
+    const key = JSON.stringify({ question: q.question, options: q.options });
+    if (!questionSet.has(key)) {
+      questionSet.add(key);
       uniqueQuestions.push(q);
     }
   });
