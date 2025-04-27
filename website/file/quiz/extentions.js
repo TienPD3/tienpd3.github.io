@@ -17,7 +17,11 @@ if (!quizContainer) {
       const options = {};
 
       optionElements.forEach((el, idx) => {
-        const text = el.innerText.trim();
+        let text = el.innerText.trim();
+        text = text.replace("(A)", "").trim();
+        text = text.replace("(B)", "").trim();
+        text = text.replace("(C)", "").trim();
+        text = text.replace("(D)", "").trim();
         options[labels[idx]] = text;
       });
 

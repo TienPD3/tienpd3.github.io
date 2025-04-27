@@ -1,0 +1,502 @@
+[
+  {
+    "question": "What is the purpose of requirements allocation in the Define Design Options task?",
+    "options": {
+      "A": "To identify and resolve conflicts between requirements",
+      "B": "To assign requirements to specific solution components and releases",
+      "C": "To prioritize requirements based on their business value",
+      "D": "To validate that the requirements are complete and accurate"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the primary purpose of conducting 'Solution Evaluation'?",
+    "options": {
+      "A": "To assess and monitor the solution's performance",
+      "B": "To set up for elicitation activities",
+      "C": "To organize data for business analysis",
+      "D": "To determine the project's scope"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the primary purpose of conducting lessons learned sessions in stakeholder collaboration?",
+    "options": {
+      "A": "To identify and punish stakeholders who did not meet their commitments",
+      "B": "To gather feedback from stakeholders and improve future collaborations",
+      "C": "To celebrate project successes and reward high-performing team members",
+      "D": "To create a detailed report on the project's outcomes and deliverables"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is a technique that can be used to stimulate teamwork and collaboration among stakeholders?",
+    "options": {
+      "A": "Collaborative Games",
+      "B": "Document Analysis",
+      "C": "Brainstorming",
+      "D": "Risk Analysis and Management"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the role of the Requirements Architecture in the Define Design Options task?",
+    "options": {
+      "A": "It helps in understanding the relationships between requirements and ensuring the design options address them comprehensively.",
+      "B": "It provides a detailed implementation plan for the chosen design.",
+      "C": "It dictates the specific technology to be used in the solution.",
+      "D": "It outlines the budget and resource constraints for the project."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "How can a business analyst ensure that the communication of business analysis information is effective across culturally diverse stakeholders?",
+    "options": {
+      "A": "By implementing uniform communication methods",
+      "B": "By focusing solely on written forms of communication",
+      "C": "By adapting the communication style to fit cultural nuances and preferences",
+      "D": "By using advanced technical tools for all communications"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the main purpose of 'Metrics and Key Performance Indicators (KPIs)'?",
+    "options": {
+      "A": "To define stakeholder requirements",
+      "B": "To document technical specifications",
+      "C": "To create a project schedule",
+      "D": "To monitor and measure the effectiveness of business analysis activities"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "How does the 'Future State Description' facilitate stakeholder collaboration during a project?",
+    "options": {
+      "A": "By providing a technical blueprint for the solution",
+      "B": "By detailing the project's budget and timeline constraints",
+      "C": "By clarifying the benefits and value of the proposed change",
+      "D": "By clarifying the benefits and value of the proposed change"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which types of requirements are often considered candidates for long-term use and reuse within an organization?",
+    "options": {
+      "A": "Requirements that are highly technical and implementation-specific.",
+      "B": "Requirements that have been rejected by stakeholders.",
+      "C": "Requirements related to regulatory compliance, contractual obligations, or quality standards.",
+      "D": "Requirements specific to a single project."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the primary output of the Define Design Options task?",
+    "options": {
+      "A": "A detailed project plan with timelines and resource allocation",
+      "B": "A set of design options describing different ways to meet the business need",
+      "C": "A prioritized list of requirements",
+      "D": "A finalized solution design ready for implementation"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which technique, by analyzing past projects, provides insights to refine future business analysis practices?",
+    "options": {
+      "A": "Decomposing functions",
+      "B": "Making estimations",
+      "C": "Documenting lessons learned",
+      "D": "Analyzing stakeholders"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What do requirements management plans typically contain?",
+    "options": {
+      "A": "Tools, activities, roles and responsibilities for requirement management",
+      "B": "Process of developing solutions",
+      "C": "Selection of solution",
+      "D": "Selection of application architecture"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which stakeholder is responsible for the day-to-day management and maintenance of a system or product?",
+    "options": {
+      "A": "End user",
+      "B": "Implementation subject matter expert",
+      "C": "Operational support",
+      "D": "Project manager"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following is NOT a typical design element considered when describing design options?",
+    "options": {
+      "A": "Software applications and components",
+      "B": "Business processes",
+      "C": "Business policies and business rules",
+      "D": "Stakeholder communication plan"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What do 'Strategy Analysis' activities focus on?",
+    "options": {
+      "A": "Evaluating solution performance",
+      "B": "Identifying strategic needs and aligning change strategies",
+      "C": "Managing stakeholder interactions",
+      "D": "Structuring requirements and designs"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the significance of defining 'Acceptance and Evaluation Criteria' in project management?",
+    "options": {
+      "A": "To understand the financial impact of project deliverables",
+      "B": "To detail the technical specifications of project deliverables",
+      "C": "To verify that project deliverables meet the predefined standards",
+      "D": "To formulate a marketing strategy for project deliverables"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the significance of the 'Recommended Actions' output from the Assess Risks task in ensuring effective stakeholder collaboration?",
+    "options": {
+      "A": "It outlines the communication channels to be used with stakeholders.",
+      "B": "It defines the criteria for evaluating the success of the project.",
+      "C": "It provides a detailed plan for implementing the chosen solution.",
+      "D": "It identifies and addresses risks related to stakeholder involvement."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What does 'Process Analysis' aim to achieve in an organizational context?",
+    "options": {
+      "A": "To implement new IT systems",
+      "B": "To examine and enhance existing business processes",
+      "C": "To allocate organizational resources more efficiently",
+      "D": "To evaluate team performance"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is NOT a key element of the Manage Stakeholder Collaboration task?",
+    "options": {
+      "A": "Building collaborative relationships",
+      "B": "Monitoring stakeholder engagement",
+      "C": "Gaining consensus on requirements",
+      "D": "Defining the project scope"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following is a potential risk associated with the Define Design Options task?",
+    "options": {
+      "A": "The chosen design option might not be technically feasible.",
+      "B": "Stakeholders might not be available for requirements elicitation.",
+      "C": "The project might exceed the allocated budget.",
+      "D": "The solution might not meet the regulatory requirements."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst is working on a project where a requirement has been approved, but a new regulation has been introduced that conflicts with this requirement. What should the business analyst do FIRST in this situation?",
+    "options": {
+      "A": "Assess the impact of the new regulation on the requirement and the overall solution",
+      "B": "Communicate the conflict to the project sponsor and await further instruction",
+      "C": "Immediately remove the conflicting requirement from the project scope",
+      "D": "Update the requirements documentation to reflect the new regulation"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is a potential benefit of effective stakeholder collaboration?",
+    "options": {
+      "A": "Elimination of all project risks",
+      "B": "Increased project complexity and scope",
+      "C": "Reduced need for requirements elicitation",
+      "D": "Improved decision-making and problem-solving"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is working on a project that requires extensive data analysis and manipulation to identify trends and patterns. Which office productivity tool would be most suitable for this task?",
+    "options": {
+      "A": "Word processing",
+      "B": "Email",
+      "C": "Presentation",
+      "D": "Spreadsheet"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following is NOT a typical feature of requirements management software?",
+    "options": {
+      "A": "Traceability between requirements and other artifacts",
+      "B": "Version control and baselining of requirements",
+      "C": "Automated generation of user interface designs",
+      "D": "Change control and approval workflows for requirements"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which term describes conditions that increase the potential for negative impacts on value?",
+    "options": {
+      "A": "Influential factors",
+      "B": "Risks",
+      "C": "Impactful scenarios",
+      "D": "Tolerance thresholds"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the main goal of 'Acceptance and Evaluation Criteria Definition'?",
+    "options": {
+      "A": "To outline the process for solution development",
+      "B": "To evaluate project performance",
+      "C": "To determine the conditions under which a solution is acceptable",
+      "D": "To define project scope"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which prioritization approach is most suitable when there is a fixed project deadline that must be met?",
+    "options": {
+      "A": "Negotiation",
+      "B": "Ranking",
+      "C": "Grouping",
+      "D": "Time boxing"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What does 'backward traceability' mean in the context of requirements traceability?",
+    "options": {
+      "A": "Tracing a requirement to the design elements and solution components that implement it",
+      "B": "Tracing a requirement back to its origin or source, such as a business need or stakeholder request",
+      "C": "Tracing a requirement to the business goals and objectives it supports",
+      "D": "Tracing a requirement to the test cases that verify its fulfillment"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is working on a project with a large number of stakeholders who have conflicting priorities for the requirements. Which prioritization approach would be MOST suitable in this situation?",
+    "options": {
+      "A": "Ranking",
+      "B": "Grouping",
+      "C": "Time boxing",
+      "D": "Negotiation"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is working on a project where requirements are constantly changing due to market fluctuations. Which of the following would be the MOST effective way to manage these changes?",
+    "options": {
+      "A": "Establish a clear change control process and regularly re-prioritize requirements",
+      "B": "Ignore the changes and focus on delivering the original requirements",
+      "C": "Prioritize requirements based on their initial estimated value",
+      "D": "Freeze the requirements after the initial elicitation phase"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which stakeholder is responsible for authorizing the resources needed to implement the chosen design option?",
+    "options": {
+      "A": "Implementation SME",
+      "B": "Sponsor",
+      "C": "Project Manager",
+      "D": "Domain SME"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is NOT an example of an improvement opportunity that might be identified during the Define Design Options task?",
+    "options": {
+      "A": "Enhancing the user experience of an interface",
+      "B": "Reducing the cost of acquiring a solution component",
+      "C": "Increasing the efficiency of a business process",
+      "D": "Limiting the number of options considered"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What are the two main components considered when estimating the potential value of a solution?",
+    "options": {
+      "A": "Project timeline and budget constraints",
+      "B": "Stakeholder satisfaction and regulatory compliance",
+      "C": "Technical feasibility and organizational readiness",
+      "D": "Expected benefits and expected costs"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "In the context of requirements prioritization, what does the term 'penalty' refer to?",
+    "options": {
+      "A": "The negative consequences of NOT implementing a requirement",
+      "B": "The financial cost of implementing a requirement",
+      "C": "The amount of time it will take to implement a requirement",
+      "D": "The level of risk associated with a requirement"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is a benefit of using collaborative games in stakeholder collaboration?",
+    "options": {
+      "A": "Reveal hidden assumptions",
+      "B": "Automate conflict resolution",
+      "C": "Guarantee stakeholder agreement",
+      "D": "Eliminate formal documentation"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is an example of intangible value in the context of business analysis?",
+    "options": {
+      "A": "Reduced costs",
+      "B": "Faster time to market",
+      "C": "Increased revenue",
+      "D": "Improved customer satisfaction"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the primary difference between a 'create' and a 'purchase' solution approach?",
+    "options": {
+      "A": "Create' is used for small projects, while 'purchase' is used for large projects.",
+      "B": "Create' is faster to implement, while 'purchase' takes longer.",
+      "C": "Create' involves building a solution in-house, while 'purchase' involves buying a pre-built solution.",
+      "D": "Create' is more expensive, while 'purchase' is more cost-effective."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Why is it essential to document stakeholder collaboration activities?",
+    "options": {
+      "A": "To record decisions, agreements, and outstanding issues",
+      "B": "To create a detailed audit trail for compliance purposes",
+      "C": "To evaluate the performance of individual stakeholders",
+      "D": "To track progress against the project timeline"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is an example of a commitment that stakeholders might agree upon during the Manage Stakeholder Collaboration task?",
+    "options": {
+      "A": "The final budget and timeline for the project.",
+      "B": "The detailed design of the user interface.",
+      "C": "The specific technology platform to be used for the solution.",
+      "D": "The level of participation in elicitation workshops."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the purpose of 'Plan Stakeholder Engagement'?",
+    "options": {
+      "A": "To model data requirements",
+      "B": "To identify project risks",
+      "C": "To plan the approach for working with stakeholders",
+      "D": "To design solution options"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What type of estimation does a Business Analyst use when using hierarchical decomposition to break down deliverables into tasks and then estimate the time required for each?",
+    "options": {
+      "A": "Delphi estimation",
+      "B": "Bottom-up estimation",
+      "C": "Historic analysis",
+      "D": "Parametric estimation"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which technique is effective for managing requirements?",
+    "options": {
+      "A": "State modeling",
+      "B": "Backlog management",
+      "C": "Using a balanced scorecard",
+      "D": "Engaging in collaborative games"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is working on a project that requires the analysis of large volumes of customer data to identify purchasing patterns and preferences. Which business analysis tool would be most helpful in this scenario?",
+    "options": {
+      "A": "Data mining tool",
+      "B": "Survey engine",
+      "C": "Issue tracking tool",
+      "D": "Prototyping tool"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is a challenge in maintaining requirements for reuse across an organization?",
+    "options": {
+      "A": "Limiting access to requirements to senior management only",
+      "B": "Ensuring that requirements are written in a general manner, with specific references to tools or organizational structures",
+      "C": "Finding the right technology to store the requirements",
+      "D": "Making requirements similar for all future projects"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "When is a requirement considered 'obsolete'?",
+    "options": {
+      "A": "When stakeholders no longer agree with it",
+      "B": "When it is no longer delivering value",
+      "C": "When it is too costly to implement",
+      "D": "When it is too complex to understand"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is meant by 'opportunity cost' in the context of analyzing potential value?",
+    "options": {
+      "A": "The cost of not choosing the most valuable design option",
+      "B": "The cost of training employees to use the new solution",
+      "C": "The cost of implementing additional features or enhancements to the solution",
+      "D": "The cost of missing a business opportunity due to project delays"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the primary use of 'Focus Groups'?",
+    "options": {
+      "A": "To deliver training sessions",
+      "B": "To gather collective feedback from stakeholders",
+      "C": "To create project schedules",
+      "D": "To document project requirements"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which stakeholder is responsible for managing the solution definition process, including the solution scope and risks associated with the proposed designs?",
+    "options": {
+      "A": "Implementation Subject Matter Expert",
+      "B": "Domain Subject Matter Expert",
+      "C": "Customer",
+      "D": "Project Manager"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What does a Balanced Scorecard primarily measure?",
+    "options": {
+      "A": "Performance across diverse organizational perspectives",
+      "B": "Employee performance metrics",
+      "C": "Only financial outcomes",
+      "D": "Budget equilibrium"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Imagine you're leading a project to develop a new software application. You decide to divide the project into smaller parts for better management. What is the primary reason for structuring your project into work packages?",
+    "options": {
+      "A": "To manage risks",
+      "B": "To set a timeline for project completion",
+      "C": "To determine project costs",
+      "D": "To allocate tasks among team members"
+    },
+    "correct_answer": "D"
+  }
+]

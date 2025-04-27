@@ -1,502 +1,502 @@
 [
-    {
-        "question": "A business analyst is ensuring that the requirements and designs have been defined correctly and provide the necessary information. What task is the BA performing?",
-        "options": {
-            "A": "Validate requirements",
-            "B": "Perform quality assurance",
-            "C": "Verify requirements",
-            "D": "Maintain requirements"
-        },
-        "correct_answer": "C"
+  {
+    "question": "A business analyst is ensuring that the requirements and designs have been defined correctly and provide the necessary information. What task is the BA performing?",
+    "options": {
+      "A": "Validate requirements",
+      "B": "Maintain requirements",
+      "C": "Verify requirements",
+      "D": "Perform quality assurance"
     },
-    {
-        "question": "In what task are requirements allocated to a solution component or a release?",
-        "options": {
-            "A": "Analyze potential value and recommend solution",
-            "B": "Specify and model requirements",
-            "C": "Verify requirements",
-            "D": "Define design options"
-        },
-        "correct_answer": "D"
+    "correct_answer": "C"
+  },
+  {
+    "question": "In what task are requirements allocated to a solution component or a release?",
+    "options": {
+      "A": "Define design options",
+      "B": "Specify and model requirements",
+      "C": "Verify requirements",
+      "D": "Analyze potential value and recommend solution"
     },
-    {
-        "question": "Which of the following statements is true about the focus group technique?",
-        "options": {
-            "A": "It is a form of quantitative research.",
-            "B": "A form of a systematic group interview to create formal requirements.",
-            "C": "A form of qualitative research.",
-            "D": "Results of focus groups are direct inputs to functional decomposition."
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following statements is true about the focus group technique?",
+    "options": {
+      "A": "A form of a systematic group interview to create formal requirements.",
+      "B": "A form of qualitative research.",
+      "C": "Results of focus groups are direct inputs to functional decomposition.",
+      "D": "It is a form of quantitative research."
     },
-    {
-        "question": "A business analyst is preparing to conduct a workshop and wants to elicit numerous, creative ideas from the participants. Which technique would be the best to use?",
-        "options": {
-            "A": "Interface analysis",
-            "B": "Focus group",
-            "C": "Brainstorming",
-            "D": "Activity diagram"
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is preparing to conduct a workshop and wants to elicit numerous, creative ideas from the participants. Which technique would be the best to use?",
+    "options": {
+      "A": "Focus group",
+      "B": "Interface analysis",
+      "C": "Brainstorming",
+      "D": "Activity diagram"
     },
-    {
-        "question": "Which type of stakeholder is an organizational change consultant and a trainer?",
-        "options": {
-            "A": "End users",
-            "B": "Implementation subject matter experts",
-            "C": "External consultants",
-            "D": "Domain subject matter experts"
-        },
-        "correct_answer": "C"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which type of stakeholder is an organizational change consultant and a trainer?",
+    "options": {
+      "A": "External consultants",
+      "B": "Implementation subject matter experts",
+      "C": "End users",
+      "D": "Domain subject matter experts"
     },
-    {
-        "question": "A business analyst decided to administer a survey to stakeholder groups in person vs. email. What is the most likely rationale for this decision?",
-        "options": {
-            "A": "The BA could also elicit requirements informally while he was there.",
-            "B": "The BA didn't want to rely on statistical sampling.",
-            "C": "The BA wanted to be present in case the respondents had questions about the survey items.",
-            "D": "The BA wanted to bolster the response rates."
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst decided to administer a survey to stakeholder groups in person vs. email. What is the most likely rationale for this decision?",
+    "options": {
+      "A": "The BA wanted to be present in case the respondents had questions about the survey items.",
+      "B": "The BA could also elicit requirements informally while he was there.",
+      "C": "The BA wanted to bolster the response rates.",
+      "D": "The BA didn't want to rely on statistical sampling."
     },
-    {
-        "question": "Which techniques can be used to attain approvals of the requirements?",
-        "options": {
-            "A": "Decision analysis and customer consensus",
-            "B": "Interviews and prototyping",
-            "C": "Acceptance and evaluation criteria and decision analysis",
-            "D": "Requirements and design modeling is the only technique required"
-        },
-        "correct_answer": "A"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which techniques can be used to attain approvals of the requirements?",
+    "options": {
+      "A": "Decision analysis and customer consensus",
+      "B": "Requirements and design modeling is the only technique required",
+      "C": "Acceptance and evaluation criteria and decision analysis",
+      "D": "Interviews and prototyping"
     },
-    {
-        "question": "How would the core concept of \"change\" be applied by a business analyst when working within requirements life cycle management?",
-        "options": {
-            "A": "By managing how proposed changes to requirements and designs are evaluated during an initiative.",
-            "B": "By determining how changes to business analysis results will be requested and authorized.",
-            "C": "By using a variety of elicitation techniques to fully identify the characteristics of a change.",
-            "D": "By transforming elicitation results into requirements and designs."
-        },
-        "correct_answer": "A"
+    "correct_answer": "A"
+  },
+  {
+    "question": "How would the core concept of \"change\" be applied by a business analyst when working within requirements life cycle management?",
+    "options": {
+      "A": "By determining how changes to business analysis results will be requested and authorized.",
+      "B": "By managing how proposed changes to requirements and designs are evaluated during an initiative.",
+      "C": "By using a variety of elicitation techniques to fully identify the characteristics of a change.",
+      "D": "By transforming elicitation results into requirements and designs."
     },
-    {
-        "question": "Which of the listed techniques is used to ensure coverage of activities by denoting responsibility, identifying roles, discovering missing roles, and communicating results of a planned change?",
-        "options": {
-            "A": "Prototyping",
-            "B": "Stakeholder list, map, or personas",
-            "C": "Roles and permissions matrix",
-            "D": "Prioritization"
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the listed techniques is used to ensure coverage of activities by denoting responsibility, identifying roles, discovering missing roles, and communicating results of a planned change?",
+    "options": {
+      "A": "Prototyping",
+      "B": "Stakeholder list, map, or personas",
+      "C": "Prioritization",
+      "D": "Roles and permissions matrix"
     },
-    {
-        "question": "Requirements traceability identifies and documents the lineage of each requirement. What are the ways in which this lineage can be identified and documented?",
-        "options": {
-            "A": "Downwards, upwards, and the relationships between requirements",
-            "B": "Downwards, upwards, and relationships between designs",
-            "C": "Backwards, forwards, and the relationships between requirements",
-            "D": "Backwards, forwards, and the relationships between risks"
-        },
-        "correct_answer": "C"
+    "correct_answer": "D"
+  },
+  {
+    "question": "Requirements traceability identifies and documents the lineage of each requirement. What are the ways in which this lineage can be identified and documented?",
+    "options": {
+      "A": "Backwards, forwards, and the relationships between requirements",
+      "B": "Downwards, upwards, and the relationships between requirements",
+      "C": "Downwards, upwards, and relationships between designs",
+      "D": "Backwards, forwards, and the relationships between risks"
     },
-    {
-        "question": "Solution requirements can be divided into which two sub-categories?",
-        "options": {
-            "A": "Functional and transition requirements",
-            "B": "Solution requirements do not have sub-categories",
-            "C": "Non-functional and transition requirements",
-            "D": "Functional and non-functional requirements"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Solution requirements can be divided into which two sub-categories?",
+    "options": {
+      "A": "Functional and non-functional requirements",
+      "B": "Functional and transition requirements",
+      "C": "Non-functional and transition requirements",
+      "D": "Solution requirements do not have sub-categories"
     },
-    {
-        "question": "Which of the following tasks are included in the requirements life cycle management knowledge area?",
-        "options": {
-            "A": "Trace requirements, analyze requirements, assess requirement changes, and approve requirement changes.",
-            "B": "Review project scope, determine stakeholder requirements, and approve requirements.",
-            "C": "Stakeholder requirements reviews, requirements design, requirements traceability, requirements prioritization, and requirements design walk-throughs.",
-            "D": "Trace requirements, approve requirements, prioritize requirements, assess requirement changes, and maintain requirements."
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following tasks are included in the requirements life cycle management knowledge area?",
+    "options": {
+      "A": "Trace requirements, approve requirements, prioritize requirements, assess requirement changes, and maintain requirements.",
+      "B": "Review project scope, determine stakeholder requirements, and approve requirements.",
+      "C": "Stakeholder requirements reviews, requirements design, requirements traceability, requirements prioritization, and requirements design walk-throughs.",
+      "D": "Trace requirements, analyze requirements, assess requirement changes, and approve requirement changes."
     },
-    {
-        "question": "\"Atomic\" is a characteristic of requirements and design quality. What does it mean?",
-        "options": {
-            "A": "It is at the level that will guide further work.",
-            "B": "It contains no extraneous or unnecessary content.",
-            "C": "It is self-contained and capable of being understood independently of other requirements or designs.",
-            "D": "It is small; atom-like."
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "\"Atomic\" is a characteristic of requirements and design quality. What does it mean?",
+    "options": {
+      "A": "It is small; atom-like.",
+      "B": "It is at the level that will guide further work.",
+      "C": "It is self-contained and capable of being understood independently of other requirements or designs.",
+      "D": "It contains no extraneous or unnecessary content."
     },
-    {
-        "question": "A business analyst distributes a set of questions to stakeholders to elicit requirements, whose responses are then collected, summarized, and analyzed. Which elicitation technique is the business analyst using?",
-        "options": {
-            "A": "Group interview",
-            "B": "Survey or questionnaire",
-            "C": "Focus group",
-            "D": "Questioning"
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst distributes a set of questions to stakeholders to elicit requirements, whose responses are then collected, summarized, and analyzed. Which elicitation technique is the business analyst using?",
+    "options": {
+      "A": "Questioning",
+      "B": "Focus group",
+      "C": "Survey or questionnaire",
+      "D": "Group interview"
     },
-    {
-        "question": "A business analyst is evaluating an organization in support of a new initiative. What tool could the BA use to facilitate the evaluation?",
-        "options": {
-            "A": "Financial analysis",
-            "B": "SWOT analysis",
-            "C": "Balanced scorecard",
-            "D": "Business case"
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is evaluating an organization in support of a new initiative. What tool could the BA use to facilitate the evaluation?",
+    "options": {
+      "A": "Business case",
+      "B": "SWOT analysis",
+      "C": "Balanced scorecard",
+      "D": "Financial analysis"
     },
-    {
-        "question": "Which of the following describes the purpose and direction for the change request, establishes the context for it, and identifies the critical components of the request?",
-        "options": {
-            "A": "Statement of work (SOW)",
-            "B": "Business case",
-            "C": "Change strategy",
-            "D": "Project vision document"
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following describes the purpose and direction for the change request, establishes the context for it, and identifies the critical components of the request?",
+    "options": {
+      "A": "Business case",
+      "B": "Project vision document",
+      "C": "Statement of work (SOW)",
+      "D": "Change strategy"
     },
-    {
-        "question": "How is the technique of stakeholder list, map, or persona used in the manage stakeholder collaboration task?",
-        "options": {
-            "A": "This technique is not utilized in the manage stakeholder collaboration task.",
-            "B": "Shows the informal relationships between stakeholders.",
-            "C": "Determines who should be consulted while preparing for elicitation.",
-            "D": "Determines the appropriate roles for each stakeholder."
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "How is the technique of stakeholder list, map, or persona used in the manage stakeholder collaboration task?",
+    "options": {
+      "A": "Determines the appropriate roles for each stakeholder.",
+      "B": "This technique is not utilized in the manage stakeholder collaboration task.",
+      "C": "Determines who should be consulted while preparing for elicitation.",
+      "D": "Shows the informal relationships between stakeholders."
     },
-    {
-        "question": "What kind of diagram models the logic of usage scenarios by showing the information passed between objects in the system?",
-        "options": {
-            "A": "Data flow diagram",
-            "B": "Sequence diagram",
-            "C": "Activity diagram",
-            "D": "Process diagram"
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "What kind of diagram models the logic of usage scenarios by showing the information passed between objects in the system?",
+    "options": {
+      "A": "Activity diagram",
+      "B": "Data flow diagram",
+      "C": "Sequence diagram",
+      "D": "Process diagram"
     },
-    {
-        "question": "Which of the following are ways that business analysts collaborate with other stakeholders to effectively address or \"treat\" risks?",
-        "options": {
-            "A": "Removing the source of the risk, mitigating the consequences.",
-            "B": "Mitigating the consequences, developing a contingency plan.",
-            "C": "Avoiding the risk, developing a contingency plan.",
-            "D": "Removing the source of the risk, developing a contingency plan."
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following are ways that business analysts collaborate with other stakeholders to effectively address or \"treat\" risks?",
+    "options": {
+      "A": "Removing the source of the risk, mitigating the consequences.",
+      "B": "Avoiding the risk, developing a contingency plan.",
+      "C": "Mitigating the consequences, developing a contingency plan.",
+      "D": "Removing the source of the risk, developing a contingency plan."
     },
-    {
-        "question": "Who would be the most likely audience for a survey?",
-        "options": {
-            "A": "Customer, end users, sponsor",
-            "B": "Business domain SMEs",
-            "C": "Implementation subject matter experts",
-            "D": "Customer, end users, implementation subject matter experts"
-        },
-        "correct_answer": "A"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Who would be the most likely audience for a survey?",
+    "options": {
+      "A": "Business domain SMEs",
+      "B": "Customer, end users, implementation subject matter experts",
+      "C": "Customer, end users, sponsor",
+      "D": "Implementation subject matter experts"
     },
-    {
-        "question": "The six knowledge areas within the BABOK describe …",
-        "options": {
-            "A": "Discrete pieces of work that may be performed formally or informally as part of business analysis.",
-            "B": "The practice of business analysis as it is applied within the boundaries of a project or throughout enterprise evolution and continuous improvement.",
-            "C": "The support of delivering business value before, during, and after the life cycle of a project.",
-            "D": "The resources that are required to transform an input into an output."
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "The six knowledge areas within the BABOK describe …",
+    "options": {
+      "A": "Discrete pieces of work that may be performed formally or informally as part of business analysis.",
+      "B": "The resources that are required to transform an input into an output.",
+      "C": "The practice of business analysis as it is applied within the boundaries of a project or throughout enterprise evolution and continuous improvement.",
+      "D": "The support of delivering business value before, during, and after the life cycle of a project."
     },
-    {
-        "question": "A business analyst is working closely with the project manager to evaluate the implication of proposed requirements and design changes to the project. Which task describes this evaluation?",
-        "options": {
-            "A": "Assess requirements changes",
-            "B": "Prioritize requirements",
-            "C": "Approve requirements",
-            "D": "Maintain requirements"
-        },
-        "correct_answer": "A"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is working closely with the project manager to evaluate the implication of proposed requirements and design changes to the project. Which task describes this evaluation?",
+    "options": {
+      "A": "Assess requirements changes",
+      "B": "Maintain requirements",
+      "C": "Prioritize requirements",
+      "D": "Approve requirements"
     },
-    {
-        "question": "Which of the following techniques would be best suited to identify how to evaluate the quality of the requirements?",
-        "options": {
-            "A": "Reviews",
-            "B": "Verify requirements",
-            "C": "Metrics and key performance indicators (KPIs)",
-            "D": "Acceptance and evaluation criteria"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following techniques would be best suited to identify how to evaluate the quality of the requirements?",
+    "options": {
+      "A": "Acceptance and evaluation criteria",
+      "B": "Reviews",
+      "C": "Verify requirements",
+      "D": "Metrics and key performance indicators (KPIs)"
     },
-    {
-        "question": "How is a glossary different than a data dictionary?",
-        "options": {
-            "A": "They are the same and can be used interchangeably depending upon the organization's culture.",
-            "B": "A glossary defines key terms relevant to the business domain while a data dictionary standardizes a definition of a data element.",
-            "C": "They both define key terms relevant to the solution.",
-            "D": "A glossary defines all terms used within an initiative while a data dictionary defines only terms relevant to data modeling."
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "How is a glossary different than a data dictionary?",
+    "options": {
+      "A": "They are the same and can be used interchangeably depending upon the organization's culture.",
+      "B": "They both define key terms relevant to the solution.",
+      "C": "A glossary defines all terms used within an initiative while a data dictionary defines only terms relevant to data modeling.",
+      "D": "A glossary defines key terms relevant to the business domain while a data dictionary standardizes a definition of a data element."
     },
-    {
-        "question": "A business analyst is documenting a use case describing an actor ordering a product from the website that is unfortunately out of stock so the actor needs to deviate from their plan. What is the business analyst documenting within the use case?",
-        "options": {
-            "A": "Alternate path or scenario",
-            "B": "Post conditions",
-            "C": "The narrative between the actor and the system",
-            "D": "Primary path"
-        },
-        "correct_answer": "A"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is documenting a use case describing an actor ordering a product from the website that is unfortunately out of stock so the actor needs to deviate from their plan. What is the business analyst documenting within the use case?",
+    "options": {
+      "A": "Primary path",
+      "B": "Alternate path or scenario",
+      "C": "The narrative between the actor and the system",
+      "D": "Post conditions"
     },
-    {
-        "question": "How would the core concept of \"stakeholder\" be applied by a business analyst when working within requirements analysis and design definition knowledge area?",
-        "options": {
-            "A": "By grouping stakeholders based on their relationship to the needs, changes, and solutions.",
-            "B": "By tailoring the requirements and designs so that they are understandable and usable by each stakeholder group.",
-            "C": "By working closely with key stakeholders to maintain understanding, agreement, and approval of requirements and designs.",
-            "D": "By eliciting information from the stakeholders about solution performance and value delivery."
-        },
-        "correct_answer": "B"
+    "correct_answer": "B"
+  },
+  {
+    "question": "How would the core concept of \"stakeholder\" be applied by a business analyst when working within requirements analysis and design definition knowledge area?",
+    "options": {
+      "A": "By working closely with key stakeholders to maintain understanding, agreement, and approval of requirements and designs.",
+      "B": "By eliciting information from the stakeholders about solution performance and value delivery.",
+      "C": "By grouping stakeholders based on their relationship to the needs, changes, and solutions.",
+      "D": "By tailoring the requirements and designs so that they are understandable and usable by each stakeholder group."
     },
-    {
-        "question": "A senior business analyst was providing advice to a new business analyst and recommended using a matrix for their requirements modeling format. What is the purpose of this type of format?",
-        "options": {
-            "A": "To convey a set of requirements that have a complex but uniform structure that can be broken down.",
-            "B": "To provide an easy way for the business analyst to model the requirements.",
-            "C": "To clearly describe the requirements in an active voice.",
-            "D": "To create a visual representation of the set of requirements."
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A senior business analyst was providing advice to a new business analyst and recommended using a matrix for their requirements modeling format. What is the purpose of this type of format?",
+    "options": {
+      "A": "To create a visual representation of the set of requirements.",
+      "B": "To clearly describe the requirements in an active voice.",
+      "C": "To provide an easy way for the business analyst to model the requirements.",
+      "D": "To convey a set of requirements that have a complex but uniform structure that can be broken down."
     },
-    {
-        "question": "The project team is in the process of measuring their artifacts' compliance with organizational business analysis performance standards. What tool would help in carrying out these activities?",
-        "options": {
-            "A": "Metrics and key performance indicators (KPIs)",
-            "B": "Checklist",
-            "C": "Item tracking",
-            "D": "Control chart"
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "The project team is in the process of measuring their artifacts' compliance with organizational business analysis performance standards. What tool would help in carrying out these activities?",
+    "options": {
+      "A": "Control chart",
+      "B": "Item tracking",
+      "C": "Checklist",
+      "D": "Metrics and key performance indicators (KPIs)"
     },
-    {
-        "question": "Which statement best defines the business analyst's role in conflict and issues management?",
-        "options": {
-            "A": "The business analyst records all approval decisions in a requirements management or tracking tool.",
-            "B": "The business analyst determines how to secure decisions and resolve conflicts across an initiative.",
-            "C": "The business analyst ensures that the stakeholders with approval authority understand and accept the requirements.",
-            "D": "The business analyst obtains stakeholder approvals and is required to understand who holds decision-making responsibility and who possesses authority for sign-off across the initiative."
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which statement best defines the business analyst's role in conflict and issues management?",
+    "options": {
+      "A": "The business analyst determines how to secure decisions and resolve conflicts across an initiative.",
+      "B": "The business analyst obtains stakeholder approvals and is required to understand who holds decision-making responsibility and who possesses authority for sign-off across the initiative.",
+      "C": "The business analyst records all approval decisions in a requirements management or tracking tool.",
+      "D": "The business analyst ensures that the stakeholders with approval authority understand and accept the requirements."
     },
-    {
-        "question": "When does the task of manage stakeholder collaboration begin?",
-        "options": {
-            "A": "Once requirements have been confirmed.",
-            "B": "Once stakeholders have been identified and analyzed.",
-            "C": "Once requirements have been elicited.",
-            "D": "Whenever it would add value to business analysis activities."
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "When does the task of manage stakeholder collaboration begin?",
+    "options": {
+      "A": "Once stakeholders have been identified and analyzed.",
+      "B": "Once requirements have been elicited.",
+      "C": "Whenever it would add value to business analysis activities.",
+      "D": "Once requirements have been confirmed."
     },
-    {
-        "question": "Which of the following tasks provides stakeholders with the information they need, when they need it?",
-        "options": {
-            "A": "Manage stakeholder collaboration",
-            "B": "Confirm elicitation results",
-            "C": "Conduct elicitation",
-            "D": "Communicate business analysis information"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following tasks provides stakeholders with the information they need, when they need it?",
+    "options": {
+      "A": "Communicate business analysis information",
+      "B": "Confirm elicitation results",
+      "C": "Manage stakeholder collaboration",
+      "D": "Conduct elicitation"
     },
-    {
-        "question": "Which stakeholders participate in confirming elicitation results?",
-        "options": {
-            "A": "The business analyst",
-            "B": "Stakeholders with enough authority to approve requirements",
-            "C": "Stakeholders who have participated in elicitation tasks",
-            "D": "The project team"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which stakeholders participate in confirming elicitation results?",
+    "options": {
+      "A": "Stakeholders with enough authority to approve requirements",
+      "B": "The business analyst",
+      "C": "The project team",
+      "D": "Stakeholders who have participated in elicitation tasks"
     },
-    {
-        "question": "A business analyst is ready to elicit requirements but the domain subject matter experts (SMEs) will not be available for a couple of weeks. Which technique below would jumpstart the elicitation process without SMEs?",
-        "options": {
-            "A": "Document analysis",
-            "B": "Workshops",
-            "C": "Brainstorming",
-            "D": "Organization modeling"
-        },
-        "correct_answer": "A"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is ready to elicit requirements but the domain subject matter experts (SMEs) will not be available for a couple of weeks. Which technique below would jumpstart the elicitation process without SMEs?",
+    "options": {
+      "A": "Brainstorming",
+      "B": "Organization modeling",
+      "C": "Document analysis",
+      "D": "Workshops"
     },
-    {
-        "question": "What does verbal communication include?",
-        "options": {
-            "A": "Active listening, spoken words, and documentation of key points.",
-            "B": "Active listening, psychological, and non-verbal cues.",
-            "C": "Spoken words, tone of voice, and non-verbal cues.",
-            "D": "Active listening, expressed documented ideas."
-        },
-        "correct_answer": "C"
+    "correct_answer": "C"
+  },
+  {
+    "question": "What does verbal communication include?",
+    "options": {
+      "A": "Spoken words, tone of voice, and non-verbal cues.",
+      "B": "Active listening, expressed documented ideas.",
+      "C": "Active listening, spoken words, and documentation of key points.",
+      "D": "Active listening, psychological, and non-verbal cues."
     },
-    {
-        "question": "Which technique would help a business analyst categorize stakeholders by the activities performed within their business processes?",
-        "options": {
-            "A": "System processing",
-            "B": "Brainstorming",
-            "C": "Process modeling",
-            "D": "Organizational modeling"
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which technique would help a business analyst categorize stakeholders by the activities performed within their business processes?",
+    "options": {
+      "A": "Brainstorming",
+      "B": "System processing",
+      "C": "Organizational modeling",
+      "D": "Process modeling"
     },
-    {
-        "question": "The purpose of tracing requirements is best described by which of the following?",
-        "options": {
-            "A": "Traceability requirements supplement business requirements and functional requirements.",
-            "B": "Ensuring that requirements and designs at different levels are aligned to one another, and to manage the effects of change to one level on related requirements.",
-            "C": "Traceability metrics are used by the Change Management Board to approve or deny requests for change.",
-            "D": "Traceability assists in managing accountability for requirements activities that are performed by stakeholders outside of the requirements team."
-        },
-        "correct_answer": "B"
+    "correct_answer": "D"
+  },
+  {
+    "question": "The purpose of tracing requirements is best described by which of the following?",
+    "options": {
+      "A": "Traceability metrics are used by the Change Management Board to approve or deny requests for change.",
+      "B": "Traceability requirements supplement business requirements and functional requirements.",
+      "C": "Traceability assists in managing accountability for requirements activities that are performed by stakeholders outside of the requirements team.",
+      "D": "Ensuring that requirements and designs at different levels are aligned to one another, and to manage the effects of change to one level on related requirements."
     },
-    {
-        "question": "Define design options is a task in which of the following knowledge areas?",
-        "options": {
-            "A": "Elicitation and collaboration",
-            "B": "Solution evaluation",
-            "C": "Requirements analysis and design definition",
-            "D": "Strategy analysis"
-        },
-        "correct_answer": "C"
+    "correct_answer": "D"
+  },
+  {
+    "question": "Define design options is a task in which of the following knowledge areas?",
+    "options": {
+      "A": "Strategy analysis",
+      "B": "Requirements analysis and design definition",
+      "C": "Elicitation and collaboration",
+      "D": "Solution evaluation"
     },
-    {
-        "question": "What technique could a business analyst use to communicate non-linear thoughts to the project team?",
-        "options": {
-            "A": "Mind mapping",
-            "B": "Presentation",
-            "C": "Thought matrix",
-            "D": "Fishbone diagram"
-        },
-        "correct_answer": "A"
+    "correct_answer": "B"
+  },
+  {
+    "question": "What technique could a business analyst use to communicate non-linear thoughts to the project team?",
+    "options": {
+      "A": "Presentation",
+      "B": "Thought matrix",
+      "C": "Fishbone diagram",
+      "D": "Mind mapping"
     },
-    {
-        "question": "A business analyst is reviewing requirements with their sponsor and customer to ensure they are aligned with business and project objectives. What task is the BA performing?",
-        "options": {
-            "A": "Perform quality assurance",
-            "B": "Verify requirements",
-            "C": "Validate requirements",
-            "D": "Perform quality control"
-        },
-        "correct_answer": "C"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is reviewing requirements with their sponsor and customer to ensure they are aligned with business and project objectives. What task is the BA performing?",
+    "options": {
+      "A": "Verify requirements",
+      "B": "Validate requirements",
+      "C": "Perform quality assurance",
+      "D": "Perform quality control"
     },
-    {
-        "question": "A business analyst is discovering that stakeholders use many acronyms and terms that hold different meanings for different stakeholders. For consistency, what technique can be used to ensure common understanding of terms?",
-        "options": {
-            "A": "Style guide",
-            "B": "Data dictionary",
-            "C": "Defined lexicon",
-            "D": "Glossary"
-        },
-        "correct_answer": "D"
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is discovering that stakeholders use many acronyms and terms that hold different meanings for different stakeholders. For consistency, what technique can be used to ensure common understanding of terms?",
+    "options": {
+      "A": "Data dictionary",
+      "B": "Style guide",
+      "C": "Glossary",
+      "D": "Defined lexicon"
     },
-    {
-        "question": "A business analyst is conducting a workshop to come up with ideas on how to solve the issue of delays in the billing process. Which one of the following would be a suggested starting point?",
-        "options": {
-            "A": "Draw a diagram of the process.",
-            "B": "Identify potential root causes for the delays.",
-            "C": "Brainstorm potential solutions.",
-            "D": "Describe the current process."
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is conducting a workshop to come up with ideas on how to solve the issue of delays in the billing process. Which one of the following would be a suggested starting point?",
+    "options": {
+      "A": "Identify potential root causes for the delays.",
+      "B": "Describe the current process.",
+      "C": "Brainstorm potential solutions.",
+      "D": "Draw a diagram of the process."
     },
-    {
-        "question": "What is the purpose of prioritizing requirements?",
-        "options": {
-            "A": "To determine which requirements should be completed first.",
-            "B": "To determine which requirements carry the most risk.",
-            "C": "To rank requirements in the order of relative importance.",
-            "D": "To ensure requirements align to one another and manage the effects of any proposed change."
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the purpose of prioritizing requirements?",
+    "options": {
+      "A": "To rank requirements in the order of relative importance.",
+      "B": "To ensure requirements align to one another and manage the effects of any proposed change.",
+      "C": "To determine which requirements should be completed first.",
+      "D": "To determine which requirements carry the most risk."
     },
-    {
-        "question": "What is the purpose of item tracking when verifying requirements?",
-        "options": {
-            "A": "Ensure that appropriate checklists are used to resolve the issues or problems by the planned date.",
-            "B": "Ensure that problems and issues identified during verification are managed and resolved.",
-            "C": "Ensure that problems or issues identified during verification are escalated to the project manager to track resolution.",
-            "D": "Ensure that problems identified are reported to the help desk."
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the purpose of item tracking when verifying requirements?",
+    "options": {
+      "A": "Ensure that problems or issues identified during verification are escalated to the project manager to track resolution.",
+      "B": "Ensure that appropriate checklists are used to resolve the issues or problems by the planned date.",
+      "C": "Ensure that problems identified are reported to the help desk.",
+      "D": "Ensure that problems and issues identified during verification are managed and resolved."
     },
-    {
-        "question": "The business analyst is allocating requirements to specific solution components and releases that will implement them. Requirements allocation is an element of which task?",
-        "options": {
-            "A": "Define requirements architecture",
-            "B": "Define design options",
-            "C": "Specify and model requirements",
-            "D": "Verify requirements"
-        },
-        "correct_answer": "B"
+    "correct_answer": "D"
+  },
+  {
+    "question": "The business analyst is allocating requirements to specific solution components and releases that will implement them. Requirements allocation is an element of which task?",
+    "options": {
+      "A": "Verify requirements",
+      "B": "Define requirements architecture",
+      "C": "Define design options",
+      "D": "Specify and model requirements"
     },
-    {
-        "question": "Who in an organization would be most interested in reusable requirements and why?",
-        "options": {
-            "A": "Other business analysts or stakeholders may be interested because future projects may utilize and extend any reusable requirements.",
-            "B": "Project managers who will be able to complete projects faster in the future if they could utilize and extend any reusable requirements.",
-            "C": "Sponsors because future projects would be less expensive if requirements could be reused.",
-            "D": "Implementation SMEs because they will be able to reference the ongoing requirements on the job."
-        },
-        "correct_answer": "A"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Who in an organization would be most interested in reusable requirements and why?",
+    "options": {
+      "A": "Sponsors because future projects would be less expensive if requirements could be reused.",
+      "B": "Project managers who will be able to complete projects faster in the future if they could utilize and extend any reusable requirements.",
+      "C": "Implementation SMEs because they will be able to reference the ongoing requirements on the job.",
+      "D": "Other business analysts or stakeholders may be interested because future projects may utilize and extend any reusable requirements."
     },
-    {
-        "question": "You were selected as the business analyst for the project because of your existing expertise for the selected software package and the need to implement within an aggressive timeline. This is an example of what underlying competency?",
-        "options": {
-            "A": "Organization and time management",
-            "B": "Personal accountability",
-            "C": "Domain knowledge",
-            "D": "Solution knowledge"
-        },
-        "correct_answer": "C"
+    "correct_answer": "D"
+  },
+  {
+    "question": "You were selected as the business analyst for the project because of your existing expertise for the selected software package and the need to implement within an aggressive timeline. This is an example of what underlying competency?",
+    "options": {
+      "A": "Domain knowledge",
+      "B": "Organization and time management",
+      "C": "Personal accountability",
+      "D": "Solution knowledge"
     },
-    {
-        "question": "Why is it important to hold a lessons learned session?",
-        "options": {
-            "A": "To identify stakeholders and their influences in order to manage them.",
-            "B": "To compile and document successes, opportunities for improvement, failures, and recommendations for improving the performance of future projects.",
-            "C": "To provide input to team members' performance reviews.",
-            "D": "To close out the project."
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Why is it important to hold a lessons learned session?",
+    "options": {
+      "A": "To identify stakeholders and their influences in order to manage them.",
+      "B": "To close out the project.",
+      "C": "To provide input to team members' performance reviews.",
+      "D": "To compile and document successes, opportunities for improvement, failures, and recommendations for improving the performance of future projects."
     },
-    {
-        "question": "Which of the following data models is typically used by implementation subject matter experts to describe how a database is physically organized?",
-        "options": {
-            "A": "Conceptual data model",
-            "B": "Multi-variable data model",
-            "C": "Logical data model",
-            "D": "Physical data model"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following data models is typically used by implementation subject matter experts to describe how a database is physically organized?",
+    "options": {
+      "A": "Physical data model",
+      "B": "Logical data model",
+      "C": "Conceptual data model",
+      "D": "Multi-variable data model"
     },
-    {
-        "question": "When can a requirement be prioritized?",
-        "options": {
-            "A": "At any time in its life cycle.",
-            "B": "Only during the prioritization of requirements workshop.",
-            "C": "Only if documented constraints and assumptions require it to be prioritized.",
-            "D": "Right before approval."
-        },
-        "correct_answer": "A"
+    "correct_answer": "A"
+  },
+  {
+    "question": "When can a requirement be prioritized?",
+    "options": {
+      "A": "Only during the prioritization of requirements workshop.",
+      "B": "Right before approval.",
+      "C": "At any time in its life cycle.",
+      "D": "Only if documented constraints and assumptions require it to be prioritized."
     },
-    {
-        "question": "Which list describes the complete set of tasks in the requirements analysis and design definition knowledge area?",
-        "options": {
-            "A": "Prioritize requirements, specify and model requirements, verify requirements, validate requirements, define design options, analyze potential value and recommend solution.",
-            "B": "Specify and model requirements, verify requirements, validate requirements, define design options, analyze potential value and recommend solution.",
-            "C": "Specify and model requirements, verify requirements, validate requirements, define requirements architecture, assess risks, analyze potential value and recommend solution.",
-            "D": "Specify and model requirements, verify requirements, validate requirements, define requirements architecture, define design options, analyze potential value and recommend solution."
-        },
-        "correct_answer": "D"
-    }
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which list describes the complete set of tasks in the requirements analysis and design definition knowledge area?",
+    "options": {
+      "A": "Prioritize requirements, specify and model requirements, verify requirements, validate requirements, define design options, analyze potential value and recommend solution.",
+      "B": "Specify and model requirements, verify requirements, validate requirements, define design options, analyze potential value and recommend solution.",
+      "C": "Specify and model requirements, verify requirements, validate requirements, define requirements architecture, assess risks, analyze potential value and recommend solution.",
+      "D": "Specify and model requirements, verify requirements, validate requirements, define requirements architecture, define design options, analyze potential value and recommend solution."
+    },
+    "correct_answer": "D"
+  }
 ]

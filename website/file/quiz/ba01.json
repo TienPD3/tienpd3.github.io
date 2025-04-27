@@ -1,502 +1,502 @@
 [
-    {
-        "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
-        "options": {
-            "A": "Analytical approach",
-            "B": "Strategic approach",
-            "C": "Predictive approach",
-            "D": "Adaptive approach"
-        },
-        "correct_answer": "D"
+  {
+    "question": "A business analyst is obtaining approval for their artifacts. Individual artifacts are created, reviewed, and approved individually without having to wait for the entire package. Which approach is being employed for this effort?",
+    "options": {
+      "A": "Predictive approach",
+      "B": "Adaptive approach",
+      "C": "Strategic approach",
+      "D": "Analytical approach"
     },
-    {
-        "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
-        "options": {
-            "A": "Throw-away, evolutionary, functional",
-            "B": "Logical, physical, formal, informal",
-            "C": "Text, matrices, diagrams",
-            "D": "Text, matrices, graphical"
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Requirements may be modeled using a variety of formats. Which of the following correctly lists the types of requirements formats?",
+    "options": {
+      "A": "Logical, physical, formal, informal",
+      "B": "Text, matrices, graphical",
+      "C": "Text, matrices, diagrams",
+      "D": "Throw-away, evolutionary, functional"
     },
-    {
-        "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
-        "options": {
-            "A": "Evaluation criteria",
-            "B": "Business rules",
-            "C": "Acceptance criteria",
-            "D": "Solution options"
-        },
-        "correct_answer": "A"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is facilitating a workshop to identify measures that will be used by the team to choose between multiple solutions. What are they identifying?",
+    "options": {
+      "A": "Evaluation criteria",
+      "B": "Solution options",
+      "C": "Business rules",
+      "D": "Acceptance criteria"
     },
-    {
-        "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
-        "options": {
-            "A": "Market analysis",
-            "B": "A feasibility study",
-            "C": "A benchmark study",
-            "D": "A focus group"
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst has been instructed to compare their organizational practices against the best-in-class practices at other companies. What do you need to perform?",
+    "options": {
+      "A": "A focus group",
+      "B": "A feasibility study",
+      "C": "Market analysis",
+      "D": "A benchmark study"
     },
-    {
-        "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
-        "options": {
-            "A": "Process analysis",
-            "B": "Brainstorming",
-            "C": "Interviews",
-            "D": "Process modeling"
-        },
-        "correct_answer": "A"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is charged with recommending a more efficient and effective process. What technique would be most helpful?",
+    "options": {
+      "A": "Brainstorming",
+      "B": "Process analysis",
+      "C": "Process modeling",
+      "D": "Interviews"
     },
-    {
-        "question": "What does the Business Analysis Body of Knowledge (BABOK) contain?",
-        "options": {
-            "A": "The definitive sequence of tasks that business analysts perform to properly analyze or evaluate the necessity of a change to reach business objectives.",
-            "B": "The best practices in the industry.",
-            "C": "The sum of knowledge within the profession of business analysis and what is considered currently accepted practice.",
-            "D": "The standards and methodologies to which all business analysts should adhere."
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "What does the Business Analysis Body of Knowledge (BABOK) contain?",
+    "options": {
+      "A": "The best practices in the industry.",
+      "B": "The standards and methodologies to which all business analysts should adhere.",
+      "C": "The definitive sequence of tasks that business analysts perform to properly analyze or evaluate the necessity of a change to reach business objectives.",
+      "D": "The sum of knowledge within the profession of business analysis and what is considered currently accepted practice."
     },
-    {
-        "question": "A business analyst has confirmed requirements for a report. What technique will be best to have the stakeholders review the work thus far to ensure all is on the right track?",
-        "options": {
-            "A": "Workshop",
-            "B": "Focus group",
-            "C": "Review",
-            "D": "Checklist"
-        },
-        "correct_answer": "C"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst has confirmed requirements for a report. What technique will be best to have the stakeholders review the work thus far to ensure all is on the right track?",
+    "options": {
+      "A": "Workshop",
+      "B": "Focus group",
+      "C": "Review",
+      "D": "Checklist"
     },
-    {
-        "question": "Which technique is used to gain an understanding of the basis for prioritization by various stakeholders in a group setting?",
-        "options": {
-            "A": "Risk analysis and management",
-            "B": "Shareholder assessments",
-            "C": "Interviews",
-            "D": "Workshops"
-        },
-        "correct_answer": "D"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which technique is used to gain an understanding of the basis for prioritization by various stakeholders in a group setting?",
+    "options": {
+      "A": "Shareholder assessments",
+      "B": "Workshops",
+      "C": "Interviews",
+      "D": "Risk analysis and management"
     },
-    {
-        "question": "Which core concept refers to the circumstances that influence, are influenced by, and provide understanding of the change?",
-        "options": {
-            "A": "Culture",
-            "B": "Context",
-            "C": "Environment",
-            "D": "Enterprise factors"
-        },
-        "correct_answer": "B"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which core concept refers to the circumstances that influence, are influenced by, and provide understanding of the change?",
+    "options": {
+      "A": "Context",
+      "B": "Enterprise factors",
+      "C": "Environment",
+      "D": "Culture"
     },
-    {
-        "question": "What is the purpose of the task 'define requirements architecture'?",
-        "options": {
-            "A": "To define the solution approach.",
-            "B": "To produce viewpoints and views.",
-            "C": "To analyze, synthesize, and refine elicitation results into requirements and designs.",
-            "D": "To ensure that the requirements collectively support one another to fully achieve the objectives."
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the purpose of the task \"define requirements architecture\"?",
+    "options": {
+      "A": "To analyze, synthesize, and refine elicitation results into requirements and designs.",
+      "B": "To define the solution approach.",
+      "C": "To ensure that the requirements collectively support one another to fully achieve the objectives",
+      "D": "To produce viewpoints and views."
     },
-    {
-        "question": "A business analyst is preparing for elicitation by reviewing a document that describes the rationale for and the benefits of the solution from the business point of view and contains a cost/benefit analysis. What document being reviewed?",
-        "options": {
-            "A": "Vision statement",
-            "B": "Project charter",
-            "C": "Feasibility study",
-            "D": "Business case"
-        },
-        "correct_answer": "D"
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is preparing for elicitation by reviewing a document that describes the rationale for and the benefits of the solution from the business point of view and contains a cost/benefit analysis. What document being reviewed?",
+    "options": {
+      "A": "Vision statement",
+      "B": "Project charter",
+      "C": "Business case",
+      "D": "Feasibility study"
     },
-    {
-        "question": "What is the BA's role in ensuring positive collaboration with stakeholders?",
-        "options": {
-            "A": "Set ground rules early in the relationship to provide a safe environment for collaboration.",
-            "B": "Establish strong, positive, and trust-based relationships with stakeholders involved in business analysis tasks.",
-            "C": "Escalate concerns about negative stakeholders to the project manager to minimize their effect on the product being produced.",
-            "D": "Listen to stakeholders and incorporate their feedback."
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the BA's role in ensuring positive collaboration with stakeholders?",
+    "options": {
+      "A": "Escalate concerns about negative stakeholders to the project manager to minimize their effect on the product being produced.",
+      "B": "Listen to stakeholders and incorporate their feedback.",
+      "C": "Set ground rules early in the relationship to provide a safe environment for collaboration.",
+      "D": "Establish strong, positive, and trust-based relationships with stakeholders involved in business analysis tasks."
     },
-    {
-        "question": "Which of the following techniques would facilitate obtaining approval for requirements?",
-        "options": {
-            "A": "Decision analysis",
-            "B": "Item tracking",
-            "C": "Workshops",
-            "D": "Reviews"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following techniques would facilitate obtaining approval for requirements?",
+    "options": {
+      "A": "Item tracking",
+      "B": "Reviews",
+      "C": "Workshops",
+      "D": "Decision analysis"
     },
-    {
-        "question": "A model is a descriptive and visual way to convey information to a specific audience in order to support analysis, communication, and understanding. What would a business analyst typically model?",
-        "options": {
-            "A": "Requirements and designs",
-            "B": "Needs and solutions",
-            "C": "Needs and requirements",
-            "D": "Requirements and solutions"
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "A model is a descriptive and visual way to convey information to a specific audience in order to support analysis, communication, and understanding. What would a business analyst typically model?",
+    "options": {
+      "A": "Needs and solutions",
+      "B": "Requirements and designs",
+      "C": "Needs and requirements",
+      "D": "Requirements and solutions"
     },
-    {
-        "question": "How are 'plans' used in business analysis?",
-        "options": {
-            "A": "As the output to the task 'plan business analysis governance.",
-            "B": "As the output to the task 'plan stakeholder engagement.'",
-            "C": "As the output to the task 'plan business analysis approach.",
-            "D": "As the output to the task 'prepare for elicitation."
-        },
-        "correct_answer": "C"
+    "correct_answer": "C"
+  },
+  {
+    "question": "How are \"plans\" used in business analysis?",
+    "options": {
+      "A": "As the output to the task \"plan business analysis governance.",
+      "B": "As the output to the task \"plan stakeholder engagement.\"",
+      "C": "As the output to the task \"plan business analysis approach.",
+      "D": "As the output to the task \"prepare for elicitation."
     },
-    {
-        "question": "Traceability is best described by the following statement:",
-        "options": {
-            "A": "Traceability requirements supplement business requirements and functional requirements.",
-            "B": "Traceability identifies and documents the lineage of each requirement, including its backward traceability, its forward traceability, and its relationship to other requirements.",
-            "C": "Traceability is used to obtain metrics by the Change Management Board to approve or deny requests for change.",
-            "D": "Traceability assists in developing the project schedule."
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Traceability is best described by the following statement:",
+    "options": {
+      "A": "Traceability is used to obtain metrics by the Change Management Board to approve or deny requests for change.",
+      "B": "Traceability identifies and documents the lineage of each requirement, including its backward traceability, its forward traceability, and its relationship to other requirements.",
+      "C": "Traceability requirements supplement business requirements and functional requirements.",
+      "D": "Traceability assists in developing the project schedule."
     },
-    {
-        "question": "Which knowledge area covers the incremental and iterative activities business analysts perform from the exploration of the business need through the transformation of 'need' into a particular solution?",
-        "options": {
-            "A": "Solution evaluation.",
-            "B": "Business analysis planning and monitoring.",
-            "C": "Requirements life cycle management.",
-            "D": "Requirements analysis and design definition."
-        },
-        "correct_answer": "D"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which knowledge area covers the incremental and iterative activities business analysts perform from the exploration of the business need through the transformation of \"need\" into a particular solution?",
+    "options": {
+      "A": "Business analysis planning and monitoring.",
+      "B": "Solution evaluation.",
+      "C": "Requirements life cycle management.",
+      "D": "Requirements analysis and design definition."
     },
-    {
-        "question": "Which of the following best describes some of the characteristics of requirements and designs quality?",
-        "options": {
-            "A": "Atomic, concise, feasible, unambiguous, prioritized.",
-            "B": "Atomic, concise, feasible, unambiguous, approved.",
-            "C": "Measurable, concise, feasible, unambiguous, prioritized.",
-            "D": "Atomic, concise, feasible, unambiguous, estimated."
-        },
-        "correct_answer": "A"
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following best describes some of the characteristics of requirements and designs quality?",
+    "options": {
+      "A": "Measurable, concise, feasible, unambiguous, prioritized.",
+      "B": "Atomic, concise, feasible, unambiguous, prioritized.",
+      "C": "Atomic, concise, feasible, unambiguous, estimated.",
+      "D": "Atomic, concise, feasible, unambiguous, approved."
     },
-    {
-        "question": "As a business analyst you want to document the needs of a specific role and enable teams to define features of value to a user and written in a user's language. What technique would best serve this purpose?",
-        "options": {
-            "A": "Prototyping",
-            "B": "User  stories",
-            "C": "Use cases and scenarios",
-            "D": "User  specification"
-        },
-        "correct_answer": "B"
+    "correct_answer": "B"
+  },
+  {
+    "question": "As a business analyst you want to document the needs of a specific role and enable teams to define features of value to a user and written in a user's language. What technique would best serve this purpose?",
+    "options": {
+      "A": "User stories",
+      "B": "User specification",
+      "C": "Prototyping",
+      "D": "Use cases and scenarios"
     },
-    {
-        "question": "There are several roles involved in a successful workshop. Which of the following roles is generally not a participant in a workshop?",
-        "options": {
-            "A": "Scribe",
-            "B": "Sponsor",
-            "C": "Timekeeper",
-            "D": "Facilitator"
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "There are several roles involved in a successful workshop. Which of the following roles is generally not a participant in a workshop?",
+    "options": {
+      "A": "Sponsor",
+      "B": "Scribe",
+      "C": "Facilitator",
+      "D": "Timekeeper"
     },
-    {
-        "question": "Which of the following approaches is most likely to require formal requirements documentation?",
-        "options": {
-            "A": "Agile",
-            "B": "Adaptive",
-            "C": "Value-driven",
-            "D": "Predictive"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following approaches is most likely to require formal requirements documentation?",
+    "options": {
+      "A": "Agile",
+      "B": "Adaptive",
+      "C": "Predictive",
+      "D": "Value-driven"
     },
-    {
-        "question": "Conflicts may arise among stakeholders as a result of different interpretations of requirements or designs. Which technique would you use to resolve issues and gain agreement?",
-        "options": {
-            "A": "Acceptance and evaluation criteria",
-            "B": "Workshops",
-            "C": "Decision analysis",
-            "D": "Item tracking"
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Conflicts may arise among stakeholders as a result of different interpretations of requirements or designs. Which technique would you use to resolve issues and gain agreement?",
+    "options": {
+      "A": "Item tracking",
+      "B": "Workshops",
+      "C": "Decision analysis",
+      "D": "Acceptance and evaluation criteria"
     },
-    {
-        "question": "Defining an approach for how business analysis data will be stored and accessed represents the purpose of which task?",
-        "options": {
-            "A": "Plan business analysis approach.",
-            "B": "Plan business analysis governance.",
-            "C": "Plan business analysis information management.",
-            "D": "Plan business analysis data management process."
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Defining an approach for how business analysis data will be stored and accessed represents the purpose of which task?",
+    "options": {
+      "A": "Plan business analysis governance.",
+      "B": "Plan business analysis datamanagement process",
+      "C": "Plan business analysis approach.",
+      "D": "Plan business analysis information management."
     },
-    {
-        "question": "A business analyst just documented stakeholder and solution requirements. What task did they just finish?",
-        "options": {
-            "A": "Verify requirements",
-            "B": "Prioritize requirements",
-            "C": "Structure requirements",
-            "D": "Specify and model requirements"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst just documented stakeholder and solution requirements. What task did they just finish?",
+    "options": {
+      "A": "Prioritize requirements",
+      "B": "Specify and model requirements",
+      "C": "Verify requirements",
+      "D": "Structure requirements"
     },
-    {
-        "question": "Traceability is best described by which of the following features and benefits?",
-        "options": {
-            "A": "Traceability requirements supplement business requirements and functional requirements.",
-            "B": "Traceability assists in managing changes to the requirements that will occur after the requirements are baselined.",
-            "C": "Traceability metrics are used by the Change Management Board to approve or deny requests for change.",
-            "D": "Traceability assists in managing accountability for requirements by assessing how well the requirements map to business needs."
-        },
-        "correct_answer": "B"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Traceability is best described by which of the following features and benefits?",
+    "options": {
+      "A": "Traceability assists in managing changes to the requirements that will occur after the requirements are baselined.",
+      "B": "Traceability requirements supplement business requirements and functional requirements.",
+      "C": "Traceability metrics are used by the Change Management Board to approve or deny requests for change.",
+      "D": "Traceability assists in managing accountability for requirements by assessing how well the requirements map to business needs."
     },
-    {
-        "question": "As a business analyst, you are working to identify a data structure that may be similar across the enterprise in order to facilitate requirements reuse. Which technique would be helpful?",
-        "options": {
-            "A": "Structural design",
-            "B": "Data flow diagrams",
-            "C": "Data modeling",
-            "D": "Document analysis"
-        },
-        "correct_answer": "C"
+    "correct_answer": "A"
+  },
+  {
+    "question": "As a business analyst, you are working to identify a data structure that may be similar across the enterprise in order to facilitate requirements reuse. Which technique would be helpful?",
+    "options": {
+      "A": "Data modeling",
+      "B": "Data flow diagrams",
+      "C": "Structural design",
+      "D": "Document analysis"
     },
-    {
-        "question": "Generally, when would a business analyst model requirements in a change initiative?",
-        "options": {
-            "A": "At any point in a change initiative.",
-            "B": "After evaluating the solution.",
-            "C": "Before requirements elicitation.",
-            "D": "After requirements elicitation."
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Generally, when would a business analyst model requirements in a change initiative?",
+    "options": {
+      "A": "After requirements elicitation.",
+      "B": "Before requirements elicitation.",
+      "C": "At any point in a change initiative.",
+      "D": "After evaluating the solution."
     },
-    {
-        "question": "A business analyst wants to provide an opportunity for stakeholders to give input and feedback early in the design process. Which of the following techniques will support the BA's objective?",
-        "options": {
-            "A": "User  stories",
-            "B": "Organizational modeling",
-            "C": "Acceptance and evaluation criteria",
-            "D": "Prototyping"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst wants to provide an opportunity for stakeholders to give input and feedback early in the design process. Which of the following techniques will support the BA's objective?",
+    "options": {
+      "A": "Acceptance and evaluation criteria",
+      "B": "Organizational modeling",
+      "C": "User stories",
+      "D": "Prototyping"
     },
-    {
-        "question": "A business analyst is documenting stakeholder concerns and risks that are raised during discussions when developing the business analysis approach. What technique is being used?",
-        "options": {
-            "A": "Meeting notes",
-            "B": "Item tracking",
-            "C": "Brainstorming",
-            "D": "Risk analysis and management"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is documenting stakeholder concerns and risks that are raised during discussions when developing the business analysis approach. What technique is being used?",
+    "options": {
+      "A": "Meeting notes",
+      "B": "Item tracking",
+      "C": "Brainstorming",
+      "D": "Risk analysis and management"
     },
-    {
-        "question": "Which of the following statements is accurate about the financial analysis technique?",
-        "options": {
-            "A": "The lower the ROI, the better the investment.",
-            "B": "Financial analysis is known as 'qualitative analysis.",
-            "C": "Because financial analysis is forward looking, there will be no uncertainty about expected costs and benefits.",
-            "D": "Financial analysis allows executive decision makers to objectively compare very different investments from different perspectives."
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following statements is accurate about the financial analysis technique?",
+    "options": {
+      "A": "Because financial analysis is forward looking, there will be no uncertainty about expected costs and benefits.",
+      "B": "Financial analysis is known as \"qualitative analysis.",
+      "C": "The lower the ROI, the better the investment.",
+      "D": "Financial analysis allows executive decision makers to objectively compare very different investments from different perspectives."
     },
-    {
-        "question": "A business analyst is discovering that stakeholders use many acronyms and terms that hold different meanings for different stakeholders. For consistency, what technique can be used to ensure common understanding of terms?",
-        "options": {
-            "A": "Style guide",
-            "B": "Data dictionary",
-            "C": "Defined lexicon",
-            "D": "Glossary"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is discovering that stakeholders use many acronyms and terms that hold different meanings for different stakeholders. For consistency, what technique can be used to ensure common understanding of terms?",
+    "options": {
+      "A": "Glossary",
+      "B": "Defined lexicon",
+      "C": "Data dictionary",
+      "D": "Style guide"
     },
-    {
-        "question": "A project team has come up with several design options that would satisfy the stakeholders' needs and now want to assess and rank them. Which technique would the team use to achieve their goal?",
-        "options": {
-            "A": "Joint meetings",
-            "B": "Decision analysis",
-            "C": "Brainstorming",
-            "D": "Workshops"
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "A project team has come up with several design options that would satisfy the stakeholders' needs and now want to assess and rank them. Which technique would the team use to achieve their goal?",
+    "options": {
+      "A": "Joint meetings",
+      "B": "Brainstorming",
+      "C": "Workshops",
+      "D": "Decision analysis"
     },
-    {
-        "question": "An organization utilizes a change strategy for assessing requirement changes. What is the purpose of the change strategy for assessing requirement changes?",
-        "options": {
-            "A": "A change strategy supplies information to assist in managing stakeholder consensus regarding the needs of all stakeholders concerning a potential change.",
-            "B": "A change strategy describes the purpose and context for changes, and identifies the critical components for change.",
-            "C": "A change strategy describes legislative rules or regulations that must be followed.",
-            "D": "A change strategy provides guidance regarding the change control and decision-making processes."
-        },
-        "correct_answer": "B"
+    "correct_answer": "D"
+  },
+  {
+    "question": "An organization utilizes a change strategy for assessing requirement changes. What is the purpose of the change strategy for assessing requirement changes?",
+    "options": {
+      "A": "A change strategy supplies information to assist in managing stakeholder consensus regarding the needs of all stakeholders concerning a potential change.",
+      "B": "A change strategy describes legislative rules or regulations that must be followed.",
+      "C": "A change strategy describes the purpose and context for changes, and identifies the critical components for change.",
+      "D": "A change strategy provides guidance regarding the change control and decision-making processes."
     },
-    {
-        "question": "Data dictionaries are used to standardize the definitions of data elements within the context of a solution. What data model is often partnered with a data dictionary?",
-        "options": {
-            "A": "Entity relationship diagram",
-            "B": "Sequence diagram",
-            "C": "Swim lane diagram",
-            "D": "Activity diagram"
-        },
-        "correct_answer": "A"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Data dictionaries are used to standardize the definitions of data elements within the context of a solution. What data model is often partnered with a data dictionary?",
+    "options": {
+      "A": "Entity relationship diagram",
+      "B": "Sequence diagram",
+      "C": "Swim lane diagram",
+      "D": "Activity diagram"
     },
-    {
-        "question": "A business analyst and the project team are analyzing risks related to their future state recommendation. What exactly are they considering?",
-        "options": {
-            "A": "Possible consequences if the risk occurs, impact of those consequences, likelihood of the risk, and the potential time frame when the risk might occur.",
-            "B": "Possible consequences if the risk occurs, cost of the consequences, likelihood of the risk, and the detectability of the risk.",
-            "C": "Possible consequences if the risk occurs, cost of the consequences, likelihood of the risk, and the potential time frame when the risk might occur.",
-            "D": "Possible consequences if the risk occurs, impact of those consequences, likelihood of the risk, and the detectability of the risk."
-        },
-        "correct_answer": "A"
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst and the project team are analyzing risks related to their future state recommendation. What exactly are they considering?",
+    "options": {
+      "A": "Possible consequences if the risk occurs, impact of those consequences, likelihood of the risk, and the potential time frame when the risk might occur.",
+      "B": "Possible consequences if the risk occurs, cost of the consequences, likelihood of the risk, and the detectability of the risk.",
+      "C": "Possible consequences if the risk occurs, cost of the consequences, likelihood of the risk, and the potential time frame when the risk might occur.",
+      "D": "Possible consequences if the risk occurs, impact of those consequences, likelihood of the risk, and the detectability of the risk."
     },
-    {
-        "question": "What does SWOT stand for?",
-        "options": {
-            "A": "Strengths, weaknesses, opportunities, threats",
-            "B": "Scope, weaknesses, opportunities, tests",
-            "C": "Strengths, weaknesses, options, threats",
-            "D": "Strategies, work, options, threats"
-        },
-        "correct_answer": "A"
+    "correct_answer": "A"
+  },
+  {
+    "question": "What does SWOT stand for?",
+    "options": {
+      "A": "Strengths, weaknesses, options, threats",
+      "B": "Strategies, work, options, threats",
+      "C": "Strengths, weaknesses, opportunities, threats",
+      "D": "Scope, weaknesses, opportunities, tests"
     },
-    {
-        "question": "Which technique would help a business analyst ensure that everyone's viewpoint is considered when developing the business analysis approach?",
-        "options": {
-            "A": "Interviews",
-            "B": "Workshops",
-            "C": "Reviews",
-            "D": "Document analysis"
-        },
-        "correct_answer": "B"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which technique would help a business analyst ensure that everyone's viewpoint is considered when developing the business analysis approach?",
+    "options": {
+      "A": "Document analysis",
+      "B": "Workshops",
+      "C": "Interviews",
+      "D": "Reviews"
     },
-    {
-        "question": "According to the BABOK, what is business analysis?",
-        "options": {
-            "A": "A set of stakeholder needs that are elicited, analyzed, structured, and specified for use in the design or implementation of a solution.",
-            "B": "A collection of pre-project or early project activities and approaches for capturing the necessary view of the business to provide context to requirements and functional design work for a given initiative and/or for long-term planning.",
-            "C": "The practice of enabling change in an enterprise by defining needs and recommending solutions that deliver value to stakeholders.",
-            "D": "The process of eliciting, documenting, and managing requirements throughout the life cycle of a project."
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "According to the BABOK, what is business analysis?",
+    "options": {
+      "A": "A collection of pre-project or early project activities and approaches for capturing the necessary view of the business to provide context to requirements and functional design work for a given initiative and/or for long-term planning.",
+      "B": "The practice of enabling change in an enterprise by defining needs and recommending solutions that deliver value to stakeholders.",
+      "C": "The process of eliciting, documenting, and managing requirements throughout the life cycle of a project.",
+      "D": "A set of stakeholder needs that are elicited, analyzed, structured, and specified for use in the design or implementation of a solution."
     },
-    {
-        "question": "As a means of eliciting requirements you have been reading all known business architecture documentation and the information provided from a previous phase of the project you are working on. What is this called?",
-        "options": {
-            "A": "Document review",
-            "B": "Document analysis",
-            "C": "Observation",
-            "D": "Business architecture analysis"
-        },
-        "correct_answer": "B"
+    "correct_answer": "B"
+  },
+  {
+    "question": "As a means of eliciting requirements you have been reading all known business architecture documentation and the information provided from a previous phase of the project you are working on. What is this called?",
+    "options": {
+      "A": "Observation",
+      "B": "Document review",
+      "C": "Business architecture analysis",
+      "D": "Document analysis"
     },
-    {
-        "question": "A business analyst must be effective in generating alternative solutions that could solve the business need or problem. Which of the following underlying competencies would be helpful in that endeavor?",
-        "options": {
-            "A": "Decision making",
-            "B": "Systems thinking",
-            "C": "Brainstorming",
-            "D": "Creative thinking"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst must be effective in generating alternative solutions that could solve the business need or problem. Which of the following underlying competencies would be helpful in that endeavor?",
+    "options": {
+      "A": "Creative thinking",
+      "B": "Decision making",
+      "C": "Brainstorming",
+      "D": "Systems thinking"
     },
-    {
-        "question": "Which statement about techniques is the most correct?",
-        "options": {
-            "A": "They are prescribed by the BABOK.",
-            "B": "They provide additional information on ways that a task can be performed.",
-            "C": "They vary depending upon the perspective from which business analysis is being performed.",
-            "D": "They provide step-by-step instructions on how to accomplish a specific task."
-        },
-        "correct_answer": "B"
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which statement about techniques is the most correct?",
+    "options": {
+      "A": "They vary depending upon the perspective from which business analysis is being performed.",
+      "B": "They provide additional information on ways that a task can be performed.",
+      "C": "They are prescribed by the BABOK.",
+      "D": "They provide step-by-step instructions on how to accomplish a specific task."
     },
-    {
-        "question": "A business analyst has just received notice that their project has a new deadline, and that they need to quickly elicit requirements. Which of the following techniques would enable the BA to meet the deadline?",
-        "options": {
-            "A": "Prototypes and document analysis",
-            "B": "Surveys and workshops",
-            "C": "Interviews and surveys",
-            "D": "Focus groups and observation"
-        },
-        "correct_answer": "B"
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst has just received notice that their project has a new deadline, and that they need to quickly elicit requirements. Which of the following techniques would enable the BA to meet the deadline?",
+    "options": {
+      "A": "Focus groups and observation",
+      "B": "Surveys and workshops",
+      "C": "Interviews and surveys",
+      "D": "Prototypes and document analysis"
     },
-    {
-        "question": "A business analyst is experiencing a lot of change requests for some of the requirements received from stakeholders. Which task will be triggered by these requests?",
-        "options": {
-            "A": "Prioritize requirements",
-            "B": "Approve requirements",
-            "C": "Notify the Project Manager",
-            "D": "Assess requirement changes"
-        },
-        "correct_answer": "D"
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is experiencing a lot of change requests for some of the requirements received from stakeholders. Which task will be triggered by these requests?",
+    "options": {
+      "A": "Approve requirements",
+      "B": "Prioritize requirements",
+      "C": "Notify the Project Manager",
+      "D": "Assess requirement changes"
     },
-    {
-        "question": "A business analyst needs to elicit detailed requirements from multiple stakeholders in a short period of time. Cost is one of the aspects that must be considered while deciding upon the technique. What would be the best technique in this situation?",
-        "options": {
-            "A": "Interviews",
-            "B": "Survey or questionnaire",
-            "C": "Brainstorming",
-            "D": "Workshop"
-        },
-        "correct_answer": "D"
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst needs to elicit detailed requirements from multiple stakeholders in a short period of time. Cost is one of the aspects that must be considered while deciding upon the technique. What would be the best technique in this situation?",
+    "options": {
+      "A": "Workshop",
+      "B": "Survey or questionnaire",
+      "C": "Interviews",
+      "D": "Brainstorming"
     },
-    {
-        "question": "A business analyst has completed a review workshop meeting with the accountable individuals and they have indicated their agreement with the requirements. Where would the BA record this agreement?",
-        "options": {
-            "A": "Shared drive",
-            "B": "SharePoint site",
-            "C": "Decision register",
-            "D": "Requirement management tools"
-        },
-        "correct_answer": "D"
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst has completed a review workshop meeting with the accountable individuals and they have indicated their agreement with the requirements. Where would the BA record this agreement?",
+    "options": {
+      "A": "Shared drive",
+      "B": "Requirement management tools",
+      "C": "SharePoint site",
+      "D": "Decision register"
     },
-    {
-        "question": "A business analyst is preparing questions for a survey to determine shoppers' level of satisfaction with various services provided by the store. What type of questions would best suit this survey?",
-        "options": {
-            "A": "Unstructured questions",
-            "B": "Open-ended questions",
-            "C": "Structured interviews",
-            "D": "Close-ended questions"
-        },
-        "correct_answer": "D"
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is preparing questions for a survey to determine shoppers' level of satisfaction with various services provided by the store. What type of questions would best suit this survey?",
+    "options": {
+      "A": "Structured interviews",
+      "B": "Close-ended questions",
+      "C": "Open-ended questions",
+      "D": "Unstructured questions"
     },
-    {
-        "question": "Which techniques are used to validate requirements?",
-        "options": {
-            "A": "Metrics and key performance indicators; financial analysis; business capability analysis.",
-            "B": "Acceptance and evaluation criteria; financial analysis; workshops.",
-            "C": "Acceptance and evaluation criteria; metrics and key performance indicators; workshops.",
-            "D": "Acceptance and evaluation criteria; item tracking; reviews."
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which techniques are used to validate requirements?",
+    "options": {
+      "A": "Acceptance and evaluation criteria; financial analysis; workshops.",
+      "B": "Metrics and key performance indicators; financial analysis; business capability analysis.",
+      "C": "Acceptance and evaluation criteria; metrics and key performance indicators; workshops.",
+      "D": "Acceptance and evaluation criteria; item tracking; reviews."
     },
-    {
-        "question": "Which knowledge area develops models of the current state of an organization?",
-        "options": {
-            "A": "Requirements analysis and design definition",
-            "B": "Strategy analysis",
-            "C": "Enterprise analysis",
-            "D": "Specify and model requirements"
-        },
-        "correct_answer": "C"
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which knowledge area develops models of the current state of an organization?",
+    "options": {
+      "A": "Requirements analysis and design definition",
+      "B": "Enterprise analysis",
+      "C": "Strategy analysis",
+      "D": "Specify and model requirements"
     },
-    {
-        "question": "Which of the following criteria are the basis for prioritization of requirements?",
-        "options": {
-            "A": "Issues, benefit, cost, dependencies",
-            "B": "Risk, baseline, cost, dependencies",
-            "C": "Risk, benefit, cost, dependencies",
-            "D": "Risk, benefit, constraint, dependencies"
-        },
-        "correct_answer": "C"
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following criteria are the basis for prioritization of requirements?",
+    "options": {
+      "A": "Risk, benefit, constraint, dependencies",
+      "B": "Risk, baseline, cost, dependencies",
+      "C": "Issues, benefit, cost, dependencies",
+      "D": "Risk, benefit, cost, dependencies"
     },
-    {
-        "question": "What is the difference between business acumen and organization knowledge?",
-        "options": {
-            "A": "The former crosses industries and the latter is specific to the organization.",
-            "B": "The former requires an understanding of fundamental business principles and the latter requires an understanding of the organizational context surrounding the business analysis work.",
-            "C": "The former crosses industries and the latter is specific to the project.",
-            "D": "The former crosses industries and the latter requires an understanding of the competitive forces that shape the industry."
-        },
-        "correct_answer": "B"
-    }
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the difference between business acumen and organization knowledge?",
+    "options": {
+      "A": "The former crosses industries and the latter is specific to the organization.",
+      "B": "The former crosses industries and the latter requires an understanding of the competitive forces that shape the industry.",
+      "C": "The former crosses industries and the latter is specific to the project.",
+      "D": "The former requires an understanding of fundamental business principles and the latter requires an understanding of the organizational context surrounding the business analysis work."
+    },
+    "correct_answer": "D"
+  }
 ]

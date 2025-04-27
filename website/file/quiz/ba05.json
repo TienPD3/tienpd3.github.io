@@ -1,0 +1,502 @@
+[
+  {
+    "question": "In a use case, which is one of the two commonly used relationships?",
+    "options": {
+      "A": "Extend",
+      "B": "Identify",
+      "C": "Distribute",
+      "D": "Inherit"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which type of stakeholder is responsible for initiating the effort to define a business need?",
+    "options": {
+      "A": "Sponsor",
+      "B": "Regulator",
+      "C": "Project manager",
+      "D": "Business analyst"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Accepting risk mitigation plans",
+    "options": {
+      "A": "increased costs.",
+      "B": "reduced requirements.",
+      "C": "decreased risk.",
+      "D": "higher satisfaction."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "The Business Analyst (BA) wants to prioritize requirements based on the highest value that it can provide. Which of the following factors will help The BA the most?",
+    "options": {
+      "A": "Benefit",
+      "B": "Risk",
+      "C": "Penalty",
+      "D": "Cost"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "When stakeholder collaboration is not properly managed, poor relationships can have the following damaging effect on business analysis:",
+    "options": {
+      "A": "lack of support for organizational goals.",
+      "B": "strong negative reactions to obstacles.",
+      "C": "resistance to approving elicitation results.",
+      "D": "failure to meet project deadlines."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A solution is considered to be successful when the:",
+    "options": {
+      "A": "performance evaluation is positive.",
+      "B": "stakeholders' expectations are met.",
+      "C": "business need is satisfied.",
+      "D": "organization is ready to accept it."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which behavioral characteristic enables the business analyst (BA) to establish credibility by ensuring that business analysis efforts meet the needs of the business?",
+    "options": {
+      "A": "Adaptability",
+      "B": "Ethics",
+      "C": "Trustworthiness",
+      "D": "Personal Accountability"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "In Defining Requirement Architecture, what is the purpose for using Functional Decomposition technique?",
+    "options": {
+      "A": "To describe the requirements structure as it relates to data",
+      "B": "To understand the various organizational units, stakeholders, and their relationships which might help define relevant viewpoints.",
+      "C": "To identify the elements and boundaries of the requirements architecture.",
+      "D": "To break down an organizational unit, product scope, or other elements into its component parts."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "The Business analyst (BA) has decomposed BA information into components to further examine constraints or assumptions that impact the components. What is the BA doing?",
+    "options": {
+      "A": "Modeling requirements",
+      "B": "Representing attributes",
+      "C": "Analyzing requirements",
+      "D": "Implementing requirements"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which approach aligns to approval of requirements at the end of a phase?",
+    "options": {
+      "A": "Adaptive",
+      "B": "Modelling",
+      "C": "Predictive",
+      "D": "Prioritization"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "When initially assigned work, understanding the scope of elicitation is important in order to:",
+    "options": {
+      "A": "plan the business analysis approach",
+      "B": "identify the stakeholders",
+      "C": "review the project charter",
+      "D": "discover the requirements"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which stakeholder group is involved in regularly maintaining requirements and ensuring that the requirements list accurately reflects stated needs?",
+    "options": {
+      "A": "Operational support",
+      "B": "Implementation subject matter expert",
+      "C": "Business analyst",
+      "D": "Domain subject matter expert"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A business analyst is communicating business analysis information to resource managers via email every Monday as per the stakeholder engagement approach. Those same resource managers contact the BA every week about information that was already emailed. What should the business analyst do to resolve this breakdown in communication?",
+    "options": {
+      "A": "Replace the emails with weekly meetings and minutes that can be referenced after the meeting.",
+      "B": "Begin scheduling weekly conference calls to provide a forum for follow-up discussion.",
+      "C": "Refer the resource managers to the email.",
+      "D": "Engage the source managers to understand if email is an effective mode of communication."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the input status of requirements used by business analysts (BAs) for undertaking requirement verification activities?",
+    "options": {
+      "A": "Specified and Modeled",
+      "B": "Validated and Prioritized",
+      "C": "Stated and Unconfirmed",
+      "D": "Maintained and Reusable"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which activity is a business analyst (BA) performing when ensuring that a set of requirements is developed with enough detail to be usable by a particular stakeholder?",
+    "options": {
+      "A": "Eliciting requirements",
+      "B": "Validating requirements",
+      "C": "Verifying requirements",
+      "D": "Specifying requirements"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following items is commonly used by a business analyst (BA) during requirements verification?",
+    "options": {
+      "A": "A user story with inputs and outputs",
+      "B": "A business model canvas with financial estimates",
+      "C": "A checklist with a standard set of quality elements",
+      "D": "A benchmarking report with industry comparisons"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "The approach that defines how requirements will be re-used is the:",
+    "options": {
+      "A": "business analysis approach.",
+      "B": "information management approach.",
+      "C": "governance approach.",
+      "D": "approach to identifying business analysis improvements."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following accurately describes a stakeholder’s role during future state analysis?",
+    "options": {
+      "A": "A regulator would ensure an envisioned future state can be sufficiently tested and can help set an appropriate level of quality to target.",
+      "B": "An end user would help determine which business needs to address and sets the business objective that a future state will achieve.",
+      "C": "A domain subject matter expert would provide insight into current state and potential states",
+      "D": "A project manager would be directly involved in supporting the operations of the enterprise."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Tools that facilitate recording, organizing, storing and sharing requirements and designs are _________",
+    "options": {
+      "A": "Modeling notations/ standards",
+      "B": "Modeling tools",
+      "C": "Requirements management tools",
+      "D": "Requirements (traced)"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Conflicts may arise among stakeholders as a result of different interpretations of requirements or designs. Which technique would you use to resolve issues and gain agreement?",
+    "options": {
+      "A": "Requirements and designs analysis",
+      "B": "Assess requirements changes",
+      "C": "Prioritize requirements",
+      "D": "Trace requirements"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "In addition to schedule, which other factor must be considered when evaluating changes to requirements?",
+    "options": {
+      "A": "Amount of time needed to create new documents",
+      "B": "Capacity of the requirements management tool",
+      "C": "Number of customers and end-users affected",
+      "D": "Agreement by executive board members"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following activities is one of the techniques needed when implementing the business analysis approach?",
+    "options": {
+      "A": "Define Strategy",
+      "B": "Approve Requirements.",
+      "C": "Testing & UAT",
+      "D": "Process Modelling"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "When validating requirements, assumptions are:",
+    "options": {
+      "A": "documented after conducting further analysis.",
+      "B": "vital to support strategic decisions and goals.",
+      "C": "based and assessed on previous experience.",
+      "D": "defined so that associated risk can be managed."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which techniques should be applied to prioritize requirements?",
+    "options": {
+      "A": "Risk Analysis and Management",
+      "B": "Decision Modelling and Estimation",
+      "C": "Document Analysis and Vendor Assessment",
+      "D": "Interface Analysis and Interviews"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "When do the participants start generating ideas during a collaborative game?",
+    "options": {
+      "A": "Closing step",
+      "B": "Exploration step",
+      "C": "Opening step",
+      "D": "Iteration step"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which technique is used by business analysts (BAs) to measure the quality of requirements?",
+    "options": {
+      "A": "Entity Relationship Modelling",
+      "B": "Key Performance Indicators",
+      "C": "Risk Analysis and Management",
+      "D": "Acceptance and Evaluation Criteria"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "If there are no relationships between requirements that link elements in two different and conflicting ways, then the relationship satisfies which of the following quality criteria?",
+    "options": {
+      "A": "Necessary",
+      "B": "Consistent",
+      "C": "Defined",
+      "D": "Unambiguous"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "If inconsistencies arise between different elicitation results, the business analyst (BA) should:",
+    "options": {
+      "A": "escalate them to the business sponsor.",
+      "B": "reconcile them through experience.",
+      "C": "resolve them through collaboration.",
+      "D": "report them to the project manager."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What analysis needs to be performed in order to evaluate the effect of change?",
+    "options": {
+      "A": "Impact",
+      "B": "Decision",
+      "C": "Competitive",
+      "D": "Modeling"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What tool can be used to determine the impact of a changed requirement on other requirements?",
+    "options": {
+      "A": "Verification",
+      "B": "Workshop",
+      "C": "Traceability",
+      "D": "Interview"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following techniques would a business analyst (BA) use to conduct elicitation?",
+    "options": {
+      "A": "Estimation",
+      "B": "Observation",
+      "C": "Reviews",
+      "D": "Prioritization"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is used to record the meaning of relevant business terms while analyzing requirements?",
+    "options": {
+      "A": "Scope model",
+      "B": "Glossary",
+      "C": "State model",
+      "D": "Data dictionary"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Stakeholders usually prioritize their requirements into which of the following categories?",
+    "options": {
+      "A": "Low",
+      "B": "Medium",
+      "C": "High",
+      "D": "Very Low"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What characterizes a good collaboration with stakeholders?",
+    "options": {
+      "A": "Direct and frequent communication with the most influential stakeholders",
+      "B": "Regular, frequent and bi-directional communication with all stakeholders",
+      "C": "Regular exchange of information, ideas, innovations with only supportive stakeholders",
+      "D": "Occasional communication with stakeholders when obstacles occur"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What are the participant roles in reviews?",
+    "options": {
+      "A": "Approver, administrator, reviewer, tester",
+      "B": "RequirDomain SME, regulator, sponsor, project managements (traced)",
+      "C": "Author, reviewer, facilitator, scribe",
+      "D": "Customer, supplier, end user, business analyst"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Establishing the design option that is appropriate to meet the enterprises' requirements is the purpose of which task?",
+    "options": {
+      "A": "Analyze potential value and recommend solution",
+      "B": "Define design options",
+      "C": "Define requirements architecture",
+      "D": "Specify and model requirements"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What tool classifies stakeholders according to responsibility?",
+    "options": {
+      "A": "Personas",
+      "B": "Stakeholder Map",
+      "C": "RACI Matrix",
+      "D": "Stakeholder List"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which technique represents a small, concise statement of functionality or quality needed to deliver value to a specific stakeholder?",
+    "options": {
+      "A": "Business case",
+      "B": "User stories",
+      "C": "Scope modelling",
+      "D": "Lessons learned"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following techniques can be used to model the rationale of a change?",
+    "options": {
+      "A": "Roles and Permissions Matrix",
+      "B": "Business capability analysis",
+      "C": "Organizational modeling",
+      "D": "Decision modeling"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "When approving requirements, conflict and issue management is an element used to assist in:",
+    "options": {
+      "A": "measuring performance indicators.",
+      "B": "obtaining consensus among stakeholders.",
+      "C": "performing quality control.",
+      "D": "identifying activities."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "When planning business analysis information management, what are the factors that influence storage and access decisions?",
+    "options": {
+      "A": "Organizational values and procurement strategy",
+      "B": "Business policies and methodology adopted",
+      "C": "Organizational standards and tool availability",
+      "D": "Business rules and change strategy"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following approaches is used to determine how business analysis data will be packaged and communicated to stakeholders?",
+    "options": {
+      "A": "Governance Approach",
+      "B": "Information Management Approach",
+      "C": "Stakeholder Engagement Approach",
+      "D": "Business Analysis Approach"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What are matrices in modelling formats used to describe?",
+    "options": {
+      "A": "Hierarchical structure of stakeholders",
+      "B": "Complex but uniform structures",
+      "C": "Gaps in capability analysis",
+      "D": "Detailed procedure flow"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What are the two basic types of interviews to elicit business analysis information?",
+    "options": {
+      "A": "Closed and open ended",
+      "B": "Planned and unplanned",
+      "C": "Unstructured and structured",
+      "D": "Face-to-face and telephonic"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A focus group is a form of which type of research?",
+    "options": {
+      "A": "Quantitative",
+      "B": "Qualitative",
+      "C": "Theoretical",
+      "D": "Statistical"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "A business analyst is quantifying the potential benefits of a solution option with key stakeholders. What technique is the BA using?",
+    "options": {
+      "A": "Interviews",
+      "B": "Focus groups",
+      "C": "Brainstorming",
+      "D": "Financial analysis"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following stakeholders can participate in specify and model requirements tasks?",
+    "options": {
+      "A": "Only technical architect and PM",
+      "B": "Any stakeholders",
+      "C": "Only Sponsor and PM",
+      "D": "Only developers and implementation SME"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Requirements allocation is an element of which task?",
+    "options": {
+      "A": "Verify requirements",
+      "B": "Define design options",
+      "C": "Specify and model requirements",
+      "D": "Define requirements architecture"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Conducting elicitation by asking questions and documenting responses from relevant stakeholders has the following strength:",
+    "options": {
+      "A": "encouraging participation.",
+      "B": "prioritization setting.",
+      "C": "analytical thinking.",
+      "D": "sharing of information."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which action would a business analyst (BA) propose to improve the operation of the business?",
+    "options": {
+      "A": "Shadow the expert staff",
+      "B": "Assist in the daily activities",
+      "C": "Outsource the operation team",
+      "D": "Simplify the work people perform"
+    },
+    "correct_answer": "D"
+  }
+]

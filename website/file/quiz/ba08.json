@@ -1,0 +1,502 @@
+[
+  {
+    "question": "How should a business analyst use the 'Business Analysis Value Spectrum' to guide their activities during the Requirements Analysis and Design Definition phase?",
+    "options": {
+      "A": "To prioritize legal and compliance checks over operational activities",
+      "B": "To determine the allocation of financial resources across project phases",
+      "C": "To track the progression of value delivery from potential to actual through various business analysis activities",
+      "D": "To decide when to release marketing materials related to the project"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What does 'Assess Risks' in the Strategy Analysis knowledge area involve?",
+    "options": {
+      "A": "Creating a detailed design of the solution",
+      "B": "Identifying potential future events that could affect the solution",
+      "C": "Developing a communication plan",
+      "D": "Scheduling project tasks"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following statements is FALSE regarding the Requirements Life Cycle Management?",
+    "options": {
+      "A": "It involves a level of control over requirements and how they are implemented.",
+      "B": "It continues throughout the life of a solution.",
+      "C": "It ends once the solution is implemented.",
+      "D": "It helps to ensure that business analysis information is available for future use."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the key benefit of using interviews for elicitation?",
+    "options": {
+      "A": "They allow for in-depth understanding.",
+      "B": "They provide statistical validity.",
+      "C": "They require minimal preparation.",
+      "D": "They are quick and easy to conduct."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In a project to integrate new technology, how can 'Concept Modelling' assist the team?",
+    "options": {
+      "A": "Clarify and understand the concepts relevant to a business domain",
+      "B": "Identify system constraints",
+      "C": "Define project scope",
+      "D": "Document technical requirements"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which technique is commonly used to prioritize requirements?",
+    "options": {
+      "A": "MoSCoW",
+      "B": "Time-boxing",
+      "C": "Use Case Modelling",
+      "D": "Voting"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which task within 'Requirements Life Cycle Management' includes assessing value and impact and evolving requirements?",
+    "options": {
+      "A": "Assess Requirements Changes",
+      "B": "Trace Requirements",
+      "C": "Maintain Requirements",
+      "D": "Approve Requirements"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the primary purpose of elicitation in business analysis?",
+    "options": {
+      "A": "To allocate project resources",
+      "B": "To document project plans",
+      "C": "To resolve project issues",
+      "D": "To understand stakeholder requirements"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "In preparing for a project's requirements gathering phase, what is the main purpose of conducting 'Interviews' with stakeholders?",
+    "options": {
+      "A": "To develop a communication plan",
+      "B": "To track project expenses",
+      "C": "To elicit detailed information",
+      "D": "To assign project tasks"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Why is it important that requirements and designs are 'atomic' according to the quality characteristics defined in the verification process?",
+    "options": {
+      "A": "To simplify the budgeting process",
+      "B": "To ensure they can be easily outsourced",
+      "C": "To ensure requirement can be understood independently of others",
+      "D": "To facilitate quick approvals from stakeholders"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Why is stakeholder analysis significant in the elicitation process?",
+    "options": {
+      "A": "To understand who will be affected by or can influence the project",
+      "B": "To identify who will approve the project budget",
+      "C": "To determine the technical expertise of the team",
+      "D": "To establish the project timeline"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In which knowledge area should a Business Analyst give priority to requirements?",
+    "options": {
+      "A": "Business Analysis Planning and Monitoring",
+      "B": "Elicitation and Collaboration",
+      "C": "Solution Evaluation",
+      "D": "Requirements Life Cycle Management"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "When tackling a large project, which approach allows you to break the solution down into smaller, more manageable pieces for gradual completion?",
+    "options": {
+      "A": "Adaptive",
+      "B": "Predictive",
+      "C": "Hybrid",
+      "D": "Incremental"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "How do 'Reviews' contribute to the verification of requirements?",
+    "options": {
+      "A": "By providing a financial assessment of the requirements",
+      "B": "By inspecting the requirements documentation for unacceptable quality",
+      "C": "By evaluating the project's alignment with strategic goals",
+      "D": "By prioritizing the project tasks and requirements"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "When utilizing 'Elicitation Results' during the Requirements Analysis and Design Definition phase, in which states can these results be used for specifying and modeling requirements?",
+    "options": {
+      "A": "Unconfirmed or preliminary results",
+      "B": "Results in any state, from preliminary to confirmed",
+      "C": "Only results that have been formally documented and approved by a project manager",
+      "D": "Confirmed and finalized results"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following would you NOT include in a Business Analysis Communication Plan?",
+    "options": {
+      "A": "Method of communication",
+      "B": "Communication objectives",
+      "C": "Frequency of communication",
+      "D": "Stakeholder birthdays"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the significance of establishing ground rules in collaborative sessions?",
+    "options": {
+      "A": "To identify the technical specifications",
+      "B": "To facilitate a structured and effective discussion",
+      "C": "To ensure adherence to the project budget",
+      "D": "To allocate tasks to team members"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Under what conditions are requirements considered 'accepted'?",
+    "options": {
+      "A": "Following the completion of the project",
+      "B": "Once they are allocated to a project phase",
+      "C": "After they are documented",
+      "D": "When they are formally approved by stakeholders"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What role does the 'Balanced Scorecard' play in strategic management?",
+    "options": {
+      "A": "Maintaining project schedules",
+      "B": "Documenting technical specifications",
+      "C": "Tracking financial metrics",
+      "D": "Measuring performance from multiple perspectives"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What role do 'Metrics and Key Performance Indicators (KPIs)' play in verifying requirements?",
+    "options": {
+      "A": "They provide standards for evaluating the quality of the requirements.",
+      "B": "They prioritize requirements based on stakeholder feedback.",
+      "C": "They document the requirements in a formal repository.",
+      "D": "They determine the financial impact of requirements."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which task is essential to ensuring that requirements remain relevant throughout time?",
+    "options": {
+      "A": "Reviewing requirements regularly",
+      "B": "Conducting periodic stakeholder meetings",
+      "C": "Limiting change requests",
+      "D": "Focusing on initial requirements"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "The 'Balanced Scorecard' is a technique used for what purpose?",
+    "options": {
+      "A": "Conducting market research",
+      "B": "Managing project risks",
+      "C": "Tracking and monitoring business strategy",
+      "D": "Estimating project costs"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What does it mean for a requirement to be 'testable' as described in the quality characteristics?",
+    "options": {
+      "A": "All stakeholders agree on the requirement.",
+      "B": "The requirement has been documented in a project management tool.",
+      "C": "The requirement can be implemented within the current budget.",
+      "D": "It is possible to verify that the requirement has been fulfilled in the solution."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which of the following is NOT a common challenge during requirements elicitation?",
+    "options": {
+      "A": "Resolving ambiguity in information",
+      "B": "Managing time differences between locations",
+      "C": "Reaching agreement on requirements",
+      "D": "Implementing uniform communication methods"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Under which knowledge area is 'Assess Solution Limitations' categorized?",
+    "options": {
+      "A": "Elicitation and Collaboration",
+      "B": "Requirements Life Cycle Management",
+      "C": "Solution Evaluation",
+      "D": "Strategy Analysis"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the primary goal of the 'Verify Requirements' task in business analysis?",
+    "options": {
+      "A": "To ensure that requirements meet quality standards",
+      "B": "To finalize the technical design specifications",
+      "C": "To prepare requirements for stakeholder presentation",
+      "D": "To ensure requirements meet the budget constraints"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Considering a reorganization, how does 'Organizational Modelling' serve a business analyst?",
+    "options": {
+      "A": "Schedule project tasks",
+      "B": "Document the technical architecture of IT systems",
+      "C": "Define the structure and relationships within an organization",
+      "D": "Create a project budget"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the main purpose of an Information Radiator in an Agile environment?",
+    "options": {
+      "A": "To disseminate information in an easily visible manner",
+      "B": "To collect stakeholder feedback",
+      "C": "To document requirements",
+      "D": "To heat the office"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Why is prototyping a preferred technique during requirements elicitation?",
+    "options": {
+      "A": "To finalize the requirements",
+      "B": "To define the project budget",
+      "C": "To enable stakeholders to experience a model of the solution",
+      "D": "To produce the final product"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Why is 'Functional Decomposition' used in specifying and modeling requirements?",
+    "options": {
+      "A": "To assess the environmental impact of a project",
+      "B": "To develop the technical infrastructure of a system",
+      "C": "To break down high-level business functions into smaller, manageable parts",
+      "D": "To plan the project’s phases and milestones"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which skill is crucial for Business Analysts to transfer knowledge to stakeholders?",
+    "options": {
+      "A": "Creative thinking",
+      "B": "Teaching",
+      "C": "Problem solving",
+      "D": "Decision making"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "How does 'Process Modelling' help in business analysis?",
+    "options": {
+      "A": "Describing project scope",
+      "B": "Illustrating business processes",
+      "C": "Defining business strategies",
+      "D": "Analyzing financial performance"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Prototyping' is particularly useful for:",
+    "options": {
+      "A": "Creating a detailed project plan",
+      "B": "Conducting financial analysis",
+      "C": "Managing project risks",
+      "D": "Validating requirements and designs with stakeholders"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the business analyst's role in facilitating stakeholder collaboration?",
+    "options": {
+      "A": "To act as a communication conduit",
+      "B": "To oversee contract negotiations",
+      "C": "To serve as a project manager",
+      "D": "To provide technical support"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Who is responsible for interpreting the expressed needs of stakeholders?",
+    "options": {
+      "A": "Systems Analyst",
+      "B": "Product Owner",
+      "C": "Project Manager",
+      "D": "Business Analyst"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What advantage do workshops offer in the elicitation process?",
+    "options": {
+      "A": "Removal of documentation needs",
+      "B": "Informal and adaptable format",
+      "C": "Time efficiency by engaging multiple stakeholders at once",
+      "D": "No need for facilitation"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the objective of confirming elicitation results?",
+    "options": {
+      "A": "To prioritize requirements",
+      "B": "To ensure accuracy",
+      "C": "To analyze costs",
+      "D": "To identify conflicts"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In project planning, why is 'Risk Analysis and Management' essential?",
+    "options": {
+      "A": "Track project expenses",
+      "B": "Manage the project timeline",
+      "C": "Monitor the resolution of requirements, defects, and issues",
+      "D": "Record stakeholder feedback"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "During a workshop aimed at gathering requirements, why might a business analyst use 'Collaborative Games'?",
+    "options": {
+      "A": "Decide on the final solution",
+      "B": "Create competition among stakeholders",
+      "C": "Manage project timelines",
+      "D": "Engage stakeholders within requirement elicitation"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which technique is specifically used to manage and resolve issues identified during the verification of requirements?",
+    "options": {
+      "A": "SWOT Analysis",
+      "B": "Process Modelling",
+      "C": "Item Tracking",
+      "D": "Decision Modelling"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "The ability to effectively manage one's workload and prioritize tasks is a key aspect of which underlying competency?",
+    "options": {
+      "A": "Business Knowledge",
+      "B": "Communication Skills",
+      "C": "Analytical Thinking and Problem Solving",
+      "D": "Behavioral Characteristics"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which term describes the circumstances that influence or are influenced by and provide an understanding of a change?",
+    "options": {
+      "A": "Need",
+      "B": "Context",
+      "C": "Solution",
+      "D": "Change"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What purpose does a Traceability Matrix serve?",
+    "options": {
+      "A": "Maps requirements to solution components",
+      "B": "Tracks changes to requirements",
+      "C": "Maps requirements to business objectives",
+      "D": "Maps stakeholders to requirements"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "At which levels can business analysis be performed?",
+    "options": {
+      "A": "It can be performed only at organization level.",
+      "B": "It can be performed only at project level.",
+      "C": "It can be performed at any level in the organization.",
+      "D": "It can be performed only at strategy level."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What does the acronym SWOT represent?",
+    "options": {
+      "A": "System, Weakness, Objectives, Tactics",
+      "B": "Strength, Work, Opportunity, Threat",
+      "C": "Strength, Weakness, Opportunity, Threat",
+      "D": "Solution, Weakness, Objectives, Threat"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of these is NOT commonly evaluated as a limitation during solution assessments?",
+    "options": {
+      "A": "Stakeholder satisfaction",
+      "B": "Technical limitations",
+      "C": "Time constraints",
+      "D": "Constraints within the organization"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which underlying competency involves understanding the relationships between different components of an organization and how they contribute to the overall goals?",
+    "options": {
+      "A": "Problem Solving",
+      "B": "Decision Making",
+      "C": "Creative Thinking",
+      "D": "Systems Thinking"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What does 'requirements disposal' entail at the end of a project?",
+    "options": {
+      "A": "Evaluating team performance",
+      "B": "Transferring requirements to another project",
+      "C": "Archiving all project documentation",
+      "D": "Removing or archiving requirements that are no longer applicable"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A business analyst is recommending a solution that involves purchasing a new software system from a vendor. Which of the following factors would be MOST important for the business analyst to consider when evaluating the vendor?",
+    "options": {
+      "A": "The vendor's location and office facilities",
+      "B": "The vendor's experience and reputation in the industry",
+      "C": "The vendor's marketing materials and website design",
+      "D": "The vendor's pricing model and licensing terms"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "At what stage of the project should 'requirements disposition' be performed?",
+    "options": {
+      "A": "At the beginning of the project",
+      "B": "Throughout the project",
+      "C": "At the start of each phase",
+      "D": "At the end of the project"
+    },
+    "correct_answer": "D"
+  }
+]
