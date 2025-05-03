@@ -1,0 +1,14 @@
+[
+  { "key": "CCBA® Exam prep, 21 IIBA® PDUs", "value": "ba00.json" },
+  { "key": "ECBA Exam Preparation (Practice Test ECBA) - Practice Test 1", "value": "ba01.json" },
+  { "key": "ECBA Exam Preparation (Practice Test ECBA) - Practice Test 2", "value": "ba02.json" },
+  { "key": "ECBA Exam Preparation (Practice Test ECBA) - Practice Test 3", "value": "ba03.json" },
+  { "key": "ECBA Exam Preparation (Practice Test ECBA) - Practice Test 4", "value": "ba04.json" },
+  { "key": "ECBA Exam Preparation (Practice Test ECBA) - Practice Test 5", "value": "ba05.json" },
+  { "key": "ECBA Certification Practice Exams 1", "value": "ba06.json" },
+  { "key": "ECBA Certification Practice Exams 2", "value": "ba07.json" },
+  { "key": "ECBA Certification Practice Exams 3", "value": "ba08.json" },
+  { "key": "ECBA Certification Practice Exams 4", "value": "ba09.json" },
+  { "key": "ECBA Certification Practice Exams 5", "value": "ba10.json" },
+  { "key": "ECBA Certification Practice Exams 6", "value": "ba11.json" }
+]

@@ -109,23 +109,30 @@
     <!-- Cài đặt Quiz -->
     <div class="settings">
         <label>Chọn file JSON:</label>
-        <input type="text" id="jsonFileName" placeholder="Nhập tên file JSON" style="width: 100%;" value="ba01.json">
+        <select id="jsonFileName">
+            <option disabled selected>-- Chọn --</option>
+        </select>
+        <br />
 
         <label>Từ câu:</label>
         <input type="number" id="startQuestion" value="1" min="1" style="width: 50px;">
 
         <label>Đến câu:</label>
         <input type="number" id="endQuestion" value="50" min="1" style="width: 50px;">
+        <br />
 
         <label>Số câu hỏi ngẫu nhiên:</label>
         <input type="number" id="randomQuestionCount" value="5" min="1" style="width: 50px;">
 
+        <br />
         <label>
             <input type="radio" name="order" value="ordered" checked> Theo thứ tự
         </label>
         <label>
             <input type="radio" name="order" value="random"> Ngẫu nhiên
         </label>
+
+        <br />
         <label>
             <input type="checkbox" id="shuffleAnswers"> Ngẫu nhiên câu trả lời
         </label>
@@ -145,7 +152,45 @@
 <script>
     let questions = [];  // Lưu dữ liệu từ JSON
     let selectedQuestions = [];
+    $(function() {
+        loadOptions();
+        restoreSettingsFromLocalStorage();
+    });
 
+    // Hàm lưu dữ liệu vào localStorage
+    function saveSettingsToLocalStorage() {
+        localStorage.setItem('quizSettings', JSON.stringify({
+            fileName: $("#jsonFileName").val(),
+            startQuestion: $("#startQuestion").val(),
+            endQuestion: $("#endQuestion").val(),
+            randomQuestionCount: $("#randomQuestionCount").val(),
+            order: $("input[name='order']:checked").val(),
+            shuffleAnswers: $("#shuffleAnswers").is(":checked")
+        }));
+    }
+
+    // Gắn sự kiện thay đổi để tự động lưu
+    $(document).on("change input", "#jsonFileName, #startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], #shuffleAnswers", saveSettingsToLocalStorage);
+
+    // Hàm khôi phục dữ liệu từ localStorage
+    function restoreSettingsFromLocalStorage() {
+        const saved = localStorage.getItem('quizSettings');
+        if (saved) {
+            const settings = JSON.parse(saved);
+
+            // Khôi phục select sau khi load options
+            setTimeout(() => {
+                $("#jsonFileName").val(settings.fileName);
+            }, 300);
+
+            $("#startQuestion").val(settings.startQuestion);
+            $("#endQuestion").val(settings.endQuestion);
+            $("#randomQuestionCount").val(settings.randomQuestionCount);
+            $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
+            $("#shuffleAnswers").prop("checked", settings.shuffleAnswers);
+        }
+    }
+   
     // Bắt đầu quiz
     $("#startQuiz, #retest").click(function () {
         let fileName = $("#jsonFileName").val().trim();
@@ -262,6 +307,29 @@
       $('#startQuiz').show();
       $('#quizContainer').hide();
     });
+
+    function loadOptions() {
+        let listFileName = `../file/quiz/data-file-name.json`;
+        fetch(listFileName)
+            .then(response => {
+            if (!response.ok) throw new Error("Không tìm thấy file JSON");
+                return response.json();
+            })
+            .then(data => {
+                const select = document.getElementById('jsonFileName');
+                select.innerHTML = '<option disabled selected>-- Chọn một mục --</option>';
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.value;
+                    option.textContent = item.key;
+                    select.appendChild(option);
+                });
+            })
+            .catch(err => {
+                alert("Lỗi khi tải file JSON: " + err.message);
+            });
+    }
+
 </script>
 
 </body>
