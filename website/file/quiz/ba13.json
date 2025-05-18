@@ -333,8 +333,8 @@
         "question": "What is a risk that business analysts (BAs) look for when managing stakeholder engagement?",
         "options": {
             "A": "Scope creep",
-            "B": " Delayed approvals",
-            "C": " Inaccurate cost estimated",
+            "B": "Delayed approvals",
+            "C": "Inaccurate cost estimated",
             "D": "Resource shortfalls"
         },
         "correct_answer": "B"
@@ -352,20 +352,20 @@
     {
         "question": "A solution is considered to be successful when the",
         "options": {
-            "A": " stakeholders' expectations are met.",
+            "A": "stakeholders' expectations are met.",
             "B": "organization is ready to accept it.",
             "C": "performance evaluation is positive.",
-            "D": " business need is satisfied"
+            "D": "business need is satisfied"
         },
         "correct_answer": "D"
     },
     {
         "question": "What are matrices in modelling formats used to describe?",
         "options": {
-            "A": " Detailed procedure ",
+            "A": "Detailed procedure ",
             "B": "Gaps in capability analysis",
             "C": "Complex but uniform structures",
-            "D": " Hierarchical structure of stakeholders"
+            "D": "Hierarchical structure of stakeholders"
         },
         "correct_answer": "C"
     },
@@ -374,7 +374,7 @@
         "options": {
             "A": "Attitudes and influence",
             "B": "Goals and objectives",
-            "C": " Changes in business needs",
+            "C": "Changes in business needs",
             "D": "Communication channels"
         },
         "correct_answer": "C"

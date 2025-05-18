@@ -82,7 +82,7 @@
     {
         "question": "When initially assigned work, understanding the scope of elicitation is important in order to:",
         "options": {
-            "A": " review the project charter.",
+            "A": "review the project charter.",
             "B": "identify the stakeholders.",
             "C": "discover the requirements.",
             "D": "plan the business analysis approach."
@@ -95,7 +95,7 @@
             "A": "Developing new requirements becomes difficult",
             "B": "More time is required to complete the project.",
             "C": "More effort is needed to trace requirements.",
-            "D": " Rejecting requirements is likely to increase."
+            "D": "Rejecting requirements is likely to increase."
         },
         "correct_answer": "C"
     },
@@ -103,7 +103,7 @@
         "question": "What is a definitional rule?",
         "options": {
             "A": "A representation of the operational knowledge of the organization",
-            "B": " An obligation or prohibition of conduct, action, practice, or procedure",
+            "B": "An obligation or prohibition of conduct, action, practice, or procedure",
             "C": "A rule that can be violated",
             "D": "A representation of the behavior of people"
         },
@@ -134,7 +134,7 @@
         "options": {
             "A": "Define requirements architecture",
             "B": "Analyze potential value and recommend solution",
-            "C": " Define design options ",
+            "C": "Define design options ",
             "D": "Specify and model requirements"
         },
         "correct_answer": "B"
@@ -162,7 +162,7 @@
     {
         "question": "Requirements allocation is an element of which task?",
         "options": {
-            "A": " Specify and model requirements",
+            "A": "Specify and model requirements",
             "B": "Verify requirements",
             "C": "Define requirements architecture",
             "D": "Define design options"
@@ -182,10 +182,10 @@
     {
         "question": "The approach that defines how requirements will be re-used í the:",
         "options": {
-            "A": " governance approach.",
+            "A": "governance approach.",
             "B": "approach to identifying business analysis improvements.",
-            "C": " information management approach.",
-            "D": " business analysis approach."
+            "C": "information management approach.",
+            "D": "business analysis approach."
         },
         "correct_answer": "C"
     },
@@ -194,7 +194,7 @@
         "options": {
             "A": "Implementation subject matter expert",
             "B": "Domain subject matter expert",
-            "C": " Operational support",
+            "C": "Operational support",
             "D": "Business analyst"
         },
         "correct_answer": "B"
@@ -202,8 +202,8 @@
     {
         "question": "While assessing requirements changes, a business analyst (BA) will determine the formality of the assessment process based on:",
         "options": {
-            "A": " governance approach.",
-            "B": " business analysis approach.",
+            "A": "governance approach.",
+            "B": "business analysis approach.",
             "C": "change strategy.",
             "D": "potential value."
         },
@@ -212,7 +212,7 @@
     {
         "question": "Which of the following tasks is part of the business analysis planning and monitoring knowledge area?",
         "options": {
-            "A": " Trace requirements",
+            "A": "Trace requirements",
             "B": "Plan stakeholder engagement",
             "C": "Analyze current state",
             "D": "Assess solution limitations"
@@ -233,7 +233,7 @@
         "question": "The task that uses the elicitation activity plan to draw out, explore and identify information relevant to the change is:",
         "options": {
             "A": "conduct elicitation.",
-            "B": " prepare for elicitation.",
+            "B": "prepare for elicitation.",
             "C": "plan business analysis information.",
             "D": "confirm elictiantion results"
         },
@@ -244,7 +244,7 @@
         "options": {
             "A": "Requirements which are of significant personal interest to a stakeholder",
             "B": "Effort and resources needed to implement a requirement",
-            "C": " Sponsor's wish-list",
+            "C": "Sponsor's wish-list",
             "D": "Development team's advice to implement easy requirements"
         },
         "correct_answer": "B"
@@ -262,7 +262,7 @@
     {
         "question": "In which state should elicitation results be in order to begin modelling of requirements?",
         "options": {
-            "A": " Unconfirmed",
+            "A": "Unconfirmed",
             "B": "Any",
             "C": "Confirmed",
             "D": "Documented"
@@ -283,8 +283,8 @@
         "question": "Which of the following techniques is used when recommendations for improvement are supported by objective and quantitative evidence?",
         "options": {
             "A": "Observation",
-            "B": " Functional decomposition",
-            "C": " Balanced scorecard",
+            "B": "Functional decomposition",
+            "C": "Balanced scorecard",
             "D": "Estimation"
         },
         "correct_answer": "A"
@@ -294,8 +294,8 @@
         "options": {
             "A": "identify and evaluate the underlying causes of a problem.",
             "B": "improve decision making by finding useful patterns",
-            "C": " understand factors to be included in a contract negotiation.",
-            "D": " describe the sequential flow of work or activities."
+            "C": "understand factors to be included in a contract negotiation.",
+            "D": "describe the sequential flow of work or activities."
         },
         "correct_answer": "C"
     },
@@ -303,7 +303,7 @@
         "question": "Which of the following is a characteristic of predictive planning approach?",
         "options": {
             "A": "Activities are divided into iterations",
-            "B": " Requirements are gathered through team interaction and feedback",
+            "B": "Requirements are gathered through team interaction and feedback",
             "C": "Tasks are performed recurrently",
             "D": "Information is captured in standardized templates"
         },
@@ -322,7 +322,7 @@
     {
         "question": "Which of the following core competencies fall under the BABOK's underlying competency “analytical thinking and problem solving”?",
         "options": {
-            "A": " Leadership and influencing, facilitation and teamwork",
+            "A": "Leadership and influencing, facilitation and teamwork",
             "B": "Industry knowledge, conceptual thinking and business acumen",
             "C": "Learning systems thinking and decision making",
             "D": "Decision making ethics and adaptability"
@@ -342,7 +342,7 @@
     {
         "question": "Which of the following describes the confirmation of interview results?",
         "options": {
-            "A": " Follow-up",
+            "A": "Follow-up",
             "B": "Validation",
             "C": "Retrospective",
             "D": "Conclusion"
@@ -352,10 +352,10 @@
     {
         "question": "What inputs are required to assess business analysis work and to plan to improve processes?",
         "options": {
-            "A": " Business analysis performance assessment and performance objectives",
+            "A": "Business analysis performance assessment and performance objectives",
             "B": "Business analysis approach and performance objectives (external)",
-            "C": " Business analysis approach and key performance objectives (internal)",
-            "D": " Business analysis approach and metrics and key performance indicators (KPIs)"
+            "C": "Business analysis approach and key performance objectives (internal)",
+            "D": "Business analysis approach and metrics and key performance indicators (KPIs)"
         },
         "correct_answer": "B"
     },
@@ -363,8 +363,8 @@
         "question": "What is the purpose of comparing the results collected through elicitation activities?",
         "options": {
             "A": "Classify and organize the results",
-            "B": " Confirm that the infomation is consistent and accurately represented",
-            "C": " Ensure that information produced is recorded for later reference use",
+            "B": "Confirm that the infomation is consistent and accurately represented",
+            "C": "Ensure that information produced is recorded for later reference use",
             "D": "Validate sufficient information was collected"
         },
         "correct_answer": "B"
@@ -384,8 +384,8 @@
         "options": {
             "A": "Activity flow",
             "B": "Rationale",
-            "C": " People and roles",
-            "D": " Data and information"
+            "C": "People and roles",
+            "D": "Data and information"
         },
         "correct_answer": "B"
     },
@@ -424,7 +424,7 @@
         "options": {
             "A": "How work is carried out",
             "B": "Effciency and effectiveness",
-            "C": " Root causes of a problem",
+            "C": "Root causes of a problem",
             "D": "How roles are identified"
         },
         "correct_answer": "B"
@@ -462,7 +462,7 @@
     {
         "question": "When is it appropriate to re-evaluate allocation of design elements between components?",
         "options": {
-            "A": " Before the final selection",
+            "A": "Before the final selection",
             "B": "During regulatory assessment",
             "C": "After a shortlist is announced",
             "D": "At any time during evaluation"
@@ -483,8 +483,8 @@
         "question": "What is the foundation for guiding the elicitation effort?",
         "options": {
             "A": "Surveys",
-            "B": " Potential value",
-            "C": " Concept model",
+            "B": "Potential value",
+            "C": "Concept model",
             "D": "Supporting material"
         },
         "correct_answer": "B"
@@ -512,7 +512,7 @@
     {
         "question": "Which of the following is a quality criterion for examining relationships between requirements?",
         "options": {
-            "A": " Defining ",
+            "A": "Defining ",
             "B": "Valuable",
             "C": "Relevant",
             "D": "Complete"
@@ -522,7 +522,7 @@
     {
         "question": "What is an example of a tacit business rule?",
         "options": {
-            "A": " Accepted practice",
+            "A": "Accepted practice",
             "B": "Corporate contract",
             "C": "Job aid",
             "D": "Corporate policy"
@@ -535,7 +535,7 @@
             "A": "Passive/Noticeable",
             "B": "Active/Unnoticeable",
             "C": "Active/Noticeable",
-            "D": " Passive/Unnoticeable"
+            "D": "Passive/Unnoticeable"
         },
         "correct_answer": "C"
     },
@@ -565,14 +565,14 @@
             "A": "To ensure the business case template is complete",
             "B": "To present the case to team leaders",
             "C": "To present a complete estimate to the business",
-            "D": " To ensure the finance team budgets for the software"
+            "D": "To ensure the finance team budgets for the software"
         },
         "correct_answer": "C"
     },
     {
         "question": "Which of the following is a common change that can be made to a process in order to improve it?",
         "options": {
-            "A": " Understand the relationship between gaps and improvement areas",
+            "A": "Understand the relationship between gaps and improvement areas",
             "B": "Automate steps that are more routine and predictable",
             "C": "Generate and evaluate options",
             "D": "Analyze the potential impact of the change"
@@ -584,7 +584,7 @@
         "options": {
             "A": "Solution requirements",
             "B": "Stakeholder requirements",
-            "C": " Business requirements",
+            "C": "Business requirements",
             "D": "Transition requirements"
         },
         "correct_answer": "D"
@@ -615,7 +615,7 @@
             "A": "Stakeholders using them",
             "B": "Business analysis professional writing them",
             "C": "Business customers once delivered",
-            "D": " Project manager reviewing them"
+            "D": "Project manager reviewing them"
         },
         "correct_answer": "A"
     }
