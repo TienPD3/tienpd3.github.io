@@ -1,334 +1,385 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Trắc Nghiệm - Udemy Style</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        @font-face {
-            font-family: 'UTM Bauhaus';
-            src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        body, button, input {
-            font-family: 'UTM Bauhaus', sans-serif !important;
-        }
-        body {
-            background: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            background: white;
-            padding: 20px 20px 45px 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin: auto;
-        }
-        h2 {
-            color: #333;
-            font-weight: 600;
-        }
-        .settings {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        .settings label {
-            font-weight: 600;
-        }
-        .question {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        .options {
-            text-align: left;
-            padding-left: 10px;
-        }
-        .options label {
-            display: block;
-            padding: 8px;
-            border-radius: 5px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .options input {
-            margin-right: 10px;
-        }
-        .btn {
-            background: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            margin-top: 10px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: 0.3s;
-            font-size: 16px;
-        }
-        .btn:hover {
-            background: #218838;
-        }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-        .correct { background: #d4edda; color: #155724; }
-        .incorrect { background: #f8d7da; color: #721c24; }
-        #submitQuiz {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        #retest {
-            position: fixed;
-            bottom: 20px;
-            right: 130px;
-            z-index: 1000;
-        }
-        #resetting {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>Trắc Nghiệm Business Analysis</h2>
-
-    <!-- Cài đặt Quiz -->
-    <div class="settings">
-        <label>Chọn file JSON:</label>
-        <select id="jsonFileName">
-            <option disabled selected>-- Chọn --</option>
-        </select>
-        <br />
-
-        <label>Từ câu:</label>
-        <input type="number" id="startQuestion" value="1" min="1" style="width: 50px;">
-
-        <label>Đến câu:</label>
-        <input type="number" id="endQuestion" value="" min="1" style="width: 50px;">
-        <br />
-
-        <label>Số câu hỏi ngẫu nhiên:</label>
-        <input type="number" id="randomQuestionCount" value="5" min="1" style="width: 50px;">
-
-        <br />
-        <label>
-            <input type="radio" name="order" value="ordered" checked> Theo thứ tự
-        </label>
-        <label>
-            <input type="radio" name="order" value="random"> Ngẫu nhiên
-        </label>
-
-        <br />
-        <label>
-            <input type="checkbox" id="shuffleAnswers"> Ngẫu nhiên câu trả lời
-        </label>
-    </div>
-
-    <button class="btn" id="startQuiz">Bắt đầu</button>
-
-    <div id="quizContainer" style="display: none;">
-        <div id="quiz"></div>
-        <button class="btn" id="resetting">Setting</button>
-        <button class="btn" id="retest">Làm lại</button>
-        <button class="btn" id="submitQuiz">Nộp bài</button>
-        <div id="result" class="result"></div>
-    </div>
-</div>
-
-<script>
-    let questions = [];  // Lưu dữ liệu từ JSON
-    let selectedQuestions = [];
-    $(function() {
-        loadOptions();
-        restoreSettingsFromLocalStorage();
-    });
-
-    // Hàm lưu dữ liệu vào localStorage
-    function saveSettingsToLocalStorage() {
-        localStorage.setItem('quizSettings', JSON.stringify({
-            fileName: $("#jsonFileName").val(),
-            startQuestion: $("#startQuestion").val(),
-            endQuestion: $("#endQuestion").val(),
-            randomQuestionCount: $("#randomQuestionCount").val(),
-            order: $("input[name='order']:checked").val(),
-            shuffleAnswers: $("#shuffleAnswers").is(":checked")
-        }));
-    }
-
-    // Gắn sự kiện thay đổi để tự động lưu
-    $(document).on("change input", "#jsonFileName, #startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], #shuffleAnswers", saveSettingsToLocalStorage);
-
-    // Hàm khôi phục dữ liệu từ localStorage
-    function restoreSettingsFromLocalStorage() {
-        const saved = localStorage.getItem('quizSettings');
-        if (saved) {
-            const settings = JSON.parse(saved);
-
-            // Khôi phục select sau khi load options
-            setTimeout(() => {
-                $("#jsonFileName").val(settings.fileName);
-            }, 300);
-
-            $("#startQuestion").val(settings.startQuestion);
-            $("#endQuestion").val(settings.endQuestion);
-            $("#randomQuestionCount").val(settings.randomQuestionCount);
-            $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
-            $("#shuffleAnswers").prop("checked", settings.shuffleAnswers);
-        }
-    }
-   
-    // Bắt đầu quiz
-    $("#startQuiz, #retest").click(function () {
-        let fileName = $("#jsonFileName").val().trim();
-        if (!fileName) {
-            alert("Vui lòng nhập tên file JSON!");
-            return;
-        }
-
-        let filePath = `../file/quiz/${fileName}`;
-        // Load JSON từ file
-        $.getJSON(filePath, function (data) {
-            questions = data;
-
-            if (questions.length === 0) {
-                alert("Dữ liệu câu hỏi chưa được tải!");
-                return;
-            }
-
-            let start = parseInt($("#startQuestion").val());
-            let end = parseInt($("#endQuestion").val()) || questions.length;
-
-            if (start < 1 || end > questions.length || start > end) {
-                alert(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
-                return;
-            }
-
-            let isRandom = $("input[name='order']:checked").val() === "random";
-            selectedQuestions = questions.slice(start - 1, end);
-
-            if (isRandom) {
-                selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
-
-                let questionCount = parseInt($("#randomQuestionCount").val() || questions.length);
-                selectedQuestions = selectedQuestions.slice(0, questionCount);  
-            }
-
-            renderQuiz();
-            $("#quizContainer").show();
-
-            // Ẩn kết quả cũ khi bắt đầu lại
-            $("#result").hide().empty();
-            $('.settings').hide();
-            $('#startQuiz').hide();
-        }).fail(function () {
-            alert("Không thể tải dữ liệu câu hỏi!");
-        });
-    });
-
-    function renderQuiz() {
-        $("#quiz").empty();
-        selectedQuestions.forEach((q, index) => {
-            let optionsArray = q.options;
-            if ($("#shuffleAnswers").is(":checked")) {
-                optionsArray = Object.entries(q.options);
-                optionsArray.sort(() => Math.random() - 0.5);
-            }
-
-            let tmpNo = ['A', 'B', 'C', 'D'];
-            let idxNo = -1
-            let optionsHtml = "";
-            $.each(optionsArray, function (tmpKey, tmpValue) {
-                let key = tmpKey;
-                let value = tmpValue;
-                if ($("#shuffleAnswers").is(":checked")) {
-                    key = tmpValue[0];
-                    value = tmpValue[1];
+        <!DOCTYPE html>
+        <html lang="vi">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Quiz Trắc Nghiệm - Udemy Style</title>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <style>
+                @font-face {
+                    font-family: 'UTM Bauhaus';
+                    src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
+                    font-weight: normal;
+                    font-style: normal;
                 }
-                idxNo++
-                optionsHtml += `
-                    <label>
-                        <input type="radio" name="q${index}" value="${key}">
-                        ${tmpNo[idxNo]}. ${value}
-                    </label>
-                `;
-            });
+                body, button, input {
+                    font-family: 'UTM Bauhaus', sans-serif !important;
+                }
+                body {
+                    background: #f8f9fa;
+                    margin: 0;
+                    padding: 20px;
+                    text-align: center;
+                }
+                .container {
+                    background: white;
+                    padding: 20px 20px 45px 20px;
+                    border-radius: 10px;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                    margin: auto;
+                }
+                h2 {
+                    color: #333;
+                    font-weight: 600;
+                }
+                .settings {
+                    text-align: left;
+                    margin-bottom: 15px;
+                }
+                .settings label {
+                    font-weight: 600;
+                }
+                .question {
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-bottom: 10px;
+                    text-align: left;
+                }
+                .options {
+                    text-align: left;
+                    padding-left: 10px;
+                }
+                .options label {
+                    display: block;
+                    padding: 8px;
+                    border-radius: 5px;
+                    transition: 0.3s;
+                    cursor: pointer;
+                }
+                .options input {
+                    margin-right: 10px;
+                }
+                .btn {
+                    background: #28a745;
+                    color: white;
+                    border: none;
+                    padding: 12px 20px;
+                    cursor: pointer;
+                    margin-top: 10px;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    transition: 0.3s;
+                    font-size: 16px;
+                }
+                .btn:hover {
+                    background: #218838;
+                }
+                .result {
+                    margin-top: 20px;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                .correct { background: #d4edda; color: #155724; }
+                .incorrect { background: #f8d7da; color: #721c24; }
+                #submitQuiz {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    z-index: 1000;
+                }
+                #retest {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 130px;
+                    z-index: 1000;
+                }
+                #resetting {
+                    position: fixed;
+                    bottom: 20px;
+                    left: 20px;
+                    z-index: 1000;
+                }
+            </style>
+        </head>
+        <body>
 
-            $("#quiz").append(`
-                <div class="question">${index + 1}. ${q.question}</div>
-                <div class="options">${optionsHtml}</div>
-                <hr>
-            `);
-        });
-    }
+        <div class="container">
+            <h2>Trắc Nghiệm Business Analysis</h2>
 
-    $("#submitQuiz").click(function () {
-        let score = 0;
-        $("#result").empty();
+            <!-- Cài đặt Quiz -->
+            <div class="settings">
+                <label>Chọn file JSON:</label>
+                <select id="jsonFileName"></select>
+                <br />
 
-        selectedQuestions.forEach((q, index) => {
-            let userAnswer = $(`input[name='q${index}']:checked`).val();
-            let correctAnswer = q.correct_answer;
+                <label>Từ câu:</label>
+                <input type="number" id="startQuestion" value="1" min="1" style="width: 50px;">
+
+                <label>Đến câu:</label>
+                <input type="number" id="endQuestion" value="" min="1" style="width: 50px;">
+                <br />
+
+                <label>Số câu hỏi ngẫu nhiên:</label>
+                <input type="number" id="randomQuestionCount" value="5" min="1" style="width: 50px;">
+
+                <br />
+                <label>
+                    <input type="radio" name="order" value="ordered" checked> Theo thứ tự
+                </label>
+                <label>
+                    <input type="radio" name="order" value="random"> Ngẫu nhiên
+                </label>
+
+                <br />
+                <label>
+                    <input type="checkbox" id="shuffleAnswers"> Ngẫu nhiên câu trả lời
+                </label>
+            </div>
+
+            <button class="btn" id="startQuiz">Bắt đầu</button>
+
+            <div id="quizContainer" style="display: none;">
+                <div id="quiz"></div>
+                <button class="btn" id="resetting">Setting</button>
+                <button class="btn" id="retest">Làm lại</button>
+                <button class="btn" id="submitQuiz">Nộp bài</button>
+                <div id="result" class="result"></div>
+            </div>
+        </div>
+
+        <script>
+            let questions = [];  // Lưu dữ liệu từ JSON
+            let selectedQuestions = [];
+            let allFileNames = [];
             
-            if (userAnswer === correctAnswer) {
-                score++;
-                $(`input[name='q${index}'][value='${correctAnswer}']`).parent().addClass("correct");
-            } else {
-                $(`input[name='q${index}'][value='${correctAnswer}']`).parent().addClass("correct");
-                if (userAnswer) {
-                    $(`input[name='q${index}'][value='${userAnswer}']`).parent().addClass("incorrect");
+            $(function() {
+                loadOptions();
+                restoreSettingsFromLocalStorage();
+            });
+
+            // Hàm lưu dữ liệu vào localStorage
+            function saveSettingsToLocalStorage() {
+                localStorage.setItem('quizSettings', JSON.stringify({
+                    fileName: $("#jsonFileName").val(),
+                    startQuestion: $("#startQuestion").val(),
+                    endQuestion: $("#endQuestion").val(),
+                    randomQuestionCount: $("#randomQuestionCount").val(),
+                    order: $("input[name='order']:checked").val(),
+                    shuffleAnswers: $("#shuffleAnswers").is(":checked")
+                }));
+            }
+
+            // Gắn sự kiện thay đổi để tự động lưu
+            $(document).on("change input", "#jsonFileName, #startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], #shuffleAnswers", saveSettingsToLocalStorage);
+
+            // Hàm khôi phục dữ liệu từ localStorage
+            function restoreSettingsFromLocalStorage() {
+                const saved = localStorage.getItem('quizSettings');
+                if (saved) {
+                    const settings = JSON.parse(saved);
+
+                    // Khôi phục select sau khi load options
+                    setTimeout(() => {
+                        $("#jsonFileName").val(settings.fileName);
+                    }, 300);
+
+                    $("#startQuestion").val(settings.startQuestion);
+                    $("#endQuestion").val(settings.endQuestion);
+                    $("#randomQuestionCount").val(settings.randomQuestionCount);
+                    $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
+                    $("#shuffleAnswers").prop("checked", settings.shuffleAnswers);
                 }
             }
-        });
+        
+            // Bắt đầu quiz
+            $("#startQuiz, #retest").click(function () {
+                let fileName = $("#jsonFileName").val();
+                if (!fileName) {
+                    alert("Vui lòng chọn tên file JSON!");
+                    return;
+                }
 
-        // Hiện kết quả cũ khi bắt đầu lại
-        $("#result").show();
-        $("#result").html(`Bạn trả lời đúng ${score}/${selectedQuestions.length} câu.`);
-    });
+                const isAll = fileName === "__ALL__";
+                const filesToLoad = isAll ? allFileNames : [fileName];
 
-    $("#resetting").click(function () {
-      window.scrollTo(0, 0)
-      $('.settings').show();
-      $('#startQuiz').show();
-      $('#quizContainer').hide();
-    });
+                // Load tất cả các file JSON, rồi gộp lại
+                Promise.all(filesToLoad.map(f => $.getJSON(`../file/quiz/${f}`)))
+                    .then(fileDataList => {
+                        questions = fileDataList.flat();
 
-    function loadOptions() {
-        let listFileName = `../file/quiz/data-file-name.json`;
-        fetch(listFileName)
-            .then(response => {
-            if (!response.ok) throw new Error("Không tìm thấy file JSON");
-                return response.json();
-            })
-            .then(data => {
-                const select = document.getElementById('jsonFileName');
-                select.innerHTML = '<option disabled selected>-- Chọn một mục --</option>';
-                data.forEach(item => {
-                    const option = document.createElement('option');
-                    option.value = item.value;
-                    option.textContent = item.key;
-                    select.appendChild(option);
-                });
-            })
-            .catch(err => {
-                alert("Lỗi khi tải file JSON: " + err.message);
+                        if (questions.length === 0) {
+                            alert("Không có câu hỏi nào!");
+                            return;
+                        }
+
+                        let start = parseInt($("#startQuestion").val());
+                        let end = parseInt($("#endQuestion").val()) || questions.length;
+
+                        if (start < 1 || end > questions.length || start > end) {
+                            alert(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                            return;
+                        }
+
+                        let isRandom = $("input[name='order']:checked").val() === "random";
+                        selectedQuestions = questions.slice(start - 1, end);
+
+                        if (isRandom) {
+                            selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
+                            let questionCount = parseInt($("#randomQuestionCount").val() || selectedQuestions.length);
+                            selectedQuestions = selectedQuestions.slice(0, questionCount);
+                        }
+
+                        renderQuiz();
+                        $("#quizContainer").show();
+                        $("#result").hide().empty();
+                        $('.settings').hide();
+                        $('#startQuiz').hide();
+                    })
+                    .catch(() => {
+                        alert("Không thể tải dữ liệu câu hỏi!");
+                    });
             });
-    }
 
-</script>
+            function renderQuiz() {
+                $("#quiz").empty();
+                selectedQuestions.forEach((q, index) => {
+                    let optionsArray = q.options;
+                    if ($("#shuffleAnswers").is(":checked")) {
+                        optionsArray = Object.entries(q.options);
+                        optionsArray.sort(() => Math.random() - 0.5);
+                    }
 
-</body>
-</html>
+                    let tmpNo = ['A', 'B', 'C', 'D'];
+                    let idxNo = -1
+                    let optionsHtml = "";
+                    $.each(optionsArray, function (tmpKey, tmpValue) {
+                        let key = tmpKey;
+                        let value = tmpValue;
+                        if ($("#shuffleAnswers").is(":checked")) {
+                            key = tmpValue[0];
+                            value = tmpValue[1];
+                        }
+                        idxNo++;
+
+                        let isLast = (idxNo === optionsArray.length - 1);
+                        optionsHtml += `
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <label style="flex: 1;">
+                                    <input type="radio" name="q${index}" value="${key}">
+                                    ${tmpNo[idxNo]}. ${value}
+                                </label>
+                                ${isLast ? `<button class="btn check-answer" data-index="${index}" style="padding: 6px 12px; font-size: 14px;">Kiểm tra</button>` : ''}
+                            </div>
+                        `;
+                    });
+
+                    // Thêm icon dịch vào câu hỏi, div dịch ẩn
+                    $("#quiz").append(`
+                        <div class="question" style="position: relative;">
+                            ${index + 1}. ${q.question}
+                            <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
+                                style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
+                            <div class="translation" style="color: #555; margin-top: 5px; display:none;"></div>
+                        </div>
+                        <div class="options">${optionsHtml}</div>
+                        <hr>
+                    `);
+                });
+            }
+
+            // Bắt sự kiện click icon dịch
+            $(document).on('click', '.translate-icon', function () {
+                const index = $(this).data('index');
+                const questionObj = selectedQuestions[index];
+
+                // Nối câu hỏi + từng đáp án thành 1 chuỗi
+                let fullText = questionObj.question + '\n';
+                for (const key in questionObj.options) {
+                    fullText += `${key}. ${questionObj.options[key]}\n`;
+                }
+
+                // Mã hóa và mở tab mới Google Translate
+                const url = `https://translate.google.com/?sl=en&tl=vi&text=${encodeURIComponent(fullText)}&op=translate`;
+                window.open(url, '_blank');
+            });
+
+            $(document).on("click", ".check-answer", function () {
+                const index = $(this).data("index");
+                const selected = $(`input[name='q${index}']:checked`).val();
+                const correct = selectedQuestions[index].correct_answer;
+
+                if (!selected) {
+                    alert("Vui lòng chọn một đáp án trước khi kiểm tra!");
+                    return;
+                }
+
+                $(`input[name='q${index}']`).prop("disabled", true);
+
+                $(`input[name='q${index}'][value='${correct}']`).parent().addClass("correct");
+                if (selected !== correct) {
+                    $(`input[name='q${index}'][value='${selected}']`).parent().addClass("incorrect");
+                }
+
+                $(this).hide();
+            });
+
+            $("#submitQuiz").click(function () {
+                let score = 0;
+                $("#result").empty();
+
+                selectedQuestions.forEach((q, index) => {
+                    let userAnswer = $(`input[name='q${index}']:checked`).val();
+                    let correctAnswer = q.correct_answer;
+                    
+                    if (userAnswer === correctAnswer) {
+                        score++;
+                        $(`input[name='q${index}'][value='${correctAnswer}']`).parent().addClass("correct");
+                    } else {
+                        $(`input[name='q${index}'][value='${correctAnswer}']`).parent().addClass("correct");
+                        if (userAnswer) {
+                            $(`input[name='q${index}'][value='${userAnswer}']`).parent().addClass("incorrect");
+                        }
+                    }
+                });
+
+                // Hiện kết quả cũ khi bắt đầu lại
+                $("#result").show();
+                $("#result").html(`Bạn trả lời đúng ${score}/${selectedQuestions.length} câu.`);
+            });
+
+            $("#resetting").click(function () {
+            window.scrollTo(0, 0)
+            $('.settings').show();
+            $('#startQuiz').show();
+            $('#quizContainer').hide();
+            });
+
+            function loadOptions() {
+                let listFileName = `../file/quiz/data-file-name.json`;
+                fetch(listFileName)
+                    .then(response => {
+                        if (!response.ok) throw new Error("Không tìm thấy file JSON");
+                        return response.json();
+                    })
+                    .then(data => {
+                        const select = document.getElementById('jsonFileName');
+                        select.innerHTML = '<option disabled selected>-- Chọn một mục --</option>';
+                        select.innerHTML += '<option value="__ALL__">ALL</option>';
+                        allFileNames = data.map(u => u.value);  // Lưu danh sách tất cả file
+
+                        data.forEach(item => {
+                            const option = document.createElement('option');
+                            option.value = item.value;
+                            option.textContent = item.key;
+                            select.appendChild(option);
+                        });
+                    })
+                    .catch(err => {
+                        alert("Lỗi khi tải file JSON: " + err.message);
+                    });
+            }
+
+        </script>
+
+        </body>
+        </html>
