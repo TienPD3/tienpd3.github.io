@@ -305,7 +305,7 @@
                     fullText += `${key}. ${questionObj.options[key]}\n`;
                 }
 
-                fullText += `\nĐáp án đúng là: ${questionObj.correct_answer}`;
+                fullText += `\nĐáp án của tôi là: ${questionObj.correct_answer}, nếu tôi sai bạn hay đưa ra lý do bạn chọn câu khác.`;
 
                 // Copy vào clipboard
                 navigator.clipboard.writeText(fullText)
