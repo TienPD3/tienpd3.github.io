@@ -235,14 +235,19 @@
                         $('.settings').hide();
                         $('#startQuiz').hide();
                     })
-                    .catch(() => {
-                        alert("Không thể tải dữ liệu câu hỏi!");
+                    .catch((e) => {
+                        console.error(e);
                     });
             });
 
             function renderQuiz() {
                 $("#quiz").empty();
                 selectedQuestions.forEach((q, index) => {
+                    if (!q.options || typeof q.options !== 'object') {
+                        console.warn(`Câu hỏi số ${index + 1} bị thiếu 'options' hoặc sai định dạng.`);
+                        return;
+                    }
+
                     let optionsArray = q.options;
                     if ($("#shuffleAnswers").is(":checked")) {
                         optionsArray = Object.entries(q.options);
@@ -263,7 +268,7 @@
 
                         let isLast = (idxNo === optionsArray.length - 1);
                         optionsHtml += `
-                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div data-index="${index}" style="display: flex; align-items: center; justify-content: space-between;">
                                 <label style="flex: 1;">
                                     <input type="radio" name="q${index}" value="${key}">
                                     ${tmpNo[idxNo]}. ${value}
@@ -273,12 +278,13 @@
                         `;
                     });
 
-                    // Thêm icon dịch vào câu hỏi, div dịch ẩn
                     $("#quiz").append(`
                         <div class="question" style="position: relative;">
                             ${index + 1}. ${q.question}
                             <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                                 style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
+                            <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
+                                style="cursor:pointer; margin-left:10px; font-size:18px; color:#28a745;">🤖</span>
                             <div class="translation" style="color: #555; margin-top: 5px; display:none;"></div>
                         </div>
                         <div class="options">${optionsHtml}</div>
@@ -286,6 +292,31 @@
                     `);
                 });
             }
+
+            // Bắt sự kiện click icon ChatGPT - copy prompt + mở tab ChatGPT
+            $(document).on('click', '.chatgpt-icon', function () {
+                const index = $(this).data('index');
+                const questionObj = selectedQuestions[index];
+
+                let fullText = `Hãy giải thích và phân tích câu trắc nghiệm sau bằng tiếng Việt và có trích dẫn từ BABOK V3 ở câu đúng\n\n`;
+                fullText += `Câu hỏi: ${questionObj.question}\n`;
+
+                for (const key in questionObj.options) {
+                    fullText += `${key}. ${questionObj.options[key]}\n`;
+                }
+
+                fullText += `\nĐáp án đúng là: ${questionObj.correct_answer}`;
+
+                // Copy vào clipboard
+                navigator.clipboard.writeText(fullText)
+                    .then(() => {
+                        window.open("https://chatgpt.com/?temporary-chat=true", '_blank');
+                    })
+                    .catch(err => {
+                        alert("Không thể copy vào clipboard. Vui lòng thử lại.");
+                        console.error(err);
+                    });
+            });
 
             // Bắt sự kiện click icon dịch
             $(document).on('click', '.translate-icon', function () {
