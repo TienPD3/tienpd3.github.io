@@ -229,6 +229,7 @@
                             selectedQuestions = selectedQuestions.slice(0, questionCount);
                         }
 
+                        selectedQuestions = groupQuestionsByAnswer(selectedQuestions);
                         renderQuiz();
                         $("#quizContainer").show();
                         $("#result").hide().empty();
@@ -239,6 +240,25 @@
                         console.error(e);
                     });
             });
+
+            function normalizeAnswer(ans) {
+                return ans.trim().toLowerCase().replace(/[^\w\s]/gi, '');
+            }
+
+            function groupQuestionsByAnswer(questions) {
+                const groups = new Map();
+
+                questions.forEach(q => {
+                    const correctAns = normalizeAnswer(q.options[q.correct_answer]);
+                    if (!groups.has(correctAns)) {
+                        groups.set(correctAns, []);
+                    }
+                    groups.get(correctAns).push(q);
+                });
+
+                // Ghép lại các nhóm thành 1 mảng
+                return Array.from(groups.values()).flat();
+            }
 
             function renderQuiz() {
                 $("#quiz").empty();
@@ -298,14 +318,15 @@
                 const index = $(this).data('index');
                 const questionObj = selectedQuestions[index];
 
-                let fullText = `Hãy giải thích và phân tích câu trắc nghiệm sau bằng tiếng Việt và có trích dẫn từ BABOK V3 ở câu đúng\n\n`;
+                let fullText = `1/ Dịch vừa có tiếng anh và tiếng việt\n
+                                2/ Trích dẫn từ BABOK V3 ở câu đúng\n`
                 fullText += `Câu hỏi: ${questionObj.question}\n`;
 
                 for (const key in questionObj.options) {
                     fullText += `${key}. ${questionObj.options[key]}\n`;
                 }
 
-                fullText += `\nĐáp án của tôi là: ${questionObj.correct_answer}, nếu tôi sai bạn hay đưa ra lý do bạn chọn câu khác.`;
+                fullText += `\nĐáp án của tôi là: ${questionObj.correct_answer}`;
 
                 // Copy vào clipboard
                 navigator.clipboard.writeText(fullText)
@@ -379,10 +400,10 @@
             });
 
             $("#resetting").click(function () {
-            window.scrollTo(0, 0)
-            $('.settings').show();
-            $('#startQuiz').show();
-            $('#quizContainer').hide();
+                window.scrollTo(0, 0)
+                $('.settings').show();
+                $('#startQuiz').show();
+                $('#quizContainer').hide();
             });
 
             function loadOptions() {
