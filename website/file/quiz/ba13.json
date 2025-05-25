@@ -333,8 +333,8 @@
       "question": "What is a risk that business analysts (BAs) look for when managing stakeholder engagement?",
       "options": {
         "A": "Scope creep",
-        "B": " Delayed approvals",
-        "C": " Inaccurate cost estimated",
+        "B": "Delayed approvals",
+        "C": "Inaccurate cost estimated",
         "D": "Resource shortfalls"
       },
       "correct_answer": "B"
@@ -352,20 +352,20 @@
     {
       "question": "A solution is considered to be successful when the",
       "options": {
-        "A": " stakeholders' expectations are met.",
+        "A": "stakeholders' expectations are met.",
         "B": "organization is ready to accept it.",
         "C": "performance evaluation is positive.",
-        "D": " business need is satisfied"
+        "D": "business need is satisfied"
       },
       "correct_answer": "D"
     },
     {
       "question": "What are matrices in modelling formats used to describe?",
       "options": {
-        "A": " Detailed procedure ",
+        "A": "Detailed procedure ",
         "B": "Gaps in capability analysis",
         "C": "Complex but uniform structures",
-        "D": " Hierarchical structure of stakeholders"
+        "D": "Hierarchical structure of stakeholders"
       },
       "correct_answer": "C"
     },
@@ -374,7 +374,7 @@
       "options": {
         "A": "Attitudes and influence",
         "B": "Goals and objectives",
-        "C": " Changes in business needs",
+        "C": "Changes in business needs",
         "D": "Communication channels"
       },
       "correct_answer": "C"
@@ -402,7 +402,7 @@
     {
       "question": "Which of the following items is commonly used by a business analyst (BA) during requirements verification?",
       "options": {
-        "A": " A checklist with a standard set of quality elements",
+        "A": "A checklist with a standard set of quality elements",
         "B": "A business model canvas with financial estimates",
         "C": "A benchmarking report with industry comparisons",
         "D": "A user story with inputs and outputs"
@@ -452,10 +452,10 @@
     {
       "question": "A business analyst (BA) is someone who elicits the actual needs of organizational stakeholders:",
       "options": {
-        "A": " in any capacity, regardless of job title.",
-        "B": " in a project team, with an Business Analyst job title.",
-        "C": " in a project team, regardless of job title.",
-        "D": " in any capacity, with an Business Analyst job title."
+        "A": "in any capacity, regardless of job title.",
+        "B": "in a project team, with an Business Analyst job title.",
+        "C": "in a project team, regardless of job title.",
+        "D": "in any capacity, with an Business Analyst job title."
       },
       "correct_answer": "A"
     },
@@ -472,8 +472,8 @@
     {
       "question": "Inputs to prepare for elicitation include:",
       "options": {
-        "A": " information management approach and solution scope.",
-        "B": " needs and stakeholder engagement approach.",
+        "A": "information management approach and solution scope.",
+        "B": "needs and stakeholder engagement approach.",
         "C": "future state description and risk analysis results.",
         "D": "requirements and designs."
       },
@@ -482,17 +482,17 @@
     {
       "question": "What technique is used to elicit business analysis information, including contextual understanding and requirements, by examining available materials that describe either the business environment or existing organizational assets?",
       "options": {
-        "A": " Organizational modeling",
-        "B": " Document analysis",
-        "C": " Functional decomposition",
-        "D": " Data "
+        "A": "Organizational modeling",
+        "B": "Document analysis",
+        "C": "Functional decomposition",
+        "D": "Data "
       },
       "correct_answer": "B"
     },
     {
       "question": "Which of the following is an example of a requirements viewpoint?",
       "options": {
-        "A": " Use case",
+        "A": "Use case",
         "B": "Mind map",
         "C": "Expert judgement",
         "D": "Item tracking"
@@ -523,7 +523,7 @@
       "question": "Which technique represents a small, concise statement of functionality or quality needed to deliver value to a specific stakeholder?",
       "options": {
         "A": "User stories",
-        "B": " Lessons learned",
+        "B": "Lessons learned",
         "C": "Business case",
         "D": "Scope modelling"
       },
@@ -542,7 +542,7 @@
     {
       "question": "When approving requirements, conflict and issue management is an element used to assist in:",
       "options": {
-        "A": " measuring performance indicators.",
+        "A": "measuring performance indicators.",
         "B": "identifying activities.",
         "C": "obtaining consensus among stakeholders.",
         "D": "performing quality control."
@@ -575,7 +575,7 @@
         "A": "Necessity, validate, derive",
         "B": "Complexity, stability, status",
         "C": "Necessary, consistent, correct",
-        "D": " Penalty, benefit, cost"
+        "D": "Penalty, benefit, cost"
       },
       "correct_answer": "C"
     },
@@ -592,7 +592,7 @@
     {
       "question": "What skill is required by a business analyst (BA) to understand how the people, processes, and technology within an organization interact, to understand the enterprise from a holistic point of view?",
       "options": {
-        "A": " Creative thinking",
+        "A": "Creative thinking",
         "B": "Conceptual thinking",
         "C": "Problem solving",
         "D": "Systems thinking"
@@ -603,7 +603,7 @@
       "question": "Which technique would the business analyst (BA) consider to show the transformation of data?",
       "options": {
         "A": "Sequence diagram",
-        "B": " Data flow diagram",
+        "B": "Data flow diagram",
         "C": "Data modalling",
         "D": "Flowchart"
       },
