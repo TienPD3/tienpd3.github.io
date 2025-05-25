@@ -142,10 +142,10 @@
   {
     "question": "How are \"plans\" used in business analysis?",
     "options": {
-      "A": "As the output to the task \"plan business analysis governance.",
+      "A": "As the output to the task \"plan business analysis governance.\"",
       "B": "As the output to the task \"plan stakeholder engagement.\"",
-      "C": "As the output to the task \"plan business analysis approach.",
-      "D": "As the output to the task \"prepare for elicitation."
+      "C": "As the output to the task \"plan business analysis approach.\"",
+      "D": "As the output to the task \"prepare for elicitation.\""
     },
     "correct_answer": "C"
   },
