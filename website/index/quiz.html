@@ -5,175 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiz Trắc Nghiệm - Udemy Style</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        @font-face {
-            font-family: 'UTM Bauhaus';
-            src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        body, button, input {
-            font-family: 'UTM Bauhaus', sans-serif !important;
-        }
-        body {
-            background: #f8f9fa;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            background: white;
-            padding: 20px 20px 45px 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin: auto;
-            max-width: 1024px;
-        }
-        h2 {
-            color: #333;
-            font-weight: 600;
-        }
-        .settings {
-            text-align: left;
-            margin-bottom: 15px;
-        }
-        .settings label {
-            font-weight: 600;
-        }
-        .question {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        .options {
-            text-align: left;
-            padding-left: 10px;
-        }
-        .options label {
-            display: block;
-            padding: 8px;
-            border-radius: 5px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-        .options input {
-            margin-right: 10px;
-        }
-        .btn {
-            background: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            cursor: pointer;
-            margin-top: 10px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: 0.3s;
-            font-size: 16px;
-        }
-        .btn:hover {
-            background: #218838;
-        }
-        .correct { background: #d4edda; color: #155724; }
-        .incorrect { background: #f8d7da; color: #721c24; }
-        #submitQuiz {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        #retest {
-            position: fixed;
-            bottom: 20px;
-            right: 130px;
-            z-index: 1000;
-        }
-        #resetting {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-        }
-        .options label:hover {
-            background-color: #e9e9f5;
-            color: #155724;
-        }
-
-        /* Dropdown với checkbox */
-        .dropdown-checkbox {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            max-width: 500px;
-            user-select: none;
-        }
-        .dropdown-checkbox button {
-            width: 100%;
-            padding: 10px;
-            text-align: left;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .dropdown-checkbox button:after {
-            content: "▼";
-            float: right;
-            margin-left: 10px;
-            font-size: 12px;
-            color: #555;
-        }
-        .dropdown-content {
-            position: absolute;
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 10000;
-            display: none;
-            margin-top: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        #fileListCheckboxes {
-            padding: 10px;
-            /* Bỏ scroll trong vùng checkbox, để scroll chỉ xuất hiện ở dropdown-content */
-            max-height: none !important;
-            overflow-y: visible !important;
-        }
-        #fileListCheckboxes label {
-            display: block;
-            cursor: pointer;
-            margin-bottom: 5px;
-            user-select: none;
-        }
-        #fileListCheckboxes input[type=checkbox] {
-            margin-right: 8px;
-            cursor: pointer;
-        }
-        body {
-            padding-top: 40px; /* Bằng hoặc lớn hơn height của #quizStatusBar */
-        }
-        #quizStatusBar {
-            position: fixed;
-            top: 0;
-            right: 0;
-            /* Bỏ left:0 để không kéo full chiều ngang */
-            background: #007bff;
-            color: white;
-            padding: 8px 15px;
-            font-weight: 600;
-            font-size: 16px;
-            z-index: 2000;
-            display: none;
-            border-bottom-left-radius: 10px; /* bo tròn góc trái dưới */
-            max-width: 320px; /* hoặc width cố định nếu muốn */
-            white-space: nowrap; /* không xuống dòng */
-        }
-    </style>
+    <link rel="stylesheet" href="../css/web/quiz.css" />
 </head>
 <body>
 
@@ -224,6 +56,7 @@
         <button class="btn" id="submitQuiz">Nộp bài</button>
     </div>
 </div>
+<div id="toast" style="display: none;"></div>
 
 <script>
     let questions = [];
@@ -304,7 +137,7 @@
         }).get();
 
         if (selectedFiles.length === 0) {
-            alert("Vui lòng chọn ít nhất một file JSON!");
+            showToast("Vui lòng chọn ít nhất một file JSON!");
             return;
         }
 
@@ -312,7 +145,7 @@
             .then(fileDataList => {
                 questions = fileDataList.flat();
                 if (questions.length === 0) {
-                    alert("Không có câu hỏi nào!");
+                    showToast("Không có câu hỏi nào!");
                     return;
                 }
 
@@ -320,7 +153,7 @@
                 let end = parseInt($("#endQuestion").val()) || questions.length;
 
                 if (start < 1 || end > questions.length || start > end) {
-                    alert(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                    showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
                     return;
                 }
 
@@ -340,7 +173,7 @@
             })
             .catch((e) => {
                 console.error(e);
-                alert("Lỗi khi load file JSON!");
+                showToast("Lỗi khi load file JSON!");
             });
     });
 
@@ -371,13 +204,22 @@
                             <input type="radio" name="q${index}" value="${key}">
                             ${tmpNo[idxNo]}. ${value}
                         </label>
-                        ${isLast ? `<button class="btn check-answer" data-index="${index}" style="padding: 6px 12px; font-size: 14px;">Kiểm tra</button>` : ''}
+                        ${isLast ? `
+                            <button class="btn check-answer" data-index="${index}" style="padding: 6px 12px; font-size: 14px;">Kiểm tra</button>
+                            <span class="tooltip-wrapper" style="position: relative; display: inline-block;">
+                                <span class="explain-tooltip-icon disabled-tooltip" title="Xem giải thích" data-index="${index}"
+                                    style="display:none; cursor:pointer; font-size: 18px; color: #007bff;">💡</span>
+                                <div class="explain-tooltip-content">
+                                    ${q.explanation || "Chưa có giải thích."}
+                                </div>
+                            </span>
+                        ` : ''}
                     </div>
                 `;
             });
 
             $("#quiz").append(`
-            <div class="question" style="position: relative;">
+                <div class="question" style="position: relative;">
                             ${index + 1}. ${q.question}
                             <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                                 style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
@@ -412,7 +254,7 @@
                 window.open("https://chatgpt.com/?temporary-chat=true", '_blank');
             })
             .catch(err => {
-                alert("Không thể copy vào clipboard. Vui lòng thử lại.");
+                showToast("Không thể copy vào clipboard. Vui lòng thử lại.");
                 console.error(err);
             });
     });
@@ -439,7 +281,7 @@
         const correct = selectedQuestions[index].correct_answer;
 
         if (!selected) {
-            alert("Vui lòng chọn một đáp án trước khi kiểm tra!");
+            showToast("Vui lòng chọn một đáp án trước khi kiểm tra!");
             return;
         }
 
@@ -451,6 +293,8 @@
         }
 
         updateQuizStatusBar();
+
+        $(`.explain-tooltip-icon[data-index='${index}']`).show();
 
         $(this).hide();
     });
@@ -526,10 +370,6 @@
                         updateCheckAllState();
                         updateDropdownButtonText();
                         saveSettingsToLocalStorage();
-
-                        // Đóng dropdown khi chọn checkbox
-                        // document.getElementById('dropdownContent').style.display = 'none';
-                        // document.getElementById('dropdownButton').setAttribute('aria-expanded', 'false');
                     });
                 });
 
@@ -538,7 +378,7 @@
                 updateDropdownButtonText();
             })
             .catch(err => {
-                alert("Lỗi khi tải file JSON: " + err.message);
+                showToast("Lỗi khi tải file JSON: " + err.message);
             });
     }
 
@@ -596,7 +436,24 @@
             e.stopPropagation();
         });
     }
-</script>
+    function showToast(message, duration = 3000) {
+        const toast = document.getElementById("toast");
+        toast.textContent = message;
+        toast.className = "show";
+        toast.style.display = "block";
 
+        setTimeout(() => {
+            toast.className = toast.className.replace("show", "");
+            toast.style.display = "none";
+        }, duration);
+    }
+    $(document).on("mouseenter", ".explain-tooltip-icon", function () {
+        if (!$(this).hasClass("disabled-tooltip")) {
+            $(this).siblings(".explain-tooltip-content").show();
+        }
+    }).on("mouseleave", ".explain-tooltip-icon", function () {
+        $(this).siblings(".explain-tooltip-content").hide();
+    });
+</script>
 </body>
 </html>

@@ -11,6 +11,7 @@
   { "key": "ECBA Certification Practice Exams 4", "value": "ba09.json" },
   { "key": "ECBA Certification Practice Exams 5", "value": "ba10.json" },
   { "key": "ECBA Certification Practice Exams 6", "value": "ba11.json" },
-  { "key": "ECBA Certification (Practice C FPT)", "value": "ba12.json" },
-  { "key": "ECBA Certification (Practice D FPT)", "value": "ba13.json" }
+  { "key": "ECBA Certification (Practice C F)", "value": "ba12.json" },
+  { "key": "ECBA Certification (Practice D F)", "value": "ba13.json" },
+  { "key": "ECBA Certification (Practice E F)", "value": "ba14.json" }
 ]
