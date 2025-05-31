@@ -312,7 +312,8 @@
         } else {
             const questionObj = selectedQuestions[index];
             if (wrongQuestions.includes(questionObj)) {
-                wrongQuestions.splice(index, 1)
+                const indexRemove = wrongQuestions.indexOf(questionObj);
+                wrongQuestions.splice(indexRemove, 1)
             }
         }
 
@@ -344,6 +345,7 @@
                 }
                 wrongQuestions.push(q);
             }
+            $(`input[name='q${index}']`).prop("disabled", true);
         });
 
         updateQuizStatusBar();
