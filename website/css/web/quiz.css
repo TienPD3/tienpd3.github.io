@@ -4,6 +4,9 @@
   font-weight: normal;
   font-style: normal;
 }
+.hidden {
+  display: none;
+}
 body, button, input {
   font-family: 'UTM Bauhaus', sans-serif !important;
 }
@@ -79,6 +82,12 @@ h2 {
   position: fixed;
   bottom: 20px;
   right: 130px;
+  z-index: 1000;
+}
+#retryWrong {
+  position: fixed;
+  bottom: 20px;
+  right: 240px;
   z-index: 1000;
 }
 #resetting {

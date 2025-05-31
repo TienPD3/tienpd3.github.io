@@ -30,14 +30,14 @@
         <br />
 
         <label>Từ câu:</label>
-        <input type="number" id="startQuestion" value="1" min="1" step="5" style="width: 50px;">
+        <input type="number" id="startQuestion" value="0" step="5" min="0" style="width: 50px;">
 
         <label>Đến câu:</label>
-        <input type="number" id="endQuestion" value="" min="1" step="5" style="width: 50px;">
+        <input type="number" id="endQuestion" value="" step="5" min="5" style="width: 50px;">
         <br>
 
         <label>Số câu hỏi ngẫu nhiên:</label>
-        <input type="number" id="randomQuestionCount" value="5" min="1" step="5" style="width: 50px;">
+        <input type="number" id="randomQuestionCount" value="5" step="5" min="0" style="width: 50px;">
         <br>
 
         <label><input type="radio" name="order" value="ordered" checked> Theo thứ tự</label>
@@ -52,6 +52,7 @@
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
         <button class="btn" id="resetting">Setting</button>
+        <button class="btn hidden" id="retryWrong">Làm lại câu sai</button>
         <button class="btn" id="retest">Làm lại</button>
         <button class="btn" id="submitQuiz">Nộp bài</button>
     </div>
@@ -62,6 +63,7 @@
     let questions = [];
     let selectedQuestions = [];
     let allFileNames = [];
+    let wrongQuestions = [];  // Thêm biến toàn cục nếu cần
 
     $(function() {
         loadOptions();
@@ -140,7 +142,7 @@
             showToast("Vui lòng chọn ít nhất một file JSON!");
             return;
         }
-
+        wrongQuestions = [];
         Promise.all(selectedFiles.map(f => $.getJSON(`../file/quiz/${f}`)))
             .then(fileDataList => {
                 questions = fileDataList.flat();
@@ -149,8 +151,12 @@
                     return;
                 }
 
-                let start = parseInt($("#startQuestion").val());
+                let start = parseInt($("#startQuestion").val()) || 0;
                 let end = parseInt($("#endQuestion").val()) || questions.length;
+
+                if (start == 0) {
+                    start = 1;
+                }
 
                 if (start < 1 || end > questions.length || start > end) {
                     showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
@@ -162,7 +168,10 @@
 
                 if (isRandom) {
                     selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
-                    let questionCount = parseInt($("#randomQuestionCount").val() || selectedQuestions.length);
+                    let questionCount = Math.min(
+                        parseInt($("#randomQuestionCount").val()) || selectedQuestions.length,
+                        selectedQuestions.length
+                    );
                     selectedQuestions = selectedQuestions.slice(0, questionCount);
                 }
 
@@ -180,9 +189,14 @@
     function renderQuiz() {
         $("#quiz").empty();
         selectedQuestions.forEach((q, index) => {
-            let optionsArray = q.options;
+            // Bỏ qua câu hỏi nếu thiếu dữ liệu quan trọng
+            if (!q.options || !q.correct_answer) {
+                console.warn(`⚠️ Bỏ qua câu hỏi ${index + 1}: thiếu options hoặc correct_answer.`);
+                return;
+            }
+
+            let optionsArray = Object.entries(q.options);
             if ($("#shuffleAnswers").is(":checked")) {
-                optionsArray = Object.entries(q.options);
                 optionsArray.sort(() => Math.random() - 0.5);
             }
 
@@ -290,9 +304,22 @@
         $(`input[name='q${index}'][value='${correct}']`).parent().addClass("correct");
         if (selected !== correct) {
             $(`input[name='q${index}'][value='${selected}']`).parent().addClass("incorrect");
+            // ➕ Thêm câu sai vào danh sách nếu chưa có
+            const questionObj = selectedQuestions[index];
+            if (!wrongQuestions.includes(questionObj)) {
+                wrongQuestions.push(questionObj);
+            }
+        } else {
+            const questionObj = selectedQuestions[index];
+            if (wrongQuestions.includes(questionObj)) {
+                wrongQuestions.splice(index, 1)
+            }
         }
 
         updateQuizStatusBar();
+        if (wrongQuestions.length > 0) {
+            $("#retryWrong").show(); // Hiện nút "Làm lại câu sai"
+        } 
 
         $(`.explain-tooltip-icon[data-index='${index}']`).show();
 
@@ -301,6 +328,7 @@
 
     $("#submitQuiz").click(function () {
         let score = 0;
+        wrongQuestions = []; // Reset
 
         selectedQuestions.forEach((q, index) => {
             let userAnswer = $(`input[name='q${index}']:checked`).val();
@@ -314,10 +342,17 @@
                 if (userAnswer) {
                     $(`input[name='q${index}'][value='${userAnswer}']`).parent().addClass("incorrect");
                 }
+                wrongQuestions.push(q);
             }
         });
 
         updateQuizStatusBar();
+
+        if (wrongQuestions.length > 0) {
+            $("#retryWrong").show(); // Hiện nút "Làm lại câu sai"
+        } else {
+            showToast("Bạn đã trả lời đúng tất cả các câu hỏi 🎉");
+        }
     });
 
     $("#resetting").click(function () {
@@ -381,6 +416,18 @@
                 showToast("Lỗi khi tải file JSON: " + err.message);
             });
     }
+
+    $("#retryWrong").click(function () {
+        if (wrongQuestions.length === 0) {
+            showToast("Không có câu sai để làm lại.");
+            return;
+        }
+
+        selectedQuestions = [...wrongQuestions]; // Dùng lại danh sách sai
+        renderQuiz();
+        updateQuizStatusBar();
+        $("#retryWrong").hide(); // Ẩn nút sau khi dùng
+    });
 
     function updateCheckAllState() {
         const allCheckboxes = document.querySelectorAll("input[name='jsonFiles']");
