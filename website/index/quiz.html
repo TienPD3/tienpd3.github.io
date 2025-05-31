@@ -143,6 +143,7 @@
             return;
         }
         wrongQuestions = [];
+        $("#retryWrong").hide();
         Promise.all(selectedFiles.map(f => $.getJSON(`../file/quiz/${f}`)))
             .then(fileDataList => {
                 questions = fileDataList.flat();
@@ -320,7 +321,9 @@
         updateQuizStatusBar();
         if (wrongQuestions.length > 0) {
             $("#retryWrong").show(); // Hiện nút "Làm lại câu sai"
-        } 
+        } else {
+            $("#retryWrong").hide();
+        }
 
         $(`.explain-tooltip-icon[data-index='${index}']`).show();
 
