@@ -1,7 +1,7 @@
 const pathFinpath = 'https://api.finpath.vn';
 const pathFireant = 'https://restv2.fireant.vn';
 const pathSimplize = 'https://api.simplize.vn';
-const pathCafef = 'https://s.cafef.vn';
+const pathCafef = 'https://cors-anywhere.herokuapp.com/https://s.cafef.vn';
 const SIZE_DEFAULT = 5;
 
 // Create variable
