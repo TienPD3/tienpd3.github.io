@@ -70,8 +70,14 @@ h2 {
 .btn:hover {
   background: #218838;
 }
-.correct { background: #d4edda; color: #155724; }
-.incorrect { background: #f8d7da; color: #721c24; }
+.correct {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+}
+.incorrect {
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
+}
 #submitQuiz {
   position: fixed;
   bottom: 20px;
