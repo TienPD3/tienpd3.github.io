@@ -2,6 +2,8 @@ const pathFinpath = 'https://api.finpath.vn';
 const pathFireant = 'https://restv2.fireant.vn';
 const pathSimplize = 'https://api.simplize.vn';
 const pathCafef = 'https://cors-anywhere.herokuapp.com/https://s.cafef.vn';
+const pathVietsotck = 'https://proxy.tienpd3.workers.dev?url=https://finance.vietstock.vn';
+
 const SIZE_DEFAULT = 5;
 
 // Create variable
@@ -44,7 +46,7 @@ async function getFinancial(exchangeCd, stockCode, stockName, isYear = false, si
         profileFireant(stockCode),
         historicalQuotesFireant(stockCode),
         fundamentalFireant(stockCode),
-        bussinessPlan(exchangeCd, stockCode, stockName)
+        bussinessPlanCafeF(exchangeCd, stockCode, stockName)
     ];
 
     try {
@@ -80,7 +82,7 @@ function getExchange(exchangeCd) {
  * @param {*} exchange
  * @param {*} stockName
  */
-async function bussinessPlan(exchangeCd, stockCode, stockName) {
+async function bussinessPlanCafeF(exchangeCd, stockCode, stockName) {
     const keyUrl = `${stockCode.stringEnglishHyphen()}-${stockName.stringEnglishHyphen()}.chn`;
     const url = `${pathCafef}/${getExchange(exchangeCd)}/${keyUrl}`;
 
@@ -116,6 +118,68 @@ async function bussinessPlan(exchangeCd, stockCode, stockName) {
             dataFACurrent.dividendPercent = dataCurrent;
         }
     } catch (error) {
+        console.error('Failed to fetch business plan:', error);
+    }
+}
+
+/**
+ * Cafef - Lấy cổ tức
+ *
+ * @author TienPD3@icloud.com (https://paypal.me/tienpd3)
+ * @date 2024/02/14
+ * @param {*} exchange
+ * @param {*} stockName
+ */
+async function bussinessPlanVietstock(exchangeCd, stockCode, stockName) {
+
+    const url = `${pathVietsotck}/data/eventstypedata`;
+
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+                'X-Cookie': ACCESS_TOKEN_VIETSTOCK,
+            },
+            body: `eventTypeID=1&channelID=0&code=${stockCode}&catID=&fDate=2025-01-01&tDate=2025-12-31&page=1&pageSize=20&orderBy=Date1&orderDir=DESC&__RequestVerificationToken=qDiT3uefoQ0_pXpEgkOlVBZQOZfky5xtuOVmLSanXyQBRSRe869E-PyxIkOs1xtxXQJM8UIY2lY770UR1huRH8a9H9GzyNyOfip5wsKTQxc1`
+        });
+
+        if (!response.ok) {
+            dataFACurrent.dividend = 'không có';
+            dataFACurrent.dividendPercent = '0%';
+            throw new Error('Network response was not ok');
+        }
+        
+        let responseText = await response.text();
+        responseText = JSON.parse(responseText)[0][0];
+
+        // Lấy số timestamp bên trong dấu ()
+        const timestamp = Number(responseText.GDKHQDate.match(/\d+/)[0]);
+
+        let GDKHQDate = new Date(timestamp).toString().dateFormat('yyyy/MM/dd');
+
+        debugger;
+        const elmBussinessPlan = $(responseText).find('.kehoachkd');
+        const strHeader = elmBussinessPlan.find('h2.cattitle.noborder').text();
+        const year = strHeader.match(/[0-9]+/i);
+        let dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng tiền mặt")').siblings(1).text();
+
+        if (dataCurrent === 'N/A' || dataCurrent === '') {
+            dataCurrent = elmBussinessPlan.find('div:contains("Cổ tức bằng cổ phiếu")').siblings(1).text();
+            if (dataCurrent === 'N/A' || dataCurrent === '') {
+                dataFACurrent.dividend = 'không có';
+                dataFACurrent.dividendPercent = '0%';
+            } else {
+                dataFACurrent.dividend = `cổ phiếu[${year}]`;
+                dataFACurrent.dividendPercent = dataCurrent;
+            }
+        } else {
+            dataFACurrent.dividend = `tiền mặt[${year}]`;
+            dataFACurrent.dividendPercent = dataCurrent;
+        }
+    } catch (error) {
+        dataFACurrent.dividend = 'không có';
+        dataFACurrent.dividendPercent = '0%';
         console.error('Failed to fetch business plan:', error);
     }
 }
