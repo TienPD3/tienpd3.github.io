@@ -58,7 +58,7 @@
       "question": "Use Cases and Scenarios' are primarily used to:",
       "options": {
           "A": "Define stakeholder roles",
-          "B": " Describe functional requirements and their interaction",
+          "B": "Describe functional requirements and their interaction",
           "C": "Estimate project costs",
           "D": "Present financial analysis"
       },
@@ -73,7 +73,7 @@
           "C": "Decision Analysis",
           "D": "SWOT Analysis"
       },
-      "correct_answer": "B",
+      "correct_answer": "C",
       "explanation": "Overall explanation Collaborative Games are specifically designed to facilitate collaboration and teamwork among stakeholders. They create a safe and fun environment for participants to share knowledge, identify assumptions, and explore ideas together. Domain Elicitation and Collaboration"
   },
   {
@@ -124,7 +124,7 @@
       "question": "The 'Business Model Canvas' is primarily used to:",
       "options": {
           "A": "Track project milestones",
-          "B": " Document technical specifications",
+          "B": "Document technical specifications",
           "C": "Define the business structure and operations",
           "D": "Outline human resource policies"
       },
@@ -178,7 +178,7 @@
   {
       "question": "Optimal timing for conducting a post-implementation review is:",
       "options": {
-          "A": " Several weeks or months after deployment",
+          "A": "Several weeks or months after deployment",
           "B": "Directly following the solution's launch",
           "C": "Prior to the solution's rollout",
           "D": "Concurrently with the solution's implementation"
@@ -278,7 +278,7 @@
       "question": "What strategy should be applied to handle stakeholder interactions efficiently? ",
       "options": {
           "A": "Using a risk assessment matrix",
-          "B": " Developing a collaboration plan",
+          "B": "Developing a collaboration plan",
           "C": "Establishing up a project coordination office",
           "D": "Implementing a change management procedures"
       },
@@ -431,7 +431,7 @@
   {
       "question": "What does the 'Behavioral Characteristics' competency primarily address?",
       "options": {
-          "A": " Project management approaches",
+          "A": "Project management approaches",
           "B": "Business Analyst's attitudes and behaviors",
           "C": "Technical skills",
           "D": "Personal development plans"
@@ -478,7 +478,7 @@
           "A": "Resource allocation",
           "B": "Deliverable deadlines",
           "C": "Technology constraints",
-          "D": " Stakeholder availability"
+          "D": "Stakeholder availability"
       },
       "correct_answer": "B",
       "explanation": "Overall explanation Requirements allocation involves assigning each requirement to the specific solution component or release that will implement it. This helps in organizing the work and ensuring that all requirements are addressed in the solution design. Domain Requirements Analysis and Design Definition"
@@ -486,7 +486,7 @@
   {
       "question": "What quality criterion is met if requirements do not create conflicting links between elements?",
       "options": {
-          "A": " Consistent",
+          "A": "Consistent",
           "B": "Defined",
           "C": "Unambiguous",
           "D": "Necessary"

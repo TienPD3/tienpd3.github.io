@@ -60,7 +60,7 @@
             "A": "To determine whether stakeholders understand the rationale for the current state of the enterprise",
             "B": "To identify the formal relationships between people working in the enterprise",
             "C": "To document the communication channels, reporting structures, and relationships in the enterprise",
-            "D": " To understand the scope of decision making at different levels of the enterprise"
+            "D": "To understand the scope of decision making at different levels of the enterprise"
         },
         "correct_answer": "A",
         "explanation": "Page 106 – BABOK V3 Business analysts perform a cultural assessment to: • identify if cultural changes are required to better achieve the goals, • identify whether stakeholders understand the rationale for the current state of the enterprise and the value delivered by it, and • ascertain whether the stakeholders view the current state as satisfactory or if change is needed."
@@ -198,7 +198,7 @@
         "explanation": "Page 195 Personal Accountability 1. Purpose - It enables the business analyst to establish credibility by ensuring that business analysis efforts meet the needs of the business."
     },
     {
-        "question": "The approach that defines hơ requirements will be re-used í the:",
+        "question": "The approach that defines how requirements will be re-used is the:",
         "options": {
             "A": "governance approach.",
             "B": "approach to identifying business analysis improvements.",
@@ -348,7 +348,7 @@
             "C": "Exploration",
             "D": "Examination"
         },
-        "correct_answer": "A",
+        "correct_answer": "B",
         "explanation": "There are three common types of elicitation: Collaborative, Research and Experiment. BABOK V3 Pg. 61"
     },
     {
