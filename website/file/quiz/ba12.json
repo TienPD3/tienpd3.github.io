@@ -1,5 +1,16 @@
 [
     {
+        "question": "What type of knowledge equips a business analyst (BA) with understanding market forces, customer segments, services, products, and regulations?",
+        "options": {
+            "A": "Organizational",
+            "B": "Industry",
+            "C": "Solution",
+            "D": "Methodological"
+        },
+        "correct_answer": "B",
+        "explanation": "Page 200 - BABOK V3 Industry knowledge is an understanding of: • current trends, • market forces, • market drivers, • key processes, • services, • products, • definitions, • customer segments, • suppliers, • practices, • regulations, and • other factors that impact or are impacted by the industry and related industries."
+    },
+    {
         "question": "A focus group is a form of which type of research?",
         "options": {
             "A": "Quantitative",
@@ -9,6 +20,105 @@
         },
         "correct_answer": "B",
         "explanation": "A focus group is a form of qualitative research. The session results are usually analyzed and reported as themes and perspectives rather than numerical findings."
+    },
+    {
+        "question": "Video conferencing, electronic calendars, and electronic voting are examples of:",
+        "options": {
+            "A": "knowledge management tools.",
+            "B": "mapping tools.",
+            "C": "collaboration tools.",
+            "D": "word processing tools."
+        },
+        "correct_answer": "C",
+        "explanation": "Page 215 - BABOK V3 Examples of collaboration tools include video conferencing, electronic white boarding, wikis, electronic calendars, online brainstorming tools, electronic decision making, electronic voting, document sharing, and idea sharing."
+    },
+    {
+        "question": "When do the participants start generating ideas during a collaborative game?",
+        "options": {
+            "A": "Closing step",
+            "B": "Exploration step",
+            "C": "Opening step",
+            "D": "Iteration step"
+        },
+        "correct_answer": "C",
+        "explanation": "An opening step, in which the participants get involved, learn the rules of the game, and start generating ideas."
+    },
+    {
+        "question": "For which part of an initiative is the business analyst (BA) responsible?",
+        "options": {
+            "A": "Authorizing the project",
+            "B": "Approving solution execution plans",
+            "C": "Defining the solution approach",
+            "D": "Accepting risk mitigation plans"
+        },
+        "correct_answer": "C",
+        "explanation": "Business analysts assess the merits of the solution approaches for each design option."
+    },
+    {
+        "question": "If a business analyst (BA) does not properly identify stakeholders, then the long-term implications are:",
+        "options": {
+            "A": "increased costs.",
+            "B": "reduced requirements",
+            "C": "higher satisfaction",
+            "D": "decreased risk"
+        },
+        "correct_answer": "A",
+        "explanation": "If stakeholders are not identified, the business analyst may miss uncovering critical needs. Stakeholder needs uncovered late will often require a revision to business analysis tasks that are either in progress or are completed. This can result in increased costs and decreased stakeholder satisfaction."
+    },
+    {
+        "question": "Who is responsible for identifying the appropriate elicitation communication channels?",
+        "options": {
+            "A": "Project Manager",
+            "B": "Subject matter expert",
+            "C": "Business analyst",
+            "D": "Business sponsor"
+        },
+        "correct_answer": "C",
+        "explanation": "BA is responsible for communication channel 4.1.4 p. 3 Set Up Logistics!"
+    },
+    {
+        "question": "If inconsistencies arise between different elicitation results, the business analyst (BA) should:",
+        "options": {
+            "A": "escalate them to the business sponsor",
+            "B": "report them to the project manager",
+            "C": "resolve them through collaboration",
+            "D": "reconcile them through experience"
+        },
+        "correct_answer": "C",
+        "explanation": "As comparisons are drawn, business analysts identify variations in results and resolve them in collaboration with stakeholders. -- Proactive solve"
+    },
+    {
+        "question": "Which of the following is a basis to initially prioritize requirements?",
+        "options": {
+            "A": "Business benefits",
+            "B": "Market demands",
+            "C": "Organizational policy",
+            "D": "Technological dependency"
+        },
+        "correct_answer": "A",
+        "explanation": "While the specific prioritization criteria can vary based on the context of the project and the organization, a common approach is to prioritize based on business value and need. Therefore, answer A is the primary basis for initially prioritizing requirements."
+    },
+    {
+        "question": "Which action would a business analyst (BA) propose to improve the operation of the business?",
+        "options": {
+            "A": "Simplify the work people perform",
+            "B": "Outsource the operation team",
+            "C": "Assist in the daily activities",
+            "D": "Shadow the expert staff"
+        },
+        "correct_answer": "A",
+        "explanation": "Increase Efficiencies: automate or simplify the work people perform"
+    },
+    {
+        "question": "What type of requirements describes the needs of those participating in or impacted by business analysis activities?",
+        "options": {
+            "A": "Solution",
+            "B": "Business",
+            "C": "Stakeholder",
+            "D": "Technical"
+        },
+        "correct_answer": "C",
+        "explanation": "Stakeholder requirements: describe the needs of stakeholders"
     },
     {
         "question": "Which type of stakeholder is responsible for initiating the effort to define a business need?",
@@ -22,6 +132,83 @@
         "explanation": "Sponsors are responsible for initiating the effort to define a business need and develop a solution that meets that need."
     },
     {
+        "question": "Who is responsible for discovering, synthesizing, and analyzing information within an enterprise?",
+        "options": {
+            "A": "Project Manager",
+            "B": "Business analyst",
+            "C": "Programmer",
+            "D": "Project sponsor"
+        },
+        "correct_answer": "B",
+        "explanation": "Page 2 – BABOK V3 Business analysts are responsible for discovering, synthesizing, and analyzing information from a variety of sources within an enterprise, including tools, processes, documentation, and stakeholders."
+    },
+    {
+        "question": "Which activity is a business analyst (BA) performing when ensuring that a set of requirements is developed with enough detail to be usable by a particular stakeholder?",
+        "options": {
+            "A": "Validating requirements",
+            "B": "Verifying requirements",
+            "C": "Eliciting requirements",
+            "D": "Specifying requirements"
+        },
+        "correct_answer": "B",
+        "explanation": "Verify Requirements: ensures that a set of requirements or designs has been developed in enough detail to be usable by a particular stakeholder, is internally consistent, and is of high quality."
+    },
+    {
+        "question": "What is the main purpose of the `Approve Requirements` task?",
+        "options": {
+            "A": "Obtain agreement",
+            "B": "Establish requirements baseline",
+            "C": "Select approviate techniques",
+            "D": "Assess alternative approaches"
+        },
+        "correct_answer": "A",
+        "explanation": "Babok v3 - Page 95 The purpose of Approve Requirements is to obtain agreement on and approval of requirements and designs for business analysis work to continue and/or solution construction to proceed."
+    },
+    {
+        "question": "Which approach aligns to approval of requirements at the end of a phase?",
+        "options": {
+            "A": "Adaptive",
+            "B": "Modelling",
+            "C": "Predictive",
+            "D": "Prioritization"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 95 – BABOK V3 Approval of requirements and designs may be formal or informal. Predictive approaches typically perform approvals at the end of the phase or during planned change control meetings."
+    },
+    {
+        "question": "When can a change to requirements occur?",
+        "options": {
+            "A": "As soon as the testing process has begun",
+            "B": "At any time during the project lifecycle",
+            "C": "Only after requirements have been approved",
+            "D": "Only after the solution has been designed"
+        },
+        "correct_answer": "B",
+        "explanation": "Page 91 – BABOK V3 Proposed Change: can be identified at any time and impact any aspect of business analysis work or deliverables completed to date."
+    },
+    {
+        "question": "In addition to schedule, which other factor must be considered when evaluating changes to requirements?",
+        "options": {
+            "A": "Number of customers and end-users affected",
+            "B": "Capacity of the requirements management tool",
+            "C": "Amount of time needed to create new documents",
+            "D": "Agreement by executive board members"
+        },
+        "correct_answer": "A",
+        "explanation": "Page 93 – BABOK V3 When considering changes or additions to existing requirements, business analysts assess the impact of the proposed change by considering: Impact: the number of customers or business processes affected if the change is accepted."
+    },
+    {
+        "question": "Which of the following activities are performed during the requirements life cycle management phase?",
+        "options": {
+            "A": "Elicit Requirements",
+            "B": "Prioritize Designs",
+            "C": "Trace Requirements",
+            "D": "Maintain Attributes"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 76 – BABOK V3 The Requirements Life Cycle Management knowledge area includes the following tasks: • Trace Requirements: analyzes and maintains the relationships between requirements, designs, solution components, and other work products for impact analysis, coverage, and allocation."
+    },
+    {
         "question": "Which techniques should be applied to prioritize requirements?",
         "options": {
             "A": "Risk Analysis and Management",
@@ -31,6 +218,17 @@
         },
         "correct_answer": "A",
         "explanation": "Page 90 – BABOK V3 Risk Analysis and Management: used to understand the risks for the basis of prioritization."
+    },
+    {
+        "question": "Which input is used to prepare for elicitation?",
+        "options": {
+            "A": "Activity plan",
+            "B": "Business analysis information",
+            "C": "Stakeholder engagement approach",
+            "D": "Change strategy"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 57 – BABOK V3 Stakeholder Engagement Approach: understanding stakeholders' communication and collaboration needs helps plan and prepare appropriate and effective elicitation events."
     },
     {
         "question": "What are characteristics of effective communication of business analysis information?",
@@ -44,6 +242,116 @@
         "explanation": "Page 68-BABOK V3 Communication of business analysis information is bi-directional and iterative. It involves determining the recipients, content, purpose, context, and expected outcomes."
     },
     {
+        "question": "When validating requirements, assumptions are:",
+        "options": {
+            "A": "documented after conducting further analysis",
+            "B": "based and assessed on previous experience",
+            "C": "vital to support strategic decisions and goals",
+            "D": "defined so that associated risk can be managed"
+        },
+        "correct_answer": "D",
+        "explanation": "Page 146 – BABOK V3 7.3 Validate Requirements 7.3.4 Elements 1. Identify Assumptions These assumptions are identified and defined so that associated risks can be managed."
+    },
+    {
+        "question": "The requirements elicitation technique used to iteratively validate the needs of stakeholders that interact with the application is:",
+        "options": {
+            "A": "interface analysis",
+            "B": "observation",
+            "C": "prototyping",
+            "D": "reverse engineering"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 64 or 323 (Prototyping) – BABOK V3 4. Elicitation and Collaboration 4.2 Conduct Elicitation 4.2.6 Techniques Prototyping: used to elicit and validate stakeholders' needs through an iterative process that creates a model of requirements or designs."
+    },
+    {
+        "question": "Which of the following is an activity that a business analyst (BA) performs to prepare for elicitation?",
+        "options": {
+            "A": "Assess risk",
+            "B": "Trace requirements",
+            "C": "Secure supporting material",
+            "D": "Analyze performance measures"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 59 – BABOK V3 4 Secure Supporting Material Business analysts identify sources of information that are needed to conduct the elicitation activity."
+    },
+    {
+        "question": "Which of the following is the integrated output that correctly reflects captured information agreed to by business analysts (BAs) and other stakeholders?",
+        "options": {
+            "A": "Activity plan",
+            "B": "Business analysis information",
+            "C": "Concept model",
+            "D": "Confirmed elicitation results"
+        },
+        "correct_answer": "D",
+        "explanation": "Page 67 – BABOK V3 Elicitation Results (confirmed): integrated output that the business analyst and other stakeholders agree correctly reflects captured information and confirms that it is relevant and useful as an input to further work."
+    },
+    {
+        "question": "Which of the following approaches is used to determine how business analysis data will be packaged and communicated to stakeholders?",
+        "options": {
+            "A": "Business Analysis Approach",
+            "B": "Information Management Approach",
+            "C": "Governance Approach",
+            "D": "Stakeholder Engagement Approach"
+        },
+        "correct_answer": "B",
+        "explanation": "Page 70 – BABOK V3 4.4.5 - Information Management Approach: helps determine how business analysis information will be packaged and communicated to stakeholders."
+    },
+    {
+        "question": "Which of the following characteristics verifies that a requirement has been fulfilled?",
+        "options": {
+            "A": "Atomic",
+            "B": "Concise",
+            "C": "Feasible",
+            "D": "Testable"
+        },
+        "correct_answer": "D",
+        "explanation": "Page 143 – BABOK V3 Testable: able to verify that the requirement or design has been fulfilled."
+    },
+    {
+        "question": "What is the approach in which solution components are assembled, constructed, or developed by experts as a direct response to a set of requirements?",
+        "options": {
+            "A": "Create",
+            "B": "Design",
+            "C": "Purchase",
+            "D": "Scope"
+        },
+        "correct_answer": "A",
+        "explanation": "Page 154 – BABOK V3 Create: solution components are assembled, constructed, or developed by experts as a direct response to a set of requirements."
+    },
+    {
+        "question": "What tool classifies stakeholders according to responsibility?",
+        "options": {
+            "A": "Stakeholder Map",
+            "B": "Personas",
+            "C": "RACI Matrix",
+            "D": "Stakeholder List"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 346 – BABOK V3 3 Responsibility (RACI) Matrix Another popular stakeholder matrix is the responsibility (RACI) matrix. RACI stands for the four types of responsibility that a stakeholder may hold on the initiative: Responsible, Accountable, Consulted, and Informed. When completing a RACI matrix, it is important to ensure that all stakeholders or stakeholder groups have been identified."
+    },
+    {
+        "question": "What tool can be used to determine the impact of a changed requirement on other requirements?",
+        "options": {
+            "A": "Verification",
+            "B": "Traceability",
+            "C": "Interview",
+            "D": "Workshop"
+        },
+        "correct_answer": "B",
+        "explanation": "Page 92 – BABOK V3 Traceability is a useful tool for performing impact analysis. When a requirement changes, its relationships to other requirements or solution components can be reviewed. Each related requirement or component may also require a change to support the new requirement."
+    },
+    {
+        "question": "Which criteria are necessary when the requirements express contractual obligations?",
+        "options": {
+            "A": "Evaluation",
+            "B": "Solution",
+            "C": "Acceptance",
+            "D": "Approval"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 220 – BABOK V3 Acceptance criteria are necessary when the requirements express contractual obligations."
+    },
+    {
         "question": "What are the two basic types of interviews to elicit business analysis information?",
         "options": {
             "A": "Closed and open ended",
@@ -55,12 +363,45 @@
         "explanation": "Page 290 – BABOK V3 There are two basic types of interviews used to elicit business analysis information: • Structured Interview: in which the interviewer has a predefined set of questions. • Unstructured Interview: in which the interviewer does not have a predetermined format or order of questions. Questions may vary based on interviewee responses and interactions."
     },
     {
+        "question": "What task is performed to ensure that all requirements align to the business need?",
+        "options": {
+            "A": "Model Requirements",
+            "B": "Prioritize Requirements",
+            "C": "Validate Requirements",
+            "D": "Define Requirements"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 145 – BABOK V3 Requirements validation is an ongoing process to ensure that stakeholder, solution, and transition requirements align to the business requirements and that the designs satisfy the requirements."
+    },
+    {
+        "question": "Which of the following techniques is used to identify the elements and boundaries of the requirements architecture?",
+        "options": {
+            "A": "Functional decomposition",
+            "B": "Environmental scan",
+            "C": "Scope modelling",
+            "D": "Interface analysis"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 152 – BABOK V3 Scope Modelling: used to identify the elements and boundaries of the requirements architecture."
+    },
+    {
+        "question": "Which of the following accurately describes a stakeholder's role during future state analysis?",
+        "options": {
+            "A": "A regulator would ensure an envisioned future state can be sufficiently tested and can help set an appropriate level of quality to target.",
+            "B": "An end user would help determine which business needs to address and sets the business objective that a future state will achieve.",
+            "C": "A project manager would be directly involved in supporting the operations of the enterprise.",
+            "D": "A domain subject matter expert would provide insight into current state and potential states."
+        },
+        "correct_answer": "D",
+        "explanation": "Page 118 – BABOK V3 Domain Subject Matter Expert: provides insight into current state and potential future states."
+    },
+    {
         "question": "Why should a business analyst (BA) perform a cultural assessment when analyzing the current state of an enterprise?",
         "options": {
             "A": "To determine whether stakeholders understand the rationale for the current state of the enterprise",
             "B": "To identify the formal relationships between people working in the enterprise",
             "C": "To document the communication channels, reporting structures, and relationships in the enterprise",
-            "D": "To understand the scope of decision making at different levels of the enterprise"
+            "D": " To understand the scope of decision making at different levels of the enterprise"
         },
         "correct_answer": "A",
         "explanation": "Page 106 – BABOK V3 Business analysts perform a cultural assessment to: • identify if cultural changes are required to better achieve the goals, • identify whether stakeholders understand the rationale for the current state of the enterprise and the value delivered by it, and • ascertain whether the stakeholders view the current state as satisfactory or if change is needed."
@@ -88,6 +429,50 @@
         "explanation": "Page 144 - BABOK V3 7.2 Verify Requirement 7.2.6 Techniques • Acceptance and Evaluation Criteria: used to ensure that requirements are stated clearly enough to devise a set of tests that can prove that the requirements have been met. • Metrics and Key Performance Indicators (KPIs): used to identify how to evaluate the quality of the requirements."
     },
     {
+        "question": "What is the input status of requirements used by business analysts (BAs) for undertaking requirement verification activities?",
+        "options": {
+            "A": "Stated and Unconfirmed",
+            "B": "Maintained and Reusable",
+            "C": "Specified and Modeled",
+            "D": "Validated and Prioritized"
+        },
+        "correct_answer": "C",
+        "explanation": "Page 142 - BABOK V3 7.2.3 Inputs of Verify requirements • Requirements (specified and modelled): any requirement, design, or set of those may be verified to ensure that text is well structured and that matrices and modelling notation are used correctly."
+    },
+    {
+        "question": "If a business analyst (BA) asks questions during the job shadowing with a subject matter expert, which approach is being used?",
+        "options": {
+            "A": "Active Observation Approach ",
+            "B": "Contextual Inquiry Observation",
+            "C": "Inactive Observation Approach",
+            "D": "Passive Observation Approach"
+        },
+        "correct_answer": "A",
+        "explanation": "306 Active/Noticeable: while observing an activity the observer asks any questions as they arise BABOK page 306"
+    },
+    {
+        "question": "What is a risk that business analysts (BAs) look for when managing stakeholder engagement? ",
+        "options": {
+            "A": "Scope creep",
+            "B": "Delayed approvals",
+            "C": "Inaccurate cost estimated",
+            "D": "Resource shortfalls"
+        },
+        "correct_answer": "B",
+        "explanation": "Business analysts continually monitor for such risks as: • stakeholders being diverted to other work, • elicitation activities not providing the quality of business analysis information required, and • delayed approvals. BABOK page 73"
+    },
+    {
+        "question": "What tool is used by a business analyst (BA) for quality control when verifying requirements and designs?",
+        "options": {
+            "A": "Interviews",
+            "B": "Estimation",
+            "C": "Benchmarking",
+            "D": "Checklists"
+        },
+        "correct_answer": "D",
+        "explanation": "p. 144 Checklists are used for quality control when verifying requirements and designs. Checklists are used for quality control when verifying requirements and designs BABOK page 144 "
+    },
+    {
         "question": "When initially assigned work, understanding the scope of elicitation is important in order to:",
         "options": {
             "A": "review the project charter. ",
@@ -99,6 +484,39 @@
         "explanation": "BABOK page 58 4.1.4 'Understanding the scope of the elicitation activity allows business analysts to respond if the activity strays from the intended scope. It also allows them to recognize if people and materials are not available in time, and when the activity is complete.'"
     },
     {
+        "question": "A solution is considered to be successful when the",
+        "options": {
+            "A": "stakeholders' expectations are met.",
+            "B": "organization is ready to accept it.",
+            "C": "performance evaluation is positive.",
+            "D": "business need is satisfied"
+        },
+        "correct_answer": "D",
+        "explanation": "BABOK page 105 The definition of business needs is frequently the most critical step in any business analysis effort. A solution must satisfy the business needs to be considered successful. The way the need is defined determines which alternative solutions will be considered, which stakeholders will be consulted, and which solution approaches will be evaluated. Business needs are always expressed from the perspective of the enterprise, and not that of any particular stakeholder."
+    },
+    {
+        "question": "What are matrices in modelling formats used to describe?",
+        "options": {
+            "A": "Detailed procedure",
+            "B": "Gaps in capability analysis",
+            "C": "Complex but uniform structures",
+            "D": "Hierarchical structure of stakeholders"
+        },
+        "correct_answer": "C",
+        "explanation": "Matrices: a matrix is used when the business analyst is modelling a requirement or set of requirements that have a complex but uniform structure, which can be broken down into elements that apply to every entry in the table. Matrices may be used for data dictionaries, requirements traceability, or for gap analysis. Matrices are also used for prioritizing requirements and recording other requirements attributes and metadata. BABOK page 138, 7.1.4"
+    },
+    {
+        "question": "A business analyst (BA) will regularly perform stakeholder analysis to understand which of the following?",
+        "options": {
+            "A": "Attitudes and influence",
+            "B": "Goals and objectives",
+            "C": "Changes in business needs",
+            "D": "Communication channels "
+        },
+        "correct_answer": "C",
+        "explanation": "BABOK Page 32 3.2.4  Perform Stakeholder Analysis Stakeholder analysis involves identifying the stakeholders (who will be directly or indirectly impacted by the change) and their characteristics, as well as analyzing the information once collected. Stakeholder analysis is performed repeatedly as business analysis activities continue. A thorough and detailed stakeholder list ensures that stakeholders are not overlooked. Understanding who the stakeholders are, the impact of proposed changes on them, and the influence they may have on the change is vital to understanding what needs, wants, and expectations must be satisfied by a solution. If stakeholders are not identified, the business analyst may miss uncovering critical needs. Stakeholder needs uncovered late will often require a revision to business analysis tasks that are either in progress or are completed. This can result in increased costs and decreased stakeholder satisfaction."
+    },
+    {
         "question": "What happens when either the number of requirements or level of formality increase?",
         "options": {
             "A": "Developing new requirements becomes difficult",
@@ -108,6 +526,83 @@
         },
         "correct_answer": "C",
         "explanation": "BABOK Page 81 5.1.4.1 Level of Formality When tracing requirements, business analysts consider the value that each link is supposed to deliver, as well as the nature and use of the specific relationships that are being created. The effort to trace requirements grows significantly when the number of requirements or level of formality increases."
+    },
+    {
+        "question": "What analysis needs to be performed in order to evaluate the effect of change?",
+        "options": {
+            "A": "Competitive",
+            "B": "Decision",
+            "C": "Modeling",
+            "D": "Impact"
+        },
+        "correct_answer": "D",
+        "explanation": "BABOK page 92 5.4.4 Impact Analysis Impact analysis is performed to assess or evaluate the effect of a change. Traceability is a useful tool for performing impact analysis. When a requirement changes, its relationships to other requirements or solution components can be reviewed. Each related requirement or component may also require a change to support the new requirement."
+    },
+    {
+        "question": "Stakeholders commonly face challenges in prioritizing requirements due to: ",
+        "options": {
+            "A": "lack of knowledge. ",
+            "B": "project time constraints. ",
+            "C": "different perceived values.",
+            "D": "inability to work with others."
+        },
+        "correct_answer": "C",
+        "explanation": "BABOK page 89  5.3.4 Challenges of Prioritization Prioritization is an assessment of relative value. Each stakeholder may value something different. When this occurs, there may be conflict amongst stakeholders. Stakeholders may also have difficulty characterizing any requirement as a lower priority, and this may impact the ability to make necessary trade-offs. In addition, stakeholders may (intentionally or unintentionally) indicate priority to influence the result to their desired outcome. Different types of requirements may not all respond to the criteria in the same way and may appear to conflict. There may be a need for stakeholders to make trade-offs in prioritization."
+    },
+    {
+        "question": "Which of the following items is commonly used by a business analyst (BA) during requirements verification?",
+        "options": {
+            "A": "A checklist with a standard set of quality elements ",
+            "B": "A business model canvas with financial estimates",
+            "C": "A benchmarking report with industry comparisons",
+            "D": "A user story with inputs and outputs"
+        },
+        "correct_answer": "A",
+        "explanation": "Checklists are used for quality control when verifying requirements and designs. Checklists may include a standard set of quality elements that business analysts use to verify the requirements, or they may be specifically developed to capture issues of concern. The purpose of a checklist is to ensure that items determined to be important are included in the final requirements deliverables, or that steps required for the verification process are followed. Babok page 144 7.2.4"
+    },
+    {
+        "question": "Which cost is estimated based on the alternative results that might have been achieved if the resources devoted to one design option had been allocated to another design option?",
+        "options": {
+            "A": "Implementation",
+            "B": "Maintenance",
+            "C": "Opportunity",
+            "D": "Purchase"
+        },
+        "correct_answer": "C",
+        "explanation": "BABOK Page 159 7.6.4 Business analysts also consider opportunity cost when estimating the expected cost of a change. Opportunity costs are alternative results that might have been achieved if the resources, time, and funds devoted to one design option had been allocated to another design option. The opportunity cost of any design option is equal to the value of the best alternative not selected. "
+    },
+    {
+        "question": "The process of assigning requirements to solution components and releases to best achieve the objectives is called: ",
+        "options": {
+            "A": "requirements classification schema.",
+            "B": "requirements traceability.",
+            "C": "requirements allocation.",
+            "D": "requirements architecture."
+        },
+        "correct_answer": "C",
+        "explanation": "Requirements allocation is the process of assigning requirements to solution components and releases to best achieve the objectives. BABOK Page 154 7.5.4 Requirements may be allocated between organizational units, job functions, solution components, or releases of a solution. Requirements allocation typically begins when a solution approach has been determined, and continues until all valid requirements are allocated. Allocation typically continues through design and implementation of a solution."
+    },
+    {
+        "question": "A technique that is used to elicit information by viewing and understanding activities and their context is known as:",
+        "options": {
+            "A": "workshop",
+            "B": "observation",
+            "C": "brainstorming",
+            "D": "review"
+        },
+        "correct_answer": "B",
+        "explanation": "BABOK page 305 Observation is used to elicit information by viewing and understanding activities and their context. It is used as a basis for identifying needs and opportunities, understanding a business process, setting performance standards, evaluating solution performance, or supporting training and development. Observation of activities, also known as job shadowing, involves examining a work activity firsthand as it is performed. It can be conducted in either natural work environments or specially constructed laboratory conditions. The objectives of the observation dictate how it is planned for and methodically conducted."
+    },
+    {
+        "question": "Which type of elicitation involves obtaining information by controlled test?",
+        "options": {
+            "A": "Research",
+            "B": "Experiment",
+            "C": "Interview",
+            "D": "Collaboration"
+        },
+        "correct_answer": "B",
+        "explanation": "BABOK Page 61 4.2.2 'Experiments: involves identifying information that could not be known without some sort of controlled test. Some information cannot be drawn from people or documents—because it is unknown. Experiments can help discover this kind of information. Experiments include observational studies, proofs of concept, and prototypes.'"
     },
     {
         "question": "What is a definitional rule? ",
@@ -132,6 +627,39 @@
         "explanation": "BABOK Page 72 4.5.3 'Poor relationships with stakeholders can have many detrimental effects on business analysis, including: • failure to provide quality information, • strong negative reactions to setbacks and obstacles, • resistance to change, • lack of support for, and participation in, business analysis work, and • business analysis information being ignored.'"
     },
     {
+        "question": "A business analyst (BA) is someone who elicits the actual needs of organizational stakeholders: ",
+        "options": {
+            "A": "in any capacity, regardless of job title. ",
+            "B": "in a project team, with an Business Analyst job title.",
+            "C": "in a project team, regardless of job title.",
+            "D": "in any capacity, with an Business Analyst job title."
+        },
+        "correct_answer": "A",
+        "explanation": "BABOK Page 2  1.3 Who is a Business Analyst? A business analyst is any person who performs business analysis tasks described in the BABOK® Guide, no matter their job title or organizational role. Business analysts are responsible for discovering, synthesizing, and analyzing information from a variety of sources within an enterprise, including tools, processes, documentation, and stakeholders. The business analyst is responsible for eliciting the actual needs of stakeholders—which frequently involves investigating and clarifying their expressed desires—in order to determine underlying issues and causes. Business analysts play a role in aligning the designed and delivered solutions with the needs of stakeholders."
+    },
+    {
+        "question": "The likelihood that the requirement will change because it requires further analysis is termed as:",
+        "options": {
+            "A": "stability",
+            "B": "benefit",
+            "C": "dependency",
+            "D": "penalty"
+        },
+        "correct_answer": "A",
+        "explanation": "Stability: indicates the maturity of the requirement BABOK Page 89 5.3.4 'Stability: the likelihood that the requirement will change, either because it requires further analysis or because stakeholders have not reached a consensus about it. If a requirement is not stable, it may have a lower priority in order to minimize unanticipated rework and wasted effort.'"
+    },
+    {
+        "question": "Inputs to prepare for elicitation include:",
+        "options": {
+            "A": "information management approach and solution scope.",
+            "B": "needs and stakeholder engagement approach.",
+            "C": "future state description and risk analysis results.",
+            "D": "requirements and designs."
+        },
+        "correct_answer": "B",
+        "explanation": "BABOK Page 57 4.1.3 Prepare for Elicitation Input 'Needs: guides the preparation in terms of the scope and purpose of elicitation activities. Elicitation can be used to discover the needs, but in order to get started there must be some need that exists even if it has not yet been fully elicited or understood. • Stakeholder Engagement Approach: understanding stakeholders'communication and collaboration needs helps plan and prepare appropriate and effective elicitation events.'"
+    },
+    {
         "question": "What are the participant roles in reviews?",
         "options": {
             "A": "Domain SME, regulator, sponsor, project manager ",
@@ -141,6 +669,17 @@
         },
         "correct_answer": "C",
         "explanation": "BABOK Page 328, 10.37 Review"
+    },
+    {
+        "question": "What technique is used to elicit business analysis information, including contextual understanding and requirements, by examining available materials that describe either the business environment or existing organizational assets?",
+        "options": {
+            "A": "Organizational modeling",
+            "B": "Document analysis",
+            "C": "Functional decomposition ",
+            "D": "Data"
+        },
+        "correct_answer": "B",
+        "explanation": "BABOK Page 269, 10.18.1 Purpose of Document Analysis: 'Document analysis is used to elicit business analysis information, including contextual understanding and requirements, by examining available materials that describe either the business environment or existing organizational asset'"
     },
     {
         "question": "Establishing the design option that is appropriate to meet the enterprise's requirements is the purpose of which task?",
@@ -154,6 +693,72 @@
         "explanation": "BABOK Page 157, 7.6 The purpose of Analyze Potential Value and Recommend Solution is to estimate the potential value for each design option and to establish which one is most appropriate to meet the enterprise’s requirements."
     },
     {
+        "question": "Which of the following is an example of a requirements viewpoint?",
+        "options": {
+            "A": "Use case",
+            "B": "Mind map",
+            "C": "Expert judgement ",
+            "D": "Item tracking"
+        },
+        "correct_answer": "A",
+        "explanation": "BABOK Page 150, 7.4.4.1 Requirements view point and views Examples of viewpoints include: • Business process models, • Data models and information, • User interactions, including use cases and/or user experience, • Audit and security, and • Business models."
+    },
+    {
+        "question": "Which of the following techniques would a business analyst (BA) use to conduct elicitation?",
+        "options": {
+            "A": "Prioritization",
+            "B": "Reviews",
+            "C": "Observation",
+            "D": "Estimation"
+        },
+        "correct_answer": "C",
+        "explanation": "BABOK Page 61, 4.2.2 There are three common types of elicitation: • Collaborative: involves direct interaction with stakeholders, and relies on their experiences, expertise, and judgment. • Research: involves systematically discovering and studying information from materials or sources that are not directly known by stakeholders involved in the change. Stakeholders might still participate in the research.Research can include data analysis of historical data to identify trends or past results. • Experiments: involves identifying information that could not be known without some sort of controlled test. Some information cannot be drawn from people or documents—because it is unknown. Experiments can help discover this kind of information. Experiments include observational studies, proofs of concept, and prototypes."
+    },
+    {
+        "question": "Which core concept defines a specific way of satisfying one or more needs in a contexts",
+        "options": {
+            "A": "Value",
+            "B": "Change",
+            "C": "Solution",
+            "D": "Priortity"
+        },
+        "correct_answer": "C",
+        "explanation": "BABOK Page 12, 2.1 The Business Analysis Core Concept Model 'Solution is a specific way of satisfying one or more needs in a context. A solution satisfies a need by resolving a problem faced by stakeholders or enabling stakeholders to take advantage of an opportunity.' "
+    },
+    {
+        "question": "Which technique represents a small, concise statement of functionality or quality needed to deliver value to a specific stakeholder?",
+        "options": {
+            "A": "User stories",
+            "B": "Lessons learned ",
+            "C": "Business case",
+            "D": "Scope modelling"
+        },
+        "correct_answer": "A",
+        "explanation": "BABOK Page 359, 10.48 User Stories 'A user story represents a small, concise statement of functionality or quality needed to deliver value to a specific stakeholder'"
+    },
+    {
+        "question": "What requirements are good candidates for reuse?",
+        "options": {
+            "A": "Requirements without direct ties to a particular tool ",
+            "B": "Requirements expressed in more detail",
+            "C": "Requirements at low levels of abstraction ",
+            "D": "Requirements with specic references to departments"
+        },
+        "correct_answer": "A",
+        "explanation": "BABOK Page 85, 5.2.4.3 Reusing Requirements 'Requirements at high levels of abstraction may be written with limited reference to specific solutions. Requirements that are represented in a general manner, without direct ties to a particular tool or organizational structure, tend to be more reusable. These requirements are also less subject to revision during a change. As requirements are expressed in more detail, they become more tightly associated with a specific solution or solution option. Specific references to applications or departments limit the reuse of requirements and designs across an organization. Requirements that are intended for reuse reflect the current state of the organization. Stakeholders validate the proposed requirements for reuse before they can be accepted into a change."
+    },
+    {
+        "question": "When approving requirements, conflict and issue management is an element used to assist in:",
+        "options": {
+            "A": "measuring performance indicators. ",
+            "B": "identifying activities.",
+            "C": "obtaining consensus among stakeholders.",
+            "D": "performing quality control."
+        },
+        "correct_answer": "C",
+        "explanation": "BABOK page 96, 5.5.4.2 Conflict and Issue Management 'To maintain stakeholder support for the solution, consensus among stakeholders is usually sought prior to requesting approval of requirements. Conflict resolution and issue management may occur quite often, as the business analyst is reviewing requirements and designs, and aiming to secure sign-off.'"
+    },
+    {
         "question": "When should prioritization of requirements take place? ",
         "options": {
             "A": "At the very beginning of an initiative only ",
@@ -163,6 +768,17 @@
         },
         "correct_answer": "C",
         "explanation": "BABOK page 89 Continual Prioritization Read full paragraph for explanation."
+    },
+    {
+        "question": "Conducting elicitation by asking questions and documenting responses from relevant stakeholders has the following strength:",
+        "options": {
+            "A": "prioritization setting.",
+            "B": "analytical thinking.",
+            "C": "sharing of information. ",
+            "D": "encouraging participation. "
+        },
+        "correct_answer": "D",
+        "explanation": "BABOK page 208 "
     },
     {
         "question": "Which of the following business analysis activities might be undertaken to verify requirements?",
@@ -185,500 +801,5 @@
         },
         "correct_answer": "D",
         "explanation": "D. Define design options Explanation: Requirements allocation refers to the process of assigning specific requirements to particular components, systems, or subsystems within a design. This process is crucial during the definition of design options, as it helps ensure that all requirements are appropriately addressed by different parts of the proposed solution."
-    },
-    {
-        "question": "Which behavioural characteristic enables the business analyst (BA) to establish credibility by ensuring that business analysis efforts meet the needs of the business?",
-        "options": {
-            "A": "Ethics",
-            "B": "Trustworthiness",
-            "C": "Personal Accountability",
-            "D": "Adaptability"
-        },
-        "correct_answer": "C",
-        "explanation": "Page 195 Personal Accountability 1. Purpose - It enables the business analyst to establish credibility by ensuring that business analysis efforts meet the needs of the business."
-    },
-    {
-        "question": "The approach that defines how requirements will be re-used is the:",
-        "options": {
-            "A": "governance approach.",
-            "B": "approach to identifying business analysis improvements.",
-            "C": "information management approach.",
-            "D": "business analysis approach."
-        },
-        "correct_answer": "C",
-        "explanation": "3.4.8 Outputs • Information Management Approach: includes the defined approach for how business analysis information will be stored, accessed, and utilized during the change and after the change is complete"
-    },
-    {
-        "question": "Which stakeholder group is involved in regularly maintaining requirements and ensuring that the requirements list accurately reflects needs?",
-        "options": {
-            "A": "Implementation subject matter expert",
-            "B": "Domain subject matter expert",
-            "C": "Operational support",
-            "D": "Business analyst "
-        },
-        "correct_answer": "B",
-        "explanation": "Stakeholders • Domain Subject Matter Expert: references maintained requirements on a regular basis to ensure they are accurately reflecting stated needs"
-    },
-    {
-        "question": "While assessing requirements changes, a business analyst (BA) will determine the formality of the assessment process based on: ",
-        "options": {
-            "A": "governance approach. ",
-            "B": "business analysis approach.",
-            "C": "change strategy.",
-            "D": "potential value."
-        },
-        "correct_answer": "A",
-        "explanation": "Business analysts will determine the formality of the assessment process based on the information available, the apparent importance of the change, and the governance process. Many proposed changes may be withdrawn from consideration or declined before any formal approval is required. A predictive approach may indicate a more formal assessment of proposed changes. 5.4.4 Elements .1 Assessment Formality Business analysts will determine the formality of the assessment process based on the information available, the apparent importance of the change, and the governance process. "
-    },
-    {
-        "question": "Which of the following tasks is part of the business analysis planning and monitoring knowledge area?",
-        "options": {
-            "A": "Trace requirements",
-            "B": "Plan stakeholder engagement",
-            "C": "Analyze current state",
-            "D": "Assess solution limitations "
-        },
-        "correct_answer": "B",
-        "explanation": "Reference: BABOK v.3.0 ג€ 'IIBA (31) "
-    },
-    {
-        "question": "One element of the task plan business analysis information management is: ",
-        "options": {
-            "A": "complexity and risk. ",
-            "B": "change control process.",
-            "C": "level of abstraction. ",
-            "D": "decision making authority."
-        },
-        "correct_answer": "C",
-        "explanation": ".2 Level of Abstraction Level of abstraction describes the breadth and depth of the information being provided. Representations of information may range from highly conceptual or summarized to very detailed. In determining how much detail each stakeholder may require as the initiative evolves, consideration is given to the needs of the stakeholders, the complexity of what is being explained, and the importance of the change. Rather than present the same information to all stakeholders, business analysts should present information with appropriate breadth and level of detail based on each stakeholder's role. Business analysis information regarding a topic of significant importance or high level of risk is frequently represented in greater detail. BABOK page 44."
-    },
-    {
-        "question": "The task that uses the elicitation activity plan to draw out, explore and identify information relevant to the change is:",
-        "options": {
-            "A": "conduct elicitation. ",
-            "B": "prepare for elicitation.",
-            "C": "plan business analysis information. ",
-            "D": "confirm elictiantion results"
-        },
-        "correct_answer": "A",
-        "explanation": "The purpose of Conduct Elicitation is to draw out, explore, and identify information relevant to the change. BABOK Pg 57 Prepare for Elicitation Input/Output Diagram."
-    },
-    {
-        "question": "What is a valid reason for prioritization?",
-        "options": {
-            "A": "Requirements which are of significant personal interest to a stakeholder",
-            "B": "Effort and resources needed to implement a requirement ",
-            "C": "Sponsor's wish-list",
-            "D": "Development team's advice to implement easy requirements"
-        },
-        "correct_answer": "B",
-        "explanation": "BABAOK V3 Pg 88 Cost: the effort and resources needed to implement the requirement. Information about cost typically comes from the implementation team or the vendor. Customers may change the priority of a requirement after learning the cost. Cost is often used in conjunction with other criteria, such as cost-benefit analysis."
-    },
-    {
-        "question": "What of the following represents a typical factor that infuences the priortization of requirements?",
-        "options": {
-            "A": "Scope",
-            "B": "Impact",
-            "C": "Value",
-            "D": "Cost"
-        },
-        "correct_answer": "D",
-        "explanation": "BABOK V3 Pg 88. Basis for prioritization: Benefit, Penalty, Cost, Risk, Dependencies, Time sensitivity, Stability, Regulatory or Policy compliance. "
-    },
-    {
-        "question": "In which state should elicitation results be in order to begin modelling of requirements?",
-        "options": {
-            "A": "Unconfirmed",
-            "B": "Any",
-            "C": "Confirmed",
-            "D": "Documented"
-        },
-        "correct_answer": "B",
-        "explanation": "BABOK V3 Pg 137. Elicitation Results (any state): modelling can begin with any elicitation result and may lead to the need for more elicitation to clarify or expand upon requirements. Elicitation and modelling may occur sequentially, iteratively, or concurrently."
-    },
-    {
-        "question": "When defining the requirements architecture, a business analyst (BA) examines the relationships among requirements to ensure that they satisfy the following quality criteria:",
-        "options": {
-            "A": "prioritized, understandable, familiar, kinesthetic, visual.",
-            "B": "defined, necessary, correct, unambiguous, consistent.",
-            "C": "value-add, functional, auditable, edited, approved. ",
-            "D": "atomic, complete, concise, feasible, testable. "
-        },
-        "correct_answer": "B",
-        "explanation": "Business analysts examine each relationship to ensure that the relationships satisfy the following quality criteria: • Defined: there is a relationship and the type of the relationship is described. • Necessary: the relationship is necessary for understanding the requirements holistically. • Correct: the elements do have the relationship described. • Unambiguous: there are no relationships that link elements in two different and conflicting ways. • Consistent: relationships are described in the same way, using the same set of standard descriptions as defined in the viewpoints. page 151"
-    },
-    {
-        "question": "Which of the following techniques is used when recommendations for improvement are supported by objective and quantitative evidence? ",
-        "options": {
-            "A": "Observation",
-            "B": "Functional decomposition",
-            "C": "Balanced scorecard",
-            "D": "Estimation"
-        },
-        "correct_answer": "A",
-        "explanation": "BABOK Pg 307. Mentioned under Strengths of Observation: Recommendations for improvement are supported by objective and quantitative evidence."
-    },
-    {
-        "question": "The purpose of using process analysis is to:",
-        "options": {
-            "A": "identify and evaluate the underlying causes of a problem.",
-            "B": "improve decision making by finding useful patterns",
-            "C": "understand factors to be included in a contract negotiation.",
-            "D": "describe the sequential flow of work or activities."
-        },
-        "correct_answer": "C",
-        "explanation": "Process analysis is used for various purposes including: • recommending a more efficient or effective process, • determining the gaps between the current and future state of a process, • understanding factors to be included in a contract negotiation, • understanding how data and technology are used in a process, and • analyzing the impact of a pending change to a process."
-    },
-    {
-        "question": "Which of the following is a characteristic of predictive planning approach?",
-        "options": {
-            "A": "Activities are divided into iterations ",
-            "B": "Requirements are gathered through team interaction and feedback",
-            "C": "Tasks are performed recurrently ",
-            "D": "Information is captured in standardized templates "
-        },
-        "correct_answer": "D",
-        "explanation": "Babok Page 26 - Business analysis information may be captured in a formal document or set of representations following standardized templates."
-    },
-    {
-        "question": "Which of the following is a common type of elicitation?",
-        "options": {
-            "A": "Discussion",
-            "B": "Research",
-            "C": "Exploration",
-            "D": "Examination"
-        },
-        "correct_answer": "B",
-        "explanation": "There are three common types of elicitation: Collaborative, Research and Experiment. BABOK V3 Pg. 61"
-    },
-    {
-        "question": "Which of the following core competencies fall under the BABOK's underlying competency “analytical thinking and problem solving”?",
-        "options": {
-            "A": "Leadership and influencing, facilitation and teamwork",
-            "B": "Industry knowledge, conceptual thinking and business acumen",
-            "C": "Learning systems thinking and decision making",
-            "D": "Decision making ethics and adaptability "
-        },
-        "correct_answer": "C",
-        "explanation": "pg 188 BABOK V3 Analytical Thinking and Problem Solving core competencies include: • Creative Thinking, • Decision Making, • Learning, • Problem Solving, • Systems Thinking, • Conceptual Thinking, and • Visual Thinking."
-    },
-    {
-        "question": "The business analysis core concept model (BACCM™) describes which of the following as “the act of transformation in response to a need”?",
-        "options": {
-            "A": "Change",
-            "B": "Solution",
-            "C": "Context",
-            "D": "Need"
-        },
-        "correct_answer": "A",
-        "explanation": "BABOK page 101 "
-    },
-    {
-        "question": "Which of the following describes the confirmation of interview results?",
-        "options": {
-            "A": "Follow-up",
-            "B": "Validation",
-            "C": "Retrospective",
-            "D": "Conclusion"
-        },
-        "correct_answer": "A",
-        "explanation": "BABOK v3, pg 293, 10.25.3 - Interviews, .6 - Interview Follow-up: It is important for the interviewer to organize the information and confirm results with the interviewees as soon as possible after the interview."
-    },
-    {
-        "question": "What inputs are required to assess business analysis work and to plan to improve processes?",
-        "options": {
-            "A": "Business analysis performance assessment and performance objectives",
-            "B": "Business analysis approach and performance objectives (external)",
-            "C": "Business analysis approach and key performance objectives (internal)",
-            "D": "Business analysis approach and metrics and key performance indicators (KPIs)"
-        },
-        "correct_answer": "B",
-        "explanation": "The purpose of Identify Business Analysis Performance Improvements is to assess business analysis work and to plan to improve processes where required: Inputs • Business Analysis Approach: identifies business analysis deliverables that will be produced, activities that will need to be performed (including when they will be performed and who will be performing them), and techniques that will be used. • Performance Objectives (external): describe the desired performance outcomes that an enterprise or organization is hoping to achieve."
-    },
-    {
-        "question": "What is the purpose of comparing the results collected through elicitation activities?",
-        "options": {
-            "A": "Classify and organize the results",
-            "B": "Confirm that the infomation is consistent and accurately represented",
-            "C": "Ensure that information produced is recorded for later reference use ",
-            "D": "Validate sufficient information was collected"
-        },
-        "correct_answer": "B",
-        "explanation": "The elicitation results can be compared against their source and other elicitation results to ensure consistency. Collaboration with stakeholders might be necessary to ensure their inputs are correctly captured and that they agree with the results of non-facilitated elicitation Page 65 of BABoK "
-    },
-    {
-        "question": "Requirements traceability is documented and maintained in accordance with the methods identified by:",
-        "options": {
-            "A": "the business analysis approach. ",
-            "B": "the business analysis performance assessment approach. ",
-            "C": "the information management approach.",
-            "D": "the governance approach. "
-        },
-        "correct_answer": "A",
-        "explanation": "BABOK V3 Pg 82 Requirements traceability is documented and maintained in accordance with the methods identified by the business analysis approach"
-    },
-    {
-        "question": "Which model category would include the techniques of decision modelling and root cause analysis?",
-        "options": {
-            "A": "Activity flow",
-            "B": "Rationale",
-            "C": "People and roles",
-            "D": "Data and information "
-        },
-        "correct_answer": "B",
-        "explanation": "Page 148 - Requirements Analysis and Design Definition - 7.1.4 Elements - .1 - Model Requirements"
-    },
-    {
-        "question": "What is used for quality control when verifying requirements and designs? ",
-        "options": {
-            "A": "Review",
-            "B": "Acceptance and evaluation criteria",
-            "C": "Item tracking",
-            "D": "Checklist"
-        },
-        "correct_answer": "D",
-        "explanation": "Checklists are used for quality control when verifying requirements and designs. Checklists may include a standard set of quality elements that business analysts use to verify the requirements, or they may be specifically developed to capture issues of concern. The purpose of a checklist is to ensure that items determined to be important are included in the final requirements deliverables, or that steps required for the verification process are followed. 144 p"
-    },
-    {
-        "question": "When examining requirements relationships, the business analyst (BA) ensures the relationships satisfy the following quality criteria:",
-        "options": {
-            "A": "testable",
-            "B": "independent",
-            "C": "measurable",
-            "D": "unambiguous"
-        },
-        "correct_answer": "D",
-        "explanation": "Page 161 - Define Requirements Architecture - .4 - Relate and Verify Requirements Relationships. BABOK V3 Pg. 151. "
-    },
-    {
-        "question": "What prescribes how information may be derived, inferred or calculated based on information available to the business?",
-        "options": {
-            "A": "Defintional business rule",
-            "B": "Business policy ",
-            "C": "Behavioural business rule",
-            "D": "Business case"
-        },
-        "correct_answer": "A",
-        "explanation": "10.9 Business Rules Analysis: Definitional rules (Page 241-242 BABOK3) Definitional rules often prescribe how information may be derived, inferred or calculated based on information available to the business. An inference or calculation may be the result of multiple rules, each building on something inferred or calculated by some other(s). Sets of definitional rules are often used to make operational business decisions during some process or upon some event. An example of a calculation rule is: An order's local jurisdiction tax amount must be calculated as (sum of the prices of all the order's taxable ordered items) × local jurisdiction tax rate amount."
-    },
-    {
-        "question": "What characteristic of a process is evaluated during process analysis?",
-        "options": {
-            "A": "How work is carried out ",
-            "B": "Effciency and effectiveness",
-            "C": "Root causes of a problem",
-            "D": "How roles are identified"
-        },
-        "correct_answer": "B",
-        "explanation": "10.34 Process Analysis 10.34.1 Purpose Process analysis assesses a process for its efficiency and effectiveness, as well as its ability to identify opportunities for change."
-    },
-    {
-        "question": "What type of analytical thinking competency involves clearly validating assumptions and measuring alternatives?",
-        "options": {
-            "A": "Decision making",
-            "B": "Problem solving",
-            "C": "Creative thinking",
-            "D": "Systems thinking"
-        },
-        "correct_answer": "B",
-        "explanation": "Assumptions are identified and validated page 191 answwer B Answer is PROBLEM SOLVING BABBOK V3 Page 191 (section 9.1.5) 9.1.4 Problem Solving .1 Purpose Business analysts define and solve problems in order to ensure that the real, underlying root cause of a problem is understood by all stakeholders and that solution options address that root cause. .2 Definition Defining a problem involves ensuring that the nature of the problem and any underlying issues are clearly understood by all stakeholders. Stakeholder points of view are articulated and addressed to understand any conflicts between the goals and objectives of different groups of stakeholders. Assumptions are identified and validated. The objectives that will be met once the problem is solved are clearly specified, and alternative solutions are considered and possibly developed. Alternatives are measured against the objectives to determine which possible solution is best, and identify the value and trade-offs that may exist betweensolutions."
-    },
-    {
-        "question": "Which behavioural characteristic of business analysis professionals ensures that the tasks performed meet stakeholder expectations?",
-        "options": {
-            "A": "Personal accountability",
-            "B": "Time management",
-            "C": "Adaptability",
-            "D": "Trustworthiness "
-        },
-        "correct_answer": "A",
-        "explanation": "9.2.2 Pg 195 Personal accountability includes effectively planning business analysis work to achieve targets and goals, and ensuring that value delivered is aligned with business needs. It involves chasing down all leads and loose ends to fully satisfy the stakeholder’s needs. Following through on and fully completing business analysis tasks produces complete, accurate, and relevant solutions traceable to a need. Business analysts take responsibility for identifying and escalating risks and issues. They also ensure that decision makers have the appropriate information in order to assess impact. "
-    },
-    {
-        "question": "When reporting business analysis performance, what does the measure of significance indicate?",
-        "options": {
-            "A": "The value delivered by the work products justified the investment to produce them.",
-            "B": "The work products were delivered at a time that fit stakeholder expectations.",
-            "C": "The work products were both complete and accurate.",
-            "D": "The business objectives were met, problems were solved, and improvements achieved. "
-        },
-        "correct_answer": "A",
-        "explanation": "Significance: consider the benefit obtained from the work products and assess whether the cost, time, and resource investments expended to produce the work products were justified for the value they delivered. 49 p"
-    },
-    {
-        "question": "When is it appropriate to re-evaluate allocation of design elements between components? ",
-        "options": {
-            "A": "Before the final selection",
-            "B": "During regulatory assessment ",
-            "C": "After a shortlist is announced ",
-            "D": "At any time during evaluation"
-        },
-        "correct_answer": "D",
-        "explanation": "At any point in analyzing the design options, it may become necessary to re-evaluate the initial allocation of design elements between components. 159 p."
-    },
-    {
-        "question": "What does a requirement's source, priority, and complexity refer to?",
-        "options": {
-            "A": "Attributes",
-            "B": "Designs",
-            "C": "Functions",
-            "D": "Types"
-        },
-        "correct_answer": "A",
-        "explanation": "While eliciting requirements, business analysts elicit requirement attributes. Information such as the requirement’s source, priority, and complexity aid in managing each requirement throughout the life cycle. Some attributes change as the business analyst uncovers more information and conducts further analysis. An attribute may change even though the requirement does not. 85 p. Pg 45 and 46 BABOK v3"
-    },
-    {
-        "question": "What is the foundation for guiding the elicitation effort?",
-        "options": {
-            "A": "Surveys",
-            "B": "Potential value ",
-            "C": "Concept model",
-            "D": "Supporting material"
-        },
-        "correct_answer": "B",
-        "explanation": "B 4.1 Prepare for elicitation 4.1.5 Guidelines and Tools • Potential Value: describes the value to be realized by implementing the proposed future state, and can be used to shape elicitation events. upvoted 1 times"
-    },
-    {
-        "question": "In which informal technique do multiple reviewers provide verbal or written feedback?",
-        "options": {
-            "A": "Pass around",
-            "B": "Rolling wave",
-            "C": "Inspection",
-            "D": "Single issue review"
-        },
-        "correct_answer": "A",
-        "explanation": "Pass Around: an informal technique in which multiple reviewers provide verbal or written feedback. The work product may be reviewed in a common copy of the work product or passed from one person to the next."
-    },
-    {
-        "question": "How does the use of a traceability repository help in achieving project goals?",
-        "options": {
-            "A": "Tracks changes to project artifacts",
-            "B": "Stores stakeholder communications ",
-            "C": "Identifies and mitigates project risks",
-            "D": "Documents requirements lineage "
-        },
-        "correct_answer": "D",
-        "explanation": "3 Traceability Repository Requirements traceability is documented and maintained in accordance with the methods identified by the business analysis approach. Requirements management tools can provide significant benefits when there is a need to trace a large number of requirements that may be deemed unmanageable with manual approaches"
-    },
-    {
-        "question": "Which of the following is a quality criterion for examining relationships between requirements?",
-        "options": {
-            "A": "Defining",
-            "B": "Valuable",
-            "C": "Relevant",
-            "D": "Complete"
-        },
-        "correct_answer": "A",
-        "explanation": "7.4.4 .4 Relate and Verify Requirements Relationships Requirements may be related to each other in several ways when defining the requirements architecture. Business analysts examine and analyze the requirements to define the relationships between them. The representation of these relationships is provided by tracing requirements (see Trace Requirements (p. 79)). Business analysts examine each relationship to ensure that the relationships satisfy the following quality criteria: • Defined: there is a relationship and the type of the relationship is described. • Necessary: the relationship is necessary for understanding the requirements holistically. • Correct: the elements do have the relationship described. • Unambiguous: there are no relationships that link elements in two different and conflicting ways. • Consistent: relationships are described in the same way, using the same set of standard descriptions as defined in the viewpoints"
-    },
-    {
-        "question": "What is an example of a tacit business rule?",
-        "options": {
-            "A": "Accepted practice",
-            "B": "Corporate contract",
-            "C": "Job aid ",
-            "D": "Corporate policy"
-        },
-        "correct_answer": "A",
-        "explanation": "Analysis of business rules involves capturing business rules from sources, expressing them clearly, validating them with stakeholders, refining them to best align with business goals, and organizing them so they can be effectively managed and reused. Sources of business rules may be explicit (for example, documented business policies, regulations, or contracts) or tacit (for example, undocumented stakeholder know-how, generally accepted business practices, or norms of the corporate culture). Business rules should be explicit, specific, clear, accessible, and single sourced. Basic principles for business rules include: • basing them on standard business vocabulary to enable domain subject matter experts to validate them, • expressing them separately from how they will be enforced, • defining them at the atomic level and in declarative format, • separating them from processes they support or constrain, • mapping them to decisions the rule supports or constrains, and • maintaining them in a manner such that they can be monitored and adapted as business circumstances evolve over time. A set of rules for making an operational business decision may be expressed as a decision table or decision tree, as described in Decision Analysis (p. 261). The number of rules in such a set can be quite large, with a high level of complexity"
-    },
-    {
-        "question": "What observation approach involves the observer asking questions as the work is being performed? ",
-        "options": {
-            "A": "Passive/Noticeable",
-            "B": "Active/Unnoticeable",
-            "C": "Active/Noticeable",
-            "D": "Passive/Unnoticeable "
-        },
-        "correct_answer": "C",
-        "explanation": "BABOK3 Page 305,306 10.31 Observation There are two basic approaches for observation: • Active/Noticeable: while observing an activity the observer asks any questions as they arise. Despite this interruption to the work flow, the observer can more quickly understand the rationale and hidden processes underlying the activity, such as decision making. A variation of this method may involve even stronger intervention into actors' activities by stimulating them to perform specific tasks. This kind of facilitated observation allows focus on the observer's objectives in order to shorten observation time or elicit specific information. • Passive/Unnoticeable: during the activity the observer does not interrupt the work. Any concerns are raised once the observation is over. This allows observation of a natural flow of events without intervention by the observer, as well as measurement of the time and quality of work. A variation of this method is video recording the activity and then reviewing it with the person being observed so they may provide further clarification. Inspection of a person's work environment helps in discovering any tools and information assets involved in performing their activities. This supports understanding of the activities, especially with the purpose of identifying needs and opportunities. This kind of observation is an important part of the technique's variation, and is known as Contextual Inquiry."
-    },
-    {
-        "question": "What is the primary purpose of the interview technique?",
-        "options": {
-            "A": "To identify the functional role of the stakeholder",
-            "B": "To establish stakeholder relationships and trust",
-            "C": "To elicit business analysis information ",
-            "D": "To view and understand activities and their context "
-        },
-        "correct_answer": "C",
-        "explanation": "An interview is a systematic approach designed to elicit business analysis information from a person or group of people by talking to the interviewee(s), asking relevant questions, and documenting the responses. The interview can also be used for establishing relationships and building trust between business analysts and stakeholders in order to increase stakeholder involvement or build support for a proposed solution. 290 p."
-    },
-    {
-        "question": "Why must business analysis information packages be prepared?",
-        "options": {
-            "A": "To facilitate reviews and approvals",
-            "B": "To plan tasks for the week",
-            "C": "To determine the stakeholder engagement approach ",
-            "D": "To determine the information management approach "
-        },
-        "correct_answer": "A",
-        "explanation": "1 Determine Objectives and Format of Communication Business analysis information packages may be prepared for a number of reasons including—but not limited to—the following: • communication of requirements and designs to stakeholders, • early assessment of quality and planning, • evaluation of possible alternatives, • formal reviews and approvals, • inputs to solution design, • conformance to contractual and regulatory obligations, and • maintenance for reuse"
-    },
-    {
-        "question": "Why consider both tangible and intangible costs and benefits when determining the value of a solution?",
-        "options": {
-            "A": "To ensure the business case template is complete",
-            "B": "To present the case to team leaders",
-            "C": "To present a complete estimate to the business",
-            "D": "To ensure the finance team budgets for the software"
-        },
-        "correct_answer": "C",
-        "explanation": "BABOK3 Page 159 7.6 Analyze Potential Value and Recommend Solution  Potential value is uncertain value. There are always events or conditions that could increase or decrease the actual value if they occur. Many changes are proposed in terms of intangible or uncertain benefits, while costs are described as tangible, absolute, and might grow. When benefits are described as intangible and costs expressed as tangible, it may be difficult for decision makers to compare their options. Business analysts define a complete estimate of the purpose-driven and monetary effects of a proposed change by considering the tangible and intangible costs alongside the tangible and intangible benefits. The estimate of costs and benefits must take into account the degree of uncertainty pertaining at the time the estimates are made."
-    },
-    {
-        "question": "Which of the following is a common change that can be made to a process in order to improve it?",
-        "options": {
-            "A": "Understand the relationship between gaps and improvement areas ",
-            "B": "Automate steps that are more routine and predictable ",
-            "C": "Generate and evaluate options",
-            "D": "Analyze the potential impact of the change "
-        },
-        "correct_answer": "B",
-        "explanation": "BABOK3 Page 314 10.34 Process Analysis Common changes made to processes in order to improve them include: • reducing the time required to complete a task or tasks in the process, • modifying interfaces or hand-offs between roles and organizational units to remove errors, including the reduction or elimination of bottlenecks, • automating steps that are more routine or predictable, and • increasing the degree of automation in the decision making required by the process."
-    },
-    {
-        "question": "Which type of requirements are temporary in nature? ",
-        "options": {
-            "A": "Solution requirements",
-            "B": "Stakeholder requirements",
-            "C": "Business requirements",
-            "D": "Transition requirements"
-        },
-        "correct_answer": "D",
-        "explanation": "BABOK3 Page 16 Business Analysis Key Concepts 2.3 Requirements Classification Schema • Transition requirements: describe the capabilities that the solution must have and the conditions the solution must meet to facilitate transition from the current state to the future state, but which are not needed once the change is complete. They are differentiated from other requirements types because they are of a temporary nature. Transition requirements address topics such as data conversion, training, and business continuity."
-    },
-    {
-        "question": "In planning an information management approach, what input element indicates the current status of stored information?",
-        "options": {
-            "A": "Tool",
-            "B": "Organizational standard",
-            "C": "Repository",
-            "D": "Storage decision"
-        },
-        "correct_answer": "C",
-        "explanation": "Storage and Access Business analysis information can be stored in many ways. Storage decisions depend on many factors such as who must access the information, how often they need to access it, and what conditions must be present for access. Organizational standards and tool availability also influence storage and access decisions. The business analysis approach defines how various tools will be used on the initiative and how the information will be captured and stored within those tools. Tools may shape the selection of business analysis techniques, notations to be used, and the way that information is organized. The repository may need to store information other than requirements and designs. It should be able to indicate the status of any stored information, and allow for modification of that information over time. 45 p."
-    },
-    {
-        "question": "Which criteria are used to ensure high-quality relationships between requirements?",
-        "options": {
-            "A": "Collaborative and communicated",
-            "B": "Concise and creative ",
-            "C": "Correlated and clear ",
-            "D": "Consistent and correct "
-        },
-        "correct_answer": "D",
-        "explanation": "BABOK3 Page 141,142 7.2 Verify Requirement"
-    },
-    {
-        "question": "When undertaking requirements verification, who determines if the requirements captured are of good quality?",
-        "options": {
-            "A": "Stakeholders using them",
-            "B": "Business analysis professional writing them",
-            "C": "Business customers once delivered ",
-            "D": "Project manager reviewing them"
-        },
-        "correct_answer": "A",
-        "explanation": "All stakeholders: the business analyst, in conjunction with the domain and implementation subject matter experts, has the primary responsibility for determining that this task has been completed. Other stakeholders may discover problematic requirements during requirements communication. Therefore, all stakeholders could be involved in this task. "
     }
 ]

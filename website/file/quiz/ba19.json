@@ -1,0 +1,940 @@
+[
+  {
+    "question": "What are the two main settings that business analysis is performed in?",
+    "options": {
+      "A": "Business Analysis and Non-Business Analysis",
+      "B": "Project and Pre-Project",
+      "C": "Project and Non-Project",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Project-level work is focused on changing the organization in predefined ways, and pre-project analysis focuses on deciding which projects to run."
+  },
+  {
+    "question": "What is necessary before a solution can be implemented to fix an enterprise problem?",
+    "options": {
+      "A": "A large requirements document must be written.",
+      "B": "A Business Analyst must propose at least three possible solutions to management.",
+      "C": "The organization must define the need in a detailed manner.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "If the organization doesn’t define what its needs are, it won’t be in a good position to resolve its problem."
+  },
+  {
+    "question": "Which of the following might be an element of the solution we recommend as Business Analysts?",
+    "options": {
+      "A": "Systems",
+      "B": "System Features",
+      "C": "Business Processes",
+      "D": "Policies",
+      "E": "Training",
+      "F": "All of the above",
+      "J": "None of the above."
+    },
+    "correct_answer": "F",
+    "explanation": "Bingo. Any of these items might be part of our solution."
+  },
+  {
+    "question": "Which of the following is one of the ways an organization can be hurt by not responding to change?",
+    "options": {
+      "A": "Increase in costs",
+      "B": "Change in product pricing",
+      "C": "An increase in revenues per employee",
+      "D": "Trick question! Organizations are not hurt if they don’t respond to change.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Right. Costs can increase substantially if the organization doesn’t respond to change."
+  },
+  {
+    "question": "True/False: It is important for an enterprise to understand all of the needs of its stakeholders, even if there is no solution that meets all those needs.",
+    "options": {
+      "A": "TRUE",
+      "B": "FALSE",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. Unfortunately, sometimes a single solution will not satisfy all stakeholders. In those cases, Business Analysts must determine what the best solution is, keeping in mind the various needs."
+  },
+  {
+    "question": "Which of the following sounds like a problem that a Business Analyst would tackle?",
+    "options": {
+      "A": "John Doe isn’t very organized, and it’s preventing him from getting work done.",
+      "B": "The Sales Department is underperforming, and management believes they need a more effective lead generation process.",
+      "C": "Jane Doe, one of the company’s top salespeople, has been in a slump lately. Management believes she needs a new Sales Assistant, but no budget is available to hire one.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct… This is an organizational problem that a Business Analyst can come to understand, analyze, and propose solutions for."
+  },
+  {
+    "question": "How might a Business Analyst learn about an organization’s problem?",
+    "options": {
+      "A": "Observing a single stakeholder to see how they perform a task",
+      "B": "Interviewing a group of stakeholders to learn how a company process works",
+      "C": "Surveying customers to learn about their preferences and needs",
+      "D": "Modeling an organizational process using a flowchart",
+      "E": "All of the above",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "E",
+    "explanation": "Correct! All these methods are valuable ways of learning about an organization’s problems."
+  },
+  {
+    "question": "What is a requirement?",
+    "options": {
+      "A": "A usable representation of a need",
+      "B": "Documentation of value that the solution must provide",
+      "C": "A document (or set of documents) that specifies the solution in detail",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct! Each of these statements describes the term “requirement” well."
+  },
+  {
+    "question": "Which of the following statements is correct?",
+    "options": {
+      "A": "Requirements specify how the organization can progress from the future state to the current state.",
+      "B": "The testing strategy describes how the organization can progress from the current state to the future state.",
+      "C": "Requirements serve as the blueprint for moving from the current state to the future state.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Bingo! This is the correct statement."
+  },
+  {
+    "question": "BABOK refers to requirements as being usable representations of needs. What does “usable” mean in this context?",
+    "options": {
+      "A": "That the end user will consider the system easy to use.",
+      "B": "That the team members who consume (or use) the requirements will consider them easy to use.",
+      "C": "That developers will understand the requirements, because the documentation uses industry-specific lingo.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct! This is the right interpretation, and a very important thing to focus on."
+  },
+  {
+    "question": "True/False: Only people with the job title of Business Analyst are allowed to do business analysis work.",
+    "options": {
+      "A": "TRUE",
+      "B": "FALSE",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Yes, good job."
+  },
+  {
+    "question": "Which of the following roles is least likely to perform business analysis?",
+    "options": {
+      "A": "A Web Developer",
+      "B": "A Product Owner",
+      "C": "A Salesperson",
+      "D": "A Product Manager",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct! Salespeople often provide input to Business Analysts, but they rarely are involved in performing business analysis."
+  },
+  {
+    "question": "True/False: Stakeholders are very important to the business analysis process.",
+    "options": {
+      "A": "TRUE",
+      "B": "FALSE",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Right! Stakeholders are the primary source of requirements, and without them, nothing valuable will get done."
+  },
+  {
+    "question": "What is the mission of a Business Analyst?",
+    "options": {
+      "A": "To complete requirements as quickly and accurately as possible",
+      "B": "To effect positive change for our companies and customers",
+      "C": "To make our stakeholders happy",
+      "D": "To understand our organizations as completely as possible",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct! This is the right mission statement."
+  },
+  {
+    "question": "Imagine you are starting a new role as a Business Analyst on an agile team. They tell you that they don’t document detailed requirement specifications, instead relying on conversations among team members. What is the right approach for you to have?",
+    "options": {
+      "A": "“I better learn how to program, because I don’t have much else to offer.",
+      "B": "“The team has a bad approach to software development, and they should start writing specs before they start programming.”",
+      "C": "“That’s okay, and it will save me some work. I’m a problem-solver, not just a requirements author.”",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. This mindset highlights the big picture of the BA role."
+  },
+  {
+    "question": "Extra credit: What time was the BA team meeting?",
+    "options": {
+      "A": "0.479166666666667",
+      "B": "0.520833333333333",
+      "C": "0.0625",
+      "D": "No one cares.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Good job. Focusing on important information and ignoring the rest is a valuable BA skill. You’ll do well in your career."
+  },
+  {
+    "question": "What is a stakeholder?",
+    "options": {
+      "A": "Any person that works for your company",
+      "B": "Any person that holds a steak",
+      "C": "Anyone impacted by your requirements in some way",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. We’ll be using this definition throughout this section of the course."
+  },
+  {
+    "question": "If you create an inventory system used by workers in a warehouse at your company, are you downstream or upstream from those workers?",
+    "options": {
+      "A": "Downstream",
+      "B": "Upstream",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Since you create the system, the warehouse workers depend on you. Therefore, you’re upstream from them."
+  },
+  {
+    "question": "Why is it important to manage your upstream?",
+    "options": {
+      "A": "Because your upstream stakeholders will have career opportunities for you in the future.",
+      "B": "Because they will blame you if things go poorly.",
+      "C": "Because your work is dependent on them.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. You are dependent on their work, and you can’t get yours done unless they do well with theirs."
+  },
+  {
+    "question": "What is the role of the Project Manager?",
+    "options": {
+      "A": "To deliver the project",
+      "B": "To ensure the organization benefits from the project",
+      "C": "To manage the requirements phase of the project",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. They get the project done."
+  },
+  {
+    "question": "Which of the following is not a typical project constraint?",
+    "options": {
+      "A": "Budget",
+      "B": "Quality",
+      "C": "Team",
+      "D": "Schedule",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. This isn’t a constraint. In project-speak, team members are “resources.”"
+  },
+  {
+    "question": "Why is the Project Manager an important requirements stakeholder?",
+    "options": {
+      "A": "The PM is responsible for delivery of the project, and requirements are essential to successful delivery.",
+      "B": "If requirements will be either early",
+      "C": "If requirements are of poor quality, the project quality is likely to suffer.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Each of the statements illustrates how the PM is an important requirements stakeholder."
+  },
+  {
+    "question": "Which of the following is a good way for you, the Business Analyst, to help your Project Manager?",
+    "options": {
+      "A": "Develop your product without any bugs.",
+      "B": "Follow their commands unquestioningly, since they are an expert at all things business-related.",
+      "C": "Complain about how boring this project is.",
+      "D": "Let them know if you encounter a significant issue or risk.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. This is very important. And don’t worry about remembering – your PM will likely keep reminding you. 😊"
+  },
+  {
+    "question": "Which of the following is not a typical problem of a developer?",
+    "options": {
+      "A": "The need for quick solutions in a very complex environment.",
+      "B": "Interruptions.",
+      "C": "Lack of meetings.",
+      "D": "Requirement change.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Good. A lack of meetings is probably only a problem for salespeople, certainly not developers."
+  },
+  {
+    "question": "When is a good time to meet with developers?",
+    "options": {
+      "A": "The beginning of the day",
+      "B": "The middle of the day",
+      "C": "Late at night",
+      "D": "Whenever you feel like it",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Right. It’s best to meet with them at the beginning or end of the day, so they have a block of time during the day that they can focus."
+  },
+  {
+    "question": "What is a good way to let developers know that you expect a requirement to change?",
+    "options": {
+      "A": "Document the expectation of change alongside the requirement.",
+      "B": "Mention the expectation of change in your e-mail to them (if you send them the document that way)",
+      "C": "Verbally tell them that you expect the requirement to change",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. It’s a best practice to do all of the above."
+  },
+  {
+    "question": "What is a defect?",
+    "options": {
+      "A": "A bug",
+      "B": "A problem with the product",
+      "C": "Any difference between the requirements and the product implementation",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct! All three are common usages of the term."
+  },
+  {
+    "question": "When is the best time to engage testing professionals on a project?",
+    "options": {
+      "A": "Early in the project, during the analysis phase",
+      "B": "Halfway through the project, during development",
+      "C": "At the beginning of the testing phase",
+      "D": "Trick question! BAs don’t need to engage with testing professionals.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct – this way the testers can familiarize themselves with the requirements and provide their feedback."
+  },
+  {
+    "question": "Why is it important for BAs to devote time to ensuring testers understand the requirements?",
+    "options": {
+      "A": "So the testers can most efficiently create their test scripts",
+      "B": "So the testers do not test the system with incorrect assumptions",
+      "C": "So the testers will not complain about the BA not providing adequate support",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. Each of the answers is a good reason."
+  },
+  {
+    "question": "Which of the following is a good way to surprise your manager?",
+    "options": {
+      "A": "Let her know on the due date that your requirements will be four weeks late. Surprise!",
+      "B": "Let him know that you have been unable to speak with any customer stakeholders right as the product is about to be released. Surprise!",
+      "C": "Surprise her with a cup of coffee early in the morning.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. Assume this is the only good way to surprise your manager. Don’t spill it on her."
+  },
+  {
+    "question": "Why is it a good idea to get to know the bosses of the development and testing teams?",
+    "options": {
+      "A": "It builds their trust, as they see that you’re trying to engage them on important project updates and make sure their teams are taken care of.",
+      "B": "It lets them know that you are a crafty Business Analyst who will stop at nothing to advance your career agenda.",
+      "C": "It lets them know that you have way too much free time, because you want to hang out with them.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. And trust is very important among project teams and their management."
+  },
+  {
+    "question": "Why is it important to build a solid working relationship with your project sponsor?",
+    "options": {
+      "A": "Because the sponsor will contribute the majority of the business requirements.",
+      "B": "Because you and the sponsor must work together to ensure the product meets the needs of all its stakeholders.",
+      "C": "Because it will make your life wonderful.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. The sponsor is a critical relationship for all these reasons."
+  },
+  {
+    "question": "What if you are an expert in the area you are building a product for… Do you still have to engage the product’s users?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. You always have to engage the people who will use your product."
+  },
+  {
+    "question": "What if your end users complain a lot and annoy you… Do you still have to engage them?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. You always have to engage the people who will use your product."
+  },
+  {
+    "question": "What if your end users are dumb and have a lot of stupid feedback… Do you still have to engage them?",
+    "options": {
+      "A": "yes",
+      "B": "no",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. You always have to engage the people who will use your product."
+  },
+  {
+    "question": "What is the most likely outcome if you build a product without adequately involving its users?",
+    "options": {
+      "A": "The users will love it, because it’s awesome.",
+      "B": "The users won’t like the product, but they will appreciate all the effort you and the team devoted to trying.",
+      "C": "The users won’t like the product, they won’t use it, they won’t pay for it, they will complain, and your management will give you a hard time.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. This is the usual outcome. Therefore? Always engage your users."
+  },
+  {
+    "question": "When stakeholders have conflicting needs, what is the best strategy with which to tackle the problem?",
+    "options": {
+      "A": "Always do what the customers want.",
+      "B": "Try to find a solution that works for all stakeholders.",
+      "C": "Always do what the project sponsor says.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. This is sometimes challenging, but is the right approach."
+  },
+  {
+    "question": "When should you perform a Stakeholder Needs Analysis?",
+    "options": {
+      "A": "Whenever stakeholders need to analyze something",
+      "B": "Whenever there is a conflict among stakeholder requirements",
+      "C": "Whenever there is a conflict between customers and the billing department.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. That’s the purpose of this tool."
+  },
+  {
+    "question": "Why is it important for us to act as the voice of the customer in internal debates?",
+    "options": {
+      "A": "Often stakeholders take a narrow view of their own department’s needs.",
+      "B": "Customers don’t have a seat at the table.",
+      "C": "Customers are the most important stakeholders, and they must be represented by someone who understands them.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right; each of these answers is correct."
+  },
+  {
+    "question": "During which phase of the (waterfall) SDLC is requirement gathering performed?",
+    "options": {
+      "A": "Analysis",
+      "B": "Design",
+      "C": "Development",
+      "D": "Testing",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Right. Gathering requirements is performed in this phase."
+  },
+  {
+    "question": "Which of the following is not a phase of the SDLC?",
+    "options": {
+      "A": "Analysis",
+      "B": "Development",
+      "C": "Redevelopment",
+      "D": "Implementation",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. Redevelopment doesn’t mean anything."
+  },
+  {
+    "question": "During which phase of the (waterfall) SDLC is the product released to customers/users?",
+    "options": {
+      "A": "Design",
+      "B": "Development",
+      "C": "Testing",
+      "D": "Implementation",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. The product is released either fully (wide release) or to a subset of customers/users (pilot) during the implementation phase."
+  },
+  {
+    "question": "What are the defining characteristics of a waterfall SDLC?",
+    "options": {
+      "A": "Multiple iterations with an expectation that at least some phases will overlap",
+      "B": "A sequence of phases and a requirement that one phase be completed before the next begins",
+      "C": "Rapid iterations and a reduced reliance on written documentation",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. That’s the right one."
+  },
+  {
+    "question": "Which of the following problems would be considered most impactful in a waterfall/V-model SDLC?",
+    "options": {
+      "A": "A development bug corrected during unit testing",
+      "B": "An integration testing issue discovered during unit testing.",
+      "C": "A missed business requirement found during project acceptance",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. This is the worst-case scenario actually, and this is an important thing to keep in mind over the rest of the course."
+  },
+  {
+    "question": "What is the defining characteristic of an iterative SDLC?",
+    "options": {
+      "A": "Multiple iterations of development and testing",
+      "B": "A single iteration of analysis and design",
+      "C": "A very large number of development iterations guaranteed to produce a high-quality application",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. And that’s actually what the term “iterative” means."
+  },
+  {
+    "question": "In your estimation, which category of SDLC will result in a product more in line with users’ expectations?",
+    "options": {
+      "A": "Waterfall",
+      "B": "Iterative",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Since users and/or their representatives see versions of the system before it is released, they have the opportunity to give input on it."
+  },
+  {
+    "question": "Which of the following best describes agile methods?",
+    "options": {
+      "A": "Product development approaches centered on customer collaboration, product focus, and valuing people over process",
+      "B": "Any development approach based on the Agile Manifesto",
+      "C": "Relatively fun and lightweight team approaches to building products",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. Each one of these statements is accurate."
+  },
+  {
+    "question": "Which of the following is not a value from the Agile Manifesto?",
+    "options": {
+      "A": "Individuals and interactions over processes and tools",
+      "B": "Comprehensive documentation over working software",
+      "C": "Customer collaboration over contract negotiation",
+      "D": "Responding to change over following a plan",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Right. This is actually backwards. The Agile Manifesto values “working software over comprehensive documentation,” a point that can often be challenging for Business Analysts. Don’t worry, though – we cover this in our Guide to Agile Business Analysis (www.agileba.info)."
+  },
+  {
+    "question": "Why did Don choose to discuss Scrum in this lecture, instead of another agile method?",
+    "options": {
+      "A": "It’s the best.",
+      "B": "It’s the most commonly used.",
+      "C": "It’s the method most closely aligned to the Agile Manifesto.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Right. More than 50% of agile projects use Scrum, and you are most likely to use it in your career."
+  },
+  {
+    "question": "Which of the following statements about meetings in Scrum is not true?",
+    "options": {
+      "A": "In the Sprint Planning session, the Product Owner dictates what work the team will do.",
+      "B": "Scrum meetings are quick, daily meetings where each team member shares his/her status.",
+      "C": "In the Sprint Review meeting, the team demos the product to the Product Owner and other stakeholders.",
+      "D": "In the Sprint Retrospective, the team figures out ways they can improve their process.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. This is a false statement. It is *the team* that decides how much and what work they can deliver."
+  },
+  {
+    "question": "What is the Ideation phase of the Product Life Cycle all about?",
+    "options": {
+      "A": "Coming up with the high-level idea of what the product should be and making sure customers will buy it",
+      "B": "Coming up with a detailed specification for the product and getting customers to fund development",
+      "C": "Developing the product and getting people to buy it",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct! That’s what the Ideation phase is all about. It is followed by Development."
+  },
+  {
+    "question": "What is the Development phase of the Product Life Cycle all about?",
+    "options": {
+      "A": "Developing ideas for what the market needs",
+      "B": "Analyzing, designing, developing, testing, and implementing the new product",
+      "C": "Developing a sound understanding of which features will be most attractive to which customers",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct, and this probably sounds a lot like an SDLC, huh?"
+  },
+  {
+    "question": "In which two phases do BAs do the most work?",
+    "options": {
+      "A": "Ideation and Maturation",
+      "B": "Development and Replacement",
+      "C": "Ideation and Replacement",
+      "D": "Development and Ideation",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Yes! And good job remembering the right phases, given that their order is reversed. So tricky!"
+  },
+  {
+    "question": "What does it mean when you say that a requirements document is “baselined?”",
+    "options": {
+      "A": "The requirements document is on the baseline, and no progress has been made on it.",
+      "B": "The requirements in the document are considered frozen, so that they can be implemented and tested. Any changes to them will require significant review and approval.",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. And this is a key term for you to know."
+  },
+  {
+    "question": "What do you think will happen if requirements are not properly managed after the project is done?",
+    "options": {
+      "A": "Requirements documents may be lost, resulting in people not knowing how the system works and causing extensive and costly additional work.",
+      "B": "Requirements documents may become outdated, resulting in people not knowing how the system works and causing extensive and costly additional work.",
+      "C": "Your management will become angry, spiteful, and vengeful. And they will remember this during the review and compensation time of year.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. You have been warned."
+  },
+  {
+    "question": "What is the goal of the first phase of NorwalkAberdeen’s RDM?",
+    "options": {
+      "A": "To form a clear picture of what the user experience should be",
+      "B": "To form a first draft of your requirements",
+      "C": "To form a committee which talks about requirements",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct – that’s the right goal for the Form phase."
+  },
+  {
+    "question": "Which of the following analysis plans is consistent with our recommendation for using NorwalkAberdeen’s RDM?",
+    "options": {
+      "A": "Form: 2 weeks Transform: 1 week Finalize: 0.5 weeks",
+      "B": "Form: 2 weeks Transform: 2 weeks Finalize: 1 week",
+      "C": "Form: 2 weeks Transform: 2 weeks Finalize: 2 weeks",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. We recommend a 1:1:1 relationship among the phases."
+  },
+  {
+    "question": "What are the three key elements of a documented requirement?",
+    "options": {
+      "A": "The description, affected users, and rationale",
+      "B": "The description, affected users, and related documentation",
+      "C": "The description, source, and affected users",
+      "D": "The description, source, and rationale",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": ""
+  },
+  {
+    "question": "Which of the following is a good reason to document the requirement source?",
+    "options": {
+      "A": "So you can have the source prioritize the requirement later.",
+      "B": "So you know who to blame if you later find the requirement to be incorrect.",
+      "C": "So you know who to approach for more information on the requirement, if needed.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. This is one of several good reasons to document the source."
+  },
+  {
+    "question": "Which of the following is a good reason to document the requirement rationale?",
+    "options": {
+      "A": "It is useful later when prioritizing the requirements with the project sponsor.",
+      "B": "It can help you find additional missing requirements.",
+      "C": "It can help you identify incorrect stakeholder assumptions.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct! Each of these answers is a good reason to document the rationale."
+  },
+  {
+    "question": "What might happen if a requirement isn’t clear?",
+    "options": {
+      "A": "The development team will guess the correct meaning of the requirement and build the product successfully.",
+      "B": "The testing team will write test cases according to their faulty understanding of the requirement, resulting in rework and project delays.",
+      "C": "The project sponsor will appreciate your finely-tuned use of ambiguity.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct, and this happens relatively frequently. Clarity is perhaps the most important of the requirement attributes, because issues are often not found until late in the project."
+  },
+  {
+    "question": "Which of the following requirements is implementable?",
+    "options": {
+      "A": "“When the user submits a request, the system will instantaneously add the request to the database.”",
+      "B": "“The system will enable a user to submit an infinite number of requests.”",
+      "C": "“When the user submits a request, the system will add the request to the database in ‘pending’ status.”",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. This is an implementable requirement."
+  },
+  {
+    "question": "How often should you conduct walk-throughs of your requirements with stakeholders?",
+    "options": {
+      "A": "At least once on every project",
+      "B": "On complex projects, but not on simple projects",
+      "C": "When stakeholders have time",
+      "D": "On your first few projects",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. On every project, every single time."
+  },
+  {
+    "question": "Which of the following requirement types is the highest level?",
+    "options": {
+      "A": "Business",
+      "B": "User",
+      "C": "Functional",
+      "D": "Nonfunctional",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. All the other requirement types trace back to the user requirements in some way."
+  },
+  {
+    "question": "What is the source of most business requirements?",
+    "options": {
+      "A": "Other business requirements",
+      "B": "Documentary sources",
+      "C": "The organization’s strategy",
+      "D": "The organization’s information architecture",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. Business requirements are most often derived by some strategy of the organization."
+  },
+  {
+    "question": "Where do user requirements usually come from?",
+    "options": {
+      "A": "The project sponsor",
+      "B": "Users",
+      "C": "Non-users",
+      "D": "The project manager",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Right. Okay, this was an easy one."
+  },
+  {
+    "question": "Why is it important to document the parent of a user requirement?",
+    "options": {
+      "A": "So we can understand what business requirement the user requirement belongs to in the requirements hierarchy.",
+      "B": "So we can understand how functional requirements map to user requirements.",
+      "C": "To highlight that user requirements are lower level than business requirements.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. Exactly. This is one of several reasons, actually."
+  }
+]

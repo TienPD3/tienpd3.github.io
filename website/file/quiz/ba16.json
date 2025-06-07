@@ -1,0 +1,552 @@
+[
+  {
+    "question": "How does 'version control' support in Requirements Life Cycle Management?",
+    "options": {
+      "A": "By defining the scope of the project",
+      "B": "By preventing stakeholders from making changes",
+      "C": "By ensuring all stakeholders use the most current updated information",
+      "D": "By allocating resources based on requirements"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Version control supports Requirements Life Cycle Management by tracking different versions of requirements, ensuring that changes are managed and stakeholders have access to the most current information. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "In Requirements Life Cycle Management, what does the term 'requirements allocation' mean?",
+    "options": {
+      "A": "Determining stakeholder responsibilities",
+      "B": "Assigning requirements to project phases or deliverables",
+      "C": "Setting the project budget based on requirements",
+      "D": "Distributing tasks among team members"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Requirements allocation involves assigning requirements to specific project phases, deliverables, or components to ensure that each requirement is addressed in the appropriate context. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "What insights does 'Observation' primarily provide?",
+    "options": {
+      "A": "Project management techniques",
+      "B": "Actual work environment and processes",
+      "C": "Technical system operations",
+      "D": "Financial accounting practices"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Observation is used to gain insight into the actual work environment and processes. Domain Techniques: Observation"
+  },
+  {
+    "question": "What does the term 'requirements validation' include?",
+    "options": {
+      "A": "Documenting changes to the project scope",
+      "B": "Establishing a timeline for requirement fulfillment",
+      "C": "Allocating resources for requirement implementation",
+      "D": "Ensuring requirements fulfill project objectives and meet stakeholder needs"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Requirements validation confirms that the requirements align with the project's objectives and satisfy stakeholder expectations. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "How can a business analyst ensure that requirements remain relevant throughout the project?",
+    "options": {
+      "A": "By relying solely on initial stakeholder inputs",
+      "B": "By setting a fixed project scope at the beginning",
+      "C": "By preventing any changes to requirements",
+      "D": "By frequently reviewing and updating requirements"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation A business analyst regularly reviews and updates project requirements to reflect changes in the environment or stakeholder needs, ensuring their relevance throughout the project. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "Which task would a Business Analyst most likely begin with during a business analysis initiative?",
+    "options": {
+      "A": "Verifying Requirements",
+      "B": "Assessing Solution Limitations",
+      "C": "Analyzing Current State",
+      "D": "Defining Solution Options"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Initiating a business analysis effort typically starts with Analyzing Current State to understand the baseline from which improvements or changes need to be made. This analysis provides critical insights into existing challenges, processes, capabilities, and stakeholder needs, forming a foundation upon which all further analysis and solution development can be built. Domain General"
+  },
+  {
+    "question": "What is the expected result when a business analyst works on Specifying and Modeling Requirements?",
+    "options": {
+      "A": "Creating a clear and structured format for the requirements",
+      "B": "Drafting a detailed business case",
+      "C": "Developing a comprehensive project management plan",
+      "D": "Generating a risk management strategy"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation When specifying and modeling requirements, the goal is to organize them into a clear and structured format that can be easily understood and acted upon, facilitating smoother project execution. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "What is the outcome of 'Define Requirements Architecture'?",
+    "options": {
+      "A": "A structured visual representation of requirements",
+      "B": "A performance analysis report ",
+      "C": "A detailed project plan",
+      "D": "A list of validated requirements"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation The task of defining requirements architecture is aimed at creating a visual and organized representation of the project's requirements, making it easier for everyone involved to understand the scope and details of the project. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "What does the 'Underlying Competencies' section in the BABOK Guide include?",
+    "options": {
+      "A": "Professional experience requirements",
+      "B": "Behavioral characteristics, knowledge, and personal qualities",
+      "C": "Technical skills only",
+      "D": "Only the educational background needed"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation The Underlying Competencies section describes the behaviors, characteristics, knowledge, and personal qualities that support the effective practice of business analysis. Domain Underlying Competencies"
+  },
+  {
+    "question": "What is the initial step in conducting a Gap Analysis?",
+    "options": {
+      "A": "Identify the future state",
+      "B": "Identify the gaps",
+      "C": "Identify the current state",
+      "D": "Identify the solutions"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation The initial step in Gap Analysis is to assess the present situation. This evaluation serves as the foundational baseline, enabling the identification of critical differences between the current operational state and the desired future state. Domain Strategy Analysis: Current State Analysis"
+  },
+  {
+    "question": "Which of the following is NOT a task associated with the Requirements Analysis and Design Definition knowledge area?",
+    "options": {
+      "A": "Define Requirements Architecture",
+      "B": "Define Solution Options",
+      "C": "Conduct Elicitation",
+      "D": "Specify and Model Requirements"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Conduct Elicitation is a task within the Elicitation and Collaboration knowledge area, not the Requirements Analysis and Design Definition area. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "Who is responsible for verifying and validating the requirements?",
+    "options": {
+      "A": "The Project Manager",
+      "B": "The Quality Assurance Team",
+      "C": "The Business Analyst",
+      "D": "The Development Team"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation It is the role of the Business Analyst to verify and validate that all requirements meet the stipulated business and stakeholder criteria before they are finalized and implemented. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "Which technique is primarily used for collecting direct feedback from end users about a solution's performance? ",
+    "options": {
+      "A": "Technical Review",
+      "B": "Surveys and Questionnaires",
+      "C": "Benchmarking",
+      "D": "Cost-Benefit Analysis"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Surveys and questionnaires are direct and effective methods for collecting feedback from end-users about a solution's usability and effectiveness. Domain Solution Evaluation: Customer Feedback"
+  },
+  {
+    "question": "What do you typically decide after conducting a 'Vendor Assessment'?",
+    "options": {
+      "A": "Selecting appropriate vendors",
+      "B": "Establishing project management practices",
+      "C": "Identifying potential project risks",
+      "D": "Developing a detailed project schedule"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Conducting a Vendor Assessment allows you to make informed decisions about selecting the most suitable vendors or suppliers for your project, ensuring they meet the necessary criteria and align with your project's needs. Domain Techniques: Vendor Assessment"
+  },
+  {
+    "question": "What is the main output of the task 'Plan Business Analysis Approach'? ",
+    "options": {
+      "A": "A comprehensive project plan",
+      "B": "A SWOT Analysis",
+      "C": "A detailed business analysis work plan",
+      "D": "A finalized list of business requirements"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation The main output of this task is a detailed business analysis work plan. Domain Techniques: Business Cases"
+  },
+  {
+    "question": "In PESTLE analysis, what does 'L' represent?",
+    "options": {
+      "A": "Leadership",
+      "B": "Location",
+      "C": "Logistics",
+      "D": "Legal"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation In PESTLE analysis, the 'L' stands for Legal. This includes considering all legal and regulatory factors that could impact the business, such as compliance requirements, labor laws, and consumer protection regulations. Domain Strategy Analysis: PESTLE Analysis"
+  },
+  {
+    "question": "Which BACCM core concept specifically addresses the benefits that stakeholders receive from implemented changes?",
+    "options": {
+      "A": "Change",
+      "B": "Context",
+      "C": "Value",
+      "D": "Need"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation The 'Value' concept in the BACCM emphasizes the benefits or importance that a solution or change brings to stakeholders, aligning business actions with stakeholder values. Domain Business Analysis Key Concepts"
+  },
+  {
+    "question": "Which underlying competency deals with the ability to facilitate group activities?",
+    "options": {
+      "A": "Business Knowledge",
+      "B": "Interaction Skills",
+      "C": "Analytical Thinking and Problem Solving",
+      "D": "Tools and Technology"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Interaction Skills are important for Business Analysts, especially in contexts that require the facilitation of group activities such as meetings, workshops, and other collaborative efforts. Domain Underlying Competencies"
+  },
+  {
+    "question": "What is the standard tool for recording information gathered from stakeholders?",
+    "options": {
+      "A": "Project charter",
+      "B": "Business case",
+      "C": "Stakeholder index",
+      "D": "Elicitation activity log"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation An elicitation activity log is a specific document used to record details of information collected from stakeholders during elicitation activities, serving as a record of who provided what information and when. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "Which technique can be used to identify the elements and boundaries of a requirements architecture?",
+    "options": {
+      "A": "Interviews",
+      "B": "Scope Modeling",
+      "C": "Functional Decomposition",
+      "D": "Data Modeling"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Scope Modeling is a technique used to define the boundaries of a system or solution. In the context of requirements architecture, it helps in identifying the elements that are within the scope of the architecture and those that are outside, thus defining its boundaries. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "Why is the observation method valued in requirements elicitation? ",
+    "options": {
+      "A": "Comprehensive documentation",
+      "B": "Quick data acquisition",
+      "C": "Accurate, first-hand information",
+      "D": "Cost efficiency"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation By observing processes and conditions directly, business analysts can gather precise and firsthand data effectively. Domain Elicitation and Collaboration: Observation Technique"
+  },
+  {
+    "question": "Which of these is NOT considered an elicitation technique? ",
+    "options": {
+      "A": "Prototyping",
+      "B": "Document analysis",
+      "C": "Surveys",
+      "D": "Benchmarking"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Benchmarking involves comparing business metrics to industry standards or best practices and is not primarily an elicitation technique which is intended for gathering information directly from stakeholders. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "At which stage of the process is a requirement considered 'approved'?",
+    "options": {
+      "A": "Elicitation",
+      "B": "Implementation",
+      "C": "Validation",
+      "D": "Analysis"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Approval of a requirement happens during the validation phase, after it is confirmed and accepted by the relevant stakeholders. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "The 'Interface Analysis' technique is used to:",
+    "options": {
+      "A": "Manage the project budget",
+      "B": "Design the project's technical architecture",
+      "C": "Schedule the project deliverables",
+      "D": "Analyze the points of interaction between different systems"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Interface Analysis examines the points of interaction between different systems or components to ensure compatibility and efficiency. Domain Techniques: Interface Analysis"
+  },
+  {
+    "question": "How does change control contribute to Requirements Life Cycle Management?",
+    "options": {
+      "A": "By speeding up the changes approval process for requirement ",
+      "B": "By eliminating any changes to requirements",
+      "C": "By documenting and managing changes to requirements systematically",
+      "D": "By limiting communication with stakeholders"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Change control facilitates Requirements Life Cycle Management by systematically documenting and managing changes in requirements. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "Which skill is essential for a business analyst during the elicitation process?",
+    "options": {
+      "A": "Conflict resolution",
+      "B": "Programming knowledge",
+      "C": "Legal expertise",
+      "D": "Financial planning"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Conflict resolution is crucial during elicitation as they enable a business analyst to navigate and mitigate disagreements or misunderstandings between stakeholders, ensuring that all voices are heard and considered. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "What is a likely outcome of effective elicitation?",
+    "options": {
+      "A": "Completed technical specifications",
+      "B": "Validated requirements",
+      "C": "Stakeholder buy-in",
+      "D": "Confirmed business objectives"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Effective elicitation ensures that requirements are accurately gathered and thoroughly reviewed, confirming they align with business goals and are feasible. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "What is the primary purpose of the 'Define Design Options' activity in Requirements Analysis and Design Definition?",
+    "options": {
+      "A": "Identify different ways to satisfy business needs",
+      "B": "Establish project timelines",
+      "C": "Select the project team",
+      "D": "Determine project costs"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Defining Design Options is about exploring different ways to satisfy business requirements. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "What is a major challenge in the elicitation process?",
+    "options": {
+      "A": "Dealing with conflicting stakeholder requirements",
+      "B": "Setting project deadlines",
+      "C": "Budgeting for project costs",
+      "D": "Selecting project management software"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation A major challenge in the elicitation process is managing conflicts among stakeholder requirements, and finding a balance or compromise among them. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "Which task involves investigating and clarifying what stakeholders really desire?",
+    "options": {
+      "A": "Defining Business Cases",
+      "B": "Data Modeling",
+      "C": "Eliciting Actual Needs",
+      "D": "Benchmarking and Market Analysis"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation The task of Eliciting Actual Needs focuses on understanding and clarifying the real intentions and desires expressed by stakeholders. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "Which task is involved in 'Measuring Solution Performance'?",
+    "options": {
+      "A": "Creating a business case",
+      "B": "Assessing how well a solution meets business objectives",
+      "C": "Identifying new stakeholders",
+      "D": "Documenting the project scope"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation Measuring Solution Performance is focused on evaluating the effectiveness of a solution in meeting the defined business objectives. Domain Solution Evaluation"
+  },
+  {
+    "question": "How does document analysis support the elicitation process?",
+    "options": {
+      "A": "By defining the project budget",
+      "B": "By assigning tasks to team members",
+      "C": "By providing historical and contextual background",
+      "D": "By outlining the project timeline"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Document analysis contributes to elicitation by offering historical and contextual background that helps inform current requirements and project decisions. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "What factor should a Business Analyst consider most when prioritizing requirements for maximum value?",
+    "options": {
+      "A": "Possible risks",
+      "B": "Associated costs",
+      "C": "Potential penalties",
+      "D": "Expected benefits"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation When prioritizing requirements, expected benefits play a crucial role as they determine the advantages stakeholders gain from the requirement's implementation. This encompasses specific functionalities, desired quality levels, and strategic objectives, making it fundamental in prioritizing for highest value. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "What is the goal of 'Validate Requirements'?",
+    "options": {
+      "A": "Ensuring adherence to the budget",
+      "B": "Ensuring the project is completed on time",
+      "C": "Ensuring the technical architecture is sound",
+      "D": "Ensuring requirements align with business goals and stakeholder needs"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Validating requirements is about confirming that the documented requirements are in line with the overarching business objectives and the needs and expectations of the stakeholders. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "Identify the characteristic that does NOT belong to a good requirement:",
+    "options": {
+      "A": "Testable",
+      "B": "Complete",
+      "C": "Clear",
+      "D": "Ambiguous"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Good requirements must be clear, complete, and testable, with no ambiguity. Ambiguity in requirements can lead to misunderstandings and implementation errors. Domain Business Analysis Key Concepts"
+  },
+  {
+    "question": "Which activity is NOT part of stakeholder collaboration in business analysis?",
+    "options": {
+      "A": "Project sign-off",
+      "B": "Eliciting requirements",
+      "C": "Confirming elicitation results",
+      "D": "Gaining consensus"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Project sign-off is generally a project management activity, not a part of stakeholder collaboration in business analysis. Domain Elicitation and Collaboration: Stakeholder Collaboration"
+  },
+  {
+    "question": "Which tool is effective for quality control in the verification of requirements and designs?",
+    "options": {
+      "A": "Templates",
+      "B": "Data model",
+      "C": "Information management approach",
+      "D": "Checklists"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Checklists are practical tools for ensuring quality control during the verification of requirements and designs. They help maintain consistency and thoroughness. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "Why is implementing appropriate levels of abstraction essential in business analysis?",
+    "options": {
+      "A": "Different stakeholders may not require the entire set of requirements.",
+      "B": "There are components missing in the requirements.",
+      "C": "Stakeholders lack interest.",
+      "D": " The attributes of requirements are inadequate."
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Different levels of abstraction in requirements are necessary because not every stakeholder needs to engage with the full set of details. Business analysts must tailor requirements to meet different stakeholders' needs without compromising the integrity and intent of those requirements. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "Which of the following is NOT an input to the Validate Requirements process?",
+    "options": {
+      "A": "Requirements (specified and modelled)",
+      "B": "Solution Scope",
+      "C": "Verified Requirements",
+      "D": "Business Objectives"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Verified Requirements are an output of the Verify Requirements process and not an input to the Validate Requirements process. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "How does brainstorming enhance the elicitation process?",
+    "options": {
+      "A": "By generating a wide range of ideas and solutions",
+      "B": "By focusing on analyzing existing data",
+      "C": "By providing a structured approach to problem-solving",
+      "D": "By allowing stakeholders to vote on decisions"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Brainstorming facilitates the elicitation process by encouraging the creation of diverse ideas and solutions in an open, creative environment. Domain Elicitation and Collaboration"
+  },
+  {
+    "question": "Lessons Learned' sessions are important for:",
+    "options": {
+      "A": "Estimating future project costs",
+      "B": "Assigning blame for project failures",
+      "C": "Capturing the knowledge gained during a project",
+      "D": "Planning future project tasks"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation Lessons Learned sessions are crucial for documenting insights and experiences gained during a project, which can improve future projects. Domain Techniques: Lessons Learned"
+  },
+  {
+    "question": "A 'Business Case' provides:",
+    "options": {
+      "A": "A list of technical requirements",
+      "B": "A detailed project plan ",
+      "C": " Justification for undertaking a project",
+      "D": "A schedule of project tasks"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation A Business Case provides the rationale for undertaking a project Domain Techniques: Business Cases"
+  },
+  {
+    "question": "What is the most effective technique for identifying stakeholders in a project?",
+    "options": {
+      "A": "SWOT Analysis",
+      "B": "MoSCoW Technique",
+      "C": "PESTLE Analysis",
+      "D": "Brainstorming"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation Brainstorming allows team members to collaboratively suggest and discuss potential stakeholders, facilitating a comprehensive identification process that covers a wide range of individuals and groups influenced by or influencing the project. Domain Business Analysis Planning and Monitoring: Stakeholder Ident"
+  },
+  {
+    "question": "What is the primary focus of the Requirements Life Cycle Management process?",
+    "options": {
+      "A": "Managing project timelines",
+      "B": "Ensuring requirements are met and maintained throughout the project",
+      "C": "Allocating resources efficiently",
+      "D": "Documenting stakeholder feedback"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation The primary focus of the Requirements Life Cycle Management process is to ensure all project requirements are consistently are met and maintained effectively throughout the project lifecycle. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "User Stories' are commonly used in which project methodology? ",
+    "options": {
+      "A": "Agile",
+      "B": "PRINCE2",
+      "C": "Six Sigma",
+      "D": "Waterfall"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation User Stories, which outline the needs and desires of users, are a key element of Agile project methodologies. Domain Techniques: User Stories"
+  },
+  {
+    "question": "Which stakeholders are eligible to participate in the specification and modeling of requirements?",
+    "options": {
+      "A": "Only the Technical Architect and Project Manager",
+      "B": "Only the Sponsor and Project Manager",
+      "C": "All stakeholders",
+      "D": "Only developers and Subject Matter Experts in implementation"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation All stakeholders can be involved in specifying and modeling requirements, offering flexibility in how business analysts conduct these tasks, either independently or through collaborative participation. Domain Requirements Analysis and Design Definition"
+  },
+  {
+    "question": "What is a 'requirements package'?",
+    "options": {
+      "A": "An outline of the project budget",
+      "B": "A report for project stakeholders",
+      "C": "A collection of related requirements",
+      "D": "A tool for tracking project progress"
+    },
+    "correct_answer": "C",
+    "explanation": "Overall explanation A 'requirements package' is a set of related requirements that are grouped together, often based on their relationship or relevance to a particular aspect of the project. Domain Requirements Life Cycle Management"
+  },
+  {
+    "question": "During the initial planning phase of a new project, why would a project manager develop 'Stakeholder Lists, Maps, or Personas'?",
+    "options": {
+      "A": "To plan the timeline for project tasks",
+      "B": "To identify and analyze stakeholders",
+      "C": "To outline the structure of the project’s technical systems",
+      "D": "To allocate project resources"
+    },
+    "correct_answer": "B",
+    "explanation": "Overall explanation This approach not only helps in recognizing who the stakeholders are but also in understanding their potential impact, expectations, and how best to engage them throughout the project lifecycle. Domain Techniques: Stakeholder List, Map, or Personas"
+  },
+  {
+    "question": "How can 'Mind Mapping' be used effectively in projects?",
+    "options": {
+      "A": "Define project scope in a visual format",
+      "B": "Assign project roles",
+      "C": "Document technical specifications",
+      "D": "Create a detailed project budget"
+    },
+    "correct_answer": "A",
+    "explanation": "Overall explanation Mind Mapping is a visual tool that helps in organizing and representing project scope and ideas clearly. Domain Techniques: Mind Mapping"
+  },
+  {
+    "question": "What is the initial step in the elicitation process?",
+    "options": {
+      "A": "Implementing communication strategies",
+      "B": "Scope assessment",
+      "C": "Confirming requirements",
+      "D": "Preparing for elicitation"
+    },
+    "correct_answer": "D",
+    "explanation": "Overall explanation The elicitation process begins with preparation, setting the stage for effective information gathering. Domain Elicitation and Collaboration"
+  }
+]

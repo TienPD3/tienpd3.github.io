@@ -1,0 +1,954 @@
+[
+  {
+    "question": "What should you do if a user requirement doesn’t have a clear parent business requirement?",
+    "options": {
+      "A": "Skip it, because documenting parent requirements isn’t important.",
+      "B": "Make the user requirement its own parent.",
+      "C": "Make sure that you aren’t missing any business requirements.",
+      "D": "Get the project sponsor’s approval.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. Tracing user requirements to business requirements helps you ensure you’re not missing anything higher up."
+  },
+  {
+    "question": "What are functional requirements?",
+    "options": {
+      "A": "Requirements that specify how the system/product should function.",
+      "B": "Requirements that elaborate how higher-level requirements should be implemented.",
+      "C": "The most detailed requirements that we deal with (usually).",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Each of these statements is correct."
+  },
+  {
+    "question": "TRUE/FALSE: A functional requirement can have a business requirement as its parent.",
+    "options": {
+      "A": "TRUE",
+      "B": "FALSE",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. A functional requirement can have either a business requirement or a user requirement as its parent."
+  },
+  {
+    "question": "THINK: Which of the requirement types that we have covered so far would have the MOST impact on the project if the BA fails to discover and document it?",
+    "options": {
+      "A": "Business",
+      "B": "User",
+      "C": "Functional",
+      "D": "There would be equal impact.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. Missing a business requirement means that you have missed a MAJOR priority of the organization."
+  },
+  {
+    "question": "Why is it important for the Business Analyst to be very focused on finding nonfunctional requirements?",
+    "options": {
+      "A": "Because they are the most important type of requirement.",
+      "B": "Because no one else will look for them.",
+      "C": "Because they are documented last in the project.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. It is rare for stakeholders to think of the quality needs of the product, and it is up to us to make it happen."
+  },
+  {
+    "question": "What is wrong with the following nonfunctional requirement? “System must act in accordance with FDA Rule US-FDA-2010-079.”",
+    "options": {
+      "A": "It is not complete.",
+      "B": "It is not testable.",
+      "C": "It is not applicable.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. There is clearly missing information here."
+  },
+  {
+    "question": "What value does pre-existing requirements documentation provide?",
+    "options": {
+      "A": "It tells you, in great detail, how the system or product works.",
+      "B": "It tells you which projects your organization has run, and why they’ve been run.",
+      "C": "It contains lists of stakeholders that may be useful to you.",
+      "D": "It contains requirements that often should be leveraged in your project.",
+      "E": "All of the above",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "E",
+    "explanation": "Exactly. Requirements documentation is a massive asset for the organization."
+  },
+  {
+    "question": "What are the challenges associated with pre-existing requirements documentation?",
+    "options": {
+      "A": "It can be out of date, as maintaining documentation is both a lot of work and often de-prioritized.",
+      "B": "It can be difficult to understand if it heavily relies on industry or technical jargon.",
+      "C": "It may be poorly written or structured.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. And this is why we recommend meeting with the authoring Business Analyst to validate what the documentation says."
+  },
+  {
+    "question": "Which stakeholder is the best to start your interviews with?",
+    "options": {
+      "A": "The user that always complains a lot",
+      "B": "The lead developer",
+      "C": "The project manager",
+      "D": "The project sponsor",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Project sponsors own the project, and they are the most important person to sit down with at the beginning."
+  },
+  {
+    "question": "Why do we use open-ended questions in interviewing?",
+    "options": {
+      "A": "To give your interviewee the impression that you care about what they think.",
+      "B": "To give your interviewee the opportunity to speak more, giving you more input.",
+      "C": "So you take up the entire time you set aside for interviewing.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. We need them to do the vast majority of the talking, so we can understand them better."
+  },
+  {
+    "question": "What is the best way to make sure you understand what your interviewee is saying?",
+    "options": {
+      "A": "Recap what they are saying, giving them an opportunity to correct or confirm your understanding.",
+      "B": "Save time by making assumptions that you understand them.",
+      "C": "Write down word-for-word what they are saying, so you can examine the precise way they stated their requirements.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. This is a great way to validate your interpretation of their input."
+  },
+  {
+    "question": "What is the main benefit of group interviewing?",
+    "options": {
+      "A": "Getting to speak with many stakeholders at once.",
+      "B": "The group dynamic of seeing stakeholders interact with each other.",
+      "C": "When one stakeholder proposes a point, other stakeholders will give their input.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. They aren’t perfect for every situation, however."
+  },
+  {
+    "question": "Why is it important for you to bring someone to take notes in a group interview you are facilitating?",
+    "options": {
+      "A": "Facilitation is a lot of work, and it’s very difficult to facilitate the discussion and take notes at the same time.",
+      "B": "It’s more likely that you will miss requirements.",
+      "C": "If you are spending all your time writing down notes, you’ll likely lose control of the meeting.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct, so take a friend with you on group interviews."
+  },
+  {
+    "question": "Why is it best to have a single document that contains all requirements for a project?",
+    "options": {
+      "A": "It’s harder for readers to miss requirements that way.",
+      "B": "There is less work to do by the authoring Business Analyst and everyone who reads the requirements.",
+      "C": "One document is easier to maintain than two.",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. It’s a bad idea to have requirements proliferate across multiple documents."
+  },
+  {
+    "question": "TRUE/FALSE: Requirements are important in agile projects.",
+    "options": {
+      "A": "TRUE",
+      "B": "FALSE",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. Requirements are important in agile, just not as important as the working product."
+  },
+  {
+    "question": "What is a user story?",
+    "options": {
+      "A": "A detailed specification of a particular user type’s needs of the system.",
+      "B": "A common-language expression of what a user needs and why.",
+      "C": "The fictional background of a representative user.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct, that’s it."
+  },
+  {
+    "question": "Which of the following statements IS correct?",
+    "options": {
+      "A": "Acceptance criteria are optional.",
+      "B": "Acceptance criteria comprehensively describe all the functional requirements corresponding to their user stories.",
+      "C": "Acceptance criteria are commonly used as tests, showing when the feature is successfully developed.",
+      "D": "Acceptance criteria are conditions showing when a sprint product is ready for release to users (or the customer).",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. They are tests, requirements, and serve other purposes as well."
+  },
+  {
+    "question": "Which of the following user stories sounds like an epic? [If you get this wrong, don’t worry about it too much – this is one of those things you’ll learn with experience]",
+    "options": {
+      "A": "As a blogger, I want an e-mail notification whenever my blog is published, so I can let my audience know to check it out.",
+      "B": "As a blogger, I want to be able to highlight text in color, so I can draw the reader’s attention to key quotes.",
+      "C": "As a blogger, I need full integration with Microsoft Outlook and Gmail, so I can do everything I want.",
+      "D": "As a blogger, I need a report listing all the blogs I’ve published in the last year, so I can manage my publication schedule.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct, and well done. This sounds like a very big requirement which could easily take up more than one sixth of a sprint. It should be decomposed into user stories. (By the way, the 'so I can do everything' clause is a good indication this is an epic.)"
+  },
+  {
+    "question": "Which of the following statements is TRUE?",
+    "options": {
+      "A": "The product backlog is managed by the team.",
+      "B": "The sprint backlog is managed by the team.",
+      "C": "The product backlog is a list of everything the team has committed to for the sprint.",
+      "D": "The sprint backlog is a running list of all sprints.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. This is a true statement."
+  },
+  {
+    "question": "Where can you go for help when you have problems with agile business analysis?",
+    "options": {
+      "A": "Your mom… assuming she is a certified agile coach",
+      "B": "NorwalkAberdeen’s awesome Guide to Agile Business Analysis, <a href=\"http://www.agileba.info/\">www.agileba.info</a>",
+      "C": "Your wonderful, friendly, and brilliant instructor, Don Hussey, who loves his students and wants them to be successful and can be reached at <a href=\"mailto:don.hussey@norwalkaberdeen.com\">don.hussey@norwalkaberdeen.com</a>",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Bingo! Use ALL the resources available to you!"
+  },
+  {
+    "question": "What is decomposition?",
+    "options": {
+      "A": "Analyzing two entities to understand how they differ from each other",
+      "B": "Removing something from an entity to understand its role in the entity",
+      "C": "Breaking a complex entity down into its parts",
+      "D": "Adding something to an entity to understand what impact it would have on the entity",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. Decomposition is breaking something down into its parts."
+  },
+  {
+    "question": "Which of the following is a good example of decomposition?",
+    "options": {
+      "A": "A software development project being broken down into a complete list of phases",
+      "B": "A system being broken down into a complete collection of all its subsystems",
+      "C": "A process being broken down into a complete list of its process steps",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Each one of these counts as decomposition."
+  },
+  {
+    "question": "In this diagram, which of the following sounds like a sensible decomposition of the “Presentation of Report” element?",
+    "options": {
+      "A": "Presentation of Report Color palette Fonts and font styling Other visual elements",
+      "B": "Presentation of Report Color palette Fonts Font styling",
+      "C": "Presentation of Report Data-related details Timing and delivery-related details Presentation of report",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Right. This is the best answer. Each of these items is an area related to “presentation of report” that would need to be specified. And the last item, “other visual elements” serves as an “other” category, allowing this decomposition to be considered comprehensive."
+  },
+  {
+    "question": "Consider Google Search. If we were to decompose it into various requirement areas, which of the following would be the best first-level decomposition?",
+    "options": {
+      "A": "Google Search Search terms Search results",
+      "B": "Google Search User interface Search algorithms Data elements Ads integration Other requirements",
+      "C": "Google Search Google Drive Google Search AdWords YouTube",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. The first four elements are major areas of specification of the product, and the “other” category holds anything the first four missed."
+  },
+  {
+    "question": "Consider this course. Which of the following would be a good first-level decomposition?",
+    "options": {
+      "A": "Fundamentals of Business Analysis Section 1 Section 2 Section 3 [and the rest of the sections] Other materials",
+      "B": "Fundamentals of Business Analysis Lectures Quizzes Assignments Other resources",
+      "C": "Fundamentals of Business Analysis Forming Requirements Transforming Requirements Finalizing Requirements Other topics",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. Each of these decompositions is valid for this course. And none of them is particularly better than the others, at least given the information you have here."
+  },
+  {
+    "question": "What is additive analysis?",
+    "options": {
+      "A": "Adding a requirement to a requirements document to ensure documentation is complete",
+      "B": "Adding a component to a complex to understand its role",
+      "C": "Adding a stakeholder to a list of stakeholders to make sure they are consulted during requirements elicitation",
+      "D": "Removing a component from a complex to understand its role",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Right"
+  },
+  {
+    "question": "What is subtractive analysis?",
+    "options": {
+      "A": "Subtracting one number from another to get the difference between the two",
+      "B": "Removing a stakeholder from a list of stakeholders, as they are determined not to be relevant to your project",
+      "C": "Removing a component from a complex to understand its role",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. You got this."
+  },
+  {
+    "question": "Which of the following best describes a gap analysis?",
+    "options": {
+      "A": "An analysis of the components of an entity to understand the end result",
+      "B": "A piece-by-piece comparison of two complex things to understand how they differ",
+      "C": "An analysis of the components of an entity to understand the source of the entity",
+      "D": "A longitudinal analysis of an entity to understand how it changes over time",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Good job."
+  },
+  {
+    "question": "Which of the following would NOT be a good example of a gap analysis?",
+    "options": {
+      "A": "An analysis of the current state capabilities of the system with respect to competing systems to aid in defining a product road map",
+      "B": "Comparing the specs of a desktop computer with the needs of your family to ensure it will suffice",
+      "C": "Comparing the specs of an enterprise software platform with your company’s requirements for a system",
+      "D": "Analyzing the impact of not implementing a particular step in a process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Although business process management frequently uses gap analysis, this is closer to a subtractive analysis."
+  },
+  {
+    "question": "Imagine that you are you tasked with a project to transition your company from one e-mail platform to another.  Which of the following GAP ANALYSES would be relevant to your project?",
+    "options": {
+      "A": "Determining the features of the e-mail platform currently used by your company",
+      "B": "Determining which e-mail platform features are needed by your company",
+      "C": "Comparing the features currently used by your company with the features requested by stakeholders to determine which features are highest priority",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. This is a great example of a gap analysis, and it’s an important analysis to perform in this scenario."
+  },
+  {
+    "question": "Consider the following decision tree: How many final options does it depict?",
+    "options": {
+      "A": "8",
+      "B": "6",
+      "C": "5",
+      "D": "2",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. The final options are the items which do not have any sub-options."
+  },
+  {
+    "question": "Assuming that the following is from a simple (non-weighted) decision table… What would you expect the score to be?",
+    "options": {
+      "A": "10 + 7 + 4 + 3 = 24",
+      "B": "10 x 7 x 4 x 3 = 840",
+      "C": "(10 + 7) x (4 + 3) = 119",
+      "D": "(10 x 7) + (4 x 3) = 82",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. With simple decision tables, the score is simply the sum of the category ratings."
+  },
+  {
+    "question": "When is it best to use a simple decision table instead of a weighted decision table?",
+    "options": {
+      "A": "When each category has a different priority.",
+      "B": "When each category has the same priority.",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Good. When each category has the same priority, simple decision tables are best."
+  },
+  {
+    "question": "Consider a scenario in which you are choosing among five possible options. Each option will be judged according to how it rates in three categories: The first category (C1) has a weight of 3 The second category (C2) has a weight of 2 And the third category (C3) has a weight of 1 Which of the following formulae will give you an appropriately weighted score?",
+    "options": {
+      "A": "(C1 + 3) x (C2 + 2) x (C3 + 1)",
+      "B": "(C1 x 3) + (C2 x 2) + (C3 x 1)",
+      "C": "(C1 + 1) x (C2 + 2) x (C3 + 3)",
+      "D": "(C1 x 1) x (C2 x 2) x (C3 x 3)",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct! Good job. The score is equal to the sum of each ranking times its weight."
+  },
+  {
+    "question": "According to the Five Whys method, how many times should you ask “why?”",
+    "options": {
+      "A": "Three",
+      "B": "Four",
+      "C": "Five",
+      "D": "Six",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Good job."
+  },
+  {
+    "question": "Let’s say you are doing a Five Whys analysis of a problem, and you get a very good answer after asking “why” only three times. What do you think would be the best course of action?",
+    "options": {
+      "A": "Stop, because you have a very good answer.",
+      "B": "Keep going, because that’s the rule.",
+      "C": "Keep going, because you might get an even more insightful answer.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Right. Even though it looks like you have a good answer, the next one might be even better."
+  },
+  {
+    "question": "If you suspect that a problem will have multiple contributing causes, which RCA approach will make the most sense?",
+    "options": {
+      "A": "Five Whys",
+      "B": "Ishikawa diagramming",
+      "C": "",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Ishikawa diagrams tend to produce large numbers of contributing factors."
+  },
+  {
+    "question": "At the end of the lecture, you were advised to talk through your cause-and-effect logic to validate it. Which of the following statements is most likely to identify a problem in the logic?",
+    "options": {
+      "A": "Because our sales team is relatively inexperienced, sales volume is low.",
+      "B": "Because our sales team is relatively inexperienced, our company is losing money.",
+      "C": "Because our sales team is relatively inexperienced, training expenses are high.",
+      "D": "Because our sales team is relatively inexperienced, sales efficiency is low.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Although the sales team’s lack of experience may be one factor, there are likely to be many other factors impacting the company’s profitability."
+  },
+  {
+    "question": "Why is it important to find a solution that meets the needs of all conflicting stakeholders?",
+    "options": {
+      "A": "Meeting the needs of all stakeholders is important if we are going to solve the overall problems of the organization.",
+      "B": "The fact that stakeholders have varying positions means that the stakeholder has a different and valid view of the problem.",
+      "C": "Requirements that don’t meet the needs of all stakeholders are not really good requirements.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Each one of these is an important reason why our solutions need to work for everyone."
+  },
+  {
+    "question": "Which of the following methods do you think will be useful in finding solutions to stakeholder conflicts?",
+    "options": {
+      "A": "Additive analysis",
+      "B": "Decomposition analysis",
+      "C": "Decision analysis",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. Each one of these methods (and others) will be useful. Use all the tools available to you."
+  },
+  {
+    "question": "In flowcharts, what does a diamond represent?",
+    "options": {
+      "A": "A step in a process",
+      "B": "A decision point",
+      "C": "The beginning of a process",
+      "D": "The end of a process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct"
+  },
+  {
+    "question": "In flowcharts, what does a rectangle represent?",
+    "options": {
+      "A": "A step in a process",
+      "B": "A decision point",
+      "C": "The beginning of a process",
+      "D": "The end of a process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct"
+  },
+  {
+    "question": "In flowcharts, what does a solid circle with a ring around it represent?",
+    "options": {
+      "A": "A step in a process",
+      "B": "A decision point",
+      "C": "The beginning of a process",
+      "D": "The end of a process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct"
+  },
+  {
+    "question": "In flowcharts, what does a solid circle represent?",
+    "options": {
+      "A": "A step in a process",
+      "B": "A decision point",
+      "C": "The beginning of a process",
+      "D": "The end of a process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct"
+  },
+  {
+    "question": "What major problem can you identify with this flowchart?",
+    "options": {
+      "A": "The start and finish shapes are in the wrong places.",
+      "B": "The “System validates transfer info” shape should be a diamond, not a rectangle.",
+      "C": "The flow from “Info valid?” to “User submits transfer details” should actually be pointing to “System displays transfer page.”",
+      "D": "There is no text on the flows coming out of the “Info valid?” decision shape.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Good job. Without the text, we have no way of knowing how the system will act."
+  },
+  {
+    "question": "Swim lane flowcharts are simply regular flowcharts with the activities broken down by _______.",
+    "options": {
+      "A": "Requirement type",
+      "B": "Category",
+      "C": "Duration",
+      "D": "Actor",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. This helps us to understand who does what."
+  },
+  {
+    "question": "Which of the following would not usually be considered an actor in a swim lane flowchart?",
+    "options": {
+      "A": "The user",
+      "B": "The project sponsor",
+      "C": "The system",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. The project sponsor has an important role on the project, but is not typically considered an actor for modeling purposes."
+  },
+  {
+    "question": "If you have a process with three actors, which type of flowchart would you most likely use?",
+    "options": {
+      "A": "A regular flowchart",
+      "B": "A swim lane flowchart",
+      "C": "I would first try to simplify the process before charting it.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Swim lane flowcharts are recommended for processes with two to five actors."
+  },
+  {
+    "question": "In ER diagrams, which of the following shapes represents an entity?",
+    "options": {
+      "A": "Diamond",
+      "B": "Connector",
+      "C": "Rectangle",
+      "D": "Oval",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct"
+  },
+  {
+    "question": "Take a look at this ER diagram: Which of the following statements is true?",
+    "options": {
+      "A": "An employer can have any number of employees.",
+      "B": "An employee can have any number of employers.",
+      "C": "Any number of employers can have any number of employees.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. Cardinality of 1…n indicates that a single employer can have any number of employees."
+  },
+  {
+    "question": "Take a look at this ER diagram: Which of the following statements is true?",
+    "options": {
+      "A": "A person can have any number of books.",
+      "B": "A book can have any number of persons.",
+      "C": "Any number of persons can have any number of books.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. Very good."
+  },
+  {
+    "question": "Which of the following sounds like something that could be modeled using a state-transition diagram?",
+    "options": {
+      "A": "A requirement, assuming the system is a requirement management system",
+      "B": "A food item, given the system is a grocery store’s inventory management system",
+      "C": "A vacation request, assuming the system is an employee scheduling system",
+      "D": "All of the above",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. Each of these objects would be modeled using state-transition diagrams."
+  },
+  {
+    "question": "What is the minimum number of states a State-Transition Diagram can have (reasonably)?",
+    "options": {
+      "A": "Zero",
+      "B": "One",
+      "C": "Two",
+      "D": "Three",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. Good job. This matches our example of the light switch. If the diagram has fewer than two states, then there cannot be any transitions between the states, and therefore they won’t make sense."
+  },
+  {
+    "question": "Which of the following is not a component of the data flow diagram?",
+    "options": {
+      "A": "Transition",
+      "B": "Process",
+      "C": "Data Store",
+      "D": "Input/Output",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. Transitions are part of state-transition diagrams. The corresponding term in data flow diagrams is flow."
+  },
+  {
+    "question": "Which of the following flows is not permitted in data flow diagrams?",
+    "options": {
+      "A": "A direct flow from an Input to a Process",
+      "B": "A direct flow from a Data Store to a Data Store",
+      "C": "A direct flow from a Process to a Data Store",
+      "D": "A direct flow from a Process to a Process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. All flows must touch at least one Process."
+  },
+  {
+    "question": "Which of the following sets of requirements would not likely require use case development?",
+    "options": {
+      "A": "Requirements for a bank’s account opening process",
+      "B": "Requirements for the layout of a report",
+      "C": "Requirements for a new website",
+      "D": "Requirements for a new mobile app",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. The layout of a report would simply be specified, as it doesn’t contain any process to speak of."
+  },
+  {
+    "question": "What does the large rectangle signify in a use case diagram?",
+    "options": {
+      "A": "The beginning of the alternate flow",
+      "B": "An actor",
+      "C": "A use case",
+      "D": "The system boundary",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. This boundary contains all the use cases handled by the system."
+  },
+  {
+    "question": "Which of the following would not considered an actor in a use case?",
+    "options": {
+      "A": "A sub-use case",
+      "B": "A system",
+      "C": "A user",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "A",
+    "explanation": "Correct. A 'sub-use case' would never be considered an actor."
+  },
+  {
+    "question": "Which of the following is not a typical goal of business process modeling?",
+    "options": {
+      "A": "To reduce the cost of a process",
+      "B": "To enhance the quality of a process",
+      "C": "To reduce the cycle time of a process",
+      "D": "To reduce throughput of a process",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. If anything, a goal of increasing throughput could be a goal of business process modeling."
+  },
+  {
+    "question": "Which of the following types of diagram best suits modeling a business process?",
+    "options": {
+      "A": "Data Flow Diagram",
+      "B": "Entity-Relationship Diagram",
+      "C": "Swim Lane Flowchart",
+      "D": "Use Case Diagram",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. If you are not familiar with BPMN, swim lane flowcharts are typically the best fit."
+  },
+  {
+    "question": "Which of the following phrases best describes requirement socialization?",
+    "options": {
+      "A": "Hanging out with other business analysts and talking about requirements.",
+      "B": "A political and economic theory of social organization that advocates that the means of production, distribution, and exchange should be owned or regulated by the community as a whole.",
+      "C": "Meeting individually with stakeholders who could cause problems for you later in the analysis phase, and attempting to defuse their concerns.",
+      "D": "Pushing forward with a requirements walk-through when you are uncertain of how your solution will be received by your stakeholders.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. That’s what socialization is all about."
+  },
+  {
+    "question": "Which of the following stakeholders are you most likely to need to socialize your requirements with?",
+    "options": {
+      "A": "Your manager",
+      "B": "Your Project Manager",
+      "C": "The head of Customer Service",
+      "D": "Your project sponsor",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. Customer Service teams often end up being penalized by resource-constricted projects, and when this happens, it’s important to socialize the requirements with the head of the department before the walk-through."
+  },
+  {
+    "question": "Which type of requirement does not need to be presented to stakeholders?",
+    "options": {
+      "A": "Business requirements",
+      "B": "Functional requirements",
+      "C": "Nonfunctional requirements",
+      "D": "Actually, they all must be presented.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Correct. All types of requirements must be presented to stakeholders to make sure that we have documented things correctly and haven’t missed anything important."
+  },
+  {
+    "question": "Why is it important to “check back” with your stakeholders by asking them questions during your presentation?",
+    "options": {
+      "A": "To make sure they understand everything you have documented.",
+      "B": "To give them a chance to think and catch up with the presentation.",
+      "C": "Because some people won’t ask a question unless invited to.",
+      "D": "To make sure you haven’t missed or misstated any requirements.",
+      "E": "All of the above",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "E",
+    "explanation": "Right. Asking your audience questions serves many purposes – don’t miss out on the opportunities this technique gives you to make sure you have solid requirements documentation."
+  },
+  {
+    "question": "Which of the following statements is correct about presenting requirements?",
+    "options": {
+      "A": "It is most important to follow the process prescribed in the lecture.",
+      "B": "It is most important to understand your audience and adapt your presentation to them.",
+      "C": "It is most important to cover the high-priority requirements.",
+      "D": "",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. It’s most important to adapt your presentation to your audience, as discussed earlier."
+  },
+  {
+    "question": "How can you figure out who should be the approvers for your requirements document?",
+    "options": {
+      "A": "Ask the development team and the QA team.",
+      "B": "Ask the Project Manager and your boss, and then confirm with the project sponsor.",
+      "C": "Ask the project sponsor and your boss, and then confirm with the Project Manager.",
+      "D": "Trick question! It’s only the project sponsor who needs to approve.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "B",
+    "explanation": "Correct. It’s good to start with the PM and your boss, and then get the sponsor to approve the approver list."
+  },
+  {
+    "question": "Where is the best place to store requirements approvals?",
+    "options": {
+      "A": "On paper, because no one ever loses paper.",
+      "B": "On your desktop computer, just in case your laptop is run over by a bus.",
+      "C": "In your e-mail archives, because that is where you keep everything else.",
+      "D": "In a shared network location, so it is available to everyone.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "D",
+    "explanation": "Right. This is actually a good idea with all important documents."
+  },
+  {
+    "question": "Which of the following changes would have to go through a change control process?",
+    "options": {
+      "A": "A request to change a functional requirement prior to requirements being baselined.",
+      "B": "A request to change a business requirement prior to requirements being baselined.",
+      "C": "A request to change a user requirement after requirements have been baselined.",
+      "D": "All of the above.",
+      "E": "",
+      "F": "",
+      "G": ""
+    },
+    "correct_answer": "C",
+    "explanation": "Correct. Since the requirements have been baselined, the new request must go through change control."
+  }
+]

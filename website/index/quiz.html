@@ -166,7 +166,7 @@
 
                 let isRandom = $("input[name='order']:checked").val() === "random";
                 selectedQuestions = questions.slice(start - 1, end);
-
+                
                 if (isRandom) {
                     selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
                     let questionCount = Math.min(
@@ -196,21 +196,19 @@
                 return;
             }
 
-            let optionsArray = Object.entries(q.options);
+            let optionsArray = Object.entries(q.options).filter(item => item[1] !== '');
             if ($("#shuffleAnswers").is(":checked")) {
                 optionsArray.sort(() => Math.random() - 0.5);
             }
 
-            let tmpNo = ['A', 'B', 'C', 'D'];
+            let tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
             let idxNo = -1;
             let optionsHtml = "";
+
             $.each(optionsArray, function (tmpKey, tmpValue) {
-                let key = tmpKey;
-                let value = tmpValue;
-                if ($("#shuffleAnswers").is(":checked")) {
-                    key = tmpValue[0];
-                    value = tmpValue[1];
-                }
+                let key = tmpValue[0];
+                let value = tmpValue[1];
+
                 idxNo++;
                 let isLast = (idxNo === optionsArray.length - 1);
                 optionsHtml += `
