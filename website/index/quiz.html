@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<button id="darkModeToggle" style="position: fixed; top: 10px; left: 10px; z-index: 3000; padding: 8px 12px; border-radius: 5px; border: none; background-color: #007bff; color: white; cursor: pointer;">Toggle Dark Mode</button>
+
 <div id="quizStatusBar">
     Đã làm 0/0 câu | Đúng 0 | Sai 0
 </div>
@@ -503,6 +505,24 @@
         }
     }).on("mouseleave", ".explain-tooltip-icon", function () {
         $(this).siblings(".explain-tooltip-content").hide();
+    });
+
+    // Dark mode toggle logic
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Load saved preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        $('body').addClass('dark-mode')
+    }
+
+    $(document).on("click", "#darkModeToggle", function () {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
     });
 </script>
 </body>

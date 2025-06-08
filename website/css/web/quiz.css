@@ -103,7 +103,7 @@ h2 {
   z-index: 1000;
 }
 .options label:hover {
-  background-color: #e9e9f5;
+  background-color: #9f9fa1;
   color: #155724;
 }
 
@@ -238,4 +238,49 @@ body {
 .tooltip-wrapper:hover .explain-tooltip-content {
   display: block !important;
   opacity: 1;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .container {
+  background-color: #1e1e1e !important;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode h2 {
+  color: #ffffff !important;
+}
+
+.dark-mode .settings label,
+.dark-mode .question,
+.dark-mode .options label {
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .btn {
+  color: #121212 !important;
+}
+
+.dark-mode #quizStatusBar {
+  background-color: #3700b3 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .correct {
+  background-color: #2e7d32 !important;
+  border-left: 5px solid #bb86fc !important;
+}
+
+.dark-mode .incorrect {
+  background-color: #b00020 !important;
+  border-left: 5px solid #cf6679 !important;
+}
+
+.dark-mode #toast {
+  background-color: #333333 !important;
+  color: #e0e0e0 !important;
 }
