@@ -469,16 +469,16 @@
                 // Render category checkboxes
                 categoryContainer.innerHTML = '';
                 categories.forEach(cat => {
-                    const catCheckbox = document.createElement('input');
-                    catCheckbox.type = 'checkbox';
-                    catCheckbox.name = 'categoryFilter';
-                    catCheckbox.value = cat;
-                    catCheckbox.id = `cat_${cat.replace(/\s+/g, '_')}`;
+                    const catRadio = document.createElement('input');
+                    catRadio.type = 'radio';
+                    catRadio.name = 'categoryFilter';
+                    catRadio.value = cat;
+                    catRadio.id = `cat_${cat.replace(/\s+/g, '_')}`;
 
                     const catLabel = document.createElement('label');
-                    catLabel.htmlFor = catCheckbox.id;
+                    catLabel.htmlFor = catRadio.id;
                     catLabel.style.marginRight = '10px';
-                    catLabel.appendChild(catCheckbox);
+                    catLabel.appendChild(catRadio);
                     catLabel.append(` ${cat}`);
 
                     categoryContainer.appendChild(catLabel);
@@ -487,11 +487,10 @@
                 // Initial render of file checkboxes
                 renderFileCheckboxes();
 
-                // Add event listeners for category checkboxes to filter files
-                document.querySelectorAll("input[name='categoryFilter']").forEach(cb => {
-                    cb.addEventListener('change', () => {
-                        renderFileCheckboxes();
-                    });
+                // Add event listeners for category radios to filter files
+                $(document).off('change', "input[name='categoryFilter']");
+                $(document).on('change', "input[name='categoryFilter']", () => {
+                    renderFileCheckboxes();
                 });
             })
             .catch(err => {
@@ -500,15 +499,15 @@
     }
 
 
-    // Function to render file checkboxes filtered by selected categories
+    // Function to render file checkboxes filtered by selected category
     function renderFileCheckboxes() {
-        const selectedCategories = Array.from(document.querySelectorAll("input[name='categoryFilter']:checked")).map(cb => cb.value);
+        const selectedCategory = document.querySelector("input[name='categoryFilter']:checked");
         const container = document.getElementById('fileListCheckboxes');
         container.innerHTML = `<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>`;
 
         let filteredData = [];
-        if (selectedCategories.length > 0) {
-            filteredData = dataFileJson.filter(item => selectedCategories.includes(item.category));
+        if (selectedCategory) {
+            filteredData = dataFileJson.filter(item => item.category === selectedCategory.value);
         }
 
         filteredData.forEach(item => {
