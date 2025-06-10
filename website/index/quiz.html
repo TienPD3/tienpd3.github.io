@@ -124,6 +124,7 @@
 
     function saveSettingsToLocalStorage() {
         localStorage.setItem('quizSettings', JSON.stringify({
+            categoryNames: $("input[name='categoryFilter']:checked").map(function () { return this.value }).get(),
             fileNames: $("input[name='jsonFiles']:checked").map(function () { return this.value }).get(),
             startQuestion: $("#startQuestion").val(),
             endQuestion: $("#endQuestion").val(),
@@ -133,7 +134,7 @@
         }));
     }
 
-    $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], input[name='shuffleAnswersOption']", saveSettingsToLocalStorage);
+    $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], input[name='shuffleAnswersOption'], input[name='categoryFilter']", saveSettingsToLocalStorage);
 
     function restoreSettingsFromLocalStorage() {
         const saved = localStorage.getItem('quizSettings');
@@ -149,6 +150,13 @@
 
             // Sau khi checkbox load xong sẽ set checked theo settings
             setTimeout(() => {
+                if (settings.categoryNames && settings.categoryNames.length > 0) {
+                    $("input[name='categoryFilter']").each(function () {
+                        this.checked = settings.categoryNames.includes(this.value);
+                    });
+                    // Trigger change event to update file list
+                    $("input[name='categoryFilter']").trigger('change');
+                }
                 $("input[name='jsonFiles']").each(function () {
                     if (settings.fileNames.includes(this.value)) {
                         this.checked = true;
@@ -478,7 +486,7 @@
                     const selectedCategories = Array.from(document.querySelectorAll("input[name='categoryFilter']:checked")).map(cb => cb.value);
                     container.innerHTML = `<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>`;
 
-                    let filteredData = data;
+                    let filteredData = [];
                     if (selectedCategories.length > 0) {
                         filteredData = data.filter(item => selectedCategories.includes(item.category));
                     }
