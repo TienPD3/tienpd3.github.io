@@ -46,7 +46,8 @@
         <label><input type="radio" name="order" value="random"> Ngẫu nhiên</label>
         <br>
 
-        <label><input type="checkbox" id="shuffleAnswers"> Ngẫu nhiên câu trả lời</label>
+        <label><input type="radio" name="shuffleAnswersOption" value="normal" checked> Ngẫu nhiên dễ</label>
+        <label><input type="radio" name="shuffleAnswersOption" value="basedOnCorrect"> Ngẫu nhiên khó</label>
     </div>
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
@@ -71,6 +72,24 @@
         loadOptions();
         restoreSettingsFromLocalStorage();
         setupDropdownEvents();
+
+        // Disable or enable shuffleAnswersOption based on order selection
+        function updateShuffleAnswersOptionState() {
+            const orderValue = $("input[name='order']:checked").val();
+            if (orderValue === "ordered") {
+                $("input[name='shuffleAnswersOption']").prop("disabled", true);
+            } else {
+                $("input[name='shuffleAnswersOption']").prop("disabled", false);
+            }
+        }
+
+        // Initial call on page load
+        updateShuffleAnswersOptionState();
+
+        // Listen for changes on order radio buttons
+        $(document).on("change", "input[name='order']", function() {
+            updateShuffleAnswersOptionState();
+        });
     });
 
     function updateQuizStatusBar() {
@@ -107,11 +126,11 @@
             endQuestion: $("#endQuestion").val(),
             randomQuestionCount: $("#randomQuestionCount").val(),
             order: $("input[name='order']:checked").val(),
-            shuffleAnswers: $("#shuffleAnswers").is(":checked")
+            shuffleAnswersOption: $("input[name='shuffleAnswersOption']:checked").val()
         }));
     }
 
-    $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], #shuffleAnswers", saveSettingsToLocalStorage);
+    $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], input[name='shuffleAnswersOption']", saveSettingsToLocalStorage);
 
     function restoreSettingsFromLocalStorage() {
         const saved = localStorage.getItem('quizSettings');
@@ -121,7 +140,9 @@
             $("#endQuestion").val(settings.endQuestion);
             $("#randomQuestionCount").val(settings.randomQuestionCount);
             $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
-            $("#shuffleAnswers").prop("checked", settings.shuffleAnswers);
+            if (settings.shuffleAnswersOption) {
+                $(`input[name='shuffleAnswersOption'][value='${settings.shuffleAnswersOption}']`).prop("checked", true);
+            }
 
             // Sau khi checkbox load xong sẽ set checked theo settings
             setTimeout(() => {
@@ -199,8 +220,54 @@
             }
 
             let optionsArray = Object.entries(q.options).filter(item => item[1] !== '');
-            if ($("#shuffleAnswers").is(":checked")) {
+
+            // Determine shuffle mode
+            let shuffleMode = $("input[name='shuffleAnswersOption']:checked").val();
+
+            if (shuffleMode === "normal") {
                 optionsArray.sort(() => Math.random() - 0.5);
+            } else if (shuffleMode === "basedOnCorrect") {
+                // Collect all correct answers and their texts from other questions
+                let otherCorrectOptions = [];
+
+                selectedQuestions.forEach((item, idx) => {
+                    if (idx !== index && item.correct_answer && item.options && item.options[item.correct_answer]) {
+                        otherCorrectOptions.push({ key: item.correct_answer, value: item.options[item.correct_answer] });
+                    }
+                });
+
+                // Add current question's correct answer
+                let currentCorrectKey = q.correct_answer;
+                let currentCorrectValue = q.options[currentCorrectKey];
+                otherCorrectOptions.push({ key: currentCorrectKey, value: currentCorrectValue });
+
+                // Remove duplicates by value
+                let uniqueOptionsMap = {};
+                otherCorrectOptions.forEach(opt => {
+                    uniqueOptionsMap[opt.value] = opt;
+                });
+                let uniqueOptions = Object.values(uniqueOptionsMap);
+
+                // Randomly select up to 4 options (or less if not enough)
+                let maxOptions = Math.min(4, uniqueOptions.length);
+                let selectedOptions = [];
+
+                while (selectedOptions.length < maxOptions) {
+                    let randIndex = Math.floor(Math.random() * uniqueOptions.length);
+                    let option = uniqueOptions.splice(randIndex, 1)[0];
+                    selectedOptions.push(option);
+                }
+
+                // Ensure current correct answer is included
+                if (!selectedOptions.some(opt => opt.key === currentCorrectKey)) {
+                    selectedOptions.pop();
+                    selectedOptions.push({ key: currentCorrectKey, value: currentCorrectValue });
+                }
+
+                // Shuffle final options
+                selectedOptions.sort(() => Math.random() - 0.5);
+
+                optionsArray = selectedOptions.map(opt => [opt.key, opt.value]);
             }
 
             let tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
