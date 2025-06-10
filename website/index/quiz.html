@@ -70,6 +70,7 @@
     let selectedQuestions = [];
     let allFileNames = [];
     let wrongQuestions = [];  // Thêm biến toàn cục nếu cần
+    let dataFileJson = [];
 
     $(function() {
         loadOptions();
@@ -154,9 +155,10 @@
                     $("input[name='categoryFilter']").each(function () {
                         this.checked = settings.categoryNames.includes(this.value);
                     });
-                    // Trigger change event to update file list
-                    $("input[name='categoryFilter']").trigger('change');
                 }
+
+                renderFileCheckboxes();
+
                 $("input[name='jsonFiles']").each(function () {
                     if (settings.fileNames.includes(this.value)) {
                         this.checked = true;
@@ -459,6 +461,7 @@
                     <label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>
                 `;
                 allFileNames = data.map(u => u.value);
+                dataFileJson = data;
 
                 // Extract unique categories
                 const categories = [...new Set(data.map(item => item.category))];
@@ -481,51 +484,6 @@
                     categoryContainer.appendChild(catLabel);
                 });
 
-                // Function to render file checkboxes filtered by selected categories
-                function renderFileCheckboxes() {
-                    const selectedCategories = Array.from(document.querySelectorAll("input[name='categoryFilter']:checked")).map(cb => cb.value);
-                    container.innerHTML = `<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>`;
-
-                    let filteredData = [];
-                    if (selectedCategories.length > 0) {
-                        filteredData = data.filter(item => selectedCategories.includes(item.category));
-                    }
-
-                    filteredData.forEach(item => {
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkbox.name = 'jsonFiles';
-                        checkbox.value = item.value;
-                        checkbox.id = `chk_${item.value}`;
-
-                        const label = document.createElement('label');
-                        label.htmlFor = checkbox.id;
-                        label.appendChild(checkbox);
-                        label.append(` ${item.key}`);
-
-                        container.appendChild(label);
-                    });
-
-                    // Add event listeners for file checkboxes
-                    document.getElementById('checkAllFiles').addEventListener('change', function () {
-                        const checkboxes = document.querySelectorAll("input[name='jsonFiles']");
-                        checkboxes.forEach(cb => cb.checked = this.checked);
-                        updateDropdownButtonText();
-                        saveSettingsToLocalStorage();
-                    });
-
-                    document.querySelectorAll("#fileListCheckboxes input[name='jsonFiles']").forEach(cb => {
-                        cb.addEventListener('change', function () {
-                            updateCheckAllState();
-                            updateDropdownButtonText();
-                            saveSettingsToLocalStorage();
-                        });
-                    });
-
-                    updateCheckAllState();
-                    updateDropdownButtonText();
-                }
-
                 // Initial render of file checkboxes
                 renderFileCheckboxes();
 
@@ -539,6 +497,53 @@
             .catch(err => {
                 showToast("Lỗi khi tải file JSON: " + err.message);
             });
+    }
+
+
+    // Function to render file checkboxes filtered by selected categories
+    function renderFileCheckboxes() {
+        const selectedCategories = Array.from(document.querySelectorAll("input[name='categoryFilter']:checked")).map(cb => cb.value);
+        const container = document.getElementById('fileListCheckboxes');
+        container.innerHTML = `<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>`;
+
+        let filteredData = [];
+        if (selectedCategories.length > 0) {
+            filteredData = dataFileJson.filter(item => selectedCategories.includes(item.category));
+        }
+
+        filteredData.forEach(item => {
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.name = 'jsonFiles';
+            checkbox.value = item.value;
+            checkbox.id = `chk_${item.value}`;
+
+            const label = document.createElement('label');
+            label.htmlFor = checkbox.id;
+            label.appendChild(checkbox);
+            label.append(` ${item.key}`);
+
+            container.appendChild(label);
+        });
+
+        // Add event listeners for file checkboxes
+        document.getElementById('checkAllFiles').addEventListener('change', function () {
+            const checkboxes = document.querySelectorAll("input[name='jsonFiles']");
+            checkboxes.forEach(cb => cb.checked = this.checked);
+            updateDropdownButtonText();
+            saveSettingsToLocalStorage();
+        });
+
+        document.querySelectorAll("#fileListCheckboxes input[name='jsonFiles']").forEach(cb => {
+            cb.addEventListener('change', function () {
+                updateCheckAllState();
+                updateDropdownButtonText();
+                saveSettingsToLocalStorage();
+            });
+        });
+
+        updateCheckAllState();
+        updateDropdownButtonText();
     }
 
     $("#retryWrong").click(function () {
