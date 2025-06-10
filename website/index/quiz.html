@@ -226,6 +226,9 @@
     function renderQuiz() {
         $("#quiz").empty();
         selectedQuestions.forEach((q, index) => {
+
+            let tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
             // Bỏ qua câu hỏi nếu thiếu dữ liệu quan trọng
             if (!q.options || !q.correct_answer) {
                 console.warn(`⚠️ Bỏ qua câu hỏi ${index + 1}: thiếu options hoặc correct_answer.`);
@@ -245,13 +248,14 @@
 
                 selectedQuestions.forEach((item, idx) => {
                     if (idx !== index && item.correct_answer && item.options && item.options[item.correct_answer]) {
-                        otherCorrectOptions.push({ key: item.correct_answer, value: item.options[item.correct_answer] });
+                        otherCorrectOptions.push({ key: tmpNo[otherCorrectOptions.length], value: item.options[item.correct_answer] });
                     }
                 });
 
                 // Add current question's correct answer
                 let currentCorrectKey = q.correct_answer;
                 let currentCorrectValue = q.options[currentCorrectKey];
+                otherCorrectOptions = otherCorrectOptions.filter(option => option.key !== q.correct_answer);
                 otherCorrectOptions.push({ key: currentCorrectKey, value: currentCorrectValue });
 
                 // Remove duplicates by value
@@ -283,7 +287,6 @@
                 optionsArray = selectedOptions.map(opt => [opt.key, opt.value]);
             }
 
-            let tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
             let idxNo = -1;
             let optionsHtml = "";
 
