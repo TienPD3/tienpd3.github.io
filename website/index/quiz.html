@@ -20,6 +20,9 @@
 
     <!-- Cài đặt Quiz -->
     <div class="settings">
+        <div id="categoryCheckboxes" style="margin-bottom: 10px;">
+            <!-- Checkbox categories sẽ load ở đây -->
+        </div>
         <div class="dropdown-checkbox" id="dropdownCheckboxWrapper">
             <button type="button" id="dropdownButton" aria-haspopup="true" aria-expanded="false">Chọn file JSON</button>
             <div class="dropdown-content" id="dropdownContent">
@@ -442,47 +445,88 @@
                 return response.json();
             })
             .then(data => {
+                const categoryContainer = document.getElementById('categoryCheckboxes');
                 const container = document.getElementById('fileListCheckboxes');
                 container.innerHTML = `
                     <label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>
                 `;
                 allFileNames = data.map(u => u.value);
 
-                data.forEach(item => {
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    checkbox.name = 'jsonFiles';
-                    checkbox.value = item.value;
-                    checkbox.id = `chk_${item.value}`;
+                // Extract unique categories
+                const categories = [...new Set(data.map(item => item.category))];
 
-                    const label = document.createElement('label');
-                    label.htmlFor = checkbox.id;
-                    label.appendChild(checkbox);
-                    label.append(` ${item.key}`);
+                // Render category checkboxes
+                categoryContainer.innerHTML = '';
+                categories.forEach(cat => {
+                    const catCheckbox = document.createElement('input');
+                    catCheckbox.type = 'checkbox';
+                    catCheckbox.name = 'categoryFilter';
+                    catCheckbox.value = cat;
+                    catCheckbox.id = `cat_${cat.replace(/\s+/g, '_')}`;
 
-                    container.appendChild(label);
+                    const catLabel = document.createElement('label');
+                    catLabel.htmlFor = catCheckbox.id;
+                    catLabel.style.marginRight = '10px';
+                    catLabel.appendChild(catCheckbox);
+                    catLabel.append(` ${cat}`);
+
+                    categoryContainer.appendChild(catLabel);
                 });
 
-                // Check All toggle
-                document.getElementById('checkAllFiles').addEventListener('change', function () {
-                    const checkboxes = document.querySelectorAll("input[name='jsonFiles']");
-                    checkboxes.forEach(cb => cb.checked = this.checked);
-                    updateDropdownButtonText();
-                    saveSettingsToLocalStorage();
-                });
+                // Function to render file checkboxes filtered by selected categories
+                function renderFileCheckboxes() {
+                    const selectedCategories = Array.from(document.querySelectorAll("input[name='categoryFilter']:checked")).map(cb => cb.value);
+                    container.innerHTML = `<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>`;
 
-                // Khi checkbox thay đổi, cập nhật nút và lưu, và đóng dropdown
-                document.querySelectorAll("#fileListCheckboxes input[name='jsonFiles']").forEach(cb => {
-                    cb.addEventListener('change', function () {
-                        updateCheckAllState();
+                    let filteredData = data;
+                    if (selectedCategories.length > 0) {
+                        filteredData = data.filter(item => selectedCategories.includes(item.category));
+                    }
+
+                    filteredData.forEach(item => {
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.name = 'jsonFiles';
+                        checkbox.value = item.value;
+                        checkbox.id = `chk_${item.value}`;
+
+                        const label = document.createElement('label');
+                        label.htmlFor = checkbox.id;
+                        label.appendChild(checkbox);
+                        label.append(` ${item.key}`);
+
+                        container.appendChild(label);
+                    });
+
+                    // Add event listeners for file checkboxes
+                    document.getElementById('checkAllFiles').addEventListener('change', function () {
+                        const checkboxes = document.querySelectorAll("input[name='jsonFiles']");
+                        checkboxes.forEach(cb => cb.checked = this.checked);
                         updateDropdownButtonText();
                         saveSettingsToLocalStorage();
                     });
-                });
 
-                // Cập nhật trạng thái checkAll nếu cần
-                updateCheckAllState();
-                updateDropdownButtonText();
+                    document.querySelectorAll("#fileListCheckboxes input[name='jsonFiles']").forEach(cb => {
+                        cb.addEventListener('change', function () {
+                            updateCheckAllState();
+                            updateDropdownButtonText();
+                            saveSettingsToLocalStorage();
+                        });
+                    });
+
+                    updateCheckAllState();
+                    updateDropdownButtonText();
+                }
+
+                // Initial render of file checkboxes
+                renderFileCheckboxes();
+
+                // Add event listeners for category checkboxes to filter files
+                document.querySelectorAll("input[name='categoryFilter']").forEach(cb => {
+                    cb.addEventListener('change', () => {
+                        renderFileCheckboxes();
+                    });
+                });
             })
             .catch(err => {
                 showToast("Lỗi khi tải file JSON: " + err.message);
