@@ -260,7 +260,7 @@
       "C": "Necessary",
       "D": "Complete"
     },
-    "correct_answer": "B",
+    "correct_answer": "D",
     "explanation": "Overall explanation The quality criterion that is met if requirements do not create conflicting links between elements is Consistency. This criterion ensures that requirements are logically coherent and do not contradict each other, maintaining alignment across all documented needs and proposed solutions. Domain Requirements Analysis and Design Definition"
   },
   {
@@ -739,12 +739,12 @@
   {
     "question": "What quality criterion is met if requirements do not create conflicting links between elements?",
     "options": {
-      "A": " Consistent",
+      "A": "Consistent",
       "B": "Defined",
       "C": "Unambiguous",
       "D": "Necessary"
     },
-    "correct_answer": "C",
+    "correct_answer": "A",
     "explanation": "Overall explanation When requirements do not create conflicting links between elements, they meet the quality criterion of being unambiguous, ensuring clarity and preventing misinterpretation. Domain Requirements Analysis and Design Definition"
   },
   {

@@ -20,8 +20,8 @@
 
     <!-- Cài đặt Quiz -->
     <div class="settings">
-        <div id="categoryCheckboxes" style="margin-bottom: 10px;">
-            <!-- Checkbox categories sẽ load ở đây -->
+        <div id="categoryRadio" style="margin-bottom: 10px;">
+            <!-- Radio categories sẽ load ở đây -->
         </div>
         <div class="dropdown-checkbox" id="dropdownCheckboxWrapper">
             <button type="button" id="dropdownButton" aria-haspopup="true" aria-expanded="false">Chọn file JSON</button>
@@ -458,7 +458,7 @@
                 return response.json();
             })
             .then(data => {
-                const categoryContainer = document.getElementById('categoryCheckboxes');
+                const categoryContainer = document.getElementById('categoryRadio');
                 const container = document.getElementById('fileListCheckboxes');
                 container.innerHTML = `
                     <label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>
@@ -511,6 +511,13 @@
         let filteredData = [];
         if (selectedCategory) {
             filteredData = dataFileJson.filter(item => item.category === selectedCategory.value);
+
+            if (selectedCategory.value == "Japanese") {
+                $("input[name='shuffleAnswersOption']").prop("disabled", true);
+                $("input[value='basedOnCorrect']").prop("checked", true);
+            } else {
+                $("input[name='shuffleAnswersOption']").prop("disabled", false);
+            }
         }
 
         filteredData.forEach(item => {

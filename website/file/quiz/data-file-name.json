@@ -20,9 +20,14 @@
   {"category": "Business Analysis", "key": "ECBA Certification (Practice H Software 4)", "value": "ba18.json" },
   {"category": "Business Analysis", "key": "ECBA Certification (Practice G Software 1)", "value": "ba19.json" },
   {"category": "Business Analysis", "key": "ECBA Certification (Practice G Software 2)", "value": "ba20.json" },
-  {"category": "Japanese", "key": "N1", "value": "jp01.json" },
-  {"category": "Japanese", "key": "N2", "value": "jp02.json" },
-  {"category": "Japanese", "key": "N3", "value": "jp03.json" },
-  {"category": "Japanese", "key": "N4", "value": "jp04.json" },
-  {"category": "Japanese", "key": "N5", "value": "jp05.json" }
+  {"category": "Japanese", "key": "N1-Kanji-Hiragana", "value": "jp-n1-kanji-hiragana.json" },
+  {"category": "Japanese", "key": "N1-Kanji-VN", "value": "jp-n1-kanji-vn.json" },
+  {"category": "Japanese", "key": "N2-Kanji-Hiragana", "value": "jp-n2-kanji-hiragana.json" },
+  {"category": "Japanese", "key": "N2-Kanji-VN", "value": "jp-n2-kanji-vn.json" },
+  {"category": "Japanese", "key": "N3-Kanji-Hiragana", "value": "jp-n3-kanji-hiragana.json" },
+  {"category": "Japanese", "key": "N3-Kanji-VN", "value": "jp-n3-kanji-vn.json" },
+  {"category": "Japanese", "key": "N4-Kanji-Hiragana", "value": "jp-n4-kanji-hiragana.json" },
+  {"category": "Japanese", "key": "N4-Kanji-VN", "value": "jp-n4-kanji-vn.json" },
+  {"category": "Japanese", "key": "N5-Kanji-Hiragana", "value": "jp-n5-kanji-hiragana.json" },
+  {"category": "Japanese", "key": "N5-Kanji-VN", "value": "jp-n5-kanji-vn.json" }
 ]
