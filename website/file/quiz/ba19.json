@@ -212,9 +212,9 @@
   {
     "question": "Extra credit: What time was the BA team meeting?",
     "options": {
-      "A": "0.479166666666667",
-      "B": "0.520833333333333",
-      "C": "0.0625",
+      "A": "11:30",
+      "B": "12:30",
+      "C": "1:30",
       "D": "No one cares.",
       "E": "",
       "F": "",
