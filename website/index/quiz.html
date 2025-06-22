@@ -317,21 +317,26 @@
                 `;
             });
 
+            // Check if there is an image to display
+            let imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
+
             $("#quiz").append(`
                 <div class="question" style="position: relative;">
-                            ${index + 1}. ${q.question}
-                            <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
-                                style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
-                            <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
-                                style="cursor:pointer; margin-left:10px; font-size:18px; color:#28a745;">🤖</span>
-                            <div class="translation" style="color: #555; margin-top: 5px; display:none;"></div>
-                        </div>
+                    ${index + 1}. ${q.question}
+                    <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
+                        style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
+                    <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
+                        style="cursor:pointer; margin-left:10px; font-size:18px; color:#28a745;">🤖</span>
+                    <div class="translation" style="color: #555; margin-top: 5px; display:none;"></div>
+                    ${imageHtml}
+                </div>
                 <div class="options">${optionsHtml}</div>
                 <hr>
             `);
         });
         updateQuizStatusBar();
     }
+
     // Bắt sự kiện click icon ChatGPT - copy prompt + mở tab ChatGPT
     $(document).on('click', '.chatgpt-icon', function () {
         const index = $(this).data('index');
