@@ -257,7 +257,7 @@
                 let currentCorrectValue = q.options[currentCorrectKey];
                 otherCorrectOptions = otherCorrectOptions.filter(option => option.key !== q.correct_answer);
                 otherCorrectOptions.push({ key: currentCorrectKey, value: currentCorrectValue });
-
+                
                 // Remove duplicates by value
                 let uniqueOptionsMap = {};
                 otherCorrectOptions.forEach(opt => {
@@ -272,6 +272,7 @@
                 while (selectedOptions.length < maxOptions) {
                     let randIndex = Math.floor(Math.random() * uniqueOptions.length);
                     let option = uniqueOptions.splice(randIndex, 1)[0];
+                    option.key = tmpNo[selectedOptions.length];
                     selectedOptions.push(option);
                 }
 
@@ -374,6 +375,7 @@
     });
 
     $(document).on("click", ".check-answer", function () {
+
         const index = $(this).data("index");
         const selected = $(`input[name='q${index}']:checked`).val();
         const correct = selectedQuestions[index].correct_answer;

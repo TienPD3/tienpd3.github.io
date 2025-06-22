@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>48 Thẻ Bài Duy Triệu Phú</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  #flashcard {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-height: 300px;
+    white-space: pre-wrap;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  .navigation {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  #counter {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+  }
+  </style>
+  <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+<h1>48 Thẻ Bài Duy Triệu Phú</h1>
+<div id="flashcard"></div>
+<div class="navigation">
+  <button id="prevBtn">Trước</button>
+  <button id="nextBtn">Tiếp</button>
+</div>
+<div id="counter"></div>
+<div id="micStatus">Mic: Tắt</div>
+
+<script>
+  let flashcards = [];
+  let currentIndex = 0;
+  let highlightedWordIndex = 0;
+
+  const flashcardEl = document.getElementById('flashcard');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const counterEl = document.getElementById('counter');
+  const micStatusEl = document.getElementById('micStatus');
+
+  function updateFlashcard() {
+    // Split current flashcard sentence into words wrapped in span for highlighting
+    const words = flashcards[currentIndex].split(/\s+/);
+    flashcardEl.innerHTML = words.map((word, index) => {
+      return `<span class="word${index === highlightedWordIndex ? ' highlight' : ''}">${word}</span>`;
+    }).join(' ');
+    flashcardEl.style.backgroundColor = '';
+    counterEl.textContent = `Thẻ ${currentIndex + 1} / ${flashcards.length}`;
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === flashcards.length - 1;
+    highlightedWordIndex = 0;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateFlashcard();
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < flashcards.length - 1) {
+      currentIndex++;
+      updateFlashcard();
+    }
+  });
+
+  // Speech Recognition setup
+  let recognition;
+  let recognizing = false;
+
+  function startRecognition() {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      micStatusEl.textContent = 'Trình duyệt không hỗ trợ nhận diện giọng nói.';
+      micStatusEl.style.color = 'red';
+      return;
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.lang = 'vi-VN';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      recognizing = true;
+      micStatusEl.textContent = 'Mic: Đang nghe...';
+      micStatusEl.style.color = 'green';
+    };
+
+    recognition.onend = () => {
+      recognizing = false;
+      micStatusEl.textContent = 'Mic: Tắt';
+      micStatusEl.style.color = 'black';
+      // Tự động khởi động lại nhận diện để liên tục nghe
+      startRecognition();
+    };
+
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error', event.error);
+      micStatusEl.textContent = 'Lỗi nhận diện: ' + event.error;
+      micStatusEl.style.color = 'red';
+      // Thử khởi động lại sau lỗi
+      setTimeout(() => {
+        if (!recognizing) startRecognition();
+      }, 1000);
+    };
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.trim();
+      console.log('Nhận diện:', transcript);
+
+      // So sánh transcript với từ hiện tại (bỏ dấu, chữ hoa thường)
+      const currentWords = flashcards[currentIndex].split(/\s+/);
+      const normalize = (str) => str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
+      const normTranscript = normalize(transcript);
+      const normCurrentWord = normalize(currentWords[highlightedWordIndex]);
+
+      if (normTranscript.includes(normCurrentWord)) {
+        // Highlight từ hiện tại
+        const spans = flashcardEl.querySelectorAll('span.word');
+        if (highlightedWordIndex < spans.length) {
+          // Remove highlight from previous word if any
+          if (highlightedWordIndex > 0) {
+            spans[highlightedWordIndex - 1].classList.remove('highlight');
+          }
+          spans[highlightedWordIndex].classList.add('highlight');
+          highlightedWordIndex++;
+        }
+      }
+
+      // Nếu đã highlight hết các từ trong câu, highlight toàn bộ câu và chuyển sang câu tiếp theo
+      if (highlightedWordIndex >= currentWords.length) {
+        flashcardEl.style.backgroundColor = '#a0ffa0'; // highlight toàn bộ câu màu xanh nhạt
+        setTimeout(() => {
+          flashcardEl.style.backgroundColor = '';
+          if (currentIndex < flashcards.length - 1) {
+            currentIndex++;
+            updateFlashcard();
+          } else {
+            micStatusEl.textContent = 'Bạn đã đọc hết tất cả các thẻ bài.';
+            micStatusEl.style.color = 'blue';
+            recognition.stop();
+          }
+        }, 1000);
+      }
+    };
+
+    recognition.start();
+  }
+
+  // Hàm so sánh text đơn giản: bỏ dấu, chữ hoa thường, kiểm tra chứa
+  function compareText(spoken, target) {
+    const normalize = (str) => str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim();
+    const normSpoken = normalize(spoken);
+    const normTarget = normalize(target);
+    return normTarget.includes(normSpoken) || normSpoken.includes(normTarget);
+  }
+
+  // Load flashcards from JSON file and initialize
+  fetch('duy-trieu-phu-flashcards.json')
+    .then(response => response.json())
+    .then(data => {
+      flashcards = data;
+      updateFlashcard();
+      startRecognition();
+    })
+    .catch(error => {
+      flashcardEl.textContent = 'Không thể tải dữ liệu thẻ bài.';
+      console.error('Error loading flashcards JSON:', error);
+    });
+</script>
+</body>
+</html>

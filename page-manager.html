@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 10px 20px;
+      color: #222;
+    }
+    h1 {
+      margin-bottom: 15px;
+      color: #111;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.8em;
+    }
+    #searchBox {
+      display: block;
+      margin: 0 auto 20px auto;
+      padding: 8px 12px;
+      width: 95%;
+      max-width: 800px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-shadow: none;
+      transition: border-color 0.2s ease;
+    }
+    #searchBox:focus {
+      outline: none;
+      border-color: #007acc;
+      box-shadow: none;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      max-width: 1000px;
+      margin: 0 auto 30px auto;
+      background: #f9f9f9;
+      border-radius: 6px;
+      padding: 15px 20px;
+      box-shadow: none;
+    }
+    li {
+      margin-bottom: 10px;
+      padding: 8px 10px;
+      border-bottom: 1px solid #ddd;
+      display: block;
+      transition: background-color 0.2s ease;
+      border-radius: 4px;
+    }
+    li:hover {
+      background-color: #e6f0ff;
+    }
+    a {
+      text-decoration: none;
+      color: #005a9e;
+      font-weight: 500;
+      font-size: 0.9em;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+  <body>
+    <h1>Page Manager</h1>
+    <input type="text" id="searchBox" placeholder="Search pages..." oninput="filterPages()" />
+    <ul id="pageList"></ul>
+
+    <script>
+      // Pages grouped by category
+      const categories = [
+        {
+          name: "Main Pages",
+          pages: [
+            { name: "index.html", url: "index.html" },
+            { name: "index copy.html", url: "index copy.html" }
+          ]
+        },
+        {
+          name: "Giàu có vô song",
+          pages: [
+            { name: "index.html", url: "index.html" }
+          ]
+        },
+        {
+          name: "Japanese",
+          pages: [
+            { name: "Kanji Page", url: "website/index/kanji.html" },
+            { name: "Quiz Page", url: "website/index/quiz.html" }
+          ]
+        },
+        {
+          name: "Trắc nghiệm",
+          pages: [
+          { name: "Convert Udemy", url: "website/index/convert-udemy.html" },
+            { name: "Trắc nghiệm", url: "website/index/quiz.html" }
+          ]
+        },
+        {
+          name: "Chứng khoán",
+          pages: [
+            { name: "Stock Pro FireAnt", url: "stock-pro-fireant.html" },
+            { name: "Stock Final", url: "stock-final.html" }
+          ]
+        }
+      ];
+
+      const pageList = document.getElementById("pageList");
+      const searchBox = document.getElementById("searchBox");
+
+      function renderPages(categoriesToRender) {
+        pageList.innerHTML = "";
+        let totalPages = 0;
+        categoriesToRender.forEach(category => {
+      const catHeader = document.createElement("h2");
+      catHeader.textContent = category.name;
+      catHeader.style.color = "#222";
+      catHeader.style.marginTop = "15px";
+      catHeader.style.fontWeight = "600";
+      catHeader.style.fontSize = "1.2em";
+      pageList.appendChild(catHeader);
+
+      if (category.pages.length === 0) {
+        const noPages = document.createElement("p");
+        noPages.textContent = "No pages found in this category.";
+        noPages.style.fontStyle = "italic";
+        noPages.style.color = "#666";
+        pageList.appendChild(noPages);
+      } else {
+        const ul = document.createElement("ul");
+        ul.style.listStyleType = "none";
+        ul.style.paddingLeft = "0";
+        ul.style.columns = "2";
+        ul.style.columnGap = "20px";
+        category.pages.forEach(page => {
+          const li = document.createElement("li");
+          li.style.marginBottom = "8px";
+
+          const link = document.createElement("a");
+          link.href = page.url;
+          link.target = "_blank";
+          link.textContent = page.name;
+          link.style.color = "#005a9e";
+          link.style.textDecoration = "none";
+          link.style.fontWeight = "500";
+          link.style.fontSize = "0.9em";
+
+          li.appendChild(link);
+          ul.appendChild(li);
+          totalPages++;
+        });
+        pageList.appendChild(ul);
+      }
+        });
+        if (totalPages === 0) {
+          pageList.innerHTML = "<p>No pages found.</p>";
+        }
+      }
+
+      function filterPages() {
+        const query = searchBox.value.toLowerCase();
+        const filteredCategories = categories.map(category => {
+          const filteredPages = category.pages.filter(p => p.name.toLowerCase().includes(query));
+          return { name: category.name, pages: filteredPages };
+        }).filter(category => category.pages.length > 0);
+        renderPages(filteredCategories);
+      }
+
+      // Initial render
+      renderPages(categories);
+    </script>
+  </body>
+</html>
