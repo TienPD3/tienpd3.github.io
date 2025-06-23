@@ -240,7 +240,10 @@
             // Determine shuffle mode
             let shuffleMode = $("input[name='shuffleAnswersOption']:checked").val();
 
-            if (shuffleMode === "normal") {
+            // Kiểm tra nếu đáp án đúng là "All of the above"
+            const isAllOfTheAbove = optionsArray.some(option => option[1] === "All of the above" && option[0] === q.correct_answer);
+
+            if (shuffleMode === "normal" || isAllOfTheAbove) {
                 optionsArray.sort(() => Math.random() - 0.5);
             } else if (shuffleMode === "basedOnCorrect") {
                 // Collect all correct answers and their texts from other questions
