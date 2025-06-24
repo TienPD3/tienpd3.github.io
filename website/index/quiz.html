@@ -216,11 +216,29 @@
                 $("#quizContainer").show();
                 $('.settings').hide();
                 $('#startQuiz').hide();
+
+                // Show or hide continueQuiz button based on endQuestion and max questions
+                let currentEnd = parseInt($("#endQuestion").val());
+                if (!currentEnd || currentEnd >= questions.length) {
+                    $("#continueQuiz").hide();
+                } else {
+                    $("#continueQuiz").show();
+                }
             })
             .catch((e) => {
                 console.error(e);
                 showToast("Lỗi khi load file JSON!");
             });
+    });
+
+    // Also update continueQuiz button visibility when endQuestion input changes
+    $("#endQuestion").on("input change", function() {
+        let currentEnd = parseInt($(this).val());
+        if (!currentEnd || currentEnd >= questions.length) {
+            $("#continueQuiz").hide();
+        } else {
+            $("#continueQuiz").show();
+        }
     });
 
     function renderQuiz() {
