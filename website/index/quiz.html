@@ -54,13 +54,13 @@
     </div>
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
-
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
         <button class="btn" id="resetting">Setting</button>
         <button class="btn hidden" id="retryWrong">Làm lại câu sai</button>
         <button class="btn" id="retest">Làm lại</button>
         <button class="btn" id="submitQuiz">Nộp bài</button>
+        <button class="btn" id="continueQuiz">Làm tiếp</button>
     </div>
 </div>
 <div id="toast" style="display: none;"></div>
@@ -658,6 +658,25 @@
     if (localStorage.getItem('darkMode') === 'enabled') {
         $('body').addClass('dark-mode')
     }
+
+    // Continue button click handler
+    $("#continueQuiz").click(function () {
+        let currentEnd = parseInt($("#endQuestion").val()) || 0;
+        let newEnd = currentEnd + 5;
+
+        // Limit newEnd to max questions length if questions loaded
+        if (questions.length > 0 && newEnd > questions.length) {
+            newEnd = questions.length;
+        }
+
+        $("#endQuestion").val(newEnd);
+
+        // Save updated endQuestion to localStorage
+        saveSettingsToLocalStorage();
+
+        // Reload quiz with new range
+        $("#startQuiz").click();
+    });
 
     $(document).on("click", "#darkModeToggle", function () {
         document.body.classList.toggle('dark-mode');
