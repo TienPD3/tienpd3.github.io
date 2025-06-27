@@ -114,8 +114,13 @@
                 let meaningsArray = meaning.split(/[,;]/).map(s => s.trim()).filter(s => s.length > 0);
                 // Pick a random meaning from the array
                 let randomMeaning = meaningsArray[Math.floor(Math.random() * meaningsArray.length)];
+                // Determine if the word is long to add class for letter spacing
+                let longWordClass = "";
+                if (part.length > 10) { // threshold for long word
+                    longWordClass = "long-word";
+                }
                 // Wrap with span and small text above with random meaning
-                return `<span class="vocab-word" title="${randomMeaning}">${part}<small class="vocab-meaning">${randomMeaning}</small></span>`;
+                return `<span class="vocab-word ${longWordClass}" title="${randomMeaning}">${part}<small class="vocab-meaning">${randomMeaning}</small></span>`;
             } else {
                 return part;
             }
@@ -355,9 +360,20 @@
 
                 idxNo++;
                 let isLast = (idxNo === optionsArray.length - 1);
+
+                // Determine if question or answer text is long to add class for spacing
+                let questionLongClass = "";
+                if (q.question.length > 50) {
+                    questionLongClass = "long-vocab";
+                }
+                let answerLongClass = "";
+                if (value.length > 50) {
+                    answerLongClass = "long-vocab";
+                }
+
                 optionsHtml += `
                     <div data-index="${index}" style="display: flex; align-items: center; justify-content: space-between;">
-                        <label style="flex: 1;">
+                        <label style="flex: 1;" class="${answerLongClass}">
                             <input type="radio" name="q${index}" value="${key}">
                             ${tmpNo[idxNo]}. ${wrapWithMeaning(value)}
                         </label>
@@ -378,8 +394,14 @@
             // Check if there is an image to display
             let imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
 
+            // Add long-vocab class to question div if question text is long
+            let questionClass = "";
+            if (q.question.length > 50) {
+                questionClass = "long-vocab";
+            }
+
             $("#quiz").append(`
-                <div class="question" style="position: relative;">
+                <div class="question ${questionClass}" style="position: relative;">
                     ${index + 1}. ${wrapWithMeaning(q.question)}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
@@ -742,6 +764,10 @@
         user-select: none;
         font-style: italic;
     }
+/* .long-vocab {
+    word-spacing: 0.5em;
+    letter-spacing: 0.1em;
+} */
 </style>
 </body>
 </html>
