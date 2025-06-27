@@ -34,6 +34,9 @@
 
         <br />
 
+        <label><input type="checkbox" id="showVocabulary" checked> Hiển thị Vocabulary</label>
+        <br />
+
         <label>Từ câu:</label>
         <input type="number" id="startQuestion" value="0" step="5" min="0" style="width: 50px;">
 
@@ -71,28 +74,80 @@
     let allFileNames = [];
     let wrongQuestions = [];  // Thêm biến toàn cục nếu cần
     let dataFileJson = [];
+    let vocabularyData = {};
+    let vocabularyLoaded = false;
 
-    $(function() {
-        loadOptions();
-        restoreSettingsFromLocalStorage();
-        setupDropdownEvents();
+    // Load vocabulary JSON and build dictionary
+    function loadVocabulary() {
+        return $.getJSON('../file/vocabulary/3000-english.json')
+            .then(data => {
+                data.forEach(item => {
+                    if (item.Word && item.Meaning) {
+                        vocabularyData[item.Word.toLowerCase()] = item.Meaning;
+                    }
+                });
+                vocabularyLoaded = true;
+            })
+            .catch(err => {
+                console.error('Error loading vocabulary JSON:', err);
+                vocabularyLoaded = false;
+            });
+    }
 
-        // Disable or enable shuffleAnswersOption based on order selection
-        function updateShuffleAnswersOptionState() {
-            const orderValue = $("input[name='order']:checked").val();
-            if (orderValue === "ordered") {
-                $("input[name='shuffleAnswersOption']").prop("disabled", true);
-            } else {
-                $("input[name='shuffleAnswersOption']").prop("disabled", false);
-            }
+    // Function to wrap English words with Vietnamese meaning as small text above
+    function wrapWithMeaning(text) {
+        if (!vocabularyLoaded) return text;
+
+        if (!$("#showVocabulary").prop("checked")) {
+            return text;
         }
 
-        // Initial call on page load
-        updateShuffleAnswersOptionState();
+        // Split text into words and non-words to preserve punctuation
+        const parts = text.split(/(\W+)/);
 
-        // Listen for changes on order radio buttons
-        $(document).on("change", "input[name='order']", function() {
+        const wrappedParts = parts.map(part => {
+            const lowerPart = part.toLowerCase();
+            if (vocabularyData[lowerPart]) {
+                // Get the meaning string
+                let meaning = vocabularyData[lowerPart];
+                // Split meaning by ',' or ';' and trim
+                let meaningsArray = meaning.split(/[,;]/).map(s => s.trim()).filter(s => s.length > 0);
+                // Pick a random meaning from the array
+                let randomMeaning = meaningsArray[Math.floor(Math.random() * meaningsArray.length)];
+                // Wrap with span and small text above with random meaning
+                return `<span class="vocab-word" title="${randomMeaning}">${part}<small class="vocab-meaning">${randomMeaning}</small></span>`;
+            } else {
+                return part;
+            }
+        });
+
+        return wrappedParts.join('');
+    }
+
+    $(function() {
+        // Load vocabulary first, then load options and restore settings
+        loadVocabulary().then(() => {
+            loadOptions();
+            restoreSettingsFromLocalStorage();
+            setupDropdownEvents();
+
+            // Disable or enable shuffleAnswersOption based on order selection
+            function updateShuffleAnswersOptionState() {
+                const orderValue = $("input[name='order']:checked").val();
+                if (orderValue === "ordered") {
+                    $("input[name='shuffleAnswersOption']").prop("disabled", true);
+                } else {
+                    $("input[name='shuffleAnswersOption']").prop("disabled", false);
+                }
+            }
+
+            // Initial call on page load
             updateShuffleAnswersOptionState();
+
+            // Listen for changes on order radio buttons
+            $(document).on("change", "input[name='order']", function() {
+                updateShuffleAnswersOptionState();
+            });
         });
     });
 
@@ -304,7 +359,7 @@
                     <div data-index="${index}" style="display: flex; align-items: center; justify-content: space-between;">
                         <label style="flex: 1;">
                             <input type="radio" name="q${index}" value="${key}">
-                            ${tmpNo[idxNo]}. ${value}
+                            ${tmpNo[idxNo]}. ${wrapWithMeaning(value)}
                         </label>
                         ${isLast ? `
                             <button class="btn check-answer" data-index="${index}" style="padding: 6px 12px; font-size: 14px;">Kiểm tra</button>
@@ -325,7 +380,7 @@
 
             $("#quiz").append(`
                 <div class="question" style="position: relative;">
-                    ${index + 1}. ${q.question}
+                    ${index + 1}. ${wrapWithMeaning(q.question)}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
                     <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
@@ -668,5 +723,25 @@
         }
     });
 </script>
+<style>
+    .vocab-word {
+        position: relative;
+        display: inline-block;
+        cursor: help;
+        color: #28a745;
+    }
+    .vocab-meaning {
+        position: absolute;
+        top: -0.5em;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.5em;
+        color: #555;
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+        font-style: italic;
+    }
+</style>
 </body>
 </html>
