@@ -78,32 +78,24 @@ h2 {
   background-color: #f8d7da;
   border-left: 5px solid #dc3545;
 }
-#continueQuiz {
+#submitQuiz {
   position: fixed;
   bottom: 20px;
   right: 20px;
   z-index: 1000;
 }
-#submitQuiz {
+#retest {
   position: fixed;
   bottom: 20px;
   right: 130px;
   z-index: 1000;
 }
-#retest {
+#retryWrong {
   position: fixed;
   bottom: 20px;
   right: 240px;
   z-index: 1000;
 }
-
-#retryWrong {
-  position: fixed;
-  bottom: 20px;
-  right: 350px;
-  z-index: 1000;
-}
-
 #resetting {
   position: fixed;
   bottom: 20px;

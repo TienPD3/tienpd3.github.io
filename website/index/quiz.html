@@ -55,18 +55,12 @@
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
 
-    <!-- Checkbox for "Đã đọc" mode -->
-    <div style="margin-top: 10px; margin-bottom: 10px;">
-        <label><input type="checkbox" id="readModeCheckbox"> Hiển thị button Đã đọc</label>
-    </div>
-
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
         <button class="btn" id="resetting">Setting</button>
         <button class="btn hidden" id="retryWrong">Làm lại câu sai</button>
         <button class="btn" id="retest">Làm lại</button>
         <button class="btn" id="submitQuiz">Nộp bài</button>
-        <button class="btn" id="continueQuiz">Làm tiếp</button>
     </div>
 </div>
 <div id="toast" style="display: none;"></div>
@@ -222,29 +216,11 @@
                 $("#quizContainer").show();
                 $('.settings').hide();
                 $('#startQuiz').hide();
-
-                // Show or hide continueQuiz button based on endQuestion and max questions
-                let currentEnd = parseInt($("#endQuestion").val());
-                if (!currentEnd || currentEnd >= questions.length) {
-                    $("#continueQuiz").hide();
-                } else {
-                    $("#continueQuiz").show();
-                }
             })
             .catch((e) => {
                 console.error(e);
                 showToast("Lỗi khi load file JSON!");
             });
-    });
-
-    // Also update continueQuiz button visibility when endQuestion input changes
-    $("#endQuestion").on("input change", function() {
-        let currentEnd = parseInt($(this).val());
-        if (!currentEnd || currentEnd >= questions.length) {
-            $("#continueQuiz").hide();
-        } else {
-            $("#continueQuiz").show();
-        }
     });
 
     function renderQuiz() {
@@ -318,21 +294,14 @@
             let idxNo = -1;
             let optionsHtml = "";
 
-            // Check if "read mode" checkbox is checked
-            const readModeChecked = $("#readModeCheckbox").is(":checked");
-
             $.each(optionsArray, function (tmpKey, tmpValue) {
                 let key = tmpValue[0];
                 let value = tmpValue[1];
 
                 idxNo++;
                 let isLast = (idxNo === optionsArray.length - 1);
-
-                // If read mode is checked, hide options initially
-                let optionDisplayStyle = readModeChecked ? "none" : "flex";
-
                 optionsHtml += `
-                    <div data-index="${index}" style="display: ${optionDisplayStyle}; align-items: center; justify-content: space-between;">
+                    <div data-index="${index}" style="display: flex; align-items: center; justify-content: space-between;">
                         <label style="flex: 1;">
                             <input type="radio" name="q${index}" value="${key}">
                             ${tmpNo[idxNo]}. ${value}
@@ -354,18 +323,11 @@
             // Check if there is an image to display
             let imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
 
-            // If read mode is checked, add "Đã đọc" button after translation button
-            let readButtonHtml = "";
-            if (readModeChecked) {
-                readButtonHtml = `<button class="btn read-button" data-index="${index}" style="margin-left: 10px; padding: 4px 8px; font-size: 14px;">Đã đọc</button>`;
-            }
-
             $("#quiz").append(`
                 <div class="question" style="position: relative;">
                     ${index + 1}. ${q.question}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
-                    ${readButtonHtml}
                     <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#28a745;">🤖</span>
                     <div class="translation" style="color: #555; margin-top: 5px; display:none;"></div>
@@ -402,22 +364,6 @@
                 showToast("Không thể copy vào clipboard. Vui lòng thử lại.");
                 console.error(err);
             });
-    });
-
-    // Bắt sự kiện click nút "Đã đọc"
-    $(document).on("click", ".read-button", function () {
-        const index = $(this).data("index");
-        // Show the options div for this question
-        const optionsDiv = $(this).closest(".question").next(".options");
-        optionsDiv.children("div").css("display", "flex");
-        // Hide the "Đã đọc" button after click
-        $(this).hide();
-    });
-
-    // Bắt sự kiện thay đổi checkbox "Hiển thị button Đã đọc"
-    $("#readModeCheckbox").change(function () {
-        // Rerender quiz to apply the mode change
-        renderQuiz();
     });
 
     // Bắt sự kiện click icon dịch
@@ -712,25 +658,6 @@
     if (localStorage.getItem('darkMode') === 'enabled') {
         $('body').addClass('dark-mode')
     }
-
-    // Continue button click handler
-    $("#continueQuiz").click(function () {
-        let currentEnd = parseInt($("#endQuestion").val()) || 0;
-        let newEnd = currentEnd + 5;
-
-        // Limit newEnd to max questions length if questions loaded
-        if (questions.length > 0 && newEnd > questions.length) {
-            newEnd = questions.length;
-        }
-
-        $("#endQuestion").val(newEnd);
-
-        // Save updated endQuestion to localStorage
-        saveSettingsToLocalStorage();
-
-        // Reload quiz with new range
-        $("#startQuiz").click();
-    });
 
     $(document).on("click", "#darkModeToggle", function () {
         document.body.classList.toggle('dark-mode');
