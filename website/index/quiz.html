@@ -34,8 +34,8 @@
 
         <br />
 
-        <label><input type="checkbox" id="showVocabulary" checked> Hiển thị Vocabulary</label>
-        <br />
+        <!-- <label><input type="checkbox" id="showVocabulary" checked> Hiển thị Vocabulary</label> -->
+        <!-- <br /> -->
 
         <label>Từ câu:</label>
         <input type="number" id="startQuestion" value="0" step="5" min="0" style="width: 50px;">
@@ -57,6 +57,7 @@
     </div>
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
+    
 
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
@@ -67,6 +68,7 @@
         <div class="rightButtonGroup">
             <button class="btn hidden" id="retryWrong">Làm lại câu sai</button>
             <button class="btn" id="submitQuiz">Nộp bài</button>
+            <button class="btn" id="continueQuiz">Làm tiếp</button>
         </div>
     </div>
 </div>
@@ -178,7 +180,10 @@
             }
         });
 
-        $("#quizStatusBar").text(`Đã làm ${done}/${total} câu | Đúng ${correctCount} | Sai ${wrongCount}`);
+        let start = parseInt($("#startQuestion").val()) || 1;
+        let end = parseInt($("#endQuestion").val()) || questions.length;
+
+        $("#quizStatusBar").text(`Đã làm (${start} ~ ${end}) ${done}/${total} câu | Đúng ${correctCount} | Sai ${wrongCount}`);
 
         if (total > 0) {
             $("#quizStatusBar").show();
@@ -233,6 +238,8 @@
         }
     }
 
+    let endQuenstionInit = 5;
+    let isInit = true;
     $("#startQuiz, #retest").click(function () {
         let selectedFiles = $("input[name='jsonFiles']:checked").map(function () {
             return this.value;
@@ -254,6 +261,10 @@
 
                 let start = parseInt($("#startQuestion").val()) || 0;
                 let end = parseInt($("#endQuestion").val()) || questions.length;
+                if (isInit) {
+                    isInit = false;
+                    endQuenstionInit = end;
+                }
 
                 if (start == 0) {
                     start = 1;
@@ -261,6 +272,7 @@
 
                 if (start < 1 || end > questions.length || start > end) {
                     showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                    $('#continueQuiz').hide();
                     return;
                 }
 
@@ -280,6 +292,9 @@
                 $("#quizContainer").show();
                 $('.settings').hide();
                 $('#startQuiz').hide();
+                let numberQuestion = (end - start) + 1;
+                $("#continueQuiz").text(`Làm tiếp ${numberQuestion} câu tiếp`);
+
             })
             .catch((e) => {
                 console.error(e);
@@ -748,6 +763,31 @@
             localStorage.setItem('darkMode', 'disabled');
         }
     });
+
+    // New button "Làm tiếp" click handler
+    $("#continueQuiz").click(function () {
+        let start = parseInt($("#startQuestion").val()) || 1;
+        let end = parseInt($("#endQuestion").val()) || questions.length;
+
+        // Double the values
+        start += endQuenstionInit;
+        end += endQuenstionInit;
+
+        if (start < 1 || end > questions.length || start > end) {
+            showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+            $('#continueQuiz').hide();
+            return;
+        }
+
+        // Update the input fields
+        $("#startQuestion").val(start);
+        $("#endQuestion").val(end);
+        $("#continueQuiz").text(`Làm tiếp ${endQuenstionInit} câu tiếp`);
+
+        // Trigger the quiz start logic similar to #startQuiz click
+        $("#startQuiz").click();
+    });
+    
 </script>
 <style>
     .vocab-word {
