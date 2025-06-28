@@ -57,8 +57,8 @@
     </div>
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
+    <button class="btn" id="retrySavedWrong">Làm lại câu sai đã lưu</button>
     
-
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
         <div class="leftButtonGroup">
@@ -79,6 +79,88 @@
     let selectedQuestions = [];
     let allFileNames = [];
     let wrongQuestions = [];  // Thêm biến toàn cục nếu cần
+    let savedWrongQuestions = [];
+
+    // Load saved wrong questions from localStorage with dynamic chunking
+    function loadSavedWrongQuestions() {
+        savedWrongQuestions = [];
+        let index = 0;
+        while (true) {
+            const key = `savedWrongQuestions_${index}`;
+            let chunk = null;
+            try {
+                chunk = localStorage.getItem(key);
+                if (!chunk) break;
+                const parsed = JSON.parse(chunk);
+                if (Array.isArray(parsed)) {
+                    // Ensure each question has correctCount property
+                    parsed.forEach(q => {
+                        if (typeof q.correctCount !== 'number') {
+                            q.correctCount = 0;
+                        }
+                    });
+                    savedWrongQuestions = savedWrongQuestions.concat(parsed);
+                }
+            } catch (e) {
+                console.error(`Lỗi khi phân tích ${key}:`, e);
+                break;
+            }
+            index++;
+        }
+    }
+
+    // Save wrong questions to localStorage with dynamic chunking and quota handling
+    function saveWrongQuestionsToLocalStorage() {
+        // Clear all previous chunks first
+        let index = 0;
+        while (true) {
+            const key = `savedWrongQuestions_${index}`;
+            if (localStorage.getItem(key) === null) break;
+            localStorage.removeItem(key);
+            index++;
+        }
+
+        // Try to save in chunks, reducing chunk size if quota exceeded
+        let chunkSize = 50; // initial chunk size
+        let start = 0;
+        while (start < savedWrongQuestions.length) {
+            let end = Math.min(start + chunkSize, savedWrongQuestions.length);
+            let chunk = savedWrongQuestions.slice(start, end);
+            let key = `savedWrongQuestions_${Math.floor(start / chunkSize)}`;
+            try {
+                localStorage.setItem(key, JSON.stringify(chunk));
+                start = end;
+            } catch (e) {
+                if (chunkSize === 1) {
+                    console.error('Lỗi khi lưu savedWrongQuestions, dữ liệu quá lớn để lưu:', e);
+                    break;
+                }
+                // Reduce chunk size and retry
+                chunkSize = Math.floor(chunkSize / 2);
+                if (chunkSize < 1) chunkSize = 1;
+                start = 0; // restart saving with smaller chunk size
+            }
+        }
+    }
+
+    // Add or update question in savedWrongQuestions with correctCount tracking
+    function addToSavedWrongQuestions(questionObj) {
+        let existing = savedWrongQuestions.find(q => q.question === questionObj.question);
+        if (!existing) {
+            questionObj.correctCount = 0;
+            savedWrongQuestions.push(questionObj);
+        }
+        saveWrongQuestionsToLocalStorage();
+    }
+
+    // Remove question from savedWrongQuestions by question text
+    function removeFromSavedWrongQuestions(questionObj) {
+        const index = savedWrongQuestions.findIndex(q => q.question === questionObj.question);
+        if (index !== -1) {
+            savedWrongQuestions.splice(index, 1);
+            saveWrongQuestionsToLocalStorage();
+        }
+    }
     let dataFileJson = [];
     let vocabularyData = {};
     let vocabularyLoaded = false;
@@ -240,7 +322,7 @@
 
     let endQuenstionInit = 5;
     let isInit = true;
-    $("#startQuiz, #retest").click(function () {
+    $("#startQuiz").click(function () {
         let selectedFiles = $("input[name='jsonFiles']:checked").map(function () {
             return this.value;
         }).get();
@@ -292,6 +374,7 @@
                 $("#quizContainer").show();
                 $('.settings').hide();
                 $('#startQuiz').hide();
+                $('#retrySavedWrong').hide();
                 let numberQuestion = (end - start) + 1;
                 $("#continueQuiz").text(`Làm tiếp ${numberQuestion} câu tiếp`);
 
@@ -419,9 +502,14 @@
                 questionClass = "long-vocab";
             }
 
+            let correctCountDisplay = "";
+            let savedWrongEntry = savedWrongQuestions.find(entry => entry.question === q.question);
+            if (savedWrongEntry) {
+                correctCountDisplay = `<span id="spnCorrectCount" title="Lần đúng liên tiếp" style="display: inline-block; background-color: green; color: white; border-radius: 50%; width: 20px; height: 20px; line-height: 20px; text-align: center; font-weight: bold; margin-left: 10px; font-size: 12px;">${savedWrongEntry.correctCount}</span>`;
+            }
             $("#quiz").append(`
                 <div class="question ${questionClass}" style="position: relative;">
-                    ${index + 1}. ${wrapWithMeaning(q.question)}
+                    ${index + 1}. ${wrapWithMeaning(q.question)} ${correctCountDisplay}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
                     <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
@@ -492,21 +580,46 @@
         $(`input[name='q${index}']`).prop("disabled", true);
 
         $(`input[name='q${index}'][value='${correct}']`).parent().addClass("correct");
+        const questionObj = selectedQuestions[index];
+        let savedWrongEntry = savedWrongQuestions.find(q => q.question === questionObj.question);
+
         if (selected !== correct) {
             $(`input[name='q${index}'][value='${selected}']`).parent().addClass("incorrect");
             // ➕ Thêm câu sai vào danh sách nếu chưa có
-            const questionObj = selectedQuestions[index];
             if (!wrongQuestions.includes(questionObj)) {
                 wrongQuestions.push(questionObj);
             }
+            // Thêm câu sai vào savedWrongQuestions hoặc reset correctCount nếu đã có
+            if (savedWrongEntry) {
+                savedWrongEntry.correctCount = 0;
+            } else {
+                addToSavedWrongQuestions(questionObj);
+            }
         } else {
-            const questionObj = selectedQuestions[index];
+            // Nếu trả lời đúng, tăng correctCount nếu có trong savedWrongQuestions
+            if (savedWrongEntry) {
+                savedWrongEntry.correctCount++;
+                $('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
+                if (savedWrongEntry.correctCount >= 3) {
+                    // Xóa câu đúng khỏi savedWrongQuestions nếu đạt 3 lần đúng liên tiếp
+                    removeFromSavedWrongQuestions(questionObj);
+                    if (wrongQuestions.includes(questionObj)) {
+                        const indexRemove = wrongQuestions.indexOf(questionObj);
+                        wrongQuestions.splice(indexRemove, 1);
+                    }
+
+                    if (wrongQuestions.length == 0) {
+                        $('#resetting').click();
+                    }
+                }
+            }
             if (wrongQuestions.includes(questionObj)) {
                 const indexRemove = wrongQuestions.indexOf(questionObj);
-                wrongQuestions.splice(indexRemove, 1)
+                wrongQuestions.splice(indexRemove, 1);
             }
         }
 
+        saveWrongQuestionsToLocalStorage();
         updateQuizStatusBar();
         if (wrongQuestions.length > 0) {
             $("#retryWrong").show(); // Hiện nút "Làm lại câu sai"
@@ -530,12 +643,16 @@
             if (userAnswer === correctAnswer) {
                 score++;
                 $(`input[name='q${index}'][value='${correctAnswer}']`).parent().addClass("correct");
+                // Xóa câu đúng khỏi savedWrongQuestions nếu có
+                removeFromSavedWrongQuestions(q);
             } else {
                 $(`input[name='q${index}'][value='${correctAnswer}']`).parent().addClass("correct");
                 if (userAnswer) {
                     $(`input[name='q${index}'][value='${userAnswer}']`).parent().addClass("incorrect");
                 }
                 wrongQuestions.push(q);
+                // Thêm câu sai vào savedWrongQuestions
+                addToSavedWrongQuestions(q);
             }
             $(`input[name='q${index}']`).prop("disabled", true);
         });
@@ -554,6 +671,8 @@
         $('.settings').show();
         $('#startQuiz').show();
         $('#quizContainer').hide();
+        $('#retrySavedWrong').show();
+        
     });
 
     function loadOptions() {
@@ -671,6 +790,68 @@
         renderQuiz();
         updateQuizStatusBar();
         $("#retryWrong").hide(); // Ẩn nút sau khi dùng
+    });
+
+    // Xử lý nút làm lại câu sai đã lưu
+    let isRetrySavedWrongMode = false;
+
+    $("#retrySavedWrong").click(function () {
+        if (savedWrongQuestions.length === 0) {
+            showToast("Không có câu sai đã lưu để làm lại.");
+            return;
+        }
+        
+        isRetrySavedWrongMode = true;
+
+        let start = parseInt($("#startQuestion").val()) || 1;
+        let end = parseInt($("#endQuestion").val()) || questions.length;
+
+        $("#quizContainer").show();
+        $('.settings').hide();
+        $('#startQuiz').hide();
+        let numberQuestion = (end - start) + 1;
+        $("#continueQuiz").text(`Làm tiếp ${numberQuestion} câu tiếp`);
+
+        selectedQuestions = [...savedWrongQuestions];
+        renderQuiz();
+        updateQuizStatusBar();
+        $("#retrySavedWrong").hide(); // Ẩn nút sau khi dùng
+    });
+
+    $("#retest").click(function () {
+        if (isRetrySavedWrongMode) {
+            // Retest retrySavedWrong questions
+            selectedQuestions = [...savedWrongQuestions];
+        } else {
+            // Retest current selected questions
+            selectedQuestions = selectedQuestions.slice();
+        }
+        renderQuiz();
+        updateQuizStatusBar();
+    });
+
+    $("#resetting").click(function () {
+        isRetrySavedWrongMode = false;
+        window.scrollTo(0, 0);
+        $('.settings').show();
+        $('#startQuiz').show();
+        $('#quizContainer').hide();
+        $('#retrySavedWrong').show();
+    });
+
+    // Hiển thị nút làm lại câu sai đã lưu nếu có dữ liệu
+    function updateRetrySavedWrongButton() {
+        if (savedWrongQuestions.length > 0) {
+            $("#retrySavedWrong").show();
+        } else {
+            $("#retrySavedWrong").hide();
+        }
+    }
+
+    // Gọi hàm update nút khi load trang và sau mỗi lần lưu/xóa câu sai
+    $(document).ready(function () {
+        loadSavedWrongQuestions();
+        updateRetrySavedWrongButton();
     });
 
     function updateCheckAllState() {
