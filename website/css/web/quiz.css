@@ -78,30 +78,33 @@ h2 {
   background-color: #f8d7da;
   border-left: 5px solid #dc3545;
 }
-#submitQuiz {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-#retest {
-  position: fixed;
-  bottom: 20px;
-  right: 130px;
-  z-index: 1000;
-}
-#retryWrong {
-  position: fixed;
-  bottom: 20px;
-  right: 240px;
-  z-index: 1000;
-}
-#resetting {
+
+.leftButtonGroup {
   position: fixed;
   bottom: 20px;
   left: 20px;
+  display: flex;
+  gap: 10px;
   z-index: 1000;
 }
+
+.leftButtonGroup .btn {
+  position: static; /* remove fixed positioning from buttons */
+}
+
+.rightButtonGroup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.rightButtonGroup .btn {
+  position: static; /* remove fixed positioning from buttons */
+}
+
 .options label:hover {
   background-color: #9f9fa1;
   color: #155724;
