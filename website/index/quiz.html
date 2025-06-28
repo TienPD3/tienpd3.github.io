@@ -599,7 +599,7 @@
             // Nếu trả lời đúng, tăng correctCount nếu có trong savedWrongQuestions
             if (savedWrongEntry) {
                 savedWrongEntry.correctCount++;
-                $('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
+                $(this).parent().parent().prev().find('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
                 if (savedWrongEntry.correctCount >= 3) {
                     // Xóa câu đúng khỏi savedWrongQuestions nếu đạt 3 lần đúng liên tiếp
                     removeFromSavedWrongQuestions(questionObj);
@@ -608,7 +608,7 @@
                         wrongQuestions.splice(indexRemove, 1);
                     }
 
-                    if (wrongQuestions.length == 0) {
+                    if (savedWrongQuestions.length == 0) {
                         $('#resetting').click();
                     }
                 }
