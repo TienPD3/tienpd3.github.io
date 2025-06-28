@@ -836,7 +836,11 @@
         $('.settings').show();
         $('#startQuiz').show();
         $('#quizContainer').hide();
-        $('#retrySavedWrong').show();
+        if (savedWrongQuestions.length > 0) {
+            $('#retrySavedWrong').show();
+        } else {
+            $('#retrySavedWrong').hide();
+        }
     });
 
     // Hiển thị nút làm lại câu sai đã lưu nếu có dữ liệu
