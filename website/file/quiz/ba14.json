@@ -744,7 +744,7 @@
       "C": "Unambiguous",
       "D": "Necessary"
     },
-    "correct_answer": "A",
+    "correct_answer": "C",
     "explanation": "Overall explanation When requirements do not create conflicting links between elements, they meet the quality criterion of being unambiguous, ensuring clarity and preventing misinterpretation. Domain Requirements Analysis and Design Definition"
   },
   {

@@ -33,7 +33,7 @@
     "explanation": "Agree - Answer should be C as per BABOK : Business analysts examine each relationship to ensure that the relationships satisfy the following quality criteria: • Defined: there is a relationship and the type of the relationship is described. • Necessary: the relationship is necessary for understanding the requirements holistically. • Correct: the elements do have the relationship described. • Unambiguous: there are no relationships that link elements in two different and conflicting ways. • Consistent: relationships are described in the same way, using the same set of standard descriptions as defined in the viewpoints."
   },
   {
-    "question": "The approach that defines hơ requirements will be re-used í the:",
+    "question": "The approach that defines how requirements will be re-used is the:",
     "options": {
       "A": "governance approach.",
       "B": "approach to identifying business analysis improvements.",
