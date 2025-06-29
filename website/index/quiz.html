@@ -360,11 +360,11 @@
                     return;
                 }
 
-                let start = parseInt($("#startQuestion").val()) || 0;
+                let start = parseInt($("#startQuestion").val()) || 1;
                 let end = parseInt($("#endQuestion").val()) || questions.length;
                 if (isInit) {
                     isInit = false;
-                    endQuenstionInit = end - start;
+                    endQuenstionInit = (end - start) + 1;
                 }
 
                 if (start == 0) {
