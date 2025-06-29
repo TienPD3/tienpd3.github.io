@@ -607,7 +607,7 @@
                 return q;
             }
         });
-        debugger;
+
         if (selected !== correct) {
             $(`input[name='q${index}'][value='${selected}']`).parent().addClass("incorrect");
             // ➕ Thêm câu sai vào danh sách nếu chưa có
@@ -979,14 +979,27 @@
         let start = parseInt($("#startQuestion").val()) || 1;
         let end = parseInt($("#endQuestion").val()) || questions.length;
 
+        let beforeEnd = end;
+        let beforeStart = start;
         // Double the values
         start += endQuenstionInit;
         end += endQuenstionInit;
 
-        if (start < 1 || end > questions.length || start > end) {
-            showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
-            $('#continueQuiz').hide();
-            return;
+        if (end > questions.length) {
+            if (beforeEnd == questions.length && end > questions.length) {
+                showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                $('#continueQuiz').hide();
+                return;
+            }
+
+            start = beforeEnd + 1;
+            end = questions.length;
+        } else {
+            if (start < 1 || end > questions.length || start > end) {
+                showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                $('#continueQuiz').hide();
+                return;
+            }
         }
 
         // Update the input fields
