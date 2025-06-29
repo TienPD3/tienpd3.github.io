@@ -143,15 +143,34 @@
         }
     }
 
+    // Function to compare index, example implementation
+    function compareOptions(lstObjA, lstObjB) {
+        let isResult = true;
+        $.each(lstObjA, function(idx, objA) {
+            let objB = lstObjB[idx];
+            if (objA != objB) {
+                isResult = false;
+            }
+        });
+        return isResult;
+    }
+
     // Add or update question in savedWrongQuestions with correctCount tracking
     function addToSavedWrongQuestions(questionObj) {
-        let existing = savedWrongQuestions.find(q => q.question === questionObj.question);
+        let existing = savedWrongQuestions.find((q, index) => {
+            return q.question === questionObj.question &&
+                q.correct_answer === questionObj.correct_answer &&
+                compareOptions(q.options, questionObj.options);
+        });
+
         if (!existing) {
             questionObj.correctCount = 0;
             savedWrongQuestions.push(questionObj);
         }
         saveWrongQuestionsToLocalStorage();
     }
+
+    
 
     // Remove question from savedWrongQuestions by question text
     function removeFromSavedWrongQuestions(questionObj) {
@@ -581,8 +600,14 @@
 
         $(`input[name='q${index}'][value='${correct}']`).parent().addClass("correct");
         const questionObj = selectedQuestions[index];
-        let savedWrongEntry = savedWrongQuestions.find(q => q.question === questionObj.question);
-
+        let savedWrongEntry = savedWrongQuestions.find((q, index) => {
+            if (q.question === questionObj.question &&
+                q.correct_answer === questionObj.correct_answer &&
+                compareOptions(q.options, questionObj.options)) {
+                return q;
+            }
+        });
+        debugger;
         if (selected !== correct) {
             $(`input[name='q${index}'][value='${selected}']`).parent().addClass("incorrect");
             // ➕ Thêm câu sai vào danh sách nếu chưa có
