@@ -84,8 +84,7 @@
     // Load saved wrong questions from localStorage with dynamic chunking
     function loadSavedWrongQuestions() {
         savedWrongQuestions = [];
-        let index = 0;
-        while (true) {
+        for (let index = 0; ; index++) {
             const key = `savedWrongQuestions_${index}`;
             let chunk = null;
             try {
@@ -99,25 +98,22 @@
                             q.correctCount = 0;
                         }
                     });
-                    savedWrongQuestions = savedWrongQuestions.concat(parsed);
+                    savedWrongQuestions.push(...parsed);
                 }
             } catch (e) {
                 console.error(`Lỗi khi phân tích ${key}:`, e);
                 break;
             }
-            index++;
         }
     }
 
     // Save wrong questions to localStorage with dynamic chunking and quota handling
     function saveWrongQuestionsToLocalStorage() {
         // Clear all previous chunks first
-        let index = 0;
-        while (true) {
+        for (let index = 0; ; index++) {
             const key = `savedWrongQuestions_${index}`;
             if (localStorage.getItem(key) === null) break;
             localStorage.removeItem(key);
-            index++;
         }
 
         // Try to save in chunks, reducing chunk size if quota exceeded
@@ -138,36 +134,39 @@
                 // Reduce chunk size and retry
                 chunkSize = Math.floor(chunkSize / 2);
                 if (chunkSize < 1) chunkSize = 1;
-                start = 0; // restart saving with smaller chunk size
+                // Do not reset start to 0 to avoid infinite loop
+                // Instead, continue with smaller chunk size from current start
             }
         }
     }
 
     // Function to compare index, example implementation
     function compareOptions(lstObjA, lstObjB) {
-        let isResult = true;
-        $.each(lstObjA, function(idx, objA) {
-            let objB = lstObjB[idx];
-            if (objA != objB) {
-                isResult = false;
+        if (!Array.isArray(lstObjA) || !Array.isArray(lstObjB)) return false;
+        if (lstObjA.length !== lstObjB.length) return false;
+        for (let i = 0; i < lstObjA.length; i++) {
+            if (lstObjA[i] !== lstObjB[i]) {
+                return false;
             }
-        });
-        return isResult;
+        }
+        return true;
     }
 
     // Add or update question in savedWrongQuestions with correctCount tracking
     function addToSavedWrongQuestions(questionObj) {
-        let existing = savedWrongQuestions.find((q, index) => {
-            return q.question === questionObj.question &&
-                q.correct_answer === questionObj.correct_answer &&
-                compareOptions(q.options, questionObj.options);
-        });
+        let existing = savedWrongQuestions.find(q => 
+            q.question === questionObj.question &&
+            q.correct_answer === questionObj.correct_answer &&
+            compareOptions(q.options, questionObj.options)
+        );
 
         if (!existing) {
-            questionObj.correctCount = 0;
-            savedWrongQuestions.push(questionObj);
+            // Clone questionObj to avoid mutating original object
+            let newQuestion = Object.assign({}, questionObj);
+            newQuestion.correctCount = 0;
+            savedWrongQuestions.push(newQuestion);
+            saveWrongQuestionsToLocalStorage();
         }
-        saveWrongQuestionsToLocalStorage();
     }
 
     
@@ -185,20 +184,24 @@
     let vocabularyLoaded = false;
 
     // Load vocabulary JSON and build dictionary
-    function loadVocabulary() {
-        return $.getJSON('../file/vocabulary/3000-english.json')
-            .then(data => {
+    async function loadVocabulary() {
+        try {
+            const data = await $.getJSON('../file/vocabulary/3000-english.json');
+            if (Array.isArray(data)) {
                 data.forEach(item => {
                     if (item.Word && item.Meaning) {
                         vocabularyData[item.Word.toLowerCase()] = item.Meaning;
                     }
                 });
                 vocabularyLoaded = true;
-            })
-            .catch(err => {
-                console.error('Error loading vocabulary JSON:', err);
+            } else {
+                console.error('Dữ liệu vocabulary không hợp lệ:', data);
                 vocabularyLoaded = false;
-            });
+            }
+        } catch (err) {
+            console.error('Error loading vocabulary JSON:', err);
+            vocabularyLoaded = false;
+        }
     }
 
     // Function to wrap English words with Vietnamese meaning as small text above
@@ -212,13 +215,20 @@
         // Split text into words and non-words to preserve punctuation
         const parts = text.split(/(\W+)/);
 
+        // Cache meanings to avoid repeated lookup
+        const meaningCache = {};
+
         const wrappedParts = parts.map(part => {
             const lowerPart = part.toLowerCase();
             if (vocabularyData[lowerPart]) {
-                // Get the meaning string
-                let meaning = vocabularyData[lowerPart];
-                // Split meaning by ',' or ';' and trim
-                let meaningsArray = meaning.split(/[,;]/).map(s => s.trim()).filter(s => s.length > 0);
+                let meaningsArray;
+                if (meaningCache[lowerPart]) {
+                    meaningsArray = meaningCache[lowerPart];
+                } else {
+                    // Split meaning by ',' or ';' and trim
+                    meaningsArray = vocabularyData[lowerPart].split(/[,;]/).map(s => s.trim()).filter(s => s.length > 0);
+                    meaningCache[lowerPart] = meaningsArray;
+                }
                 // Pick a random meaning from the array
                 let randomMeaning = meaningsArray[Math.floor(Math.random() * meaningsArray.length)];
                 // Determine if the word is long to add class for letter spacing
@@ -264,25 +274,25 @@
     });
 
     function updateQuizStatusBar() {
-        let total = selectedQuestions.length;
+        const total = selectedQuestions.length;
         let done = 0;    // số câu đã chọn đáp án
         let correctCount = 0;
         let wrongCount = 0;
 
-        selectedQuestions.forEach((q, index) => {
-            let userAnswer = $(`input[name='q${index}']:checked`).val();
+        for (let index = 0; index < total; index++) {
+            const userAnswer = $(`input[name='q${index}']:checked`).val();
             if (userAnswer) {
                 done++;
-                if (userAnswer === q.correct_answer) {
+                if (userAnswer === selectedQuestions[index].correct_answer) {
                     correctCount++;
                 } else {
                     wrongCount++;
                 }
             }
-        });
+        }
 
-        let start = parseInt($("#startQuestion").val()) || 1;
-        let end = parseInt($("#endQuestion").val()) || questions.length;
+        const start = parseInt($("#startQuestion").val()) || 1;
+        const end = parseInt($("#endQuestion").val()) || questions.length;
 
         $("#quizStatusBar").text(`Đã làm (${start} ~ ${end}) ${done}/${total} câu | Đúng ${correctCount} | Sai ${wrongCount}`);
 
@@ -294,15 +304,20 @@
     }
 
     function saveSettingsToLocalStorage() {
-        localStorage.setItem('quizSettings', JSON.stringify({
-            categoryNames: $("input[name='categoryFilter']:checked").map(function () { return this.value }).get(),
-            fileNames: $("input[name='jsonFiles']:checked").map(function () { return this.value }).get(),
+        const settings = {
+            categoryNames: $("input[name='categoryFilter']:checked").map(function () { return this.value; }).get(),
+            fileNames: $("input[name='jsonFiles']:checked").map(function () { return this.value; }).get(),
             startQuestion: $("#startQuestion").val(),
             endQuestion: $("#endQuestion").val(),
             randomQuestionCount: $("#randomQuestionCount").val(),
             order: $("input[name='order']:checked").val(),
             shuffleAnswersOption: $("input[name='shuffleAnswersOption']:checked").val()
-        }));
+        };
+        try {
+            localStorage.setItem('quizSettings', JSON.stringify(settings));
+        } catch (e) {
+            console.error('Lỗi khi lưu cài đặt quiz:', e);
+        }
     }
 
     $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], input[name='shuffleAnswersOption'], input[name='categoryFilter']", saveSettingsToLocalStorage);
@@ -310,39 +325,43 @@
     function restoreSettingsFromLocalStorage() {
         const saved = localStorage.getItem('quizSettings');
         if (saved) {
-            const settings = JSON.parse(saved);
-            $("#startQuestion").val(settings.startQuestion);
-            $("#endQuestion").val(settings.endQuestion);
-            $("#randomQuestionCount").val(settings.randomQuestionCount);
-            $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
-            if (settings.shuffleAnswersOption) {
-                $(`input[name='shuffleAnswersOption'][value='${settings.shuffleAnswersOption}']`).prop("checked", true);
-            }
-
-            // Sau khi checkbox load xong sẽ set checked theo settings
-            setTimeout(() => {
-                if (settings.categoryNames && settings.categoryNames.length > 0) {
-                    $("input[name='categoryFilter']").each(function () {
-                        this.checked = settings.categoryNames.includes(this.value);
-                    });
+            try {
+                const settings = JSON.parse(saved);
+                $("#startQuestion").val(settings.startQuestion);
+                $("#endQuestion").val(settings.endQuestion);
+                $("#randomQuestionCount").val(settings.randomQuestionCount);
+                $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
+                if (settings.shuffleAnswersOption) {
+                    $(`input[name='shuffleAnswersOption'][value='${settings.shuffleAnswersOption}']`).prop("checked", true);
                 }
 
-                renderFileCheckboxes();
-
-                $("input[name='jsonFiles']").each(function () {
-                    if (settings.fileNames.includes(this.value)) {
-                        this.checked = true;
+                // Sau khi checkbox load xong sẽ set checked theo settings
+                setTimeout(() => {
+                    if (settings.categoryNames && settings.categoryNames.length > 0) {
+                        $("input[name='categoryFilter']").each(function () {
+                            this.checked = settings.categoryNames.includes(this.value);
+                        });
                     }
-                });
-                updateDropdownButtonText();
-            }, 500);
+
+                    renderFileCheckboxes();
+
+                    $("input[name='jsonFiles']").each(function () {
+                        if (settings.fileNames.includes(this.value)) {
+                            this.checked = true;
+                        }
+                    });
+                    updateDropdownButtonText();
+                }, 500);
+            } catch (e) {
+                console.error('Lỗi khi khôi phục cài đặt quiz:', e);
+            }
         }
     }
 
     let endQuenstionInit = 5;
     let isInit = true;
     $("#startQuiz").click(function () {
-        let selectedFiles = $("input[name='jsonFiles']:checked").map(function () {
+        const selectedFiles = $("input[name='jsonFiles']:checked").map(function () {
             return this.value;
         }).get();
 
@@ -352,6 +371,7 @@
         }
         wrongQuestions = [];
         $("#retryWrong").hide();
+
         Promise.all(selectedFiles.map(f => $.getJSON(`../file/quiz/${f}`)))
             .then(fileDataList => {
                 questions = fileDataList.flat();
@@ -362,12 +382,13 @@
 
                 let start = parseInt($("#startQuestion").val()) || 1;
                 let end = parseInt($("#endQuestion").val()) || questions.length;
+
                 if (isInit) {
                     isInit = false;
                     endQuenstionInit = (end - start) + 1;
                 }
 
-                if (start == 0) {
+                if (start === 0) {
                     start = 1;
                 }
 
@@ -377,12 +398,11 @@
                     return;
                 }
 
-                let isRandom = $("input[name='order']:checked").val() === "random";
                 selectedQuestions = questions.slice(start - 1, end);
-                
-                if (isRandom) {
+
+                if ($("input[name='order']:checked").val() === "random") {
                     selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
-                    let questionCount = Math.min(
+                    const questionCount = Math.min(
                         parseInt($("#randomQuestionCount").val()) || selectedQuestions.length,
                         selectedQuestions.length
                     );
@@ -394,22 +414,23 @@
                 $('.settings').hide();
                 $('#startQuiz').hide();
                 $('#retrySavedWrong').hide();
-                let numberQuestion = (end - start) + 1;
-                $("#continueQuiz").text(`Làm tiếp ${numberQuestion} câu tiếp`);
 
+                const numberQuestion = (end - start) + 1;
+                $("#continueQuiz").text(`Làm tiếp ${numberQuestion} câu tiếp`);
             })
-            .catch((e) => {
+            .catch(e => {
                 console.error(e);
                 showToast("Lỗi khi load file JSON!");
             });
     });
 
     function renderQuiz() {
-        $("#quiz").empty();
+        const $quiz = $("#quiz");
+        $quiz.empty();
+
+        const tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+
         selectedQuestions.forEach((q, index) => {
-
-            let tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-
             // Bỏ qua câu hỏi nếu thiếu dữ liệu quan trọng
             if (!q.options || !q.correct_answer) {
                 console.warn(`⚠️ Bỏ qua câu hỏi ${index + 1}: thiếu options hoặc correct_answer.`);
@@ -419,7 +440,7 @@
             let optionsArray = Object.entries(q.options).filter(item => item[1] !== '');
 
             // Determine shuffle mode
-            let shuffleMode = $("input[name='shuffleAnswersOption']:checked").val();
+            const shuffleMode = $("input[name='shuffleAnswersOption']:checked").val();
 
             // Kiểm tra nếu đáp án đúng là "All of the above"
             const isAllOfTheAbove = optionsArray.some(option => option[1] === "All of the above" && option[0] === q.correct_answer);
@@ -437,25 +458,25 @@
                 });
 
                 // Add current question's correct answer
-                let currentCorrectKey = q.correct_answer;
-                let currentCorrectValue = q.options[currentCorrectKey];
+                const currentCorrectKey = q.correct_answer;
+                const currentCorrectValue = q.options[currentCorrectKey];
                 otherCorrectOptions = otherCorrectOptions.filter(option => option.key !== q.correct_answer);
                 otherCorrectOptions.push({ key: currentCorrectKey, value: currentCorrectValue });
                 
                 // Remove duplicates by value
-                let uniqueOptionsMap = {};
+                const uniqueOptionsMap = {};
                 otherCorrectOptions.forEach(opt => {
                     uniqueOptionsMap[opt.value] = opt;
                 });
                 let uniqueOptions = Object.values(uniqueOptionsMap);
 
                 // Randomly select up to 4 options (or less if not enough)
-                let maxOptions = Math.min(4, uniqueOptions.length);
-                let selectedOptions = [];
+                const maxOptions = Math.min(4, uniqueOptions.length);
+                const selectedOptions = [];
 
                 while (selectedOptions.length < maxOptions) {
-                    let randIndex = Math.floor(Math.random() * uniqueOptions.length);
-                    let option = uniqueOptions.splice(randIndex, 1)[0];
+                    const randIndex = Math.floor(Math.random() * uniqueOptions.length);
+                    const option = uniqueOptions.splice(randIndex, 1)[0];
                     option.key = tmpNo[selectedOptions.length];
                     selectedOptions.push(option);
                 }
@@ -476,11 +497,11 @@
             let optionsHtml = "";
 
             $.each(optionsArray, function (tmpKey, tmpValue) {
-                let key = tmpValue[0];
-                let value = tmpValue[1];
+                const key = tmpValue[0];
+                const value = tmpValue[1];
 
                 idxNo++;
-                let isLast = (idxNo === optionsArray.length - 1);
+                const isLast = (idxNo === optionsArray.length - 1);
 
                 // Determine if question or answer text is long to add class for spacing
                 let questionLongClass = "";
@@ -513,7 +534,7 @@
             });
 
             // Check if there is an image to display
-            let imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
+            const imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
 
             // Add long-vocab class to question div if question text is long
             let questionClass = "";
@@ -522,11 +543,11 @@
             }
 
             let correctCountDisplay = "";
-            let savedWrongEntry = savedWrongQuestions.find(entry => entry.question === q.question);
+            const savedWrongEntry = savedWrongQuestions.find(entry => entry.question === q.question);
             if (savedWrongEntry) {
                 correctCountDisplay = `<span id="spnCorrectCount" title="Lần đúng liên tiếp" style="display: inline-block; background-color: green; color: white; border-radius: 50%; width: 20px; height: 20px; line-height: 20px; text-align: center; font-weight: bold; margin-left: 10px; font-size: 12px;">${savedWrongEntry.correctCount}</span>`;
             }
-            $("#quiz").append(`
+            $quiz.append(`
                 <div class="question ${questionClass}" style="position: relative;">
                     ${index + 1}. ${wrapWithMeaning(q.question)} ${correctCountDisplay}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
@@ -545,11 +566,12 @@
 
     // Bắt sự kiện click icon ChatGPT - copy prompt + mở tab ChatGPT
     $(document).on('click', '.chatgpt-icon', function () {
-        const index = $(this).data('index');
+        const $this = $(this);
+        const index = $this.data('index');
         const questionObj = selectedQuestions[index];
 
-        let fullText = `1. Dịch vừa có tiếng anh và tiếng việt\n`
-        fullText += `2. Trích dẫn từ BABOK V3 ở câu đúng\n`
+        let fullText = `1. Dịch vừa có tiếng anh và tiếng việt\n`;
+        fullText += `2. Trích dẫn từ BABOK V3 ở câu đúng\n`;
         fullText += `Câu hỏi: ${questionObj.question}\n`;
 
         for (const key in questionObj.options) {
@@ -571,7 +593,8 @@
 
     // Bắt sự kiện click icon dịch
     $(document).on('click', '.translate-icon', function () {
-        const index = $(this).data('index');
+        const $this = $(this);
+        const index = $this.data('index');
         const questionObj = selectedQuestions[index];
 
         // Nối câu hỏi + từng đáp án thành 1 chuỗi
@@ -586,8 +609,8 @@
     });
 
     $(document).on("click", ".check-answer", function () {
-
-        const index = $(this).data("index");
+        const $this = $(this);
+        const index = $this.data("index");
         const selected = $(`input[name='q${index}']:checked`).val();
         const correct = selectedQuestions[index].correct_answer;
 
@@ -600,7 +623,7 @@
 
         $(`input[name='q${index}'][value='${correct}']`).parent().addClass("correct");
         const questionObj = selectedQuestions[index];
-        let savedWrongEntry = savedWrongQuestions.find((q, index) => {
+        let savedWrongEntry = savedWrongQuestions.find((q, idx) => {
             if (q.question === questionObj.question &&
                 q.correct_answer === questionObj.correct_answer &&
                 compareOptions(q.options, questionObj.options)) {
@@ -624,7 +647,7 @@
             // Nếu trả lời đúng, tăng correctCount nếu có trong savedWrongQuestions
             if (savedWrongEntry) {
                 savedWrongEntry.correctCount++;
-                $(this).parent().parent().prev().find('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
+                $this.parent().parent().prev().find('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
                 if (savedWrongEntry.correctCount >= 3) {
                     // Xóa câu đúng khỏi savedWrongQuestions nếu đạt 3 lần đúng liên tiếp
                     removeFromSavedWrongQuestions(questionObj);
@@ -654,7 +677,7 @@
 
         $(`.explain-tooltip-icon[data-index='${index}']`).show();
 
-        $(this).hide();
+        $this.hide();
     });
 
     $("#submitQuiz").click(function () {
@@ -662,8 +685,8 @@
         wrongQuestions = []; // Reset
 
         selectedQuestions.forEach((q, index) => {
-            let userAnswer = $(`input[name='q${index}']:checked`).val();
-            let correctAnswer = q.correct_answer;
+            const userAnswer = $(`input[name='q${index}']:checked`).val();
+            const correctAnswer = q.correct_answer;
 
             if (userAnswer === correctAnswer) {
                 score++;
@@ -696,23 +719,20 @@
         $('.settings').show();
         $('#startQuiz').show();
         $('#quizContainer').hide();
-        $('#retrySavedWrong').show();
-        
+        if (savedWrongQuestions.length > 0) {
+            $('#retrySavedWrong').show();
+        } else {
+            $('#retrySavedWrong').hide();
+        }
     });
 
     function loadOptions() {
-        let listFileName = `../file/quiz/data-file-name.json`;
-        fetch(listFileName)
-            .then(response => {
-                if (!response.ok) throw new Error("Không tìm thấy file JSON");
-                return response.json();
-            })
-            .then(data => {
-                const categoryContainer = document.getElementById('categoryRadio');
-                const container = document.getElementById('fileListCheckboxes');
-                container.innerHTML = `
-                    <label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>
-                `;
+        const listFileName = `../file/quiz/data-file-name.json`;
+        $.getJSON(listFileName)
+            .done(data => {
+                const $categoryContainer = $('#categoryRadio');
+                const $container = $('#fileListCheckboxes');
+                $container.html('<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>');
                 allFileNames = data.map(u => u.value);
                 dataFileJson = data;
 
@@ -720,21 +740,21 @@
                 const categories = [...new Set(data.map(item => item.category))];
 
                 // Render category checkboxes
-                categoryContainer.innerHTML = '';
+                $categoryContainer.empty();
                 categories.forEach(cat => {
-                    const catRadio = document.createElement('input');
-                    catRadio.type = 'radio';
-                    catRadio.name = 'categoryFilter';
-                    catRadio.value = cat;
-                    catRadio.id = `cat_${cat.replace(/\s+/g, '_')}`;
+                    const $catRadio = $('<input>', {
+                        type: 'radio',
+                        name: 'categoryFilter',
+                        value: cat,
+                        id: `cat_${cat.replace(/\s+/g, '_')}`
+                    });
 
-                    const catLabel = document.createElement('label');
-                    catLabel.htmlFor = catRadio.id;
-                    catLabel.style.marginRight = '10px';
-                    catLabel.appendChild(catRadio);
-                    catLabel.append(` ${cat}`);
+                    const $catLabel = $('<label>', {
+                        for: $catRadio.attr('id'),
+                        style: 'margin-right: 10px;'
+                    }).append($catRadio).append(` ${cat}`);
 
-                    categoryContainer.appendChild(catLabel);
+                    $categoryContainer.append($catLabel);
                 });
 
                 // Initial render of file checkboxes
@@ -746,23 +766,23 @@
                     renderFileCheckboxes();
                 });
             })
-            .catch(err => {
-                showToast("Lỗi khi tải file JSON: " + err.message);
+            .fail(err => {
+                showToast("Lỗi khi tải file JSON: " + err.statusText);
             });
     }
 
 
     // Function to render file checkboxes filtered by selected category
     function renderFileCheckboxes() {
-        const selectedCategory = document.querySelector("input[name='categoryFilter']:checked");
-        const container = document.getElementById('fileListCheckboxes');
-        container.innerHTML = `<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>`;
+        const $selectedCategory = $("input[name='categoryFilter']:checked");
+        const $container = $('#fileListCheckboxes');
+        $container.html('<label><input type="checkbox" id="checkAllFiles"><em>Chọn tất cả</em></label>');
 
         let filteredData = [];
-        if (selectedCategory) {
-            filteredData = dataFileJson.filter(item => item.category === selectedCategory.value);
+        if ($selectedCategory.length > 0) {
+            filteredData = dataFileJson.filter(item => item.category === $selectedCategory.val());
 
-            if (selectedCategory.value == "Japanese") {
+            if ($selectedCategory.val() === "Japanese") {
                 $("input[name='shuffleAnswersOption']").prop("disabled", true);
                 $("input[value='basedOnCorrect']").prop("checked", true);
             } else {
@@ -771,34 +791,32 @@
         }
 
         filteredData.forEach(item => {
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.name = 'jsonFiles';
-            checkbox.value = item.value;
-            checkbox.id = `chk_${item.value}`;
+            const $checkbox = $('<input>', {
+                type: 'checkbox',
+                name: 'jsonFiles',
+                value: item.value,
+                id: `chk_${item.value}`
+            });
 
-            const label = document.createElement('label');
-            label.htmlFor = checkbox.id;
-            label.appendChild(checkbox);
-            label.append(` ${item.key}`);
+            const $label = $('<label>', {
+                for: $checkbox.attr('id')
+            }).append($checkbox).append(` ${item.key}`);
 
-            container.appendChild(label);
+            $container.append($label);
         });
 
         // Add event listeners for file checkboxes
-        document.getElementById('checkAllFiles').addEventListener('change', function () {
-            const checkboxes = document.querySelectorAll("input[name='jsonFiles']");
-            checkboxes.forEach(cb => cb.checked = this.checked);
+        $('#checkAllFiles').off('change').on('change', function () {
+            const checked = this.checked;
+            $("input[name='jsonFiles']").prop('checked', checked);
             updateDropdownButtonText();
             saveSettingsToLocalStorage();
         });
 
-        document.querySelectorAll("#fileListCheckboxes input[name='jsonFiles']").forEach(cb => {
-            cb.addEventListener('change', function () {
-                updateCheckAllState();
-                updateDropdownButtonText();
-                saveSettingsToLocalStorage();
-            });
+        $container.find("input[name='jsonFiles']").off('change').on('change', function () {
+            updateCheckAllState();
+            updateDropdownButtonText();
+            saveSettingsToLocalStorage();
         });
 
         updateCheckAllState();
@@ -814,7 +832,7 @@
         selectedQuestions = [...wrongQuestions]; // Dùng lại danh sách sai
         renderQuiz();
         updateQuizStatusBar();
-        $("#retryWrong").hide(); // Ẩn nút sau khi dùng
+        $(this).hide(); // Ẩn nút sau khi dùng
     });
 
     // Xử lý nút làm lại câu sai đã lưu
@@ -840,7 +858,7 @@
         selectedQuestions = [...savedWrongQuestions];
         renderQuiz();
         updateQuizStatusBar();
-        $("#retrySavedWrong").hide(); // Ẩn nút sau khi dùng
+        $(this).hide(); // Ẩn nút sau khi dùng
     });
 
     $("#retest").click(function () {
@@ -853,6 +871,7 @@
         }
         renderQuiz();
         updateQuizStatusBar();
+        $(this).blur(); // Remove focus after click for better UX
     });
 
     $("#resetting").click(function () {
@@ -870,10 +889,11 @@
 
     // Hiển thị nút làm lại câu sai đã lưu nếu có dữ liệu
     function updateRetrySavedWrongButton() {
+        const $btn = $("#retrySavedWrong");
         if (savedWrongQuestions.length > 0) {
-            $("#retrySavedWrong").show();
+            $btn.show();
         } else {
-            $("#retrySavedWrong").hide();
+            $btn.hide();
         }
     }
 
@@ -884,90 +904,95 @@
     });
 
     function updateCheckAllState() {
-        const allCheckboxes = document.querySelectorAll("input[name='jsonFiles']");
-        const checkedBoxes = document.querySelectorAll("input[name='jsonFiles']:checked");
-        const checkAll = document.getElementById('checkAllFiles');
-        if (checkedBoxes.length === allCheckboxes.length) {
-            checkAll.checked = true;
-            checkAll.indeterminate = false;
-        } else if (checkedBoxes.length > 0) {
-            checkAll.checked = false;
-            checkAll.indeterminate = true;
+        const $allCheckboxes = $("input[name='jsonFiles']");
+        const $checkedBoxes = $("input[name='jsonFiles']:checked");
+        const $checkAll = $("#checkAllFiles");
+        if ($checkedBoxes.length === $allCheckboxes.length) {
+            $checkAll.prop("checked", true);
+            $checkAll.prop("indeterminate", false);
+        } else if ($checkedBoxes.length > 0) {
+            $checkAll.prop("checked", false);
+            $checkAll.prop("indeterminate", true);
         } else {
-            checkAll.checked = false;
-            checkAll.indeterminate = false;
+            $checkAll.prop("checked", false);
+            $checkAll.prop("indeterminate", false);
         }
     }
 
     function updateDropdownButtonText() {
-        const checkedBoxes = document.querySelectorAll("input[name='jsonFiles']:checked");
-        const button = document.getElementById('dropdownButton');
-        if (checkedBoxes.length === 0) {
-            button.textContent = 'Chọn file JSON';
-        } else if (checkedBoxes.length === 1) {
-            button.textContent = checkedBoxes[0].parentNode.textContent.trim();
+        const $checkedBoxes = $("input[name='jsonFiles']:checked");
+        const $button = $("#dropdownButton");
+        if ($checkedBoxes.length === 0) {
+            $button.text('Chọn file JSON');
+        } else if ($checkedBoxes.length === 1) {
+            $button.text($checkedBoxes.first().parent().text().trim());
         } else {
-            button.textContent = `Đã chọn ${checkedBoxes.length} file`;
+            $button.text(`Đã chọn ${$checkedBoxes.length} file`);
         }
     }
 
     function setupDropdownEvents() {
-        const dropdownButton = document.getElementById('dropdownButton');
-        const dropdownContent = document.getElementById('dropdownContent');
+        const $dropdownButton = $('#dropdownButton');
+        const $dropdownContent = $('#dropdownContent');
 
-        dropdownButton.addEventListener('click', (e) => {
+        $dropdownButton.off('click').on('click', function (e) {
             e.stopPropagation();
-            if (dropdownContent.style.display === 'block') {
-                dropdownContent.style.display = 'none';
-                dropdownButton.setAttribute('aria-expanded', 'false');
+            if ($dropdownContent.is(':visible')) {
+                $dropdownContent.hide();
+                $dropdownButton.attr('aria-expanded', 'false');
             } else {
-                dropdownContent.style.display = 'block';
-                dropdownButton.setAttribute('aria-expanded', 'true');
+                $dropdownContent.show();
+                $dropdownButton.attr('aria-expanded', 'true');
             }
         });
 
         // Đóng dropdown nếu click ngoài
-        document.addEventListener('click', () => {
-            dropdownContent.style.display = 'none';
-            dropdownButton.setAttribute('aria-expanded', 'false');
+        $(document).off('click.dropdown').on('click.dropdown', function () {
+            $dropdownContent.hide();
+            $dropdownButton.attr('aria-expanded', 'false');
         });
 
         // Ngăn không cho dropdown đóng khi click trong nội dung
-        dropdownContent.addEventListener('click', e => {
+        $dropdownContent.off('click').on('click', function (e) {
             e.stopPropagation();
         });
     }
     function showToast(message, duration = 3000) {
-        const toast = document.getElementById("toast");
-        toast.textContent = message;
-        toast.className = "show";
-        toast.style.display = "block";
+        const $toast = $("#toast");
+        $toast.text(message).addClass("show").show();
 
         setTimeout(() => {
-            toast.className = toast.className.replace("show", "");
-            toast.style.display = "none";
+            $toast.removeClass("show").hide();
         }, duration);
     }
-    $(document).on("mouseenter", ".explain-tooltip-icon", function () {
-        if (!$(this).hasClass("disabled-tooltip")) {
-            $(this).siblings(".explain-tooltip-content").show();
-        }
-    }).on("mouseleave", ".explain-tooltip-icon", function () {
-        $(this).siblings(".explain-tooltip-content").hide();
-    });
+    (function() {
+        let tooltipTimeout;
+        $(document).on("mouseenter", ".explain-tooltip-icon", function () {
+            const $this = $(this);
+            if (!$this.hasClass("disabled-tooltip")) {
+                clearTimeout(tooltipTimeout);
+                $this.siblings(".explain-tooltip-content").stop(true, true).fadeIn(200);
+            }
+        }).on("mouseleave", ".explain-tooltip-icon", function () {
+            const $this = $(this);
+            tooltipTimeout = setTimeout(() => {
+                $this.siblings(".explain-tooltip-content").stop(true, true).fadeOut(200);
+            }, 300);
+        });
+    })();
 
     // Dark mode toggle logic
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+    const darkModeToggle = $('#darkModeToggle');
+    const body = $('body');
 
     // Load saved preference
     if (localStorage.getItem('darkMode') === 'enabled') {
-        $('body').addClass('dark-mode')
+        body.addClass('dark-mode');
     }
 
-    $(document).on("click", "#darkModeToggle", function () {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
+    darkModeToggle.off('click').on('click', function () {
+        body.toggleClass('dark-mode');
+        if (body.hasClass('dark-mode')) {
             localStorage.setItem('darkMode', 'enabled');
         } else {
             localStorage.setItem('darkMode', 'disabled');
@@ -976,38 +1001,39 @@
 
     // New button "Làm tiếp" click handler
     $("#continueQuiz").click(function () {
-        let start = parseInt($("#startQuestion").val()) || 1;
-        let end = parseInt($("#endQuestion").val()) || questions.length;
+        const $startQuestion = $("#startQuestion");
+        const $endQuestion = $("#endQuestion");
+        const $continueQuiz = $("#continueQuiz");
+        const questionsLength = questions.length;
 
-        let beforeEnd = end;
-        let beforeStart = start;
-        // Double the values
+        let start = parseInt($startQuestion.val()) || 1;
+        let end = parseInt($endQuestion.val()) || questionsLength;
+
+        const beforeEnd = end;
+
         start += endQuenstionInit;
         end += endQuenstionInit;
 
-        if (end > questions.length) {
-            if (beforeEnd == questions.length && end > questions.length) {
-                showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
-                $('#continueQuiz').hide();
+        if (end > questionsLength) {
+            if (beforeEnd === questionsLength && end > questionsLength) {
+                showToast(`Vui lòng chọn khoảng từ 1 đến ${questionsLength} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                $continueQuiz.hide();
                 return;
             }
-
             start = beforeEnd + 1;
-            end = questions.length;
+            end = questionsLength;
         } else {
-            if (start < 1 || end > questions.length || start > end) {
-                showToast(`Vui lòng chọn khoảng từ 1 đến ${questions.length} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
-                $('#continueQuiz').hide();
+            if (start < 1 || end > questionsLength || start > end) {
+                showToast(`Vui lòng chọn khoảng từ 1 đến ${questionsLength} và đảm bảo 'Từ câu' nhỏ hơn 'Đến câu'.`);
+                $continueQuiz.hide();
                 return;
             }
         }
 
-        // Update the input fields
-        $("#startQuestion").val(start);
-        $("#endQuestion").val(end);
-        $("#continueQuiz").text(`Làm tiếp ${endQuenstionInit} câu tiếp`);
+        $startQuestion.val(start);
+        $endQuestion.val(end);
+        $continueQuiz.text(`Làm tiếp ${endQuenstionInit} câu tiếp`);
 
-        // Trigger the quiz start logic similar to #startQuiz click
         $("#startQuiz").click();
     });
     
