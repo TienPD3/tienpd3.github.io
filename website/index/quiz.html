@@ -37,6 +37,10 @@
         <!-- <label><input type="checkbox" id="showVocabulary" checked> Hiển thị Vocabulary</label> -->
         <!-- <br /> -->
 
+        <label>Thời gian làm bài (phút):</label>
+        <input type="number" id="quizDuration" value="15" min="1" style="width: 50px;">
+        <br>
+
         <label>Từ câu:</label>
         <input type="number" id="startQuestion" value="0" step="5" min="0" style="width: 50px;">
 
@@ -58,7 +62,7 @@
 
     <button class="btn" id="startQuiz">Bắt đầu</button>
     <button class="btn" id="retrySavedWrong">Làm lại câu sai đã lưu</button>
-    
+    <div id="timer" style="font-weight: bold; font-size: 18px; margin-top: 10px; display: none;">Thời gian còn lại: <span id="timeRemaining">00:00</span></div>
     <div id="quizContainer" style="display: none;">
         <div id="quiz"></div>
         <div class="leftButtonGroup">
@@ -80,6 +84,8 @@
     let allFileNames = [];
     let wrongQuestions = [];  // Thêm biến toàn cục nếu cần
     let savedWrongQuestions = [];
+    let quizTimer = null;
+    let timeRemaining = 0;
 
     // Load saved wrong questions from localStorage with dynamic chunking
     function loadSavedWrongQuestions() {
@@ -170,7 +176,6 @@
     }
 
     
-
     // Remove question from savedWrongQuestions by question text
     function removeFromSavedWrongQuestions(questionObj) {
         const index = savedWrongQuestions.findIndex(q => q.question === questionObj.question);
@@ -246,6 +251,36 @@
         return wrappedParts.join('');
     }
 
+    // Timer functions for quiz countdown
+    function startQuizTimer(duration) {
+        timeRemaining = duration * 60; // convert minutes to seconds
+        $("#timer").show();
+        updateTimerDisplay();
+
+        if (quizTimer) {
+            clearInterval(quizTimer);
+        }
+
+        quizTimer = setInterval(() => {
+            timeRemaining--;
+            if (timeRemaining <= 0) {
+                clearInterval(quizTimer);
+                quizTimer = null;
+                $("#timer").hide();
+                alert("Hết thời gian làm bài! Bài làm sẽ được tự động nộp.");
+                $("#submitQuiz").click();
+            } else {
+                updateTimerDisplay();
+            }
+        }, 1000);
+    }
+
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = timeRemaining % 60;
+        $("#timeRemaining").text(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
+    }
+
     $(function() {
         // Load vocabulary first, then load options and restore settings
         loadVocabulary().then(() => {
@@ -256,6 +291,7 @@
             // Disable or enable shuffleAnswersOption based on order selection
             function updateShuffleAnswersOptionState() {
                 const orderValue = $("input[name='order']:checked").val();
+
                 if (orderValue === "ordered") {
                     $("input[name='shuffleAnswersOption']").prop("disabled", true);
                 } else {
@@ -352,6 +388,10 @@
                     });
                     updateDropdownButtonText();
                 }, 500);
+
+                // Call to update shuffleAnswersOption state after restoring settings
+                updateShuffleAnswersOptionState();
+
             } catch (e) {
                 console.error('Lỗi khi khôi phục cài đặt quiz:', e);
             }
@@ -414,6 +454,7 @@
                 $('.settings').hide();
                 $('#startQuiz').hide();
                 $('#retrySavedWrong').hide();
+                startQuizTimer($('#quizDuration').val());
 
                 const numberQuestion = (end - start) + 1;
                 $("#continueQuiz").text(`Làm tiếp ${numberQuestion} câu tiếp`);
@@ -1057,10 +1098,29 @@
         user-select: none;
         font-style: italic;
     }
-/* .long-vocab {
-    word-spacing: 0.5em;
-    letter-spacing: 0.1em;
-} */
+    /* .long-vocab {
+        word-spacing: 0.5em;
+        letter-spacing: 0.1em;
+    } */
+    #timer {
+        position: fixed;
+        top: 50px; /* Adjust as needed to avoid overlap with other elements */
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        z-index: 4000;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 0;
+        display: none; /* Keep initial hidden, JS will show it */
+    }
+
+    body:not(.dark-mode) #timer {
+        background-color: rgba(255, 255, 255, 0.9);
+        color: black;
+    }
 </style>
 </body>
 </html>
