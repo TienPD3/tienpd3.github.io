@@ -288,17 +288,6 @@
             restoreSettingsFromLocalStorage();
             setupDropdownEvents();
 
-            // Disable or enable shuffleAnswersOption based on order selection
-            function updateShuffleAnswersOptionState() {
-                const orderValue = $("input[name='order']:checked").val();
-
-                if (orderValue === "ordered") {
-                    $("input[name='shuffleAnswersOption']").prop("disabled", true);
-                } else {
-                    $("input[name='shuffleAnswersOption']").prop("disabled", false);
-                }
-            }
-
             // Initial call on page load
             updateShuffleAnswersOptionState();
 
@@ -308,6 +297,18 @@
             });
         });
     });
+
+    // Disable or enable shuffleAnswersOption based on order selection
+    function updateShuffleAnswersOptionState() {
+        const orderValue = $("input[name='order']:checked").val();
+
+        if (orderValue === "ordered") {
+            $("input[name='shuffleAnswersOption']").prop("disabled", true);
+            $("input[name='shuffleAnswersOption'][value='normal']").prop("checked", true)
+        } else {
+            $("input[name='shuffleAnswersOption']").prop("disabled", false);
+        }
+    }
 
     function updateQuizStatusBar() {
         const total = selectedQuestions.length;
@@ -319,7 +320,7 @@
             const userAnswer = $(`input[name='q${index}']:checked`).val();
             if (userAnswer) {
                 done++;
-                if (userAnswer === selectedQuestions[index].correct_answer) {
+                if (userAnswer === getCorrectAnswer(selectedQuestions[index])) {
                     correctCount++;
                 } else {
                     wrongCount++;
@@ -361,6 +362,8 @@
     function restoreSettingsFromLocalStorage() {
         const saved = localStorage.getItem('quizSettings');
         if (saved) {
+
+
             try {
                 const settings = JSON.parse(saved);
                 $("#startQuestion").val(settings.startQuestion);
@@ -518,7 +521,13 @@
                 while (selectedOptions.length < maxOptions) {
                     const randIndex = Math.floor(Math.random() * uniqueOptions.length);
                     const option = uniqueOptions.splice(randIndex, 1)[0];
-                    option.key = tmpNo[selectedOptions.length];
+                    if (option.key == currentCorrectKey) {
+                        option.key = tmpNo[selectedOptions.length];
+                        q.correct_answer_actual = option.key
+                    } else {
+                        option.key = tmpNo[selectedOptions.length];
+                    }
+                    
                     selectedOptions.push(option);
                 }
 
@@ -649,11 +658,19 @@
         window.open(url, '_blank');
     });
 
+    function getCorrectAnswer(selectedQuestion) {
+        let correctAnswer = selectedQuestion.correct_answer;
+        if (selectedQuestion.correct_answer_actual !== undefined) {
+            correctAnswer = selectedQuestion.correct_answer_actual;
+        }
+        return correctAnswer;
+    }
+
     $(document).on("click", ".check-answer", function () {
         const $this = $(this);
         const index = $this.data("index");
         const selected = $(`input[name='q${index}']:checked`).val();
-        const correct = selectedQuestions[index].correct_answer;
+        const correct = getCorrectAnswer(selectedQuestions[index]);
 
         if (!selected) {
             showToast("Vui lòng chọn một đáp án trước khi kiểm tra!");
@@ -727,7 +744,7 @@
 
         selectedQuestions.forEach((q, index) => {
             const userAnswer = $(`input[name='q${index}']:checked`).val();
-            const correctAnswer = q.correct_answer;
+            let correctAnswer = getCorrectAnswer(q);
 
             if (userAnswer === correctAnswer) {
                 score++;
@@ -822,13 +839,6 @@
         let filteredData = [];
         if ($selectedCategory.length > 0) {
             filteredData = dataFileJson.filter(item => item.category === $selectedCategory.val());
-
-            if ($selectedCategory.val() === "Japanese") {
-                $("input[name='shuffleAnswersOption']").prop("disabled", true);
-                $("input[value='basedOnCorrect']").prop("checked", true);
-            } else {
-                $("input[name='shuffleAnswersOption']").prop("disabled", false);
-            }
         }
 
         filteredData.forEach(item => {
