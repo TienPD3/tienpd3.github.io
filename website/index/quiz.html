@@ -217,38 +217,43 @@
             return text;
         }
 
-        // Split text into words and non-words to preserve punctuation
-        const parts = text.split(/(\W+)/);
+        const isCategoryJapanese = $('input[name="categoryFilter"][value="Japanese"]').value;
+        if (isCategoryJapanese) {
 
-        // Cache meanings to avoid repeated lookup
-        const meaningCache = {};
+        } else {
+                    // Split text into words and non-words to preserve punctuation
+            const parts = text.split(/(\W+)/);
 
-        const wrappedParts = parts.map(part => {
-            const lowerPart = part.toLowerCase();
-            if (vocabularyData[lowerPart]) {
-                let meaningsArray;
-                if (meaningCache[lowerPart]) {
-                    meaningsArray = meaningCache[lowerPart];
+            // Cache meanings to avoid repeated lookup
+            const meaningCache = {};
+
+            const wrappedParts = parts.map(part => {
+                const lowerPart = part.toLowerCase();
+                if (vocabularyData[lowerPart]) {
+                    let meaningsArray;
+                    if (meaningCache[lowerPart]) {
+                        meaningsArray = meaningCache[lowerPart];
+                    } else {
+                        // Split meaning by ',' or ';' and trim
+                        meaningsArray = vocabularyData[lowerPart].split(/[,;]/).map(s => s.trim()).filter(s => s.length > 0);
+                        meaningCache[lowerPart] = meaningsArray;
+                    }
+                    // Pick a random meaning from the array
+                    let randomMeaning = meaningsArray[Math.floor(Math.random() * meaningsArray.length)];
+                    // Determine if the word is long to add class for letter spacing
+                    let longWordClass = "";
+                    if (part.length > 10) { // threshold for long word
+                        longWordClass = "long-word";
+                    }
+                    // Wrap with ruby markup similar to hack1.html
+                    return `<ruby><rb>${part}</rb><rt>${randomMeaning}</rt></ruby>`;
                 } else {
-                    // Split meaning by ',' or ';' and trim
-                    meaningsArray = vocabularyData[lowerPart].split(/[,;]/).map(s => s.trim()).filter(s => s.length > 0);
-                    meaningCache[lowerPart] = meaningsArray;
+                    return part;
                 }
-                // Pick a random meaning from the array
-                let randomMeaning = meaningsArray[Math.floor(Math.random() * meaningsArray.length)];
-                // Determine if the word is long to add class for letter spacing
-                let longWordClass = "";
-                if (part.length > 10) { // threshold for long word
-                    longWordClass = "long-word";
-                }
-                // Wrap with span and small text above with random meaning
-                return `<span class="vocab-word ${longWordClass}" title="${randomMeaning}">${part}<small class="vocab-meaning">${randomMeaning}</small></span>`;
-            } else {
-                return part;
-            }
-        });
+            });
 
-        return wrappedParts.join('');
+            return wrappedParts.join('');
+        }
     }
 
     // Timer functions for quiz countdown
@@ -553,19 +558,9 @@
                 idxNo++;
                 const isLast = (idxNo === optionsArray.length - 1);
 
-                // Determine if question or answer text is long to add class for spacing
-                let questionLongClass = "";
-                if (q.question.length > 50) {
-                    questionLongClass = "long-vocab";
-                }
-                let answerLongClass = "";
-                if (value.length > 50) {
-                    answerLongClass = "long-vocab";
-                }
-
                 optionsHtml += `
                     <div data-index="${index}" style="display: flex; align-items: center; justify-content: space-between;">
-                        <label style="flex: 1;" class="${answerLongClass}">
+                        <label style="flex: 1;">
                             <input type="radio" name="q${index}" value="${key}">
                             ${tmpNo[idxNo]}. ${wrapWithMeaning(value)}
                         </label>
@@ -586,19 +581,13 @@
             // Check if there is an image to display
             const imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
 
-            // Add long-vocab class to question div if question text is long
-            let questionClass = "";
-            if (q.question.length > 50) {
-                questionClass = "long-vocab";
-            }
-
             let correctCountDisplay = "";
             const savedWrongEntry = savedWrongQuestions.find(entry => entry.question === q.question);
             if (savedWrongEntry) {
                 correctCountDisplay = `<span id="spnCorrectCount" title="Lần đúng liên tiếp" style="display: inline-block; background-color: green; color: white; border-radius: 50%; width: 20px; height: 20px; line-height: 20px; text-align: center; font-weight: bold; margin-left: 10px; font-size: 12px;">${savedWrongEntry.correctCount}</span>`;
             }
             $quiz.append(`
-                <div class="question ${questionClass}" style="position: relative;">
+                <div class="question" style="position: relative;">
                     ${index + 1}. ${wrapWithMeaning(q.question)} ${correctCountDisplay}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
@@ -1090,28 +1079,20 @@
     
 </script>
 <style>
-    .vocab-word {
-        position: relative;
-        display: inline-block;
-        cursor: help;
-        color: #28a745;
+    ruby {
+      ruby-position: over;
     }
-    .vocab-meaning {
-        position: absolute;
-        top: -0.5em;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 0.5em;
-        color: #555;
-        white-space: nowrap;
-        pointer-events: none;
-        user-select: none;
-        font-style: italic;
+
+    ruby rb {
+      font-size: 16px; /* làm nhỏ Kanji */
+      color: #28a745;
     }
-    /* .long-vocab {
-        word-spacing: 0.5em;
-        letter-spacing: 0.1em;
-    } */
+
+    ruby rt {
+      font-size: 8px; /* hoặc cùng kích thước với rb */
+      color: #555;
+    }
+    
     #timer {
         position: fixed;
         top: 50px; /* Adjust as needed to avoid overlap with other elements */
