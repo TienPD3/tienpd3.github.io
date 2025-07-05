@@ -115,7 +115,7 @@
         });
 
         // Event listeners for settings changes
-        $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, input[name='order'], input[name='shuffleAnswersOption'], input[name='categoryFilter']", saveSettingsToLocalStorage);
+        $(document).on("change input", "#startQuestion, #endQuestion, #randomQuestionCount, #quizDuration, input[name='order'], input[name='shuffleAnswersOption'], input[name='categoryFilter'], #showVocabulary", saveSettingsToLocalStorage);
         $(document).on("change", "input[name='order']", updateShuffleAnswersOptionState);
     });
 
@@ -190,8 +190,10 @@
             startQuestion: $("#startQuestion").val(),
             endQuestion: $("#endQuestion").val(),
             randomQuestionCount: $("#randomQuestionCount").val(),
+            quizDuration: $("#quizDuration").val(),
             order: $("input[name='order']:checked").val(),
-            shuffleAnswersOption: $("input[name='shuffleAnswersOption']:checked").val()
+            shuffleAnswersOption: $("input[name='shuffleAnswersOption']:checked").val(),
+            showVocabulary: $("#showVocabulary").prop("checked")
         };
         try {
             localStorage.setItem('quizSettings', JSON.stringify(settings));
@@ -211,9 +213,15 @@
                 $("#startQuestion").val(settings.startQuestion);
                 $("#endQuestion").val(settings.endQuestion);
                 $("#randomQuestionCount").val(settings.randomQuestionCount);
+                if (settings.quizDuration !== undefined) {
+                    $("#quizDuration").val(settings.quizDuration);
+                }
                 $(`input[name='order'][value='${settings.order}']`).prop("checked", true);
                 if (settings.shuffleAnswersOption) {
                     $(`input[name='shuffleAnswersOption'][value='${settings.shuffleAnswersOption}']`).prop("checked", true);
+                }
+                if (typeof settings.showVocabulary === "boolean") {
+                    $("#showVocabulary").prop("checked", settings.showVocabulary);
                 }
 
                 setTimeout(() => {
