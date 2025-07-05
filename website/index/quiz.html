@@ -277,9 +277,19 @@
      * @param {string} text - The text to process.
      * @returns {Promise<string>} The processed HTML string.
      */
+    function isKanjiHiraganaFileSelected() {
+        return $("input[name='jsonFiles']").filter(function() {
+            return this.value.includes('kanji-hiragana') && this.checked;
+        }).length > 0;
+    }
+
     async function wrapWithMeaning(text) {
         if (!vocabularyLoaded) return text;
         if (!$("#showVocabulary").prop("checked")) return text;
+
+        if (isKanjiHiraganaFileSelected()) {
+            return text;
+        }
 
         const isCategoryJapanese = $('input[name="categoryFilter"][value="Japanese"]').prop('checked');
         if (isCategoryJapanese) {
