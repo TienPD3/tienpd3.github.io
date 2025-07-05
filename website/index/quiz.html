@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Quiz Trắc Nghiệm - Udemy Style</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+    <script defer src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
     <link rel="stylesheet" href="../css/web/quiz.css" />
 </head>
 <body>
@@ -86,6 +88,15 @@
     let savedWrongQuestions = [];
     let quizTimer = null;
     let timeRemaining = 0;
+
+    // Initialize kuroshiro instance once after document ready
+    let kuroshiro;
+    let kuroshiroInitPromise;
+
+    $(document).ready(function() {
+        kuroshiro = new Kuroshiro();
+        kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
+    });
 
     // Load saved wrong questions from localStorage with dynamic chunking
     function loadSavedWrongQuestions() {
@@ -210,16 +221,20 @@
     }
 
     // Function to wrap English words with Vietnamese meaning as small text above
-    function wrapWithMeaning(text) {
+    async function wrapWithMeaning(text) {
         if (!vocabularyLoaded) return text;
 
         if (!$("#showVocabulary").prop("checked")) {
             return text;
         }
 
-        const isCategoryJapanese = $('input[name="categoryFilter"][value="Japanese"]').value;
+        const isCategoryJapanese = $('input[name="categoryFilter"][value="Japanese"]').prop('checked');
         if (isCategoryJapanese) {
+            // Use kuroshiro to convert Japanese text to furigana ruby markup
+            await kuroshiroInitPromise; // wait for kuroshiro to be initialized
 
+            const rubyMarkup = await kuroshiro.convert(text.trim(), { to: 'hiragana', mode: 'furigana' });
+            return rubyMarkup;
         } else {
                     // Split text into words and non-words to preserve punctuation
             const parts = text.split(/(\W+)/);
@@ -473,17 +488,18 @@
             });
     });
 
-    function renderQuiz() {
+    async function renderQuiz() {
         const $quiz = $("#quiz");
         $quiz.empty();
 
         const tmpNo = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
-        selectedQuestions.forEach((q, index) => {
+        for (let index = 0; index < selectedQuestions.length; index++) {
+            const q = selectedQuestions[index];
             // Bỏ qua câu hỏi nếu thiếu dữ liệu quan trọng
             if (!q.options || !q.correct_answer) {
                 console.warn(`⚠️ Bỏ qua câu hỏi ${index + 1}: thiếu options hoặc correct_answer.`);
-                return;
+                continue;
             }
 
             let optionsArray = Object.entries(q.options).filter(item => item[1] !== '');
@@ -551,18 +567,20 @@
             let idxNo = -1;
             let optionsHtml = "";
 
-            $.each(optionsArray, function (tmpKey, tmpValue) {
-                const key = tmpValue[0];
-                const value = tmpValue[1];
+            for (let i = 0; i < optionsArray.length; i++) {
+                const key = optionsArray[i][0];
+                const value = optionsArray[i][1];
 
                 idxNo++;
                 const isLast = (idxNo === optionsArray.length - 1);
+
+                const wrappedMeaning = await wrapWithMeaning(value);
 
                 optionsHtml += `
                     <div data-index="${index}" style="display: flex; align-items: center; justify-content: space-between;">
                         <label style="flex: 1;">
                             <input type="radio" name="q${index}" value="${key}">
-                            ${tmpNo[idxNo]}. ${wrapWithMeaning(value)}
+                            ${tmpNo[idxNo]}. ${wrappedMeaning}
                         </label>
                         ${isLast ? `
                             <button class="btn check-answer" data-index="${index}" style="padding: 6px 12px; font-size: 14px;">Kiểm tra</button>
@@ -576,7 +594,7 @@
                         ` : ''}
                     </div>
                 `;
-            });
+            }
 
             // Check if there is an image to display
             const imageHtml = q.image ? `<img src="${q.image}" alt="Question Image" style="max-width: 100%; height: auto; margin-top: 10px;">` : '';
@@ -586,9 +604,10 @@
             if (savedWrongEntry) {
                 correctCountDisplay = `<span id="spnCorrectCount" title="Lần đúng liên tiếp" style="display: inline-block; background-color: green; color: white; border-radius: 50%; width: 20px; height: 20px; line-height: 20px; text-align: center; font-weight: bold; margin-left: 10px; font-size: 12px;">${savedWrongEntry.correctCount}</span>`;
             }
+            const wrappedQuestion = await wrapWithMeaning(q.question);
             $quiz.append(`
                 <div class="question" style="position: relative;">
-                    ${index + 1}. ${wrapWithMeaning(q.question)} ${correctCountDisplay}
+                    ${index + 1}. ${wrappedQuestion} ${correctCountDisplay}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi" 
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
                     <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
@@ -599,7 +618,7 @@
                 <div class="options">${optionsHtml}</div>
                 <hr>
             `);
-        });
+        }
         updateQuizStatusBar();
     }
 
@@ -1091,6 +1110,7 @@
     ruby rt {
       font-size: 8px; /* hoặc cùng kích thước với rb */
       color: #555;
+      padding: 0px 0px 1px 0px;
     }
     
     #timer {
