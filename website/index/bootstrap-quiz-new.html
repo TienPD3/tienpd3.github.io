@@ -149,11 +149,11 @@
                 const $questionSubmitBtn = $('<button>')
                     .attr('type', 'button')
                     .addClass('btn btn-primary mt-3')
-                    .text('Nộp câu hỏi này')
+                    .text('Kiểm tra')
                     .prop('disabled', userAnswers[qIndex] === null)
                     .on('click', function() {
                         if (userAnswers[qIndex] === null) {
-                            showToast('Vui lòng chọn câu trả lời trước khi nộp.');
+                            showToast('Vui lòng chọn câu trả lời trước khi kiểm tra.');
                             return;
                         }
                         // Disable submit button after submission
@@ -183,6 +183,7 @@
                     $questionSubmitBtn.prop('disabled', false);
                 });
 
+                $questionSubmitBtn.addClass('float-end');
                 $questionDiv.append($questionSubmitBtn);
 
                 $quizContainer.append($questionDiv);
