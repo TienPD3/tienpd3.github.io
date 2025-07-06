@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trang Trắc Nghiệm Bootstrap Mới</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode .card {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        #timer {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            min-width: 250px;
+            padding: 10px 20px;
+            background-color: #000000cc;
+            color: white;
+            border-radius: 5px;
+            display: none;
+            z-index: 1050;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Trắc Nghiệm Bootstrap Mới</h2>
+    </div>
+
+    <div id="quizStatus" class="mb-3">
+        Câu hỏi <span id="currentQuestionNumber">0</span> / <span id="totalQuestions">0</span>
+    </div>
+
+    <div id="timer" class="mb-3 text-end">
+        Thời gian còn lại: <span id="timeRemaining">00:00</span>
+    </div>
+
+    <div id="quizContainer" class="card p-4 mb-3">
+        <!-- All questions will be rendered here -->
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button id="submitBtn" class="btn btn-success" disabled>Nộp bài</button>
+    </div>
+
+    <div id="result" class="mt-4" style="display:none;">
+        <h4>Kết quả</h4>
+        <p>Đúng: <span id="correctCount">0</span></p>
+        <p>Sai: <span id="wrongCount">0</span></p>
+    </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- Bootstrap Bundle JS (includes Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    (() => {
+        const questions = [
+            {
+                question: "Bootstrap là gì?",
+                answers: [
+                    "Một framework CSS",
+                    "Một ngôn ngữ lập trình",
+                    "Một hệ quản trị cơ sở dữ liệu",
+                    "Một trình duyệt web"
+                ],
+                correctIndex: 0
+            },
+            {
+                question: "Phiên bản Bootstrap mới nhất hiện nay là?",
+                answers: [
+                    "Bootstrap 3",
+                    "Bootstrap 4",
+                    "Bootstrap 5",
+                    "Bootstrap 2"
+                ],
+                correctIndex: 2
+            },
+            {
+                question: "Thẻ HTML nào dùng để tạo nút bấm trong Bootstrap?",
+                answers: [
+                    "<button>",
+                    "<div>",
+                    "<span>",
+                    "<input>"
+                ],
+                correctIndex: 0
+            }
+        ];
+
+        let userAnswers = new Array(questions.length).fill(null);
+        let timerDuration = 5 * 60; // 5 minutes in seconds
+        let timerInterval = null;
+
+        const quizContainer = document.getElementById('quizContainer');
+        const submitBtn = document.getElementById('submitBtn');
+        const timeRemaining = document.getElementById('timeRemaining');
+        const result = document.getElementById('result');
+        const correctCountElem = document.getElementById('correctCount');
+        const wrongCountElem = document.getElementById('wrongCount');
+        const toast = document.getElementById('toast');
+        const quizStatus = document.getElementById('quizStatus');
+        const currentQuestionNumber = document.getElementById('currentQuestionNumber');
+        const totalQuestions = document.getElementById('totalQuestions');
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        function renderAllQuestions() {
+            quizContainer.innerHTML = '';
+            questions.forEach((q, qIndex) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'mb-4';
+
+                const questionText = document.createElement('div');
+                questionText.className = 'mb-2 fs-5';
+                questionText.textContent = `Câu ${qIndex + 1}: ${q.question}`;
+                questionDiv.appendChild(questionText);
+
+                const answersList = document.createElement('div');
+                answersList.className = 'list-group';
+
+                q.answers.forEach((answer, aIndex) => {
+                    const answerItem = document.createElement('button');
+                    answerItem.type = 'button';
+                    answerItem.className = 'list-group-item list-group-item-action';
+                    answerItem.textContent = answer;
+                    if (userAnswers[qIndex] === aIndex) {
+                        answerItem.classList.add('active');
+                    }
+                    answerItem.addEventListener('click', () => {
+                        userAnswers[qIndex] = aIndex;
+                        updateAnswerSelection(qIndex, answersList);
+                        updateSubmitButton();
+                    });
+                    answersList.appendChild(answerItem);
+                });
+
+                questionDiv.appendChild(answersList);
+                quizContainer.appendChild(questionDiv);
+            });
+            totalQuestions.textContent = questions.length;
+            currentQuestionNumber.textContent = questions.length; // Since all questions shown
+            quizStatus.style.display = 'none'; // Hide single question status
+        }
+
+        function updateAnswerSelection(questionIndex, answersList) {
+            const buttons = answersList.querySelectorAll('button');
+            buttons.forEach((btn, idx) => {
+                btn.classList.toggle('active', userAnswers[questionIndex] === idx);
+            });
+        }
+
+        function updateSubmitButton() {
+            submitBtn.disabled = userAnswers.includes(null);
+        }
+
+        function showResult() {
+            let correct = 0;
+            let wrong = 0;
+            userAnswers.forEach((answer, idx) => {
+                if (answer === questions[idx].correctIndex) {
+                    correct++;
+                } else {
+                    wrong++;
+                }
+            });
+            correctCountElem.textContent = correct;
+            wrongCountElem.textContent = wrong;
+            result.style.display = 'block';
+            showToast('Bài làm đã được nộp!');
+        }
+
+        function startTimer() {
+            let timeLeft = timerDuration;
+            updateTimerDisplay(timeLeft);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay(timeLeft);
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    showToast('Hết thời gian làm bài!');
+                    submitQuiz();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay(seconds) {
+            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const s = (seconds % 60).toString().padStart(2, '0');
+            timeRemaining.textContent = `${m}:${s}`;
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            showResult();
+            submitBtn.disabled = true;
+        }
+
+        submitBtn.addEventListener('click', () => {
+            if (!userAnswers.includes(null)) {
+                submitQuiz();
+            } else {
+                showToast('Vui lòng trả lời hết các câu hỏi trước khi nộp bài.');
+            }
+        });
+
+        // Initialize
+        renderAllQuestions();
+        startTimer();
+        updateSubmitButton();
+    })();
+</script>
+
+</body>
+</html>
