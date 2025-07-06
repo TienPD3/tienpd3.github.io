@@ -36,26 +36,47 @@
 </head>
 <body class="bg-light">
 
-<div class="container my-4">
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <h2>Trắc Nghiệm Bootstrap Mới</h2>
-    </div>
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Trắc Nghiệm Bootstrap Mới</h2>
+        </div>
 
-    <div id="quizStatus" class="mb-3">
-        Câu hỏi <span id="currentQuestionNumber">0</span> / <span id="totalQuestions">0</span>
-    </div>
+        <div class="mb-3">
+            <label for="lessonSelect" class="form-label">Chọn bài học:</label>
+            <select id="lessonSelect" class="form-select" aria-label="Chọn bài học">
+                <option value="all" selected>Tất cả</option>
+            </select>
+        </div>
 
-    <div id="timer" class="mb-3 text-end">
-        Thời gian còn lại: <span id="timeRemaining">00:00</span>
-    </div>
+        <div class="mb-3">
+            <label class="form-label">Chọn chế độ học:</label>
+            <div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="studyMode" id="modeMeaning" value="meaning" checked>
+                    <label class="form-check-label" for="modeMeaning">Học nghĩa</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="studyMode" id="modeKanji" value="kanji">
+                    <label class="form-check-label" for="modeKanji">Học Kanji</label>
+                </div>
+            </div>
+        </div>
 
-    <div id="quizContainer" class="card p-4 mb-3">
-        <!-- All questions will be rendered here -->
-    </div>
+        <div id="quizStatus" class="mb-3">
+            Câu hỏi <span id="currentQuestionNumber">0</span> / <span id="totalQuestions">0</span>
+        </div>
 
-    <div class="d-flex justify-content-end">
-        <button id="submitBtn" class="btn btn-success" disabled>Nộp bài</button>
-    </div>
+        <div id="timer" class="mb-3 text-end">
+            Thời gian còn lại: <span id="timeRemaining">00:00</span>
+        </div>
+
+        <div id="quizContainer" class="card p-4 mb-3">
+            <!-- All questions will be rendered here -->
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button id="submitBtn" class="btn btn-success" disabled>Nộp bài</button>
+        </div>
 
     <div id="result" class="mt-4" style="display:none;">
         <h4>Kết quả</h4>
@@ -72,9 +93,12 @@
     <script>
     $(function() {
         let questions = [];
+        let filteredQuestions = [];
         let userAnswers = [];
         let timerDuration = 5 * 60; // 5 minutes in seconds
         let timerInterval = null;
+        let currentStudyMode = 'meaning';
+        let questionsData = [];
 
         const $quizContainer = $('#quizContainer');
         const $submitBtn = $('#submitBtn');
@@ -86,6 +110,7 @@
         const $quizStatus = $('#quizStatus');
         const $currentQuestionNumber = $('#currentQuestionNumber');
         const $totalQuestions = $('#totalQuestions');
+        const $lessonSelect = $('#lessonSelect');
 
         function showToast(message) {
             $toast.text(message).fadeIn();
@@ -102,26 +127,53 @@
         }
 
         function generateQuestions(data) {
+
             const meanings = data.map(item => item.Meaning);
+            const kanjis = data.map(item => item.Kanji);
             questions = data.map(item => {
-                // Prepare answers: correct meaning + 3 random distractors
-                let answers = [item.Meaning];
-                let distractors = meanings.filter(m => m !== item.Meaning);
-                shuffleArray(distractors);
-                answers = answers.concat(distractors.slice(0, 3));
-                shuffleArray(answers);
+                // Prepare answers based on study mode
+                let answers, questionText, correctAnswer;
+
+                if (currentStudyMode === 'meaning') {
+                    // Question shows Kanji only, answers are meanings
+                    let distractors = meanings.filter(m => m !== item.Meaning);
+                    shuffleArray(distractors);
+                    answers = [item.Meaning].concat(distractors.slice(0, 3));
+                    shuffleArray(answers);
+                    questionText = item.Kanji;
+                    correctAnswer = item.Meaning;
+                } else {
+                    // Question shows Kanji, answers are Word
+                    let words = data.map(i => i.HiraKata);
+                    let distractors = words.filter(w => w !== item.HiraKata);
+                    shuffleArray(distractors);
+                    answers = [item.HiraKata].concat(distractors.slice(0, 3));
+                    shuffleArray(answers);
+                    questionText = item.Kanji;
+                    correctAnswer = item.HiraKata;
+                }
                 return {
-                    question: `${item.Word} (${item.Kanji})`,
+                    lesson: item.Lesson,
+                    question: questionText,
                     answers: answers,
-                    correctAnswer: item.Meaning
+                    correctAnswer: correctAnswer
                 };
             });
             userAnswers = new Array(questions.length).fill(null);
         }
 
+        function filterQuestionsByLesson(lesson) {
+            if (lesson === 'all') {
+                filteredQuestions = questions;
+            } else {
+                filteredQuestions = questions.filter(q => q.lesson === lesson);
+            }
+            userAnswers = new Array(filteredQuestions.length).fill(null);
+        }
+
         function renderAllQuestions() {
             $quizContainer.empty();
-            $.each(questions, function(qIndex, q) {
+            $.each(filteredQuestions, function(qIndex, q) {
                 const $questionDiv = $('<div>').addClass('mb-4');
                 const $questionText = $('<div>').addClass('mb-2 fs-5').text(`Câu ${qIndex + 1}: ${q.question}`);
                 $questionDiv.append($questionText);
@@ -188,8 +240,8 @@
 
                 $quizContainer.append($questionDiv);
             });
-            $totalQuestions.text(questions.length);
-            $currentQuestionNumber.text(questions.length);
+            $totalQuestions.text(filteredQuestions.length);
+            $currentQuestionNumber.text(filteredQuestions.length);
             $quizStatus.hide();
         }
 
@@ -207,7 +259,7 @@
             let correct = 0;
             let wrong = 0;
             $.each(userAnswers, function(idx, answerIndex) {
-                if (questions[idx].answers[answerIndex] === questions[idx].correctAnswer) {
+                if (filteredQuestions[idx].answers[answerIndex] === filteredQuestions[idx].correctAnswer) {
                     correct++;
                 } else {
                     wrong++;
@@ -253,9 +305,36 @@
             }
         });
 
+        $lessonSelect.on('change', function() {
+            const selectedLesson = $(this).val();
+            filterQuestionsByLesson(selectedLesson);
+            renderAllQuestions();
+            updateSubmitButton();
+        });
+
+        $('input[name="studyMode"]').on('change', function() {
+            currentStudyMode = $(this).val();
+            // Regenerate questions based on new study mode
+            generateQuestions(questionsData);
+            filterQuestionsByLesson($lessonSelect.val());
+            renderAllQuestions();
+            updateSubmitButton();
+        });
+
         // Load quiz data from JSON file and initialize
         $.getJSON('../file/jp/n4.json', function(data) {
-            generateQuestions(data);
+            questionsData = data;
+            generateQuestions(questionsData);
+
+            // Populate lesson select options
+            const lessons = [...new Set(data.map(item => item.Lesson))].sort();
+            lessons.forEach(lesson => {
+                $lessonSelect.append($('<option>').val(lesson).text(`Bài học ${lesson}`));
+            });
+
+            currentStudyMode = $('input[name="studyMode"]:checked').val();
+
+            filterQuestionsByLesson('all');
             renderAllQuestions();
             startTimer();
             updateSubmitButton();

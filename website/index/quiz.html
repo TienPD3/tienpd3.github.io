@@ -489,15 +489,15 @@
             const wrappedQuestion = await wrapWithMeaning(q.question);
             $quiz.append(`
                 <div class="question" style="position: relative;">
-                    ${index + 1}. ${wrappedQuestion} ${correctCountDisplay}
+                    ${index + 1}. <span class="questionTitle">${wrappedQuestion}</span> ${correctCountDisplay}
                     <span class="translate-icon" data-index="${index}" title="Dịch câu hỏi"
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#007bff;">🔄</span>
                     <span class="chatgpt-icon" data-index="${index}" title="Hỏi ChatGPT"
                         style="cursor:pointer; margin-left:10px; font-size:18px; color:#28a745;">🤖</span>
                     <div class="translation" style="color: #555; margin-top: 5px; display:none;"></div>
                     ${imageHtml}
+                    <div class="options">${optionsHtml}</div>
                 </div>
-                <div class="options">${optionsHtml}</div>
                 <hr>
             `);
         }
@@ -776,7 +776,7 @@
         } else {
             if (savedWrongEntry) {
                 savedWrongEntry.correctCount++;
-                $this.parent().parent().prev().find('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
+                $this.parent().parent().parent().find('#spnCorrectCount').text(`${savedWrongEntry.correctCount}`);
                 if (savedWrongEntry.correctCount >= 3) {
                     removeFromSavedWrongQuestions(questionObj);
                     if (wrongQuestions.includes(questionObj)) {
@@ -796,6 +796,12 @@
 
         saveWrongQuestionsToLocalStorage();
         updateQuizStatusBar();
+        let htmlQuestionTitle = $this.parent().parent().parent().find('.questionTitle').clone();
+        htmlQuestionTitle.find('rp').remove();
+        htmlQuestionTitle.find('rt').remove();
+        questionTitle = htmlQuestionTitle.text().trim();
+        speakAnswer(questionTitle);
+        htmlQuestionTitle.remove();
         if (wrongQuestions.length > 0) {
             $("#retryWrong").show();
         } else {
@@ -804,6 +810,33 @@
         $(`.explain-tooltip-icon[data-index='${index}']`).show();
         $this.hide();
     });
+
+    function speakAnswer(speak) {
+      if (speak !== '') {
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance(speak);
+          utterance.lang = 'ja-JP';
+          utterance.onstart = function(event) {
+            const audio = new Audio();
+            audio.play().catch(error => {});
+          };
+          window.speechSynthesis.speak(utterance);
+        } else {
+          playTTS(encodeURIComponent(speak), 'ja-JP');
+        }
+      }
+    }
+
+    const playTTS = (text, lang) => {
+      // Get the audio element
+      const audioEl = document.getElementById('tts-audio');
+      const url= `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${text}`;
+
+      // add the sound to the audio element
+      audioEl.src = url;
+      //For auto playing the sound
+      audioEl.play();
+    }
 
     /**
      * Handles the click event for the "Submit Quiz" button.

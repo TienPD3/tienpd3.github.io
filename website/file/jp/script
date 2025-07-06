@@ -1,0 +1,35 @@
+// Tìm bảng trong tài liệu
+const table = document.querySelector('.lp1-lighteditor__ex__table .le1tbl');
+// https://kosei.vn/tu-vung-n4-minna-no-nihongo-bai-37
+// Lấy nội dung văn bản từ phần tử <p>
+var text = $('p').text();
+// Sử dụng biểu thức chính quy để tìm số
+var match = text.match(/Bài (\d+)/);
+var number = match[1]; // Số được tìm thấy
+
+// Khởi tạo mảng để lưu trữ dữ liệu
+const vocabularyList = [];
+
+// Lặp qua các hàng trong bảng
+const rows = table.querySelectorAll('tr');
+rows.forEach((row, index) => {
+    // Bỏ qua hàng tiêu đề
+    if (index === 0) return;
+
+    // Lấy các ô trong hàng
+    const cells = row.querySelectorAll('td');
+    if (cells.length > 0) {
+        const vocabularyItem = {
+            Lesson: number,
+            HiraKata: cells[1].innerText.trim(),
+            Kanji: cells[2].innerText.trim(),
+            HanViet: cells[3].innerText.trim(),
+            Meaning: cells[4].innerText.trim()
+        };
+        vocabularyList.push(vocabularyItem);
+    }
+});
+
+// Chuyển đổi mảng thành JSON
+let jsonData = JSON.stringify(vocabularyList, null, 2);
+$('body').text(jsonData);

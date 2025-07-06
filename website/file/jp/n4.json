@@ -1,182 +1,4104 @@
 [
   {
     "Lesson": "26",
-    "Word": "みます",
-    "Kanji": "見ます、診ます",
-    "Meaning": "kiểm tra, khám bệnh"
+    "HiraKata": "みます　II",
+    "Kanji": "見ます",
+    "HanViet": "KIẾN",
+    "Meaning": "xem, nhìn"
   },
   {
     "Lesson": "26",
-    "Word": "さがします",
-    "Kanji": "探します、捜します",
-    "Meaning": "tìm, tìm kiếm"
+    "HiraKata": "みます　II",
+    "Kanji": "診ます",
+    "HanViet": "CHẨN",
+    "Meaning": "chẩn đoán, khám bệnh"
   },
   {
     "Lesson": "26",
-    "Word": "おくれます\n　［じかんに～］",
-    "Kanji": "遅れます\n　［時間に～］",
-    "Meaning": "chậm, muộn [giờ]"
+    "HiraKata": "さがします　I",
+    "Kanji": "捜します",
+    "HanViet": "THÁM",
+    "Meaning": "tìm đồ vật bị mất"
   },
   {
     "Lesson": "26",
-    "Word": "まにあいます\n　［じかんに～］",
-    "Kanji": "間に合います\n　［時間に～］",
-    "Meaning": "kịp [giờ]"
+    "HiraKata": "さがします　I",
+    "Kanji": "探します",
+    "HanViet": "SƯU",
+    "Meaning": "tìm, tìm kiếm (công việc,người…)"
   },
   {
     "Lesson": "26",
-    "Word": "やります",
+    "HiraKata": "（じかんに）おくれます　II",
+    "Kanji": "（時間に）遅れます",
+    "HanViet": "THỜI GIAN TRÌ",
+    "Meaning": "trễ giờ"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "(かいぎに）まにあいます",
+    "Kanji": "（会議に）間に合います",
+    "HanViet": "HỘI NGHỊ GIAN HỢP",
+    "Meaning": "kịp giờ"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "やります",
     "Kanji": "",
-    "Meaning": "làm"
+    "HanViet": "",
+    "Meaning": "làm, thực hiện"
   },
   {
     "Lesson": "26",
-    "Word": "ひろいます",
-    "Kanji": "拾います",
-    "Meaning": "nhặt, lượm"
+    "HiraKata": "（ごみを）ひろいます　I",
+    "Kanji": "（ごみを）拾います",
+    "HanViet": "THẬP",
+    "Meaning": "nhặt rác"
   },
   {
     "Lesson": "26",
-    "Word": "れんらくします",
-    "Kanji": "連絡します",
+    "HiraKata": "（がっこうに）れんらくします　III",
+    "Kanji": "学校に連絡します",
+    "HanViet": "HỌC HIỆU LIÊN LẠC",
     "Meaning": "liên lạc"
   },
   {
     "Lesson": "26",
-    "Word": "きぶんがいい",
+    "HiraKata": "きぶんがいい",
     "Kanji": "気分がいい",
-    "Meaning": "cảm thấy thoải mái, cảm thấy khỏe"
+    "HanViet": "KHÍ PHÂN",
+    "Meaning": "tâm trạng, thể trạng tốt"
   },
   {
     "Lesson": "26",
-    "Word": "きぶんがわるい",
+    "HiraKata": "きぶんがわるい",
     "Kanji": "気分が悪い",
-    "Meaning": "cảm thấy không thoải mái, cảm thấy mệt"
+    "HanViet": "KHÍ PHÂN ÁC",
+    "Meaning": "tâm trạng, thể trạng xấu"
   },
   {
     "Lesson": "26",
-    "Word": "うんどうかい",
+    "HiraKata": "うんどうかい",
     "Kanji": "運動会",
+    "HanViet": "VẬN ĐỘNG HỘI",
     "Meaning": "hội thi thể thao"
   },
   {
     "Lesson": "26",
-    "Word": "ぼんおどり",
+    "HiraKata": "ぼんおどり",
     "Kanji": "盆踊り",
-    "Meaning": "múa Bon"
+    "HanViet": "BỒN DŨNG",
+    "Meaning": "lễ hội múa obon"
   },
   {
     "Lesson": "26",
-    "Word": "フリーマーケット",
+    "HiraKata": "フリーマーケット",
     "Kanji": "",
-    "Meaning": "chợ đồ cũ,chợ trời"
+    "HanViet": "",
+    "Meaning": "chợ đồ cũ, chợ trời"
   },
   {
     "Lesson": "26",
-    "Word": "ばしょ",
+    "HiraKata": "ばしょ",
     "Kanji": "場所",
-    "Meaning": "địa điểm, nơi"
+    "HanViet": "TRƯỜNG SỞ",
+    "Meaning": "nơi chốn,địa điểm"
   },
   {
     "Lesson": "26",
-    "Word": "ボランティア",
+    "HiraKata": "ボランティア",
     "Kanji": "",
-    "Meaning": "tình nguyện viên"
+    "HanViet": "",
+    "Meaning": "việc từ thiện, tình nguyện viên"
   },
   {
     "Lesson": "26",
-    "Word": "さいふ",
+    "HiraKata": "さいふ",
     "Kanji": "財布",
+    "HanViet": "TÀI BỐ",
     "Meaning": "ví"
   },
   {
     "Lesson": "26",
-    "Word": "ごみ",
+    "HiraKata": "ごみ",
     "Kanji": "",
+    "HanViet": "",
     "Meaning": "rác"
   },
   {
     "Lesson": "26",
-    "Word": "こっかいぎじどう",
+    "HiraKata": "こっかいぎじどう",
     "Kanji": "国会議事堂",
+    "HanViet": "QUỐC HỘI NGHỊ SỰ ĐƯỜNG",
     "Meaning": "tòa nhà quốc hội"
   },
   {
     "Lesson": "26",
-    "Word": "へいじつ",
+    "HiraKata": "へいじつ",
     "Kanji": "平日",
+    "HanViet": "BÌNH NHẬT",
     "Meaning": "ngày thường"
   },
   {
     "Lesson": "26",
-    "Word": "～べん",
-    "Kanji": "～弁",
-    "Meaning": "phương ngữ ~, tiếng ~, giọng ~"
+    "HiraKata": "おおさかべん　（ほうげん）",
+    "Kanji": "大阪弁(方言）",
+    "HanViet": "ĐẠI PHẢN BIỆN",
+    "Meaning": "tiếng Osaka, tiếng địa phương"
   },
   {
     "Lesson": "26",
-    "Word": "こんど",
+    "HiraKata": "こんど",
     "Kanji": "今度",
+    "HanViet": "KIM ĐỘ",
     "Meaning": "lần tới"
   },
   {
     "Lesson": "26",
-    "Word": "ずいぶん",
+    "HiraKata": "ずいぶん",
     "Kanji": "",
-    "Meaning": "khá ,tương đối"
+    "HanViet": "",
+    "Meaning": "khá, tương đối"
   },
   {
     "Lesson": "26",
-    "Word": "ちょくせつ",
+    "HiraKata": "ちょくせつ",
     "Kanji": "直接",
+    "HanViet": "TRỰC TIẾP",
     "Meaning": "trực tiếp"
   },
   {
     "Lesson": "26",
-    "Word": "いつでも",
+    "HiraKata": "いつでも",
     "Kanji": "",
+    "HanViet": "",
     "Meaning": "lúc nào cũng"
   },
   {
     "Lesson": "26",
-    "Word": "どこでも",
+    "HiraKata": "どこでも",
     "Kanji": "",
+    "HanViet": "",
     "Meaning": "ở đâu cũng"
   },
   {
     "Lesson": "26",
-    "Word": "だれでも",
+    "HiraKata": "だれでも",
     "Kanji": "",
-    "Meaning": "ai cũng"
+    "HanViet": "",
+    "Meaning": "nhất định"
   },
   {
     "Lesson": "26",
-    "Word": "なんでも",
+    "HiraKata": "なんでも",
     "Kanji": "",
+    "HanViet": "",
     "Meaning": "cái gì cũng"
   },
   {
     "Lesson": "26",
-    "Word": "こんな～",
+    "HiraKata": "こんな…",
     "Kanji": "",
-    "Meaning": "～như thế này"
+    "HanViet": "",
+    "Meaning": "... như thế này"
   },
   {
     "Lesson": "26",
-    "Word": "そんな～",
+    "HiraKata": "そんな…",
     "Kanji": "",
-    "Meaning": "～như thế đó (gần người nghe)"
+    "HanViet": "",
+    "Meaning": "... như thế đó"
   },
   {
     "Lesson": "26",
-    "Word": "あんな～",
+    "HiraKata": "あんな…",
     "Kanji": "",
-    "Meaning": "～như thế kia (xa người nghe)"
+    "HanViet": "",
+    "Meaning": "... như thế kia"
   },
   {
     "Lesson": "26",
-    "Word": "エドヤフストア",
+    "HiraKata": "かたづきます　I",
+    "Kanji": "片付きます",
+    "HanViet": "PHIẾN PHÓ",
+    "Meaning": "sắp xếp, dọn dẹp"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "だします　I",
+    "Kanji": "出します",
+    "HanViet": "XUẤT",
+    "Meaning": "đổ, để (rác)"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "もえるごみ",
+    "Kanji": "燃えるごみ",
+    "HanViet": "NHIÊN",
+    "Meaning": "rác cháy được"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "おきば",
+    "Kanji": "置き場",
+    "HanViet": "TRÍ TRƯỜNG",
+    "Meaning": "chỗ để, chỗ đặt"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "よこ",
+    "Kanji": "横",
+    "HanViet": "HOÀNH",
+    "Meaning": "bên cạnh"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "びん",
+    "Kanji": "瓶",
+    "HanViet": "BÌNH",
+    "Meaning": "cái chai"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "かん",
+    "Kanji": "缶",
+    "HanViet": "PHẪU",
+    "Meaning": "cái lon, hộp kim loại"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "ガス",
     "Kanji": "",
-    "Meaning": "tên một cửa hàng giả định"
+    "HanViet": "",
+    "Meaning": "ga"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "ガスがいしゃ",
+    "Kanji": "ガス会社",
+    "HanViet": "HỘI XÃ",
+    "Meaning": "công ty ga"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "うちゅう",
+    "Kanji": "宇宙",
+    "HanViet": "VŨ TRỤ",
+    "Meaning": "vũ trụ"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "さま",
+    "Kanji": "様",
+    "HanViet": "DẠNG",
+    "Meaning": "ngài,vị"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "うちゅうせん",
+    "Kanji": "宇宙船",
+    "HanViet": "VŨ TRỤ THUYỀN",
+    "Meaning": "tàu vũ trụ"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "こわい",
+    "Kanji": "怖い",
+    "HanViet": "BỐ",
+    "Meaning": "sợ, đáng sợ"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "ちがいます",
+    "Kanji": "違う",
+    "HanViet": "VI",
+    "Meaning": "khác, không phải"
+  },
+  {
+    "Lesson": "26",
+    "HiraKata": "うちゅうひこうし",
+    "Kanji": "宇宙飛行士",
+    "HanViet": "VŨ TRỤ PHI HÀNH SĨ",
+    "Meaning": "nhà du hành vũ trụ"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "かいます I",
+    "Kanji": "飼います",
+    "HanViet": "TỰ",
+    "Meaning": "nuôi, chăn nuôi"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "たてます II",
+    "Kanji": "建てます",
+    "HanViet": "KIẾN",
+    "Meaning": "xây dựng"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "「みちを～」\n\nはしります I",
+    "Kanji": "「道を～」\n\n走ります",
+    "HanViet": "TẨU",
+    "Meaning": "chạy"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "「やすみを～」\n\nとります I",
+    "Kanji": "「休みを～」\n\n取ります",
+    "HanViet": "THỦ",
+    "Meaning": "xin (nghỉ)"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "「やまが～」\n\nみえますII",
+    "Kanji": "「山が～」\n\n見えます",
+    "HanViet": "KIẾN",
+    "Meaning": "có thể nhìn thấy"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "「おとが～」\n\nきこえますII",
+    "Kanji": "「音が～」\n\n聞こえます",
+    "HanViet": "VĂN",
+    "Meaning": "có thể nghe thấy"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "「くうこうが～」\n\nできます II",
+    "Kanji": "「空港が～」\n\nできます",
+    "HanViet": "",
+    "Meaning": "được hoàn thành,được làm"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "「きょうしつを～」\n\nひらきます I",
+    "Kanji": "「教室を～」\n\n開きます",
+    "HanViet": "KHAI",
+    "Meaning": "mở, tổ chức (lớp)"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ペット",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thú cưng, động vật nuôi"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "とり",
+    "Kanji": "鳥",
+    "HanViet": "ĐIỂU",
+    "Meaning": "chim"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "こえ",
+    "Kanji": "こえ",
+    "HanViet": "THANH",
+    "Meaning": "tiếng, giọng nói"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "なみ",
+    "Kanji": "波",
+    "HanViet": "BA",
+    "Meaning": "sóng"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "はなび",
+    "Kanji": "花火",
+    "HanViet": "HOA HỎA",
+    "Meaning": "pháo hoa"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "けしき",
+    "Kanji": "景色",
+    "HanViet": "CẢNH SẮC",
+    "Meaning": "phong cảnh"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ひるま",
+    "Kanji": "昼間",
+    "HanViet": "TRÚ GIAN",
+    "Meaning": "ban ngày"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "むかし",
+    "Kanji": "昔",
+    "HanViet": "TÍCH",
+    "Meaning": "ngày xưa"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "どうぐ",
+    "Kanji": "道具",
+    "HanViet": "ĐẠO CỤ",
+    "Meaning": "dụng cụ"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "じどうはんばいき",
+    "Kanji": "自動販売機",
+    "HanViet": "TỰ ĐỘNG PHIẾN MẠI CƠ",
+    "Meaning": "máy bán hàng tự động"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "つうしんはんばい",
+    "Kanji": "通信販売",
+    "HanViet": "THÔNG TÍN PHIẾN MẠI",
+    "Meaning": "thương mại viễn thông"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "クリーニング",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "giặt ủi"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "マンション",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "chung cư"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "だいどころ",
+    "Kanji": "台所",
+    "HanViet": "ĐÀI SỞ",
+    "Meaning": "nhà bếp"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "～後",
+    "Kanji": "～ご",
+    "HanViet": "HẬU",
+    "Meaning": "sau…"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "～しか",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "chỉ"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "～きょうしつ",
+    "Kanji": "～教室",
+    "HanViet": "GIÁO THẤT",
+    "Meaning": "lớp học"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "パーティールーム",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "phòng tiệc"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ほんだな",
+    "Kanji": "本棚",
+    "HanViet": "BỔN BẰNG",
+    "Meaning": "kệ sách, giá sách"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "いつか",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "một ngày nào đó"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ゆめ",
+    "Kanji": "夢",
+    "HanViet": "MỘNG",
+    "Meaning": "mơ"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "いえ",
+    "Kanji": "家",
+    "HanViet": "GIA",
+    "Meaning": "nhà"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "すばらしい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "tuyệt vời"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "こどもたち",
+    "Kanji": "子どもたち",
+    "HanViet": "TỬ",
+    "Meaning": "bọn trẻ"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "だいすき",
+    "Kanji": "大好き",
+    "HanViet": "ĐẠI HẢO",
+    "Meaning": "rất thích"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "まんが",
+    "Kanji": "漫画",
+    "HanViet": "MẠN HỌA",
+    "Meaning": "truyện tranh"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "しゅじんこう",
+    "Kanji": "主人公",
+    "HanViet": "CHỦ NHÂN CÔNG",
+    "Meaning": "nhân vật chính"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "かたち",
+    "Kanji": "形",
+    "HanViet": "HÌNH",
+    "Meaning": "hình dạng"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ロボット",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "người máy"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ふしぎな",
+    "Kanji": "不思議な",
+    "HanViet": "BẤT TƯ NGHỊ",
+    "Meaning": "kì lạ, thần bí"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ポケット",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "túi"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "たとえば",
+    "Kanji": "例えば",
+    "HanViet": "LỆ",
+    "Meaning": "ví dụ"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "つけます",
+    "Kanji": "付けます",
+    "HanViet": "PHÓ",
+    "Meaning": "lắp ghép"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "じゆうに",
+    "Kanji": "自由に",
+    "HanViet": "TỰ DO",
+    "Meaning": "tự do"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "そら",
+    "Kanji": "空",
+    "HanViet": "KHÔNG",
+    "Meaning": "bầu trời"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "とびます",
+    "Kanji": "飛びます",
+    "HanViet": "PHI",
+    "Meaning": "bay"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "じぶん",
+    "Kanji": "自分",
+    "HanViet": "TỰ PHÂN",
+    "Meaning": "tự mình"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "しょうらい",
+    "Kanji": "将来",
+    "HanViet": "TƯƠNG LAI",
+    "Meaning": "tương lai"
+  },
+  {
+    "Lesson": "27",
+    "HiraKata": "ドラえもん",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "Đô-rê-mon"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "「パンが～」うれます II",
+    "Kanji": "「パンが～」\n\n売れます",
+    "HanViet": "MẠI",
+    "Meaning": "bán"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "おどります I",
+    "Kanji": "踊ります",
+    "HanViet": "DŨNG",
+    "Meaning": "nhảy"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "かみます I",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nhai, cắn"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "えらびます I",
+    "Kanji": "選びます",
+    "HanViet": "TUYỂN",
+    "Meaning": "lựa, lựa chọn"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "「だいがくに～」\n\nかよいます I",
+    "Kanji": "「大学に～」\n\n通います",
+    "HanViet": "THÔNG",
+    "Meaning": "đi học (đại học)"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "メモします III",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ghi chép lại, ghi lại"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "まじめ",
+    "Kanji": "真面目",
+    "HanViet": "CHÂN DIỆN MỤC",
+    "Meaning": "nghiêm túc, đàng hoàng"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ねっしん",
+    "Kanji": "熱心",
+    "HanViet": "NHIỆT TÂM",
+    "Meaning": "nhiệt tình"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "えらい",
+    "Kanji": "偉い",
+    "HanViet": "VĨ",
+    "Meaning": "vĩ đại, kính trọng"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ちょうどいい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "vừa đúng, vừa vặn"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "やさしい",
+    "Kanji": "優しい",
+    "HanViet": "ƯU",
+    "Meaning": "hiền lành"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "しゅうかん",
+    "Kanji": "習慣",
+    "HanViet": "TẬP QUÁN",
+    "Meaning": "tập quán"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "けいけん",
+    "Kanji": "経験",
+    "HanViet": "KINH NGHIỆM",
+    "Meaning": "kinh nghiệm"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ちから",
+    "Kanji": "力",
+    "HanViet": "LỰC",
+    "Meaning": "sức mạnh"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "にんき",
+    "Kanji": "人気",
+    "HanViet": "NHÂN KHÍ",
+    "Meaning": "hâm mộ"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "かたち",
+    "Kanji": "形",
+    "HanViet": "HÌNH",
+    "Meaning": "hình dáng"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "いろ",
+    "Kanji": "色",
+    "HanViet": "SẮC",
+    "Meaning": "màu"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "あじ",
+    "Kanji": "味",
+    "HanViet": "VỊ",
+    "Meaning": "vị"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ガム",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "kẹo cao su"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "しなもの",
+    "Kanji": "品物",
+    "HanViet": "PHẨM VẬT",
+    "Meaning": "hàng hóa"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ねだん",
+    "Kanji": "値段",
+    "HanViet": "TRỊ ĐOẠN",
+    "Meaning": "giá cả"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "きゅうりょう",
+    "Kanji": "給料",
+    "HanViet": "CẤP LIỆU",
+    "Meaning": "lương"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ボーナス",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thưởng"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ばんぐみ",
+    "Kanji": "番組",
+    "HanViet": "PHIÊN TỔ",
+    "Meaning": "chương trình (truyền hình, phát thanh,..)"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ドラマ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "kịch, phim truyền hình"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "しょうせつ",
+    "Kanji": "小説",
+    "HanViet": "TIỂU THUYẾT",
+    "Meaning": "tiểu thuyết"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "しょうせつか",
+    "Kanji": "小説家",
+    "HanViet": "TIỂU THUYẾT GIA",
+    "Meaning": "tiểu thuyết gia"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "かしゅ",
+    "Kanji": "歌手",
+    "HanViet": "CA THỦ",
+    "Meaning": "ca sĩ"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "かんりにん",
+    "Kanji": "管理人",
+    "HanViet": "QUẢN LÝ NHÂN",
+    "Meaning": "người quản lí"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "むすこ",
+    "Kanji": "息子",
+    "HanViet": "TỨC TỬ",
+    "Meaning": "con trai (dùng cho mình)"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "むすこさん",
+    "Kanji": "息子さん",
+    "HanViet": "TỨC TỬ",
+    "Meaning": "con trai (dùng cho người khác)"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "むすめ",
+    "Kanji": "娘",
+    "HanViet": "NƯƠNG",
+    "Meaning": "con gái (dùng cho mình)"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "むすめさん",
+    "Kanji": "娘さん",
+    "HanViet": "NƯƠNG",
+    "Meaning": "con gái (dùng cho người khác)"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "じぶん",
+    "Kanji": "自分",
+    "HanViet": "TỰ PHÂN",
+    "Meaning": "bản thân"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "しょうらい",
+    "Kanji": "将来",
+    "HanViet": "TƯƠNG LAI",
+    "Meaning": "tương lai"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "しばらく",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "một khoảng thời gian ngắn, một chút, một lát"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "たいてい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thường, thông thường"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "それに",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ngoài ra"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "それで",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "do đó"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "「ちょっと」おねがいがあるんですが",
+    "Kanji": "「ちょっと」お願いがあるんですが",
+    "HanViet": "NGUYỆN",
+    "Meaning": "tôi có chút việc muốn nhờ anh chị"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ホームステイ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "homestay"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "かいわ",
+    "Kanji": "会話",
+    "HanViet": "HỘI THOẠI",
+    "Meaning": "hội thoại"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "おしゃべりします",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "trò chuyện"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "おしらせ",
+    "Kanji": "お知らせ",
+    "HanViet": "TRI",
+    "Meaning": "thông báo"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "ひにち",
+    "Kanji": "日日",
+    "HanViet": "NHẬT",
+    "Meaning": "ngày trong tháng"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "どようび",
+    "Kanji": "土曜日",
+    "HanViet": "THỔ DIỆU NHẬT",
+    "Meaning": "thứ 7"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "たいいくかん",
+    "Kanji": "体育館",
+    "HanViet": "THỂ DỤC QUÁN",
+    "Meaning": "phòng thể dục"
+  },
+  {
+    "Lesson": "28",
+    "HiraKata": "むりょう",
+    "Kanji": "無料",
+    "HanViet": "VÔ LIỆU",
+    "Meaning": "miễn phí"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "あきます I （ドアが～）",
+    "Kanji": "開きます",
+    "HanViet": "KHAI",
+    "Meaning": "mở (cửa)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "しまります I （ドアが～）",
+    "Kanji": "閉まります",
+    "HanViet": "BẾ",
+    "Meaning": "đóng (cửa)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "つきます I （でんきが～）",
+    "Kanji": "つきます （電気が～）",
+    "HanViet": "(ĐIỆN KHÍ)",
+    "Meaning": "bật, thắp sáng (đèn)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "きえます II （でんきが～）",
+    "Kanji": "消えます （電気が～）",
+    "HanViet": "TIÊU (ĐIỆN KHÍ)",
+    "Meaning": "tắt (đèn)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "こみます I （みちが～）",
+    "Kanji": "込みます （道が～）",
+    "HanViet": "NHẬP (ĐẠO)",
+    "Meaning": "đông (đường)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "すきます I （みちが～）",
+    "Kanji": "すきます （道が～）",
+    "HanViet": "(ĐẠO)",
+    "Meaning": "vắng (đường)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "こわれます II （いすが～）",
+    "Kanji": "壊れます （いすが～）",
+    "HanViet": "HOẠI",
+    "Meaning": "hỏng (ghế)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "われます II （コップが～）",
+    "Kanji": "割れます （コップが～）",
+    "HanViet": "CÁT",
+    "Meaning": ""
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "おれます II （きが～）",
+    "Kanji": "折れます （木が～）",
+    "HanViet": "TRIẾT (MỘC)",
+    "Meaning": "gãy (cây)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "やぶれます II （かみが～）",
+    "Kanji": "破れます （紙が～）",
+    "HanViet": "PHÁ (CHỈ)",
+    "Meaning": "rách (giấy)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "よごれます II （てが～）",
+    "Kanji": "汚れます （手が～）",
+    "HanViet": "Ô (THỦ)",
+    "Meaning": "dơ, bẩn (tay)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "つきます I （ポケットが～）",
+    "Kanji": "付きます （ポケットが～）",
+    "HanViet": "PHÓ",
+    "Meaning": "dính, đính (có túi)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "はずれます II （ボタンが～）",
+    "Kanji": "外れます （ボタンが～）",
+    "HanViet": "NGOẠI",
+    "Meaning": "tuột, bung, rời ra (cúc áo)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "「エレベーターが～」とまります II",
+    "Kanji": "止まります",
+    "HanViet": "CHỈ",
+    "Meaning": "dừng [thang máy]"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "まちがえます II",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nhầm lẫn, sai"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "おとします I",
+    "Kanji": "落とします",
+    "HanViet": "LẠC",
+    "Meaning": "làm rơi, rớt"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "「かぎが～」\n\nかかります I",
+    "Kanji": "「かぎが～」\n\n掛かります",
+    "HanViet": "QUẢI",
+    "Meaning": "khóa (chìa khóa)"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "ふきます I",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "lau chùi"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "とりかえます II",
+    "Kanji": "取り替えます",
+    "HanViet": "THỦ THẾ",
+    "Meaning": "thay"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "かたづけますII",
+    "Kanji": "片付けます",
+    "HanViet": "PHIẾN PHÓ",
+    "Meaning": "dọn dẹp"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "（お）さら",
+    "Kanji": "皿",
+    "HanViet": "MÃNH",
+    "Meaning": "đĩa"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "（お）ちゃわん",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "bát,chén"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "コップ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cốc"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "ガラス",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ly"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "ふくろ",
+    "Kanji": "袋",
+    "HanViet": "ĐẠI",
+    "Meaning": "túi"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "しょるい",
+    "Kanji": "書類",
+    "HanViet": "THƯ LOẠI",
+    "Meaning": "giấy tờ"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "えだ",
+    "Kanji": "枝",
+    "HanViet": "CHI",
+    "Meaning": "cành cây"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "えきいん",
+    "Kanji": "駅員",
+    "HanViet": "DỊCH VIÊN",
+    "Meaning": "nhân viên nhà ga"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "こうばん",
+    "Kanji": "交番",
+    "HanViet": "GIAO PHIÊN",
+    "Meaning": "đồn cảnh sát, bốt cảnh sát"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "スピーチ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "diễn văn"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "へんじ",
+    "Kanji": "返事",
+    "HanViet": "PHẢN SỰ",
+    "Meaning": "trả lời"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "おさきにどうぞ",
+    "Kanji": "お先にどうぞ",
+    "HanViet": "TIÊN",
+    "Meaning": "mời anh/chị cứ về trước"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "げんじものがたり",
+    "Kanji": "源氏物語",
+    "HanViet": "NGUYÊN THỊ VẬT NGỮ",
+    "Meaning": "tiểu thuyết được viết thời Heian"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "いまのでんしゃ",
+    "Kanji": "今の電車",
+    "HanViet": "KIM ĐIỆN XA",
+    "Meaning": "tàu điện vừa chạy"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "わすれもの",
+    "Kanji": "忘れ物",
+    "HanViet": "VONG VẬT",
+    "Meaning": "đồ bỏ quên"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "このくらい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cỡ tầm này, cỡ chừng này"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "がわ",
+    "Kanji": "側",
+    "HanViet": "TRẮC",
+    "Meaning": "phía…"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "ポケット",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "túi"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "へん",
+    "Kanji": "辺",
+    "HanViet": "BIÊN",
+    "Meaning": "chỗ, vùng…"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "おぼえていません",
+    "Kanji": "覚えていません",
+    "HanViet": "GIÁC",
+    "Meaning": "tôi không nhớ"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "あみだな",
+    "Kanji": "網棚",
+    "HanViet": "VÕNG BẰNG",
+    "Meaning": "giá để hành lý"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "たしか",
+    "Kanji": "確か",
+    "HanViet": "XÁC",
+    "Meaning": "chắc là"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "ああ、よかった",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ôi, may quá"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "じしん",
+    "Kanji": "地震",
+    "HanViet": "ĐỊA CHẤN",
+    "Meaning": "động đất"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "かべ",
+    "Kanji": "壁",
+    "HanViet": "BÍCH",
+    "Meaning": "bức tường"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "はり",
+    "Kanji": "針",
+    "HanViet": "CHÂM",
+    "Meaning": "kim đồng hồ"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "さします I",
+    "Kanji": "指します",
+    "HanViet": "CHỈ",
+    "Meaning": "chỉ"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "えきまえ",
+    "Kanji": "駅前",
+    "HanViet": "DỊCH TIỀN",
+    "Meaning": "trước ga"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "たおれます II",
+    "Kanji": "倒れます",
+    "HanViet": "ĐẢO",
+    "Meaning": "đổ"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "にしのほう",
+    "Kanji": "西の方",
+    "HanViet": "TÂY PHƯƠNG",
+    "Meaning": "phía tây"
+  },
+  {
+    "Lesson": "29",
+    "HiraKata": "もえます II",
+    "Kanji": "燃えます",
+    "HanViet": "NHIÊN",
+    "Meaning": "cháy"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "はります I",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "dán"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "かけます II",
+    "Kanji": "掛けます",
+    "HanViet": "QUẢI",
+    "Meaning": "treo"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "かざります I",
+    "Kanji": "飾ります",
+    "HanViet": "SỨC",
+    "Meaning": "trang trí"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ならべます II",
+    "Kanji": "並べます",
+    "HanViet": "TỊNH",
+    "Meaning": "xếp thành hàng"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "うえます II",
+    "Kanji": "植えます",
+    "HanViet": "THỰC",
+    "Meaning": "trồng (cây)"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "もどします I",
+    "Kanji": "戻します",
+    "HanViet": "LỆ",
+    "Meaning": "đưa về, trả về"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "まとめます II",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nhóm lại, tóm tắt"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "かたづけますII",
+    "Kanji": "方づけます",
+    "HanViet": "PHIẾN",
+    "Meaning": "dọn dẹp, sắp xếp"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "しまいます I",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cất vào, để vào"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "きめます II",
+    "Kanji": "決めます",
+    "HanViet": "QUYẾT",
+    "Meaning": "quyết định"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "しらせます II",
+    "Kanji": "知らせます",
+    "HanViet": "TRI",
+    "Meaning": "thông báo"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "そうだんします III",
+    "Kanji": "祖横断します",
+    "HanViet": "TƯƠNG ĐÀM",
+    "Meaning": "thảo luận, trao đổi , bàn bạc"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "よしゅうします III",
+    "Kanji": "予習します",
+    "HanViet": "DỰ TẬP",
+    "Meaning": "chuẩn bị bài mới"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ふくしゅうします III",
+    "Kanji": "復習します",
+    "HanViet": "PHỤC TẬP",
+    "Meaning": "ôn bài cũ"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "そのままにします III",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "để nguyên như thế"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "おこさん",
+    "Kanji": "お子さん",
+    "HanViet": "TỬ",
+    "Meaning": "con (dùng đối với người khác)"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "じゅぎょう",
+    "Kanji": "授業",
+    "HanViet": "THỤ NGHIỆP",
+    "Meaning": "giờ học"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "こうぎ",
+    "Kanji": "講義",
+    "HanViet": "GIẢNG NGHĨA",
+    "Meaning": "bài giảng"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ミーテイング",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cuộc họp"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "よてい",
+    "Kanji": "予定",
+    "HanViet": "DỰ ĐỊNH",
+    "Meaning": "kế hoạch, dự định"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "おしらせ",
+    "Kanji": "お知らせ",
+    "HanViet": "TRI",
+    "Meaning": "bản thông báo"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "あんないしょ",
+    "Kanji": "案内書",
+    "HanViet": "ÁN NỘI THƯ",
+    "Meaning": "tài liệu hướng dẫn"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "カレンダー",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "lịch , tờ lịch"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ポスター",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "tờ quảng cáo, tờ áp phích"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ごみばこ",
+    "Kanji": "ごみ箱",
+    "HanViet": "TƯƠNG",
+    "Meaning": "thùng rác"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "にんぎょう",
+    "Kanji": "人形",
+    "HanViet": "NHÂN HÌNH",
+    "Meaning": "con búp bê, con rối"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "かびん",
+    "Kanji": "花瓶",
+    "HanViet": "HOA BÌNH",
+    "Meaning": "lọ hoa"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "かがみ",
+    "Kanji": "鏡",
+    "HanViet": "KÍNH",
+    "Meaning": "cái gương"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ひきだし",
+    "Kanji": "引き出し",
+    "HanViet": "DẪN XUẤT",
+    "Meaning": "ngăn kéo"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "げんかん",
+    "Kanji": "玄関",
+    "HanViet": "HUYỀN QUAN",
+    "Meaning": "cửa vào"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ろうか",
+    "Kanji": "廊下",
+    "HanViet": "LANG HẠ",
+    "Meaning": "hành lang"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "かべ",
+    "Kanji": "壁",
+    "HanViet": "BÍCH",
+    "Meaning": "bức tường"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "いけ",
+    "Kanji": "池",
+    "HanViet": "TRÌ",
+    "Meaning": "cái ao"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "こうばん",
+    "Kanji": "交番",
+    "HanViet": "GIAO PHIÊN",
+    "Meaning": "trạm cảnh sát"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "もとのところ",
+    "Kanji": "元の　所",
+    "HanViet": "NGUYÊN SỞ",
+    "Meaning": "địa điểm ban đầu"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "まわり",
+    "Kanji": "周り",
+    "HanViet": "CHU",
+    "Meaning": "xung quanh"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "まんなか",
+    "Kanji": "真ん中",
+    "HanViet": "CHÂN TRUNG",
+    "Meaning": "giữa, trung tâm"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "すみ",
+    "Kanji": "隅",
+    "HanViet": "NGUNG",
+    "Meaning": "góc"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "まだ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "chưa"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "―ほど",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "chừng—"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "よていひょう",
+    "Kanji": "予定表",
+    "HanViet": "DỰ ĐỊNH BIỂU",
+    "Meaning": "thời khóa biểu"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ごくろうさま",
+    "Kanji": "ご苦労様",
+    "HanViet": "KHỔ LAO",
+    "Meaning": "anh, chị đã làm việc vất vả/cảm ơn anh, chị"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "きぼう",
+    "Kanji": "希望",
+    "HanViet": "HY VỌNG",
+    "Meaning": "hi vọng, nguyện vọng"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "なにかごきぼうがありますか",
+    "Kanji": "何かご希望がありますか",
+    "HanViet": "HÀ HY VỌNG",
+    "Meaning": "anh/chị có nguyện vọng gì không?"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ミュージカル",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ca kịch"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "それはいいですな",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "Hay quá nhỉ"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "まるい",
+    "Kanji": "丸い",
+    "HanViet": "HOÀN",
+    "Meaning": "tròn"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "つき",
+    "Kanji": "月",
+    "HanViet": "NGUYỆT",
+    "Meaning": "mặt trăng"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "ちきゅう",
+    "Kanji": "地球",
+    "HanViet": "ĐỊA CẦU",
+    "Meaning": "trái đất"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "うれしい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "vui"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "いや（な）",
+    "Kanji": "嫌（な）",
+    "HanViet": "HIỀM",
+    "Meaning": "chán, ghét, không chấp nhận được"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "すると",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "sau đó, tiếp đó"
+  },
+  {
+    "Lesson": "30",
+    "HiraKata": "めがさめます II",
+    "Kanji": "目が覚めます",
+    "HanViet": "MỤC GIÁC",
+    "Meaning": "tỉnh giấc, mở mắt"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "はじまります I 「しきが～」",
+    "Kanji": "始まります 「しきが～」",
+    "HanViet": "THỦY THỨC",
+    "Meaning": "bắt đầu (buổi lễ ~)"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "つづけます II",
+    "Kanji": "続ける",
+    "HanViet": "TỤC",
+    "Meaning": "tiếp tục"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "みつけます II",
+    "Kanji": "見つめます",
+    "HanViet": "KIẾN",
+    "Meaning": "tìm thấy"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "うけます II 「しけんを~」",
+    "Kanji": "受けます 「試験を～」",
+    "HanViet": "THỤ THÍ NGHIỆM",
+    "Meaning": "thi (kì thi)"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "にゅうがくしますIII 「だいがくに」",
+    "Kanji": "入学します 「大学に～」",
+    "HanViet": "NHẬP ĐẠI HỌC",
+    "Meaning": "nhập học"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "そつぎょうします III 「だいがくを」",
+    "Kanji": "卒業します 「大学に～」",
+    "HanViet": "TỐT NGHIỆP ĐẠI HỌC",
+    "Meaning": "tốt nghiệp"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "きゅうけいします III",
+    "Kanji": "休憩します",
+    "HanViet": "HUƯ KHẾ",
+    "Meaning": "giải lao"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "れんきゅう",
+    "Kanji": "連休",
+    "HanViet": "LIÊN HƯU",
+    "Meaning": "ngày nghỉ liền nhay"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "さくぶん",
+    "Kanji": "作文",
+    "HanViet": "TÁC VĂN",
+    "Meaning": "bài văn"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "てんらんかい",
+    "Kanji": "展覧会",
+    "HanViet": "TRIỂN LÃM HỘI",
+    "Meaning": "triển lãm"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "けっこんしき",
+    "Kanji": "結婚式",
+    "HanViet": "KẾT HÔN THỨC",
+    "Meaning": "lễ cưới, đám cưới"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "「お」そうしき",
+    "Kanji": "「お」葬式",
+    "HanViet": "TÁNG THỨC",
+    "Meaning": "lễ tang, đám tang"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "しき",
+    "Kanji": "式",
+    "HanViet": "THỨC",
+    "Meaning": "buổi lễ"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "ほんしゃ",
+    "Kanji": "本社",
+    "HanViet": "BẢN XÃ",
+    "Meaning": "trụ sở"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "してん",
+    "Kanji": "支店",
+    "HanViet": "CHI ĐIẾM",
+    "Meaning": "chi nhánh"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "きょうかい",
+    "Kanji": "教会",
+    "HanViet": "GIÁO HỘI",
+    "Meaning": "nhà thờ"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "だいがくいん",
+    "Kanji": "大学院",
+    "HanViet": "ĐẠI HỌC VIỆN",
+    "Meaning": "cao học, cơ sở giáo dục trên đại học"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "どうぶつえん",
+    "Kanji": "動物園",
+    "HanViet": "ĐỘNG VẬT VIÊN",
+    "Meaning": "sở thú"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "おんせん",
+    "Kanji": "温泉",
+    "HanViet": "ÔN TUYỀN",
+    "Meaning": "suối nước nóng"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "おきゃく「さん」",
+    "Kanji": "お客「さん」",
+    "HanViet": "KHÁCH",
+    "Meaning": "khách hàng"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "だれか",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ai đó"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "～のほう",
+    "Kanji": "～の　方",
+    "HanViet": "PHƯƠNG",
+    "Meaning": "hướng~"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "ずっと",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "suốt,liền"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "のこります",
+    "Kanji": "残ります",
+    "HanViet": "TÀN",
+    "Meaning": "ở lại"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "つきに",
+    "Kanji": "月に",
+    "HanViet": "NGUYỆT",
+    "Meaning": "một tháng"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "ふつうの",
+    "Kanji": "普通の",
+    "HanViet": "PHỔ THÔNG",
+    "Meaning": "thường"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "インターネット",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "internet"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "むら",
+    "Kanji": "村",
+    "HanViet": "THÔN",
+    "Meaning": "làng"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "えいがかん",
+    "Kanji": "映画館",
+    "HanViet": "ẢNH HỌA QUÁN",
+    "Meaning": "rạp chiếu phim"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "いや「な」",
+    "Kanji": "嫌「な」",
+    "HanViet": "HIỀM",
+    "Meaning": "chán ghét, không chấp nhận được"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "そら",
+    "Kanji": "空",
+    "HanViet": "KHÔNG",
+    "Meaning": "bầu trời"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "とじます II",
+    "Kanji": "閉じます",
+    "HanViet": "BẾ",
+    "Meaning": "nhắm"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "とかい",
+    "Kanji": "都会",
+    "HanViet": "ĐÔ HỘI",
+    "Meaning": "thành phố"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "こどもたち",
+    "Kanji": "子供たち",
+    "HanViet": "TỬ CUNG",
+    "Meaning": "bọn trẻ"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "じゆうに",
+    "Kanji": "自由に",
+    "HanViet": "TỰ DO",
+    "Meaning": "tự do"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "せかいじゅう",
+    "Kanji": "世界中",
+    "HanViet": "THẾ GIỚI TRUNG",
+    "Meaning": "khắp thể giới"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "あつまります I",
+    "Kanji": "集まります",
+    "HanViet": "TẬP",
+    "Meaning": "tập hợp"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "うつくしい",
+    "Kanji": "美しい",
+    "HanViet": "MỸ",
+    "Meaning": "đẹp"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "しぜん",
+    "Kanji": "自然",
+    "HanViet": "TỰ NHIÊN",
+    "Meaning": "thiên nhiên"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "すばらしさ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "tuyệt vời"
+  },
+  {
+    "Lesson": "31",
+    "HiraKata": "きがつきます I",
+    "Kanji": "気が付きます",
+    "HanViet": "KHÍ THỤ",
+    "Meaning": "để ý, nhận ra"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "うんどうします",
+    "Kanji": "運動します",
+    "HanViet": "VẬN ĐỘNG",
+    "Meaning": "vận động, tập thể thao"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "せいこうします",
+    "Kanji": "成功します",
+    "HanViet": "THÀNH CÔNG",
+    "Meaning": "thành công"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "しっぱいします（しけんに～）",
+    "Kanji": "失敗します（試験に～）",
+    "HanViet": "THẤT BẠI (THÍ NGHIỆM)",
+    "Meaning": "thất bại, trượt"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ごうかくします（しけんに～）",
+    "Kanji": "合格します（試験に～）",
+    "HanViet": "HỢP CÁCH (THÍ NGHIỆM)",
+    "Meaning": "đỗ"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "もどります",
+    "Kanji": "戻ります",
+    "HanViet": "LỆ",
+    "Meaning": "quay lại, trở lại"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "やみます（雨が～）",
+    "Kanji": "",
+    "HanViet": "VŨ",
+    "Meaning": "tạnh ,ngừng"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "はれます",
+    "Kanji": "晴れます",
+    "HanViet": "TÌNH",
+    "Meaning": "nắng, quang đãng"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "くもります",
+    "Kanji": "曇ります",
+    "HanViet": "ĐÀM",
+    "Meaning": "có mây, mây mù"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ふきます（かぜが～）",
+    "Kanji": "吹きます（風が～）",
+    "HanViet": "PHONG XÚY",
+    "Meaning": "thổi"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "なおります",
+    "Kanji": "治ります、直ります",
+    "HanViet": "TRỊ/TRỰC",
+    "Meaning": "khỏi"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "つづきます",
+    "Kanji": "続きます",
+    "HanViet": "TỤC",
+    "Meaning": "tiếp tục, tiếp diễn"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ひやします",
+    "Kanji": "冷やします",
+    "HanViet": "LÃNH",
+    "Meaning": "làm lạnh"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "しんぱい（な）",
+    "Kanji": "心配（な）",
+    "HanViet": "TÂM PHỐI",
+    "Meaning": "lo lắng"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "じゅうぶん（な）",
+    "Kanji": "十分（な）",
+    "HanViet": "THẬP PHÂN",
+    "Meaning": "đủ"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "おかしい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "có vấn đề, không bình thường"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "うるさい",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ồn ào"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "やけど",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "bỏng"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "けが",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "bị thương"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "せき",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ho"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "インフルエンザ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cúm dịch"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "そら",
+    "Kanji": "空",
+    "HanViet": "KHÔNG",
+    "Meaning": "bầu trời"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "たいよう",
+    "Kanji": "太陽",
+    "HanViet": "THÍA DƯƠNG",
+    "Meaning": "mặt trời"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ほし",
+    "Kanji": "星",
+    "HanViet": "TINH",
+    "Meaning": "ngôi sao"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "つき",
+    "Kanji": "月",
+    "HanViet": "NGUYỆT",
+    "Meaning": "mặt trăng"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "かぜ",
+    "Kanji": "風",
+    "HanViet": "PHONG",
+    "Meaning": "gió"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "きた",
+    "Kanji": "北",
+    "HanViet": "BẮC",
+    "Meaning": "phía bắc"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "みなみ",
+    "Kanji": "南",
+    "HanViet": "NAM",
+    "Meaning": "phía nam"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "にし",
+    "Kanji": "西",
+    "HanViet": "TÂY",
+    "Meaning": "phía tây"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ひがし",
+    "Kanji": "東",
+    "HanViet": "ĐÔNG",
+    "Meaning": "phía đông"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "すいどう",
+    "Kanji": "隧道",
+    "HanViet": "THỦY ĐẠO",
+    "Meaning": "nước máy"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "エンジン",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "động cơ"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "チーム",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "đội"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "こんや",
+    "Kanji": "今夜",
+    "HanViet": "KIM DẠ",
+    "Meaning": "tối nay, đêm nay"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ゆうがた",
+    "Kanji": "夕方",
+    "HanViet": "TỊCH PHƯƠNG",
+    "Meaning": "chiều tối"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "まえ",
+    "Kanji": "前",
+    "HanViet": "TIỀN",
+    "Meaning": "trước"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "おそく",
+    "Kanji": "遅く",
+    "HanViet": "TRÌ",
+    "Meaning": "muộn , khuya"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "こんなに",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "như thế này"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "そんなに",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "như thế đó"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "あんなに",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "như thế kia"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "もしかしたら",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "có thể, biết dâu là, có khả năng"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "それはいけませんね",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thế thì thật không tốt."
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "オリンピック",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "olympic"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "げんき",
+    "Kanji": "元気",
+    "HanViet": "NGUYÊN KHÍ",
+    "Meaning": "khỏe mạnh"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "い",
+    "Kanji": "胃",
+    "HanViet": "VỊ",
+    "Meaning": "dạ dày"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "はたらきすぎ",
+    "Kanji": "働きすぎ",
+    "HanViet": "ĐỘNG",
+    "Meaning": "làm việc quá sức"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ストレス",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "stress, căng thẳng tâm lý"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "むりをします",
+    "Kanji": "無理をします",
+    "HanViet": "VÔ LÝ",
+    "Meaning": "làm quá sức"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ゆっくりします",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nghỉ ngơi, thư thái, dưỡng sức"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "ほしうらない",
+    "Kanji": "星占い",
+    "HanViet": "TINH CHIẾM",
+    "Meaning": "bói sao"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "おうしざ",
+    "Kanji": "牡牛座",
+    "HanViet": "MẪU NGƯU TỌA",
+    "Meaning": "chòm sao Kim Ngưu"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "こまります",
+    "Kanji": "困ります",
+    "HanViet": "KHỐN",
+    "Meaning": "rắc rối, khó xử, vấn đề"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "たからくじ",
+    "Kanji": "「宝くじ",
+    "HanViet": "BẢO",
+    "Meaning": "xổ số"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "あたります（たからくじが～）",
+    "Kanji": "当たります（宝くじが～）",
+    "HanViet": "ĐƯƠNG (BẢO)",
+    "Meaning": "trúng(số)"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "けんこう",
+    "Kanji": "健康",
+    "HanViet": "KIỆN KHANG",
+    "Meaning": "sức khỏe"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "れんあい",
+    "Kanji": "恋愛",
+    "HanViet": "LUYẾN ÁI",
+    "Meaning": "tình yêu"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "こいびと",
+    "Kanji": "恋人",
+    "HanViet": "LUYẾN NHÂN",
+    "Meaning": "người yêu"
+  },
+  {
+    "Lesson": "32",
+    "HiraKata": "（お）かねもち",
+    "Kanji": "(お）金持ち",
+    "HanViet": "KIM TRÌ",
+    "Meaning": "người giàu có"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "にげます II",
+    "Kanji": "逃げます",
+    "HanViet": "ĐÀO",
+    "Meaning": "chạy trốn, bỏ chạy"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "さわぎますI",
+    "Kanji": "騒ぎます",
+    "HanViet": "TAO",
+    "Meaning": "làm ồn, làm rùm beng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "あきらめます II",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "từ bỏ, đầu hàng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "なげますII",
+    "Kanji": "投げます",
+    "HanViet": "ĐẦU",
+    "Meaning": "ném"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "まもります I",
+    "Kanji": "守ります",
+    "HanViet": "THỦ",
+    "Meaning": "bảo vệ, tuân thủ"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "あげます II",
+    "Kanji": "上げます",
+    "HanViet": "THƯỢNG",
+    "Meaning": "nâng lên, tăng lên"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "さげます II",
+    "Kanji": "下げます",
+    "HanViet": "HẠ",
+    "Meaning": "hạ xuống, giảm xuống"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "つたえます II",
+    "Kanji": "伝えます",
+    "HanViet": "TRUYỀN",
+    "Meaning": "truyền đạt"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ちゅういしますIII",
+    "Kanji": "注意します",
+    "HanViet": "CHÚ Ý",
+    "Meaning": "chú ý"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "はずします I",
+    "Kanji": "外します",
+    "HanViet": "NGOẠI",
+    "Meaning": "rời, không có ở (chỗ ngồi)"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "だめ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "không được, không thể"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "せき",
+    "Kanji": "席",
+    "HanViet": "TỊCH",
+    "Meaning": "chỗ ngồi, ghế"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ファイト",
+    "Kanji": "（な）",
+    "HanViet": "",
+    "Meaning": "’quyết chiến’, ‘cố lên’"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "マーク",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "kí hiệu"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ボール",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "quả bóng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "せんたくき",
+    "Kanji": "洗濯機",
+    "HanViet": "TẨY TRẠC CƠ",
+    "Meaning": "máy giặt"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "―き",
+    "Kanji": "ー機",
+    "HanViet": "CƠ",
+    "Meaning": "máy–"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "きそく",
+    "Kanji": "規則",
+    "HanViet": "QUY TẮC",
+    "Meaning": "quy tắc, kỷ luật"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "しようきんし",
+    "Kanji": "使用禁止",
+    "HanViet": "SỬ DỤNG CẤM CHỈ",
+    "Meaning": "cấm sử dụng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "たちいりきんし",
+    "Kanji": "立ち入り禁止",
+    "HanViet": "LẬP NHẬP CẤM CHỈ",
+    "Meaning": "cấm vào"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "いりぐち",
+    "Kanji": "入口",
+    "HanViet": "NHẬP KHẨU",
+    "Meaning": "cửa vào"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "でぐち",
+    "Kanji": "出口",
+    "HanViet": "XUẤT KHẨU",
+    "Meaning": "cửa ra"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ひじょうぐち",
+    "Kanji": "非常口",
+    "HanViet": "PHI THƯỜNG KHẨU",
+    "Meaning": "cửa thoát hiểm"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "むりょう",
+    "Kanji": "無料",
+    "HanViet": "VÔ LIỆU",
+    "Meaning": "miễn phí"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ほんじつきゅうぎょう",
+    "Kanji": "本日休業",
+    "HanViet": "BẢN NHẬT HƯU NGHIỆP",
+    "Meaning": "hôm nay đóng cửa, hôm nay nghỉ"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "えいぎょうちゅう",
+    "Kanji": "営業中",
+    "HanViet": "DOANH NGHIỆP TRUNG",
+    "Meaning": "đang mở cửa"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "しようちゅう",
+    "Kanji": "使用中",
+    "HanViet": "SỬ DỤNG TRUNG",
+    "Meaning": "đang sử dụng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "―ちゅう",
+    "Kanji": "ー中",
+    "HanViet": "TRUNG",
+    "Meaning": "đang–"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "どういうー",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "–gì, — thế nào"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "もう",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "không—nữa"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "あと",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "còn~"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ちゅうしゃいはん",
+    "Kanji": "駐車違反",
+    "HanViet": "TRÚ XA VI PHẢN",
+    "Meaning": "đỗ xe trái phép"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "そりゃあ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thế thì ,ồ"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "～いない",
+    "Kanji": "～以内",
+    "HanViet": "NỘI",
+    "Meaning": "~trong khoảng, ~trong vòng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "けいさつ",
+    "Kanji": "警察",
+    "HanViet": "CẢNH SÁT",
+    "Meaning": "cảnh sát"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ばっきん",
+    "Kanji": "罰金",
+    "HanViet": "PHẠT KIM",
+    "Meaning": "tiền phạt"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "でんぽう",
+    "Kanji": "電報",
+    "HanViet": "ĐIỆN BÁO",
+    "Meaning": "điện báo"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "ひとびと",
+    "Kanji": "人々",
+    "HanViet": "NHÂN",
+    "Meaning": "nhiều người"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "きゅうよう",
+    "Kanji": "急用",
+    "HanViet": "CẤP DỤNG",
+    "Meaning": "việc gấp"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "うちます（でんぽうを）",
+    "Kanji": "打ちます（電報を）",
+    "HanViet": "ĐIỆN BÁO ĐẢ",
+    "Meaning": "gửi(điện báo)"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "でんぽうだい",
+    "Kanji": "電報代",
+    "HanViet": "ĐIỆN BÁO ĐẠI",
+    "Meaning": "phí điện báo"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "できるだけ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cố gắng, trong khả năng có thể"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "みじかく",
+    "Kanji": "短く",
+    "HanViet": "ĐOẢN",
+    "Meaning": "ngắn gọn"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "また",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thêm nữa"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "たとえば",
+    "Kanji": "例えば",
+    "HanViet": "LỆ",
+    "Meaning": "ví dụ"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "キトク",
+    "Kanji": "危篤",
+    "HanViet": "NGUY ĐỐC",
+    "Meaning": "tình trạng hiểm nghèo"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "おもいびょうき",
+    "Kanji": "重い病気",
+    "HanViet": "TRỌNG BỆNH KHÍ",
+    "Meaning": "bệnh nặng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "あす",
+    "Kanji": "明日",
+    "HanViet": "MINH NHẬT",
+    "Meaning": "ngày mai"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "るす",
+    "Kanji": "留守",
+    "HanViet": "LƯU THỦ",
+    "Meaning": "vắng nhà"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "るすばん",
+    "Kanji": "留守番",
+    "HanViet": "LƯU THỦ PHIÊN",
+    "Meaning": "trông nhà, giữ nhà"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "(お）いわい",
+    "Kanji": "（お）祝い",
+    "HanViet": "CHÚC",
+    "Meaning": "việc mừng"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "なくなります I",
+    "Kanji": "亡くなります",
+    "HanViet": "VONG",
+    "Meaning": "mất,chết"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "かなしい",
+    "Kanji": "悲しい",
+    "HanViet": "BI",
+    "Meaning": "buồn"
+  },
+  {
+    "Lesson": "33",
+    "HiraKata": "りようします",
+    "Kanji": "利用します",
+    "HanViet": "LỢI DỤNG",
+    "Meaning": "sử dụng, lợi dụng, tận dụng"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "みがきます 「歯を～」",
+    "Kanji": "磨きます 「はを～」",
+    "HanViet": "XỈ MA",
+    "Meaning": "mài, đánh (răng)"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "くみたてます",
+    "Kanji": "組み立てます",
+    "HanViet": "TỔ LẬP",
+    "Meaning": "lắp ráp, lắp đặt"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "おります",
+    "Kanji": "折ります",
+    "HanViet": "TRIẾT (MỘC)",
+    "Meaning": "gấp, gập, bẻ gãy"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "きがつきます 「わすれものに～」",
+    "Kanji": "気が付きます 「忘れ物に～」",
+    "HanViet": "KHÍ PHÓ VONG VẬT",
+    "Meaning": "nhận thấy, phát hiện"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "つけます 「しょうゆを～」",
+    "Kanji": "付けます 「醤油を～」",
+    "HanViet": "PHÓ",
+    "Meaning": "chấm"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "みつかります 「かぎが～」",
+    "Kanji": "見つかります 「鍵が～」",
+    "HanViet": "KIẾN KIỆN",
+    "Meaning": "được tìm thấy"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "します（ネクタイを）",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "đeo , thắt"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "しつもんします",
+    "Kanji": "質問します",
+    "HanViet": "CHẤT VẤN",
+    "Meaning": "hỏi"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ほそい",
+    "Kanji": "細い",
+    "HanViet": "TẾ",
+    "Meaning": "gầy, hẹp, thon"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ふとい",
+    "Kanji": "太い",
+    "HanViet": "THÁI",
+    "Meaning": "béo, to"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ぼんおどり",
+    "Kanji": "盆踊り",
+    "HanViet": "BỒN DŨNG",
+    "Meaning": "múa trong hội bon"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "スポーツクラブ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "câu lạc bộ thể thao"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "かぐ",
+    "Kanji": "家具",
+    "HanViet": "GIA CỤ",
+    "Meaning": "gia cụ , đồ dùng nội thất"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "キー",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "chìa khóa"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "シートべルト",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "dây an toàn"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "せつめいしょ",
+    "Kanji": "説明書",
+    "HanViet": "THUYẾT MINH THƯ",
+    "Meaning": "quyển hướng dẫn"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ず",
+    "Kanji": "図",
+    "HanViet": "ĐỒ",
+    "Meaning": "sơ đồ, hình vẽ"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "せん",
+    "Kanji": "線",
+    "HanViet": "TUYẾN",
+    "Meaning": "đường"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "やじるし",
+    "Kanji": "矢印",
+    "HanViet": "THỈ ẤN",
+    "Meaning": "dấu mũi tên"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "くろ",
+    "Kanji": "黒",
+    "HanViet": "HẮC",
+    "Meaning": "màu đen"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "しろ",
+    "Kanji": "白",
+    "HanViet": "BẠCH",
+    "Meaning": "màu trắng"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "あか",
+    "Kanji": "赤",
+    "HanViet": "XÍCH",
+    "Meaning": "màu đỏ"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "あお",
+    "Kanji": "青",
+    "HanViet": "THANH",
+    "Meaning": "màu xanh da trời"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "こん",
+    "Kanji": "紺",
+    "HanViet": "CÁM",
+    "Meaning": "màu xanh lam"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "きいろ",
+    "Kanji": "黄色",
+    "HanViet": "HOÀNG SẮC",
+    "Meaning": "màu vàng"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ちゃいろ",
+    "Kanji": "茶色",
+    "HanViet": "TRÀ SẮC",
+    "Meaning": "màu nâu"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "しょうゆ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "xì- dầu"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ソース",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nước chấm, nước xốt"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ゆうべ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "tối qua, đêm qua"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "さっき",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "vừa rồi, vừa lúc nãy"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "さどう",
+    "Kanji": "茶道",
+    "HanViet": "TRÀ ĐẠO",
+    "Meaning": "trà đạo"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "おちゃおたてます",
+    "Kanji": "お茶をたてます",
+    "HanViet": "TRÀ",
+    "Meaning": "pha trà"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "さきに",
+    "Kanji": "先に",
+    "HanViet": "TIÊN",
+    "Meaning": "trước"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "のせます",
+    "Kanji": "載せます",
+    "HanViet": "TẢI",
+    "Meaning": "đặt lên"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "これでいいですか",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "Thế này được không/đã được chưa"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "にがい",
+    "Kanji": "苦い",
+    "HanViet": "KHỔ",
+    "Meaning": "đắng"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "おやこどんぶり",
+    "Kanji": "親子どんぶり",
+    "HanViet": "THÂN TỬ",
+    "Meaning": "món oyako-don"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ざいりょう",
+    "Kanji": "材料",
+    "HanViet": "TÀI LIỆU",
+    "Meaning": "nguyên liêu"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ーぶん",
+    "Kanji": "ー分",
+    "HanViet": "PHÂN",
+    "Meaning": "-suất / -người"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "とりにく",
+    "Kanji": "鶏肉",
+    "HanViet": "ĐIỂU NHỤC",
+    "Meaning": "thịt gà"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ーグラマ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "gam-"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "たまねぎ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "hành củ"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "よんぶんの１",
+    "Kanji": "四分の１",
+    "HanViet": "TỨ PHÂN",
+    "Meaning": "4-Jan"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ちょうみりょう",
+    "Kanji": "調味料",
+    "HanViet": "ĐIỀU VỊ LIỆU",
+    "Meaning": "gia vị"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "なべ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nấp"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ひ",
+    "Kanji": "火",
+    "HanViet": "HỎA",
+    "Meaning": "lửa"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "ひにかけます",
+    "Kanji": "火にかけます",
+    "HanViet": "HỎA",
+    "Meaning": "đun"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "にます",
+    "Kanji": "煮ます",
+    "HanViet": "CHỬ",
+    "Meaning": "nấu"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "にえます",
+    "Kanji": "煮えます",
+    "HanViet": "CHỬ",
+    "Meaning": "chín,được nấu"
+  },
+  {
+    "Lesson": "34",
+    "HiraKata": "どんぶり",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cái bát"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "さきます 「はなが～」",
+    "Kanji": "咲きます 「花が～」",
+    "HanViet": "TIẾU HOA",
+    "Meaning": "nở (hoa)"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "かわります 「いろが～」",
+    "Kanji": "変わります 「色が～」",
+    "HanViet": "BIẾN SẮC",
+    "Meaning": "thay đổi, đổi"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "こまります",
+    "Kanji": "困ります",
+    "HanViet": "KHỐN",
+    "Meaning": "rắc rối, khó xử, có vấn đề"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "つけます",
+    "Kanji": "付けます",
+    "HanViet": "PHÓ",
+    "Meaning": "vẽ , đánh dấu"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ひろいます",
+    "Kanji": "拾います",
+    "HanViet": "THẬP",
+    "Meaning": "nhặt lên"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "かかります 「でんわが～」",
+    "Kanji": "「電話が～」",
+    "HanViet": "ĐIỆN THOẠI",
+    "Meaning": "có điện thoại"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "らく（な）",
+    "Kanji": "楽（な）",
+    "HanViet": "LẠC",
+    "Meaning": "thoải mái, nhàn hạ, dễ dàng"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ただしい",
+    "Kanji": "正しい",
+    "HanViet": "CHÍNH",
+    "Meaning": "đúng, chính xác"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "めずらしい",
+    "Kanji": "珍しい",
+    "HanViet": "TRÂN",
+    "Meaning": "hiếm có"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "かた",
+    "Kanji": "方",
+    "HanViet": "PHƯƠNG",
+    "Meaning": "vị, người"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "むこう",
+    "Kanji": "向こう",
+    "HanViet": "HƯỚNG",
+    "Meaning": "bên kia, bên đấy"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "しま",
+    "Kanji": "島",
+    "HanViet": "ĐẢO",
+    "Meaning": "đảo, hòn đảo"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "むら",
+    "Kanji": "村",
+    "HanViet": "THÔN",
+    "Meaning": "làng"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "みなと",
+    "Kanji": "港",
+    "HanViet": "CẢNG",
+    "Meaning": "cảng, bến cảng"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "きんじょ",
+    "Kanji": "近所",
+    "HanViet": "CẬN SỞ",
+    "Meaning": "hàng xóm, khu vực lân cận"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "おくじょう",
+    "Kanji": "屋上",
+    "HanViet": "ỐC THƯỢNG",
+    "Meaning": "mái nhà, nóc nhà"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "かいがい",
+    "Kanji": "海外",
+    "HanViet": "HẢI NGOẠI",
+    "Meaning": "nước ngoài, hải ngoại"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "やまのぼり",
+    "Kanji": "山登り",
+    "HanViet": "SƠN ĐĂNG",
+    "Meaning": "leo núi"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ハイキング",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "đi bộ trên núi"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "きかい",
+    "Kanji": "機会",
+    "HanViet": "CƠ HỘI",
+    "Meaning": "cơ hội"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "きょか",
+    "Kanji": "許可",
+    "HanViet": "HỨA KHẢ",
+    "Meaning": "phép, giấy phép"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "まる",
+    "Kanji": "丸",
+    "HanViet": "HOÀN",
+    "Meaning": "tròn, vòng tròn"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "そうさ",
+    "Kanji": "操作",
+    "HanViet": "THAO TÁC",
+    "Meaning": "thao tác"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ほうほう",
+    "Kanji": "方法",
+    "HanViet": "PHƯƠNG PHÁP",
+    "Meaning": "phương pháp"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "せつび",
+    "Kanji": "設備",
+    "HanViet": "THIẾT BỊ",
+    "Meaning": "thiết bị"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "カ－テン",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cái rèm"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ひも",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "sợi dây"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ふた",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cái nắp"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "は",
+    "Kanji": "葉",
+    "HanViet": "DIỆP",
+    "Meaning": "cái lá"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "きょく",
+    "Kanji": "曲",
+    "HanViet": "KHÚC",
+    "Meaning": "bài hát, bản nhạc"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "たのしみ",
+    "Kanji": "楽しみ",
+    "HanViet": "LẠC",
+    "Meaning": "niềm vui, điều vui"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "もっと",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "hơn , nữa"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "はじめに",
+    "Kanji": "初めに",
+    "HanViet": "SƠ",
+    "Meaning": "đầu tiên , trước hết"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "これでおわります",
+    "Kanji": "これで終わります",
+    "HanViet": "CHUNG",
+    "Meaning": "đến đây là hết, chúng ta dừng ở đây"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "それなら",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nếu thế thì, vậy thì"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "やこうバス",
+    "Kanji": "夜行バス",
+    "HanViet": "DẠ HÀNH",
+    "Meaning": "xe buýt chạy đêm"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "りょこうしゃ",
+    "Kanji": "旅行社",
+    "HanViet": "LỮ HÀNH XÃ",
+    "Meaning": "công ty du lịch"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "くわしい",
+    "Kanji": "詳しい",
+    "HanViet": "TƯỜNG",
+    "Meaning": "cụ thể, chi tiết"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "スキーじょう",
+    "Kanji": "スキー場",
+    "HanViet": "TRƯỜNG",
+    "Meaning": "bãi trượt tuyết"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "しゅ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "đỏ, màu đỏ"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "まじわります",
+    "Kanji": "交わります",
+    "HanViet": "GIAO",
+    "Meaning": "giao lưu, quan hệ với"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ことわざ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "tục ngữ"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "なかよくします",
+    "Kanji": "仲よくします",
+    "HanViet": "TRỌNG",
+    "Meaning": "quan hệ tốt với, chơi thân với"
+  },
+  {
+    "Lesson": "35",
+    "HiraKata": "ひつよう（な）",
+    "Kanji": "必要（な）",
+    "HanViet": "TẤT YẾU",
+    "Meaning": "cần thiết"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "とどきます",
+    "Kanji": "届きます",
+    "HanViet": "GIỚI",
+    "Meaning": "được gửi đến, được chuyển đến"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "でます",
+    "Kanji": "出ます",
+    "HanViet": "XUẤT",
+    "Meaning": "tham gia, tham dự"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "うちます",
+    "Kanji": "打ちます",
+    "HanViet": "ĐẢ",
+    "Meaning": "đánh"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "ちょきんします",
+    "Kanji": "貯金します",
+    "HanViet": "TRỮ KIM",
+    "Meaning": "tiết kiệm tiền, để dành tiền"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "ふとります",
+    "Kanji": "太ります",
+    "HanViet": "THÁI",
+    "Meaning": "béo lên, tăng cân"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "やせます",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "gầy đi, giảm cân"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "すぎます",
+    "Kanji": "過ぎます",
+    "HanViet": "QUÁ",
+    "Meaning": "quá"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "なれます",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "làm quen, quen"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "かたい",
+    "Kanji": "硬い",
+    "HanViet": "NGẠNH",
+    "Meaning": "cứng"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "やわらかい",
+    "Kanji": "軟らかい",
+    "HanViet": "NHUYỄN",
+    "Meaning": "mềm"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "でんしー",
+    "Kanji": "電子ー",
+    "HanViet": "ĐIỆN TỬ",
+    "Meaning": "– điện tử"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "けいたいー",
+    "Kanji": "携帯ー",
+    "HanViet": "HUỀ ĐỚI",
+    "Meaning": "– cầm tay"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "こうじょう",
+    "Kanji": "工場",
+    "HanViet": "CÔNG TRƯỜNG",
+    "Meaning": "nhà máy, phân xưởng"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "けんこう",
+    "Kanji": "健康",
+    "HanViet": "KIỆN KHANG",
+    "Meaning": "sức khỏe"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "けんどう",
+    "Kanji": "剣道",
+    "HanViet": "KIẾM ĐẠO",
+    "Meaning": "kiếm đạo"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "まいしゅう",
+    "Kanji": "毎週",
+    "HanViet": "MỖI CHU",
+    "Meaning": "hàng tuần"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "まいつき",
+    "Kanji": "毎月",
+    "HanViet": "MỖI NGUYỆT",
+    "Meaning": "hàng tháng"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "まいとし",
+    "Kanji": "毎年",
+    "HanViet": "MỖI NIÊN",
+    "Meaning": "hàng năm"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "やっと",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cuối cùng thì"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "かなり",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "khá, tương đối"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "かならず",
+    "Kanji": "必ず",
+    "HanViet": "TẤT",
+    "Meaning": "nhất định"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "ぜったいに",
+    "Kanji": "絶対に",
+    "HanViet": "TUYỆT ĐỐI",
+    "Meaning": "tuyệt đối"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "じょうずに",
+    "Kanji": "上手に",
+    "HanViet": "THƯỢNG THỦ",
+    "Meaning": "giỏi, khéo"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "できるだけ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cố gắng"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "このごろ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "gần đây, dạo này"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "そのほうがー",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cái đó–hơn"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "おきゃくさま",
+    "Kanji": "お客様",
+    "HanViet": "KHÁCH DẠNG",
+    "Meaning": "khách hàng"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "とくべつ（な）",
+    "Kanji": "特別（な）",
+    "HanViet": "ĐẶC BIỆT",
+    "Meaning": "đặc biệt"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "していらっしゃいます",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "đang làm (tôn kính ngữ của しています）"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "すいえい",
+    "Kanji": "水泳",
+    "HanViet": "THỦY VĨNH",
+    "Meaning": "môn bơi lội"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "～とか、～とか",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "vâng vâng"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "タンゴ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "tango"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "チャレンジします",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "thách thức, thử thách"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "きもち",
+    "Kanji": "気持ち",
+    "HanViet": "KHÍ TRÌ",
+    "Meaning": "cảm giác, tâm trạng, tinh thần"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "のりもの",
+    "Kanji": "乗り物",
+    "HanViet": "THỪA VẬT",
+    "Meaning": "phương tiện đi lại"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "れきし",
+    "Kanji": "歴史",
+    "HanViet": "LỊCH SỬ",
+    "Meaning": "lịch sử"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "ーせいき",
+    "Kanji": "ー世紀",
+    "HanViet": "THẾ KỈ",
+    "Meaning": "thế kỉ-"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "とおく",
+    "Kanji": "遠く",
+    "HanViet": "VIỄN",
+    "Meaning": "xa, ở xa"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "きしゃ",
+    "Kanji": "汽車",
+    "HanViet": "KHÍ XA",
+    "Meaning": "tàu hỏa chạy bằng hơi nước"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "きせん",
+    "Kanji": "汽船",
+    "HanViet": "KHÍ THUYỀN",
+    "Meaning": "thuyền chạy bằng hơi nước"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "おおぜいの（ひと）",
+    "Kanji": "大勢の（人）",
+    "HanViet": "ĐẠI THẾ",
+    "Meaning": "nhiều (người)"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "はこびます",
+    "Kanji": "運びます",
+    "HanViet": "VẬN",
+    "Meaning": "vận chuyển"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "あんぜん（な）",
+    "Kanji": "安全（な）",
+    "HanViet": "AN TOÀN",
+    "Meaning": "an toàn"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "とびます",
+    "Kanji": "飛びます",
+    "HanViet": "PHI",
+    "Meaning": "bay"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "うちゅう",
+    "Kanji": "宇宙",
+    "HanViet": "VŨ TRỤ",
+    "Meaning": "vũ trụ"
+  },
+  {
+    "Lesson": "36",
+    "HiraKata": "ちきゅう",
+    "Kanji": "地球",
+    "HanViet": "ĐỊA CẦU",
+    "Meaning": "trái đất"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ほめます",
+    "Kanji": "褒めます",
+    "HanViet": "BAO",
+    "Meaning": "khen"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "しかります",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "mắng"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "さそいます",
+    "Kanji": "誘いますね",
+    "HanViet": "DỤ",
+    "Meaning": "mời, rủ rê"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "おこします",
+    "Kanji": "起こします",
+    "HanViet": "KHỞI",
+    "Meaning": "đánh thức"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "しょうたいします",
+    "Kanji": "招待します",
+    "HanViet": "CHIÊU ĐÃI",
+    "Meaning": "mời"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "たのみます",
+    "Kanji": "頼みます",
+    "HanViet": "LẠI",
+    "Meaning": "nhờ"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ちゅういします",
+    "Kanji": "注意します。",
+    "HanViet": "CHÚ Ý",
+    "Meaning": "chú ý, nhắc nhở"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "とります",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "ăn trộm , lấy cắp"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ふみます",
+    "Kanji": "踏みます",
+    "HanViet": "ĐẠP",
+    "Meaning": "giẫm , giẫm lên"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "こわします",
+    "Kanji": "壊します",
+    "HanViet": "HOẠI",
+    "Meaning": "phá, làm hỏng"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "よごします",
+    "Kanji": "汚します",
+    "HanViet": "Ô",
+    "Meaning": "làm bẩn"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "おこないます",
+    "Kanji": "行います",
+    "HanViet": "HÀNH",
+    "Meaning": "thực hiện, tiến hành"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ゆしゅつします",
+    "Kanji": "輸出します",
+    "HanViet": "THÂU XUẤT",
+    "Meaning": "xuất khẩu"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ゆにゅうします",
+    "Kanji": "輸入します",
+    "HanViet": "THÂU NHẬP",
+    "Meaning": "nhập khẩu"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ほんやくします",
+    "Kanji": "翻訳します",
+    "HanViet": "PHIÊN DỊCH",
+    "Meaning": "dịch (sách, tài liệu)"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "はつめいします",
+    "Kanji": "発明します",
+    "HanViet": "PHÁT MINH",
+    "Meaning": "phát minh"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "はっけんします",
+    "Kanji": "発見します",
+    "HanViet": "PHÁT KIẾN",
+    "Meaning": "phát kiến, tìm ra"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "せっけいします",
+    "Kanji": "設計します",
+    "HanViet": "THIẾT KẾ",
+    "Meaning": "thiết kế"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "こめ",
+    "Kanji": "米",
+    "HanViet": "MỄ",
+    "Meaning": "gạo"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "むぎ",
+    "Kanji": "麦",
+    "HanViet": "MẠCH",
+    "Meaning": "lúa mạch"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "せきゆ",
+    "Kanji": "石油",
+    "HanViet": "THẠCH DU",
+    "Meaning": "dầu mỏ"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "げんりょう",
+    "Kanji": "原料",
+    "HanViet": "NGUYÊN LIỆU",
+    "Meaning": "nguyên liệu"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "デート",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "cuộc hẹn hò"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "どろぼう",
+    "Kanji": "泥棒",
+    "HanViet": "NÊ BỔNG",
+    "Meaning": "kẻ trộm"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "けいかん",
+    "Kanji": "警官",
+    "HanViet": "CẢNH QUAN",
+    "Meaning": "cảnh sát"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "けんちくか",
+    "Kanji": "建築家",
+    "HanViet": "KIẾN TRÚC GIA",
+    "Meaning": "kiến trúc sư"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "かがくしゃ",
+    "Kanji": "科学者",
+    "HanViet": "KHOA HỌC GIẢ",
+    "Meaning": "nhà khoa học"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "まんが",
+    "Kanji": "漫画",
+    "HanViet": "MẠN HỌA",
+    "Meaning": "truyện tranh"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "せかいじゅう",
+    "Kanji": "世界中",
+    "HanViet": "THẾ GIỚI TRUNG",
+    "Meaning": "khắp thế giới, toàn thế giới"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "―じゅう",
+    "Kanji": "ー中",
+    "HanViet": "TRUNG",
+    "Meaning": "khắp–"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "―によって",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "do–"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "よかったですね",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "may nhỉ"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "うめたてます",
+    "Kanji": "埋め立てます",
+    "HanViet": "MAI LẬP",
+    "Meaning": "lấp"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ぎじゅつ",
+    "Kanji": "技術",
+    "HanViet": "KỸ THUẬT",
+    "Meaning": "kỷ thuật"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "とち",
+    "Kanji": "土地",
+    "HanViet": "THỔ ĐỊA",
+    "Meaning": "đất, diện tích đất"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "そうおん",
+    "Kanji": "騒音",
+    "HanViet": "TAO ÂM",
+    "Meaning": "tiếng ồn"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "りようします",
+    "Kanji": "利用します",
+    "HanViet": "LỢI DỤNG",
+    "Meaning": "sử dụng"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "アクセス",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "nối, giao thông đi đến"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ドミニカ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "Dominica(tên một quốc gia ở Trung Mỹ)"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ーせいき",
+    "Kanji": "ー世紀",
+    "HanViet": "THẾ KỶ",
+    "Meaning": "thế kỉ-"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ごうか（な）",
+    "Kanji": "豪華（な）",
+    "HanViet": "HÀO HOA",
+    "Meaning": "hào hoa,sang trọng"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ちょうこく",
+    "Kanji": "彫刻",
+    "HanViet": "ĐIÊU KHẮC",
+    "Meaning": "điêu khắc"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ねむります",
+    "Kanji": "眠ります",
+    "HanViet": "MIÊN",
+    "Meaning": "ngủ"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ほります",
+    "Kanji": "彫ります",
+    "HanViet": "ĐIÊU",
+    "Meaning": "khắc"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "なかま",
+    "Kanji": "仲間",
+    "HanViet": "TRỌNG GIAN",
+    "Meaning": "bạn bè,đồng nghiệp"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "そのあと",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "sau đó"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "いっしょうけんめい",
+    "Kanji": "一生懸命",
+    "HanViet": "NHẤT SINH HUYỀN MỆNH",
+    "Meaning": "cố gắng hết sức"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "ねずみ",
+    "Kanji": "",
+    "HanViet": "",
+    "Meaning": "chuột"
+  },
+  {
+    "Lesson": "37",
+    "HiraKata": "いっぴきもいません",
+    "Kanji": "一匹もいません",
+    "HanViet": "THẤT",
+    "Meaning": "không có con nào cả"
   }
 ]
