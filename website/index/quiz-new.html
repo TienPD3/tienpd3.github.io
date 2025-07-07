@@ -153,12 +153,22 @@
 
             const meanings = data.map(item => item.Meaning);
             const kanjis = data.map(item => item.Kanji);
-            questions = data.map(item => {
+
+            const filterData = data.filter((f) => {
+                if (currentStudyMode === 'meaning') {
+                    return true;
+                } else if ((currentStudyMode === 'kanji' || currentStudyMode === 'hanviet') && f.Kanji !== '') {
+                    return true;
+                } else {
+                    return false;
+                }
+                
+            });
+            questions = filterData.map(item => {
                 // Prepare answers based on study mode
                 let answers, questionText, correctAnswer;
 
                 if (currentStudyMode === 'meaning') {
-
                     // Question shows Kanji only, answers are meanings
                     let distractors = meanings.filter(m => m !== item.Meaning);
                     shuffleArray(distractors);
