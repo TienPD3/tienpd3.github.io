@@ -60,6 +60,13 @@
         </div>
 
         <div class="mb-3">
+            <label for="startQuestion" class="form-label">Từ câu:</label>
+            <input type="number" id="startQuestion" value="1" min="1" class="form-control" style="width: 100px; display: inline-block; margin-right: 10px;">
+            <label for="endQuestion" class="form-label">Đến câu:</label>
+            <input type="number" id="endQuestion" value="" min="1" class="form-control" style="width: 100px; display: inline-block;">
+        </div>
+
+        <div class="mb-3">
             <label class="form-label">Chọn chế độ học:</label>
             <div>
                 <div class="form-check form-check-inline">
@@ -109,6 +116,7 @@
     $(function() {
         let questions = [];
         let filteredQuestions = [];
+        let tmpFilteredQuestions = [];
         let userAnswers = [];
         let timerDuration = 5 * 60; // 5 minutes in seconds
         let timerInterval = null;
@@ -153,22 +161,12 @@
 
             const meanings = data.map(item => item.Meaning);
             const kanjis = data.map(item => item.Kanji);
-
-            const filterData = data.filter((f) => {
-                if (currentStudyMode === 'meaning') {
-                    return true;
-                } else if ((currentStudyMode === 'kanji' || currentStudyMode === 'hanviet') && f.Kanji !== '') {
-                    return true;
-                } else {
-                    return false;
-                }
-                
-            });
-            questions = filterData.map(item => {
+            questions = data.map(item => {
                 // Prepare answers based on study mode
                 let answers, questionText, correctAnswer;
 
                 if (currentStudyMode === 'meaning') {
+
                     // Question shows Kanji only, answers are meanings
                     let distractors = meanings.filter(m => m !== item.Meaning);
                     shuffleArray(distractors);
@@ -250,7 +248,7 @@
                 // Add submit button for each question
                 const $questionSubmitBtn = $('<button>')
                     .attr('type', 'button')
-                    .addClass('btn btn-primary mt-3')
+                    .addClass('btn btn-success mt-3')
                     .text('Kiểm tra')
                     .prop('disabled', userAnswers[qIndex] === null)
                     .on('click', function() {
@@ -388,12 +386,56 @@
             currentStudyMode = $('input[name="studyMode"]:checked').val();
 
             filterQuestionsByLesson('all');
+            tmpFilteredQuestions = filteredQuestions;
+
+            // Apply start and end question filtering
+            const startQ = parseInt($('#startQuestion').val()) || 1;
+            let endQ = parseInt($('#endQuestion').val());
+            if (!endQ || endQ > filteredQuestions.length) {
+                endQ = filteredQuestions.length;
+            }
+            filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
+
             await renderAllQuestions();
             startTimer();
             updateSubmitButton();
         }).fail(function() {
             showToast('Không thể tải dữ liệu câu hỏi.');
         });
+
+        // Update quiz when start or end question inputs change
+        $('#startQuestion, #endQuestion').on('input', function() {
+            const startQ = parseInt($('#startQuestion').val()) || 1;
+            let endQ = parseInt($('#endQuestion').val());
+            filteredQuestions = tmpFilteredQuestions 
+            if (!endQ || endQ > filteredQuestions.length) {
+                endQ = filteredQuestions.length;
+            }
+            filterQuestionsByLesson($lessonSelect.val());
+            filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
+            renderAllQuestions();
+            updateSubmitButton();
+        });
+    });
+
+    // Handle start quiz button click
+    $('#startQuizBtn').on('click', function() {
+        $('#quizSettings').hide();
+        $('#quizContainer').show();
+
+        // Load and render quiz questions based on current settings
+        filterQuestionsByLesson($('#lessonSelect').val());
+
+        filteredQuestions = tmpFilteredQuestions;
+        // Apply start and end question filtering
+        const startQ = parseInt($('#startQuestion').val()) || 1;
+        let endQ = parseInt($('#endQuestion').val());
+        if (!endQ || endQ > filteredQuestions.length) {
+            endQ = filteredQuestions.length;
+        }
+        filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
+
+        renderAllQuestions();
     });
 </script>
 
