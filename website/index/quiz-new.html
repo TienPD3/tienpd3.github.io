@@ -363,6 +363,7 @@
     async function doStartQuiz() {
 
         currentStudyMode = $('input[name="studyMode"]:checked').val();
+
         generateQuestions(questionsData);
 
         filterQuestionsByLesson('all');
@@ -375,6 +376,7 @@
             endQ = filteredQuestions.length;
         }
         filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
+        shuffleArray(filteredQuestions);
 
         await renderAllQuestions();
         startTimer();
