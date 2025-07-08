@@ -27,6 +27,9 @@
             background-color: #1e1e1e;
             color: #e0e0e0;
         }
+        .hidden {
+            display: none;
+        }
         #timer {
             font-weight: bold;
             font-size: 1.2rem;
@@ -52,55 +55,54 @@
             <h2>Trắc Nghiệm Bootstrap Mới</h2>
         </div>
 
-        <div class="mb-3">
-            <label for="lessonSelect" class="form-label">Chọn bài học:</label>
-            <select id="lessonSelect" class="form-select" aria-label="Chọn bài học">
-                <option value="all" selected>Tất cả</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="startQuestion" class="form-label">Từ câu:</label>
-            <input type="number" id="startQuestion" value="1" min="1" class="form-control" style="width: 100px; display: inline-block; margin-right: 10px;">
-            <label for="endQuestion" class="form-label">Đến câu:</label>
-            <input type="number" id="endQuestion" value="" min="1" class="form-control" style="width: 100px; display: inline-block;">
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label">Chọn chế độ học:</label>
-            <div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="studyMode" id="modeMeaning" value="meaning" checked>
-                    <label class="form-check-label" for="modeMeaning">Học nghĩa</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="studyMode" id="modeKanji" value="kanji">
-                    <label class="form-check-label" for="modeKanji">Học Kanji</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="studyMode" id="modeHanViet" value="hanviet">
-                    <label class="form-check-label" for="modeHanViet">Học Hán-Việt</label>
+        <div class="quizSettings">
+            <div class="mb-3">
+                <label for="lessonSelect" class="form-label">Chọn bài học:</label>
+                <select id="lessonSelect" class="form-select" aria-label="Chọn bài học">
+                    <option value="all" selected>Tất cả</option>
+                </select>
+            </div>
+    
+            <div class="mb-3">
+                <label for="startQuestion" class="form-label">Từ câu:</label>
+                <input type="number" id="startQuestion" value="1" min="1" step="5" class="form-control" style="width: 100px; display: inline-block; margin-right: 10px;">
+                <label for="endQuestion" class="form-label">Đến câu:</label>
+                <input type="number" id="endQuestion" value="" min="5" step="5" class="form-control" style="width: 100px; display: inline-block;">
+            </div>
+    
+            <div class="mb-3">
+                <label class="form-label">Chọn chế độ học:</label>
+                <div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="studyMode" id="modeMeaning" value="meaning" checked>
+                        <label class="form-check-label" for="modeMeaning">Học nghĩa</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="studyMode" id="modeKanji" value="kanji">
+                        <label class="form-check-label" for="modeKanji">Học Kanji</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="studyMode" id="modeHanViet" value="hanviet">
+                        <label class="form-check-label" for="modeHanViet">Học Hán-Việt</label>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div id="quizStatus" class="mb-3">
-            Câu hỏi <span id="currentQuestionNumber">0</span> / <span id="totalQuestions">0</span>
+            <div class="mb-3">
+                <button id="startQuizBtn" class="btn btn-primary">Bắt đầu</button>
+            </div>
         </div>
-
-        <div id="timer" class="mb-3 text-end">
-            Thời gian còn lại: <span id="timeRemaining">00:00</span>
+        <div id="quizMain" class="hidden">
+            <div id="timer" class="mb-3 text-end">
+                Thời gian còn lại: <span id="timeRemaining">00:00</span>
+            </div>
+    
+            <div id="quizContainer" class="card p-4 mb-3">
+                <!-- All questions will be rendered here -->
+            </div>
         </div>
-
-        <div id="quizContainer" class="card p-4 mb-3">
-            <!-- All questions will be rendered here -->
-        </div>
-
-        <div class="d-flex justify-content-end">
-            <button id="submitBtn" class="btn btn-success" disabled>Nộp bài</button>
-        </div>
-
-    <div id="result" class="mt-4" style="display:none;">
+    </div>
+    <div id="result" class="mt-4 hidden">
         <h4>Kết quả</h4>
         <p>Đúng: <span id="correctCount">0</span></p>
         <p>Sai: <span id="wrongCount">0</span></p>
@@ -113,320 +115,259 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+    let questions = [];
+    let filteredQuestions = [];
+    let tmpFilteredQuestions = [];
+    let userAnswers = [];
+    let timerDuration = 5 * 60; // 5 minutes in seconds
+    let timerInterval = null;
+    let currentStudyMode = 'meaning';
+    let questionsData = [];
+
+    let kuroshiro;
+    let kuroshiroInitPromise;
+
+    const $quizContainer = $('#quizContainer');
+    const $timeRemaining = $('#timeRemaining');
+    const $result = $('#result');
+    const $correctCountElem = $('#correctCount');
+    const $wrongCountElem = $('#wrongCount');
+    const $toast = $('#toast');
+    const $currentQuestionNumber = $('#currentQuestionNumber');
+    const $totalQuestions = $('#totalQuestions');
+    const $lessonSelect = $('#lessonSelect');
+
+    function showToast(message) {
+        $toast.text(message).fadeIn();
+        setTimeout(() => {
+            $toast.fadeOut();
+        }, 3000);
+    }
+
     $(function() {
-        let questions = [];
-        let filteredQuestions = [];
-        let tmpFilteredQuestions = [];
-        let userAnswers = [];
-        let timerDuration = 5 * 60; // 5 minutes in seconds
-        let timerInterval = null;
-        let currentStudyMode = 'meaning';
-        let questionsData = [];
 
-        let kuroshiro;
-        let kuroshiroInitPromise;
+        doInit();
 
-        const $quizContainer = $('#quizContainer');
-        const $submitBtn = $('#submitBtn');
-        const $timeRemaining = $('#timeRemaining');
-        const $result = $('#result');
-        const $correctCountElem = $('#correctCount');
-        const $wrongCountElem = $('#wrongCount');
-        const $toast = $('#toast');
-        const $quizStatus = $('#quizStatus');
-        const $currentQuestionNumber = $('#currentQuestionNumber');
-        const $totalQuestions = $('#totalQuestions');
-        const $lessonSelect = $('#lessonSelect');
+        kuroshiro = new Kuroshiro();
+        kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
+    });
 
-        function showToast(message) {
-            $toast.text(message).fadeIn();
-            setTimeout(() => {
-                $toast.fadeOut();
-            }, 3000);
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
+    }
 
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
+    async function wrapWithMeaning(text) {
+        await kuroshiroInitPromise;
+        return await kuroshiro.convert(text.trim(), { to: 'hiragana', mode: 'furigana' });
+    }
+
+    function filterQuestions(data) {
+        if (currentStudyMode === 'kanji') {
+            return data.filter(q => q.Kanji.length > 0)
+        } else if (currentStudyMode === 'hanviet') {
+            return data.filter(q => q.HanViet.length > 0)
         }
+        return data;
+    }
 
-        async function wrapWithMeaning(text) {
-            await kuroshiroInitPromise;
-            return await kuroshiro.convert(text.trim(), { to: 'hiragana', mode: 'furigana' });
-        }
+    function countAnswers(data) {
+        return data.split(' ').length;
+    }
 
-        function generateQuestions(data) {
+    function generateQuestions(data) {
 
-            const meanings = data.map(item => item.Meaning);
-            const kanjis = data.map(item => item.Kanji);
-            questions = data.map(item => {
-                // Prepare answers based on study mode
-                let answers, questionText, correctAnswer;
+        const meanings = data.map(item => item.Meaning);
+        const kanjis = data.map(item => item.Kanji);
 
-                if (currentStudyMode === 'meaning') {
+        questions = filterQuestions(data).map(item => {
+            // Prepare answers based on study mode
+            let answers, questionText, correctAnswer;
 
-                    // Question shows Kanji only, answers are meanings
-                    let distractors = meanings.filter(m => m !== item.Meaning);
-                    shuffleArray(distractors);
-                    answers = [item.Meaning].concat(distractors.slice(0, 3));
-                    shuffleArray(answers);
-                    questionText = `${item.HiraKata}`;
-                    if (item.Kanji.trim().length > 0) {
-                        questionText = `${item.Kanji} (${item.HanViet})`;
-                    }
-                    correctAnswer = item.Meaning;
-                } else if (currentStudyMode === 'kanji') {
-                    // Question shows Kanji, answers are Word
-                    let words = data.map(i => i.HiraKata);
-                    let distractors = words.filter(w => w !== item.HiraKata);
-                    shuffleArray(distractors);
-                    answers = [item.HiraKata].concat(distractors.slice(0, 3));
-                    shuffleArray(answers);
+            if (currentStudyMode === 'meaning') {
+
+                // Question shows Kanji only, answers are meanings
+                let distractors = meanings.filter(m => m !== item.Meaning);
+                shuffleArray(distractors);
+                answers = [item.Meaning].concat(distractors.slice(0, 3));
+                shuffleArray(answers);
+                questionText = `${item.HiraKata}`;
+                if (item.Kanji.trim().length > 0) {
                     questionText = `${item.Kanji} (${item.HanViet})`;
-                    correctAnswer = item.HiraKata;
-                } else {
-                    // Question shows Kanji, answers are HanViet
-                    let words = data.map(i => i.HanViet);
-                    let distractors = words.filter(w => w !== item.HanViet && w !== '');
-                    shuffleArray(distractors);
-                    answers = [item.HanViet].concat(distractors.slice(0, 3));
-                    shuffleArray(answers);
-                    questionText = `${item.Kanji}`;
-                    correctAnswer = item.HanViet;
                 }
-                return {
-                    lesson: item.Lesson,
-                    question: questionText,
-                    answers: answers,
-                    correctAnswer: correctAnswer
-                };
-            });
-            userAnswers = new Array(questions.length).fill(null);
-        }
-
-        function filterQuestionsByLesson(lesson) {
-            if (lesson === 'all') {
-                filteredQuestions = questions;
+                correctAnswer = item.Meaning;
+            } else if (currentStudyMode === 'kanji') {
+                // Question shows Kanji, answers are Word
+                let words = data.map(i => i.HiraKata);
+                let distractors = words.filter(w => w !== item.HiraKata);
+                shuffleArray(distractors);
+                answers = [item.HiraKata].concat(distractors.slice(0, 3));
+                shuffleArray(answers);
+                questionText = `${item.Kanji} (${item.HanViet})`;
+                correctAnswer = item.HiraKata;
             } else {
-                filteredQuestions = questions.filter(q => q.lesson === lesson);
+                // Question shows Kanji, answers are HanViet
+                let words = filterQuestions(data).map(i => i.HanViet);
+                let distractors = words.filter(w => w !== item.HanViet && countAnswers(item.HanViet) == countAnswers(w));
+                shuffleArray(distractors);
+                answers = [item.HanViet].concat(distractors.slice(0, 3));
+                shuffleArray(answers);
+                questionText = `${item.Kanji}`;
+                correctAnswer = item.HanViet;
             }
-            userAnswers = new Array(filteredQuestions.length).fill(null);
+            return {
+                lesson: item.Lesson,
+                question: questionText,
+                answers: answers,
+                correctAnswer: correctAnswer
+            };
+        });
+        userAnswers = new Array(questions.length).fill(null);
+    }
+
+    function filterQuestionsByLesson(lesson) {
+        if (lesson === 'all') {
+            filteredQuestions = questions;
+        } else {
+            filteredQuestions = questions.filter(q => q.lesson === lesson);
         }
+        userAnswers = new Array(filteredQuestions.length).fill(null);
+    }
 
-        async function renderAllQuestions() {
-            $quizContainer.empty();
-            for (let qIndex = 0; qIndex < filteredQuestions.length; qIndex++) {
-                const q = filteredQuestions[qIndex];
-                const $questionDiv = $('<div>').addClass('mb-4');
-                const wrappedQuestion = await wrapWithMeaning(q.question);
-                const $questionText = $('<div>').addClass('mb-2 fs-5').html(`Câu ${qIndex + 1}: ${wrappedQuestion}`);
-                $questionDiv.append($questionText);
+    async function renderAllQuestions() {
+        $quizContainer.empty();
+        for (let qIndex = 0; qIndex < filteredQuestions.length; qIndex++) {
+            const q = filteredQuestions[qIndex];
+            const $questionDiv = $('<div>').addClass('mb-4');
+            let wrappedQuestion = q.question;
+            if (currentStudyMode !== 'kanji') {
+                wrappedQuestion = await wrapWithMeaning(q.question);
+            }
+            const $questionText = $('<div>').addClass('mb-2 fs-5').html(`Câu ${qIndex + 1}: ${wrappedQuestion}`);
+            $questionDiv.append($questionText);
 
-                const $answersList = $('<div>').addClass('list-group');
-                for (let aIndex = 0; aIndex < q.answers.length; aIndex++) {
-                    const answer = q.answers[aIndex];
-                    const wrappedAnswer = await wrapWithMeaning(answer);
-                    const $answerItem = $('<button>')
-                        .attr('type', 'button')
-                        .addClass('list-group-item list-group-item-action')
-                        .html(wrappedAnswer);
-                    if (userAnswers[qIndex] === aIndex) {
-                        $answerItem.addClass('active');
-                    }
-                    $answerItem.on('click', function() {
-                        userAnswers[qIndex] = aIndex;
-                        updateAnswerSelection(qIndex, $answersList);
-                        updateSubmitButton();
-                    });
-                    $answersList.append($answerItem);
+            const $answersList = $('<div>').addClass('list-group');
+            for (let aIndex = 0; aIndex < q.answers.length; aIndex++) {
+                const answer = q.answers[aIndex];
+                let wrappedAnswer = answer;
+                if (currentStudyMode !== 'kanji') {
+                    wrappedAnswer = await wrapWithMeaning(answer);
                 }
-
-                $questionDiv.append($answersList);
-
-                // Add submit button for each question
-                const $questionSubmitBtn = $('<button>')
+                const $answerItem = $('<button>')
                     .attr('type', 'button')
-                    .addClass('btn btn-success mt-3')
-                    .text('Kiểm tra')
-                    .prop('disabled', userAnswers[qIndex] === null)
-                    .on('click', function() {
-                        if (userAnswers[qIndex] === null) {
-                            showToast('Vui lòng chọn câu trả lời trước khi kiểm tra.');
-                            return;
-                        }
-                        // Disable submit button after submission
-                        $(this).prop('disabled', true);
-                        // Disable answer buttons after submission
-                        $answersList.children('button').prop('disabled', true).off('click');
-                        // Show correct and incorrect answer with icons
-                        const $selectedAnswerBtn = $answersList.children('button').eq(userAnswers[qIndex]);
-                        if (q.answers[userAnswers[qIndex]] === q.correctAnswer) {
-                            $selectedAnswerBtn.addClass('list-group-item-success');
-                            $selectedAnswerBtn.prepend('✔ '); // checkmark
-                        } else {
-                            $selectedAnswerBtn.addClass('list-group-item-danger');
-                            $selectedAnswerBtn.prepend('✖ '); // cross before text
-                            // Highlight correct answer
-                            $answersList.children('button').each(function(idx) {
-                                if (q.answers[idx] === q.correctAnswer) {
-                                    $(this).addClass('list-group-item-success').prepend('✔ '); // checkmark before text
-                                }
-                            });
-                        }
-                    });
+                    .addClass('list-group-item list-group-item-action')
+                    .html(wrappedAnswer);
+                if (userAnswers[qIndex] === aIndex) {
+                    $answerItem.addClass('active');
+                }
+                $answerItem.on('click', function() {
+                    userAnswers[qIndex] = aIndex;
+                    updateAnswerSelection(qIndex, $answersList);
+                });
+                $answersList.append($answerItem);
+            }
 
-                // Enable submit button when an answer is selected
-                $answersList.on('click', 'button', function() {
-                    if (!$questionSubmitBtn.prop('disabled')) return;
-                    $questionSubmitBtn.prop('disabled', false);
+            $questionDiv.append($answersList);
+
+            // Add submit button for each question
+            const $questionSubmitBtn = $('<button>')
+                .attr('type', 'button')
+                .addClass('btn btn-success mt-3')
+                .text('Kiểm tra')
+                .prop('disabled', userAnswers[qIndex] === null)
+                .on('click', function() {
+                    if (userAnswers[qIndex] === null) {
+                        showToast('Vui lòng chọn câu trả lời trước khi kiểm tra.');
+                        return;
+                    }
+                    // Disable submit button after submission
+                    $(this).prop('disabled', true);
+                    // Disable answer buttons after submission
+                    $answersList.children('button').prop('disabled', true).off('click');
+                    // Show correct and incorrect answer with icons
+                    const $selectedAnswerBtn = $answersList.children('button').eq(userAnswers[qIndex]);
+                    if (q.answers[userAnswers[qIndex]] === q.correctAnswer) {
+                        $selectedAnswerBtn.addClass('list-group-item-success');
+                        $selectedAnswerBtn.prepend('✔ '); // checkmark
+                    } else {
+                        $selectedAnswerBtn.addClass('list-group-item-danger');
+                        $selectedAnswerBtn.prepend('✖ '); // cross before text
+                        // Highlight correct answer
+                        $answersList.children('button').each(function(idx) {
+                            if (q.answers[idx] === q.correctAnswer) {
+                                $(this).addClass('list-group-item-success').prepend('✔ '); // checkmark before text
+                            }
+                        });
+                    }
                 });
 
-                $questionSubmitBtn.addClass('float-end');
-                $questionDiv.append($questionSubmitBtn);
-
-                $quizContainer.append($questionDiv);
-            }
-            $totalQuestions.text(filteredQuestions.length);
-            $currentQuestionNumber.text(filteredQuestions.length);
-            $quizStatus.hide();
-        }
-
-        function updateAnswerSelection(questionIndex, $answersList) {
-            $answersList.children('button').each(function(idx) {
-                $(this).toggleClass('active', userAnswers[questionIndex] === idx);
+            // Enable submit button when an answer is selected
+            $answersList.on('click', 'button', function() {
+                if (!$questionSubmitBtn.prop('disabled')) return;
+                $questionSubmitBtn.prop('disabled', false);
             });
-        }
 
-        function updateSubmitButton() {
-            $submitBtn.prop('disabled', userAnswers.includes(null));
-        }
+            $questionSubmitBtn.addClass('float-end');
+            $questionDiv.append($questionSubmitBtn);
 
-        function showResult() {
-            let correct = 0;
-            let wrong = 0;
-            $.each(userAnswers, function(idx, answerIndex) {
-                if (filteredQuestions[idx].answers[answerIndex] === filteredQuestions[idx].correctAnswer) {
-                    correct++;
-                } else {
-                    wrong++;
-                }
-            });
-            $correctCountElem.text(correct);
-            $wrongCountElem.text(wrong);
-            $result.show();
-            showToast('Bài làm đã được nộp!');
+            $quizContainer.append($questionDiv);
         }
+        $totalQuestions.text(filteredQuestions.length);
+        $currentQuestionNumber.text(filteredQuestions.length);
+    }
 
-        function startTimer() {
-            let timeLeft = timerDuration;
+    function updateAnswerSelection(questionIndex, $answersList) {
+        $answersList.children('button').each(function(idx) {
+            $(this).toggleClass('active', userAnswers[questionIndex] === idx);
+        });
+    }
+
+    function startTimer() {
+        clearInterval(timerInterval);
+        
+        let timeLeft = timerDuration;
+        updateTimerDisplay(timeLeft);
+        timerInterval = setInterval(() => {
+            timeLeft--;
             updateTimerDisplay(timeLeft);
-            timerInterval = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay(timeLeft);
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    showToast('Hết thời gian làm bài!');
-                    submitQuiz();
-                }
-            }, 1000);
-        }
-
-        function updateTimerDisplay(seconds) {
-            const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-            const s = (seconds % 60).toString().padStart(2, '0');
-            $timeRemaining.text(`${m}:${s}`);
-        }
-
-        function submitQuiz() {
-            clearInterval(timerInterval);
-            showResult();
-            $submitBtn.prop('disabled', true);
-        }
-
-        $submitBtn.on('click', () => {
-            if (!userAnswers.includes(null)) {
-                submitQuiz();
-            } else {
-                showToast('Vui lòng trả lời hết các câu hỏi trước khi nộp bài.');
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                showToast('Hết thời gian làm bài!');
             }
-        });
+        }, 1000);
+    }
 
-        $lessonSelect.on('change', function() {
-            const selectedLesson = $(this).val();
-            filterQuestionsByLesson(selectedLesson);
-            renderAllQuestions();
-            updateSubmitButton();
-        });
-
-        $('input[name="studyMode"]').on('change', function() {
-            currentStudyMode = $(this).val();
-            // Regenerate questions based on new study mode
-            generateQuestions(questionsData);
-            filterQuestionsByLesson($lessonSelect.val());
-            renderAllQuestions();
-            updateSubmitButton();
-        });
-
+    function updateTimerDisplay(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        $timeRemaining.text(`${m}:${s}`);
+    }
+    
+    function doInit() {
         // Load quiz data from JSON file and initialize
-        $.getJSON('../file/jp/n4.json', async function(data) {
+        $.getJSON('../file/jp/n4.json', function(data) {
             questionsData = data;
-            kuroshiro = new Kuroshiro();
-            kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
-
-            generateQuestions(questionsData);
 
             // Populate lesson select options
             const lessons = [...new Set(data.map(item => item.Lesson))].sort();
             lessons.forEach(lesson => {
                 $lessonSelect.append($('<option>').val(lesson).text(`Bài học ${lesson}`));
             });
-
-            currentStudyMode = $('input[name="studyMode"]:checked').val();
-
-            filterQuestionsByLesson('all');
-            tmpFilteredQuestions = filteredQuestions;
-
-            // Apply start and end question filtering
-            const startQ = parseInt($('#startQuestion').val()) || 1;
-            let endQ = parseInt($('#endQuestion').val());
-            if (!endQ || endQ > filteredQuestions.length) {
-                endQ = filteredQuestions.length;
-            }
-            filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
-
-            await renderAllQuestions();
-            startTimer();
-            updateSubmitButton();
         }).fail(function() {
             showToast('Không thể tải dữ liệu câu hỏi.');
         });
+    }
 
-        // Update quiz when start or end question inputs change
-        $('#startQuestion, #endQuestion').on('input', function() {
-            const startQ = parseInt($('#startQuestion').val()) || 1;
-            let endQ = parseInt($('#endQuestion').val());
-            filteredQuestions = tmpFilteredQuestions 
-            if (!endQ || endQ > filteredQuestions.length) {
-                endQ = filteredQuestions.length;
-            }
-            filterQuestionsByLesson($lessonSelect.val());
-            filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
-            renderAllQuestions();
-            updateSubmitButton();
-        });
-    });
+    async function doStartQuiz() {
 
-    // Handle start quiz button click
-    $('#startQuizBtn').on('click', function() {
-        $('#quizSettings').hide();
-        $('#quizContainer').show();
+        currentStudyMode = $('input[name="studyMode"]:checked').val();
+        generateQuestions(questionsData);
 
-        // Load and render quiz questions based on current settings
-        filterQuestionsByLesson($('#lessonSelect').val());
+        filterQuestionsByLesson('all');
+        tmpFilteredQuestions = filteredQuestions;
 
-        filteredQuestions = tmpFilteredQuestions;
         // Apply start and end question filtering
         const startQ = parseInt($('#startQuestion').val()) || 1;
         let endQ = parseInt($('#endQuestion').val());
@@ -435,8 +376,18 @@
         }
         filteredQuestions = filteredQuestions.slice(startQ - 1, endQ);
 
-        renderAllQuestions();
+        await renderAllQuestions();
+        startTimer();
+
+        $('#quizSettings').hide();
+        $('#quizMain').show();
+    }
+
+    // Handle start quiz button click
+    $('#startQuizBtn').on('click', function() {
+        doStartQuiz();
     });
+
 </script>
 
 </body>
