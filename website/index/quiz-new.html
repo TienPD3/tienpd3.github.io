@@ -109,7 +109,6 @@
     <script>
     let questions = [];
     let filteredQuestions = [];
-    let tmpFilteredQuestions = [];
     let userAnswers = [];
     let timerDuration = 5 * 60; // 5 minutes in seconds
     let timerInterval = null;
@@ -355,11 +354,10 @@
     async function doStartQuiz() {
 
         currentStudyMode = $('input[name="studyMode"]:checked').val();
-
         generateQuestions(questionsData);
 
-        filterQuestionsByLesson('all');
-        tmpFilteredQuestions = filteredQuestions;
+        filterQuestionsByLesson($lessonSelect.val());
+        
 
         // Apply start and end question filtering
         const startQ = parseInt($('#startQuestion').val()) || 1;
