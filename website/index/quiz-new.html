@@ -70,6 +70,10 @@
                         <label class="form-check-label" for="modeMeaning">Học nghĩa</label>
                     </div>
                     <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="studyMode" id="modeMeaning" value="meaningvn" checked>
+                        <label class="form-check-label" for="modeMeaning">Học tiếng nhật</label>
+                    </div>
+                    <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="studyMode" id="modeKanji" value="kanji">
                         <label class="form-check-label" for="modeKanji">Học Kanji</label>
                     </div>
@@ -172,6 +176,7 @@
 
         const meanings = data.map(item => item.Meaning);
         const kanjis = data.map(item => item.Kanji);
+        const hiraKatas = data.map(item => item.HiraKata);
 
         questions = filterQuestions(data).map(item => {
             // Prepare answers based on study mode
@@ -197,6 +202,16 @@
                 answers = [item.HiraKata].concat(distractors.slice(0, 3));
                 shuffleArray(answers);
                 questionText = `${item.Kanji} (${item.HanViet})`;
+                correctAnswer = item.HiraKata;
+            } else if (currentStudyMode === 'meaningvn') {
+                let distractors = hiraKatas.filter(m => m !== item.HiraKata);
+                shuffleArray(distractors);
+                answers = [item.HiraKata].concat(distractors.slice(0, 3));
+                shuffleArray(answers);
+                questionText = `${item.Meaning}`;
+                if (item.Kanji.trim().length > 0) {
+                    questionText = `${item.Meaning}`;
+                }
                 correctAnswer = item.HiraKata;
             } else {
                 // Question shows Kanji, answers are HanViet
@@ -357,7 +372,6 @@
         generateQuestions(questionsData);
 
         filterQuestionsByLesson($lessonSelect.val());
-        
 
         // Apply start and end question filtering
         const startQ = parseInt($('#startQuestion').val()) || 1;
