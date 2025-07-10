@@ -70,8 +70,8 @@
                         <label class="form-check-label" for="modeMeaning">Học nghĩa</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="studyMode" id="modeMeaning" value="meaningvn" checked>
-                        <label class="form-check-label" for="modeMeaning">Học tiếng nhật</label>
+                        <input class="form-check-input" type="radio" name="studyMode" id="modeMeaningVn" value="meaningvn">
+                        <label class="form-check-label" for="modeMeaningVn">Học tiếng nhật</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="studyMode" id="modeKanji" value="kanji">
@@ -204,7 +204,14 @@
                 questionText = `${item.Kanji} (${item.HanViet})`;
                 correctAnswer = item.HiraKata;
             } else if (currentStudyMode === 'meaningvn') {
-                let distractors = hiraKatas.filter(m => m !== item.HiraKata);
+                let distractors = hiraKatas.filter(m => m !== item.HiraKata && item.HiraKata[0] === m[0]);
+                if (item.HiraKata.indexOf('(な)') >= 0) {
+                    distractors = hiraKatas.filter(m => m !== item.HiraKata && m.indexOf('(な)') >= 0);
+                } else if (item.HiraKata.endsWith('い')) {
+                    distractors = hiraKatas.filter(m => m !== item.HiraKata && m.endsWith('い'));
+                } else if (item.HiraKata.endsWith('る')) {
+                    distractors = hiraKatas.filter(m => m !== item.HiraKata && m.endsWith('る'));
+                }
                 shuffleArray(distractors);
                 answers = [item.HiraKata].concat(distractors.slice(0, 3));
                 shuffleArray(answers);
