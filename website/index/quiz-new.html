@@ -217,7 +217,7 @@
                 shuffleArray(answers);
                 questionText = `${item.Meaning}`;
                 if (item.Kanji.trim().length > 0) {
-                    questionText = `${item.Meaning}`;
+                    questionText = `${item.Meaning} (${item.Kanji})`;
                 }
                 correctAnswer = item.HiraKata;
             } else {
@@ -255,7 +255,7 @@
             const q = filteredQuestions[qIndex];
             const $questionDiv = $('<div>').addClass('mb-4');
             let wrappedQuestion = q.question;
-            if (currentStudyMode !== 'kanji') {
+            if (currentStudyMode !== 'kanji' && currentStudyMode !== 'meaningvn') {
                 wrappedQuestion = await wrapWithMeaning(q.question);
             }
             const $questionText = $('<div>').addClass('mb-2 fs-5').html(`Câu ${qIndex + 1}: ${wrappedQuestion}`);
