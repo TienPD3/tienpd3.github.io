@@ -238,7 +238,13 @@
       let textToConvert = entry.Kanji ? entry.Kanji : entry.HiraKata;
       let convertedText = textToConvert;
 
-      
+      try {
+        await kuroshiroInitPromise;
+        convertedText = await kuroshiro.convert(textToConvert, { to: "hiragana", mode: "furigana" });
+      } catch (e) {
+        console.error("Kuroshiro conversion error:", e);
+      }
+
       // Determine display mode
       const modeMeaningRadio = document.getElementById('mode-meaning');
       const isMeaningMode = modeMeaningRadio.checked;
@@ -248,13 +254,6 @@
         speakAnswer(textToConvert);
       } else {
         speakAnswer(entry.Meaning, 'vi-VN');
-      }
-
-      try {
-        await kuroshiroInitPromise;
-        convertedText = await kuroshiro.convert(textToConvert, { to: "hiragana", mode: "furigana" });
-      } catch (e) {
-        console.error("Kuroshiro conversion error:", e);
       }
 
       if (isMeaningMode) {
