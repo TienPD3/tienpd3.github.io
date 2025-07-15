@@ -1,0 +1,195 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Từ vựng N4 bài 26 | Minna no Nihongo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Roboto", sans-serif;
+      background-color: #67b37a;
+    }
+    .japanese-kanji {
+      font-family: "Roboto Slab", serif;
+      font-weight: 500;
+    }
+    .handwritten {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+    /* Custom underline for 「KIẾN, CHẨN」 with exact width and color */
+    .underline-custom {
+      width: 5rem; /* 80px */
+      border-bottom: 1px solid #a3c9b3;
+      margin-top: 0.25rem;
+      align-self: center;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex justify-center items-center bg-[#67b37a]">
+  <div class="relative w-full max-w-[1024px] aspect-[16/9] flex flex-col">
+    <!-- Top left text "「KIẾN, CHẨN」" with underline, aligned left but underline centered under text -->
+    <div
+      class="absolute top-[5%] left-[3%] text-[#3f1f1f] text-[28px] font-light tracking-wide font-serif flex flex-col items-start select-none"
+      style="line-height: 1.2; width: max-content;"
+    >
+      <div class="relative w-full text-left">
+        「KIẾN, CHẨN」
+        <div class="underline-custom absolute left-1/2 -translate-x-1/2 bottom-0"></div>
+      </div>
+    </div>
+
+    <!-- Center big text and small text -->
+    <div
+      class="flex justify-between items-center px-[5%] pt-[15%] pb-[10%] h-[60%] box-border"
+    >
+      <div class="flex flex-col justify-center h-full">
+        <div class="flex space-x-10 items-center" id="card-content">
+          <!-- Dynamic content will be inserted here -->
+        </div>
+        <div id="meaning" class="mt-16 text-black text-[32px] font-normal font-sans select-none text-center">
+          <!-- Meaning text -->
+        </div>
+      </div>
+
+      <!-- Right side nurse and patient illustration -->
+      <div class="w-[220px] h-[220px] flex-shrink-0">
+        <img
+          alt="Illustration of a nurse in white uniform checking a patient sitting on a chair with IV drip"
+          class="object-contain w-full h-full"
+          height="220"
+          src="https://storage.googleapis.com/a1aa/image/83cd1446-a53a-4785-7a6c-c4515de33bf6.jpg"
+          width="220"
+          decoding="async"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <div class="flex justify-center space-x-10 mb-4">
+      <div id="prev-btn" class="nav-button select-none"><</div>
+      <div id="next-btn" class="nav-button select-none">></div>
+    </div>
+
+    <!-- Bottom text bars -->
+    <div class="absolute bottom-[5%] left-0 w-full">
+      <div
+        class="bg-[#2f3a35cc] text-white text-[24px] font-sans text-center py-2 font-light tracking-wide select-none"
+        style="line-height: 1.4"
+      >
+        お腹が痛いので、診ていただけませんか？
+      </div>
+      <div
+        class="bg-[#c7c9c7] text-black text-[20px] font-sans text-center py-2 font-light tracking-wide select-none"
+        style="line-height: 1.4"
+      >
+        Tôi bị đau bụng, xem giúp tôi có được không?
+      </div>
+    </div>
+  </div>
+  <style>
+    .nav-button {
+      cursor: pointer;
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+      user-select: none;
+      padding: 0 1rem;
+      background-color: #3f1f1f88;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+    .nav-button:hover {
+      background-color: #3f1f1fcc;
+    }
+  </style>
+  <script>
+    let data = [];
+    let currentIndex = 0;
+
+    async function loadData() {
+      try {
+        const response = await fetch('/website/file/jp/n4.json');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        data = await response.json();
+        if (data.length > 0) {
+          currentIndex = 0;
+          displayCard(currentIndex);
+        }
+      } catch (error) {
+        console.error('Failed to load data:', error);
+      }
+    }
+
+    function displayCard(index) {
+      const cardContent = document.getElementById('card-content');
+      const meaningDiv = document.getElementById('meaning');
+      const entry = data[index];
+
+      if (!entry) return;
+
+      cardContent.innerHTML = `
+        <div
+          class="text-white text-[96px] handwritten leading-none select-none relative"
+          style="line-height: 1"
+        >
+          <div
+            class="text-[32px] absolute -top-8 left-6"
+            style="line-height: 1"
+          >
+          ${entry.Kanji ? entry.HiraKata : ''}
+          </div>
+          <div class="japanese-kanji font-bold">${entry.Kanji ? entry.Kanji : entry.HiraKata}</div>
+        </div>
+      `;
+
+      meaningDiv.textContent = entry.Meaning || '';
+    }
+
+    document.getElementById('prev-btn').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        displayCard(currentIndex);
+      }
+    });
+
+    document.getElementById('next-btn').addEventListener('click', () => {
+      if (currentIndex < data.length - 1) {
+        currentIndex++;
+        displayCard(currentIndex);
+      }
+    });
+
+    loadData();
+
+    // Add keyboard navigation for next and previous buttons
+    document.addEventListener('keydown', (event) => {
+      const key = event.key;
+      if (key === 'ArrowRight' || key === 'n' || key === 'N') {
+        // Next
+        if (currentIndex < data.length - 1) {
+          currentIndex++;
+          displayCard(currentIndex);
+        }
+      } else if (key === 'ArrowLeft' || key === 'p' || key === 'P') {
+        // Previous
+        if (currentIndex > 0) {
+          currentIndex--;
+          displayCard(currentIndex);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
