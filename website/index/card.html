@@ -36,12 +36,40 @@
 </head>
 <body class="relative min-h-screen flex justify-center items-center bg-[#67b37a]">
   <div class="relative w-full max-w-[1024px] aspect-[16/9] flex flex-col">
+    <!-- Dropdown for lesson selection at top -->
+    <div class="flex justify-center mt-4 items-center space-x-4">
+      <select id="lesson-select" class="p-2 rounded text-black text-lg">
+        <option value="all">Tất cả bài học</option>
+      </select>
+      <label for="toggle-meaning" class="text-white select-none cursor-pointer flex items-center space-x-1">
+        <input type="checkbox" id="toggle-meaning" checked />
+        <span>Ẩn nghĩa</span>
+      </label>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleMeaningCheckbox = document.getElementById('toggle-meaning');
+        const meaningDiv = document.getElementById('meaning');
+        toggleMeaningCheckbox.addEventListener('change', () => {
+          if (toggleMeaningCheckbox.checked) {
+            meaningDiv.style.display = 'none';
+          } else {
+            meaningDiv.style.display = '';
+          }
+        });
+        // Initialize visibility based on checkbox state
+        if (toggleMeaningCheckbox.checked) {
+          meaningDiv.style.display = 'none';
+        }
+      });
+    </script>
+
     <!-- Top left text "「KIẾN, CHẨN」" with underline, aligned left but underline centered under text -->
     <div
       class="absolute top-[5%] left-[3%] text-[#3f1f1f] text-[28px] font-light tracking-wide font-serif flex flex-col items-start select-none"
       style="line-height: 1.2; width: max-content;"
     >
-      <div class="relative w-full text-left">
+      <div class="relative w-full text-left" id="hanviet-text">
         「KIẾN, CHẨN」
         <div class="underline-custom absolute left-1/2 -translate-x-1/2 bottom-0"></div>
       </div>
@@ -112,8 +140,13 @@
       background-color: #3f1f1fcc;
     }
   </style>
+  <script src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+  <script src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
   <script>
+    let kuroshiro = new Kuroshiro();
+    let kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
     let data = [];
+    let filteredData = [];
     let currentIndex = 0;
 
     async function loadData() {
@@ -123,38 +156,149 @@
           throw new Error('Network response was not ok');
         }
         data = await response.json();
-        if (data.length > 0) {
+
+        populateLessonDropdown();
+
+        // Initially show all data
+        filteredData = data;
+        if (filteredData.length > 0) {
           currentIndex = 0;
-          displayCard(currentIndex);
+          await displayCard(currentIndex);
         }
       } catch (error) {
         console.error('Failed to load data:', error);
       }
     }
 
-    function displayCard(index) {
+    function populateLessonDropdown() {
+      const lessonSelect = document.getElementById('lesson-select');
+      // Extract unique lessons from data
+      const lessons = [...new Set(data.map(item => item.Lesson))].filter(Boolean);
+      lessons.forEach(lesson => {
+        const option = document.createElement('option');
+        option.value = lesson;
+        option.textContent = lesson;
+        lessonSelect.appendChild(option);
+      });
+
+      lessonSelect.addEventListener('change', () => {
+        filterByLesson(lessonSelect.value);
+      });
+    }
+
+    function filterByLesson(lesson) {
+      if (lesson === 'all') {
+        filteredData = data;
+      } else {
+        filteredData = data.filter(item => item.Lesson === lesson);
+      }
+      currentIndex = 0;
+      displayCard(currentIndex);
+    }
+
+    async function displayCard(index) {
       const cardContent = document.getElementById('card-content');
       const meaningDiv = document.getElementById('meaning');
-      const entry = data[index];
+      const hanvietTextDiv = document.getElementById('hanviet-text');
+      const entry = filteredData[index];
 
-      if (!entry) return;
+      if (entry.HanViet) {
+        hanvietTextDiv.textContent = `「${entry.HanViet}」`;
+      } else {
+        hanvietTextDiv.textContent = ''
+      }
+
+      let textToConvert = entry.Kanji ? entry.Kanji : entry.HiraKata;
+      let convertedText = textToConvert;
+      // Play sound for the displayed text
+      speakAnswer(textToConvert);
+
+      try {
+        await kuroshiroInitPromise;
+        convertedText = await kuroshiro.convert(textToConvert, { to: "hiragana", mode: "furigana" });
+      } catch (e) {
+        console.error("Kuroshiro conversion error:", e);
+      }
 
       cardContent.innerHTML = `
         <div
-          class="text-white text-[96px] handwritten leading-none select-none relative"
+          class="text-white text-[66px] handwritten leading-none select-none relative"
           style="line-height: 1"
         >
           <div
             class="text-[32px] absolute -top-8 left-6"
             style="line-height: 1"
           >
-          ${entry.Kanji ? entry.HiraKata : ''}
           </div>
-          <div class="japanese-kanji font-bold">${entry.Kanji ? entry.Kanji : entry.HiraKata}</div>
+          <div class="japanese-kanji font-bold" id="japanese-kanji">${convertedText}</div>
         </div>
       `;
 
+      // Add click event listener to copy kanji text to clipboard
+      const kanjiDiv = document.getElementById('japanese-kanji');
+      if (kanjiDiv) {
+        kanjiDiv.style.cursor = 'pointer';
+        kanjiDiv.title = 'Click to copy Kanji to clipboard';
+        kanjiDiv.addEventListener('click', () => {
+          const textToCopy = entry.Kanji ? entry.Kanji : entry.HiraKata;
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+              console.log('Kanji copied to clipboard:', textToCopy);
+            }).catch(err => {
+              console.error('Failed to copy Kanji:', err);
+            });
+          } else {
+            // Fallback for older browsers
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+              document.execCommand('copy');
+              console.log('Kanji copied to clipboard (fallback):', textToCopy);
+            } catch (err) {
+              console.error('Fallback: Oops, unable to copy', err);
+            }
+            document.body.removeChild(textarea);
+          }
+        });
+      }
+
       meaningDiv.textContent = entry.Meaning || '';
+
+
+    }
+
+    function speakAnswer(speak) {
+      if (speak !== '') {
+        if ('speechSynthesis' in window) {
+          const utterance = new SpeechSynthesisUtterance(speak);
+          utterance.lang = 'ja-JP';
+          utterance.onstart = function(event) {
+            const audio = new Audio();
+            audio.play().catch(error => {});
+          };
+          window.speechSynthesis.speak(utterance);
+        } else {
+          playTTS(encodeURIComponent(speak), 'ja-JP');
+        }
+      }
+    }
+
+    const playTTS = (text, lang) => {
+      // Get the audio element
+      let audioEl = document.getElementById('tts-audio');
+      if (!audioEl) {
+        audioEl = document.createElement('audio');
+        audioEl.id = 'tts-audio';
+        document.body.appendChild(audioEl);
+      }
+      const url= `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${text}`;
+
+      // add the sound to the audio element
+      audioEl.src = url;
+      //For auto playing the sound
+      audioEl.play();
     }
 
     document.getElementById('prev-btn').addEventListener('click', () => {
@@ -165,7 +309,7 @@
     });
 
     document.getElementById('next-btn').addEventListener('click', () => {
-      if (currentIndex < data.length - 1) {
+      if (currentIndex < filteredData.length - 1) {
         currentIndex++;
         displayCard(currentIndex);
       }
@@ -173,20 +317,31 @@
 
     loadData();
 
-    // Add keyboard navigation for next and previous buttons
+    // Add keyboard navigation for next and previous buttons and toggle meaning with 'q'
     document.addEventListener('keydown', (event) => {
       const key = event.key;
-      if (key === 'ArrowRight' || key === 'n' || key === 'N') {
+      if (key === 'ArrowRight') {
         // Next
-        if (currentIndex < data.length - 1) {
+        if (currentIndex < filteredData.length - 1) {
           currentIndex++;
           displayCard(currentIndex);
         }
-      } else if (key === 'ArrowLeft' || key === 'p' || key === 'P') {
+      } else if (key === 'ArrowLeft') {
         // Previous
         if (currentIndex > 0) {
           currentIndex--;
           displayCard(currentIndex);
+        }
+      } else if (key === 'q' || key === 'Q') {
+        // Toggle meaning visibility
+        const meaningDiv = document.getElementById('meaning');
+        const toggleCheckbox = document.getElementById('toggle-meaning');
+        if (meaningDiv.style.display === 'none') {
+          meaningDiv.style.display = '';
+          toggleCheckbox.checked = false;
+        } else {
+          meaningDiv.style.display = 'none';
+          toggleCheckbox.checked = true;
         }
       }
     });
