@@ -45,6 +45,17 @@
         <input type="checkbox" id="toggle-meaning" checked />
         <span>Ẩn nghĩa</span>
       </label>
+      <!-- Add radio buttons for mode selection -->
+      <div class="text-white select-none flex items-center space-x-4 ml-6">
+        <label class="flex items-center space-x-1 cursor-pointer">
+          <input type="radio" name="display-mode" id="mode-meaning" value="meaning" checked />
+          <span>Học nghĩa</span>
+        </label>
+        <label class="flex items-center space-x-1 cursor-pointer">
+          <input type="radio" name="display-mode" id="mode-japanese" value="japanese" />
+          <span>Học tiếng Nhật</span>
+        </label>
+      </div>
     </div>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
@@ -61,6 +72,22 @@
         if (toggleMeaningCheckbox.checked) {
           meaningDiv.style.display = 'none';
         }
+
+        // Add event listeners for radio buttons
+        const modeMeaningRadio = document.getElementById('mode-meaning');
+        const modeJapaneseRadio = document.getElementById('mode-japanese');
+
+        modeMeaningRadio.addEventListener('change', () => {
+          if (modeMeaningRadio.checked) {
+            displayCard(currentIndex);
+          }
+        });
+
+        modeJapaneseRadio.addEventListener('change', () => {
+          if (modeJapaneseRadio.checked) {
+            displayCard(currentIndex);
+          }
+        });
       });
     </script>
 
@@ -210,8 +237,18 @@
 
       let textToConvert = entry.Kanji ? entry.Kanji : entry.HiraKata;
       let convertedText = textToConvert;
-      // Play sound for the displayed text
-      speakAnswer(textToConvert);
+
+      
+      // Determine display mode
+      const modeMeaningRadio = document.getElementById('mode-meaning');
+      const isMeaningMode = modeMeaningRadio.checked;
+
+      if (isMeaningMode) {
+        // Play sound for the displayed text
+        speakAnswer(textToConvert);
+      } else {
+        speakAnswer(entry.Meaning, 'vi-VN');
+      }
 
       try {
         await kuroshiroInitPromise;
@@ -220,19 +257,38 @@
         console.error("Kuroshiro conversion error:", e);
       }
 
-      cardContent.innerHTML = `
-        <div
-          class="text-white text-[66px] handwritten leading-none select-none relative"
-          style="line-height: 1"
-        >
+      if (isMeaningMode) {
+        cardContent.innerHTML = `
           <div
-            class="text-[32px] absolute -top-8 left-6"
+            class="text-white text-[66px] handwritten leading-none select-none relative"
             style="line-height: 1"
           >
+            <div
+              class="text-[32px] absolute -top-8 left-6"
+              style="line-height: 1"
+            >
+            </div>
+            <div class="japanese-kanji font-bold" id="japanese-kanji">${convertedText}</div>
           </div>
-          <div class="japanese-kanji font-bold" id="japanese-kanji">${convertedText}</div>
-        </div>
-      `;
+        `;
+        meaningDiv.textContent = entry.Meaning || '';
+      } else {
+        // học tiếng nhật mode: swap japanese-kanji and meaningDiv.textContent
+        cardContent.innerHTML = `
+          <div
+            class="text-white text-[66px] handwritten leading-none select-none relative"
+            style="line-height: 1"
+          >
+            <div
+              class="text-[32px] absolute -top-8 left-6"
+              style="line-height: 1"
+            >
+            </div>
+            <div class="japanese-kanji font-bold" id="japanese-kanji">${entry.Meaning || ''}</div>
+          </div>
+        `;
+        meaningDiv.textContent = convertedText;
+      }
 
       // Add click event listener to copy kanji text to clipboard
       const kanjiDiv = document.getElementById('japanese-kanji');
@@ -264,23 +320,21 @@
         });
       }
 
-      meaningDiv.textContent = entry.Meaning || '';
-
 
     }
 
-    function speakAnswer(speak) {
-      if (speak !== '') {
+    function speakAnswer(speakText, speaker = 'ja-JP') {
+      if (speakText !== '') {
         if ('speechSynthesis' in window) {
-          const utterance = new SpeechSynthesisUtterance(speak);
-          utterance.lang = 'ja-JP';
+          const utterance = new SpeechSynthesisUtterance(speakText);
+          utterance.lang = speaker;
           utterance.onstart = function(event) {
             const audio = new Audio();
             audio.play().catch(error => {});
           };
           window.speechSynthesis.speak(utterance);
         } else {
-          playTTS(encodeURIComponent(speak), 'ja-JP');
+          playTTS(encodeURIComponent(speakText), speaker);
         }
       }
     }
