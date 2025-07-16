@@ -327,14 +327,14 @@
         // Always stop any ongoing speech or audio before starting new
         if ('speechSynthesis' in window) {
           window.speechSynthesis.cancel();
-        }
-        let audioEl = document.getElementById('tts-audio');
-        if (audioEl && !audioEl.paused) {
-          audioEl.pause();
-          audioEl.currentTime = 0;
-        }
 
-        if ('speechSynthesis' in window) {
+
+          let audioEl = document.getElementById('tts-audio');
+          if (audioEl && !audioEl.paused) {
+            audioEl.pause();
+            audioEl.currentTime = 0;
+          }
+
           const utterance = new SpeechSynthesisUtterance(speakText);
           utterance.lang = speaker;
           utterance.rate = rate;
