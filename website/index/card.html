@@ -322,16 +322,35 @@
 
     }
 
-    function speakAnswer(speakText, speaker = 'ja-JP') {
+    function speakAnswer(speakText, speaker = 'ja-JP', rate = 1, pitch = 1, volume = 1) {
       if (speakText !== '') {
+        // Always stop any ongoing speech or audio before starting new
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+        }
+        let audioEl = document.getElementById('tts-audio');
+        if (audioEl && !audioEl.paused) {
+          audioEl.pause();
+          audioEl.currentTime = 0;
+        }
+
         if ('speechSynthesis' in window) {
           const utterance = new SpeechSynthesisUtterance(speakText);
           utterance.lang = speaker;
-          utterance.onstart = function(event) {
-            const audio = new Audio();
-            audio.play().catch(error => {});
-          };
-          window.speechSynthesis.speak(utterance);
+          utterance.rate = rate;
+          utterance.pitch = pitch;
+          utterance.volume = volume;
+
+          // Select best matching voice for Vietnamese if speaker is 'vi-VN'
+          if (speaker === 'vi-VN') {
+            playTTS(encodeURIComponent(speakText), speaker);
+          } else {
+            utterance.onstart = function(event) {
+              const audio = new Audio();
+              audio.play().catch(error => {});
+            };
+            window.speechSynthesis.speak(utterance);
+          }
         } else {
           playTTS(encodeURIComponent(speakText), speaker);
         }
@@ -346,7 +365,10 @@
         audioEl.id = 'tts-audio';
         document.body.appendChild(audioEl);
       }
-      const url= `https://translate.google.com/translate_tts?ie=UTF-8&tl=${lang}&client=tw-ob&q=${text}`;
+      let url;
+      if (lang === 'vi-VN') {
+        url = `https://proxy.junookyo.workers.dev/?language=${lang}&text=${text}&speed=1`;
+      }
 
       // add the sound to the audio element
       audioEl.src = url;
