@@ -343,7 +343,7 @@
 
           // Select best matching voice for Vietnamese if speaker is 'vi-VN'
           if (speaker === 'vi-VN') {
-            playTTS(encodeURIComponent(speakText), speaker);
+            
           } else {
             utterance.onstart = function(event) {
               const audio = new Audio();
@@ -395,19 +395,19 @@
     // Add keyboard navigation for next and previous buttons and toggle meaning with 'q'
     document.addEventListener('keydown', (event) => {
       const key = event.key;
-      if (key === 'ArrowRight') {
+      if (key === 'ArrowRight' || key === 'd') {
         // Next
         if (currentIndex < filteredData.length - 1) {
           currentIndex++;
           displayCard(currentIndex);
         }
-      } else if (key === 'ArrowLeft') {
+      } else if (key === 'ArrowLeft' || key === 'a') {
         // Previous
         if (currentIndex > 0) {
           currentIndex--;
           displayCard(currentIndex);
         }
-      } else if (key === 'q' || key === 'Q') {
+      } else if (key === 'q') {
         // Toggle meaning visibility
         const meaningDiv = document.getElementById('meaning');
         const toggleCheckbox = document.getElementById('toggle-meaning');
