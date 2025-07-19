@@ -286,7 +286,7 @@
             <div class="japanese-kanji font-bold" id="japanese-kanji">${entry.Meaning || ''}</div>
           </div>
         `;
-        meaningDiv.textContent = convertedText;
+        meaningDiv.innerHTML = convertedText;
       }
 
       // Add click event listener to copy kanji text to clipboard
@@ -343,7 +343,7 @@
 
           // Select best matching voice for Vietnamese if speaker is 'vi-VN'
           if (speaker === 'vi-VN') {
-            
+            playTTS(encodeURIComponent(speakText), speaker);
           } else {
             utterance.onstart = function(event) {
               const audio = new Audio();
