@@ -153,8 +153,7 @@
 </head>
 <body class="d-flex min-vh-100 justify-content-center align-items-center background-green">
   <div class="container-custom">
-    <!-- Dropdown for lesson selection at top -->
-    <div class="d-flex justify-content-center mt-3 align-items-center gap-3">
+    <div id="control-panel" class="d-flex justify-content-center mt-3 align-items-center gap-3">
       <select id="lesson-select" class="form-select text-black fs-5" style="width: auto;">
         <option value="all">Tất cả bài học</option>
       </select>
@@ -162,7 +161,6 @@
         <input class="form-check-input" type="checkbox" id="toggle-meaning" checked />
         <label class="form-check-label mb-0 ms-2" for="toggle-meaning">Ẩn nghĩa</label>
       </div>
-      <!-- Add radio buttons for mode selection -->
       <div class="text-white d-flex align-items-center gap-4 ms-4">
         <div class="form-check d-flex align-items-center">
           <input class="form-check-input" type="radio" name="display-mode" id="mode-meaning" value="meaning" checked />
@@ -174,12 +172,12 @@
         </div>
       </div>
     </div>
+    <button id="start-btn" class="btn btn-primary mt-3 d-block mx-auto">Bắt đầu</button>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Top left text "「KIẾN, CHẨN」" with underline, aligned left but underline centered under text -->
     <div class="position-absolute top-0 start-0 translate-middle-y text-dark fs-4 fw-light fst-italic font-serif d-flex flex-column align-items-start user-select-none hanviet-text-container">
       <div class="position-relative w-100 text-start hanviet-text-inner" id="hanviet-text">
-        「KIẾN, CHẨN」
         <div class="underline-custom position-absolute start-50 translate-middle-x bottom-0"></div>
       </div>
     </div>
@@ -216,7 +214,7 @@
     </div>
 
     <!-- Bottom text bars -->
-    <div class="position-absolute bottom-0 start-0 w-100">
+    <!-- <div class="position-absolute bottom-0 start-0 w-100">
       <div class="bottom-text-dark">
         お腹が痛いので、診ていただけませんか？
       </div>
@@ -225,7 +223,7 @@
       >
         Tôi bị đau bụng, xem giúp tôi có được không?
       </div>
-    </div>
+    </div> -->
   </div>
   <style>
     .nav-button {
@@ -255,6 +253,21 @@
     $(document).ready(function() {
         const $toggleMeaningCheckbox = $('#toggle-meaning');
         const $meaningDiv = $('#meaning');
+        const $controlPanel = $('#control-panel');
+        const $startBtn = $('#start-btn');
+        const $mainContent = $('.main-content');
+        const $navButtons = $('.nav-buttons-container');
+
+        // Initially hide main content and nav buttons
+        $mainContent.hide();
+        $navButtons.hide();
+
+        $startBtn.on('click', function() {
+          $controlPanel.hide();
+          $startBtn.hide();
+          $mainContent.show();
+          $navButtons.show();
+        });
 
         $toggleMeaningCheckbox.on('change', function() {
           if (this.checked) {
@@ -264,12 +277,10 @@
           }
         });
 
-        // Initialize visibility based on checkbox state
         if ($toggleMeaningCheckbox.is(':checked')) {
           $meaningDiv.hide();
         }
 
-        // Add event listeners for radio buttons
         const $modeMeaningRadio = $('#mode-meaning');
         const $modeJapaneseRadio = $('#mode-japanese');
 
@@ -284,218 +295,211 @@
             displayCard(currentIndex);
           }
         });
-      });
 
-    function loadData() {
-      $.getJSON('/website/file/jp/n4.json')
-        .done(function(response) {
-          data = response;
-          populateLessonDropdown();
+        function loadData() {
+          $.getJSON('/website/file/jp/n4.json')
+            .done(function(response) {
+              data = response;
+              populateLessonDropdown();
 
-          // Initially show all data
-          filteredData = data;
-          if (filteredData.length > 0) {
-            currentIndex = 0;
-            displayCard(currentIndex);
-          }
-        })
-        .fail(function(jqxhr, textStatus, error) {
-          console.error('Failed to load data:', textStatus, error);
-        });
-    }
-
-    function populateLessonDropdown() {
-      const $lessonSelect = $('#lesson-select');
-      $lessonSelect.empty();
-      $lessonSelect.append('<option value="all">Tất cả bài học</option>');
-      // Extract unique lessons from data
-      const lessons = [...new Set(data.map(item => item.Lesson))].filter(Boolean);
-      lessons.forEach(function(lesson) {
-        $lessonSelect.append($('<option></option>').val(lesson).text(lesson));
-      });
-
-      $lessonSelect.off('change').on('change', function() {
-        filterByLesson($(this).val());
-      });
-    }
-
-    function filterByLesson(lesson) {
-      if (lesson === 'all') {
-        filteredData = data;
-      } else {
-        filteredData = data.filter(function(item) {
-          return item.Lesson === lesson;
-        });
-      }
-      currentIndex = 0;
-      displayCard(currentIndex);
-    }
-
-    function displayCard(index) {
-      const entry = filteredData[index];
-      const $cardContent = $('#card-content');
-      const $meaningDiv = $('#meaning');
-      const $hanvietTextDiv = $('#hanviet-text');
-
-      if (entry.HanViet) {
-        $hanvietTextDiv.text(`「${entry.HanViet}」`);
-      } else {
-        $hanvietTextDiv.text('');
-      }
-
-      let textToConvert = entry.Kanji ? entry.Kanji : entry.HiraKata;
-      let convertedText = textToConvert;
-
-      kuroshiroInitPromise
-        .then(function() {
-          return kuroshiro.convert(textToConvert, { to: "hiragana", mode: "furigana" });
-        })
-        .then(function(result) {
-          convertedText = result;
-
-          const isMeaningMode = $('#mode-meaning').is(':checked');
-
-          if (isMeaningMode) {
-            speakAnswer(textToConvert);
-          } else {
-            speakAnswer(entry.Meaning, 'vi-VN');
-          }
-
-          if (isMeaningMode) {
-            $cardContent.html(`
-              <div class="text-white fw-bold user-select-none" style="font-size: 3rem; line-height: 1;">
-                <div style="height: 0;"></div>
-                <div class="japanese-kanji fw-bold" id="japanese-kanji">${convertedText}</div>
-              </div>
-            `);
-            $meaningDiv.text(entry.Meaning || '');
-          } else {
-            $cardContent.html(`
-              <div class="text-white fw-bold user-select-none" style="font-size: 3rem; line-height: 1;">
-                <div style="height: 0;"></div>
-                <div class="japanese-kanji fw-bold" id="japanese-kanji">${entry.Meaning || ''}</div>
-              </div>
-            `);
-            $meaningDiv.html(convertedText);
-          }
-
-          const $kanjiDiv = $('#japanese-kanji');
-          if ($kanjiDiv.length) {
-            $kanjiDiv.css('cursor', 'pointer');
-            $kanjiDiv.attr('title', 'Click to copy Kanji to clipboard');
-            $kanjiDiv.off('click').on('click', function() {
-              const textToCopy = entry.Kanji ? entry.Kanji : entry.HiraKata;
-              if (navigator.clipboard) {
-                navigator.clipboard.writeText(textToCopy).then(function() {
-                  console.log('Kanji copied to clipboard:', textToCopy);
-                }).catch(function(err) {
-                  console.error('Failed to copy Kanji:', err);
-                });
-              } else {
-                const $textarea = $('<textarea></textarea>').val(textToCopy).appendTo('body');
-                $textarea.select();
-                try {
-                  document.execCommand('copy');
-                  console.log('Kanji copied to clipboard (fallback):', textToCopy);
-                } catch (err) {
-                  console.error('Fallback: Oops, unable to copy', err);
-                }
-                $textarea.remove();
+              filteredData = data;
+              if (filteredData.length > 0) {
+                currentIndex = 0;
+                displayCard(currentIndex);
               }
+            })
+            .fail(function(jqxhr, textStatus, error) {
+              console.error('Failed to load data:', textStatus, error);
+            });
+        }
+
+        function populateLessonDropdown() {
+          const $lessonSelect = $('#lesson-select');
+          $lessonSelect.empty();
+          $lessonSelect.append('<option value="all">Tất cả bài học</option>');
+          const lessons = [...new Set(data.map(item => item.Lesson))].filter(Boolean);
+          lessons.forEach(function(lesson) {
+            $lessonSelect.append($('<option></option>').val(lesson).text(lesson));
+          });
+
+          $lessonSelect.off('change').on('change', function() {
+            filterByLesson($(this).val());
+          });
+        }
+
+        function filterByLesson(lesson) {
+          if (lesson === 'all') {
+            filteredData = data;
+          } else {
+            filteredData = data.filter(function(item) {
+              return item.Lesson === lesson;
             });
           }
-        })
-        .catch(function(e) {
-          console.error("Kuroshiro conversion error:", e);
-        });
-    }
+          currentIndex = 0;
+          displayCard(currentIndex);
+        }
 
-    function speakAnswer(speakText, speaker = 'ja-JP', rate = 1, pitch = 1, volume = 1) {
-      if (speakText !== '') {
-        if ('speechSynthesis' in window) {
-          window.speechSynthesis.cancel();
+        function displayCard(index) {
+          const entry = filteredData[index];
 
-          let audioEl = $('#tts-audio')[0];
-          if (audioEl && !audioEl.paused) {
-            audioEl.pause();
-            audioEl.currentTime = 0;
-          }
-
-          const utterance = new SpeechSynthesisUtterance(speakText);
-          utterance.lang = speaker;
-          utterance.rate = rate;
-          utterance.pitch = pitch;
-          utterance.volume = volume;
-
-          if (speaker === 'vi-VN') {
-            playTTS(encodeURIComponent(speakText), speaker);
+          if (entry.HanViet) {
+            $('#hanviet-text').text(`「${entry.HanViet}」`);
           } else {
-            utterance.onstart = function(event) {
-              const audio = new Audio();
-              audio.play().catch(function(error) {});
-            };
-            window.speechSynthesis.speak(utterance);
+            $('#hanviet-text').text('');
           }
-        } else {
-          playTTS(encodeURIComponent(speakText), speaker);
+
+          let textToConvert = entry.Kanji ? entry.Kanji : entry.HiraKata;
+          let convertedText = textToConvert;
+
+          kuroshiroInitPromise
+            .then(function() {
+              return kuroshiro.convert(textToConvert, { to: "hiragana", mode: "furigana" });
+            })
+            .then(function(result) {
+              convertedText = result;
+
+              const isMeaningMode = $('#mode-meaning').is(':checked');
+
+              if (isMeaningMode) {
+                speakAnswer(textToConvert);
+              } else {
+                speakAnswer(entry.Meaning, 'vi-VN');
+              }
+
+              if (isMeaningMode) {
+                $('#card-content').html(`
+                  <div class="text-white fw-bold user-select-none" style="font-size: 3rem; line-height: 1;">
+                    <div style="height: 0;"></div>
+                    <div class="japanese-kanji fw-bold" id="japanese-kanji">${convertedText}</div>
+                  </div>
+                `);
+                $('#meaning').text(entry.Meaning || '');
+              } else {
+                $('#card-content').html(`
+                  <div class="text-white fw-bold user-select-none" style="font-size: 3rem; line-height: 1;">
+                    <div style="height: 0;"></div>
+                    <div class="japanese-kanji fw-bold" id="japanese-kanji">${entry.Meaning || ''}</div>
+                  </div>
+                `);
+                $('#meaning').html(convertedText);
+              }
+
+              const $kanjiDiv = $('#japanese-kanji');
+              if ($kanjiDiv.length) {
+                $kanjiDiv.css('cursor', 'pointer');
+                $kanjiDiv.attr('title', 'Click to copy Kanji to clipboard');
+                $kanjiDiv.off('click').on('click', function() {
+                  const textToCopy = entry.Kanji ? entry.Kanji : entry.HiraKata;
+                  if (navigator.clipboard) {
+                    navigator.clipboard.writeText(textToCopy).then(function() {
+                      console.log('Kanji copied to clipboard:', textToCopy);
+                    }).catch(function(err) {
+                      console.error('Failed to copy Kanji:', err);
+                    });
+                  } else {
+                    const $textarea = $('<textarea></textarea>').val(textToCopy).appendTo('body');
+                    $textarea.select();
+                    try {
+                      document.execCommand('copy');
+                      console.log('Kanji copied to clipboard (fallback):', textToCopy);
+                    } catch (err) {
+                      console.error('Fallback: Oops, unable to copy', err);
+                    }
+                    $textarea.remove();
+                  }
+                });
+              }
+            })
+            .catch(function(e) {
+              console.error("Kuroshiro conversion error:", e);
+            });
         }
-      }
-    }
 
-    function playTTS(text, lang) {
-      let audioEl = $('#tts-audio')[0];
-      if (!audioEl) {
-        audioEl = $('<audio></audio>').attr('id', 'tts-audio').appendTo('body')[0];
-      }
-      let url;
-      if (lang === 'vi-VN') {
-        url = `https://proxy.junookyo.workers.dev/?language=${lang}&text=${text}&speed=1`;
-      }
+        function speakAnswer(speakText, speaker = 'ja-JP', rate = 1, pitch = 1, volume = 1) {
+          if (speakText !== '') {
+            if ('speechSynthesis' in window) {
+              window.speechSynthesis.cancel();
 
-      audioEl.src = url;
-      audioEl.play();
-    }
+              let audioEl = $('#tts-audio')[0];
+              if (audioEl && !audioEl.paused) {
+                audioEl.pause();
+                audioEl.currentTime = 0;
+              }
 
-    $('#prev-btn').on('click', function() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        displayCard(currentIndex);
-      }
-    });
+              const utterance = new SpeechSynthesisUtterance(speakText);
+              utterance.lang = speaker;
+              utterance.rate = rate;
+              utterance.pitch = pitch;
+              utterance.volume = volume;
 
-    $('#next-btn').on('click', function() {
-      if (currentIndex < filteredData.length - 1) {
-        currentIndex++;
-        displayCard(currentIndex);
-      }
-    });
-
-    loadData();
-
-    $(document).on('keydown', function(event) {
-      const key = event.key;
-      if (key === 'ArrowRight' || key === 'd') {
-        if (currentIndex < filteredData.length - 1) {
-          currentIndex++;
-          displayCard(currentIndex);
+              if (speaker === 'vi-VN') {
+                playTTS(encodeURIComponent(speakText), speaker);
+              } else {
+                utterance.onstart = function(event) {
+                  const audio = new Audio();
+                  audio.play().catch(function(error) {});
+                };
+                window.speechSynthesis.speak(utterance);
+              }
+            } else {
+              playTTS(encodeURIComponent(speakText), speaker);
+            }
+          }
         }
-      } else if (key === 'ArrowLeft' || key === 'a') {
-        if (currentIndex > 0) {
-          currentIndex--;
-          displayCard(currentIndex);
+
+        function playTTS(text, lang) {
+          let audioEl = $('#tts-audio')[0];
+          if (!audioEl) {
+            audioEl = $('<audio></audio>').attr('id', 'tts-audio').appendTo('body')[0];
+          }
+          let url;
+          if (lang === 'vi-VN') {
+            url = `https://proxy.junookyo.workers.dev/?language=${lang}&text=${text}&speed=1`;
+          }
+
+          audioEl.src = url;
+          audioEl.play();
         }
-      } else if (key === 'q') {
-        const $meaningDiv = $('#meaning');
-        const $toggleCheckbox = $('#toggle-meaning');
-        if ($meaningDiv.is(':visible')) {
-          $meaningDiv.hide();
-          $toggleCheckbox.prop('checked', true);
-        } else {
-          $meaningDiv.show();
-          $toggleCheckbox.prop('checked', false);
-        }
-      }
-    });
+
+        $('#prev-btn').on('click', function() {
+          if (currentIndex > 0) {
+            currentIndex--;
+            displayCard(currentIndex);
+          }
+        });
+
+        $('#next-btn').on('click', function() {
+          if (currentIndex < filteredData.length - 1) {
+            currentIndex++;
+            displayCard(currentIndex);
+          }
+        });
+
+        loadData();
+
+        $(document).on('keydown', function(event) {
+          const key = event.key;
+          if (key === 'ArrowRight' || key === 'd') {
+            if (currentIndex < filteredData.length - 1) {
+              currentIndex++;
+              displayCard(currentIndex);
+            }
+          } else if (key === 'ArrowLeft' || key === 'a') {
+            if (currentIndex > 0) {
+              currentIndex--;
+              displayCard(currentIndex);
+            }
+          } else if (key === 'q') {
+            if ($('#meaning').is(':visible')) {
+              $('#meaning').hide();
+              $('#toggle-meaning').prop('checked', true);
+            } else {
+              $('#meaning').show();
+              $('#toggle-meaning').prop('checked', false);
+            }
+          }
+        });
+      });
   </script>
 </body>
 </html>

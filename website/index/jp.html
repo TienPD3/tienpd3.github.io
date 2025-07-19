@@ -1,0 +1,180 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Device Usage Demo with Controls</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'UTM Bauhaus';
+      src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
+    }
+    * {
+      font-family: 'UTM Bauhaus', sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .background-green {
+      background-color: #5fc193;
+    }
+    .japanese-text-small {
+      letter-spacing: 0.3em;
+      font-weight: 700;
+      user-select: none;
+    }
+    .title {
+      color: #2a2a2a;
+      font-size: 1.75rem;
+    }
+    .subtitle {
+      color: black;
+      font-weight: 600;
+      font-size: 1.75rem;
+    }
+    ruby {
+      font-weight: 700;
+      font-size: 3.5rem;
+      color: white;
+      letter-spacing: 0.3em;
+      user-select: none;
+    }
+    ruby rt {
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: normal;
+    }
+    @media (min-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+      .japanese-text-small {
+        font-size: 6rem;
+      }
+      .subtitle {
+        font-size: 2rem;
+      }
+      ruby {
+        font-size: 4.5rem;
+      }
+      ruby rt {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body class="background-green">
+  <main class="container my-4">
+    <div class="mb-3">
+      <label for="lesson-select" class="form-label">Chọn bài học</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="lesson-select" data-bs-toggle="dropdown" aria-expanded="false">
+          Chọn bài học
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="lesson-select" id="lesson-select-menu" style="max-height: 200px; overflow-y: auto;">
+          <li>
+            <div class="form-check ms-2">
+              <input class="form-check-input" type="checkbox" value="all" id="lesson-all" checked>
+              <label class="form-check-label" for="lesson-all">Tất cả bài học</label>
+            </div>
+          </li>
+          <!-- Lesson items will be appended here dynamically -->
+        </ul>
+      </div>
+    </div>
+    <div class="form-check form-switch mb-3">
+      <input class="form-check-input" type="checkbox" id="toggle-meaning" checked>
+      <label class="form-check-label" for="toggle-meaning">Ẩn nghĩa</label>
+    </div>
+    <fieldset class="mb-3">
+      <legend>Chọn ngôn ngữ</legend>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="language" id="lang-vietnamese" value="vietnamese" checked>
+        <label class="form-check-label" for="lang-vietnamese">Tiếng Việt</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="language" id="lang-japanese" value="japanese">
+        <label class="form-check-label" for="lang-japanese">Tiếng Nhật</label>
+      </div>
+    </fieldset>
+    <button id="start-btn" class="btn btn-primary mb-3">Bắt đầu</button>
+    <section id="result" class="border p-3 rounded d-none" aria-live="polite" aria-atomic="true">
+      <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 gap-md-0">
+        <div class="d-flex flex-column align-items-start gap-4">
+          <h1 class="title" id="idSinoVietnamese">「HÀ VẬT PHÓ」</h1>
+          <div class="d-flex flex-column align-items-start gap-2">
+            <div class="japanese-text-small" id="idNeedLearn">
+              <ruby>秋<rp>(</rp><rt>あき</rt><rp>)</rp></ruby>
+            </div>
+          </div>
+          <p class="subtitle mb-0" id="idViewResult">Đồ đạc ngăn nắp</p>
+        </div>
+        <div class="position-relative">
+          <img
+            src="https://storage.googleapis.com/a1aa/image/4436f41c-3571-4e5b-1b83-17de17a5a1e9.jpg"
+            alt="Illustration of a neat and organized Japanese style room with shelves, desk, chair, and plants"
+            width="400"
+            height="400"
+            class="border border-2 border-success"
+            style="object-fit: cover;"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    $(document).ready(function() {
+      // Load lessons from JSON and populate dropdown
+      $.getJSON('/website/file/jp/n4.json', function(data) {
+        const lessons = [...new Set(data.map(item => item.Lesson).filter(Boolean))];
+          const $lessonSelectMenu = $('#lesson-select-menu');
+          $lessonSelectMenu.find('li.lesson-item').remove();
+          lessons.forEach(function(lesson) {
+            const lessonId = 'lesson-' + lesson;
+            const $item = $(`
+              <li class="lesson-item">
+                <div class="form-check ms-2">
+                  <input class="form-check-input lesson-checkbox" type="checkbox" value="${lesson}" id="${lessonId}">
+                  <label class="form-check-label" for="${lessonId}">Bài ${lesson}</label>
+                </div>
+              </li>
+            `);
+            $lessonSelectMenu.append($item);
+          });
+
+          // Handle "Tất cả bài học" checkbox behavior
+          $('#lesson-all').on('change', function() {
+            const checked = $(this).is(':checked');
+            $('.lesson-checkbox').prop('checked', checked);
+          });
+
+          // If any individual checkbox is unchecked, uncheck "Tất cả bài học"
+          $lessonSelectMenu.on('change', '.lesson-checkbox', function() {
+            if (!$(this).is(':checked')) {
+              $('#lesson-all').prop('checked', false);
+            } else {
+              // If all individual checkboxes are checked, check "Tất cả bài học"
+              const allChecked = $('.lesson-checkbox').length === $('.lesson-checkbox:checked').length;
+              $('#lesson-all').prop('checked', allChecked);
+            }
+          });
+      });
+
+      $('#start-btn').on('click', function() {
+        $('#result').removeClass('d-none');
+      });
+
+      // Prevent dropdown from closing when clicking inside the dropdown menu
+      $('#lesson-select-menu').on('click', function(e) {
+        e.stopPropagation();
+      });
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
