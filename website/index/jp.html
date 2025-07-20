@@ -27,6 +27,7 @@
     }
     .japanese-text-small {
       font-weight: 700;
+      font-size: 5rem;
       user-select: none;
     }
     .title {
@@ -41,23 +42,7 @@
     ruby rt { 
       padding-bottom: 1px;
     }
-    @media (min-width: 768px) {
-      .title {
-        font-size: 2rem;
-      }
-      .japanese-text-small {
-        font-size: 6rem;
-      }
-      .subtitle {
-        font-size: 2rem;
-      }
-      ruby {
-        font-size: 4.5rem;
-      }
-      ruby rt {
-        font-size: 1.5rem;
-      }
-    }
+
   </style>
 </head>
 <body class="background-green">
@@ -98,13 +83,13 @@
     <section id="result" class="border p-3 rounded d-none" aria-live="polite" aria-atomic="true">
       <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 gap-md-0">
         <div class="d-flex flex-column align-items-start gap-4">
-          <h1 class="title" id="idSinoVietnamese">「HÀ VẬT PHÓ」</h1>
+          <h1 class="title" id="idSinoVietnamese"><!-- Edit text --></h1>
           <div class="d-flex flex-column align-items-start gap-2">
             <div class="japanese-text-small text-white" id="idNeedLearn">
-              <ruby>秋<rp>(</rp><rt>あき</rt><rp>)</rp></ruby>
+              <!-- Edit text -->
             </div>
           </div>
-          <p class="subtitle mb-0" id="idViewResult">Đồ đạc ngăn nắp</p>
+          <p class="subtitle mb-0" id="idViewResult"><!-- Edit text --></p>
         </div>
         <div class="position-relative">
           <img
@@ -122,128 +107,174 @@
   <script>
     $(document).ready(function() {
       let lessonsData = []; // Store loaded JSON data globally
+      let currentIndex = 0;
+      let words = [];
+      let kuroshiro;
+      let kuroshiroInitPromise;
+
       // Load lessons from JSON and populate dropdown
       $.getJSON('/website/file/jp/n4.json', function(data) {
         lessonsData = data; // Store data globally
         const lessons = [...new Set(data.map(item => item.Lesson).filter(Boolean))];
-          const $lessonSelectMenu = $('#lesson-select-menu');
-          $lessonSelectMenu.find('li.lesson-item').remove();
-          lessons.forEach(function(lesson) {
-            const lessonId = 'lesson-' + lesson;
-            const $item = $(`
-              <li class="lesson-item">
-                <div class="form-check ms-2">
-                  <input class="form-check-input lesson-checkbox" type="checkbox" value="${lesson}" id="${lessonId}">
-                  <label class="form-check-label" for="${lessonId}">Bài ${lesson}</label>
-                </div>
-              </li>
-            `);
-            $lessonSelectMenu.append($item);
-          });
+        const $lessonSelectMenu = $('#lesson-select-menu');
+        $lessonSelectMenu.find('li.lesson-item').remove();
+        lessons.forEach(function(lesson) {
+          const lessonId = 'lesson-' + lesson;
+          const $item = $(`
+            <li class="lesson-item">
+              <div class="form-check ms-2">
+                <input class="form-check-input lesson-checkbox" type="checkbox" value="${lesson}" id="${lessonId}">
+                <label class="form-check-label" for="${lessonId}">Bài ${lesson}</label>
+              </div>
+            </li>
+          `);
+          $lessonSelectMenu.append($item);
+        });
 
-          // Handle "Tất cả bài học" checkbox behavior
-          $('#lesson-all').on('change', function() {
-            const checked = $(this).is(':checked');
-            $('.lesson-checkbox').prop('checked', checked);
-          });
+        // Restore saved selected lessons from localStorage
+        const savedSelectedLessons = JSON.parse(localStorage.getItem('selectedLessons') || 'null');
+        if (savedSelectedLessons && Array.isArray(savedSelectedLessons)) {
+          if (savedSelectedLessons.includes('all')) {
+            $('#lesson-all').prop('checked', true);
+            $('.lesson-checkbox').prop('checked', true);
+          } else {
+            $('#lesson-all').prop('checked', false);
+            $('.lesson-checkbox').each(function() {
+              const val = $(this).val();
+              $(this).prop('checked', savedSelectedLessons.includes(val));
+            });
+          }
+        }
 
-          // If any individual checkbox is unchecked, uncheck "Tất cả bài học"
-          $lessonSelectMenu.on('change', '.lesson-checkbox', function() {
-            if (!$(this).is(':checked')) {
-              $('#lesson-all').prop('checked', false);
-            } else {
-              // If all individual checkboxes are checked, check "Tất cả bài học"
-              const allChecked = $('.lesson-checkbox').length === $('.lesson-checkbox:checked').length;
-              $('#lesson-all').prop('checked', allChecked);
-            }
-          });
-      });
+        // Handle "Tất cả bài học" checkbox behavior
+        $('#lesson-all').on('change', function() {
+          const checked = $(this).is(':checked');
+          $('.lesson-checkbox').prop('checked', checked);
+          saveSelectedLessons();
+        });
 
-      $('#start-btn').on('click', function() {
-        $('#result').removeClass('d-none');
-        // Initialize keyboard navigation after start button is clicked
-        let currentIndex = 0;
-        let words = [];
-
-        let kuroshiro;
-        let kuroshiroInitPromise;
+        // If any individual checkbox is unchecked, uncheck "Tất cả bài học"
+        $lessonSelectMenu.on('change', '.lesson-checkbox', function() {
+          if (!$(this).is(':checked')) {
+            $('#lesson-all').prop('checked', false);
+          } else {
+            // If all individual checkboxes are checked, check "Tất cả bài học"
+            const allChecked = $('.lesson-checkbox').length === $('.lesson-checkbox:checked').length;
+            $('#lesson-all').prop('checked', allChecked);
+          }
+          saveSelectedLessons();
+        });
 
         // Initialize Kuroshiro
         kuroshiro = new Kuroshiro();
         kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
 
-        // Use the already loaded lessonsData for filtering
-        function getSelectedLessons() {
-          const selected = [];
-          if ($('#lesson-all').is(':checked')) {
-            return ['all'];
-          }
+        // If saved current index exists, restore it
+        const savedIndex = parseInt(localStorage.getItem('currentIndex'), 10);
+        if (!isNaN(savedIndex)) {
+          currentIndex = savedIndex;
+        }
+
+        // If saved state exists, show result section and display saved word
+        if (savedSelectedLessons) {
+          $('#result').removeClass('d-none');
+          words = filterWords();
+          updateDisplay(currentIndex);
+        }
+      });
+
+      // Save selected lessons to localStorage
+      function saveSelectedLessons() {
+        const selected = [];
+        if ($('#lesson-all').is(':checked')) {
+          selected.push('all');
+        } else {
           $('.lesson-checkbox:checked').each(function() {
             selected.push($(this).val());
           });
-          return selected;
+        }
+        localStorage.setItem('selectedLessons', JSON.stringify(selected));
+      }
+
+      // Get selected lessons from UI
+      function getSelectedLessons() {
+        const selected = [];
+        if ($('#lesson-all').is(':checked')) {
+          return ['all'];
+        }
+        $('.lesson-checkbox:checked').each(function() {
+          selected.push($(this).val());
+        });
+        return selected;
+      }
+
+      // Filter words based on selected lessons
+      function filterWords() {
+        const selectedLessons = getSelectedLessons();
+        if (selectedLessons.includes('all')) {
+          return lessonsData;
+        }
+        return lessonsData.filter(item => selectedLessons.includes(item.Lesson));
+      }
+
+      // Update displayed word and related elements asynchronously using Kuroshiro
+      async function updateDisplay(index) {
+        if (words.length === 0) return;
+        const word = words[index];
+        if (word.HanViet) {
+          $('#idSinoVietnamese').html(`「${word.HanViet}」`);
+        } else {
+          $('#idSinoVietnamese').html('');
+        }
+        if (word.Kanji) {
+          await kuroshiroInitPromise;
+          const converted = await kuroshiro.convert(word.Kanji, { to: 'hiragana', mode: 'furigana' });
+          $('#idNeedLearn').html(converted);
+        } else {
+          $('#idNeedLearn').html(word.HiraKata || '');
         }
 
-        function filterWords() {
-          const selectedLessons = getSelectedLessons();
-          if (selectedLessons.includes('all')) {
-            return lessonsData;
+        $('#idViewResult').html(word.Meaning || '');
+        // Save current index to localStorage
+        localStorage.setItem('currentIndex', index);
+      }
+
+      // Bounce back visual feedback
+      function bounceBack() {
+        $('#idNeedLearn').fadeOut(100).fadeIn(100);
+      }
+
+      // Keyboard navigation handler
+      $(document).on('keydown', async function(e) {
+        if ($('#result').hasClass('d-none')) return; // Only active after start
+        if (words.length === 0) return;
+
+        if (e.key === 'ArrowRight') {
+          if (currentIndex < words.length - 1) {
+            currentIndex++;
+            await updateDisplay(currentIndex);
+          } else {
+            bounceBack();
           }
-          return lessonsData.filter(item => selectedLessons.includes(item.Lesson));
+          e.preventDefault();
+        } else if (e.key === 'ArrowLeft') {
+          if (currentIndex > 0) {
+            currentIndex--;
+            await updateDisplay(currentIndex);
+          } else {
+            bounceBack();
+          }
+          e.preventDefault();
         }
+      });
 
+      // Start button click handler
+      $('#start-btn').on('click', function() {
+        $('#result').removeClass('d-none');
         words = filterWords();
         currentIndex = 0;
         updateDisplay(currentIndex);
-
-        // Update displayed word and related elements asynchronously using Kuroshiro
-        async function updateDisplay(index) {
-          if (words.length === 0) return;
-          const word = words[index];
-          if (word.HanViet) {
-            $('#idSinoVietnamese').html(`「${word.HanViet}」`);
-          } else {
-            $('#idSinoVietnamese').html('');
-          }
-          if (word.Kanji) {
-            await kuroshiroInitPromise;
-            const converted = await kuroshiro.convert(word.Kanji, { to: 'hiragana', mode: 'furigana' });
-            $('#idNeedLearn').html(converted);
-          } else {
-            $('#idNeedLearn').html(word.HiraKata || '');
-          }
-
-          $('#idViewResult').html(word.Meaning || '');
-        }
-
-        // Bounce back visual feedback
-        function bounceBack() {
-          $('#idNeedLearn').fadeOut(100).fadeIn(100);
-        }
-
-        // Keyboard navigation handler
-        $(document).on('keydown', async function(e) {
-          if ($('#result').hasClass('d-none')) return; // Only active after start
-          if (words.length === 0) return;
-
-          if (e.key === 'ArrowRight') {
-            if (currentIndex < words.length - 1) {
-              currentIndex++;
-              await updateDisplay(currentIndex);
-            } else {
-              bounceBack();
-            }
-            e.preventDefault();
-          } else if (e.key === 'ArrowLeft') {
-            if (currentIndex > 0) {
-              currentIndex--;
-              await updateDisplay(currentIndex);
-            } else {
-              bounceBack();
-            }
-            e.preventDefault();
-          }
-        });
+        saveSelectedLessons();
       });
 
       // Prevent dropdown from closing when clicking inside the dropdown menu
