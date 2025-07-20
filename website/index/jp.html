@@ -47,38 +47,40 @@
 </head>
 <body class="background-green">
   <main class="container my-4">
-    <div class="mb-3">
-      <label for="lesson-select" class="form-label">Chọn bài học</label>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="lesson-select" data-bs-toggle="dropdown" aria-expanded="false">
-          Chọn bài học
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="lesson-select" id="lesson-select-menu" style="max-height: 200px; overflow-y: auto;">
-          <li>
-            <div class="form-check ms-2">
-              <input class="form-check-input" type="checkbox" value="all" id="lesson-all" checked>
-              <label class="form-check-label" for="lesson-all">Tất cả bài học</label>
-            </div>
-          </li>
-          <!-- Lesson items will be appended here dynamically -->
-        </ul>
+    <div id="setting">
+      <div class="mb-3">
+        <label for="lesson-select" class="form-label">Chọn bài học</label>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="lesson-select" data-bs-toggle="dropdown" aria-expanded="false">
+            Chọn bài học
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="lesson-select" id="lesson-select-menu" style="max-height: 200px; overflow-y: auto;">
+            <li>
+              <div class="form-check ms-2">
+                <input class="form-check-input" type="checkbox" value="all" id="lesson-all" checked>
+                <label class="form-check-label" for="lesson-all">Tất cả bài học</label>
+              </div>
+            </li>
+            <!-- Lesson items will be appended here dynamically -->
+          </ul>
+        </div>
       </div>
+      <div class="form-check form-switch mb-3">
+        <input class="form-check-input" type="checkbox" id="toggle-meaning" checked>
+        <label class="form-check-label" for="toggle-meaning">Ẩn nghĩa</label>
+      </div>
+      <fieldset class="mb-3">
+        <legend>Chọn ngôn ngữ</legend>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="language" id="lang-vietnamese" value="vietnamese" checked>
+          <label class="form-check-label" for="lang-vietnamese">Tiếng Việt</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="language" id="lang-japanese" value="japanese">
+          <label class="form-check-label" for="lang-japanese">Tiếng Nhật</label>
+        </div>
+      </fieldset>
     </div>
-    <div class="form-check form-switch mb-3">
-      <input class="form-check-input" type="checkbox" id="toggle-meaning" checked>
-      <label class="form-check-label" for="toggle-meaning">Ẩn nghĩa</label>
-    </div>
-    <fieldset class="mb-3">
-      <legend>Chọn ngôn ngữ</legend>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="language" id="lang-vietnamese" value="vietnamese" checked>
-        <label class="form-check-label" for="lang-vietnamese">Tiếng Việt</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="language" id="lang-japanese" value="japanese">
-        <label class="form-check-label" for="lang-japanese">Tiếng Nhật</label>
-      </div>
-    </fieldset>
     <button id="start-btn" class="btn btn-primary mb-3">Bắt đầu</button>
     <section id="result" class="border p-3 rounded d-none" aria-live="polite" aria-atomic="true">
       <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 gap-md-0">
@@ -379,6 +381,13 @@
       // Prevent dropdown from closing when clicking inside the dropdown menu
       $('#lesson-select-menu').on('click', function(e) {
         e.stopPropagation();
+      });
+
+      // On iPad or touch devices, clicking on the main container toggles toggle-meaning checkbox
+      $('main.container').on('click', function() {
+        const $toggle = $('#toggle-meaning');
+        $toggle.prop('checked', !$toggle.prop('checked'));
+        $toggle.trigger('change');
       });
     });
   </script>
