@@ -242,6 +242,7 @@
 
       // Save toggle-meaning checkbox state to localStorage
       $('#toggle-meaning').on('change', function() {
+        console.log('toggle-meaning changed:', $(this).is(':checked'));
         localStorage.setItem('toggleMeaning', $(this).is(':checked'));
         // Show or hide #idViewResult based on toggle-meaning state
         if ($(this).is(':checked')) {
@@ -409,7 +410,11 @@
       });
 
       // On iPad or touch devices, clicking on the main container toggles toggle-meaning checkbox
-      $('main.container').on('click', function() {
+      $('main.container').on('click', function(e) {
+        if ($(e.target).is('#toggle-meaning') || $(e.target).is('label[for="toggle-meaning"]')) {
+          // Ignore clicks on the toggle-meaning checkbox or its label to avoid conflict
+          return;
+        }
         const $toggle = $('#toggle-meaning');
         $toggle.prop('checked', !$toggle.prop('checked'));
         $toggle.trigger('change');
