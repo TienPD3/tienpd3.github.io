@@ -169,18 +169,30 @@
         kuroshiro = new Kuroshiro();
         kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
 
-        // If saved current index exists, restore it
-        const savedIndex = parseInt(localStorage.getItem('currentIndex'), 10);
-        if (!isNaN(savedIndex)) {
-          currentIndex = savedIndex;
-        }
+      // If saved current index exists, restore it
+      const savedIndex = parseInt(localStorage.getItem('currentIndex'), 10);
+      if (!isNaN(savedIndex)) {
+        currentIndex = savedIndex;
+      }
 
-        // If saved state exists, show result section and display saved word
-        if (savedSelectedLessons) {
-          $('#result').removeClass('d-none');
-          words = filterWords();
-          updateDisplay(currentIndex);
-        }
+      // Initialize selectedLanguage from localStorage
+      const savedSelectedLanguage = localStorage.getItem('selectedLanguage');
+      if (savedSelectedLanguage) {
+        $(`input[name="language"][value="${savedSelectedLanguage}"]`).prop('checked', true);
+      }
+
+      // Initialize toggleMeaning from localStorage
+      const savedToggleMeaning = localStorage.getItem('toggleMeaning');
+      if (savedToggleMeaning !== null) {
+        $('#toggle-meaning').prop('checked', savedToggleMeaning === 'true');
+      }
+
+      // If saved state exists, show result section and display saved word
+      if (savedSelectedLessons) {
+        $('#result').removeClass('d-none');
+        words = filterWords();
+        updateDisplay(currentIndex);
+      }
       });
 
       // Save selected lessons to localStorage
@@ -195,6 +207,16 @@
         }
         localStorage.setItem('selectedLessons', JSON.stringify(selected));
       }
+
+      // Save selected language to localStorage
+      $('input[name="language"]').on('change', function() {
+        localStorage.setItem('selectedLanguage', $(this).val());
+      });
+
+      // Save toggle-meaning checkbox state to localStorage
+      $('#toggle-meaning').on('change', function() {
+        localStorage.setItem('toggleMeaning', $(this).is(':checked'));
+      });
 
       // Get selected lessons from UI
       function getSelectedLessons() {
@@ -226,15 +248,29 @@
         } else {
           $('#idSinoVietnamese').html('');
         }
-        if (word.Kanji) {
-          await kuroshiroInitPromise;
-          const converted = await kuroshiro.convert(word.Kanji, { to: 'hiragana', mode: 'furigana' });
-          $('#idNeedLearn').html(converted);
+        
+        if ($('#lang-vietnamese').is(':checked')) {
+          $('#idNeedLearn').html(word.Meaning || '');
+
+          if (word.Kanji) {
+            await kuroshiroInitPromise;
+            const converted = await kuroshiro.convert(word.Kanji, { to: 'hiragana', mode: 'furigana' });
+            $('#idViewResult').html(converted);
+          } else {
+            $('#idViewResult').html(word.HiraKata || '');
+          }
         } else {
-          $('#idNeedLearn').html(word.HiraKata || '');
+          if (word.Kanji) {
+            await kuroshiroInitPromise;
+            const converted = await kuroshiro.convert(word.Kanji, { to: 'hiragana', mode: 'furigana' });
+            $('#idNeedLearn').html(converted);
+          } else {
+            $('#idNeedLearn').html(word.HiraKata || '');
+          }
+
+          $('#idViewResult').html(word.Meaning || '');
         }
 
-        $('#idViewResult').html(word.Meaning || '');
         // Save current index to localStorage
         localStorage.setItem('currentIndex', index);
       }
@@ -267,6 +303,46 @@
           e.preventDefault();
         }
       });
+
+      // Touch swipe navigation handler for mobile/tablet
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function handleGesture() {
+        if ($('#result').hasClass('d-none')) return; // Only active after start
+        if (words.length === 0) return;
+
+        const swipeThreshold = 50; // Minimum distance for swipe
+
+        if (touchEndX < touchStartX - swipeThreshold) {
+          // Swipe left -> next word
+          if (currentIndex < words.length - 1) {
+            currentIndex++;
+            updateDisplay(currentIndex);
+          } else {
+            bounceBack();
+          }
+        }
+
+        if (touchEndX > touchStartX + swipeThreshold) {
+          // Swipe right -> previous word
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateDisplay(currentIndex);
+          } else {
+            bounceBack();
+          }
+        }
+      }
+
+      document.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+      }, false);
+
+      document.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleGesture();
+      }, false);
 
       // Start button click handler
       $('#start-btn').on('click', function() {
