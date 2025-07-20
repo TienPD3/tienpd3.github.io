@@ -14,7 +14,7 @@
       src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
     }
     * {
-      font-family: 'UTM Bauhaus', sans-serif;
+      font-family: 'UTM Bauhaus', sans-serif !important;
     }
     body {
       min-height: 100vh;
@@ -42,7 +42,21 @@
     ruby rt { 
       padding-bottom: 1px;
     }
-
+    #settings-btn {
+      position: fixed;
+      left: 15px;
+      bottom: 50%;
+      transform: translateY(50%) rotate(-90deg);
+      transform-origin: left center;
+      padding: 0.5rem 1rem;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 0px 0px 0.5rem 0.5rem;
+      cursor: pointer;
+      z-index: 1050;
+      user-select: none;
+    }
   </style>
 </head>
 <body class="background-green">
@@ -65,10 +79,6 @@
           </ul>
         </div>
       </div>
-      <div class="form-check form-switch mb-3">
-        <input class="form-check-input" type="checkbox" id="toggle-meaning" checked>
-        <label class="form-check-label" for="toggle-meaning">Ẩn nghĩa</label>
-      </div>
       <fieldset class="mb-3">
         <legend>Chọn ngôn ngữ</legend>
         <div class="form-check form-check-inline">
@@ -80,8 +90,12 @@
           <label class="form-check-label" for="lang-japanese">Tiếng Nhật</label>
         </div>
       </fieldset>
+      <button id="start-btn" class="btn btn-primary mb-3">Bắt đầu</button>
     </div>
-    <button id="start-btn" class="btn btn-primary mb-3">Bắt đầu</button>
+    <div class="form-check form-switch mb-3">
+      <input class="form-check-input" type="checkbox" id="toggle-meaning" checked>
+      <label class="form-check-label" for="toggle-meaning">Ẩn nghĩa</label>
+    </div>
     <section id="result" class="border p-3 rounded d-none" aria-live="polite" aria-atomic="true">
       <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 gap-md-0">
         <div class="d-flex flex-column align-items-start gap-4">
@@ -106,6 +120,7 @@
       </div>
     </section>
   </main>
+  <button id="settings-btn" title="Cài đặt" aria-label="Cài đặt">Cài đặt</button>
   <script>
     $(document).ready(function() {
       let lessonsData = []; // Store loaded JSON data globally
@@ -113,6 +128,16 @@
       let words = [];
       let kuroshiro;
       let kuroshiroInitPromise;
+
+      // Hide setting area on start button click
+      $('#start-btn').on('click', function() {
+        $('#setting').hide();
+      });
+
+      // Show setting area on settings button click
+      $('#settings-btn').on('click', function() {
+        $('#setting').show();
+      });
 
       // Load lessons from JSON and populate dropdown
       $.getJSON('/website/file/jp/n4.json', function(data) {
