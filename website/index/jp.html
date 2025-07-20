@@ -121,8 +121,10 @@
   </main>
   <script>
     $(document).ready(function() {
+      let lessonsData = []; // Store loaded JSON data globally
       // Load lessons from JSON and populate dropdown
       $.getJSON('/website/file/jp/n4.json', function(data) {
+        lessonsData = data; // Store data globally
         const lessons = [...new Set(data.map(item => item.Lesson).filter(Boolean))];
           const $lessonSelectMenu = $('#lesson-select-menu');
           $lessonSelectMenu.find('li.lesson-item').remove();
@@ -162,7 +164,6 @@
         // Initialize keyboard navigation after start button is clicked
         let currentIndex = 0;
         let words = [];
-        let lessonsData = [];
 
         let kuroshiro;
         let kuroshiroInitPromise;
@@ -171,33 +172,29 @@
         kuroshiro = new Kuroshiro();
         kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
 
-        // Load lessons data from JSON
-        $.getJSON('/website/file/jp/n4.json', function(data) {
-          lessonsData = data;
-          // Filter words based on selected lessons or all
-          function getSelectedLessons() {
-            const selected = [];
-            if ($('#lesson-all').is(':checked')) {
-              return ['all'];
-            }
-            $('.lesson-checkbox:checked').each(function() {
-              selected.push($(this).val());
-            });
-            return selected;
+        // Use the already loaded lessonsData for filtering
+        function getSelectedLessons() {
+          const selected = [];
+          if ($('#lesson-all').is(':checked')) {
+            return ['all'];
           }
+          $('.lesson-checkbox:checked').each(function() {
+            selected.push($(this).val());
+          });
+          return selected;
+        }
 
-          function filterWords() {
-            const selectedLessons = getSelectedLessons();
-            if (selectedLessons.includes('all')) {
-              return lessonsData;
-            }
-            return lessonsData.filter(item => selectedLessons.includes(item.Lesson));
+        function filterWords() {
+          const selectedLessons = getSelectedLessons();
+          if (selectedLessons.includes('all')) {
+            return lessonsData;
           }
+          return lessonsData.filter(item => selectedLessons.includes(item.Lesson));
+        }
 
-          words = filterWords();
-          currentIndex = 0;
-          updateDisplay(currentIndex);
-        });
+        words = filterWords();
+        currentIndex = 0;
+        updateDisplay(currentIndex);
 
         // Update displayed word and related elements asynchronously using Kuroshiro
         async function updateDisplay(index) {
