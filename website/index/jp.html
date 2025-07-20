@@ -216,7 +216,21 @@
       // Save toggle-meaning checkbox state to localStorage
       $('#toggle-meaning').on('change', function() {
         localStorage.setItem('toggleMeaning', $(this).is(':checked'));
+        // Show or hide #idViewResult based on toggle-meaning state
+        if ($(this).is(':checked')) {
+          $('#idViewResult').show();
+        } else {
+          $('#idViewResult').hide();
+        }
       });
+
+      // Initialize #idViewResult visibility based on toggle-meaning state on page load
+      const toggleMeaningInitial = $('#toggle-meaning').is(':checked');
+      if (toggleMeaningInitial) {
+        $('#idViewResult').show();
+      } else {
+        $('#idViewResult').hide();
+      }
 
       // Get selected lessons from UI
       function getSelectedLessons() {
@@ -284,6 +298,15 @@
       $(document).on('keydown', async function(e) {
         if ($('#result').hasClass('d-none')) return; // Only active after start
         if (words.length === 0) return;
+
+        if (e.key === 'q' || e.key === 'Q') {
+          // Toggle the toggle-meaning checkbox and trigger change event
+          const $toggle = $('#toggle-meaning');
+          $toggle.prop('checked', !$toggle.prop('checked'));
+          $toggle.trigger('change');
+          e.preventDefault();
+          return;
+        }
 
         if (e.key === 'ArrowRight') {
           if (currentIndex < words.length - 1) {
