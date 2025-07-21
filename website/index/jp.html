@@ -132,12 +132,22 @@
       // Hide setting area on start button click
       $('#start-btn').on('click', function() {
         $('#setting').hide();
+        localStorage.setItem('settingVisible', 'false');
       });
 
       // Show setting area on settings button click
       $('#settings-btn').on('click', function() {
         $('#setting').show();
+        localStorage.setItem('settingVisible', 'true');
       });
+
+      // On page load, restore setting area visibility
+      const settingVisible = localStorage.getItem('settingVisible');
+      if (settingVisible === 'false') {
+        $('#setting').hide();
+      } else {
+        $('#setting').show();
+      }
 
       // Load lessons from JSON and populate dropdown
       $.getJSON('/website/file/jp/n4.json', function(data) {
@@ -212,6 +222,15 @@
       const savedToggleMeaning = localStorage.getItem('toggleMeaning');
       if (savedToggleMeaning !== null) {
         $('#toggle-meaning').prop('checked', savedToggleMeaning === 'true');
+        // Initialize #idViewResult visibility based on toggle-meaning state on page load
+        const toggleMeaningInitial = $('#toggle-meaning').is(':checked');
+        if (toggleMeaningInitial) {
+          // When toggle-meaning is checked, hide meaning
+          $('#idViewResult').css({visibility: 'hidden', opacity: 0, 'pointer-events': 'none'});
+        } else {
+          // When toggle-meaning is unchecked, show meaning
+          $('#idViewResult').css({visibility: 'visible', opacity: 1, 'pointer-events': 'auto'});
+        }
       }
 
       // If saved state exists, show result section and display saved word
@@ -242,23 +261,16 @@
 
       // Save toggle-meaning checkbox state to localStorage
       $('#toggle-meaning').on('change', function() {
-        console.log('toggle-meaning changed:', $(this).is(':checked'));
         localStorage.setItem('toggleMeaning', $(this).is(':checked'));
-        // Show or hide #idViewResult based on toggle-meaning state
+        // Show or hide #idViewResult and #idSinoVietnamese based on toggle-meaning state without changing layout
         if ($(this).is(':checked')) {
-          $('#idViewResult').show();
+          // When toggle-meaning is checked, hide meaning
+          $('#idViewResult').css({visibility: 'hidden', opacity: 0, 'pointer-events': 'none'});
         } else {
-          $('#idViewResult').hide();
+          // When toggle-meaning is unchecked, show meaning
+          $('#idViewResult').css({visibility: 'visible', opacity: 1, 'pointer-events': 'auto'});
         }
       });
-
-      // Initialize #idViewResult visibility based on toggle-meaning state on page load
-      const toggleMeaningInitial = $('#toggle-meaning').is(':checked');
-      if (toggleMeaningInitial) {
-        $('#idViewResult').show();
-      } else {
-        $('#idViewResult').hide();
-      }
 
       // Get selected lessons from UI
       function getSelectedLessons() {
@@ -281,7 +293,7 @@
         return lessonsData.filter(item => selectedLessons.includes(item.Lesson));
       }
 
-      // Update displayed word and related elements asynchronously using Kuroshiro
+      // Update displayed word and related elements asynchronously
       async function updateDisplay(index) {
         if (words.length === 0) return;
         const word = words[index];
@@ -289,6 +301,13 @@
           $('#idSinoVietnamese').html(`「${word.HanViet}」`);
         } else {
           $('#idSinoVietnamese').html('');
+        }
+
+        // Pronunciation function call
+        if ($('#lang-vietnamese').is(':checked')) {
+          speakAnswer(word.Meaning, 'vi-VN');
+        } else {
+          speakAnswer(word.HiraKata, 'ja-JP');
         }
         
         if ($('#lang-vietnamese').is(':checked')) {
@@ -315,6 +334,24 @@
 
         // Save current index to localStorage
         localStorage.setItem('currentIndex', index);
+      }
+
+      // Pronunciation function similar to website/index/card.html
+      function speakAnswer(speakText, lang = 'ja-JP', rate = 1, pitch = 1, volume = 1) {
+        if (speakText !== '') {
+          playTTS(encodeURIComponent(speakText), lang);
+        }
+      }
+
+      function playTTS(text, lang) {
+        let audioEl = $('#tts-audio')[0];
+        if (!audioEl) {
+          audioEl = $('<audio></audio>').attr('id', 'tts-audio').appendTo('body')[0];
+        }
+        let url = `https://proxy.junookyo.workers.dev/?language=${lang}&text=${text}&speed=1`;
+
+        audioEl.src = url;
+        audioEl.play();
       }
 
       // Bounce back visual feedback
@@ -411,7 +448,8 @@
 
       // On iPad or touch devices, clicking on the main container toggles toggle-meaning checkbox
       $('main.container').on('click', function(e) {
-        if ($(e.target).is('#toggle-meaning') || $(e.target).is('label[for="toggle-meaning"]')) {
+        if ($(e.target).is('#toggle-meaning') || $(e.target).is('label[for="toggle-meaning"]')
+          || $(e.target).is('#lesson-select') || $(e.target).is('label[for="lesson-select"]') ) {
           // Ignore clicks on the toggle-meaning checkbox or its label to avoid conflict
           return;
         }
@@ -419,6 +457,42 @@
         $toggle.prop('checked', !$toggle.prop('checked'));
         $toggle.trigger('change');
       });
+
+      // Function to build ruby markup for Kanji with furigana (HiraKata)
+      function buildRubyMarkup(kanji, hiraKata) {
+        if (!kanji) {
+          return hiraKata || '';
+        }
+        let result = '';
+        let hiraIndex = 0;
+
+        for (let i = 0; i < kanji.length; i++) {
+          const char = kanji[i];
+          // Check if char is Kanji (Unicode range)
+          if (char.match(/[\u4E00-\u9FFF]/)) {
+            // Find reading for this Kanji character in hiraKata starting from hiraIndex
+            let reading = '';
+            if (hiraIndex < hiraKata.length) {
+              reading = hiraKata[hiraIndex];
+              // If next char is small kana, include it
+              if (hiraIndex + 1 < hiraKata.length && hiraKata[hiraIndex + 1].match(/[\u3040-\u309F]/)) {
+                reading += hiraKata[hiraIndex + 1];
+                hiraIndex += 2;
+              } else {
+                hiraIndex += 1;
+              }
+            }
+            result += `<ruby>${char}<rp>(</rp><rt>${reading}</rt><rp>)</rp></ruby>`;
+          } else {
+            // Non-Kanji character, just append and advance hiraIndex if matches
+            result += char;
+            if (hiraIndex < hiraKata.length && char === hiraKata[hiraIndex]) {
+              hiraIndex += 1;
+            }
+          }
+        }
+        return result;
+      }
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
