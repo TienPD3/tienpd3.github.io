@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Random Vocabulary by Lesson - Japanese N4</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 2rem;
+    background-color: #f9f9f9;
+  }
+  h1 {
+    color: #333;
+  }
+  label {
+    font-weight: bold;
+  }
+  select, button {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+  .vocab-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    max-width: 600px;
+  }
+  .vocab-item {
+    margin-bottom: 0.5rem;
+  }
+  .label {
+    font-weight: bold;
+    color: #555;
+  }
+  .value {
+    font-size: 1.2rem;
+    color: #222;
+  }
+</style>
+</head>
+<body>
+  <h1>Random Vocabulary by Lesson - Japanese N4</h1>
+  <label for="lessonSelect">Select Lesson:</label>
+  <select id="lessonSelect">
+    <option value="">-- Select Lesson --</option>
+  </select>
+  <br />
+  <label for="fieldSelect">Show Field:</label>
+  <select id="fieldSelect">
+    <option value="all">All Fields</option>
+    <option value="HiraKata">HiraKata</option>
+    <option value="Kanji">Kanji</option>
+    <option value="HanViet">HanViet</option>
+    <option value="Meaning">Meaning</option>
+  </select>
+  <br />
+  <button id="randomBtn" disabled>Show Random Word</button>
+
+  <div id="vocabDisplay" class="vocab-card" style="display:none;">
+    <div class="vocab-item field-HiraKata"><span class="label">HiraKata:</span> <span id="hiraKata" class="value"></span></div>
+    <div class="vocab-item field-Kanji"><span class="label">Kanji:</span> <span id="kanji" class="value"></span></div>
+    <div class="vocab-item field-HanViet"><span class="label">HanViet:</span> <span id="hanViet" class="value"></span></div>
+    <div class="vocab-item field-Meaning"><span class="label">Meaning:</span> <span id="meaning" class="value"></span></div>
+  </div>
+
+<script>
+  let vocabData = [];
+  let filteredVocab = [];
+
+  async function loadVocab() {
+    try {
+      const response = await fetch('../file/jp/n4.json');
+      vocabData = await response.json();
+      populateLessonOptions();
+    } catch (error) {
+      alert('Failed to load vocabulary data.');
+      console.error(error);
+    }
+  }
+
+  function populateLessonOptions() {
+    const lessonSet = new Set(vocabData.map(item => item.Lesson));
+    const lessonSelect = document.getElementById('lessonSelect');
+    lessonSet.forEach(lesson => {
+      const option = document.createElement('option');
+      option.value = lesson;
+      option.textContent = 'Lesson ' + lesson;
+      lessonSelect.appendChild(option);
+    });
+  }
+
+  function showRandomWord() {
+    if (filteredVocab.length === 0) {
+      alert('No vocabulary found for this lesson.');
+      return;
+    }
+    const randomIndex = Math.floor(Math.random() * filteredVocab.length);
+    const word = filteredVocab[randomIndex];
+    document.getElementById('hiraKata').textContent = word.HiraKata || '-';
+    document.getElementById('kanji').textContent = word.Kanji || '-';
+    document.getElementById('hanViet').textContent = word.HanViet || '-';
+    document.getElementById('meaning').textContent = word.Meaning || '-';
+
+    const fieldSelect = document.getElementById('fieldSelect');
+    const selectedField = fieldSelect.value;
+
+    // Show/hide fields based on selection
+    const allFields = ['HiraKata', 'Kanji', 'HanViet', 'Meaning'];
+    allFields.forEach(field => {
+      const elements = document.getElementsByClassName('field-' + field);
+      for (const el of elements) {
+        if (selectedField === 'all' || selectedField === field) {
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+    });
+
+    document.getElementById('vocabDisplay').style.display = 'block';
+  }
+
+  document.getElementById('lessonSelect').addEventListener('change', function() {
+    const lesson = this.value;
+    if (lesson) {
+      filteredVocab = vocabData.filter(item => item.Lesson === lesson);
+      document.getElementById('randomBtn').disabled = false;
+      document.getElementById('vocabDisplay').style.display = 'none';
+    } else {
+      filteredVocab = [];
+      document.getElementById('randomBtn').disabled = true;
+      document.getElementById('vocabDisplay').style.display = 'none';
+    }
+  });
+
+  document.getElementById('randomBtn').addEventListener('click', showRandomWord);
+
+  let qToggleAllFields = false;
+  let savedFieldSelection = null;
+
+  // Keyboard event listener for 'q' and 'Enter'
+  document.addEventListener('keydown', function(event) {
+    const fieldSelect = document.getElementById('fieldSelect');
+    if (event.key === 'q' || event.key === 'Q') {
+      if (!qToggleAllFields) {
+        // Save current selection and set to all fields
+        savedFieldSelection = fieldSelect.value;
+        fieldSelect.value = 'all';
+        qToggleAllFields = true;
+      } else {
+        // Restore previous selection
+        if (savedFieldSelection !== null) {
+          fieldSelect.value = savedFieldSelection;
+        }
+        qToggleAllFields = false;
+      }
+      // Update display fields only, do not show new word
+      updateFieldVisibility();
+    } else if (event.key === 'ArrowRight') {
+      // Show next random word with current field selection
+      showRandomWord();
+    }
+  });
+
+  function updateFieldVisibility() {
+    const fieldSelect = document.getElementById('fieldSelect');
+    const selectedField = fieldSelect.value;
+    const allFields = ['HiraKata', 'Kanji', 'HanViet', 'Meaning'];
+    allFields.forEach(field => {
+      const elements = document.getElementsByClassName('field-' + field);
+      for (const el of elements) {
+        if (selectedField === 'all' || selectedField === field) {
+          el.style.display = 'block';
+        } else {
+          el.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  loadVocab();
+</script>
+</body>
+</html>
