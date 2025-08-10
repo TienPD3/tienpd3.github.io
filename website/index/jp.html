@@ -236,7 +236,7 @@
       // If saved state exists, show result section and display saved word
       if (savedSelectedLessons) {
         $('#result').removeClass('d-none');
-        words = filterWords();
+        words = random(filterWords());
         updateDisplay(currentIndex);
       }
       });
@@ -378,7 +378,10 @@
             currentIndex++;
             await updateDisplay(currentIndex);
           } else {
-            bounceBack();
+            words = random(filterWords());
+            currentIndex = 0
+            await updateDisplay(currentIndex);
+            $('#idNeedLearn').fadeOut(100).fadeIn(100);
           }
           e.preventDefault();
         } else if (e.key === 'ArrowLeft') {
@@ -435,11 +438,19 @@
       // Start button click handler
       $('#start-btn').on('click', function() {
         $('#result').removeClass('d-none');
-        words = filterWords();
+        words = random(filterWords());
         currentIndex = 0;
         updateDisplay(currentIndex);
         saveSelectedLessons();
       });
+
+      // Simple random function that returns all available random words
+      function random(words) {
+        if (words.length === 0) return [];
+        
+        // Return all words shuffled
+        return [...words].sort(() => Math.random() - 0.5);
+      }
 
       // Prevent dropdown from closing when clicking inside the dropdown menu
       $('#lesson-select-menu').on('click', function(e) {

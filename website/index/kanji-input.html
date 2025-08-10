@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanji Input - Hiragana Display</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'UTM Bauhaus';
+            src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
+        }
+        
+        body {
+            font-family: 'UTM Bauhaus', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .main-container {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+        
+        .input-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .result-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 200px;
+        }
+        
+        .kanji-display {
+            font-size: 1.5rem;
+            line-height: 2.5;
+            text-align: left;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .kanji-display ruby {
+            ruby-align: center;
+            ruby-position: over;
+        }
+        
+        .kanji-display rt {
+            font-size: 0.75rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .input-area {
+            position: relative;
+        }
+        
+        .input-area textarea {
+            font-size: 1.5rem;
+            min-height: 100px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .input-area textarea:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .btn-convert {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-convert:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+        }
+        
+        .stats {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667eea;
+        }
+        
+        .error {
+            color: #e74c3c;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .line-break {
+            display: block;
+            height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="text-center text-white mb-4">
+            <i class="fas fa-language"></i> Kanji Input với Hiragana
+        </h1>
+        
+        <div class="input-section">
+            <h3 class="mb-3">
+                <i class="fas fa-keyboard"></i> Nhập Kanji
+            </h3>
+            <div class="input-area">
+                <textarea 
+                    id="kanjiInput" 
+                    class="form-control" 
+                    placeholder="Nhập kanji hoặc câu tiếng Nhật vào đây..."
+                    rows="5"
+                ></textarea>
+                <div class="mt-3">
+                    <button id="convertBtn" class="btn btn-primary btn-convert">
+                        <i class="fas fa-magic"></i> Chuyển đổi
+                    </button>
+                    <button id="clearBtn" class="btn btn-secondary ms-2">
+                        <i class="fas fa-eraser"></i> Xóa
+                    </button>
+                </div>
+            </div>
+            
+            <div class="stats mt-3">
+                <small class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Nhập kanji hoặc câu tiếng Nhật, hệ thống sẽ tự động thêm hiragana (furigana) lên trên các kanji và giữ nguyên xuống dòng.
+                </small>
+            </div>
+        </div>
+        
+        <div class="result-section">
+            <h3 class="mb-3">
+                <i class="fas fa-eye"></i> Kết quả với Hiragana
+            </h3>
+            
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin fa-2x"></i>
+                <p class="mt-2">Đang xử lý...</p>
+            </div>
+            
+            <div id="resultDisplay" class="kanji-display" style="display: none;">
+                <!-- Result will be displayed here -->
+            </div>
+            
+            <div class="text-center mt-3" id="resultActions" style="display: none;">
+                <button id="copyBtn" class="btn btn-outline-primary">
+                    <i class="fas fa-copy"></i> Copy kết quả
+                </button>
+                <button id="speakBtn" class="btn btn-outline-success ms-2">
+                    <i class="fas fa-volume-up"></i> Đọc to
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+    <script src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            let kuroshiro;
+            let kuroshiroInitPromise;
+            
+            // Initialize Kuroshiro
+            function initKuroshiro() {
+                kuroshiro = new Kuroshiro();
+                kuroshiroInitPromise = kuroshiro.init(new KuromojiAnalyzer());
+                return kuroshiroInitPromise;
+            }
+            
+            // Convert text with furigana and preserve line breaks
+            async function convertToFurigana(text) {
+                try {
+                    await kuroshiroInitPromise;
+                    
+                    // Split text by lines to preserve line breaks
+                    const lines = text.split('\n');
+                    const processedLines = [];
+                    
+                    for (const line of lines) {
+                        if (line.trim() === '') {
+                            // Empty line, add line break
+                            processedLines.push('<br>');
+                        } else {
+                            // Process line with furigana
+                            const furiganaLine = await kuroshiro.convert(line, {
+                                to: 'hiragana',
+                                mode: 'furigana'
+                            });
+                            processedLines.push(furiganaLine);
+                        }
+                    }
+                    
+                    return processedLines.join('<br>');
+                } catch (error) {
+                    console.error('Error converting text:', error);
+                    throw error;
+                }
+            }
+            
+            // Display result with preserved line breaks
+            function displayResult(result) {
+                $('#resultDisplay').html(result).show();
+                $('#resultActions').show();
+                $('.loading').hide();
+            }
+            
+            // Handle convert button click
+            $('#convertBtn').on('click', async function() {
+                let inputText = $('#kanjiInput').val().trim();
+                
+                if (!inputText) {
+                    alert('Vui lòng nhập văn bản để chuyển đổi!');
+                    return;
+                }
+                
+                $('.loading').show();
+                $('#resultDisplay').hide();
+                $('#resultActions').hide();
+                
+                inputText = inputText.trim().replace(/\s\s/g, '')
+                try {
+                    const furiganaText = await convertToFurigana(inputText);
+                    displayResult(furiganaText);
+                } catch (error) {
+                    $('.loading').hide();
+                    $('#resultDisplay').html(
+                        '<div class="error">Lỗi khi chuyển đổi. Vui lòng thử lại.</div>'
+                    ).show();
+                }
+            });
+            
+            // Handle clear button
+            $('#clearBtn').on('click', function() {
+                $('#kanjiInput').val('');
+                $('#resultDisplay').hide();
+                $('#resultActions').hide();
+                $('#kanjiInput').focus();
+            });
+            
+            // Handle copy button
+            $('#copyBtn').on('click', function() {
+                const resultText = $('#resultDisplay').text();
+                if (resultText) {
+                    navigator.clipboard.writeText(resultText).then(() => {
+                        alert('Đã copy kết quả vào clipboard!');
+                    });
+                }
+            });
+            
+            // Handle speak button
+            $('#speakBtn').on('click', function() {
+                const originalText = $('#kanjiInput').val().trim();
+                if (originalText) {
+                    speakJapanese(originalText);
+                }
+            });
+            
+            // Japanese text to speech
+            function speakJapanese(text) {
+                if ('speechSynthesis' in window) {
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'ja-JP';
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1;
+                    speechSynthesis.speak(utterance);
+                } else {
+                    alert('Trình duyệt không hỗ trợ text-to-speech');
+                }
+            }
+            
+            // Handle Enter key in textarea
+            $('#kanjiInput').on('keypress', function(e) {
+                if (e.which === 13 && !e.shiftKey) {
+                    e.preventDefault();
+                    $('#convertBtn').click();
+                }
+            });
+            
+            // Initialize
+            initKuroshiro();
+            $('#kanjiInput').focus();
+        });
+    </script>
+</body>
+</html>

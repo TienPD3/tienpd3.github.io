@@ -58,6 +58,7 @@
   </select>
   <br />
   <button id="randomBtn" disabled>Show Random Word</button>
+  <div id="progressDisplay" style="margin: 1rem 0; font-weight: bold; color: #555;"></div>
 
   <div id="vocabDisplay" class="vocab-card" style="display:none;">
     <div class="vocab-item field-HiraKata"><span class="label">HiraKata:</span> <span id="hiraKata" class="value"></span></div>
@@ -69,6 +70,7 @@
 <script>
   let vocabData = [];
   let filteredVocab = [];
+  let remainingVocab = [];
 
   async function loadVocab() {
     try {
@@ -93,12 +95,21 @@
   }
 
   function showRandomWord() {
-    if (filteredVocab.length === 0) {
-      alert('No vocabulary found for this lesson.');
-      return;
+    if (remainingVocab.length === 0) {
+      // Reset the pool when all words have been used
+      if (filteredVocab.length === 0) {
+        alert('No vocabulary found for this lesson.');
+        return;
+      }
+      remainingVocab = [...filteredVocab];
     }
-    const randomIndex = Math.floor(Math.random() * filteredVocab.length);
-    const word = filteredVocab[randomIndex];
+
+    const randomIndex = Math.floor(Math.random() * remainingVocab.length);
+    const word = remainingVocab[randomIndex];
+    
+    // Remove the word from remaining vocab
+    remainingVocab.splice(randomIndex, 1);
+    
     document.getElementById('hiraKata').textContent = word.HiraKata || '-';
     document.getElementById('kanji').textContent = word.Kanji || '-';
     document.getElementById('hanViet').textContent = word.HanViet || '-';
@@ -121,20 +132,38 @@
     });
 
     document.getElementById('vocabDisplay').style.display = 'block';
+    updateProgress();
   }
 
   document.getElementById('lessonSelect').addEventListener('change', function() {
     const lesson = this.value;
     if (lesson) {
       filteredVocab = vocabData.filter(item => item.Lesson === lesson);
+      remainingVocab = [...filteredVocab]; // Initialize remaining vocab
       document.getElementById('randomBtn').disabled = false;
       document.getElementById('vocabDisplay').style.display = 'none';
+      updateProgress();
     } else {
       filteredVocab = [];
+      remainingVocab = [];
       document.getElementById('randomBtn').disabled = true;
       document.getElementById('vocabDisplay').style.display = 'none';
+      document.getElementById('progressDisplay').textContent = '';
     }
   });
+
+  function updateProgress() {
+    const total = filteredVocab.length;
+    const remaining = remainingVocab.length;
+    const completed = total - remaining;
+    
+    if (total > 0) {
+      document.getElementById('progressDisplay').textContent = 
+        `Progress: ${completed}/${total} words completed (${remaining} remaining)`;
+    } else {
+      document.getElementById('progressDisplay').textContent = '';
+    }
+  }
 
   document.getElementById('randomBtn').addEventListener('click', showRandomWord);
 
