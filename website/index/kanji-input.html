@@ -239,7 +239,23 @@
             
             // Display result with preserved line breaks
             function displayResult(result) {
-                $('#resultDisplay').html(result).show();
+                // Store original text for speak functionality
+                const originalText = $('#kanjiInput').val().trim();
+                const lines = originalText.split('\n');
+                
+                // Build enhanced result with speak buttons using jQuery event delegation
+                let enhancedResult = '';
+                const resultLines = result.split('<br>');
+                
+                for (let i = 0; i < resultLines.length; i++) {
+                    if (i > 0) enhancedResult += '<br>';
+                    enhancedResult += resultLines[i];
+                    if (i < lines.length && lines[i].trim()) {
+                        enhancedResult += `<button class="speak-btn btn btn-sm btn-outline-primary ms-2" data-text="${lines[i].replace(/"/g, '"')}" title="Đọc đoạn này">🔊</button>`;
+                    }
+                }
+                
+                $('#resultDisplay').html(enhancedResult).show();
                 $('#resultActions').show();
                 $('.loading').hide();
             }
@@ -287,7 +303,16 @@
                 }
             });
             
-            // Handle speak button
+            // Handle speak button - with proper event delegation for dynamically added buttons
+            $(document).on('click', '.speak-btn[data-text]', function(e) {
+                e.preventDefault();
+                const textToSpeak = $(this).data('text');
+                if (textToSpeak) {
+                    speakJapanese(textToSpeak);
+                }
+            });
+
+            // Handle main speak button
             $('#speakBtn').on('click', function() {
                 const originalText = $('#kanjiInput').val().trim();
                 if (originalText) {
