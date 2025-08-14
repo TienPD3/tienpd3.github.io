@@ -3,79 +3,736 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Random Vocabulary by Lesson - Japanese N4</title>
+<title>Japanese Vocabulary Learning - 日本語学習</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
+
+  @font-face {
+    font-family: 'UTM Bauhaus';
+    src: url('../css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'UTM Bauhaus', sans-serif !important;
+  }
+
   body {
-    font-family: Arial, sans-serif;
-    margin: 2rem;
-    background-color: #f9f9f9;
-  }
-  h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
     color: #333;
+    line-height: 1.4;
+    overflow: hidden;
   }
-  label {
-    font-weight: bold;
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
-  select, button {
-    font-size: 1rem;
-    padding: 0.5rem;
-    margin: 0.5rem 0 1rem 0;
+
+  .controls-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 10;
   }
-  .vocab-card {
-    background-color: white;
-    border-radius: 8px;
-    padding: 1rem 1.5rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    max-width: 600px;
+
+  .controls-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 1.5rem;
+    align-items: start;
   }
-  .vocab-item {
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .control-group label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.3rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+    min-width: 250px;
+    z-index: 999999 !important;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu.show {
+    z-index: 999999 !important;
+  }
+
+  /* Force dropdown to be on top */
+  .dropdown-menu.show,
+  .dropdown-menu[data-bs-popper="static"],
+  .dropdown-menu[data-bs-popper="dynamic"] {
+    z-index: 999999 !important;
+  }
+
+  /* Ensure dropdown container has proper stacking context */
+  .control-group .dropdown {
+    position: relative;
+    z-index: 999999;
+  }
+
+  /* Override Bootstrap's default z-index */
+  .dropdown-menu {
+    z-index: 999999 !important;
+  }
+
+  /* Force all dropdown states to have high z-index */
+  .dropdown-menu.show,
+  .dropdown-menu.show[data-bs-popper="static"],
+  .dropdown-menu.show[data-bs-popper="dynamic"],
+  .dropdown-menu[data-bs-popper="static"],
+  .dropdown-menu[data-bs-popper="dynamic"] {
+    z-index: 999999 !important;
+    position: relative !important;
+  }
+
+  /* Ensure the dropdown button container has proper stacking */
+  .control-group {
+    position: relative;
+    z-index: 999999;
+  }
+
+  .dropdown-toggle {
+    background: white;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    position: relative;
+  }
+
+  .dropdown-toggle:hover {
+    border-color: #667eea;
+  }
+
+  .dropdown-toggle:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .dropdown-toggle::after {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .form-check {
     margin-bottom: 0.5rem;
   }
-  .label {
-    font-weight: bold;
-    color: #555;
+
+  .form-check-input {
+    margin-right: 0.5rem;
   }
+
+  .form-check-label {
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .control-group select {
+    padding: 0.8rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .control-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .control-group select:hover {
+    border-color: #667eea;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    background: #f8f9fa;
+    color: #667eea;
+    border: 2px solid #e1e5e9;
+  }
+
+  .btn-secondary:hover {
+    background: #e9ecef;
+    border-color: #667eea;
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    flex: 1;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    z-index: 1;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.8rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #20c997);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+  }
+
+  .progress-text {
+    text-align: center;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    color: #666;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .vocab-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .vocab-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .vocab-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #e1e5e9;
+    transition: all 0.3s ease;
+  }
+
+  .vocab-item:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .vocab-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .label {
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+  }
+
   .value {
-    font-size: 1.2rem;
-    color: #222;
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  .value.kanji {
+    font-size: 1.8rem;
+  }
+
+  .value.word {
+    font-size: 1.6rem;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .keyboard-hints {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .keyboard-hints h3 {
+    color: #667eea;
+    margin-bottom: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .keyboard-hints .keys {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+  }
+
+  .key {
+    background: #667eea;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    min-width: 35px;
+  }
+
+  .key.arrow {
+    background: #28a745;
+  }
+
+  .key.q {
+    background: #ffc107;
+    color: #333;
+  }
+
+  /* Audio Controls Styling */
+  .audio-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-audio {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+  }
+
+  .btn-audio:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.6);
+  }
+
+  .btn-audio:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    background: #6c757d;
+  }
+
+  .btn-audio.playing {
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .field-audio {
+    background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%) !important;
+    border-color: #28a745 !important;
+  }
+
+  @media (max-width: 1200px) {
+    .controls-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .action-buttons {
+      grid-column: 1 / -1;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0.8rem;
+    }
+    
+    .main-content {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    
+    .controls-grid {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .vocab-card {
+      padding: 1.5rem 1rem;
+    }
+    
+    .value {
+      font-size: 1.2rem;
+    }
+    
+    .value.kanji {
+      font-size: 1.5rem;
+    }
+    
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .bounce {
+    animation: bounce 0.6s ease;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 60%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    80% { transform: translateY(-4px); }
   }
 </style>
 </head>
 <body>
-  <h1>Random Vocabulary by Lesson - Japanese N4</h1>
-  <label for="lessonSelect">Select Lesson:</label>
-  <select id="lessonSelect">
-    <option value="">-- Select Lesson --</option>
-  </select>
-  <br />
-  <label for="fieldSelect">Show Field:</label>
-  <select id="fieldSelect">
-    <option value="all">All Fields</option>
-    <option value="HiraKata">HiraKata</option>
-    <option value="Kanji">Kanji</option>
-    <option value="HanViet">HanViet</option>
-    <option value="Meaning">Meaning</option>
-  </select>
-  <br />
-  <button id="randomBtn" disabled>Show Random Word</button>
-  <div id="progressDisplay" style="margin: 1rem 0; font-weight: bold; color: #555;"></div>
+  <div class="container">
+    <div class="controls-section">
+      <div class="controls-grid">
+        <div class="control-group">
+          <label for="lessonSelect">📚 Select Lessons</label>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="lessonSelect" data-bs-toggle="dropdown" aria-expanded="false">
+              Choose lessons
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="lessonSelect" id="lessonSelectMenu">
+              <li>
+                <div class="form-check ms-2">
+                  <input class="form-check-input" type="checkbox" value="all" id="lesson-all" checked>
+                  <label class="form-check-label" for="lesson-all">All Lessons</label>
+                </div>
+              </li>
+              <!-- Lesson items will be appended here dynamically -->
+            </ul>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label for="fieldSelect">👁️ Show Field</label>
+          <select id="fieldSelect">
+            <option value="all">✨ All Fields</option>
+            <option value="word">🔤 Hiragana/Katakana</option>
+            <option value="kanji">漢字 Kanji</option>
+            <option value="vietnamese_origin">🇻🇳 Vietnamese Origin</option>
+            <option value="meaning">💡 Meaning</option>
+            <option value="audio">🎵 Audio</option>
+          </select>
+        </div>
+        
+        <div class="action-buttons">
+          <button id="randomBtn" class="btn btn-primary" disabled>
+            🎲 Show Random Word
+          </button>
+          <button id="resetBtn" class="btn btn-secondary">
+            🔄 Reset
+          </button>
+        </div>
+      </div>
+    </div>
 
-  <div id="vocabDisplay" class="vocab-card" style="display:none;">
-    <div class="vocab-item field-HiraKata"><span class="label">HiraKata:</span> <span id="hiraKata" class="value"></span></div>
-    <div class="vocab-item field-Kanji"><span class="label">Kanji:</span> <span id="kanji" class="value"></span></div>
-    <div class="vocab-item field-HanViet"><span class="label">HanViet:</span> <span id="hanViet" class="value"></span></div>
-    <div class="vocab-item field-Meaning"><span class="label">Meaning:</span> <span id="meaning" class="value"></span></div>
+    <div class="main-content">
+      <div class="left-panel">
+        <div id="progressSection" class="progress-section" style="display: none;">
+          <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+          </div>
+          <div id="progressDisplay" class="progress-text"></div>
+        </div>
+
+        <div id="statsSection" class="stats" style="display: none;">
+          <div class="stat-item">
+            <div id="totalWords" class="stat-number">0</div>
+            <div class="stat-label">Total</div>
+          </div>
+          <div class="stat-item">
+            <div id="completedWords" class="stat-number">0</div>
+            <div class="stat-label">Completed</div>
+          </div>
+          <div class="stat-item">
+            <div id="remainingWords" class="stat-number">0</div>
+            <div class="stat-label">Remaining</div>
+          </div>
+          <div class="stat-item">
+            <div id="accuracyRate" class="stat-number">0%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+        </div>
+
+        <div class="keyboard-hints">
+          <h3>⌨️ Keyboard Shortcuts</h3>
+          <div class="keys">
+            <div class="key arrow">→</div>
+            <span>Next word</span>
+            <div class="key q">Q</div>
+            <span>Toggle fields</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="vocabDisplay" class="vocab-card" style="display: none;">
+        <div class="vocab-item field-word">
+          <span class="label">🔤 Hiragana/Katakana</span>
+          <div id="word" class="value word"></div>
+        </div>
+        
+        <div class="vocab-item field-kanji">
+          <span class="label">漢字 Kanji</span>
+          <div id="kanji" class="value kanji"></div>
+        </div>
+        
+        <div class="vocab-item field-vietnamese_origin">
+          <span class="label">🇻🇳 Vietnamese Origin</span>
+          <div id="vietnamese_origin" class="value"></div>
+        </div>
+        
+        <div class="vocab-item field-meaning">
+          <span class="label">💡 Meaning</span>
+          <div id="meaning" class="value"></div>
+        </div>
+
+        <!-- Audio Section -->
+        <div class="vocab-item field-audio" style="margin-top: 1rem;">
+          <span class="label">🎵 Pronunciation</span>
+          <div class="audio-controls">
+            <button id="playAudioBtn" class="btn btn-audio" disabled>
+              <span id="playIcon">▶️</span> <span id="playText">Play Audio</span>
+            </button>
+            <audio id="audioPlayer" preload="none"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  // Cache DOM elements for better performance
+  const elements = {
+    lessonSelect: document.getElementById('lessonSelect'),
+    lessonSelectMenu: document.getElementById('lessonSelectMenu'),
+    lessonAll: document.getElementById('lesson-all'),
+    fieldSelect: document.getElementById('fieldSelect'),
+    randomBtn: document.getElementById('randomBtn'),
+    resetBtn: document.getElementById('resetBtn'),
+    vocabDisplay: document.getElementById('vocabDisplay'),
+    progressSection: document.getElementById('progressSection'),
+    progressDisplay: document.getElementById('progressDisplay'),
+    progressFill: document.getElementById('progressFill'),
+    statsSection: document.getElementById('statsSection'),
+    totalWords: document.getElementById('totalWords'),
+    completedWords: document.getElementById('completedWords'),
+    remainingWords: document.getElementById('remainingWords'),
+    accuracyRate: document.getElementById('accuracyRate'),
+    word: document.getElementById('word'),
+    kanji: document.getElementById('kanji'),
+    vietnamese_origin: document.getElementById('vietnamese_origin'),
+    meaning: document.getElementById('meaning'),
+    playAudioBtn: document.getElementById('playAudioBtn'),
+    playIcon: document.getElementById('playIcon'),
+    playText: document.getElementById('playText'),
+    audioPlayer: document.getElementById('audioPlayer')
+  };
+
+  // Cache field elements for faster access
+  const fieldElements = {
+    word: document.querySelector('.field-word'),
+    kanji: document.querySelector('.field-kanji'),
+    vietnamese_origin: document.querySelector('.field-vietnamese_origin'),
+    meaning: document.querySelector('.field-meaning'),
+    audio: document.querySelector('.field-audio')
+  };
+
+  const allFields = ['word', 'kanji', 'vietnamese_origin', 'meaning', 'audio'];
+  
   let vocabData = [];
   let filteredVocab = [];
   let remainingVocab = [];
+  let lessonCache = new Map();
+  let completedWords = new Set(); // Track completed words
 
   async function loadVocab() {
     try {
-      const response = await fetch('../file/jp/n4.json');
+      const response = await fetch('../file/jp/vocabulary.json');
       vocabData = await response.json();
+      
+      // Pre-cache lessons for faster access
+      vocabData.forEach(item => {
+        if (!lessonCache.has(item.lesson)) {
+          lessonCache.set(item.lesson, []);
+        }
+        lessonCache.get(item.lesson).push(item);
+      });
+      
       populateLessonOptions();
     } catch (error) {
       alert('Failed to load vocabulary data.');
@@ -84,21 +741,127 @@
   }
 
   function populateLessonOptions() {
-    const lessonSet = new Set(vocabData.map(item => item.Lesson));
-    const lessonSelect = document.getElementById('lessonSelect');
+    const lessonSet = new Set(vocabData.map(item => item.lesson));
+    
+    // Clear existing lesson items
+    const existingItems = elements.lessonSelectMenu.querySelectorAll('.lesson-item');
+    existingItems.forEach(item => item.remove());
+    
     lessonSet.forEach(lesson => {
-      const option = document.createElement('option');
-      option.value = lesson;
-      option.textContent = 'Lesson ' + lesson;
-      lessonSelect.appendChild(option);
+      const lessonId = 'lesson-' + lesson;
+      const item = document.createElement('li');
+      item.className = 'lesson-item';
+      item.innerHTML = `
+        <div class="form-check ms-2">
+          <input class="form-check-input lesson-checkbox" type="checkbox" value="${lesson}" id="${lessonId}">
+          <label class="form-check-label" for="${lessonId}">Lesson ${lesson}</label>
+        </div>
+      `;
+      elements.lessonSelectMenu.appendChild(item);
     });
+
+    // Restore saved selected lessons from localStorage
+    const savedSelectedLessons = JSON.parse(localStorage.getItem('selectedLessons') || 'null');
+    if (savedSelectedLessons && Array.isArray(savedSelectedLessons)) {
+      if (savedSelectedLessons.includes('all')) {
+        elements.lessonAll.checked = true;
+        document.querySelectorAll('.lesson-checkbox').forEach(checkbox => {
+          checkbox.checked = true;
+        });
+      } else {
+        elements.lessonAll.checked = false;
+        document.querySelectorAll('.lesson-checkbox').forEach(checkbox => {
+          const val = checkbox.value;
+          checkbox.checked = savedSelectedLessons.includes(val);
+        });
+      }
+    }
+
+    // Add event listeners
+    setupLessonEventListeners();
+  }
+
+  function setupLessonEventListeners() {
+    // Handle "All Lessons" checkbox behavior
+    elements.lessonAll.addEventListener('change', function() {
+      const checked = this.checked;
+      document.querySelectorAll('.lesson-checkbox').forEach(checkbox => {
+        checkbox.checked = checked;
+      });
+      saveSelectedLessons();
+      updateLessonButtonText();
+    });
+
+    // Handle individual lesson checkboxes
+    elements.lessonSelectMenu.addEventListener('change', function(e) {
+      if (e.target.classList.contains('lesson-checkbox')) {
+        if (!e.target.checked) {
+          elements.lessonAll.checked = false;
+        } else {
+          // If all individual checkboxes are checked, check "All Lessons"
+          const allChecked = document.querySelectorAll('.lesson-checkbox').length === 
+                           document.querySelectorAll('.lesson-checkbox:checked').length;
+          elements.lessonAll.checked = allChecked;
+        }
+        saveSelectedLessons();
+        updateLessonButtonText();
+      }
+    });
+
+    // Prevent dropdown from closing when clicking inside
+    elements.lessonSelectMenu.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  }
+
+  function updateLessonButtonText() {
+    const selectedLessons = getSelectedLessons();
+    if (selectedLessons.includes('all')) {
+      elements.lessonSelect.textContent = 'All Lessons';
+    } else if (selectedLessons.length === 0) {
+      elements.lessonSelect.textContent = 'Choose lessons';
+    } else if (selectedLessons.length === 1) {
+      elements.lessonSelect.textContent = `Lesson ${selectedLessons[0]}`;
+    } else {
+      elements.lessonSelect.textContent = `${selectedLessons.length} Lessons`;
+    }
+  }
+
+  function saveSelectedLessons() {
+    const selected = [];
+    if (elements.lessonAll.checked) {
+      selected.push('all');
+    } else {
+      document.querySelectorAll('.lesson-checkbox:checked').forEach(checkbox => {
+        selected.push(checkbox.value);
+      });
+    }
+    localStorage.setItem('selectedLessons', JSON.stringify(selected));
+  }
+
+  function getSelectedLessons() {
+    const selected = [];
+    if (elements.lessonAll.checked) {
+      return ['all'];
+    }
+    document.querySelectorAll('.lesson-checkbox:checked').forEach(checkbox => {
+      selected.push(checkbox.value);
+    });
+    return selected;
+  }
+
+  function filterWords() {
+    const selectedLessons = getSelectedLessons();
+    if (selectedLessons.includes('all')) {
+      return vocabData;
+    }
+    return vocabData.filter(item => selectedLessons.includes(item.lesson));
   }
 
   function showRandomWord() {
     if (remainingVocab.length === 0) {
-      // Reset the pool when all words have been used
       if (filteredVocab.length === 0) {
-        alert('No vocabulary found for this lesson.');
+        alert('No vocabulary found for selected lessons.');
         return;
       }
       remainingVocab = [...filteredVocab];
@@ -107,48 +870,110 @@
     const randomIndex = Math.floor(Math.random() * remainingVocab.length);
     const word = remainingVocab[randomIndex];
     
-    // Remove the word from remaining vocab
     remainingVocab.splice(randomIndex, 1);
+    completedWords.add(word.word); // Mark as completed
     
-    document.getElementById('hiraKata').textContent = word.HiraKata || '-';
-    document.getElementById('kanji').textContent = word.Kanji || '-';
-    document.getElementById('hanViet').textContent = word.HanViet || '-';
-    document.getElementById('meaning').textContent = word.Meaning || '-';
+    // Update content efficiently
+    elements.word.textContent = word.word || '-';
+    elements.kanji.textContent = word.kanji || '-';
+    elements.vietnamese_origin.textContent = word.vietnamese_origin || '-';
+    elements.meaning.textContent = word.meaning || '-';
 
-    const fieldSelect = document.getElementById('fieldSelect');
-    const selectedField = fieldSelect.value;
+    // Setup audio
+    setupAudio(word.audio);
 
-    // Show/hide fields based on selection
-    const allFields = ['HiraKata', 'Kanji', 'HanViet', 'Meaning'];
-    allFields.forEach(field => {
-      const elements = document.getElementsByClassName('field-' + field);
-      for (const el of elements) {
-        if (selectedField === 'all' || selectedField === field) {
-          el.style.display = 'block';
-        } else {
-          el.style.display = 'none';
-        }
-      }
-    });
-
-    document.getElementById('vocabDisplay').style.display = 'block';
+    updateFieldVisibility();
+    elements.vocabDisplay.style.display = 'block';
+    elements.vocabDisplay.classList.add('fade-in');
+    
+    // Add bounce animation to the card
+    setTimeout(() => {
+      elements.vocabDisplay.classList.add('bounce');
+      setTimeout(() => {
+        elements.vocabDisplay.classList.remove('bounce');
+      }, 600);
+    }, 100);
+    
     updateProgress();
+    updateStats();
   }
 
-  document.getElementById('lessonSelect').addEventListener('change', function() {
-    const lesson = this.value;
-    if (lesson) {
-      filteredVocab = vocabData.filter(item => item.Lesson === lesson);
-      remainingVocab = [...filteredVocab]; // Initialize remaining vocab
-      document.getElementById('randomBtn').disabled = false;
-      document.getElementById('vocabDisplay').style.display = 'none';
-      updateProgress();
+  function setupAudio(audioUrl) {
+    if (audioUrl) {
+      elements.audioPlayer.src = audioUrl;
+      elements.audioPlayer.load();
+      elements.playAudioBtn.disabled = false;
+      elements.playAudioBtn.classList.remove('playing');
+      elements.playIcon.textContent = '▶️';
+      elements.playText.textContent = 'Play Audio';
     } else {
-      filteredVocab = [];
-      remainingVocab = [];
-      document.getElementById('randomBtn').disabled = true;
-      document.getElementById('vocabDisplay').style.display = 'none';
-      document.getElementById('progressDisplay').textContent = '';
+      elements.audioPlayer.src = ''; // Clear audio source
+      elements.audioPlayer.load();
+      elements.playAudioBtn.disabled = true;
+      elements.playAudioBtn.classList.remove('playing');
+      elements.playIcon.textContent = '⏸️';
+      elements.playText.textContent = 'No Audio';
+    }
+  }
+
+  function updateFieldVisibility() {
+    const selectedField = elements.fieldSelect.value;
+    
+    allFields.forEach(field => {
+      const element = fieldElements[field];
+      if (selectedField === 'all' || selectedField === field) {
+        element.classList.remove('hidden');
+      } else {
+        element.classList.add('hidden');
+      }
+    });
+  }
+
+  function resetProgress() {
+    completedWords.clear();
+    remainingVocab = [...filteredVocab];
+    updateProgress();
+    updateStats();
+    elements.vocabDisplay.style.display = 'none';
+  }
+
+  // Debounced lesson change handler
+  let lessonChangeTimeout;
+  function handleLessonChange() {
+    clearTimeout(lessonChangeTimeout);
+    lessonChangeTimeout = setTimeout(() => {
+      const selectedLessons = getSelectedLessons();
+      if (selectedLessons.length > 0) {
+        filteredVocab = filterWords();
+        remainingVocab = [...filteredVocab];
+        completedWords.clear(); // Reset completed words for new lesson selection
+        
+        elements.randomBtn.disabled = false;
+        elements.resetBtn.disabled = false;
+        elements.vocabDisplay.style.display = 'none';
+        elements.progressSection.style.display = 'block';
+        elements.statsSection.style.display = 'grid';
+        
+        updateProgress();
+        updateStats();
+      } else {
+        filteredVocab = [];
+        remainingVocab = [];
+        completedWords.clear();
+        
+        elements.randomBtn.disabled = true;
+        elements.resetBtn.disabled = true;
+        elements.vocabDisplay.style.display = 'none';
+        elements.progressSection.style.display = 'none';
+        elements.statsSection.style.display = 'none';
+      }
+    }, 10);
+  }
+
+  // Add change event listeners for lesson selection
+  document.addEventListener('change', function(e) {
+    if (e.target.classList.contains('lesson-checkbox') || e.target.id === 'lesson-all') {
+      handleLessonChange();
     }
   });
 
@@ -158,59 +983,129 @@
     const completed = total - remaining;
     
     if (total > 0) {
-      document.getElementById('progressDisplay').textContent = 
+      const percentage = Math.round((completed / total) * 100);
+      elements.progressFill.style.width = `${percentage}%`;
+      elements.progressDisplay.textContent = 
         `Progress: ${completed}/${total} words completed (${remaining} remaining)`;
     } else {
-      document.getElementById('progressDisplay').textContent = '';
+      elements.progressFill.style.width = '0%';
+      elements.progressDisplay.textContent = '';
     }
   }
 
-  document.getElementById('randomBtn').addEventListener('click', showRandomWord);
+  function updateStats() {
+    const total = filteredVocab.length;
+    const completed = completedWords.size;
+    const remaining = total - completed;
+    const accuracy = total > 0 ? Math.round((completed / total) * 100) : 0;
+    
+    elements.totalWords.textContent = total;
+    elements.completedWords.textContent = completed;
+    elements.remainingWords.textContent = remaining;
+    elements.accuracyRate.textContent = `${accuracy}%`;
+  }
+
+  elements.randomBtn.addEventListener('click', showRandomWord);
+  elements.resetBtn.addEventListener('click', resetProgress);
 
   let qToggleAllFields = false;
   let savedFieldSelection = null;
 
-  // Keyboard event listener for 'q' and 'Enter'
+  // Keyboard event listener
   document.addEventListener('keydown', function(event) {
-    const fieldSelect = document.getElementById('fieldSelect');
     if (event.key === 'q' || event.key === 'Q') {
       if (!qToggleAllFields) {
-        // Save current selection and set to all fields
-        savedFieldSelection = fieldSelect.value;
-        fieldSelect.value = 'all';
+        savedFieldSelection = elements.fieldSelect.value;
+        elements.fieldSelect.value = 'all';
         qToggleAllFields = true;
       } else {
-        // Restore previous selection
         if (savedFieldSelection !== null) {
-          fieldSelect.value = savedFieldSelection;
+          elements.fieldSelect.value = savedFieldSelection;
         }
         qToggleAllFields = false;
       }
-      // Update display fields only, do not show new word
       updateFieldVisibility();
     } else if (event.key === 'ArrowRight') {
-      // Show next random word with current field selection
       showRandomWord();
     }
   });
 
-  function updateFieldVisibility() {
-    const fieldSelect = document.getElementById('fieldSelect');
-    const selectedField = fieldSelect.value;
-    const allFields = ['HiraKata', 'Kanji', 'HanViet', 'Meaning'];
-    allFields.forEach(field => {
-      const elements = document.getElementsByClassName('field-' + field);
-      for (const el of elements) {
-        if (selectedField === 'all' || selectedField === field) {
-          el.style.display = 'block';
-        } else {
-          el.style.display = 'none';
-        }
-      }
-    });
+  // Field select change handler
+  elements.fieldSelect.addEventListener('change', updateFieldVisibility);
+
+  // Audio event listeners
+  elements.playAudioBtn.addEventListener('click', toggleAudio);
+  elements.audioPlayer.addEventListener('ended', onAudioEnded);
+  elements.audioPlayer.addEventListener('error', onAudioError);
+
+  function toggleAudio() {
+    if (elements.audioPlayer.paused) {
+      playAudio();
+    } else {
+      pauseAudio();
+    }
   }
 
+  function playAudio() {
+    elements.audioPlayer.play();
+    elements.playAudioBtn.classList.add('playing');
+    elements.playIcon.textContent = '⏸️';
+    elements.playText.textContent = 'Pause';
+  }
+
+  function pauseAudio() {
+    elements.audioPlayer.pause();
+    elements.playAudioBtn.classList.remove('playing');
+    elements.playIcon.textContent = '▶️';
+    elements.playText.textContent = 'Play Audio';
+  }
+
+  function onAudioEnded() {
+    elements.playAudioBtn.classList.remove('playing');
+    elements.playIcon.textContent = '▶️';
+    elements.playText.textContent = 'Play Audio';
+  }
+
+  function onAudioError() {
+    elements.playAudioBtn.disabled = true;
+    elements.playAudioBtn.classList.remove('playing');
+    elements.playIcon.textContent = '❌';
+    elements.playText.textContent = 'Audio Error';
+  }
+
+  // Initialize
   loadVocab();
+
+  // Force dropdown z-index when shown
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdownMenu = document.getElementById('lessonSelectMenu');
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.style.zIndex = '999999';
+            dropdownMenu.style.position = 'relative';
+          }
+        }
+      });
+    });
+    
+    observer.observe(dropdownMenu, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  });
+
+  // Additional z-index enforcement
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.dropdown')) {
+      const dropdownMenu = document.querySelector('.dropdown-menu.show');
+      if (dropdownMenu) {
+        dropdownMenu.style.zIndex = '999999';
+        dropdownMenu.style.position = 'relative';
+      }
+    }
+  });
 </script>
 </body>
 </html>
