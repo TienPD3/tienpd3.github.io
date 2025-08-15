@@ -238,14 +238,12 @@
             }
             
             // Display result with preserved line breaks
-            function displayResult(result) {
-                // Store original text for speak functionality
-                const originalText = $('#kanjiInput').val().trim();
-                const lines = originalText.split('\n');
+            function displayResult(original, furigana) {
+                const lines = original.split('\n');
                 
                 // Build enhanced result with speak buttons using jQuery event delegation
                 let enhancedResult = '';
-                const resultLines = result.split('<br>');
+                const resultLines = furigana.split('<br>');
                 
                 for (let i = 0; i < resultLines.length; i++) {
                     if (i > 0) enhancedResult += '<br>';
@@ -273,10 +271,12 @@
                 $('#resultDisplay').hide();
                 $('#resultActions').hide();
                 
-                inputText = inputText.trim().replace(/\s\s/g, '')
+                inputText = inputText.trim().replace(/\s\s/g, '');
+                inputText = inputText.trim().replace(/\n/g, '')
+                inputText = inputText.trim().replace(/。/g, '。\n');
                 try {
                     const furiganaText = await convertToFurigana(inputText);
-                    displayResult(furiganaText);
+                    displayResult(inputText, furiganaText);
                 } catch (error) {
                     $('.loading').hide();
                     $('#resultDisplay').html(
