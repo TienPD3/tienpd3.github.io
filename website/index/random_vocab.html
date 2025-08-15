@@ -70,53 +70,25 @@
     letter-spacing: 0.5px;
   }
 
-  .dropdown-menu {
-    max-height: 200px;
-    overflow-y: auto;
-    min-width: 250px;
-    z-index: 999999 !important;
-  }
-
   .dropdown {
     position: relative;
   }
 
-  .dropdown-menu.show {
-    z-index: 999999 !important;
-  }
-
-  /* Force dropdown to be on top */
-  .dropdown-menu.show,
-  .dropdown-menu[data-bs-popper="static"],
-  .dropdown-menu[data-bs-popper="dynamic"] {
-    z-index: 999999 !important;
-  }
-
-  /* Ensure dropdown container has proper stacking context */
-  .control-group .dropdown {
-    position: relative;
-    z-index: 999999;
-  }
-
-  /* Override Bootstrap's default z-index */
   .dropdown-menu {
-    z-index: 999999 !important;
+    max-height: 500px;
+    overflow-y: auto;
+    min-width: 250px;
+    z-index: 9999 !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin-top: 0.25rem;
+    transform: none !important;
   }
 
-  /* Force all dropdown states to have high z-index */
-  .dropdown-menu.show,
-  .dropdown-menu.show[data-bs-popper="static"],
-  .dropdown-menu.show[data-bs-popper="dynamic"],
-  .dropdown-menu[data-bs-popper="static"],
-  .dropdown-menu[data-bs-popper="dynamic"] {
-    z-index: 999999 !important;
-    position: relative !important;
-  }
-
-  /* Ensure the dropdown button container has proper stacking */
   .control-group {
     position: relative;
-    z-index: 999999;
   }
 
   .dropdown-toggle {
@@ -628,15 +600,17 @@
           </div>
         </div>
 
-        <div class="keyboard-hints">
-          <h3>⌨️ Keyboard Shortcuts</h3>
-          <div class="keys">
-            <div class="key arrow">→</div>
-            <span>Next word</span>
-            <div class="key q">Q</div>
-            <span>Toggle fields</span>
-          </div>
-        </div>
+                 <div class="keyboard-hints">
+           <h3>⌨️ Keyboard Shortcuts</h3>
+           <div class="keys">
+             <div class="key arrow">←</div>
+             <span>Previous word</span>
+             <div class="key arrow">→</div>
+             <span>Next word</span>
+             <div class="key q">Q</div>
+             <span>Toggle fields</span>
+           </div>
+         </div>
       </div>
 
       <div id="vocabDisplay" class="vocab-card" style="display: none;">
@@ -870,8 +844,12 @@
     const randomIndex = Math.floor(Math.random() * remainingVocab.length);
     const word = remainingVocab[randomIndex];
     
+    // Always remove from remainingVocab and add to completedWords
     remainingVocab.splice(randomIndex, 1);
     completedWords.add(word.word); // Mark as completed
+    
+    // Add to history
+    addToHistory(word);
     
     // Update content efficiently
     elements.word.textContent = word.word || '-';
@@ -886,16 +864,77 @@
     elements.vocabDisplay.style.display = 'block';
     elements.vocabDisplay.classList.add('fade-in');
     
-    // Add bounce animation to the card
-    setTimeout(() => {
-      elements.vocabDisplay.classList.add('bounce');
-      setTimeout(() => {
-        elements.vocabDisplay.classList.remove('bounce');
-      }, 600);
-    }, 100);
-    
     updateProgress();
     updateStats();
+    
+    // Auto-play audio when showing new word
+    if (word.audio) {
+      setTimeout(() => {
+        playAudio();
+      }, 300); // Delay 300ms to let the fade-in animation complete
+    }
+  }
+
+  function addToHistory(word) {
+    // Remove any words after current position if going back
+    if (currentHistoryIndex < wordHistory.length - 1) {
+      wordHistory = wordHistory.slice(0, currentHistoryIndex + 1);
+    }
+    
+    // Add new word to history
+    wordHistory.push(word);
+    currentHistoryIndex = wordHistory.length - 1;
+  }
+
+  function showPreviousWord() {
+
+    const total = filteredVocab.length;
+    const remaining = remainingVocab.length;
+    const completed = total - remaining;
+    if (completed <= 1) {
+      return;
+    }
+
+    if (currentHistoryIndex > 0) {
+      // Get the current word before going back
+      const currentWord = wordHistory[currentHistoryIndex];
+      
+      // Always remove from completedWords and add back to remainingVocab
+      if (currentWord) {
+        completedWords.delete(currentWord.word);
+        remainingVocab.push(currentWord);
+      }
+      
+      currentHistoryIndex--;
+      const word = wordHistory[currentHistoryIndex];
+      
+      // Update content efficiently
+      elements.word.textContent = word.word || '-';
+      elements.kanji.textContent = word.kanji || '-';
+      elements.vietnamese_origin.textContent = word.vietnamese_origin || '-';
+      elements.meaning.textContent = word.meaning || '-';
+
+      // Setup audio
+      setupAudio(word.audio);
+
+      updateFieldVisibility();
+      elements.vocabDisplay.style.display = 'block';
+      elements.vocabDisplay.classList.add('fade-in');
+      
+      // Update progress and stats
+      updateProgress();
+      updateStats();
+      
+      // Auto-play audio when going back to previous word
+      if (word.audio) {
+        setTimeout(() => {
+          playAudio();
+        }, 300); // Delay 300ms to let the fade-in animation complete
+      }
+      
+      // Update keyboard hints to show current position
+      // updateKeyboardHints();
+    }
   }
 
   function setupAudio(audioUrl) {
@@ -932,6 +971,8 @@
   function resetProgress() {
     completedWords.clear();
     remainingVocab = [...filteredVocab];
+    wordHistory = []; // Reset word history
+    currentHistoryIndex = -1; // Reset history index
     updateProgress();
     updateStats();
     elements.vocabDisplay.style.display = 'none';
@@ -947,6 +988,8 @@
         filteredVocab = filterWords();
         remainingVocab = [...filteredVocab];
         completedWords.clear(); // Reset completed words for new lesson selection
+        wordHistory = []; // Reset word history
+        currentHistoryIndex = -1; // Reset history index
         
         elements.randomBtn.disabled = false;
         elements.resetBtn.disabled = false;
@@ -995,14 +1038,23 @@
 
   function updateStats() {
     const total = filteredVocab.length;
-    const completed = completedWords.size;
-    const remaining = total - completed;
-    const accuracy = total > 0 ? Math.round((completed / total) * 100) : 0;
+    let completed = completedWords.size;
+    let remaining = total - completed;
     
-    elements.totalWords.textContent = total;
-    elements.completedWords.textContent = completed;
-    elements.remainingWords.textContent = remaining;
-    elements.accuracyRate.textContent = `${accuracy}%`;
+    if (remaining == 0) {
+      completedWords.clear();
+      completed = completedWords.size;
+      remaining = total - completed;
+    }
+
+    if (total > 0) {
+      const accuracy = Math.round((completed / total) * 100);
+      
+      elements.totalWords.textContent = total;
+      elements.completedWords.textContent = completed;
+      elements.remainingWords.textContent = remaining;
+      elements.accuracyRate.textContent = `${accuracy}%`;
+    }
   }
 
   elements.randomBtn.addEventListener('click', showRandomWord);
@@ -1010,6 +1062,8 @@
 
   let qToggleAllFields = false;
   let savedFieldSelection = null;
+  let wordHistory = []; // Array to store word history
+  let currentHistoryIndex = -1; // Current position in history
 
   // Keyboard event listener
   document.addEventListener('keydown', function(event) {
@@ -1027,6 +1081,8 @@
       updateFieldVisibility();
     } else if (event.key === 'ArrowRight') {
       showRandomWord();
+    } else if (event.key === 'ArrowLeft') {
+      showPreviousWord();
     }
   });
 
@@ -1076,36 +1132,7 @@
   // Initialize
   loadVocab();
 
-  // Force dropdown z-index when shown
-  document.addEventListener('DOMContentLoaded', function() {
-    const dropdownMenu = document.getElementById('lessonSelectMenu');
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          if (dropdownMenu.classList.contains('show')) {
-            dropdownMenu.style.zIndex = '999999';
-            dropdownMenu.style.position = 'relative';
-          }
-        }
-      });
-    });
-    
-    observer.observe(dropdownMenu, {
-      attributes: true,
-      attributeFilter: ['class']
-    });
-  });
 
-  // Additional z-index enforcement
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('.dropdown')) {
-      const dropdownMenu = document.querySelector('.dropdown-menu.show');
-      if (dropdownMenu) {
-        dropdownMenu.style.zIndex = '999999';
-        dropdownMenu.style.position = 'relative';
-      }
-    }
-  });
 </script>
 </body>
 </html>
