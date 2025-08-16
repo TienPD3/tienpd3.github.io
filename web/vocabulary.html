@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Học Từ Vựng Tiếng Nhật</title>
     <style>
+        @font-face {
+            font-family: 'UTM Bauhaus';
+            src: url('./css/fonts/UTM-Bauhaus-Light.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'UTM Bauhaus', sans-serif !important;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'UTM Bauhaus', sans-serif;
             background: #f5f5f5;
             color: #333;
             line-height: 1.6;
@@ -41,37 +50,85 @@
         }
 
         .lesson-selector {
-            text-align: center;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+            position: relative;
+            overflow: hidden;
         }
 
-        .select-btn {
-            background: #3498db;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
+        .lesson-selector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+
+        .lesson-selector-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .selector-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 15px;
         }
 
+        .selector-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .select-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
         .select-btn:hover {
-            background: #2980b9;
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
         }
 
         .selected-lessons {
-            background: #ecf0f1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
             padding: 15px;
-            border-radius: 6px;
             margin-top: 15px;
             display: none;
+            backdrop-filter: blur(10px);
         }
 
         .selected-lessons h4 {
-            margin-bottom: 10px;
-            color: #2c3e50;
+            margin: 0 0 12px 0;
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .lesson-tags {
@@ -81,44 +138,48 @@
         }
 
         .lesson-tag {
-            background: #3498db;
-            color: white;
-            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 12px;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .lesson-tag:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .remove-btn {
-            background: rgba(255,255,255,0.3);
+            background: #ff6b6b;
             border: none;
             color: white;
             border-radius: 50%;
             width: 16px;
             height: 16px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            font-weight: bold;
+        }
+
+        .remove-btn:hover {
+            background: #ff5252;
+            transform: scale(1.1);
         }
 
         .progress-section {
-            margin-bottom: 30px;
-        }
-
-        .progress-bar {
-            background: #ecf0f1;
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
             margin-bottom: 10px;
-        }
-
-        .progress-fill {
-            background: #27ae60;
-            height: 100%;
-            border-radius: 5px;
-            transition: width 0.3s ease;
         }
 
         .counter {
@@ -129,70 +190,179 @@
         }
 
         .vocabulary-card {
-            background: white;
-            border: 2px solid #ecf0f1;
-            border-radius: 10px;
-            padding: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            border: 2px solid #e3f2fd;
+            border-radius: 20px;
+            padding: 10px;
             text-align: center;
             margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vocabulary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .vocabulary-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
         .lesson-info {
-            background: #3498db;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             font-weight: 600;
+            min-height: 36px;
+            line-height: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .word {
-            font-size: 3rem;
+            font-size: 2.4rem;
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            min-height: 72px;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: rgba(102, 126, 234, 0.05);
+            padding: 8px 16px;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .kanji {
             font-size: 2rem;
-            color: #7f8c8d;
-            margin-bottom: 15px;
+            color: #667eea;
+            margin-bottom: 20px;
+            min-height: 48px;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
         }
 
         .meaning {
             font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 15px;
+            color: #34495e;
+            margin-bottom: 20px;
             font-weight: 500;
+            min-height: 58px;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .vietnamese-origin {
             font-size: 1rem;
-            color: #95a5a6;
+            color: #7f8c8d;
             font-style: italic;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            min-height: 24px;
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .audio-btn {
-            background: #27ae60;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 15px 30px;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 16px;
             font-weight: 500;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .audio-btn:hover {
-            background: #229954;
+            background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
         }
 
         .audio-btn:disabled {
-            background: #bdc3c7;
+            background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
             cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 4px 15px rgba(189, 195, 199, 0.3);
+        }
+
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+        }
+
+        .tts-btn {
+            background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(155, 89, 182, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tts-btn:hover {
+            background: linear-gradient(135deg, #8e44ad 0%, #7d3c98 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+        }
+
+        .tts-btn:disabled {
+            background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 4px 15px rgba(189, 195, 199, 0.3);
         }
 
         .controls {
@@ -225,8 +395,12 @@
 
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
             color: #7f8c8d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
         .empty-state h3 {
@@ -237,8 +411,12 @@
 
         .loading {
             text-align: center;
-            padding: 60px 20px;
             color: #7f8c8d;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
         .spinner {
@@ -248,7 +426,7 @@
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
+            margin-bottom: 20px;
         }
 
         @keyframes spin {
@@ -262,6 +440,11 @@
             padding: 20px;
             border-radius: 6px;
             border: 1px solid #f5c6cb;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
         }
 
         /* Modal */
@@ -473,19 +656,21 @@
 <body>
     <div class="container">
         <div class="lesson-selector">
-            <button class="select-btn" id="btnSelectLesson">
-                📖 Chọn Bài Học
-            </button>
-            <div class="selected-lessons" id="divSelectedLessons">
-                <h4>📚 Bài học đã chọn:</h4>
-                <div class="lesson-tags" id="divLessonTags"></div>
+            <div class="lesson-selector-content">
+                <div class="selector-header">
+                    <h2 class="selector-title">📚 Quản lý bài học</h2>
+                    <button class="select-btn" id="btnSelectLesson">
+                        Chọn bài học
+                    </button>
+                </div>
+                <div class="selected-lessons" id="divSelectedLessons">
+                    <h4>✅ Bài học đã chọn</h4>
+                    <div class="lesson-tags" id="divLessonTags"></div>
+                </div>
             </div>
         </div>
 
         <div class="progress-section">
-            <div class="progress-bar">
-                <div class="progress-fill" id="prgVocabulary"></div>
-            </div>
             <div class="counter" id="spnCounter">0 / 0</div>
         </div>
 
@@ -540,7 +725,6 @@
         // Cache DOM elements
         const objDOMCache = {
             divContent: null,
-            prgVocabulary: null,
             spnCounter: null,
             btnPrev: null,
             btnNext: null,
@@ -604,7 +788,6 @@
         // Cache DOM elements
         function fnCacheDOMElements() {
             objDOMCache.divContent = document.getElementById('divContent');
-            objDOMCache.prgVocabulary = document.getElementById('prgVocabulary');
             objDOMCache.spnCounter = document.getElementById('spnCounter');
             objDOMCache.btnPrev = document.getElementById('btnPrev');
             objDOMCache.btnNext = document.getElementById('btnNext');
@@ -656,7 +839,6 @@
                 objSelectedLessons = fnLoadSelectedLessons();
                 fnUpdateFilteredData();
                 fnUpdateDisplay();
-                fnUpdateProgress();
                 fnUpdateCounter();
                 fnEnableButtons();
                 fnUpdateSelectedLessonsDisplay();
@@ -740,7 +922,6 @@
             objSelectedLessons.delete(lesson);
             fnUpdateFilteredData();
             fnUpdateDisplay();
-            fnUpdateProgress();
             fnUpdateCounter();
             fnEnableButtons();
             fnUpdateSelectedLessonsDisplay();
@@ -767,22 +948,28 @@
                 <div class="vocabulary-card">
                     <div class="lesson-info">Bài ${objCurrentWord.lesson}${blnRandomMode ? ' 🔀' : ''}</div>
                     
-                    <div class="word">${objCurrentWord.word}</div>
-                    ${objCurrentWord.kanji ? `<div class="kanji">${objCurrentWord.kanji}</div>` : ''}
-                    <div class="meaning">${objCurrentWord.meaning}</div>
-                    ${objCurrentWord.vietnamese_origin ? `<div class="vietnamese-origin">${objCurrentWord.vietnamese_origin}</div>` : ''}
+                    <div class="word">${objCurrentWord.word || ''}</div>
+                    <div class="kanji">${objCurrentWord.kanji || ''}</div>
+                    <div class="meaning">${objCurrentWord.meaning || ''}</div>
+                    <div class="vietnamese-origin">${objCurrentWord.vietnamese_origin || ''}</div>
 
-                    ${objCurrentWord.audio ? `
-                        <button class="audio-btn" data-audio="${objCurrentWord.audio}">
-                            🔊 Nghe phát âm
-                        </button>
-                    ` : ''}
+                    <div class="audio-controls">
+                        ${objCurrentWord.audio ? `
+                            <button class="audio-btn" data-audio="${objCurrentWord.audio}">
+                                🔊 Nghe phát âm
+                            </button>
+                        ` : `
+                            <button class="tts-btn">
+                                🔊 Nghe phát âm
+                            </button>
+                        `}
+                    </div>
                 </div>
             `;
 
             objDOMCache.divContent.innerHTML = strNewContent;
 
-            // Add event listener for audio button
+            // Add event listeners for audio buttons
             const elAudioBtn = objDOMCache.divContent.querySelector('.audio-btn');
             if (elAudioBtn) {
                 elAudioBtn.addEventListener('click', function() {
@@ -790,15 +977,25 @@
                 });
             }
 
-            fnUpdateProgress();
-            fnUpdateCounter();
-        }
+            // Add event listeners for TTS buttons
+            const elTTSBtn = objDOMCache.divContent.querySelector('.tts-btn');
+            if (elTTSBtn) {
+                elTTSBtn.addEventListener('click', function() {
+                    const strText = this.dataset.text;
+                    if (strText && strText !== 'N/A') {
+                        fnPlayTTS(strText, 'ja');
+                    }
+                });
+            }
 
-        // Update progress
-        function fnUpdateProgress() {
-            if (arrFilteredData.length === 0) return;
-            const numProgress = ((numCurrentIndex + 1) / arrFilteredData.length) * 100;
-            objDOMCache.prgVocabulary.style.width = numProgress + '%';
+            // Auto play audio/TTS when switching words
+            if (objCurrentWord.word) {
+                setTimeout(() => {
+                    fnAutoPlayTTS(objCurrentWord);
+                }, 300); // Delay 300ms để user có thể thấy từ mới trước
+            }
+
+            fnUpdateCounter();
         }
 
         // Update counter
@@ -822,12 +1019,38 @@
             elAudioElement = new Audio(strAudioUrl);
             elAudioElement.play().catch(err => {
                 console.error('Lỗi khi phát âm thanh:', err);
-                alert('Không thể phát âm thanh. Vui lòng thử lại.');
             });
         }, 500);
 
         function fnPlayAudio(strAudioUrl) {
             fnPlayAudioThrottled(strAudioUrl);
+        }
+
+        // TTS function
+        function fnPlayTTS(strText, strLang = 'ja') {
+            let elAudioElement = document.getElementById('tts-audio');
+            if (!elAudioElement) {
+                elAudioElement = document.createElement('audio');
+                elAudioElement.id = 'tts-audio';
+                document.body.appendChild(elAudioElement);
+            }
+            
+            const strUrl = `https://proxy.junookyo.workers.dev/?language=${strLang}&text=${encodeURIComponent(strText)}&speed=1`;
+            elAudioElement.src = strUrl;
+            elAudioElement.play().catch(err => {
+                console.error('Lỗi khi phát TTS:', err);
+            });
+        }
+
+        // Auto play TTS when switching words
+        function fnAutoPlayTTS(objWord) {
+            if (objWord.audio) {
+                // Nếu có audio file thì phát audio
+                fnPlayAudio(objWord.audio);
+            } else if (objWord.word) {
+                // Nếu không có audio thì dùng TTS
+                fnPlayTTS(objWord.word, 'ja');
+            }
         }
 
         // Event handlers
@@ -848,7 +1071,6 @@
                 // Khi hết từ vựng, random lại và bắt đầu từ đầu
                 fnRandomizeVocabulary();
                 fnUpdateDisplay();
-                fnUpdateProgress();
                 fnUpdateCounter();
                 fnEnableButtons();
             }
@@ -871,22 +1093,24 @@
                     // Khi hết từ vựng, random lại và bắt đầu từ đầu
                     fnRandomizeVocabulary();
                     fnUpdateDisplay();
-                    fnUpdateProgress();
                     fnUpdateCounter();
                     fnEnableButtons();
                 }
             } else if (evt.key === ' ') {
                 evt.preventDefault();
                 const objCurrentWord = arrFilteredData[numCurrentIndex];
-                if (objCurrentWord && objCurrentWord.audio) {
-                    fnPlayAudio(objCurrentWord.audio);
+                if (objCurrentWord) {
+                    if (objCurrentWord.audio) {
+                        fnPlayAudio(objCurrentWord.audio);
+                    } else if (objCurrentWord.word) {
+                        fnPlayTTS(objCurrentWord.word, 'ja');
+                    }
                 }
             } else if (evt.key === 'r' || evt.key === 'R') {
                 // Phím R để random
                 evt.preventDefault();
                 fnRandomizeVocabulary();
                 fnUpdateDisplay();
-                fnUpdateProgress();
                 fnUpdateCounter();
                 fnEnableButtons();
             }
@@ -917,7 +1141,6 @@
             }
             
             fnUpdateDisplay();
-            fnUpdateProgress();
             fnUpdateCounter();
             fnEnableButtons();
             fnUpdateSelectedLessonsDisplay();
