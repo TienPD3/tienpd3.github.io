@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Từ Vựng Tiếng Nhật</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        .controls {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .filter-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select, .filter-group input {
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .vocabulary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .vocab-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vocab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .vocab-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .lesson-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .word-section {
+            margin-bottom: 15px;
+        }
+
+        .word-hiragana {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .word-kanji {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 5px;
+        }
+
+        .word-meaning {
+            font-size: 1.1rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .word-origin {
+            font-size: 0.9rem;
+            color: #a0aec0;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        .audio-section {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+        }
+
+        .stats {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            padding: 20px;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: 5px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .vocabulary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🇯🇵 Học Từ Vựng Tiếng Nhật</h1>
+            <p>Học từ vựng theo bài học Minna no Nihongo</p>
+        </div>
+
+        <div class="controls">
+            <div class="filter-section">
+                <div class="filter-group">
+                    <label>Bài học:</label>
+                    <select id="lessonFilter">
+                        <option value="">Tất cả bài học</option>
+                    </select>
+                </div>
+                <div class="filter-group search-box">
+                    <label>Tìm kiếm:</label>
+                    <input type="text" id="searchInput" placeholder="Nhập từ vựng hoặc nghĩa...">
+                </div>
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn" onclick="resetFilters()">Làm mới</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h2>📊 Thống kê</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalWords">0</span>
+                    <span class="stat-label">Tổng số từ</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalLessons">0</span>
+                    <span class="stat-label">Số bài học</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="filteredWords">0</span>
+                    <span class="stat-label">Từ hiển thị</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="vocabularyContainer">
+            <div class="loading">Đang tải dữ liệu...</div>
+        </div>
+    </div>
+
+    <script>
+        let vocabularyData = [];
+        let filteredData = [];
+
+        // Load vocabulary data
+        async function loadVocabularyData() {
+            try {
+                const response = await fetch('storage/japan/vocabulary.json');
+                if (!response.ok) {
+                    throw new Error('Không thể tải dữ liệu');
+                }
+                vocabularyData = await response.json();
+                filteredData = [...vocabularyData];
+                
+                populateLessonFilter();
+                updateStats();
+                renderVocabularyCards();
+            } catch (error) {
+                console.error('Lỗi khi tải dữ liệu:', error);
+                document.getElementById('vocabularyContainer').innerHTML = 
+                    '<div class="error">Không thể tải dữ liệu từ vựng. Vui lòng thử lại sau.</div>';
+            }
+        }
+
+        // Populate lesson filter
+        function populateLessonFilter() {
+            const lessons = [...new Set(vocabularyData.map(item => item.lesson))].sort((a, b) => a - b);
+            const lessonFilter = document.getElementById('lessonFilter');
+            
+            lessons.forEach(lesson => {
+                const option = document.createElement('option');
+                option.value = lesson;
+                option.textContent = `Bài ${lesson}`;
+                lessonFilter.appendChild(option);
+            });
+        }
+
+        // Filter vocabulary
+        function filterVocabulary() {
+            const lessonFilter = document.getElementById('lessonFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            filteredData = vocabularyData.filter(item => {
+                const matchesLesson = !lessonFilter || item.lesson === lessonFilter;
+                const matchesSearch = !searchTerm || 
+                    item.word.toLowerCase().includes(searchTerm) ||
+                    (item.kanji && item.kanji.toLowerCase().includes(searchTerm)) ||
+                    item.meaning.toLowerCase().includes(searchTerm);
+                
+                return matchesLesson && matchesSearch;
+            });
+
+            updateStats();
+            renderVocabularyCards();
+        }
+
+        // Reset filters
+        function resetFilters() {
+            document.getElementById('lessonFilter').value = '';
+            document.getElementById('searchInput').value = '';
+            filteredData = [...vocabularyData];
+            updateStats();
+            renderVocabularyCards();
+        }
+
+        // Update statistics
+        function updateStats() {
+            const lessons = [...new Set(vocabularyData.map(item => item.lesson))];
+            
+            document.getElementById('totalWords').textContent = vocabularyData.length;
+            document.getElementById('totalLessons').textContent = lessons.length;
+            document.getElementById('filteredWords').textContent = filteredData.length;
+        }
+
+        // Render vocabulary cards
+        function renderVocabularyCards() {
+            const container = document.getElementById('vocabularyContainer');
+            
+            if (filteredData.length === 0) {
+                container.innerHTML = '<div class="error">Không tìm thấy từ vựng nào phù hợp.</div>';
+                return;
+            }
+
+            const cardsHTML = filteredData.map(item => `
+                <div class="vocab-card">
+                    <div class="lesson-badge">Bài ${item.lesson}</div>
+                    <div class="word-section">
+                        <div class="word-hiragana">${item.word}</div>
+                        ${item.kanji ? `<div class="word-kanji">${item.kanji}</div>` : ''}
+                        <div class="word-meaning">${item.meaning}</div>
+                        ${item.vietnamese_origin ? `<div class="word-origin">${item.vietnamese_origin}</div>` : ''}
+                    </div>
+                    ${item.audio ? `
+                        <div class="audio-section">
+                            <button class="audio-btn" onclick="playAudio('${item.audio}')" title="Nghe phát âm">
+                                🔊
+                            </button>
+                            <span style="font-size: 0.9rem; color: #718096;">Nhấn để nghe</span>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="vocabulary-grid">
+                    ${cardsHTML}
+                </div>
+            `;
+        }
+
+        // Play audio
+        function playAudio(audioUrl) {
+            const audio = new Audio(audioUrl);
+            audio.play().catch(error => {
+                console.error('Lỗi khi phát audio:', error);
+                alert('Không thể phát audio. Vui lòng thử lại.');
+            });
+        }
+
+        // Event listeners
+        document.getElementById('lessonFilter').addEventListener('change', filterVocabulary);
+        document.getElementById('searchInput').addEventListener('input', filterVocabulary);
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadVocabularyData);
+    </script>
+</body>
+</html> 

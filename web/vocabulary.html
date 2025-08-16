@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Học Từ Vựng Tiếng Nhật</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .lesson-selector {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .select-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .select-btn:hover {
+            background: #2980b9;
+        }
+
+        .selected-lessons {
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            display: none;
+        }
+
+        .selected-lessons h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .lesson-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .lesson-tag {
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .remove-btn {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-bar {
+            background: #ecf0f1;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            background: #27ae60;
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .counter {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .vocabulary-card {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .lesson-info {
+            background: #3498db;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .word {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .kanji {
+            font-size: 2rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .meaning {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .vietnamese-origin {
+            font-size: 1rem;
+            color: #95a5a6;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        .audio-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .audio-btn:hover {
+            background: #229954;
+        }
+
+        .audio-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            min-width: 100px;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: #2980b9;
+        }
+
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #7f8c8d;
+        }
+
+        .spinner {
+            border: 4px solid #ecf0f1;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .select-all-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 6px;
+        }
+
+        .select-all-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .select-all-btn:hover {
+            background: #2980b9;
+        }
+
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-checkbox {
+            display: none;
+        }
+
+        .lesson-label {
+            display: block;
+            padding: 10px;
+            background: #ecf0f1;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .lesson-label:hover {
+            background: #d5dbdb;
+        }
+
+        .lesson-checkbox:checked + .lesson-label {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .modal-btn.primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .modal-btn.primary:hover {
+            background: #2980b9;
+        }
+
+        .modal-btn.secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .modal-btn.secondary:hover {
+            background: #7f8c8d;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .word {
+                font-size: 2.5rem;
+            }
+
+            .kanji {
+                font-size: 1.5rem;
+            }
+
+            .meaning {
+                font-size: 1.25rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                width: 95%;
+            }
+
+            .lesson-grid {
+                grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+                gap: 8px;
+            }
+
+            .lesson-label {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vocabulary-card {
+                padding: 20px;
+            }
+
+            .word {
+                font-size: 2rem;
+            }
+
+            .kanji {
+                font-size: 1.25rem;
+            }
+
+            .meaning {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lesson-selector">
+            <button class="select-btn" id="btnSelectLesson">
+                📖 Chọn Bài Học
+            </button>
+            <div class="selected-lessons" id="divSelectedLessons">
+                <h4>📚 Bài học đã chọn:</h4>
+                <div class="lesson-tags" id="divLessonTags"></div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div class="progress-fill" id="prgVocabulary"></div>
+            </div>
+            <div class="counter" id="spnCounter">0 / 0</div>
+        </div>
+
+        <div id="divContent">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Đang tải dữ liệu...</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="nav-btn" id="btnPrev" disabled>← Trước</button>
+            <button class="nav-btn" id="btnNext" disabled>Tiếp →</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="mdlLessonSelector" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">📖 Chọn Bài Học</div>
+                <span class="close" id="btnCloseModal">&times;</span>
+            </div>
+            
+            <div class="select-all-section">
+                <button class="select-all-btn" id="btnSelectAll">Chọn tất cả</button>
+                <button class="select-all-btn" id="btnDeselectAll">Bỏ chọn tất cả</button>
+                <button class="select-all-btn" id="btnSelectRange">Chọn khoảng</button>
+            </div>
+
+            <div class="lesson-grid" id="grdLessons">
+                <!-- Lesson checkboxes will be generated here -->
+            </div>
+
+            <div class="modal-actions">
+                <button class="modal-btn secondary" id="btnCancel">Hủy</button>
+                <button class="modal-btn primary" id="btnApply">Áp dụng</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Performance optimizations
+        let arrVocabularyData = [];
+        let arrFilteredData = [];
+        let numCurrentIndex = 0;
+        let elAudioElement = null;
+        let objSelectedLessons = new Set();
+        let objAllLessons = new Set();
+        let blnRandomMode = false; // Thêm flag cho random mode
+        
+        // Cache DOM elements
+        const objDOMCache = {
+            divContent: null,
+            prgVocabulary: null,
+            spnCounter: null,
+            btnPrev: null,
+            btnNext: null,
+            divSelectedLessons: null,
+            divLessonTags: null,
+            mdlLessonSelector: null,
+            grdLessons: null
+        };
+
+        // Function random tách riêng để sử dụng chung
+        function fnRandomizeVocabulary() {
+            if (arrFilteredData.length <= 1) return;
+            
+            // Fisher-Yates shuffle algorithm
+            for (let i = arrFilteredData.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arrFilteredData[i], arrFilteredData[j]] = [arrFilteredData[j], arrFilteredData[i]];
+            }
+            
+            numCurrentIndex = 0;
+            blnRandomMode = true;
+        }
+
+        // Function để reset về thứ tự ban đầu
+        function fnResetToOriginalOrder() {
+            if (!blnRandomMode) return;
+            
+            // Lọc lại dữ liệu theo thứ tự ban đầu
+            arrFilteredData = arrVocabularyData.filter(item => objSelectedLessons.has(item.lesson));
+            numCurrentIndex = 0;
+            blnRandomMode = false;
+        }
+
+        // Debounce function
+        function fnDebounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Throttle function
+        function fnThrottle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            }
+        }
+
+        // Cache DOM elements
+        function fnCacheDOMElements() {
+            objDOMCache.divContent = document.getElementById('divContent');
+            objDOMCache.prgVocabulary = document.getElementById('prgVocabulary');
+            objDOMCache.spnCounter = document.getElementById('spnCounter');
+            objDOMCache.btnPrev = document.getElementById('btnPrev');
+            objDOMCache.btnNext = document.getElementById('btnNext');
+            objDOMCache.divSelectedLessons = document.getElementById('divSelectedLessons');
+            objDOMCache.divLessonTags = document.getElementById('divLessonTags');
+            objDOMCache.mdlLessonSelector = document.getElementById('mdlLessonSelector');
+            objDOMCache.grdLessons = document.getElementById('grdLessons');
+        }
+
+        // Save selected lessons
+        const fnSaveSelectedLessonsDebounced = fnDebounce(function() {
+            localStorage.setItem('selectedLessons', JSON.stringify(Array.from(objSelectedLessons)));
+        }, 300);
+
+        function fnSaveSelectedLessons() {
+            fnSaveSelectedLessonsDebounced();
+        }
+
+        // Load selected lessons
+        function fnLoadSelectedLessons() {
+            const strSaved = localStorage.getItem('selectedLessons');
+            if (strSaved) {
+                return new Set(JSON.parse(strSaved));
+            }
+            return new Set(objAllLessons);
+        }
+
+        // Load vocabulary data
+        async function fnLoadVocabularyData() {
+            try {
+                const resResponse = await fetch('storage/japan/vocabulary.json');
+                if (!resResponse.ok) {
+                    throw new Error('Không thể tải dữ liệu');
+                }
+                arrVocabularyData = await resResponse.json();
+                
+                // Get all lessons
+                arrVocabularyData.forEach(item => {
+                    objAllLessons.add(item.lesson);
+                });
+                
+                // Cache DOM elements
+                fnCacheDOMElements();
+                
+                // Create lesson modal
+                fnCreateLessonModal();
+                
+                // Load selected lessons
+                objSelectedLessons = fnLoadSelectedLessons();
+                fnUpdateFilteredData();
+                fnUpdateDisplay();
+                fnUpdateProgress();
+                fnUpdateCounter();
+                fnEnableButtons();
+                fnUpdateSelectedLessonsDisplay();
+            } catch (err) {
+                console.error('Lỗi khi tải dữ liệu:', err);
+                objDOMCache.divContent.innerHTML = `
+                    <div class="error">
+                        <h3>❌ Lỗi tải dữ liệu</h3>
+                        <p>Không thể tải file vocabulary.json. Vui lòng kiểm tra đường dẫn file.</p>
+                        <p>Chi tiết lỗi: ${err.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Create lesson modal
+        function fnCreateLessonModal() {
+            const elLessonGrid = objDOMCache.grdLessons;
+            const arrSortedLessons = Array.from(objAllLessons).sort((a, b) => parseInt(a) - parseInt(b));
+            
+            const fragment = document.createDocumentFragment();
+            
+            arrSortedLessons.forEach(lesson => {
+                const elDiv = document.createElement('div');
+                elDiv.innerHTML = `
+                    <input type="checkbox" id="chkLesson-${lesson}" class="lesson-checkbox" value="${lesson}">
+                    <label for="chkLesson-${lesson}" class="lesson-label">${lesson}</label>
+                `;
+                fragment.appendChild(elDiv);
+            });
+            
+            elLessonGrid.innerHTML = '';
+            elLessonGrid.appendChild(fragment);
+        }
+
+        // Update filtered data
+        function fnUpdateFilteredData() {
+            arrFilteredData = arrVocabularyData.filter(item => objSelectedLessons.has(item.lesson));
+            numCurrentIndex = 0;
+            blnRandomMode = false; // Reset random mode khi thay đổi bài học
+        }
+
+        // Update selected lessons display
+        function fnUpdateSelectedLessonsDisplay() {
+            const elSelectedLessonsDiv = objDOMCache.divSelectedLessons;
+            const elLessonTagsDiv = objDOMCache.divLessonTags;
+            
+            if (objSelectedLessons.size === 0) {
+                elSelectedLessonsDiv.style.display = 'none';
+                return;
+            }
+            
+            elSelectedLessonsDiv.style.display = 'block';
+            const arrSortedLessons = Array.from(objSelectedLessons).sort((a, b) => parseInt(a) - parseInt(b));
+            
+            const fragment = document.createDocumentFragment();
+            arrSortedLessons.forEach(lesson => {
+                const elTag = document.createElement('div');
+                elTag.className = 'lesson-tag';
+                elTag.innerHTML = `
+                    Bài ${lesson}
+                    <button class="remove-btn" data-lesson="${lesson}">×</button>
+                `;
+                fragment.appendChild(elTag);
+            });
+            
+            elLessonTagsDiv.innerHTML = '';
+            elLessonTagsDiv.appendChild(fragment);
+            
+            // Add event listeners for remove buttons
+            elLessonTagsDiv.addEventListener('click', function(evt) {
+                if (evt.target.classList.contains('remove-btn')) {
+                    const lesson = evt.target.dataset.lesson;
+                    fnRemoveLesson(lesson);
+                }
+            });
+        }
+
+        // Remove lesson
+        function fnRemoveLesson(lesson) {
+            objSelectedLessons.delete(lesson);
+            fnUpdateFilteredData();
+            fnUpdateDisplay();
+            fnUpdateProgress();
+            fnUpdateCounter();
+            fnEnableButtons();
+            fnUpdateSelectedLessonsDisplay();
+            fnSaveSelectedLessons();
+        }
+
+        // Update display
+        function fnUpdateDisplay() {
+            if (arrFilteredData.length === 0) {
+                objDOMCache.divContent.innerHTML = `
+                    <div class="vocabulary-card">
+                        <div class="empty-state">
+                            <h3>📚 Không có từ vựng nào</h3>
+                            <p>Vui lòng chọn ít nhất một bài học để bắt đầu học.</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            const objCurrentWord = arrFilteredData[numCurrentIndex];
+
+            const strNewContent = `
+                <div class="vocabulary-card">
+                    <div class="lesson-info">Bài ${objCurrentWord.lesson}${blnRandomMode ? ' 🔀' : ''}</div>
+                    
+                    <div class="word">${objCurrentWord.word}</div>
+                    ${objCurrentWord.kanji ? `<div class="kanji">${objCurrentWord.kanji}</div>` : ''}
+                    <div class="meaning">${objCurrentWord.meaning}</div>
+                    ${objCurrentWord.vietnamese_origin ? `<div class="vietnamese-origin">${objCurrentWord.vietnamese_origin}</div>` : ''}
+
+                    ${objCurrentWord.audio ? `
+                        <button class="audio-btn" data-audio="${objCurrentWord.audio}">
+                            🔊 Nghe phát âm
+                        </button>
+                    ` : ''}
+                </div>
+            `;
+
+            objDOMCache.divContent.innerHTML = strNewContent;
+
+            // Add event listener for audio button
+            const elAudioBtn = objDOMCache.divContent.querySelector('.audio-btn');
+            if (elAudioBtn) {
+                elAudioBtn.addEventListener('click', function() {
+                    fnPlayAudio(this.dataset.audio);
+                });
+            }
+
+            fnUpdateProgress();
+            fnUpdateCounter();
+        }
+
+        // Update progress
+        function fnUpdateProgress() {
+            if (arrFilteredData.length === 0) return;
+            const numProgress = ((numCurrentIndex + 1) / arrFilteredData.length) * 100;
+            objDOMCache.prgVocabulary.style.width = numProgress + '%';
+        }
+
+        // Update counter
+        function fnUpdateCounter() {
+            objDOMCache.spnCounter.textContent = `${numCurrentIndex + 1} / ${arrFilteredData.length}`;
+        }
+
+        // Enable/disable buttons
+        function fnEnableButtons() {
+            objDOMCache.btnPrev.disabled = numCurrentIndex === 0;
+            objDOMCache.btnNext.disabled = numCurrentIndex === arrFilteredData.length - 1;
+        }
+
+        // Play audio
+        const fnPlayAudioThrottled = fnThrottle(function(strAudioUrl) {
+            if (elAudioElement) {
+                elAudioElement.pause();
+                elAudioElement = null;
+            }
+
+            elAudioElement = new Audio(strAudioUrl);
+            elAudioElement.play().catch(err => {
+                console.error('Lỗi khi phát âm thanh:', err);
+                alert('Không thể phát âm thanh. Vui lòng thử lại.');
+            });
+        }, 500);
+
+        function fnPlayAudio(strAudioUrl) {
+            fnPlayAudioThrottled(strAudioUrl);
+        }
+
+        // Event handlers
+        const fnHandlePrevClick = fnDebounce(function() {
+            if (numCurrentIndex > 0) {
+                numCurrentIndex--;
+                fnUpdateDisplay();
+                fnEnableButtons();
+            }
+        }, 100);
+
+        const fnHandleNextClick = fnDebounce(function() {
+            if (numCurrentIndex < arrFilteredData.length - 1) {
+                numCurrentIndex++;
+                fnUpdateDisplay();
+                fnEnableButtons();
+            } else {
+                // Khi hết từ vựng, random lại và bắt đầu từ đầu
+                fnRandomizeVocabulary();
+                fnUpdateDisplay();
+                fnUpdateProgress();
+                fnUpdateCounter();
+                fnEnableButtons();
+            }
+        }, 100);
+
+        // Keyboard handler
+        const fnHandleKeydown = fnThrottle(function(evt) {
+            if (evt.key === 'ArrowLeft' || evt.key === 'ArrowUp') {
+                if (numCurrentIndex > 0) {
+                    numCurrentIndex--;
+                    fnUpdateDisplay();
+                    fnEnableButtons();
+                }
+            } else if (evt.key === 'ArrowRight' || evt.key === 'ArrowDown') {
+                if (numCurrentIndex < arrFilteredData.length - 1) {
+                    numCurrentIndex++;
+                    fnUpdateDisplay();
+                    fnEnableButtons();
+                } else {
+                    // Khi hết từ vựng, random lại và bắt đầu từ đầu
+                    fnRandomizeVocabulary();
+                    fnUpdateDisplay();
+                    fnUpdateProgress();
+                    fnUpdateCounter();
+                    fnEnableButtons();
+                }
+            } else if (evt.key === ' ') {
+                evt.preventDefault();
+                const objCurrentWord = arrFilteredData[numCurrentIndex];
+                if (objCurrentWord && objCurrentWord.audio) {
+                    fnPlayAudio(objCurrentWord.audio);
+                }
+            } else if (evt.key === 'r' || evt.key === 'R') {
+                // Phím R để random
+                evt.preventDefault();
+                fnRandomizeVocabulary();
+                fnUpdateDisplay();
+                fnUpdateProgress();
+                fnUpdateCounter();
+                fnEnableButtons();
+            }
+        }, 150);
+
+        // Modal functions
+        function fnOpenModal() {
+            objDOMCache.mdlLessonSelector.style.display = 'block';
+            const arrCheckboxes = document.querySelectorAll('.lesson-checkbox');
+            arrCheckboxes.forEach(checkbox => {
+                checkbox.checked = objSelectedLessons.has(checkbox.value);
+            });
+        }
+
+        function fnCloseModal() {
+            objDOMCache.mdlLessonSelector.style.display = 'none';
+        }
+
+        function fnApplySelection() {
+            const arrCheckboxes = document.querySelectorAll('.lesson-checkbox:checked');
+            objSelectedLessons = new Set(Array.from(arrCheckboxes).map(cb => cb.value));
+            
+            fnUpdateFilteredData();
+            
+            // Random khi chọn bài học mới
+            if (arrFilteredData.length > 1) {
+                fnRandomizeVocabulary();
+            }
+            
+            fnUpdateDisplay();
+            fnUpdateProgress();
+            fnUpdateCounter();
+            fnEnableButtons();
+            fnUpdateSelectedLessonsDisplay();
+            fnSaveSelectedLessons();
+            fnCloseModal();
+        }
+
+        // Initialize event listeners
+        function fnInitializeEventListeners() {
+            // Button events
+            objDOMCache.btnPrev.addEventListener('click', fnHandlePrevClick);
+            objDOMCache.btnNext.addEventListener('click', fnHandleNextClick);
+            
+            // Modal events
+            document.getElementById('btnSelectLesson').addEventListener('click', fnOpenModal);
+            document.getElementById('btnCloseModal').addEventListener('click', fnCloseModal);
+            document.getElementById('btnCancel').addEventListener('click', fnCloseModal);
+            document.getElementById('btnApply').addEventListener('click', fnApplySelection);
+
+            // Select all events
+            document.getElementById('btnSelectAll').addEventListener('click', function() {
+                const arrCheckboxes = document.querySelectorAll('.lesson-checkbox');
+                arrCheckboxes.forEach(checkbox => checkbox.checked = true);
+            });
+
+            document.getElementById('btnDeselectAll').addEventListener('click', function() {
+                const arrCheckboxes = document.querySelectorAll('.lesson-checkbox');
+                arrCheckboxes.forEach(checkbox => checkbox.checked = false);
+            });
+
+            document.getElementById('btnSelectRange').addEventListener('click', function() {
+                const strStart = prompt('Nhập bài học bắt đầu:');
+                const strEnd = prompt('Nhập bài học kết thúc:');
+                
+                if (strStart && strEnd && !isNaN(strStart) && !isNaN(strEnd)) {
+                    const numStart = parseInt(strStart);
+                    const numEnd = parseInt(strEnd);
+                    
+                    const arrCheckboxes = document.querySelectorAll('.lesson-checkbox');
+                    arrCheckboxes.forEach(checkbox => {
+                        const numLesson = parseInt(checkbox.value);
+                        checkbox.checked = numLesson >= numStart && numLesson <= numEnd;
+                    });
+                }
+            });
+
+            // Keyboard events
+            document.addEventListener('keydown', fnHandleKeydown);
+
+            // Modal outside click
+            window.addEventListener('click', function(evt) {
+                if (evt.target === objDOMCache.mdlLessonSelector) {
+                    fnCloseModal();
+                }
+            });
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            fnLoadVocabularyData().then(() => {
+                fnInitializeEventListeners();
+            });
+        });
+    </script>
+</body>
+</html> 
