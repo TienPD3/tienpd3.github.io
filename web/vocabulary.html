@@ -250,6 +250,106 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .lesson-header .audio-controls {
+            flex-shrink: 0;
+            margin: 0;
+            min-height: auto;
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+        }
+
+        .lesson-header .audio-controls .audio-btn,
+        .lesson-header .audio-controls .tts-btn {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 600;
+            min-height: 36px;
+            line-height: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-header .audio-controls .audio-btn:hover,
+        .lesson-header .audio-controls .tts-btn:hover {
+            background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        .lesson-header .lesson-info {
+            margin-bottom: 0;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+        }
+
+        .lesson-header .show-answer-controls {
+            flex-shrink: 0;
+            margin: 0;
+            min-height: auto;
+            flex-direction: row;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+        }
+
+        .lesson-header .show-answer-controls .show-answer-btn {
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 12px;
+            white-space: nowrap;
+            min-width: 120px;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: 600;
+            min-height: 36px;
+            line-height: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lesson-header .show-answer-controls .show-answer-btn:hover {
+            background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+
         .word {
             font-size: 2.4rem;
             font-weight: bold;
@@ -515,18 +615,14 @@
         .audio-btn {
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
-            border: none;
-            padding: 15px 30px;
+            padding: 10px 20px;
             border-radius: 25px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);
-            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 600;
+            min-height: 36px;
+            line-height: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -564,16 +660,15 @@
         .show-answer-btn {
             background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 11px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
             display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 600;
+            min-height: 36px;
+            line-height: 20px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .tts-btn {
@@ -836,6 +931,41 @@
 
             .header h1 {
                 font-size: 2rem;
+            }
+
+            .lesson-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .lesson-header .audio-controls {
+                justify-content: center;
+                height: auto;
+                min-height: 56px;
+                margin-bottom: 0;
+            }
+
+            .lesson-header .lesson-info {
+                text-align: center;
+                height: auto;
+                min-height: 56px;
+                margin-bottom: 0;
+            }
+
+            .lesson-header .show-answer-controls {
+                justify-content: center;
+                height: auto;
+                min-height: 56px;
+                margin-bottom: 0;
+            }
+
+            .lesson-header .audio-controls .audio-btn,
+            .lesson-header .audio-controls .tts-btn,
+            .lesson-header .show-answer-controls .show-answer-btn {
+                height: 40px;
+                width: 100%;
+                max-width: 200px;
             }
 
             .word {
@@ -1294,7 +1424,23 @@
 
             const strNewContent = `
                 <div class="vocabulary-card">
-                    <div class="lesson-info">Bài ${objCurrentWord.lesson}${blnRandomMode ? ' 🔀' : ''}</div>
+                    <div class="lesson-header">
+                        <div class="audio-controls">
+                            ${objCurrentWord.audio ? `
+                                <button class="audio-btn" data-audio="${objCurrentWord.audio}">
+                                    🔊 Nghe phát âm
+                                </button>
+                            ` : `
+                                <button class="tts-btn">
+                                    🔊 Nghe phát âm
+                                </button>
+                            `}
+                        </div>
+                        <div class="lesson-info">Bài ${objCurrentWord.lesson}${blnRandomMode ? ' 🔀' : ''}</div>
+                        <div class="show-answer-controls">
+                            <button class="show-answer-btn" id="btnShowAll" data-target="divAll">👁️ Hiển thị toàn bộ</button>
+                        </div>
+                    </div>
                     
                     <div class="word" id="divWord">
                         <span class="${elSpanClassWord}">${objCurrentWord.word || ''}</span>
@@ -1309,21 +1455,6 @@
                     </div>
                     <div class="vietnamese-origin" id="divOrigin">
                         <span class="${elSpanClassOrigin}">${objCurrentWord.vietnamese_origin || ''}</span>
-                    </div>
-
-                    <div class="audio-controls">
-                        ${objCurrentWord.audio ? `
-                            <button class="audio-btn" data-audio="${objCurrentWord.audio}">
-                                🔊 Nghe phát âm
-                            </button>
-                        ` : `
-                            <button class="tts-btn">
-                                🔊 Nghe phát âm
-                            </button>
-                        `}
-                    </div>
-                    <div class="show-answer-controls">
-                        <button class="show-answer-btn" id="btnShowAll" data-target="divAll">👁️ Hiển thị toàn bộ</button>
                     </div>
                 </div>
             `;
@@ -1342,7 +1473,7 @@
             const elTTSBtn = objDOMCache.divContent.querySelector('.tts-btn');
             if (elTTSBtn) {
                 elTTSBtn.addEventListener('click', function() {
-                    const strText = this.dataset.text;
+                    const strText = objCurrentWord.word || '';
                     if (strText && strText !== 'N/A') {
                         fnPlayTTS(strText, 'ja');
                     }
