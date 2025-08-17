@@ -406,7 +406,41 @@
             z-index: 10;
         }
 
+        .kanji-canvas,
+        .meaning-canvas,
+        .origin-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
         .word-drawing-toggle {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .kanji-drawing-toggle,
+        .meaning-drawing-toggle,
+        .origin-drawing-toggle {
             position: absolute;
             top: 5px;
             right: 5px;
@@ -430,7 +464,20 @@
             transform: scale(1.1);
         }
 
+        .kanji-drawing-toggle:hover,
+        .meaning-drawing-toggle:hover,
+        .origin-drawing-toggle:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: scale(1.1);
+        }
+
         .word-drawing-toggle.active {
+            background: rgba(240, 147, 251, 0.8);
+        }
+
+        .kanji-drawing-toggle.active,
+        .meaning-drawing-toggle.active,
+        .origin-drawing-toggle.active {
             background: rgba(240, 147, 251, 0.8);
         }
 
@@ -612,6 +659,12 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            background: rgba(102, 126, 234, 0.05);
+            padding: 8px 16px;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .meaning {
@@ -624,6 +677,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: rgba(102, 126, 234, 0.05);
+            padding: 8px 16px;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .vietnamese-origin {
@@ -636,6 +695,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: rgba(102, 126, 234, 0.05);
+            padding: 8px 16px;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
         }
 
         .audio-btn {
@@ -1163,6 +1228,25 @@
         let arrWordLastPoint = null;
         let blnIsIPad = false; // Flag to detect iPad
         
+        // Canvas variables for other elements
+        let blnKanjiDrawingMode = false;
+        let objKanjiCanvas = null;
+        let objKanjiContext = null;
+        let blnIsKanjiDrawing = false;
+        let arrKanjiLastPoint = null;
+        
+        let blnMeaningDrawingMode = false;
+        let objMeaningCanvas = null;
+        let objMeaningContext = null;
+        let blnIsMeaningDrawing = false;
+        let arrMeaningLastPoint = null;
+        
+        let blnOriginDrawingMode = false;
+        let objOriginCanvas = null;
+        let objOriginContext = null;
+        let blnIsOriginDrawing = false;
+        let arrOriginLastPoint = null;
+        
         // Study mode variables
         let strCurrentStudyMode = '';
         let objHiddenElements = new Set();
@@ -1476,12 +1560,18 @@
                     </div>
                     <div class="kanji" id="divKanji">
                         <span class="${elSpanClassKanji}">${objCurrentWord.kanji || ''}</span>
+                        <canvas class="kanji-canvas" id="cnvKanji-${numCurrentIndex}" style="display: none;"></canvas>
+                        <button class="kanji-drawing-toggle" id="btnKanjiToggle-${numCurrentIndex}" title="Toggle Writing Mode">✏️</button>
                     </div>
                     <div class="meaning" id="divMeaning">
                         <span class="${elSpanClassMeaning}">${objCurrentWord.meaning || ''}</span>
+                        <canvas class="meaning-canvas" id="cnvMeaning-${numCurrentIndex}" style="display: none;"></canvas>
+                        <button class="meaning-drawing-toggle" id="btnMeaningToggle-${numCurrentIndex}" title="Toggle Writing Mode">✏️</button>
                     </div>
                     <div class="vietnamese-origin" id="divOrigin">
                         <span class="${elSpanClassOrigin}">${objCurrentWord.vietnamese_origin || ''}</span>
+                        <canvas class="origin-canvas" id="cnvOrigin-${numCurrentIndex}" style="display: none;"></canvas>
+                        <button class="origin-drawing-toggle" id="btnOriginToggle-${numCurrentIndex}" title="Toggle Writing Mode">✏️</button>
                     </div>
                 </div>
             `;
@@ -1512,6 +1602,28 @@
             if (elWordToggle) {
                 elWordToggle.addEventListener('click', function() {
                     fnToggleWordDrawingMode(numCurrentIndex);
+                });
+            }
+
+            // Add event listeners for other drawing toggle buttons
+            const elKanjiToggle = objDOMCache.divContent.querySelector('.kanji-drawing-toggle');
+            if (elKanjiToggle) {
+                elKanjiToggle.addEventListener('click', function() {
+                    fnToggleKanjiDrawingMode(numCurrentIndex);
+                });
+            }
+
+            const elMeaningToggle = objDOMCache.divContent.querySelector('.meaning-drawing-toggle');
+            if (elMeaningToggle) {
+                elMeaningToggle.addEventListener('click', function() {
+                    fnToggleMeaningDrawingMode(numCurrentIndex);
+                });
+            }
+
+            const elOriginToggle = objDOMCache.divContent.querySelector('.origin-drawing-toggle');
+            if (elOriginToggle) {
+                elOriginToggle.addEventListener('click', function() {
+                    fnToggleOriginDrawingMode(numCurrentIndex);
                 });
             }
 
@@ -1548,6 +1660,9 @@
                 fnInitStudyMode();
                 // Apply current study mode to the new word
                 fnApplyCurrentStudyMode();
+                
+                // Hiển thị canvas cho các phần tử bị ẩn
+                fnShowCanvasForHiddenElements();
                 
                 // Tự động mở word drawing mode nếu là iPad
                 if (blnIsIPad) {
@@ -1655,6 +1770,75 @@
             fnAddWordDrawingEventListeners();
         }
 
+        function fnInitKanjiCanvas() {
+            const elKanjiCanvas = document.getElementById(`cnvKanji-${numCurrentIndex}`);
+            if (!elKanjiCanvas) return;
+            
+            objKanjiCanvas = elKanjiCanvas;
+            objKanjiContext = elKanjiCanvas.getContext('2d');
+            
+            // Set canvas size to match kanji container
+            const elKanjiContainer = elKanjiCanvas.parentElement;
+            const rect = elKanjiContainer.getBoundingClientRect();
+            objKanjiCanvas.width = rect.width;
+            objKanjiCanvas.height = rect.height;
+            
+            // Set drawing styles
+            objKanjiContext.lineCap = 'round';
+            objKanjiContext.lineJoin = 'round';
+            objKanjiContext.strokeStyle = '#000000';
+            objKanjiContext.lineWidth = 2;
+            
+            // Add event listeners
+            fnAddKanjiDrawingEventListeners();
+        }
+
+        function fnInitMeaningCanvas() {
+            const elMeaningCanvas = document.getElementById(`cnvMeaning-${numCurrentIndex}`);
+            if (!elMeaningCanvas) return;
+            
+            objMeaningCanvas = elMeaningCanvas;
+            objMeaningContext = elMeaningCanvas.getContext('2d');
+            
+            // Set canvas size to match meaning container
+            const elMeaningContainer = elMeaningCanvas.parentElement;
+            const rect = elMeaningContainer.getBoundingClientRect();
+            objMeaningCanvas.width = rect.width;
+            objMeaningCanvas.height = rect.height;
+            
+            // Set drawing styles
+            objMeaningContext.lineCap = 'round';
+            objMeaningContext.lineJoin = 'round';
+            objMeaningContext.strokeStyle = '#000000';
+            objMeaningContext.lineWidth = 2;
+            
+            // Add event listeners
+            fnAddMeaningDrawingEventListeners();
+        }
+
+        function fnInitOriginCanvas() {
+            const elOriginCanvas = document.getElementById(`cnvOrigin-${numCurrentIndex}`);
+            if (!elOriginCanvas) return;
+            
+            objOriginCanvas = elOriginCanvas;
+            objOriginContext = elOriginCanvas.getContext('2d');
+            
+            // Set canvas size to match origin container
+            const elOriginContainer = elOriginCanvas.parentElement;
+            const rect = elOriginContainer.getBoundingClientRect();
+            objOriginCanvas.width = rect.width;
+            objOriginCanvas.height = rect.height;
+            
+            // Set drawing styles
+            objOriginContext.lineCap = 'round';
+            objOriginContext.lineJoin = 'round';
+            objOriginContext.strokeStyle = '#000000';
+            objOriginContext.lineWidth = 2;
+            
+            // Add event listeners
+            fnAddOriginDrawingEventListeners();
+        }
+
         function fnAddWordDrawingEventListeners() {
             if (!objWordCanvas) return;
             
@@ -1674,6 +1858,69 @@
             objWordCanvas.addEventListener('pointermove', fnHandleWordPointerMove);
             objWordCanvas.addEventListener('pointerup', fnHandleWordPointerUp);
             objWordCanvas.addEventListener('pointerleave', fnHandleWordPointerUp);
+        }
+
+        function fnAddKanjiDrawingEventListeners() {
+            if (!objKanjiCanvas) return;
+            
+            // Mouse events
+            objKanjiCanvas.addEventListener('mousedown', fnStartKanjiDrawing);
+            objKanjiCanvas.addEventListener('mousemove', fnKanjiDraw);
+            objKanjiCanvas.addEventListener('mouseup', fnStopKanjiDrawing);
+            objKanjiCanvas.addEventListener('mouseleave', fnStopKanjiDrawing);
+            
+            // Touch events for iPad
+            objKanjiCanvas.addEventListener('touchstart', fnHandleKanjiTouchStart, { passive: false });
+            objKanjiCanvas.addEventListener('touchmove', fnHandleKanjiTouchMove, { passive: false });
+            objKanjiCanvas.addEventListener('touchend', fnHandleKanjiTouchEnd, { passive: false });
+            
+            // Pointer events for Apple Pencil
+            objKanjiCanvas.addEventListener('pointerdown', fnHandleKanjiPointerDown);
+            objKanjiCanvas.addEventListener('pointermove', fnHandleKanjiPointerMove);
+            objKanjiCanvas.addEventListener('pointerup', fnHandleKanjiPointerUp);
+            objKanjiCanvas.addEventListener('pointerleave', fnHandleKanjiPointerUp);
+        }
+
+        function fnAddMeaningDrawingEventListeners() {
+            if (!objMeaningCanvas) return;
+            
+            // Mouse events
+            objMeaningCanvas.addEventListener('mousedown', fnStartMeaningDrawing);
+            objMeaningCanvas.addEventListener('mousemove', fnMeaningDraw);
+            objMeaningCanvas.addEventListener('mouseup', fnStopMeaningDrawing);
+            objMeaningCanvas.addEventListener('mouseleave', fnStopMeaningDrawing);
+            
+            // Touch events for iPad
+            objMeaningCanvas.addEventListener('touchstart', fnHandleMeaningTouchStart, { passive: false });
+            objMeaningCanvas.addEventListener('touchmove', fnHandleMeaningTouchMove, { passive: false });
+            objMeaningCanvas.addEventListener('touchend', fnHandleMeaningTouchEnd, { passive: false });
+            
+            // Pointer events for Apple Pencil
+            objMeaningCanvas.addEventListener('pointerdown', fnHandleMeaningPointerDown);
+            objMeaningCanvas.addEventListener('pointermove', fnHandleMeaningPointerMove);
+            objMeaningCanvas.addEventListener('pointerup', fnHandleMeaningPointerUp);
+            objMeaningCanvas.addEventListener('pointerleave', fnHandleMeaningPointerUp);
+        }
+
+        function fnAddOriginDrawingEventListeners() {
+            if (!objOriginCanvas) return;
+            
+            // Mouse events
+            objOriginCanvas.addEventListener('mousedown', fnStartOriginDrawing);
+            objOriginCanvas.addEventListener('mousemove', fnOriginDraw);
+            objOriginCanvas.addEventListener('mouseup', fnStopOriginDrawing);
+            objOriginCanvas.addEventListener('mouseleave', fnStopOriginDrawing);
+            
+            // Touch events for iPad
+            objOriginCanvas.addEventListener('touchstart', fnHandleOriginTouchStart, { passive: false });
+            objOriginCanvas.addEventListener('touchmove', fnHandleOriginTouchMove, { passive: false });
+            objOriginCanvas.addEventListener('touchend', fnHandleOriginTouchEnd, { passive: false });
+            
+            // Pointer events for Apple Pencil
+            objOriginCanvas.addEventListener('pointerdown', fnHandleOriginPointerDown);
+            objOriginCanvas.addEventListener('pointermove', fnHandleOriginPointerMove);
+            objOriginCanvas.addEventListener('pointerup', fnHandleOriginPointerUp);
+            objOriginCanvas.addEventListener('pointerleave', fnHandleOriginPointerUp);
         }
 
         // Touch event handlers for word canvas
@@ -1776,6 +2023,36 @@
             objWordContext.moveTo(startPoint.x, startPoint.y);
             objWordContext.lineTo(endPoint.x, endPoint.y);
             objWordContext.stroke();
+        }
+
+        // Draw line on kanji canvas
+        function fnDrawKanjiLine(startPoint, endPoint) {
+            if (!startPoint || !endPoint || !objKanjiContext) return;
+            
+            objKanjiContext.beginPath();
+            objKanjiContext.moveTo(startPoint.x, startPoint.y);
+            objKanjiContext.lineTo(endPoint.x, endPoint.y);
+            objKanjiContext.stroke();
+        }
+
+        // Draw line on meaning canvas
+        function fnDrawMeaningLine(startPoint, endPoint) {
+            if (!startPoint || !endPoint || !objMeaningContext) return;
+            
+            objMeaningContext.beginPath();
+            objMeaningContext.moveTo(startPoint.x, startPoint.y);
+            objMeaningContext.lineTo(endPoint.x, endPoint.y);
+            objMeaningContext.stroke();
+        }
+
+        // Draw line on origin canvas
+        function fnDrawOriginLine(startPoint, endPoint) {
+            if (!startPoint || !endPoint || !objOriginContext) return;
+            
+            objOriginContext.beginPath();
+            objOriginContext.moveTo(startPoint.x, startPoint.y);
+            objOriginContext.lineTo(endPoint.x, endPoint.y);
+            objOriginContext.stroke();
         }
 
         // Toggle word drawing mode
@@ -2354,6 +2631,221 @@
                 });
                 console.log('Study mode observer setup'); // Debug
             }
+        }
+
+        // Function để hiển thị canvas cho các phần tử bị ẩn
+        function fnShowCanvasForHiddenElements() {
+            // Kiểm tra từng phần tử và hiển thị canvas nếu bị ẩn
+            const elWord = document.getElementById('divWord');
+            const elKanji = document.getElementById('divKanji');
+            const elMeaning = document.getElementById('divMeaning');
+            const elOrigin = document.getElementById('divOrigin');
+            
+            if (elWord && elWord.querySelector('.hidden-text')) {
+                const elCanvas = document.getElementById(`cnvWord-${numCurrentIndex}`);
+                if (elCanvas) {
+                    elCanvas.style.display = 'block';
+                }
+            }
+            
+            if (elKanji && elKanji.querySelector('.hidden-text')) {
+                const elCanvas = document.getElementById(`cnvKanji-${numCurrentIndex}`);
+                if (elCanvas) {
+                    elCanvas.style.display = 'block';
+                }
+            }
+            
+            if (elMeaning && elMeaning.querySelector('.hidden-text')) {
+                const elCanvas = document.getElementById(`cnvMeaning-${numCurrentIndex}`);
+                if (elCanvas) {
+                    elCanvas.style.display = 'block';
+                }
+            }
+            
+            if (elOrigin && elOrigin.querySelector('.hidden-text')) {
+                const elCanvas = document.getElementById(`cnvOrigin-${numCurrentIndex}`);
+                if (elCanvas) {
+                    elCanvas.style.display = 'block';
+                }
+            }
+        }
+
+        // Toggle functions for other canvas types
+        function fnToggleKanjiDrawingMode(numIndex) {
+            const elCanvas = document.getElementById(`cnvKanji-${numIndex}`);
+            const elToggle = document.getElementById(`btnKanjiToggle-${numIndex}`);
+            
+            if (!elCanvas || !elToggle) return;
+            
+            blnKanjiDrawingMode = !blnKanjiDrawingMode;
+            
+            if (blnKanjiDrawingMode) {
+                elCanvas.style.display = 'block';
+                elToggle.classList.add('active');
+                elToggle.innerHTML = '✏️';
+                setTimeout(() => fnInitKanjiCanvas(), 100);
+            } else {
+                elCanvas.style.display = 'none';
+                elToggle.classList.remove('active');
+                elToggle.innerHTML = '✏️';
+            }
+        }
+
+        function fnToggleMeaningDrawingMode(numIndex) {
+            const elCanvas = document.getElementById(`cnvMeaning-${numIndex}`);
+            const elToggle = document.getElementById(`btnMeaningToggle-${numIndex}`);
+            
+            if (!elCanvas || !elToggle) return;
+            
+            blnMeaningDrawingMode = !blnMeaningDrawingMode;
+            
+            if (blnMeaningDrawingMode) {
+                elCanvas.style.display = 'block';
+                elToggle.classList.add('active');
+                elToggle.innerHTML = '✏️';
+                setTimeout(() => fnInitMeaningCanvas(), 100);
+            } else {
+                elCanvas.style.display = 'none';
+                elToggle.classList.remove('active');
+                elToggle.innerHTML = '✏️';
+            }
+        }
+
+        function fnToggleOriginDrawingMode(numIndex) {
+            const elCanvas = document.getElementById(`cnvOrigin-${numIndex}`);
+            const elToggle = document.getElementById(`btnOriginToggle-${numIndex}`);
+            
+            if (!elCanvas || !elToggle) return;
+            
+            blnOriginDrawingMode = !blnOriginDrawingMode;
+            
+            if (blnOriginDrawingMode) {
+                elCanvas.style.display = 'block';
+                elToggle.classList.add('active');
+                elToggle.innerHTML = '✏️';
+                setTimeout(() => fnInitOriginCanvas(), 100);
+            } else {
+                elCanvas.style.display = 'none';
+                elToggle.classList.remove('active');
+                elToggle.innerHTML = '✏️';
+            }
+        }
+
+        // Mouse event handlers for kanji canvas
+        function fnStartKanjiDrawing(evt) {
+            blnIsKanjiDrawing = true;
+            const rect = objKanjiCanvas.getBoundingClientRect();
+            arrKanjiLastPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        function fnKanjiDraw(evt) {
+            if (!blnIsKanjiDrawing) return;
+            
+            const rect = objKanjiCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+            
+            fnDrawKanjiLine(arrKanjiLastPoint, currentPoint);
+            arrKanjiLastPoint = currentPoint;
+        }
+
+        function fnStopKanjiDrawing() {
+            blnIsKanjiDrawing = false;
+            arrKanjiLastPoint = null;
+        }
+
+        // Mouse event handlers for meaning canvas
+        function fnStartMeaningDrawing(evt) {
+            blnIsMeaningDrawing = true;
+            const rect = objMeaningCanvas.getBoundingClientRect();
+            arrMeaningLastPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        function fnMeaningDraw(evt) {
+            if (!blnIsMeaningDrawing) return;
+            
+            const rect = objMeaningCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+            
+            fnDrawMeaningLine(arrMeaningLastPoint, currentPoint);
+            arrMeaningLastPoint = currentPoint;
+        }
+
+        function fnStopMeaningDrawing() {
+            blnIsMeaningDrawing = false;
+            arrMeaningLastPoint = null;
+        }
+
+        // Mouse event handlers for origin canvas
+        function fnStartOriginDrawing(evt) {
+            blnIsOriginDrawing = true;
+            const rect = objOriginCanvas.getBoundingClientRect();
+            arrOriginLastPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        function fnOriginDraw(evt) {
+            if (!blnIsOriginDrawing) return;
+            
+            const rect = objOriginCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+            
+            fnDrawOriginLine(arrOriginLastPoint, currentPoint);
+            arrOriginLastPoint = currentPoint;
+        }
+
+        function fnStopOriginDrawing() {
+            blnIsOriginDrawing = false;
+            arrOriginLastPoint = null;
+        }
+
+        // Touch event handlers for kanji canvas
+        function fnHandleKanjiTouchStart(evt) {
+            evt.preventDefault();
+            const touch = evt.touches[0];
+            const rect = objKanjiCanvas.getBoundingClientRect();
+            arrKanjiLastPoint = {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top
+            };
+            blnIsKanjiDrawing = true;
+        }
+
+        function fnHandleKanjiTouchMove(evt) {
+            evt.preventDefault();
+            if (!blnIsKanjiDrawing) return;
+            
+            const touch = evt.touches[0];
+            const rect = objKanjiCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top
+            };
+            
+            fnDrawKanjiLine(arrKanjiLastPoint, currentPoint);
+            arrKanjiLastPoint = currentPoint;
+        }
+
+        function fnHandleKanjiTouchEnd(evt) {
+            evt.preventDefault();
+            blnIsKanjiDrawing = false;
+            arrKanjiLastPoint = null;
         }
     </script>
 </body>
