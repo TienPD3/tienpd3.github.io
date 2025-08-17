@@ -258,6 +258,32 @@
             gap: 15px;
         }
 
+        .lesson-header .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            min-width: 80px;
+            height: 36px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .lesson-header .nav-btn:hover:not(:disabled) {
+            background: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        .lesson-header .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .lesson-header .audio-controls {
             flex-shrink: 0;
             margin: 0;
@@ -317,7 +343,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 56px;
+            height: 40px;
         }
 
         .lesson-header .show-answer-controls .show-answer-btn {
@@ -939,6 +965,14 @@
                 align-items: stretch;
             }
 
+            .lesson-header .nav-btn {
+                height: 36px;
+                min-width: 100px;
+                flex: 1;
+                max-width: 150px;
+                align-self: center;
+            }
+
             .lesson-header .audio-controls {
                 justify-content: center;
                 height: auto;
@@ -1084,11 +1118,6 @@
                 <p>Đang tải dữ liệu...</p>
             </div>
         </div>
-
-        <div class="controls">
-            <button class="nav-btn" id="btnPrev" disabled>← Trước</button>
-            <button class="nav-btn" id="btnNext" disabled>Tiếp →</button>
-        </div>
     </div>
 
     <!-- Modal -->
@@ -1145,8 +1174,6 @@
         const objDOMCache = {
             divContent: null,
             spnCounter: null,
-            btnPrev: null,
-            btnNext: null,
             divSelectedLessons: null,
             divLessonTags: null,
             mdlLessonSelector: null,
@@ -1225,8 +1252,6 @@
         function fnCacheDOMElements() {
             objDOMCache.divContent = document.getElementById('divContent');
             objDOMCache.spnCounter = document.getElementById('spnCounter');
-            objDOMCache.btnPrev = document.getElementById('btnPrev');
-            objDOMCache.btnNext = document.getElementById('btnNext');
             objDOMCache.divSelectedLessons = document.getElementById('divSelectedLessons');
             objDOMCache.divLessonTags = document.getElementById('divLessonTags');
             objDOMCache.mdlLessonSelector = document.getElementById('mdlLessonSelector');
@@ -1425,6 +1450,7 @@
             const strNewContent = `
                 <div class="vocabulary-card">
                     <div class="lesson-header">
+                        <button class="nav-btn" id="btnPrev" ${numCurrentIndex === 0 ? 'disabled' : ''}>← Trước</button>
                         <div class="audio-controls">
                             ${objCurrentWord.audio ? `
                                 <button class="audio-btn" data-audio="${objCurrentWord.audio}">
@@ -1440,6 +1466,7 @@
                         <div class="show-answer-controls">
                             <button class="show-answer-btn" id="btnShowAll" data-target="divAll">👁️ Hiển thị toàn bộ</button>
                         </div>
+                        <button class="nav-btn" id="btnNext" ${numCurrentIndex === arrFilteredData.length - 1 ? 'disabled' : ''}>Tiếp →</button>
                     </div>
                     
                     <div class="word" id="divWord">
@@ -1504,6 +1531,18 @@
                 });
             });
 
+            // Add event listeners for navigation buttons
+            const elBtnPrev = objDOMCache.divContent.querySelector('#btnPrev');
+            const elBtnNext = objDOMCache.divContent.querySelector('#btnNext');
+            
+            if (elBtnPrev) {
+                elBtnPrev.addEventListener('click', fnHandlePrevClick);
+            }
+            
+            if (elBtnNext) {
+                elBtnNext.addEventListener('click', fnHandleNextClick);
+            }
+
             // Initialize study mode
             setTimeout(() => {
                 fnInitStudyMode();
@@ -1526,6 +1565,7 @@
             }
 
             fnUpdateCounter();
+            fnEnableButtons();
         }
 
         // Update counter
@@ -1535,8 +1575,16 @@
 
         // Enable/disable buttons
         function fnEnableButtons() {
-            objDOMCache.btnPrev.disabled = numCurrentIndex === 0;
-            objDOMCache.btnNext.disabled = numCurrentIndex === arrFilteredData.length - 1;
+            const elBtnPrev = document.querySelector('#btnPrev');
+            const elBtnNext = document.querySelector('#btnNext');
+            
+            if (elBtnPrev) {
+                elBtnPrev.disabled = numCurrentIndex === 0;
+            }
+            
+            if (elBtnNext) {
+                elBtnNext.disabled = numCurrentIndex === arrFilteredData.length - 1;
+            }
         }
 
         // Play audio
@@ -2217,9 +2265,8 @@
 
         // Initialize event listeners
         function fnInitializeEventListeners() {
-            // Button events
-            objDOMCache.btnPrev.addEventListener('click', fnHandlePrevClick);
-            objDOMCache.btnNext.addEventListener('click', fnHandleNextClick);
+            // Navigation button events are now handled dynamically in fnUpdateDisplay
+            // No need to add event listeners here anymore
             
             // Modal events
             document.getElementById('btnSelectLesson').addEventListener('click', fnOpenModal);
