@@ -1002,6 +1002,7 @@
         let objWordContext = null;
         let blnIsWordDrawing = false;
         let arrWordLastPoint = null;
+        let blnIsIPad = false; // Flag to detect iPad
         
         // Study mode variables
         let strCurrentStudyMode = '';
@@ -1044,6 +1045,23 @@
             arrFilteredData = arrVocabularyData.filter(item => objSelectedLessons.has(item.lesson));
             numCurrentIndex = 0;
             blnRandomMode = false;
+        }
+
+        // Function để phát hiện iPad
+        function fnDetectIPad() {
+            const strUserAgent = navigator.userAgent.toLowerCase();
+            const strPlatform = navigator.platform.toLowerCase();
+            
+            // Kiểm tra các dấu hiệu của iPad
+            blnIsIPad = (
+                strUserAgent.includes('ipad') ||
+                (strUserAgent.includes('macintosh') && 'ontouchend' in document) ||
+                (strPlatform === 'macintel' && navigator.maxTouchPoints > 1) ||
+                (strUserAgent.includes('safari') && !strUserAgent.includes('chrome') && 'ontouchend' in document && navigator.maxTouchPoints > 1)
+            );
+            
+            console.log('iPad detected:', blnIsIPad);
+            return blnIsIPad;
         }
 
         // Debounce function
@@ -1120,6 +1138,9 @@
         // Load vocabulary data
         async function fnLoadVocabularyData() {
             try {
+                // Phát hiện iPad trước khi load dữ liệu
+                fnDetectIPad();
+                
                 const resResponse = await fetch('storage/japan/vocabulary.json');
                 if (!resResponse.ok) {
                     throw new Error('Không thể tải dữ liệu');
@@ -1357,6 +1378,13 @@
                 fnInitStudyMode();
                 // Apply current study mode to the new word
                 fnApplyCurrentStudyMode();
+                
+                // Tự động mở word drawing mode nếu là iPad
+                if (blnIsIPad) {
+                    setTimeout(() => {
+                        fnToggleWordDrawingMode(numCurrentIndex);
+                    }, 200);
+                }
             }, 100);
 
             // Auto play audio/TTS when switching words
@@ -1911,6 +1939,13 @@
                 numCurrentIndex--;
                 fnUpdateDisplay();
                 fnEnableButtons();
+                
+                // Tự động mở word drawing mode nếu là iPad
+                if (blnIsIPad) {
+                    setTimeout(() => {
+                        fnToggleWordDrawingMode(numCurrentIndex);
+                    }, 200);
+                }
             }
         }, 100);
 
@@ -1919,12 +1954,26 @@
                 numCurrentIndex++;
                 fnUpdateDisplay();
                 fnEnableButtons();
+                
+                // Tự động mở word drawing mode nếu là iPad
+                if (blnIsIPad) {
+                    setTimeout(() => {
+                        fnToggleWordDrawingMode(numCurrentIndex);
+                    }, 200);
+                }
             } else {
                 // Khi hết từ vựng, random lại và bắt đầu từ đầu
                 fnRandomizeVocabulary();
                 fnUpdateDisplay();
                 fnUpdateCounter();
                 fnEnableButtons();
+                
+                // Tự động mở word drawing mode nếu là iPad
+                if (blnIsIPad) {
+                    setTimeout(() => {
+                        fnToggleWordDrawingMode(0);
+                    }, 200);
+                }
             }
         }, 100);
 
@@ -1935,18 +1984,39 @@
                     numCurrentIndex--;
                     fnUpdateDisplay();
                     fnEnableButtons();
+                    
+                    // Tự động mở word drawing mode nếu là iPad
+                    if (blnIsIPad) {
+                        setTimeout(() => {
+                            fnToggleWordDrawingMode(numCurrentIndex);
+                        }, 200);
+                    }
                 }
             } else if (evt.key === 'ArrowRight' || evt.key === 'ArrowDown') {
                 if (numCurrentIndex < arrFilteredData.length - 1) {
                     numCurrentIndex++;
                     fnUpdateDisplay();
                     fnEnableButtons();
+                    
+                    // Tự động mở word drawing mode nếu là iPad
+                    if (blnIsIPad) {
+                        setTimeout(() => {
+                            fnToggleWordDrawingMode(numCurrentIndex);
+                        }, 200);
+                    }
                 } else {
                     // Khi hết từ vựng, random lại và bắt đầu từ đầu
                     fnRandomizeVocabulary();
                     fnUpdateDisplay();
                     fnUpdateCounter();
                     fnEnableButtons();
+                    
+                    // Tự động mở word drawing mode nếu là iPad
+                    if (blnIsIPad) {
+                        setTimeout(() => {
+                            fnToggleWordDrawingMode(0);
+                        }, 200);
+                    }
                 }
             } else if (evt.key === ' ') {
                 evt.preventDefault();
@@ -1965,6 +2035,13 @@
                 fnUpdateDisplay();
                 fnUpdateCounter();
                 fnEnableButtons();
+                
+                // Tự động mở word drawing mode nếu là iPad
+                if (blnIsIPad) {
+                    setTimeout(() => {
+                        fnToggleWordDrawingMode(0);
+                    }, 200);
+                }
             }
         }, 150);
 
@@ -1998,6 +2075,13 @@
             fnUpdateSelectedLessonsDisplay();
             fnSaveSelectedLessons();
             fnCloseModal();
+            
+            // Tự động mở word drawing mode nếu là iPad và có từ vựng
+            if (blnIsIPad && arrFilteredData.length > 0) {
+                setTimeout(() => {
+                    fnToggleWordDrawingMode(0);
+                }, 300);
+            }
         }
 
         // Initialize event listeners
