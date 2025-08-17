@@ -556,8 +556,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
+            min-height: 48px;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .show-answer-btn {
@@ -604,91 +605,6 @@
             cursor: not-allowed;
             transform: none;
             box-shadow: 0 4px 15px rgba(189, 195, 199, 0.3);
-        }
-
-        /* Drawing Canvas Styles */
-        .drawing-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2000;
-            display: none;
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .drawing-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            cursor: crosshair;
-            touch-action: none;
-        }
-
-        .drawing-controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 2001;
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-        }
-
-        .drawing-controls.show {
-            display: block;
-        }
-
-        .drawing-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            margin: 5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .drawing-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .drawing-btn.active {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .drawing-btn.secondary {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-        }
-
-        .drawing-btn.secondary:hover {
-            background: linear-gradient(135deg, #ee5a24 0%, #d63031 100%);
-        }
-
-        .color-picker {
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            margin: 5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .brush-size {
-            width: 100%;
-            margin: 10px 0;
         }
 
         .controls {
@@ -1045,38 +961,6 @@
         </div>
     </div>
 
-    <!-- Drawing Canvas Overlay -->
-    <div id="divDrawingOverlay" class="drawing-overlay">
-        <canvas id="cnvDrawing" class="drawing-canvas"></canvas>
-    </div>
-
-    <!-- Drawing Controls -->
-    <div id="divDrawingControls" class="drawing-controls">
-        <div style="text-align: center; margin-bottom: 15px;">
-            <strong>🎨 Drawing Tools</strong>
-        </div>
-        
-        <div style="margin-bottom: 15px;">
-            <label>Brush Size:</label>
-            <input type="range" id="rngBrushSize" class="brush-size" min="1" max="20" value="5">
-            <span id="spnBrushSize">5px</span>
-        </div>
-        
-        <div style="margin-bottom: 15px;">
-            <label>Colors:</label><br>
-            <input type="color" id="clrPrimary" class="color-picker" value="#667eea" title="Primary Color">
-            <input type="color" id="clrSecondary" class="color-picker" value="#f093fb" title="Secondary Color">
-            <input type="color" id="clrAccent" class="color-picker" value="#ff6b6b" title="Accent Color">
-        </div>
-        
-        <button id="btnPen" class="drawing-btn active" data-tool="pen">✏️ Pen</button>
-        <button id="btnHighlighter" class="drawing-btn" data-tool="highlighter">🖍️ Highlighter</button>
-        <button id="btnEraser" class="drawing-btn" data-tool="eraser">🧽 Eraser</button>
-        <button id="btnClear" class="drawing-btn secondary">🗑️ Clear All</button>
-        <button id="btnSave" class="drawing-btn">💾 Save</button>
-        <button id="btnCloseDrawing" class="drawing-btn secondary">❌ Close</button>
-    </div>
-
     <!-- Modal -->
     <div id="mdlLessonSelector" class="modal">
         <div class="modal-content">
@@ -1416,13 +1300,9 @@
                                 🔊 Nghe phát âm
                             </button>
                         `}
-                        
-                        <div class="show-answer-controls">
-                            <button class="show-answer-btn" id="btnShowWord" data-target="divWord">👁️ Hiện từ vựng</button>
-                            <button class="show-answer-btn" id="btnShowKanji" data-target="divKanji">👁️ Hiện kanji</button>
-                            <button class="show-answer-btn" id="btnShowMeaning" data-target="divMeaning">👁️ Hiện nghĩa</button>
-                            <button class="show-answer-btn" id="btnShowOrigin" data-target="divOrigin">👁️ Hiện gốc Việt</button>
-                        </div>
+                    </div>
+                    <div class="show-answer-controls">
+                        <button class="show-answer-btn" id="btnShowAll" data-target="divAll">👁️ Hiển thị toàn bộ</button>
                     </div>
                 </div>
             `;
@@ -1461,7 +1341,14 @@
             arrShowButtons.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const strTarget = this.dataset.target;
-                    fnShowAnswer(strTarget);
+                    if (strTarget === 'divAll') {
+                        const arrTargets = ['divWord', 'divKanji', 'divMeaning', 'divOrigin'];
+                        for (let i = 0; i < arrTargets.length; i++) {
+                            fnShowAnswer(arrTargets[i]);
+                        }
+                    } else {
+                        fnShowAnswer(strTarget);
+                    }
                 });
             });
 
