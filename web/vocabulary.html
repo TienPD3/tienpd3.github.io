@@ -56,7 +56,7 @@
             margin-bottom: 10px;
             box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .lesson-selector::before {
@@ -80,6 +80,13 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 15px;
+        }
+
+        .selector-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .selector-title {
@@ -258,6 +265,215 @@
             padding: 8px 16px;
             border-radius: 15px;
             border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .word-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            pointer-events: auto;
+            z-index: 10;
+        }
+
+        .word-drawing-toggle {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .word-drawing-toggle:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: scale(1.1);
+        }
+
+        .word-drawing-toggle.active {
+            background: rgba(240, 147, 251, 0.8);
+        }
+
+        /* Study Mode Styles */
+        .study-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .study-dropdown {
+            position: relative;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            min-width: 180px;
+            user-select: none;
+            z-index: 99999;
+        }
+
+        .study-dropdown:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .study-dropdown.active {
+            border-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .study-dropdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .study-dropdown-text {
+            flex: 1;
+        }
+
+        .study-dropdown-arrow {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .study-dropdown.active .study-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .study-dropdown-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-radius: 15px;
+            margin-top: 5px;
+            padding: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            z-index: 99999 !important;
+            display: none;
+            max-height: 200px;
+            overflow-y: auto;
+            pointer-events: auto;
+        }
+
+        .study-dropdown.active .study-dropdown-options {
+            display: block !important;
+        }
+
+        .study-option {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .study-option:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+
+        .study-option input[type="checkbox"] {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            accent-color: #667eea;
+        }
+
+        .study-option.selected {
+            background-color: rgba(102, 126, 234, 0.15);
+            font-weight: 500;
+        }
+
+        .hidden-text {
+            color: transparent !important;      /* Màu trong suốt */
+            opacity: 0 !important;              /* Hoàn toàn trong suốt */
+            visibility: hidden !important;      /* Ẩn khỏi viewport */
+            user-select: none;                  /* Không thể select */
+            position: relative;                 /* Position context */
+            display: inline-block;              /* Display type */
+        }
+
+        .hidden-text::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #ccc;
+            font-size: inherit;
+            font-weight: inherit;
+            pointer-events: none;
+        }
+
+        .show-answer-btn {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+        }
+
+        .show-answer-btn:hover {
+            background: linear-gradient(135deg, #229954 0%, #27ae60 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+        }
+
+        .study-mode-active .word,
+        .study-mode-active .kanji,
+        .study-mode-active .meaning,
+        .study-mode-active .vietnamese-origin {
+            position: relative;
+        }
+
+        .study-mode-active .hidden-text {
+            color: transparent !important;
+        }
+
+        .study-mode-active .hidden-text::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #ccc;
+            font-size: inherit;
+            font-weight: inherit;
         }
 
         .kanji {
@@ -332,6 +548,31 @@
             justify-content: center;
             align-items: center;
             min-height: 48px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .show-answer-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .show-answer-btn {
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
         }
 
         .tts-btn {
@@ -363,6 +604,91 @@
             cursor: not-allowed;
             transform: none;
             box-shadow: 0 4px 15px rgba(189, 195, 199, 0.3);
+        }
+
+        /* Drawing Canvas Styles */
+        .drawing-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            display: none;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .drawing-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+            touch-action: none;
+        }
+
+        .drawing-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2001;
+            display: none;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+        }
+
+        .drawing-controls.show {
+            display: block;
+        }
+
+        .drawing-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .drawing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .drawing-btn.active {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .drawing-btn.secondary {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+        }
+
+        .drawing-btn.secondary:hover {
+            background: linear-gradient(135deg, #ee5a24 0%, #d63031 100%);
+        }
+
+        .color-picker {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .brush-size {
+            width: 100%;
+            margin: 10px 0;
         }
 
         .controls {
@@ -659,9 +985,41 @@
             <div class="lesson-selector-content">
                 <div class="selector-header">
                     <h2 class="selector-title">📚 Quản lý bài học</h2>
-                    <button class="select-btn" id="btnSelectLesson">
-                        Chọn bài học
-                    </button>
+                    <div class="selector-controls">
+                        <div class="study-dropdown" id="selStudyMode">
+                            <div class="study-dropdown-header">
+                                <div class="study-dropdown-text">📚 Hiện tất cả</div>
+                                <svg class="study-dropdown-arrow" fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 10l5 5 5-5z"/>
+                                </svg>
+                            </div>
+                            <div class="study-dropdown-options">
+                                <div class="study-option" data-value="all">
+                                    <input type="checkbox" id="chkAll" checked>
+                                    <label for="chkAll">📚 Hiện tất cả</label>
+                                </div>
+                                <div class="study-option" data-value="word">
+                                    <input type="checkbox" id="chkWord">
+                                    <label for="chkWord">Ẩn từ vựng</label>
+                                </div>
+                                <div class="study-option" data-value="kanji">
+                                    <input type="checkbox" id="chkKanji">
+                                    <label for="chkKanji">Ẩn kanji</label>
+                                </div>
+                                <div class="study-option" data-value="meaning">
+                                    <input type="checkbox" id="chkMeaning">
+                                    <label for="chkMeaning">Ẩn nghĩa</label>
+                                </div>
+                                <div class="study-option" data-value="origin">
+                                    <input type="checkbox" id="chkOrigin">
+                                    <label for="chkOrigin">Ẩn gốc Việt</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="select-btn" id="btnSelectLesson">
+                            Chọn bài học
+                        </button>
+                    </div>
                 </div>
                 <div class="selected-lessons" id="divSelectedLessons">
                     <h4>✅ Bài học đã chọn</h4>
@@ -685,6 +1043,38 @@
             <button class="nav-btn" id="btnPrev" disabled>← Trước</button>
             <button class="nav-btn" id="btnNext" disabled>Tiếp →</button>
         </div>
+    </div>
+
+    <!-- Drawing Canvas Overlay -->
+    <div id="divDrawingOverlay" class="drawing-overlay">
+        <canvas id="cnvDrawing" class="drawing-canvas"></canvas>
+    </div>
+
+    <!-- Drawing Controls -->
+    <div id="divDrawingControls" class="drawing-controls">
+        <div style="text-align: center; margin-bottom: 15px;">
+            <strong>🎨 Drawing Tools</strong>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label>Brush Size:</label>
+            <input type="range" id="rngBrushSize" class="brush-size" min="1" max="20" value="5">
+            <span id="spnBrushSize">5px</span>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label>Colors:</label><br>
+            <input type="color" id="clrPrimary" class="color-picker" value="#667eea" title="Primary Color">
+            <input type="color" id="clrSecondary" class="color-picker" value="#f093fb" title="Secondary Color">
+            <input type="color" id="clrAccent" class="color-picker" value="#ff6b6b" title="Accent Color">
+        </div>
+        
+        <button id="btnPen" class="drawing-btn active" data-tool="pen">✏️ Pen</button>
+        <button id="btnHighlighter" class="drawing-btn" data-tool="highlighter">🖍️ Highlighter</button>
+        <button id="btnEraser" class="drawing-btn" data-tool="eraser">🧽 Eraser</button>
+        <button id="btnClear" class="drawing-btn secondary">🗑️ Clear All</button>
+        <button id="btnSave" class="drawing-btn">💾 Save</button>
+        <button id="btnCloseDrawing" class="drawing-btn secondary">❌ Close</button>
     </div>
 
     <!-- Modal -->
@@ -721,6 +1111,20 @@
         let objSelectedLessons = new Set();
         let objAllLessons = new Set();
         let blnRandomMode = false; // Thêm flag cho random mode
+        
+        // Word drawing variables
+        let blnWordDrawingMode = false;
+        let objWordCanvas = null;
+        let objWordContext = null;
+        let blnIsWordDrawing = false;
+        let arrWordLastPoint = null;
+        
+        // Study mode variables
+        let strCurrentStudyMode = '';
+        let objHiddenElements = new Set();
+        let objSelectedStudyOptions = new Set(['all']); // Track selected options
+        let blnStudyModeInitialized = false; // Flag to prevent duplicate event listeners
+        let objStudyModeObserver = null; // MutationObserver for study mode
         
         // Cache DOM elements
         const objDOMCache = {
@@ -815,6 +1219,20 @@
             return new Set(objAllLessons);
         }
 
+        // Save study mode state
+        function fnSaveStudyModeState() {
+            localStorage.setItem('studyModeState', JSON.stringify(Array.from(objSelectedStudyOptions)));
+        }
+
+        // Load study mode state
+        function fnLoadStudyModeState() {
+            const strSaved = localStorage.getItem('studyModeState');
+            if (strSaved) {
+                return new Set(JSON.parse(strSaved));
+            }
+            return new Set(['all']);
+        }
+
         // Load vocabulary data
         async function fnLoadVocabularyData() {
             try {
@@ -832,6 +1250,9 @@
                 // Cache DOM elements
                 fnCacheDOMElements();
                 
+                // Setup MutationObserver for study mode
+                // fnSetupStudyModeObserver();
+                
                 // Create lesson modal
                 fnCreateLessonModal();
                 
@@ -842,6 +1263,10 @@
                 fnUpdateCounter();
                 fnEnableButtons();
                 fnUpdateSelectedLessonsDisplay();
+                fnSaveSelectedLessons();
+                
+                // Load study mode state
+                objSelectedStudyOptions = fnLoadStudyModeState();
             } catch (err) {
                 console.error('Lỗi khi tải dữ liệu:', err);
                 objDOMCache.divContent.innerHTML = `
@@ -944,14 +1369,42 @@
 
             const objCurrentWord = arrFilteredData[numCurrentIndex];
 
+            let elSpanClassWord = "";
+            let elSpanClassKanji = "";
+            let elSpanClassMeaning = "";
+            let elSpanClassOrigin = "";
+
+            // Apply selected options
+            objSelectedStudyOptions.forEach(option => {
+                if (option === 'word') {
+                    elSpanClassWord = "hidden-text";
+                } else if (option === 'kanji') {
+                    elSpanClassKanji = "hidden-text";
+                } else if (option === 'meaning') {
+                    elSpanClassMeaning = "hidden-text";
+                } else if (option === 'origin') {
+                    elSpanClassOrigin = "hidden-text";
+                }
+            });
+
             const strNewContent = `
                 <div class="vocabulary-card">
                     <div class="lesson-info">Bài ${objCurrentWord.lesson}${blnRandomMode ? ' 🔀' : ''}</div>
                     
-                    <div class="word">${objCurrentWord.word || ''}</div>
-                    <div class="kanji">${objCurrentWord.kanji || ''}</div>
-                    <div class="meaning">${objCurrentWord.meaning || ''}</div>
-                    <div class="vietnamese-origin">${objCurrentWord.vietnamese_origin || ''}</div>
+                    <div class="word" id="divWord">
+                        <span class="${elSpanClassWord}">${objCurrentWord.word || ''}</span>
+                        <canvas class="word-canvas" id="cnvWord-${numCurrentIndex}" style="display: none;"></canvas>
+                        <button class="word-drawing-toggle" id="btnWordToggle-${numCurrentIndex}" title="Toggle Writing Mode">✏️</button>
+                    </div>
+                    <div class="kanji" id="divKanji">
+                        <span class="${elSpanClassKanji}">${objCurrentWord.kanji || ''}</span>
+                    </div>
+                    <div class="meaning" id="divMeaning">
+                        <span class="${elSpanClassMeaning}">${objCurrentWord.meaning || ''}</span>
+                    </div>
+                    <div class="vietnamese-origin" id="divOrigin">
+                        <span class="${elSpanClassOrigin}">${objCurrentWord.vietnamese_origin || ''}</span>
+                    </div>
 
                     <div class="audio-controls">
                         ${objCurrentWord.audio ? `
@@ -963,6 +1416,13 @@
                                 🔊 Nghe phát âm
                             </button>
                         `}
+                        
+                        <div class="show-answer-controls">
+                            <button class="show-answer-btn" id="btnShowWord" data-target="divWord">👁️ Hiện từ vựng</button>
+                            <button class="show-answer-btn" id="btnShowKanji" data-target="divKanji">👁️ Hiện kanji</button>
+                            <button class="show-answer-btn" id="btnShowMeaning" data-target="divMeaning">👁️ Hiện nghĩa</button>
+                            <button class="show-answer-btn" id="btnShowOrigin" data-target="divOrigin">👁️ Hiện gốc Việt</button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -987,6 +1447,30 @@
                     }
                 });
             }
+
+            // Add event listener for word drawing toggle button
+            const elWordToggle = objDOMCache.divContent.querySelector('.word-drawing-toggle');
+            if (elWordToggle) {
+                elWordToggle.addEventListener('click', function() {
+                    fnToggleWordDrawingMode(numCurrentIndex);
+                });
+            }
+
+            // Add event listeners for show answer buttons
+            const arrShowButtons = objDOMCache.divContent.querySelectorAll('.show-answer-btn');
+            arrShowButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const strTarget = this.dataset.target;
+                    fnShowAnswer(strTarget);
+                });
+            });
+
+            // Initialize study mode
+            setTimeout(() => {
+                fnInitStudyMode();
+                // Apply current study mode to the new word
+                fnApplyCurrentStudyMode();
+            }, 100);
 
             // Auto play audio/TTS when switching words
             if (objCurrentWord.word) {
@@ -1051,6 +1535,487 @@
                 // Nếu không có audio thì dùng TTS
                 fnPlayTTS(objWord.word, 'ja');
             }
+        }
+
+        // Word drawing functions
+        function fnInitWordCanvas() {
+            const elWordCanvas = document.getElementById(`cnvWord-${numCurrentIndex}`);
+            if (!elWordCanvas) return;
+            
+            objWordCanvas = elWordCanvas;
+            objWordContext = elWordCanvas.getContext('2d');
+            
+            // Set canvas size to match word container
+            const elWordContainer = elWordCanvas.parentElement;
+            const rect = elWordContainer.getBoundingClientRect();
+            objWordCanvas.width = rect.width;
+            objWordCanvas.height = rect.height;
+            
+            // Set drawing styles
+            objWordContext.lineCap = 'round';
+            objWordContext.lineJoin = 'round';
+            objWordContext.strokeStyle = '#000000';
+            objWordContext.lineWidth = 2;
+            
+            // Add event listeners
+            fnAddWordDrawingEventListeners();
+        }
+
+        function fnAddWordDrawingEventListeners() {
+            if (!objWordCanvas) return;
+            
+            // Mouse events
+            objWordCanvas.addEventListener('mousedown', fnStartWordDrawing);
+            objWordCanvas.addEventListener('mousemove', fnWordDraw);
+            objWordCanvas.addEventListener('mouseup', fnStopWordDrawing);
+            objWordCanvas.addEventListener('mouseleave', fnStopWordDrawing);
+            
+            // Touch events for iPad
+            objWordCanvas.addEventListener('touchstart', fnHandleWordTouchStart, { passive: false });
+            objWordCanvas.addEventListener('touchmove', fnHandleWordTouchMove, { passive: false });
+            objWordCanvas.addEventListener('touchend', fnHandleWordTouchEnd, { passive: false });
+            
+            // Pointer events for Apple Pencil
+            objWordCanvas.addEventListener('pointerdown', fnHandleWordPointerDown);
+            objWordCanvas.addEventListener('pointermove', fnHandleWordPointerMove);
+            objWordCanvas.addEventListener('pointerup', fnHandleWordPointerUp);
+            objWordCanvas.addEventListener('pointerleave', fnHandleWordPointerUp);
+        }
+
+        // Touch event handlers for word canvas
+        function fnHandleWordTouchStart(evt) {
+            evt.preventDefault();
+            const touch = evt.touches[0];
+            const rect = objWordCanvas.getBoundingClientRect();
+            arrWordLastPoint = {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top
+            };
+            blnIsWordDrawing = true;
+        }
+
+        function fnHandleWordTouchMove(evt) {
+            evt.preventDefault();
+            if (!blnIsWordDrawing) return;
+            
+            const touch = evt.touches[0];
+            const rect = objWordCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top
+            };
+            
+            fnDrawWordLine(arrWordLastPoint, currentPoint);
+            arrWordLastPoint = currentPoint;
+        }
+
+        function fnHandleWordTouchEnd(evt) {
+            evt.preventDefault();
+            blnIsWordDrawing = false;
+            arrWordLastPoint = null;
+        }
+
+        // Pointer event handlers for word canvas
+        function fnHandleWordPointerDown(evt) {
+            evt.preventDefault();
+            const rect = objWordCanvas.getBoundingClientRect();
+            arrWordLastPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+            blnIsWordDrawing = true;
+        }
+
+        function fnHandleWordPointerMove(evt) {
+            evt.preventDefault();
+            if (!blnIsWordDrawing) return;
+            
+            const rect = objWordCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+            
+            fnDrawWordLine(arrWordLastPoint, currentPoint);
+            arrWordLastPoint = currentPoint;
+        }
+
+        function fnHandleWordPointerUp(evt) {
+            evt.preventDefault();
+            blnIsWordDrawing = false;
+            arrWordLastPoint = null;
+        }
+
+        // Mouse event handlers for word canvas
+        function fnStartWordDrawing(evt) {
+            blnIsWordDrawing = true;
+            const rect = objWordCanvas.getBoundingClientRect();
+            arrWordLastPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        function fnWordDraw(evt) {
+            if (!blnIsWordDrawing) return;
+            
+            const rect = objWordCanvas.getBoundingClientRect();
+            const currentPoint = {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+            
+            fnDrawWordLine(arrWordLastPoint, currentPoint);
+            arrWordLastPoint = currentPoint;
+        }
+
+        function fnStopWordDrawing() {
+            blnIsWordDrawing = false;
+            arrWordLastPoint = null;
+        }
+
+        // Draw line on word canvas
+        function fnDrawWordLine(startPoint, endPoint) {
+            if (!startPoint || !endPoint || !objWordContext) return;
+            
+            objWordContext.beginPath();
+            objWordContext.moveTo(startPoint.x, startPoint.y);
+            objWordContext.lineTo(endPoint.x, endPoint.y);
+            objWordContext.stroke();
+        }
+
+        // Toggle word drawing mode
+        function fnToggleWordDrawingMode(numIndex) {
+            const elCanvas = document.getElementById(`cnvWord-${numIndex}`);
+            const elToggle = document.getElementById(`btnWordToggle-${numIndex}`);
+            
+            if (!elCanvas || !elToggle) return;
+            
+            blnWordDrawingMode = !blnWordDrawingMode;
+            
+            if (blnWordDrawingMode) {
+                elCanvas.style.display = 'block';
+                elToggle.classList.add('active');
+                elToggle.innerHTML = '✏️';
+                // Initialize canvas when enabled
+                setTimeout(() => fnInitWordCanvas(), 100);
+            } else {
+                elCanvas.style.display = 'none';
+                elToggle.classList.remove('active');
+                elToggle.innerHTML = '✏️';
+            }
+        }
+
+        // Clear word canvas
+        function fnClearWordCanvas() {
+            if (objWordContext && objWordCanvas) {
+                objWordContext.clearRect(0, 0, objWordCanvas.width, objWordCanvas.height);
+            }
+        }
+
+        // Study mode functions
+        function fnInitStudyMode() {
+            console.log('Initializing study mode...'); // Debug log
+            
+            const elStudyDropdown = document.getElementById('selStudyMode');
+            console.log('Found dropdown:', elStudyDropdown); // Debug log
+            
+            if (elStudyDropdown) {
+                console.log('Adding event listeners to dropdown'); // Debug log
+                
+                // Remove existing event listeners first
+                const elNewDropdown = elStudyDropdown.cloneNode(true);
+                elStudyDropdown.parentNode.replaceChild(elNewDropdown, elStudyDropdown);
+                
+                // Toggle dropdown
+                elNewDropdown.addEventListener('click', function(evt) {
+                    console.log('Dropdown clicked'); // Debug
+                    evt.stopPropagation();
+                    fnToggleStudyDropdown();
+                });
+                
+                // Handle checkbox changes
+                const arrCheckboxes = elNewDropdown.querySelectorAll('input[type="checkbox"]');
+                console.log('Found checkboxes:', arrCheckboxes.length); // Debug
+                arrCheckboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', function(evt) {
+                        console.log('Checkbox changed:', this.id); // Debug
+                        evt.stopPropagation();
+                        fnHandleStudyCheckboxChange(this);
+                    });
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(evt) {
+                    if (!elNewDropdown.contains(evt.target)) {
+                        console.log('Clicking outside, closing dropdown'); // Debug
+                        fnCloseStudyDropdown();
+                    }
+                });
+                
+                // Restore checkbox states from objSelectedStudyOptions
+                console.log('Restoring checkbox states:', Array.from(objSelectedStudyOptions)); // Debug
+                arrCheckboxes.forEach(checkbox => {
+                    const strValue = checkbox.closest('.study-option').dataset.value;
+                    checkbox.checked = objSelectedStudyOptions.has(strValue);
+                });
+                
+                fnUpdateStudyDropdownText();
+                console.log('Study mode initialized successfully'); // Debug log
+            } else {
+                console.error('Study dropdown not found!'); // Debug log
+            }
+        }
+
+        function fnToggleStudyDropdown() {
+            const elStudyDropdown = document.getElementById('selStudyMode');
+            
+            console.log('Toggle dropdown called'); // Debug
+            console.log('Found dropdown:', elStudyDropdown); // Debug
+            
+            if (elStudyDropdown) {
+                const blnWasActive = elStudyDropdown.classList.contains('active');
+                elStudyDropdown.classList.toggle('active');
+                const blnIsActive = elStudyDropdown.classList.contains('active');
+                
+                console.log('Dropdown was active:', blnWasActive); // Debug
+                console.log('Dropdown is now active:', blnIsActive); // Debug
+                
+                // Check if options are visible
+                const elOptions = elStudyDropdown.querySelector('.study-dropdown-options');
+                console.log('Options element:', elOptions); // Debug
+                console.log('Options display:', elOptions ? elOptions.style.display : 'N/A'); // Debug
+            } else {
+                console.log('Dropdown not found!'); // Debug
+            }
+        }
+
+        function fnCloseStudyDropdown() {
+            const elStudyDropdown = document.getElementById('selStudyMode');
+            if (elStudyDropdown) {
+                elStudyDropdown.classList.remove('active');
+            }
+        }
+
+        function fnHandleStudyCheckboxChange(elCheckbox) {
+            const strValue = elCheckbox.closest('.study-option').dataset.value;
+            const blnChecked = elCheckbox.checked;
+            
+            console.log('Checkbox changed:', strValue, blnChecked); // Debug log
+            
+            if (strValue === 'all') {
+                // If "all" is checked, uncheck others and show all
+                if (blnChecked) {
+                    objSelectedStudyOptions.clear();
+                    objSelectedStudyOptions.add('all');
+                    fnResetStudyMode();
+                    fnUncheckOtherOptions('all');
+                } else {
+                    // Don't allow unchecking "all" if no other options are selected
+                    if (objSelectedStudyOptions.size === 1) {
+                        elCheckbox.checked = true;
+                        return;
+                    }
+                    objSelectedStudyOptions.delete('all');
+                }
+            } else {
+                // If other option is checked, uncheck "all"
+                if (blnChecked) {
+                    objSelectedStudyOptions.delete('all');
+                    objSelectedStudyOptions.add(strValue);
+                    fnUncheckOption('all');
+                } else {
+                    objSelectedStudyOptions.delete(strValue);
+                    
+                    // If no options selected, check "all"
+                    if (objSelectedStudyOptions.size === 0) {
+                        objSelectedStudyOptions.add('all');
+                        fnCheckOption('all');
+                        fnResetStudyMode();
+                    }
+                }
+            }
+
+            // Apply study mode to current word
+            fnApplyCurrentStudyMode();
+            
+            // Save study mode state
+            fnSaveStudyModeState();
+            
+            fnUpdateStudyDropdownText();
+            console.log('Selected options:', Array.from(objSelectedStudyOptions)); // Debug log
+        }
+
+        function fnUncheckOtherOptions(strExcludeValue) {
+            const arrCheckboxes = document.querySelectorAll('#selStudyMode input[type="checkbox"]');
+            arrCheckboxes.forEach(checkbox => {
+                const strValue = checkbox.closest('.study-option').dataset.value;
+                if (strValue !== strExcludeValue) {
+                    checkbox.checked = false;
+                }
+            });
+        }
+
+        function fnUncheckOption(strValue) {
+            const elCheckbox = document.querySelector(`#selStudyMode input[type="checkbox"][id="chk${strValue.charAt(0).toUpperCase() + strValue.slice(1)}"]`);
+            if (elCheckbox) {
+                elCheckbox.checked = false;
+            }
+        }
+
+        function fnCheckOption(strValue) {
+            const elCheckbox = document.querySelector(`#selStudyMode input[type="checkbox"][id="chk${strValue.charAt(0).toUpperCase() + strValue.slice(1)}"]`);
+            if (elCheckbox) {
+                elCheckbox.checked = true;
+            }
+        }
+
+        function fnUpdateStudyDropdownText() {
+            const elText = document.querySelector('#selStudyMode .study-dropdown-text');
+            if (!elText) {
+                console.log('Study dropdown text not found'); // Debug
+                return;
+            }
+            
+            if (objSelectedStudyOptions.has('all')) {
+                elText.textContent = '📚 Hiện tất cả';
+            } else {
+                const arrSelected = Array.from(objSelectedStudyOptions);
+                if (arrSelected.length === 0) {
+                    elText.textContent = '📚 Hiện tất cả';
+                } else if (arrSelected.length === 1) {
+                    const strOption = arrSelected[0];
+                    elText.textContent = strOption === 'word' ? 'Ẩn từ vựng' :
+                                       strOption === 'kanji' ? 'Ẩn kanji' :
+                                       strOption === 'meaning' ? 'Ẩn nghĩa' : 'Ẩn gốc Việt';
+                } else {
+                    elText.textContent = `Ẩn ${arrSelected.length} mục`;
+                }
+            }
+            
+            console.log('Updated dropdown text:', elText.textContent); // Debug
+        }
+
+        function fnHideElement(strElementId) {
+            const elElement = document.getElementById(strElementId);
+            console.log('fnHideElement called for:', strElementId, 'Found:', !!elElement); // Debug
+            
+            if (!elElement) return;
+            
+            // Find the text content and wrap it in a span if needed
+            let elTextContent = elElement.childNodes[1];
+            if (elTextContent && elTextContent.classList) {
+                // If it's already an element, just add the class
+                elTextContent.classList.add('hidden-text');
+                console.log('Added hidden-text class for:', strElementId); // Debug
+            }
+            
+            // Update the corresponding show button text
+            const strButtonId = `btnShow${strElementId.charAt(0).toUpperCase() + strElementId.slice(1)}`;
+            const elButton = document.getElementById(strButtonId);
+            if (elButton) {
+                elButton.textContent = '👁️ Hiện';
+                elButton.classList.add('active');
+                console.log('Updated button:', strButtonId); // Debug
+            }
+            
+            // Add to hidden elements set
+            objHiddenElements.add(strElementId);
+            console.log('Added to hidden elements:', strElementId); // Debug
+        }
+
+        function fnShowElement(strElementId) {
+            const elElement = document.getElementById(strElementId);
+            if (!elElement) return;
+            
+            // Find the hidden text span and unwrap it
+            const elHiddenSpan = elElement.querySelector('.hidden-text');
+            if (elHiddenSpan) {
+                // Create a new text node
+                const elSpanNode = document.createElement('span');
+                elSpanNode.textContent = elHiddenSpan.textContent;
+                // const elTextNode = document.createTextNode(elHiddenSpan.textContent);
+                
+                // Replace span with text node
+                elElement.replaceChild(elSpanNode, elHiddenSpan);
+            }
+            
+            // Update the corresponding show button text
+            const strButtonId = `btnShow${strElementId.charAt(0).toUpperCase() + strElementId.slice(1)}`;
+            const elButton = document.getElementById(strButtonId);
+            if (elButton) {
+                // Restore original button text based on element type
+                const strOriginalText = fnGetOriginalButtonText(strElementId);
+                elButton.textContent = strOriginalText;
+                elButton.classList.remove('active');
+            }
+            
+            // Remove from hidden elements set
+            objHiddenElements.delete(strElementId);
+        }
+
+        function fnGetOriginalButtonText(strElementId) {
+            switch (strElementId) {
+                case 'divWord': return '👁️ Hiện từ vựng';
+                case 'divKanji': return '👁️ Hiện kanji';
+                case 'divMeaning': return '👁️ Hiện nghĩa';
+                case 'divOrigin': return '👁️ Hiện gốc Việt';
+                default: return '👁️ Hiện';
+            }
+        }
+
+        function fnResetStudyMode() {
+            // Show all elements
+            objHiddenElements.forEach(elementId => {
+                fnShowElement(elementId);
+            });
+            
+            // Clear hidden elements set
+            objHiddenElements.clear();
+            
+            // Remove study mode class
+            const elVocabCard = document.querySelector('.vocabulary-card');
+            if (elVocabCard) {
+                elVocabCard.classList.remove('study-mode-active');
+            }
+            
+            // Reset dropdown
+            const elStudyDropdown = document.getElementById('selStudyMode');
+            if (elStudyDropdown) {
+                // elStudyDropdown.value = 'all'; // Reset to 'all'
+            }
+            
+            // strCurrentStudyMode = 'all';
+        }
+
+        function fnShowAnswer(strElementId) {
+            fnShowElement(strElementId);
+        }
+
+        function fnApplyCurrentStudyMode() {
+            console.log('Applying current study mode:', Array.from(objSelectedStudyOptions)); // Debug
+            
+            // Wait a bit for DOM to be ready
+            setTimeout(() => {
+                // Clear current hidden elements first
+                objHiddenElements.forEach(elementId => {
+                    fnShowElement(elementId);
+                });
+                objHiddenElements.clear();
+                
+                // Apply selected options
+                objSelectedStudyOptions.forEach(option => {
+                    if (option !== 'all') {
+                        const strElementId = option === 'word' ? 'divWord' : 
+                                           option === 'kanji' ? 'divKanji' : 
+                                           option === 'meaning' ? 'divMeaning' : 'divOrigin';
+                        console.log('Hiding element:', strElementId); // Debug
+                        fnHideElement(strElementId);
+                    }
+                });
+                
+                console.log('Study mode applied successfully'); // Debug
+            }, 150);
         }
 
         // Event handlers
@@ -1204,6 +2169,43 @@
                 fnInitializeEventListeners();
             });
         });
+
+        // Setup MutationObserver for study mode
+        function fnSetupStudyModeObserver() {
+            if (objStudyModeObserver) {
+                objStudyModeObserver.disconnect();
+            }
+            
+            objStudyModeObserver = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'childList') {
+                        mutation.addedNodes.forEach(function(node) {
+                            if (node.nodeType === Node.ELEMENT_NODE) {
+                                const elStudyDropdown = node.querySelector('#selStudyMode') || 
+                                                      (node.id === 'selStudyMode' ? node : null);
+                                if (elStudyDropdown) {
+                                    console.log('Study dropdown detected via MutationObserver'); // Debug
+                                    setTimeout(() => {
+                                        fnInitStudyMode();
+                                        fnApplyCurrentStudyMode();
+                                    }, 50);
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Observe the container where vocabulary card is rendered
+            const elContainer = document.getElementById('divContent');
+            if (elContainer) {
+                objStudyModeObserver.observe(elContainer, {
+                    childList: true,
+                    subtree: true
+                });
+                console.log('Study mode observer setup'); // Debug
+            }
+        }
     </script>
 </body>
 </html> 
