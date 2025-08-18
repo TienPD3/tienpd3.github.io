@@ -131,7 +131,7 @@
 		.table-wrap { overflow: auto; }
 		table { width: 100%; border-collapse: collapse; }
 		thead th {
-			position: sticky; top: 54px; /* below toolbar */
+			position: sticky;
 			background: linear-gradient(180deg, var(--panel), var(--panel-2));
 			border-bottom: 1px solid var(--border);
 			padding: 12px;
@@ -145,7 +145,18 @@
 			white-space: nowrap;
 		}
 		.th-toggle { font-size: 12px; font-weight: 600; text-transform: none; letter-spacing: normal; margin-left: 8px; cursor: default; }
-		.th-toggle input { vertical-align: middle; margin-right: 4px; }
+		.th-toggle input { 
+			vertical-align: middle; 
+			margin-right: 6px; 
+			width: 16px; 
+			height: 16px; 
+			cursor: pointer;
+			accent-color: var(--brand);
+		}
+		.th-toggle input:hover { 
+			transform: scale(1.1); 
+			transition: transform 0.1s ease;
+		}
 		.hide-lesson td.col-lesson,
 		.hide-word td.col-word,
 		.hide-kanji td.col-kanji,
