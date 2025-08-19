@@ -224,7 +224,7 @@
 			</select>
 			<div class="controls">
 				<button class="btn" id="resetBtn" type="button">Xóa lọc</button>
-				<button class="btn btn-primary" id="exportBtn" type="button">Xuất CSV</button>
+				<button class="btn btn-primary" id="exportBtn" type="button">Random danh sách</button>
 			</div>
 		</div>
 	</div>
@@ -274,6 +274,7 @@
 			let currentSort = { key: 'lesson', dir: 'asc' };
 			let currentPage = 1;
 			let pageSize = 50;
+			let isRandomOrder = false;
 			const LS_KEY_LESSON = 'dictionary:selectedLesson';
 			const LS_PREFIX_HIDE = 'dictionary:hide:';
 			const TOGGLE_ID_TO_CLASS = {
@@ -339,6 +340,7 @@
 			}
 
 			function applySort() {
+				if (isRandomOrder) return;
 				const { key, dir } = currentSort;
 				filtered.sort((a, b) => {
 					const cmp = compare(a, b, key);
@@ -347,6 +349,7 @@
 			}
 
 			function applyFilters() {
+				isRandomOrder = false;
 				const q = normalizeText(searchInput.value);
 				const lesson = lessonFilter.value;
 				filtered = rawData.filter(it => {
@@ -439,12 +442,19 @@
 				} else {
 					currentSort = { key, dir: 'asc' };
 				}
+				isRandomOrder = false;
 				applyFilters();
 			}
 
 			function exportCsv() {
 				const headers = ['lesson','word','kanji','vietnamese_origin','meaning','audio'];
-				const lines = [headers.join(',')].concat(filtered.map(r => headers.map(h => toCsv(r[h])).join(',')));
+				// Create a shuffled copy of the filtered data (Fisher–Yates)
+				const data = filtered.slice();
+				for (let i = data.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[data[i], data[j]] = [data[j], data[i]];
+				}
+				const lines = [headers.join(',')].concat(data.map(r => headers.map(h => toCsv(r[h])).join(',')));
 				const blob = new Blob(["\uFEFF" + lines.join('\n')], { type: 'text/csv;charset=utf-8' });
 				const url = URL.createObjectURL(blob);
 				const a = document.createElement('a');
@@ -456,6 +466,22 @@
 			function toCsv(v) {
 				const s = (v ?? '').toString().replaceAll('"', '""');
 				return '"' + s + '"';
+			}
+
+			function randomizeList() {
+				if (!filtered.length) {
+					setStatus('Không có mục nào để random', true);
+					setTimeout(() => setStatus(''), 2000);
+					return;
+				}
+				for (let i = filtered.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[filtered[i], filtered[j]] = [filtered[j], filtered[i]];
+				}
+				isRandomOrder = true;
+				currentPage = 1;
+				render();
+				setStatus(`Đã random danh sách (${filtered.length.toLocaleString('vi-VN')} mục)`);
 			}
 
 			/** Events */
@@ -509,7 +535,7 @@
 				currentSort = { key: 'lesson', dir: 'asc' };
 				applyFilters();
 			});
-			exportBtn.addEventListener('click', exportCsv);
+			exportBtn.addEventListener('click', randomizeList);
 
 			firstPageBtn.addEventListener('click', () => { currentPage = 1; render(); });
 			prevPageBtn.addEventListener('click', () => { currentPage = Math.max(1, currentPage - 1); render(); });
@@ -530,7 +556,7 @@
 				try {
 					setStatus('Đang tải dữ liệu…');
 					// Resolve JSON path relative to this page
-					const jsonPath = new URL('../website/file/jp/vocabulary.json', location.href).pathname;
+					const jsonPath = new URL('storage/japan/vocabulary.json', location.href).pathname;
 					const res = await fetch(jsonPath, { cache: 'no-store' });
 					if (!res.ok) throw new Error('HTTP ' + res.status);
 					rawData = await res.json();

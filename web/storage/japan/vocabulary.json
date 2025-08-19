@@ -2053,8 +2053,8 @@
   },{
     "lesson": "32",
     "word": "ひきます　[かぜを～]",
-    "kanji": "",
-    "vietnamese_origin": "",
+    "kanji": "引きます　[風邪を～]",
+    "vietnamese_origin": "DẪN PHONG TÀ",
     "audio": "https://www.vnjpclub.com/Audio/minnamoi/bai32/00010110001010010.mp3",
     "meaning": "bị [cảm]"
   },{
@@ -2067,17 +2067,31 @@
   },{
     "lesson": "32",
     "word": "こみます　[みちが～]",
-    "kanji": "込みます",
+    "kanji": "込みます　[道が～]",
     "vietnamese_origin": "VÀO ĐẠO",
     "audio": "https://www.vnjpclub.com/Audio/minnamoi/bai32/00010110001010100.mp3",
     "meaning": "đông [đường]"
   },{
     "lesson": "32",
     "word": "すきます　[みちが～]",
-    "kanji": "[道が～]",
-    "vietnamese_origin": "ĐẠO",
+    "kanji": "空きます　[道が～]",
+    "vietnamese_origin": "KHÔNG ĐẠO",
     "audio": "https://www.vnjpclub.com/Audio/minnamoi/bai32/00010110001010101.mp3",
     "meaning": "vắng [đường]"
+  },{
+    "lesson": "32",
+    "word": "たからくじ",
+    "kanji": "宝くじ",
+    "vietnamese_origin": "BẢO",
+    "audio": "",
+    "meaning": "xổ số"
+  },{
+    "lesson": "32",
+    "word": "あたります　[たからくじが～]",
+    "kanji": "当たります　[宝くじが～]",
+    "vietnamese_origin": "ĐƯƠNG BẢO",
+    "audio": "",
+    "meaning": "Trúng~ trúng [xổ số]"
   },{
     "lesson": "32",
     "word": "でます [しあいに～] [パーティーに～]",
@@ -2248,18 +2262,46 @@
     "meaning": "chiều tối"
   },{
     "lesson": "32",
-    "word": "まえ",
-    "kanji": "",
-    "vietnamese_origin": "",
-    "audio": "https://www.vnjpclub.com/Audio/minnamoi/bai32/00010110001101110.mp3",
-    "meaning": "trước"
-  },{
-    "lesson": "32",
     "word": "おそく",
     "kanji": "遅く",
     "vietnamese_origin": "TRÌ",
     "audio": "https://www.vnjpclub.com/Audio/minnamoi/bai32/00010110001101111.mp3",
     "meaning": "muộn, khuya"
+  },{
+    "lesson": "32",
+    "word": "まえ",
+    "kanji": "前",
+    "vietnamese_origin": "TIỀN",
+    "audio": "https://www.vnjpclub.com/Audio/minnamoi/bai32/00010110001101110.mp3",
+    "meaning": "trước"
+  },{
+    "lesson": "32",
+    "word": "きっと",
+    "kanji": "",
+    "vietnamese_origin": "",
+    "audio": "",
+    "meaning": "chắc chắn là"
+  },{
+    "lesson": "32",
+    "word": "たぶん",
+    "kanji": "多分",
+    "vietnamese_origin": "ĐA PHÂN",
+    "audio": "",
+    "meaning": "có lẽ là"
+  },{
+    "lesson": "32",
+    "word": "おそらく",
+    "kanji": "恐らく",
+    "vietnamese_origin": "KHỦNG",
+    "audio": "",
+    "meaning": "có lẽ là"
+  },{
+    "lesson": "32",
+    "word": "もしかしたら",
+    "kanji": "若しかしたら",
+    "vietnamese_origin": "NHƯỢC",
+    "audio": "",
+    "meaning": "có thể là"
   },{
     "lesson": "32",
     "word": "こんなに",
@@ -2344,20 +2386,6 @@
     "vietnamese_origin": "",
     "audio": "",
     "meaning": "rắc rối, khó xử, có vấn đề"
-  },{
-    "lesson": "32",
-    "word": "たからくじ",
-    "kanji": "宝くじ",
-    "vietnamese_origin": "",
-    "audio": "",
-    "meaning": "xổ số"
-  },{
-    "lesson": "32",
-    "word": "あたります[たからくじが～]",
-    "kanji": "当たります[宝くじが～]",
-    "vietnamese_origin": "",
-    "audio": "",
-    "meaning": "Trúng~ trúng [xổ số]"
   },{
     "lesson": "32",
     "word": "けんこう",
