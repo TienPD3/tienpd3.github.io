@@ -186,6 +186,9 @@
                 <button id="speakBtn" class="btn btn-outline-success ms-2">
                     <i class="fas fa-volume-up"></i> Đọc to
                 </button>
+                <button id="loopSpeakBtn" class="btn btn-outline-warning ms-2">
+                    <i class="fas fa-redo"></i> Đọc lặp
+                </button>
             </div>
         </div>
     </div>
@@ -199,6 +202,9 @@
         $(document).ready(function() {
             let kuroshiro;
             let kuroshiroInitPromise;
+            let isLooping = false;
+            let loopInterval = null;
+            let currentUtterance = null;
             
             // Initialize Kuroshiro
             function initKuroshiro() {
@@ -267,6 +273,8 @@
                     return;
                 }
                 
+                stopLoopReading(); // Stop loop reading when converting new text
+                
                 $('.loading').show();
                 $('#resultDisplay').hide();
                 $('#resultActions').hide();
@@ -287,6 +295,7 @@
             
             // Handle clear button
             $('#clearBtn').on('click', function() {
+                stopLoopReading(); // Stop loop reading when clearing
                 $('#kanjiInput').val('');
                 $('#resultDisplay').hide();
                 $('#resultActions').hide();
@@ -320,17 +329,82 @@
                 }
             });
             
+            // Handle loop speak button
+            $('#loopSpeakBtn').on('click', function() {
+                const originalText = $('#kanjiInput').val().trim();
+                if (originalText) {
+                    if (isLooping) {
+                        stopLoopReading();
+                    } else {
+                        startLoopReading(originalText);
+                    }
+                }
+            });
+            
             // Japanese text to speech
             function speakJapanese(text) {
                 if ('speechSynthesis' in window) {
+                    // Stop any current speech
+                    if (currentUtterance) {
+                        speechSynthesis.cancel();
+                    }
+                    
                     const utterance = new SpeechSynthesisUtterance(text);
                     utterance.lang = 'ja-JP';
                     utterance.rate = 0.9;
                     utterance.pitch = 1;
+                    
+                    // Store current utterance for stopping
+                    currentUtterance = utterance;
+                    
+                    utterance.onend = function() {
+                        currentUtterance = null;
+                    };
+                    
                     speechSynthesis.speak(utterance);
                 } else {
                     alert('Trình duyệt không hỗ trợ text-to-speech');
                 }
+            }
+            
+            // Continuous loop reading function
+            function startLoopReading(text) {
+                if (isLooping) return;
+                
+                isLooping = true;
+                $('#loopSpeakBtn').html('<i class="fas fa-pause"></i> Dừng lặp').removeClass('btn-outline-warning').addClass('btn-danger');
+                
+                function speakLoop() {
+                    if (!isLooping) return;
+                    
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = 'ja-JP';
+                    utterance.rate = 0.9;
+                    utterance.pitch = 1;
+                    
+                    currentUtterance = utterance;
+                    
+                    utterance.onend = function() {
+                        currentUtterance = null;
+                        // Continue loop if still enabled
+                        if (isLooping) {
+                            setTimeout(speakLoop, 500); // Small delay between loops
+                        }
+                    };
+                    
+                    speechSynthesis.speak(utterance);
+                }
+                
+                speakLoop();
+            }
+            
+            function stopLoopReading() {
+                isLooping = false;
+                if (currentUtterance) {
+                    speechSynthesis.cancel();
+                    currentUtterance = null;
+                }
+                $('#loopSpeakBtn').html('<i class="fas fa-redo"></i> Đọc lặp').removeClass('btn-danger').addClass('btn-outline-warning');
             }
             
             // Handle Enter key in textarea
