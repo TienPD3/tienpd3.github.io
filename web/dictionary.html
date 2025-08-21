@@ -157,6 +157,10 @@
 			transform: scale(1.1); 
 			transition: transform 0.1s ease;
 		}
+		/* Make No. column non-clickable and compact */
+		thead th.col-no { cursor: default; width: 64px; }
+		td.col-no { text-align: center; font-size: 18px; white-space: nowrap; }
+
 		.hide-lesson td.col-lesson,
 		.hide-word td.col-word,
 		.hide-kanji td.col-kanji,
@@ -210,8 +214,9 @@
 
 		@media (max-width: 900px) {
 			.toolbar-inner { grid-template-columns: 1fr 1fr; }
-			thead th:nth-child(3), tbody td:nth-child(3) { display: none; }
+			/* With No. column added, hide Origin (4) and Meaning (5) on small screens */
 			thead th:nth-child(4), tbody td:nth-child(4) { display: none; }
+			thead th:nth-child(5), tbody td:nth-child(5) { display: none; }
 		}
 	</style>
 </head>
@@ -242,6 +247,7 @@
 				<table aria-describedby="status">
 					<thead>
 						<tr>
+							<th scope="col" class="col-no">No.</th>
 							<th data-key="word" scope="col">Từ <label class="th-toggle"><input type="checkbox" id="toggle-word"></label></th>
 							<th data-key="kanji" scope="col">Hán tự <label class="th-toggle"><input type="checkbox" id="toggle-kanji"></label></th>
 							<th data-key="vietnamese_origin" scope="col">Nguồn gốc (VN) <label class="th-toggle"><input type="checkbox" id="toggle-origin"></label></th>
@@ -303,6 +309,128 @@
 			audio.preload = 'none';
 
 			/** Helpers */
+			const NO_MAP = {
+				"00": { label: "Trứng gà", emoji: "🥚" },
+				"01": { label: "Bút", emoji: "✏️" },
+				"02": { label: "Con vịt", emoji: "🦆" },
+				"03": { label: "Đôi môi", emoji: "👄" },
+				"04": { label: "Ghế", emoji: "🪑" },
+				"05": { label: "Bàn tay", emoji: "✋" },
+				"06": { label: "Con rồng", emoji: "🐉" },
+				"07": { label: "Lưỡi câu", emoji: "🎣" },
+				"08": { label: "Cặp kính", emoji: "👓" },
+				"09": { label: "Bóng bay", emoji: "🎈" },
+				"10": { label: "Cây nến", emoji: "🕯️" },
+				"11": { label: "Song kiếm", emoji: "⚔️" },
+				"12": { label: "Đồng hồ", emoji: "🕰️" },
+				"13": { label: "Trái tim", emoji: "❤️" },
+				"14": { label: "Cây thông", emoji: "🎄" },
+				"15": { label: "Ngôi sao", emoji: "⭐" },
+				"16": { label: "Cá ngựa", emoji: "🐎" },
+				"17": { label: "Cây đàn", emoji: "🎸" },
+				"18": { label: "Bánh xe", emoji: "🚲" },
+				"19": { label: "Con mèo", emoji: "🐱" },
+				"20": { label: "Cái kéo", emoji: "✂️" },
+				"21": { label: "Chìa khóa", emoji: "🔑" },
+				"22": { label: "Đôi thiên nga", emoji: "🦢🦢" },
+				"23": { label: "Cây đàn violin", emoji: "🎻" },
+				"24": { label: "Hộp quà", emoji: "🎁" },
+				"25": { label: "Đồng xu", emoji: "🪙" },
+				"26": { label: "Ốc sên", emoji: "🐌" },
+				"27": { label: "Cây búa", emoji: "🔨" },
+				"28": { label: "Bánh chưng", emoji: "🍃" },
+				"29": { label: "Con cá", emoji: "🐟" },
+				"30": { label: "Bông tai", emoji: "💎" },
+				"31": { label: "Cây gậy", emoji: "⚖️" },
+				"32": { label: "Xe đạp", emoji: "🚲" },
+				"33": { label: "Đôi mông", emoji: "😂" },
+				"34": { label: "Cây súng", emoji: "🔫" },
+				"35": { label: "Hoa hồng", emoji: "🌹" },
+				"36": { label: "Đá lửa", emoji: "🔥" },
+				"37": { label: "Thang gỗ", emoji: "🪜" },
+				"38": { label: "Người tuyết", emoji: "⛄" },
+				"39": { label: "Cái roi", emoji: "🪄" },
+				"40": { label: "Quả bóng", emoji: "⚽" },
+				"41": { label: "Cột cờ", emoji: "🚩" },
+				"42": { label: "Quả chuối", emoji: "🍌" },
+				"43": { label: "Tai nghe", emoji: "🎧" },
+				"44": { label: "Ghế sofa", emoji: "🛋️" },
+				"45": { label: "Thước kẻ", emoji: "📏" },
+				"46": { label: "Chuông", emoji: "🔔" },
+				"47": { label: "Thuyền buồm", emoji: "⛵" },
+				"48": { label: "Máy bay", emoji: "✈️" },
+				"49": { label: "Quả lựu đạn", emoji: "💣" },
+				"50": { label: "Quả cam", emoji: "🍊" },
+				"51": { label: "Con chim", emoji: "🐦" },
+				"52": { label: "Con ngỗng", emoji: "🦢" },
+				"53": { label: "Cái còng", emoji: "⛓️" },
+				"54": { label: "Xe tải", emoji: "🚚" },
+				"55": { label: "Song ngũ", emoji: "✋✋" },
+				"56": { label: "Sáo trúc", emoji: "🎶" },
+				"57": { label: "Máy ảnh", emoji: "📷" },
+				"58": { label: "Cây nấm", emoji: "🍄" },
+				"59": { label: "Con ngựa", emoji: "🐴" },
+				"60": { label: "Quả đào", emoji: "🍑" },
+				"61": { label: "Viên đạn", emoji: "💥" },
+				"62": { label: "Con cua", emoji: "🦀" },
+				"63": { label: "Cái càng", emoji: "🔧" },
+				"64": { label: "Cây chổi", emoji: "🧹" },
+				"65": { label: "Trái bóng rổ", emoji: "🏀" },
+				"66": { label: "Đôi rắn", emoji: "🐍🐍" },
+				"67": { label: "Dao cắt", emoji: "🍴" },
+				"68": { label: "Xe tăng", emoji: "🛡️" },
+				"69": { label: "Cái khóa số", emoji: "🔒" },
+				"70": { label: "Cái liềm", emoji: "🌾" },
+				"71": { label: "Đèn pin", emoji: "🔦" },
+				"72": { label: "Dây đàn", emoji: "🎶" },
+				"73": { label: "Cái mũ", emoji: "🎩" },
+				"74": { label: "Cây chùy", emoji: "🪓" },
+				"75": { label: "Con ốc", emoji: "🐚" },
+				"76": { label: "Quả chanh", emoji: "🍋" },
+				"77": { label: "Song kiếm bá vương", emoji: "⚔️⚔️" },
+				"78": { label: "Bánh pizza", emoji: "🍕" },
+				"79": { label: "Con ong", emoji: "🐝" },
+				"80": { label: "Cặp kính", emoji: "👓" },
+				"81": { label: "Tấm gương", emoji: "🪞" },
+				"82": { label: "Cây dù", emoji: "☂️" },
+				"83": { label: "Chữ B lớn", emoji: "🅱️" },
+				"84": { label: "Cây cung", emoji: "🏹" },
+				"85": { label: "Ngôi nhà", emoji: "🏠" },
+				"86": { label: "Quả nho", emoji: "🍇" },
+				"87": { label: "Cây đàn piano", emoji: "🎹" },
+				"88": { label: "Xích xe", emoji: "⛓️" },
+				"89": { label: "Con khỉ", emoji: "🐒" },
+				"90": { label: "Quả bóng bay", emoji: "🎈" },
+				"91": { label: "Cây súng lục", emoji: "🔫" },
+				"92": { label: "Đôi giày", emoji: "👟" },
+				"93": { label: "Tàu hỏa", emoji: "🚂" },
+				"94": { label: "Con rùa", emoji: "🐢" },
+				"95": { label: "Cái nồi", emoji: "🍲" },
+				"96": { label: "Con chó", emoji: "🐕" },
+				"97": { label: "Cái kéo cắt giấy", emoji: "✂️" },
+				"98": { label: "Đồng hồ cát", emoji: "⏳" },
+				"99": { label: "Đôi bóng bàn", emoji: "🏓" }
+			};
+
+			function encodeNo(n) {
+				let s = String(n);
+				if (s.length % 2 === 1) s = '0' + s;
+				const emojis = [];
+				const labels = [];
+				for (let i = 0; i < s.length; i += 2) {
+					const key = s.slice(i, i + 2);
+					const ent = NO_MAP[key];
+					if (ent) {
+						emojis.push(ent.emoji);
+						labels.push(ent.label);
+					} else {
+						emojis.push(key);
+						labels.push(key);
+					}
+				}
+				return { emojis: emojis.join(' '), label: labels.join(' + ') };
+			}
+
 			function normalizeText(s) {
 				return (s || '').toString().toLowerCase().normalize('NFKD');
 			}
@@ -372,20 +500,23 @@
 				const total = filtered.length;
 				const pages = getPageCount();
 				currentPage = Math.min(Math.max(1, currentPage), pages);
+				const startIndex = isSingleLessonMode() ? 0 : (currentPage - 1) * pageSize;
 				let rows;
 				if (isSingleLessonMode()) {
 					rows = filtered;
 				} else {
-					const start = (currentPage - 1) * pageSize;
-					rows = filtered.slice(start, start + pageSize);
+					rows = filtered.slice(startIndex, startIndex + pageSize);
 				}
 
-				tbody.innerHTML = rows.map(row => {
+				tbody.innerHTML = rows.map((row, i) => {
 					const audioHtml = row.audio
 						? `<button class="btn audio-btn" data-audio="${encodeURI(row.audio)}" aria-label="Phát âm thanh">🎧 Phát</button>`
 						: `<button class="btn audio-btn" data-tts="${escapeHtml(row.word || '')}" aria-label="Phát TTS">🎧 Phát</button>`;
+					const no = startIndex + i + 1;
+					const noEnc = encodeNo(no);
 					return `
 						<tr>
+							<td class="col-no"><span class="no-value" title="${escapeHtml(noEnc.label)}" aria-label="${escapeHtml(noEnc.label)}">${noEnc.emojis}</span></td>
 							<td class="word col-word">${escapeHtml(row.word || '―')}</td>
 							<td class="kanji col-kanji">${escapeHtml(row.kanji || '―')}</td>
 							<td class="cell-muted col-origin">${escapeHtml(row.vietnamese_origin || '―')}</td>
