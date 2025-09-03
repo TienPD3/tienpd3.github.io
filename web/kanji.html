@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hán Tự 32 – Minna (N4) • Flashcards</title>
+  <style>
+    :root{--bg:#ffffff;--fg:#141414;--muted:#6b7280;--card:#ffffff;--border:#e5e7eb;--accent:#111827;--shadow:0 6px 24px rgba(0,0,0,.06)}
+    *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:var(--bg);color:var(--fg);}
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--border);}
+    header .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;justify-content:space-between}
+    h1{margin:0;font-size:1.6rem;line-height:1.2}
+    p.sub{margin:.25rem 0 0;color:var(--muted);font-size:.9rem}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    input[type="text"], .chip{border:1px solid var(--border);border-radius:12px;padding:.55rem .75rem;font-size:.9rem}
+    input[type="checkbox"]{width:16px;height:16px}
+    label{display:inline-flex;gap:.45rem;align-items:center;font-size:.9rem;user-select:none;cursor:pointer}
+    main{padding:24px 0;display:grid;gap:40px}
+    .section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+    .grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:12px}
+    @media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:140px;transition:transform .1s ease}
+    .card:active{transform:scale(.99)}
+    .kanji{font-size:2.2rem;line-height:1;margin:.25rem 0;font-weight:700}
+    .meta{display:flex;justify-content:space-between;align-items:center}
+    .tag{border:1px solid var(--border);border-radius:999px;padding:.15rem .5rem;font-size:.7rem;color:#111}
+    .sub{color:var(--muted)}
+    .reveal-hint{margin-top:8px;font-size:.75rem;color:var(--muted)}
+
+    .sent-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
+    .jp{font-size:1.05rem}
+    .vi{margin-top:8px;color:#374151}
+    .link{background:transparent;border:none;color:#0b63ce;text-decoration:underline;cursor:pointer;font-size:.8rem;padding:0;margin-top:8px}
+
+    footer{border-top:1px solid var(--border);text-align:center;padding:24px;color:var(--muted);font-size:.8rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container wrap">
+      <div>
+        <h1>Hán Tự 32 – Minna no Nihongo (N4)</h1>
+        <p class="sub">Flashcards từ vựng + câu luyện tập • Bật chế độ Quiz để ẩn đáp án, nhấn thẻ để hiện.</p>
+      </div>
+      <div class="controls">
+        <input id="search" type="text" placeholder="Tìm kanji, kana, nghĩa, romaji…" />
+        <label><input id="show-kana" type="checkbox" checked> Hiện Kana</label>
+        <label><input id="show-meaning" type="checkbox" checked> Hiện Nghĩa</label>
+        <label><input id="quiz-mode" type="checkbox"> Quiz mode</label>
+        <label><input id="shuffle" type="checkbox"> Trộn thẻ</label>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <div class="section-title">
+        <h2>Từ vựng chính</h2>
+        <div class="sub" id="count"></div>
+      </div>
+      <div id="vocab-grid" class="grid"></div>
+    </section>
+
+    <section>
+      <div class="section-title">
+        <h2>Câu luyện tập</h2>
+        <label><input id="show-vi-sent" type="checkbox"> Hiện bản dịch</label>
+      </div>
+      <div id="sent-grid" class="grid"></div>
+    </section>
+
+    <section class="sent-card">
+      <h3 style="margin:0 0 8px 0">Mẹo học nhanh</h3>
+      <ul style="margin:0;padding-left:18px;color:#374151;font-size:.95rem;line-height:1.6">
+        <li>Bật <b>Quiz mode</b> để ẩn kana/nghĩa, nhấn thẻ để hiện đáp án.</li>
+        <li>Dùng ô tìm kiếm để lọc theo <i>kanji / kana / romaji / nghĩa</i>.</li>
+        <li>Trộn thẻ để luyện ghi nhớ ngẫu nhiên.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Học N4 – Bài 32. Tạo bởi bạn và ChatGPT.
+  </footer>
+
+  <script>
+    // --- Data ---------------------------------------------------------------
+    const VOCABS = [
+      { kanji: "皿", kana: "さら", romaji: "sara", meaningVi: "Bát đĩa", pos: "N" },
+      { kanji: "隅", kana: "すみ", romaji: "sumi", meaningVi: "Góc", pos: "N" },
+      { kanji: "机", kana: "つくえ", romaji: "tsukue", meaningVi: "Bàn", pos: "N" },
+      { kanji: "引き出し", kana: "ひきだし", romaji: "hikidashi", meaningVi: "Ngăn kéo", pos: "N" },
+      { kanji: "箱", kana: "はこ", romaji: "hako", meaningVi: "Hộp", pos: "N" },
+      { kanji: "ごみ箱", kana: "ごみばこ", romaji: "gomibako", meaningVi: "Thùng rác", pos: "N" },
+      { kanji: "置く", kana: "おく", romaji: "oku", meaningVi: "Đặt, để", pos: "V1" },
+      { kanji: "片付ける", kana: "かたづける", romaji: "katazukeru", meaningVi: "Dọn dẹp", pos: "V2" },
+      { kanji: "復習する", kana: "ふくしゅうする", romaji: "fukushuu suru", meaningVi: "Ôn tập", pos: "VS" },
+      { kanji: "予習する", kana: "よしゅうする", romaji: "yoshuu suru", meaningVi: "Soạn bài", pos: "VS" },
+      { kanji: "予約する", kana: "よやくする", romaji: "yoyaku suru", meaningVi: "Đặt trước", pos: "VS" },
+      { kanji: "並べる", kana: "ならべる", romaji: "naraberu", meaningVi: "Sắp xếp", pos: "V2" },
+      { kanji: "連絡する", kana: "れんらくする", romaji: "renraku suru", meaningVi: "Liên lạc", pos: "VS" },
+    ];
+
+    const SENTENCES = [
+      { jp: "わたしは 毎日、歩いて 学校へ 行きます。友達は バスで 行きます。", vi: "Mỗi ngày tôi đi bộ đến trường. Bạn tôi đi bằng xe buýt." },
+      { jp: "駅で 1時間 待ちました。 でも、友達は 来ませんでした。", vi: "Tôi đã đợi ở ga 1 tiếng. Nhưng bạn đã không đến." },
+      { jp: "スーパーの 前に 子どもが 立っています。 雨が 降っています。 お母さんは 買い物を しています。", vi: "Trước siêu thị có trẻ em đang đứng. Trời đang mưa. Mẹ thì đang mua sắm." },
+      { jp: "駅の 前に 車を 止めました。", vi: "Tôi đã đỗ xe trước nhà ga." },
+      { jp: "友達と レストランに 入りました。 でも、何も 食べませんでした。 コーヒーだけ 飲みました。 そして、店を 出ました。", vi: "Tôi vào nhà hàng với bạn. Nhưng không ăn gì. Chỉ uống cà phê. Rồi rời khỏi quán." },
+      { jp: "兄は 古いパソコンを 売りました。 そして、新しいパソコンを 買いました。", vi: "Anh trai đã bán máy tính cũ, rồi mua máy tính mới." },
+      { jp: "きのう、カレーを 作りました。 牛肉と 野菜を 使いました。 とても おいしかったです。", vi: "Hôm qua tôi nấu cà ri. Dùng thịt bò và rau. Rất ngon." },
+    ];
+
+    // --- Helpers ------------------------------------------------------------
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    function shuffle(arr){
+      const a=[...arr];
+      for(let i=a.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [a[i],a[j]]=[a[j],a[i]];
+      }
+      return a;
+    }
+
+    function filterVocab(q){
+      if(!q) return state.shuffled ? shuffle(VOCABS) : VOCABS;
+      const s=q.toLowerCase();
+      const base = VOCABS.filter(v=>[v.kanji,v.kana,v.romaji,v.meaningVi].some(t=>String(t).toLowerCase().includes(s)));
+      return state.shuffled ? shuffle(base) : base;
+    }
+
+    const state = {
+      showKana: true,
+      showMeaning: true,
+      quizMode: false,
+      shuffled: false,
+      showViSent: false,
+      search: "",
+    };
+
+    // --- Render vocab cards -------------------------------------------------
+    function renderVocab(){
+      const list = filterVocab(state.search);
+      $('#count').textContent = `${list.length} mục`;
+      const grid = $('#vocab-grid');
+      grid.innerHTML = '';
+      for(const v of list){
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.tabIndex=0; card.setAttribute('role','button');
+
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        meta.innerHTML = `<div class="kanji">${v.kanji}</div><span class="tag">${v.pos}</span>`;
+
+        const info = document.createElement('div');
+        info.className = 'info';
+        const kanaEl = document.createElement('div');
+        kanaEl.className = 'sub';
+        kanaEl.textContent = `${v.kana} (${v.romaji})`;
+        const meanEl = document.createElement('div');
+        meanEl.className = 'sub';
+        meanEl.textContent = v.meaningVi;
+
+        const hint = document.createElement('div');
+        hint.className = 'reveal-hint';
+        hint.textContent = 'Nhấn để mở đáp án';
+
+        let revealed=false;
+        const refresh = ()=>{
+          kanaEl.style.display = (state.showKana || (state.quizMode && revealed)) ? 'block' : (state.quizMode ? 'none' : (state.showKana?'block':'none'));
+          meanEl.style.display = (state.showMeaning || (state.quizMode && revealed)) ? 'block' : (state.quizMode ? 'none' : (state.showMeaning?'block':'none'));
+          hint.style.display = state.quizMode && !revealed ? 'block' : 'none';
+        };
+
+        card.addEventListener('click',()=>{ if(state.quizMode){ revealed=true; refresh(); }});
+
+        info.appendChild(kanaEl);
+        info.appendChild(meanEl);
+
+        card.appendChild(meta);
+        card.appendChild(info);
+        card.appendChild(hint);
+        grid.appendChild(card);
+
+        refresh();
+      }
+    }
+
+    // --- Render sentences ---------------------------------------------------
+    function renderSentences(){
+      const wrap = $('#sent-grid');
+      wrap.innerHTML='';
+      for(const s of SENTENCES){
+        const box = document.createElement('div');
+        box.className = 'sent-card';
+        const jp = document.createElement('div');
+        jp.className = 'jp';
+        jp.textContent = s.jp;
+        const vi = document.createElement('div');
+        vi.className = 'vi';
+        vi.textContent = s.vi;
+        const btn = document.createElement('button');
+        btn.className = 'link';
+        btn.textContent = 'Hiện dịch nghĩa';
+        let revealed = false;
+        const refresh = ()=>{
+          vi.style.display = (state.showViSent || revealed) ? 'block' : 'none';
+          btn.style.display = state.showViSent ? 'none' : (revealed ? 'none' : 'inline');
+        };
+        btn.addEventListener('click',()=>{revealed=true;refresh();});
+        box.appendChild(jp);
+        box.appendChild(vi);
+        box.appendChild(btn);
+        wrap.appendChild(box);
+        refresh();
+      }
+    }
+
+    // --- Wire controls ------------------------------------------------------
+    function bindControls(){
+      $('#year').textContent = new Date().getFullYear();
+      $('#search').addEventListener('input', e=>{state.search=e.target.value; renderVocab();});
+      $('#show-kana').addEventListener('change', e=>{state.showKana=e.target.checked; renderVocab();});
+      $('#show-meaning').addEventListener('change', e=>{state.showMeaning=e.target.checked; renderVocab();});
+      $('#quiz-mode').addEventListener('change', e=>{state.quizMode=e.target.checked; renderVocab();});
+      $('#shuffle').addEventListener('change', e=>{state.shuffled=e.target.checked; renderVocab();});
+      $('#show-vi-sent').addEventListener('change', e=>{state.showViSent=e.target.checked; renderSentences();});
+    }
+
+    // --- Init ---------------------------------------------------------------
+    bindControls();
+    renderVocab();
+    renderSentences();
+  </script>
+</body>
+</html>

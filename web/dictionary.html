@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Từ vựng Nhật - Từ @vocabulary.json</title>
 	<meta name="description" content="Bảng từ vựng Nhật Bản với tìm kiếm, lọc theo bài, sắp xếp và phát âm thanh.">
+	<script defer src="./js/kuroshiro.min.js"></script>
+	<script defer src="./js/kuroshiro-analyzer-kuromoji.min.js"></script>
 	<style>
         @font-face {
             font-family: 'UTM Bauhaus';
@@ -52,7 +54,6 @@
 		}
 
 		.container {
-			max-width: 1280px;
 			margin: 0 auto;
 			padding: 24px;
 		}
@@ -89,7 +90,6 @@
 			grid-template-columns: 1fr auto auto;
 			gap: 12px;
 			padding: 12px 24px;
-			max-width: 1280px;
 			margin: 0 auto;
 		}
 
@@ -172,6 +172,8 @@
 		.hide-origin td.col-origin *,
 		.hide-meaning td.col-meaning * { color: transparent !important; }
 		.hide-audio td.col-audio { visibility: hidden; }
+		/* Hide ruby furigana when word is hidden */
+		.hide-word td.col-kanji ruby rt { display: none; }
 		/* Row-level reveal overrides when global hide is active */
 		.hide-lesson tr.reveal-hidden td.col-lesson,
 		.hide-lesson tr.reveal-hidden td.col-lesson *,
@@ -183,11 +185,13 @@
 		.hide-origin tr.reveal-hidden td.col-origin *,
 		.hide-meaning tr.reveal-hidden td.col-meaning,
 		.hide-meaning tr.reveal-hidden td.col-meaning * { color: inherit !important; visibility: visible !important; }
+		/* Reveal ruby when word is hidden but row is revealed */
+		.hide-word tr.reveal-hidden td.col-kanji ruby rt { display: inline; }
 		tbody td {
 			border-bottom: 1px solid var(--border);
 			padding: 12px;
 			vertical-align: top;
-			font-size: 17px;
+			font-size: 25px;
 		}
 		tbody tr:hover { background: color-mix(in oklab, var(--panel-2), transparent 0%); }
 		.badge { display: inline-block; padding: 10px; border-radius: 100%; background: color-mix(in oklab, var(--brand), transparent 82%); color: var(--brand); font-weight: 600; font-size: 12px; }
@@ -281,6 +285,7 @@
 			let currentPage = 1;
 			let pageSize = 50;
 			let isRandomOrder = false;
+			let kuroshiro;
 			const LS_KEY_LESSON = 'dictionary:selectedLesson';
 			const LS_PREFIX_HIDE = 'dictionary:hide:';
 			const TOGGLE_ID_TO_CLASS = {
@@ -308,59 +313,59 @@
 			const audio = new Audio();
 			audio.preload = 'none';
 
-			/** Helpers */
+			/** Helpers  https://emojicombos.com/ladder-text-art */
 			const NO_MAP = {
 				"00": { label: "Trứng gà", emoji: "🥚" },
-				"01": { label: "Bút", emoji: "✏️" },
+				"01": { label: "Cây dù", emoji: "☂️" },
 				"02": { label: "Con vịt", emoji: "🦆" },
-				"03": { label: "Đôi môi", emoji: "👄" },
+				"03": { label: "Trái tim", emoji: "❤️" },
 				"04": { label: "Ghế", emoji: "🪑" },
-				"05": { label: "Bàn tay", emoji: "✋" },
-				"06": { label: "Con rồng", emoji: "🐉" },
-				"07": { label: "Lưỡi câu", emoji: "🎣" },
-				"08": { label: "Cặp kính", emoji: "👓" },
-				"09": { label: "Bóng bay", emoji: "🎈" },
-				"10": { label: "Cây nến", emoji: "🕯️" },
-				"11": { label: "Song kiếm", emoji: "⚔️" },
-				"12": { label: "Đồng hồ", emoji: "🕰️" },
-				"13": { label: "Trái tim", emoji: "❤️" },
-				"14": { label: "Cây thông", emoji: "🎄" },
-				"15": { label: "Ngôi sao", emoji: "⭐" },
-				"16": { label: "Cá ngựa", emoji: "🐎" },
-				"17": { label: "Cây đàn", emoji: "🎸" },
-				"18": { label: "Bánh xe", emoji: "🚲" },
-				"19": { label: "Con mèo", emoji: "🐱" },
-				"20": { label: "Cái kéo", emoji: "✂️" },
-				"21": { label: "Chìa khóa", emoji: "🔑" },
+				"05": { label: "Trái táo", emoji: "🍏" },
+				"06": { label: "Vỏ ốc", emoji: "🐚" },
+				"07": { label: "Rìu", emoji: "🪓" },
+				"08": { label: "Người tuyết", emoji: "☃️" },
+				"09": { label: "Hươu cao cổ", emoji: "🦒" },
+				"10": { label: "Heo", emoji: "🐷" },
+				"11": { label: "Thang", emoji: "目" },
+				"12": { label: "Cá mập", emoji: "🦈" },
+				"13": { label: "Bướm", emoji: "🦋" },
+				"14": { label: "Thuyền", emoji: "⛵" },
+				"15": { label: "Tiền", emoji: "💰" },
+				"16": { label: "Ốc sên", emoji: "🐌" },
+				"17": { label: "Nốt nhạc", emoji: "🎵" },
+				"18": { label: "Đèn giao thông", emoji: "🚦" },
+				"19": { label: "Con chó", emoji: "🐕" },
+				"20": { label: "Quả bom", emoji: "💣" },
+				"21": { label: "Nến", emoji: "🕯️" },
 				"22": { label: "Đôi thiên nga", emoji: "🦢🦢" },
-				"23": { label: "Cây đàn violin", emoji: "🎻" },
-				"24": { label: "Hộp quà", emoji: "🎁" },
-				"25": { label: "Đồng xu", emoji: "🪙" },
-				"26": { label: "Ốc sên", emoji: "🐌" },
-				"27": { label: "Cây búa", emoji: "🔨" },
-				"28": { label: "Bánh chưng", emoji: "🍃" },
-				"29": { label: "Con cá", emoji: "🐟" },
-				"30": { label: "Bông tai", emoji: "💎" },
-				"31": { label: "Cây gậy", emoji: "⚖️" },
-				"32": { label: "Xe đạp", emoji: "🚲" },
-				"33": { label: "Đôi mông", emoji: "😂" },
-				"34": { label: "Cây súng", emoji: "🔫" },
-				"35": { label: "Hoa hồng", emoji: "🌹" },
-				"36": { label: "Đá lửa", emoji: "🔥" },
-				"37": { label: "Thang gỗ", emoji: "🪜" },
-				"38": { label: "Người tuyết", emoji: "⛄" },
-				"39": { label: "Cái roi", emoji: "🪄" },
-				"40": { label: "Quả bóng", emoji: "⚽" },
-				"41": { label: "Cột cờ", emoji: "🚩" },
-				"42": { label: "Quả chuối", emoji: "🍌" },
-				"43": { label: "Tai nghe", emoji: "🎧" },
-				"44": { label: "Ghế sofa", emoji: "🛋️" },
-				"45": { label: "Thước kẻ", emoji: "📏" },
-				"46": { label: "Chuông", emoji: "🔔" },
-				"47": { label: "Thuyền buồm", emoji: "⛵" },
-				"48": { label: "Máy bay", emoji: "✈️" },
-				"49": { label: "Quả lựu đạn", emoji: "💣" },
-				"50": { label: "Quả cam", emoji: "🍊" },
+				"23": { label: "Công", emoji: "🦚" },
+				"24": { label: "Sóc", emoji: "🐿️" },
+				"25": { label: "Cần cẩu", emoji: "🏗️" },
+				"26": { label: "Gà trống", emoji: "🐓" },
+				"27": { label: "Chuột", emoji: "🐁" },
+				"28": { label: "Cà rốt & thỏ", emoji: "🥕🐇" },
+				"29": { label: "Chuột máy tính", emoji: "🖱️" },
+				"30": { label: "Núi & mặt trời", emoji: "⛰️☀️" },
+				"31": { label: "Bóng đèn", emoji: "💡" },
+				"32": { label: "Vòi sen", emoji: "🚿" },
+				"33": { label: "Xương", emoji: "🦴" },
+				"34": { label: "Dưa hấu", emoji: "🍉" },
+				"35": { label: "Đu đủ", emoji: "🏉" },
+				"36": { label: "Hoa hồng", emoji: "🥀" },
+				"37": { label: "Loa cầm tay", emoji: "📢" },
+				"38": { label: "Nhẫn kim cương", emoji: "💍" },
+				"39": { label: "Tê giác", emoji: "🦏" },
+				"40": { label: "Bút chì", emoji: "✏️" },
+				"41": { label: "Bình cứu hỏa", emoji: "🧯" },
+				"42": { label: "Diều", emoji: "🪁" },
+				"43": { label: "Người lướt sóng", emoji: "🏄" },
+				"44": { label: "Rừng thông", emoji: "🌲" },
+				"45": { label: "Nam châm", emoji: "🧲" },
+				"46": { label: "Cung tên & mục tiêu", emoji: "🏹🎯" },
+				"47": { label: "Cầu thang", emoji: "🎢" },
+				"48": { label: "Đô-rể-mon", emoji: "🐻" },
+				"49": { label: "Ly", emoji: "☕" },
+				"50": { label: "Xe đạp", emoji: "🚲" },
 				"51": { label: "Con chim", emoji: "🐦" },
 				"52": { label: "Con ngỗng", emoji: "🦢" },
 				"53": { label: "Cái còng", emoji: "⛓️" },
@@ -518,7 +523,7 @@
 						<tr>
 							<td class="col-no"><span class="no-value" title="${escapeHtml(noEnc.label)}" aria-label="${escapeHtml(noEnc.label)}">${noEnc.emojis}</span></td>
 							<td class="word col-word">${escapeHtml(row.word || '―')}</td>
-							<td class="kanji col-kanji">${escapeHtml(row.kanji || '―')}</td>
+							<td class="kanji col-kanji">${row.furigana}</td>
 							<td class="cell-muted col-origin">${escapeHtml(row.vietnamese_origin || '―')}</td>
 							<td class="meaning col-meaning">${escapeHtml(row.meaning || '―')}</td>
 							<td class="col-audio">${audioHtml}</td>
@@ -691,6 +696,23 @@
 					const res = await fetch(jsonPath, { cache: 'no-store' });
 					if (!res.ok) throw new Error('HTTP ' + res.status);
 					rawData = await res.json();
+					// Initialize Kuroshiro
+					kuroshiro = new Kuroshiro();
+					await kuroshiro.init(new KuromojiAnalyzer());
+					// Convert kanji to furigana
+					setStatus('Đang chuyển đổi furigana…');
+					for (let row of rawData) {
+						if (row.kanji && row.kanji !== '―') {
+							try {
+								row.furigana = await kuroshiro.convert(row.kanji, { mode: "furigana", to: "hiragana" });
+							} catch (e) {
+								console.error('Error converting', row.kanji, e);
+								row.furigana = escapeHtml(row.kanji);
+							}
+						} else {
+							row.furigana = escapeHtml(row.kanji || '―');
+						}
+					}
 					updateLessonsFilterOptions();
 					const savedLesson = localStorage.getItem(LS_KEY_LESSON);
 					if (savedLesson && Array.from(lessonFilter.options).some(o => o.value === savedLesson)) {
