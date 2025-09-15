@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="vi">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>PDF Viewer</title>
+	<style>
+		:root {
+			--bg: #0f1115;
+			--fg: #e6e6e6;
+			--muted: #9aa3b2;
+			--accent: #3b82f6;
+		}
+		html, body {
+			height: 100%;
+			margin: 0;
+			background: var(--bg);
+			color: var(--fg);
+			font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+		}
+		.viewer {
+			display: grid;
+			grid-template-rows: auto 1fr auto;
+			height: 100%;
+		}
+		.toolbar {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+			padding: 10px;
+			border-bottom: 1px solid #1d2330;
+			background: #121621;
+		}
+		.toolbar button {
+			appearance: none;
+			border: 1px solid #2a3142;
+			background: #192033;
+			color: var(--fg);
+			border-radius: 8px;
+			padding: 8px 12px;
+			cursor: pointer;
+			font-weight: 600;
+		}
+		.toolbar button:disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+		.toolbar input[type="number"] {
+			width: 72px;
+			background: #111726;
+			border: 1px solid #2a3142;
+			color: var(--fg);
+			border-radius: 8px;
+			padding: 8px 10px;
+		}
+		.page-info { color: var(--muted); }
+
+		.canvas-wrap {
+			overflow: auto;
+			display: grid;
+			place-items: center;
+			background: #0b0e17;
+		}
+		.page-surface { position: relative; }
+		canvas { background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.35); display: block; }
+		#textLayer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			color: transparent;
+			mix-blend-mode: multiply;
+		}
+		#textLayer span {
+			position: absolute;
+			white-space: pre;
+			transform-origin: 0% 0%;
+			pointer-events: auto;
+			user-select: text;
+			-webkit-user-select: text;
+		}
+		/* Horizontal guide line at 20% height */
+		.guide-line {
+			position: absolute;
+			left: 0;
+			right: 0;
+			height: 8px;
+			pointer-events: none;
+			z-index: 5;
+		}
+		/* Shaded band between From% and To% */
+		.guide-band {
+			position: absolute;
+			left: 0;
+			right: 0;
+			pointer-events: none;
+			z-index: 4;
+		}
+
+		.footer {
+			padding: 8px 10px;
+			border-top: 1px solid #1d2330;
+			background: #121621;
+			color: var(--muted);
+			font-size: 12px;
+		}
+		.footer a { color: var(--accent); text-decoration: none; }
+	</style>
+
+	<!-- PDF.js via CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+	<script>
+		// Configure worker from CDN
+		pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js";
+	</script>
+</head>
+<body>
+	<div class="viewer">
+		<div class="toolbar">
+			<button id="openBtn" title="Chọn file PDF">Mở PDF</button>
+			<input id="fileInput" type="file" accept="application/pdf" hidden />
+			<label style="display:flex; align-items:center; gap:6px; color: var(--muted);">
+				<span>Bài</span>
+				<select id="lessonSelect" style="background:#111726;border:1px solid #2a3142;color:var(--fg);border-radius:8px;padding:8px 10px; min-width: 110px;"></select>
+			</label>
+			<button id="prevBtn" disabled>Prev</button>
+			<button id="nextBtn" disabled>Next</button>
+			<div class="page-info">
+				<span>Trang</span>
+				<input id="pageNumber" type="number" min="1" value="1" />
+				<span>/ <span id="pageCount">0</span></span>
+			</div>
+			<div style="flex:1"></div>
+			<label style="display:flex; align-items:center; gap:6px; color: var(--muted);">
+				<span>Zoom</span>
+				<input id="zoomInput" type="number" min="25" max="400" step="5" value="100" style="width:84px;background:#111726;border:1px solid #2a3142;color:var(--fg);border-radius:8px;padding:8px 10px;" />
+			</label>
+			<label style="display:flex; align-items:center; gap:6px; color: var(--muted); margin-left:12px;">
+				<span>Mode</span>
+				<select id="rangeSelect" style="background:#111726;border:1px solid #2a3142;color:var(--fg);border-radius:8px;padding:8px 10px; min-width: 140px;">
+					<option value="study">Study</option>
+					<option value="easy">Easy</option>
+					<option value="normal">Normal</option>
+					<option value="hard">Hard</option>
+				</select>
+			</label>
+		</div>
+
+		<div class="canvas-wrap" id="canvasWrap">
+			<div class="page-surface">
+				<canvas id="pdfCanvas"></canvas>
+				<div id="textLayer" class="textLayer"></div>
+				<div id="guideBand" class="guide-band"></div>
+				<div id="guideFromLine" class="guide-line"></div>
+				<div id="guideToLine" class="guide-line"></div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		(function () {
+			const canvas = document.getElementById('pdfCanvas');
+			const ctx = canvas.getContext('2d');
+			const textLayerDiv = document.getElementById('textLayer');
+			const canvasWrap = document.getElementById('canvasWrap');
+			const prevBtn = document.getElementById('prevBtn');
+			const nextBtn = document.getElementById('nextBtn');
+			const pageNumberInput = document.getElementById('pageNumber');
+			const pageCountEl = document.getElementById('pageCount');
+			const openBtn = document.getElementById('openBtn');
+			const fileInput = document.getElementById('fileInput');
+			const zoomInput = document.getElementById('zoomInput');
+			const lessonSelect = document.getElementById('lessonSelect');
+			const guideBand = document.getElementById('guideBand');
+			const guideFromLine = document.getElementById('guideFromLine');
+			const guideToLine = document.getElementById('guideToLine');
+			const rangeSelect = document.getElementById('rangeSelect');
+
+			let pdfDoc = null;
+			let currentPageNumber = 1;
+			let totalPages = 0;
+			const ZOOM_STORAGE_KEY = 'pdf_viewer_zoom_percent';
+			let zoom = 1;
+			let renderingInProgress = false;
+			let pendingPageNumber = null;
+			let currentFilePath = '';
+			let scrollSaveTimer = null;
+			const RANGE_SELECT_KEY = 'pdf_range_select_value';
+			const GUIDE_COVER_KEY = 'pdf_guide_cover_enabled';
+
+			function clampPercent(v) { return Math.max(0, Math.min(100, v)); }
+
+			function getGuidePercents() {
+				const selection = (rangeSelect && rangeSelect.value) || 'study';
+				switch (selection) {
+					case 'easy':
+						return { start: 86, end: 100 };
+					case 'normal':
+						return { start: 57, end: 85 };
+					case 'hard':
+						return { start: 57, end: 100 };
+					case 'study':
+					default:
+						return { start: 0, end: 0 };
+				}
+			}
+
+			function saveRangeSelection() {
+				if (!rangeSelect) return;
+				try { localStorage.setItem(RANGE_SELECT_KEY, rangeSelect.value); } catch {}
+			}
+
+			function restoreRangeSelection() {
+				let val = 'study';
+				try { val = localStorage.getItem(RANGE_SELECT_KEY) || 'study'; } catch {}
+				if (rangeSelect) rangeSelect.value = val;
+			}
+
+			function updateGuideOverlay(viewportWidth, viewportHeight) {
+				const { start, end } = getGuidePercents();
+				const thickness = 8;
+				if (guideFromLine && guideToLine && guideBand) {
+					guideFromLine.style.display = 'block';
+					guideToLine.style.display = 'block';
+					guideBand.style.display = 'block';
+					guideFromLine.style.width = viewportWidth + 'px';
+					guideToLine.style.width = viewportWidth + 'px';
+					guideFromLine.style.height = thickness + 'px';
+					guideToLine.style.height = thickness + 'px';
+					const y1 = Math.round(viewportHeight * (start / 100));
+					const y2 = Math.round(viewportHeight * (end / 100));
+					guideFromLine.style.top = Math.max(0, y1 - Math.floor(thickness / 2)) + 'px';
+					guideToLine.style.top = Math.max(0, y2 - Math.floor(thickness / 2)) + 'px';
+					guideBand.style.top = Math.min(y1, y2) + 'px';
+					guideBand.style.height = Math.max(0, Math.abs(y2 - y1)) + 'px';
+					guideBand.style.width = viewportWidth + 'px';
+					// Cover mode: make band opaque and on top, else translucent
+					guideBand.style.background = 'rgba(0,0,0,0.95)';
+					guideBand.style.zIndex = '7';
+				}
+			}
+
+			function makeScrollKey(filePath) {
+				return 'pdf_scroll_' + encodeURIComponent(filePath || '');
+			}
+
+			function saveScrollPosition() {
+				if (!currentFilePath || !canvasWrap) return;
+				const maxScroll = Math.max(1, canvasWrap.scrollHeight - canvasWrap.clientHeight);
+				const ratio = canvasWrap.scrollTop / maxScroll;
+				try { localStorage.setItem(makeScrollKey(currentFilePath), String(ratio)); } catch {}
+			}
+
+			function restoreScrollPosition() {
+				if (!currentFilePath || !canvasWrap) return;
+				let saved = null;
+				try { saved = localStorage.getItem(makeScrollKey(currentFilePath)); } catch {}
+				const ratio = saved ? parseFloat(saved) : 0;
+				if (Number.isFinite(ratio)) {
+					const maxScroll = Math.max(1, canvasWrap.scrollHeight - canvasWrap.clientHeight);
+					canvasWrap.scrollTop = Math.round(maxScroll * Math.max(0, Math.min(ratio, 1)));
+				}
+			}
+
+			// Save while scrolling (debounced)
+			canvasWrap.addEventListener('scroll', () => {
+				if (!currentFilePath) return;
+				if (scrollSaveTimer) clearTimeout(scrollSaveTimer);
+				scrollSaveTimer = setTimeout(() => { saveScrollPosition(); }, 200);
+			});
+
+			// Save on page unload as a last chance
+			window.addEventListener('beforeunload', () => { saveScrollPosition(); });
+
+			function getQueryParam(name) {
+				const params = new URLSearchParams(location.search);
+				return params.get(name);
+			}
+
+			function updateButtons() {
+				prevBtn.disabled = !pdfDoc || currentPageNumber <= 1 || renderingInProgress;
+				nextBtn.disabled = !pdfDoc || currentPageNumber >= totalPages || renderingInProgress;
+				pageNumberInput.disabled = !pdfDoc || renderingInProgress;
+				zoomInput.disabled = !pdfDoc || renderingInProgress;
+			}
+
+			async function renderPage(pageNum) {
+				renderingInProgress = true;
+				updateButtons();
+				try {
+					const page = await pdfDoc.getPage(pageNum);
+					const viewport = page.getViewport({ scale: zoom });
+					canvas.width = viewport.width;
+					canvas.height = viewport.height;
+					// Resize text layer container to match canvas
+					textLayerDiv.style.width = viewport.width + 'px';
+					textLayerDiv.style.height = viewport.height + 'px';
+					textLayerDiv.innerHTML = '';
+					// Update guide overlays based on From/To percents
+					updateGuideOverlay(viewport.width, viewport.height);
+					const renderContext = { canvasContext: ctx, viewport };
+					await page.render(renderContext).promise;
+					// Render selectable text layer
+					const textContent = await page.getTextContent();
+					// Set the scale factor CSS variable for text layer
+					textLayerDiv.style.setProperty('--scale-factor', viewport.scale);
+					await pdfjsLib.renderTextLayer({
+						textContentSource: textContent,
+						container: textLayerDiv,
+						viewport,
+						enhanceTextSelection: true,
+						textDivs: []
+					}).promise;
+					// Restore scroll after DOM is updated this frame
+					requestAnimationFrame(() => { restoreScrollPosition(); });
+				} finally {
+					renderingInProgress = false;
+					updateButtons();
+					if (pendingPageNumber !== null) {
+						const next = pendingPageNumber;
+						pendingPageNumber = null;
+						renderPage(next);
+					}
+				}
+			}
+
+			function queueRender(pageNum) {
+				if (renderingInProgress) {
+					pendingPageNumber = pageNum;
+				} else {
+					renderPage(pageNum);
+				}
+			}
+
+			function goToPage(pageNum) {
+				if (!pdfDoc) return;
+				// Save current scroll for current page before navigating
+				saveScrollPosition();
+				const clamped = Math.max(1, Math.min(pageNum, totalPages));
+				currentPageNumber = clamped;
+				try { localStorage.setItem('pdf_last_page_' + encodeURIComponent(currentFilePath), String(clamped)); } catch {}
+				pageNumberInput.value = String(clamped);
+				queueRender(clamped);
+			}
+
+			async function loadPdf(src) {
+				const loadingTask = pdfjsLib.getDocument(src);
+				pdfDoc = await loadingTask.promise;
+				totalPages = pdfDoc.numPages;
+				pageCountEl.textContent = String(totalPages);
+				// Determine current file path and restore last page
+				currentFilePath = typeof src === 'string' ? src : (src && src.url) || (src && src.filename) || 'blob';
+				let savedPage = null;
+				try { savedPage = localStorage.getItem('pdf_last_page_' + encodeURIComponent(currentFilePath)); } catch {}
+				const startPage = savedPage ? Math.max(1, Math.min(parseInt(savedPage, 10) || 1, pdfDoc.numPages)) : 1;
+				currentPageNumber = startPage;
+				pageNumberInput.value = String(startPage);
+				updateButtons();
+				await renderPage(startPage);
+			}
+
+			function setUrlFileParam(path) {
+				const url = new URL(location.href);
+				url.searchParams.set('file', path);
+				history.replaceState(null, '', url);
+			}
+
+			// UI events
+			prevBtn.addEventListener('click', () => goToPage(currentPageNumber - 1));
+			nextBtn.addEventListener('click', () => goToPage(currentPageNumber + 1));
+			pageNumberInput.addEventListener('change', () => {
+				const val = parseInt(pageNumberInput.value, 10);
+				if (!Number.isNaN(val)) goToPage(val);
+			});
+			function setZoomPercent(percent) {
+				// Save current scroll ratio before changing zoom
+				saveScrollPosition();
+				const clamped = Math.max(25, Math.min(percent, 400));
+				zoomInput.value = String(clamped);
+				zoom = clamped / 100;
+				try { localStorage.setItem(ZOOM_STORAGE_KEY, String(clamped)); } catch {}
+				queueRender(currentPageNumber);
+			}
+			zoomInput.addEventListener('change', () => {
+				const val = parseInt(zoomInput.value, 10);
+				if (!Number.isNaN(val)) setZoomPercent(val);
+			});
+			// Update overlays when range changes
+			if (rangeSelect) {
+				rangeSelect.addEventListener('change', () => { saveRangeSelection(); queueRender(currentPageNumber); });
+			}
+			// Preserve scroll on zoom change by saving before and restoring after render
+			zoomInput.addEventListener('focus', () => { saveScrollPosition(); });
+
+			document.addEventListener('keydown', (e) => {
+				if (!pdfDoc) return;
+				if (e.key === 'ArrowRight') {
+					goToPage(currentPageNumber + 1);
+				} else if (e.key === 'ArrowLeft') {
+					goToPage(currentPageNumber - 1);
+				}
+			});
+
+			openBtn.addEventListener('click', () => fileInput.click());
+			fileInput.addEventListener('change', () => {
+				const file = fileInput.files && fileInput.files[0];
+				if (!file) return;
+				const reader = new FileReader();
+				reader.onload = () => {
+					const buffer = new Uint8Array(reader.result);
+					loadPdf({ data: buffer, filename: file.name });
+				};
+				reader.readAsArrayBuffer(file);
+			});
+
+			// Populate lessonSelect 1..50
+			(function initLessonSelect() {
+				for (let i = 1; i <= 50; i++) {
+					const option = document.createElement('option');
+					option.value = String(i);
+					option.textContent = 'vocabulary-' + i;
+					lessonSelect.appendChild(option);
+				}
+				lessonSelect.addEventListener('change', () => {
+					const idx = parseInt(lessonSelect.value, 10);
+					if (!Number.isNaN(idx)) {
+						const path = 'storage/japan/vocabulary-' + idx + '.pdf';
+						setUrlFileParam(path);
+						loadPdf(path).catch(() => {/* handled below on canvas message if needed */});
+					}
+				});
+			})();
+
+			// Auto load from query param or default sample
+			const qsFile = getQueryParam('file');
+			const defaultFile = 'storage/japan/vocabulary-1.pdf';
+			const initial = qsFile ? decodeURIComponent(qsFile) : defaultFile;
+			// Restore zoom from storage before first render
+			(function restoreZoom() {
+				let saved = null;
+				try { saved = localStorage.getItem(ZOOM_STORAGE_KEY); } catch {}
+				const percent = saved ? parseInt(saved, 10) : 100;
+				if (!Number.isNaN(percent)) {
+					zoomInput.value = String(percent);
+					zoom = percent / 100;
+				}
+			})();
+			// Reflect initial into lessonSelect if it matches vocabulary-N
+			(function syncLessonFromInitial(path) {
+				const match = /vocabulary-(\d+)\.pdf$/i.exec(path || '');
+				if (match) {
+					lessonSelect.value = String(parseInt(match[1], 10));
+				}
+			})(initial);
+			// Restore range selection before first render
+			restoreRangeSelection();
+			// Restore cover toggle
+			(function restoreCover() {
+				let v = null;
+				try { v = localStorage.getItem(GUIDE_COVER_KEY); } catch {}
+			})();
+			loadPdf(initial).catch(err => {
+				console.error('Không thể tải PDF:', err);
+				// Show a friendly message on canvas
+				const msg = 'Không thể mở PDF. Hãy dùng nút Mở PDF hoặc ?file=...';
+				canvas.width = 900; canvas.height = 200;
+				ctx.fillStyle = '#ffffff';
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				ctx.fillStyle = '#111';
+				ctx.font = '20px Segoe UI, Roboto, Arial';
+				ctx.fillText(msg, 20, 80);
+			});
+		})();
+	</script>
+</body>
+</html>
+
+
