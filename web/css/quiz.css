@@ -1,0 +1,324 @@
+@font-face {
+  font-family: 'UTM Bauhaus';
+  src: url('./fonts/UTM-Bauhaus-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+.hidden {
+  display: none;
+}
+body, button, input {
+  font-family: 'UTM Bauhaus', sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'UTM Bauhaus', sans-serif !important;
+}
+body {
+  background: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+.container {
+  background: white;
+  padding: 20px 20px 45px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  max-width: 1024px;
+}
+h2 {
+  color: #333;
+  font-weight: 600;
+}
+.settings {
+  text-align: left;
+  margin-bottom: 15px;
+}
+.settings label {
+  font-weight: 600;
+}
+.question {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.options {
+  text-align: left;
+  padding-left: 10px;
+}
+.options label {
+  display: block;
+  padding: 8px;
+  border-radius: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.options input {
+  margin-right: 10px;
+}
+.btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: 0.3s;
+  font-size: 16px;
+}
+.btn:hover {
+  background: #218838;
+}
+.correct {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+}
+.incorrect {
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
+}
+
+.leftButtonGroup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.leftButtonGroup .btn {
+  position: static; /* remove fixed positioning from buttons */
+}
+
+.rightButtonGroup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.rightButtonGroup .btn {
+  position: static; /* remove fixed positioning from buttons */
+}
+
+.options label:hover {
+  background-color: #9f9fa1;
+  color: #155724;
+}
+
+/* Dropdown với checkbox */
+.dropdown-checkbox {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  user-select: none;
+}
+.dropdown-checkbox button {
+  width: 100%;
+  padding: 10px;
+  text-align: left;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.dropdown-checkbox button:after {
+  content: "▼";
+  float: right;
+  margin-left: 10px;
+  font-size: 12px;
+  color: #555;
+}
+.dropdown-content {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10000;
+  display: none;
+  margin-top: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+#fileListCheckboxes {
+  padding: 10px;
+  /* Bỏ scroll trong vùng checkbox, để scroll chỉ xuất hiện ở dropdown-content */
+  max-height: none !important;
+  overflow-y: visible !important;
+}
+#fileListCheckboxes label {
+  display: block;
+  cursor: pointer;
+  margin-bottom: 5px;
+  user-select: none;
+}
+#fileListCheckboxes input[type=checkbox] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+body {
+  padding-top: 40px; /* Bằng hoặc lớn hơn height của #quizStatusBar */
+}
+#quizStatusBar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* Bỏ left:0 để không kéo full chiều ngang */
+  background: #007bff;
+  color: white;
+  padding: 8px 15px;
+  font-weight: 600;
+  font-size: 16px;
+  z-index: 2000;
+  display: none;
+  border-bottom-left-radius: 10px; /* bo tròn góc trái dưới */
+  max-width: 320px; /* hoặc width cố định nếu muốn */
+  white-space: nowrap; /* không xuống dòng */
+}
+.correct::before {
+  content: "✔️ ";
+}
+.incorrect::before {
+  content: "❌ ";
+}
+#toast {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 9999;
+  left: 50%;
+  top: 40px;
+  font-size: 17px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.explain-tooltip-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.explain-tooltip-content {
+  transition: opacity 0.2s ease;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  width: 90vw;
+  max-width: 600px;
+  min-width: 200px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #333;
+  white-space: normal;
+  word-wrap: break-word;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .explain-tooltip-content {
+    width: 95vw;
+    max-width: 350px;
+    right: -10px;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explain-tooltip-content {
+    width: 98vw;
+    max-width: 300px;
+    right: -20px;
+    font-size: 13px;
+    padding: 6px;
+  }
+}
+
+.tooltip-wrapper:hover .explain-tooltip-content {
+  display: block !important;
+  opacity: 1;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .container {
+  background-color: #1e1e1e !important;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark-mode h2 {
+  color: #ffffff !important;
+}
+
+.dark-mode .settings label,
+.dark-mode .question,
+.dark-mode .options label {
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .btn {
+  color: #121212 !important;
+}
+
+.dark-mode #quizStatusBar {
+  background-color: #3700b3 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .correct {
+  background-color: #2e7d32 !important;
+  border-left: 5px solid #bb86fc !important;
+}
+
+.dark-mode .incorrect {
+  background-color: #b00020 !important;
+  border-left: 5px solid #cf6679 !important;
+}
+
+.dark-mode #toast {
+  background-color: #333333 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode .explain-tooltip-content {
+  background-color: #2d2d2d !important;
+  border-color: #555 !important;
+  color: #e0e0e0 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}

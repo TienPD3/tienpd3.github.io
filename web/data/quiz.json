@@ -1,0 +1,344 @@
+[
+  {
+    "lesson": "Bài 26",
+    "question": "Vていただけませんか",
+    "options": [
+      "Dùng khi muốn người khác làm gì đó cho mình một cách lịch sự",
+      "Dùng để xin phép làm một việc gì đó cho người khác",
+      "Dùng để miêu tả thói quen bản thân thường làm",
+      "Dùng để nói về khả năng có thể làm được hay không"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu dùng để nhờ vả lịch sự: Anh/Chị làm ơn ~ giúp tôi được không ạ?\nVí dụ: いい先生を紹介していただけませんか。 (Anh/chị có thể giới thiệu cho tôi một giáo viên tốt được không?)"
+  },
+  {
+    "lesson": "Bài 26",
+    "question": "Từ để hỏi + Vたらいいですか",
+    "options": [
+      "Dùng để hỏi cách làm, nên làm gì thì tốt",
+      "Dùng để xác nhận hành động đã làm trong quá khứ",
+      "Dùng để nhấn mạnh việc nên tránh không làm gì",
+      "Dùng để bày tỏ mong muốn cá nhân trong tương lai"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu dùng để hỏi nên làm thế nào thì tốt.\nVí dụ: どこで買ったらいいですか。 (Tôi nên mua ở đâu thì tốt?)"
+  },
+  {
+    "lesson": "Bài 26",
+    "question": "～んです",
+    "options": [
+      "Dùng để giải thích, nêu lý do hoặc làm mềm câu",
+      "Dùng để biểu hiện khả năng làm được hay không",
+      "Dùng để nói chắc chắn điều gì đó sẽ xảy ra",
+      "Dùng để miêu tả một hành động thường xuyên lặp lại"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu ～んです dùng để nhờ vả, hỏi nguyên nhân, hoặc làm mềm câu.\nVí dụ: どうして遅れたんですか。 (Tại sao bạn đến muộn vậy?)"
+  },
+  {
+    "lesson": "Bài 26",
+    "question": "Nは 好きです・嫌いです・上手です・下手です・あります",
+    "options": [
+      "Dùng để nói sở thích, sự yêu ghét, giỏi/kém, hay có cái gì",
+      "Dùng để biểu hiện ý định hay kế hoạch trong tương lai",
+      "Dùng để yêu cầu hay nhờ vả người khác",
+      "Dùng để diễn đạt sự thay đổi trạng thái"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu này dùng để nói thích/ghét, giỏi/kém hoặc có cái gì.\nVí dụ: スキーは好きですか。 (Bạn có thích trượt tuyết không?)"
+  },
+  {
+    "lesson": "Bài 28",
+    "question": "Vながら",
+    "options": [
+      "Làm A đồng thời làm B",
+      "Làm A rồi mới làm B",
+      "Làm A xong thì B xảy ra",
+      "Làm A thay cho B"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để chỉ 2 hành động xảy ra đồng thời, cùng một chủ ngữ.\nVí dụ: 音楽を聞きながら食事します。 (Vừa nghe nhạc vừa ăn.)"
+  },
+  {
+    "lesson": "Bài 28",
+    "question": "～し、～し",
+    "options": [
+      "Liệt kê lý do, thêm vào đó",
+      "Diễn đạt một hành động duy nhất",
+      "Nêu mục đích của hành động",
+      "Biểu hiện sự đối lập"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để liệt kê nhiều lý do hoặc thêm thông tin.\nVí dụ: 安いし、美味しいし、この店が好きです。 (Vừa rẻ, vừa ngon nên tôi thích quán này.)"
+  },
+  {
+    "lesson": "Bài 28",
+    "question": "いつもVています",
+    "options": [
+      "Thói quen thường xuyên, đôi khi mang nghĩa phàn nàn",
+      "Hành động chỉ xảy ra một lần",
+      "Kế hoạch trong tương lai",
+      "Khả năng có thể hay không"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để nói về hành động lặp đi lặp lại, có thể mang nghĩa phàn nàn.\nVí dụ: 彼はいつも遅れてきています。 (Anh ấy lúc nào cũng đến muộn.)"
+  },
+
+  {
+    "lesson": "Bài 29",
+    "question": "NがVています",
+    "options": [
+      "Trạng thái đang diễn ra của sự vật",
+      "Hành động đang xảy ra ngay lúc nói",
+      "Thói quen lặp lại hàng ngày",
+      "Mục đích của hành động"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để diễn đạt trạng thái của sự vật.\nVí dụ: ドアが開いています。 (Cửa đang mở.)"
+  },
+  {
+    "lesson": "Bài 29",
+    "question": "Vてしまいます",
+    "options": [
+      "Hoàn thành hoặc hối tiếc",
+      "Hành động lặp đi lặp lại",
+      "Hành động đang xảy ra",
+      "Yêu cầu, nhờ vả"
+    ],
+    "answer": 0,
+    "explanation": "Dùng khi hành động đã hoàn thành hoặc thể hiện sự nuối tiếc.\nVí dụ: 宿題をしてしまいました。 (Tôi đã làm xong bài tập rồi.)"
+  },
+  {
+    "lesson": "Bài 29",
+    "question": "ちゃう／じゃう",
+    "options": [
+      "Nói ngắn của Vてしまいます",
+      "Nói ngắn của Vてあります",
+      "Nói ngắn của Vています",
+      "Nói ngắn của Vておきます"
+    ],
+    "answer": 0,
+    "explanation": "Thể rút gọn thông thường của ～てしまいます.\nVí dụ: 宿題をしちゃった。 (Tôi lỡ làm mất bài tập rồi.)"
+  },
+
+  {
+    "lesson": "Bài 30",
+    "question": "Vてあります",
+    "options": [
+      "Trạng thái còn lại sau khi làm",
+      "Hành động đang xảy ra",
+      "Mục đích của hành động",
+      "Thói quen thường xuyên"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để diễn tả trạng thái có mục đích do ai đó thực hiện.\nVí dụ: 壁に絵がかけてあります。 (Trên tường có treo tranh.)"
+  },
+  {
+    "lesson": "Bài 30",
+    "question": "Vておきます",
+    "options": [
+      "Chuẩn bị sẵn, làm trước",
+      "Hành động đang diễn ra",
+      "Hoàn thành hành động",
+      "Lặp lại hành động"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để nói làm gì đó trước để chuẩn bị.\nVí dụ: 会議の前に資料をコピーしておきます。 (Trước cuộc họp tôi photo sẵn tài liệu.)"
+  },
+  {
+    "lesson": "Bài 30",
+    "question": "まだVています",
+    "options": [
+      "Hành động vẫn còn tiếp diễn",
+      "Hành động đã hoàn thành",
+      "Hành động xảy ra lặp lại",
+      "Hành động đã dừng hẳn"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để chỉ hành động vẫn đang tiếp tục.\nVí dụ: まだ雨が降っています。 (Trời vẫn đang mưa.)"
+  },
+
+  {
+    "lesson": "Bài 32",
+    "question": "～ほうがいいです",
+    "options": [
+      "Nên làm hoặc không nên làm gì",
+      "Có thể làm hoặc không thể làm",
+      "Phải làm gì ngay lập tức",
+      "Chắc chắn sẽ làm gì"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để khuyên bảo, gợi ý.\nVí dụ: もっと勉強したほうがいいです。 (Bạn nên học nhiều hơn.)"
+  },
+  {
+    "lesson": "Bài 32",
+    "question": "～でしょう",
+    "options": [
+      "Phỏng đoán có lẽ",
+      "Khẳng định chắc chắn",
+      "Mục đích hành động",
+      "Thói quen lặp lại"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để phỏng đoán, suy đoán.\nVí dụ: 明日は雨が降るでしょう。 (Ngày mai có lẽ trời sẽ mưa.)"
+  },
+  {
+    "lesson": "Bài 32",
+    "question": "～かもしれません",
+    "options": [
+      "Có lẽ, khả năng thấp hơn でしょう",
+      "Chắc chắn sẽ xảy ra",
+      "Luôn luôn xảy ra",
+      "Nên làm gì thì tốt"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để chỉ khả năng có thể xảy ra nhưng không chắc.\nVí dụ: 明日は雨が降るかもしれません。 (Ngày mai có thể trời sẽ mưa.)"
+  },
+
+  {
+    "lesson": "Bài 33",
+    "question": "Vなさい",
+    "options": [
+      "Mệnh lệnh nhẹ nhàng",
+      "Nói về thói quen",
+      "Khuyên nhủ gián tiếp",
+      "Biểu thị khả năng"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu mệnh lệnh nhẹ, thường dùng cho cha mẹ, thầy cô.\nVí dụ: 野菜を食べなさい。 (Ăn rau đi.)"
+  },
+  {
+    "lesson": "Bài 33",
+    "question": "Vてはいけません",
+    "options": [
+      "Cấm đoán: không được làm",
+      "Khuyên nhủ nên làm",
+      "Nói về khả năng",
+      "Trạng thái đang diễn ra"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để cấm đoán.\nVí dụ: ここでタバコを吸ってはいけません。 (Không được hút thuốc ở đây.)"
+  },
+  {
+    "lesson": "Bài 33",
+    "question": "～と書いてあります／～と読みます",
+    "options": [
+      "Nói cách đọc hoặc cách viết",
+      "Nói ý định",
+      "Nói mục đích",
+      "Nói thói quen"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để giải thích chữ viết, cách đọc.\nVí dụ: この漢字は「愛」と読みます。 (Chữ Hán này đọc là ‘ai’.)"
+  },
+  {
+    "lesson": "Bài 33",
+    "question": "～という意味です",
+    "options": [
+      "Nói ý nghĩa của từ/câu",
+      "Nói cách sử dụng",
+      "Nói sự thay đổi",
+      "Nói cảm xúc"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để giải thích nghĩa.\nVí dụ: 「止まれ」は止まらなければならないという意味です。 (‘Tomare’ nghĩa là phải dừng lại.)"
+  },
+
+  {
+    "lesson": "Bài 35",
+    "question": "～ば",
+    "options": [
+      "Nếu A thì B",
+      "Khi A thì chắc chắn B",
+      "Vì A nên B",
+      "Mục đích để A thì B"
+    ],
+    "answer": 0,
+    "explanation": "Cách nói điều kiện.\nVí dụ: 雨が降れば、出かけません。 (Nếu trời mưa thì tôi không đi ra ngoài.)"
+  },
+  {
+    "lesson": "Bài 35",
+    "question": "～なら",
+    "options": [
+      "Nếu là A thì B",
+      "Nếu A thì chắc chắn B",
+      "Vì A nên B",
+      "Để A thì B"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để nêu điều kiện, giả định.\nVí dụ: 日本へ行くなら、新幹線が便利です。 (Nếu đi Nhật thì shinkansen tiện lợi.)"
+  },
+  {
+    "lesson": "Bài 35",
+    "question": "Vたらいいですか",
+    "options": [
+      "Nên làm gì thì tốt",
+      "Có thể làm gì hay không",
+      "Chắc chắn phải làm gì",
+      "Luôn luôn làm gì"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để đưa ra lời khuyên.\nVí dụ: もっと勉強したらいいですよ。 (Bạn nên học nhiều hơn.)"
+  },
+  {
+    "lesson": "Bài 35",
+    "question": "AればAるほど、B",
+    "options": [
+      "Càng A thì càng B",
+      "Nếu A thì B",
+      "Khi A thì chắc chắn B",
+      "Vì A nên B"
+    ],
+    "answer": 0,
+    "explanation": "Dùng để nói sự tăng tiến tỉ lệ thuận.\nVí dụ: 見れば見るほど好きになります。 (Càng nhìn càng thích.)"
+  },
+  {
+    "lesson": "Bài 36",
+    "question": "A［ Vる／Ｖない］＋ように、Ｂ",
+    "options": [
+      "Làm B để đạt được A",
+      "Làm A để đạt được B",
+      "Làm B vì đã có A",
+      "Làm A vì muốn có B"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu chỉ mục đích: thực hiện B để có thể đạt được A.\nVí dụ: 新聞が読めるように、漢字を勉強します。 (Học kanji để có thể đọc báo.)"
+  },
+  {
+    "lesson": "Bài 36",
+    "question": "Vるように／Vなく＋なります／なりました",
+    "options": [
+      "Trạng thái thay đổi: từ không thể thành có thể hoặc ngược lại",
+      "Trạng thái duy trì: luôn luôn có thể hoặc không thể",
+      "Trạng thái cố gắng: nỗ lực để có thể hoặc không thể",
+      "Trạng thái dự đoán: có thể sẽ làm được hoặc không làm được"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu chỉ sự thay đổi trạng thái khả năng.\nVí dụ: 日本語が話せるようになりました。 (Đã có thể nói tiếng Nhật.)"
+  },
+  {
+    "lesson": "Bài 36",
+    "question": "Vる／Vない＋ようにしています",
+    "options": [
+      "Cố gắng duy trì làm A như một thói quen",
+      "Luôn luôn làm A mà không cần cố gắng",
+      "Chỉ thử làm A một lần cho biết",
+      "Bắt buộc phải làm A theo mệnh lệnh"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu chỉ sự cố gắng hình thành thói quen.\nVí dụ: 毎日運動して、何でも食べるようにしています。 (Tôi cố gắng tập thể dục hằng ngày và ăn uống đầy đủ.)"
+  },
+  {
+    "lesson": "Bài 36",
+    "question": "Vる／Vない＋ようにしてください",
+    "options": [
+      "Yêu cầu/nhờ vả: hãy làm hoặc đừng làm A",
+      "Mong muốn cá nhân: muốn thử làm A",
+      "Khả năng: đã có thể hoặc không thể làm A",
+      "Mục đích: làm B để đạt được A"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu câu dùng để đưa ra yêu cầu, nhờ vả.\nVí dụ: 必ず時間を守るようにしてください。 (Hãy nhớ đúng giờ.)"
+  }
+]
+  

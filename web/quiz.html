@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz JLPT</title>
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+  <div id="quizStatusBar"></div>
+  <div class="container">
+    <h2>Trắc nghiệm Ngữ pháp JLPT</h2>
+
+    <div class="settings"></div>
+
+    <div id="listBox" class="options"></div>
+
+    <div class="rightButtonGroup">
+      <button id="retryBtn" class="btn hidden" type="button">Làm lại</button>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script>
+    const state = {
+      questions: [],
+      order: [],
+      selected: new Map(), // Map<qIdx, originalOptionIndex>
+      correctCount: 0,
+      finished: false,
+      optionOrder: new Map(), // Map<qIdx, number[]> shuffled option indices per question
+      checkedQuestions: new Set() // Set<number> of question indices evaluated individually
+    };
+
+    function setStatusBar() {
+      const total = state.order.length;
+      const done = state.selected.size;
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      const bar = document.getElementById('quizStatusBar');
+      bar.style.display = 'block';
+      bar.textContent = `Tổng ${total} câu · Đã chọn ${done} · ${pct}%`;
+    }
+
+    function toast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 1500);
+    }
+
+    function getOptionOrder(qIdx, optionCount) {
+      if (state.optionOrder.has(qIdx)) return state.optionOrder.get(qIdx);
+      const arr = Array.from({ length: optionCount }, (_, i) => i);
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      state.optionOrder.set(qIdx, arr);
+      return arr;
+    }
+
+    function renderList() {
+      const listBox = document.getElementById('listBox');
+      listBox.innerHTML = '';
+      state.order.forEach((qIdx, orderIndex) => {
+        const q = state.questions[qIdx];
+
+        const qWrap = document.createElement('div');
+        qWrap.className = 'settings';
+
+        const headerRow = document.createElement('div');
+        headerRow.style.display = 'flex';
+        headerRow.style.alignItems = 'center';
+        headerRow.style.gap = '10px';
+
+        const qTitle = document.createElement('div');
+        qTitle.className = 'question';
+        qTitle.textContent = `${orderIndex + 1}. ${q.question}`;
+
+        const isEvaluated = state.finished || state.checkedQuestions.has(qIdx);
+
+        q.options.forEach((opt, i) => {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = `q_${qIdx}`;
+          input.value = String(i);
+
+          const previously = state.selected.get(qIdx);
+          if (previously !== undefined && Number(previously) === i) {
+            input.checked = true;
+          }
+
+          input.addEventListener('change', () => {
+            state.selected.set(qIdx, i);
+            setStatusBar();
+          });
+
+          const span = document.createElement('span');
+          span.textContent = opt;
+          label.appendChild(input);
+          label.appendChild(span);
+
+          if (isEvaluated && previously !== undefined) {
+            label.classList.add(i === q.answer ? 'correct' : (i === previously ? 'incorrect' : ''));
+          }
+
+          listBox.appendChild(label);
+        });
+
+        // Add explanation icon with tooltip
+        if (isEvaluated && q.explanation) {
+          const explainIcon = document.createElement('div');
+          explainIcon.className = 'explain-tooltip-icon';
+          explainIcon.innerHTML = '💡';
+          explainIcon.style.cssText = 'display: inline-block; margin-left: 10px; cursor: pointer; font-size: 16px;';
+          
+          const tooltipContent = document.createElement('div');
+          tooltipContent.className = 'explain-tooltip-content';
+          tooltipContent.textContent = q.explanation;
+          tooltipContent.style.display = 'none';
+          
+          explainIcon.appendChild(tooltipContent);
+          
+          // Add click event to toggle tooltip
+          explainIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = tooltipContent.style.display === 'block';
+            tooltipContent.style.display = isVisible ? 'none' : 'block';
+            tooltipContent.style.opacity = isVisible ? '0' : '1';
+          });
+          
+          // Hide tooltip when clicking outside
+          document.addEventListener('click', () => {
+            tooltipContent.style.display = 'none';
+            tooltipContent.style.opacity = '0';
+          });
+          
+          qTitle.appendChild(explainIcon);
+        }
+
+        // Add per-question check button
+        const checkBtn = document.createElement('button');
+        checkBtn.type = 'button';
+        checkBtn.className = 'btn';
+        checkBtn.textContent = isEvaluated ? 'Đã kiểm tra' : 'Kiểm tra';
+        if (isEvaluated) {
+          checkBtn.disabled = true;
+          checkBtn.style.opacity = '0.7';
+          checkBtn.style.cursor = 'default';
+        }
+        checkBtn.addEventListener('click', () => {
+          if (!state.selected.has(qIdx)) {
+            toast('Chọn một đáp án trước khi kiểm tra');
+            return;
+          }
+          state.checkedQuestions.add(qIdx);
+          renderList();
+        });
+        headerRow.appendChild(checkBtn);
+        headerRow.appendChild(qTitle);
+        qWrap.appendChild(headerRow);
+
+        listBox.appendChild(qWrap);
+        
+        // Add horizontal rule between questions (except after the last one)
+        if (orderIndex < state.order.length - 1) {
+          const hr = document.createElement('hr');
+          hr.style.margin = '20px 0';
+          hr.style.border = 'none';
+          hr.style.borderTop = '1px solid #ddd';
+          listBox.appendChild(hr);
+        }
+      });
+      setStatusBar();
+    }
+
+    // single-question mode removed
+
+    // per-question explanation handled in list after submit
+
+    function computeScore() {
+      let correct = 0;
+      state.order.forEach((qIdx) => {
+        const q = state.questions[qIdx];
+        const pickedOriginal = state.selected.get(qIdx);
+        if (pickedOriginal !== undefined && Number(pickedOriginal) === Number(q.answer)) correct += 1;
+      });
+      state.correctCount = correct;
+      return { correct, total: state.order.length };
+    }
+
+    function submit() {
+      if (!state.order.length) return;
+      state.finished = true;
+      const { correct, total } = computeScore();
+      toast(`Kết quả: ${correct}/${total}`);
+
+      // re-render list to highlight results
+      renderList();
+    }
+
+    function buildOrder() {
+      state.order = Array.from({ length: state.questions.length }, (_, i) => i);
+      // shuffle questions by default
+      for (let i = state.order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [state.order[i], state.order[j]] = [state.order[j], state.order[i]];
+      }
+      // reset option orders
+      state.optionOrder.clear();
+    }
+
+    function reset() {
+      state.selected.clear();
+      state.correctCount = 0;
+      state.finished = false;
+      buildOrder();
+      renderList();
+    }
+
+    async function loadData() {
+      try {
+        const res = await fetch('data/quiz.json', { cache: 'no-store' });
+        const json = await res.json();
+        if (Array.isArray(json)) {
+          state.questions = json;
+        } else if (Array.isArray(json.questions)) {
+          state.questions = json.questions;
+        } else {
+          throw new Error('Dữ liệu không hợp lệ');
+        }
+        buildOrder();
+        renderList();
+      } catch (e) {
+        console.error(e);
+        toast('Không tải được dữ liệu quiz.json');
+      }
+    }
+
+    // Events
+
+    // removed submit button
+
+    document.getElementById('retryBtn').addEventListener('click', reset);
+
+    // Init
+    loadData();
+
+    // list renderer with shuffled options
+    function renderList() {
+      const listBox = document.getElementById('listBox');
+      listBox.innerHTML = '';
+      state.order.forEach((qIdx, orderIndex) => {
+        const q = state.questions[qIdx];
+
+        const qWrap = document.createElement('div');
+        qWrap.className = 'settings';
+
+        const qTitle = document.createElement('div');
+        qTitle.className = 'question';
+        qTitle.textContent = `${orderIndex + 1}. ${q.question}`;
+        qWrap.appendChild(qTitle);
+
+        const optionOrder = getOptionOrder(qIdx, q.options.length);
+        const pickedOriginal = state.selected.get(qIdx);
+        const isEvaluated = state.finished || state.checkedQuestions.has(qIdx);
+        optionOrder.forEach((originalIndex) => {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          input.type = 'radio';
+          input.name = `q_${qIdx}`;
+          input.value = String(originalIndex);
+
+          if (pickedOriginal !== undefined && Number(pickedOriginal) === Number(originalIndex)) {
+            input.checked = true;
+          }
+
+          input.addEventListener('change', () => {
+            state.selected.set(qIdx, originalIndex);
+            setStatusBar();
+          });
+
+          const span = document.createElement('span');
+          span.textContent = q.options[originalIndex];
+          label.appendChild(input);
+          label.appendChild(span);
+
+          if (isEvaluated && pickedOriginal !== undefined) {
+            if (originalIndex === q.answer) label.classList.add('correct');
+            else if (originalIndex === pickedOriginal) label.classList.add('incorrect');
+          }
+
+          qWrap.appendChild(label);
+        });
+
+        // Add explanation icon with tooltip
+        if (isEvaluated && q.explanation) {
+          const explainIcon = document.createElement('div');
+          explainIcon.className = 'explain-tooltip-icon';
+          explainIcon.innerHTML = '💡';
+          explainIcon.style.cssText = 'display: inline-block; margin-left: 10px; cursor: pointer; font-size: 16px;';
+          
+          const tooltipContent = document.createElement('div');
+          tooltipContent.className = 'explain-tooltip-content';
+          tooltipContent.textContent = q.explanation;
+          tooltipContent.style.display = 'none';
+          
+          explainIcon.appendChild(tooltipContent);
+          
+          // Add click event to toggle tooltip
+          explainIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isVisible = tooltipContent.style.display === 'block';
+            tooltipContent.style.display = isVisible ? 'none' : 'block';
+            tooltipContent.style.opacity = isVisible ? '0' : '1';
+          });
+          
+          // Hide tooltip when clicking outside
+          document.addEventListener('click', () => {
+            tooltipContent.style.display = 'none';
+            tooltipContent.style.opacity = '0';
+          });
+          
+          qTitle.appendChild(explainIcon);
+        }
+
+        // Add per-question check button
+        const checkBtn = document.createElement('button');
+        checkBtn.type = 'button';
+        checkBtn.className = 'btn';
+        checkBtn.textContent = isEvaluated ? 'Đã kiểm tra' : 'Kiểm tra';
+        if (isEvaluated) {
+          checkBtn.disabled = true;
+          checkBtn.style.opacity = '0.7';
+          checkBtn.style.cursor = 'default';
+        }
+        checkBtn.addEventListener('click', () => {
+          if (!state.selected.has(qIdx)) {
+            toast('Chọn một đáp án trước khi kiểm tra');
+            return;
+          }
+          state.checkedQuestions.add(qIdx);
+          renderList();
+        });
+        qWrap.appendChild(checkBtn);
+
+        listBox.appendChild(qWrap);
+        
+        // Add horizontal rule between questions (except after the last one)
+        if (orderIndex < state.order.length - 1) {
+          const hr = document.createElement('hr');
+          hr.style.margin = '20px 0';
+          hr.style.border = 'none';
+          hr.style.borderTop = '1px solid #ddd';
+          listBox.appendChild(hr);
+        }
+      });
+      setStatusBar();
+    }
+  </script>
+</body>
+</html>
+
