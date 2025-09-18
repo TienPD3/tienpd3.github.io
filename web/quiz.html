@@ -5,13 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quiz JLPT</title>
   <link rel="stylesheet" href="css/quiz.css">
+  <style>
+    .lesson-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .dropdown-content label {
+      display: block;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
   <div id="quizStatusBar"></div>
   <div class="container">
     <h2>Trắc nghiệm Ngữ pháp JLPT</h2>
 
-    <div class="settings"></div>
+    <div class="settings">
+      <label>Chọn bài học:</label>
+      <div class="lesson-dropdown">
+        <button id="dropdownBtn">Chọn bài học</button>
+        <div id="dropdownContent" class="dropdown-content">
+        </div>
+      </div>
+    </div>
 
     <div id="listBox" class="options"></div>
 
@@ -24,6 +51,7 @@
 
   <script>
     const state = {
+      allQuestions: [],
       questions: [],
       order: [],
       selected: new Map(), // Map<qIdx, originalOptionIndex>
@@ -224,19 +252,72 @@
       try {
         const res = await fetch('data/quiz.json', { cache: 'no-store' });
         const json = await res.json();
-        if (Array.isArray(json)) {
-          state.questions = json;
-        } else if (Array.isArray(json.questions)) {
-          state.questions = json.questions;
-        } else {
-          throw new Error('Dữ liệu không hợp lệ');
-        }
+        state.allQuestions = Array.isArray(json) ? json : json.questions || [];
+        // Load saved lessons from localStorage or default to all lessons
+        const savedLessons = JSON.parse(localStorage.getItem('selectedLessons') || 'null');
+        const allLessons = [...new Set(state.allQuestions.map(q => q.lesson))];
+        const lessonsToUse = savedLessons && Array.isArray(savedLessons) && savedLessons.length > 0
+          ? savedLessons.filter(l => allLessons.includes(l))
+          : allLessons;
+        state.questions = state.allQuestions.filter(q => lessonsToUse.includes(q.lesson));
+        const content = document.getElementById('dropdownContent');
+        const btn = document.getElementById('dropdownBtn');
+        content.innerHTML = '';
+        // Add check all
+        const allLabel = document.createElement('label');
+        const allInput = document.createElement('input');
+        allInput.type = 'checkbox';
+        allInput.id = 'checkAll';
+        allInput.checked = lessonsToUse.length === allLessons.length;
+        allInput.addEventListener('change', () => {
+          const checked = allInput.checked;
+          document.querySelectorAll('#dropdownContent input[type="checkbox"]:not(#checkAll)').forEach(cb => cb.checked = checked);
+          updateQuestions();
+        });
+        allLabel.appendChild(allInput);
+        allLabel.appendChild(document.createTextNode(' Tất cả'));
+        content.appendChild(allLabel);
+        // Add lesson checkboxes
+        allLessons.forEach(lesson => {
+          const label = document.createElement('label');
+          const input = document.createElement('input');
+          input.type = 'checkbox';
+          input.value = lesson;
+          input.checked = lessonsToUse.includes(lesson);
+          input.addEventListener('change', updateQuestions);
+          label.appendChild(input);
+          label.appendChild(document.createTextNode(' ' + lesson));
+          content.appendChild(label);
+        });
+        btn.textContent = `Chọn bài học (${lessonsToUse.length})`;
+        btn.addEventListener('click', () => {
+          content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.lesson-dropdown')) {
+            content.style.display = 'none';
+          }
+        });
         buildOrder();
         renderList();
       } catch (e) {
         console.error(e);
         toast('Không tải được dữ liệu quiz.json');
       }
+    }
+
+    function updateQuestions() {
+      const selectedLessons = Array.from(document.querySelectorAll('#dropdownContent input:checked:not(#checkAll)')).map(cb => cb.value);
+      const allLessons = [...new Set(state.allQuestions.map(q => q.lesson))];
+      document.getElementById('checkAll').checked = selectedLessons.length === allLessons.length;
+      localStorage.setItem('selectedLessons', JSON.stringify(selectedLessons));
+      document.getElementById('dropdownBtn').textContent = `Chọn bài học (${selectedLessons.length})`;
+      state.selected.clear();
+      state.checkedQuestions.clear();
+      state.finished = false;
+      state.questions = state.allQuestions.filter(q => selectedLessons.includes(q.lesson));
+      buildOrder();
+      renderList();
     }
 
     // Events
