@@ -168,25 +168,7 @@
           qTitle.appendChild(explainIcon);
         }
 
-        // Add per-question check button
-        const checkBtn = document.createElement('button');
-        checkBtn.type = 'button';
-        checkBtn.className = 'btn';
-        checkBtn.textContent = isEvaluated ? 'Đã kiểm tra' : 'Kiểm tra';
-        if (isEvaluated) {
-          checkBtn.disabled = true;
-          checkBtn.style.opacity = '0.7';
-          checkBtn.style.cursor = 'default';
-        }
-        checkBtn.addEventListener('click', () => {
-          if (!state.selected.has(qIdx)) {
-            toast('Chọn một đáp án trước khi kiểm tra');
-            return;
-          }
-          state.checkedQuestions.add(qIdx);
-          renderList();
-        });
-        headerRow.appendChild(checkBtn);
+        // Header only contains title
         headerRow.appendChild(qTitle);
         qWrap.appendChild(headerRow);
 
@@ -347,7 +329,7 @@
         const optionOrder = getOptionOrder(qIdx, q.options.length);
         const pickedOriginal = state.selected.get(qIdx);
         const isEvaluated = state.finished || state.checkedQuestions.has(qIdx);
-        optionOrder.forEach((originalIndex) => {
+        optionOrder.forEach((originalIndex, idx) => {
           const label = document.createElement('label');
           const input = document.createElement('input');
           input.type = 'radio';
@@ -373,7 +355,41 @@
             else if (originalIndex === pickedOriginal) label.classList.add('incorrect');
           }
 
-          qWrap.appendChild(label);
+          // For the last option, put the Check button on the same row aligned right
+          if (idx === optionOrder.length - 1) {
+            const row = document.createElement('div');
+            row.style.display = 'flex';
+            row.style.alignItems = 'center';
+            row.style.gap = '10px';
+
+            const spacer = document.createElement('div');
+            spacer.style.flex = '1';
+
+            const checkBtn = document.createElement('button');
+            checkBtn.type = 'button';
+            checkBtn.className = 'btn';
+            checkBtn.textContent = isEvaluated ? 'Đã kiểm tra' : 'Kiểm tra';
+            if (isEvaluated) {
+              checkBtn.disabled = true;
+              checkBtn.style.opacity = '0.7';
+              checkBtn.style.cursor = 'default';
+            }
+            checkBtn.addEventListener('click', () => {
+              if (!state.selected.has(qIdx)) {
+                toast('Chọn một đáp án trước khi kiểm tra');
+                return;
+              }
+              state.checkedQuestions.add(qIdx);
+              renderList();
+            });
+
+            row.appendChild(label);
+            row.appendChild(spacer);
+            row.appendChild(checkBtn);
+            qWrap.appendChild(row);
+          } else {
+            qWrap.appendChild(label);
+          }
         });
 
         // Add explanation icon with tooltip
@@ -407,25 +423,7 @@
           qTitle.appendChild(explainIcon);
         }
 
-        // Add per-question check button
-        const checkBtn = document.createElement('button');
-        checkBtn.type = 'button';
-        checkBtn.className = 'btn';
-        checkBtn.textContent = isEvaluated ? 'Đã kiểm tra' : 'Kiểm tra';
-        if (isEvaluated) {
-          checkBtn.disabled = true;
-          checkBtn.style.opacity = '0.7';
-          checkBtn.style.cursor = 'default';
-        }
-        checkBtn.addEventListener('click', () => {
-          if (!state.selected.has(qIdx)) {
-            toast('Chọn một đáp án trước khi kiểm tra');
-            return;
-          }
-          state.checkedQuestions.add(qIdx);
-          renderList();
-        });
-        qWrap.appendChild(checkBtn);
+        // Check button rendered inline with last option above
 
         listBox.appendChild(qWrap);
         
