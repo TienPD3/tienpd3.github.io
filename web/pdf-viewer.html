@@ -143,8 +143,21 @@
 					<option value="easy">Easy</option>
 					<option value="normal">Normal</option>
 					<option value="hard">Hard</option>
+					<option value="very.hard">Very hard</option>
 				</select>
 			</label>
+			<label style="display:flex; align-items:center; gap:6px; color: var(--muted); margin-left:12px;">
+				<input id="randomCheckbox" type="checkbox" style="transform: scale(1.2);" />
+				<span>Random</span>
+			</label>
+			<button id="bookmarkBtn" title="Đánh dấu trang hiện tại">📖</button>
+			<div id="bookmarkDropdown" style="position: relative; display: inline-block;">
+				<button id="bookmarkListBtn" title="Danh sách bookmark">📚</button>
+				<div id="bookmarkMenu" style="display: none; position: absolute; top: 100%; right: 0; background: #192033; border: 1px solid #2a3142; border-radius: 8px; min-width: 200px; max-height: 300px; overflow-y: auto; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+					<div style="padding: 8px 12px; border-bottom: 1px solid #2a3142; color: var(--muted); font-size: 12px; font-weight: 600;">Bookmarks</div>
+					<div id="bookmarkList"></div>
+				</div>
+			</div>
 		</div>
 
 		<div class="canvas-wrap" id="canvasWrap">
@@ -154,6 +167,7 @@
 				<div id="guideBand" class="guide-band"></div>
 				<div id="guideFromLine" class="guide-line"></div>
 				<div id="guideToLine" class="guide-line"></div>
+				<div id="bookmarkIndicator" style="position: absolute; top: 10px; right: 10px; background: rgba(59, 130, 246, 0.9); color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; display: none; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">🔖 Bookmarked</div>
 			</div>
 		</div>
 	</div>
@@ -165,6 +179,7 @@
 			const textLayerDiv = document.getElementById('textLayer');
 			const canvasWrap = document.getElementById('canvasWrap');
 			const prevBtn = document.getElementById('prevBtn');
+			console.log('prevBtn element:', prevBtn);
 			const nextBtn = document.getElementById('nextBtn');
 			const pageNumberInput = document.getElementById('pageNumber');
 			const pageCountEl = document.getElementById('pageCount');
@@ -176,6 +191,12 @@
 			const guideFromLine = document.getElementById('guideFromLine');
 			const guideToLine = document.getElementById('guideToLine');
 			const rangeSelect = document.getElementById('rangeSelect');
+			const randomCheckbox = document.getElementById('randomCheckbox');
+			const bookmarkBtn = document.getElementById('bookmarkBtn');
+			const bookmarkListBtn = document.getElementById('bookmarkListBtn');
+			const bookmarkMenu = document.getElementById('bookmarkMenu');
+			const bookmarkList = document.getElementById('bookmarkList');
+			const bookmarkIndicator = document.getElementById('bookmarkIndicator');
 
 			let pdfDoc = null;
 			let currentPageNumber = 1;
@@ -189,6 +210,9 @@
 			let scrollSaveTimer = null;
 			const RANGE_SELECT_KEY = 'pdf_range_select_value';
 			const GUIDE_COVER_KEY = 'pdf_guide_cover_enabled';
+			const RANDOM_CHECKBOX_KEY = 'pdf_random_checkbox_enabled';
+			const BOOKMARKS_KEY = 'pdf_bookmarks';
+			const LESSON_SELECT_KEY = 'pdf_lesson_select_value';
 
 			function clampPercent(v) { return Math.max(0, Math.min(100, v)); }
 
@@ -201,6 +225,8 @@
 						return { start: 57, end: 85 };
 					case 'hard':
 						return { start: 57, end: 100 };
+					case 'very.hard':
+					    return { start: 57, end: 75 };
 					case 'study':
 					default:
 						return { start: 0, end: 0 };
@@ -216,6 +242,365 @@
 				let val = 'study';
 				try { val = localStorage.getItem(RANGE_SELECT_KEY) || 'study'; } catch {}
 				if (rangeSelect) rangeSelect.value = val;
+			}
+
+			function saveRandomCheckbox() {
+				if (!randomCheckbox) return;
+				try { localStorage.setItem(RANDOM_CHECKBOX_KEY, randomCheckbox.checked ? 'true' : 'false'); } catch {}
+			}
+
+			function restoreRandomCheckbox() {
+				let val = false;
+				try { val = localStorage.getItem(RANDOM_CHECKBOX_KEY) === 'true'; } catch {}
+				if (randomCheckbox) randomCheckbox.checked = val;
+			}
+
+			// Bookmark functions
+			function getBookmarks() {
+				try {
+					const bookmarks = localStorage.getItem(BOOKMARKS_KEY);
+					return bookmarks ? JSON.parse(bookmarks) : {};
+				} catch {
+					return {};
+				}
+			}
+
+			function saveBookmarks(bookmarks) {
+				try {
+					localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+				} catch (err) {
+					console.log('Could not save bookmarks:', err);
+				}
+			}
+
+			function getCurrentFileKey() {
+				return currentFilePath || 'unknown';
+			}
+
+			function addBookmark(pageNumber) {
+				const bookmarks = getBookmarks();
+				const fileKey = getCurrentFileKey();
+				const bookmarkKey = `${fileKey}:${pageNumber}`;
+				
+				if (!bookmarks[bookmarkKey]) {
+					bookmarks[bookmarkKey] = {
+						file: fileKey,
+						page: pageNumber,
+						timestamp: Date.now()
+					};
+					saveBookmarks(bookmarks);
+					updateBookmarkUI();
+					
+					// Update bookmark list if it's currently visible
+					if (bookmarkMenu && bookmarkMenu.style.display === 'block') {
+						renderBookmarkList();
+					}
+					
+					// If we're in bookmark lesson mode, refresh the lesson
+					if (lessonSelect && lessonSelect.value === 'bookmarks') {
+						loadBookmarksLesson();
+					}
+				}
+			}
+
+			function removeBookmark(pageNumber) {
+				const bookmarks = getBookmarks();
+				const fileKey = getCurrentFileKey();
+				const bookmarkKey = `${fileKey}:${pageNumber}`;
+				
+				if (bookmarks[bookmarkKey]) {
+					delete bookmarks[bookmarkKey];
+					saveBookmarks(bookmarks);
+					updateBookmarkUI();
+					
+					// Update bookmark list if it's currently visible
+					if (bookmarkMenu && bookmarkMenu.style.display === 'block') {
+						renderBookmarkList();
+					}
+					
+					// If we're in bookmark lesson mode, refresh the lesson
+					if (lessonSelect && lessonSelect.value === 'bookmarks') {
+						loadBookmarksLesson();
+					}
+				}
+			}
+
+			function isBookmarked(pageNumber) {
+				const bookmarks = getBookmarks();
+				const fileKey = getCurrentFileKey();
+				const bookmarkKey = `${fileKey}:${pageNumber}`;
+				return !!bookmarks[bookmarkKey];
+			}
+
+			function updateBookmarkUI() {
+				if (!bookmarkBtn) return;
+				const isCurrentBookmarked = isBookmarked(currentPageNumber);
+				bookmarkBtn.textContent = isCurrentBookmarked ? '🔖' : '📖';
+				bookmarkBtn.title = isCurrentBookmarked ? 'Bỏ đánh dấu trang này' : 'Đánh dấu trang này';
+				
+				// Show/hide bookmark indicator
+				if (bookmarkIndicator) {
+					bookmarkIndicator.style.display = isCurrentBookmarked ? 'block' : 'none';
+				}
+			}
+
+			function renderBookmarkList() {
+				if (!bookmarkList) return;
+				const bookmarks = getBookmarks();
+				
+				bookmarkList.innerHTML = '';
+				
+				// Convert bookmarks object to array and sort by timestamp (oldest first)
+				const bookmarkArray = Object.values(bookmarks).sort((a, b) => a.timestamp - b.timestamp);
+				
+				if (bookmarkArray.length === 0) {
+					const emptyItem = document.createElement('div');
+					emptyItem.style.padding = '12px';
+					emptyItem.style.color = 'var(--muted)';
+					emptyItem.style.fontSize = '12px';
+					emptyItem.style.textAlign = 'center';
+					emptyItem.textContent = 'Chưa có bookmark nào';
+					bookmarkList.appendChild(emptyItem);
+					return;
+				}
+
+				bookmarkArray.forEach(bookmark => {
+					const item = document.createElement('div');
+					item.style.display = 'flex';
+					item.style.justifyContent = 'space-between';
+					item.style.alignItems = 'center';
+					item.style.padding = '8px 12px';
+					item.style.borderBottom = '1px solid #2a3142';
+					item.style.cursor = 'pointer';
+					item.style.fontSize = '13px';
+					
+					const bookmarkInfo = document.createElement('div');
+					bookmarkInfo.style.display = 'flex';
+					bookmarkInfo.style.flexDirection = 'column';
+					bookmarkInfo.style.gap = '2px';
+					
+					const fileName = document.createElement('span');
+					fileName.style.fontSize = '11px';
+					fileName.style.color = 'var(--muted)';
+					fileName.textContent = bookmark.file.replace('storage/japan/', '').replace('.pdf', '');
+					
+					const pageInfo = document.createElement('span');
+					pageInfo.textContent = `Trang ${bookmark.page}`;
+					if (bookmark.file === getCurrentFileKey() && bookmark.page === currentPageNumber) {
+						pageInfo.style.color = 'var(--accent)';
+						pageInfo.style.fontWeight = '600';
+					}
+					
+					bookmarkInfo.appendChild(fileName);
+					bookmarkInfo.appendChild(pageInfo);
+					
+					const removeBtn = document.createElement('button');
+					removeBtn.textContent = '×';
+					removeBtn.style.background = 'none';
+					removeBtn.style.border = 'none';
+					removeBtn.style.color = 'var(--muted)';
+					removeBtn.style.cursor = 'pointer';
+					removeBtn.style.fontSize = '16px';
+					removeBtn.style.padding = '2px 6px';
+					removeBtn.style.borderRadius = '4px';
+					removeBtn.title = 'Xóa bookmark';
+					
+					item.appendChild(bookmarkInfo);
+					item.appendChild(removeBtn);
+					
+					// Click to go to page (and load file if needed)
+					item.addEventListener('click', (e) => {
+						if (e.target !== removeBtn) {
+							console.log('Bookmark item clicked:', bookmark);
+							
+							// If we're in bookmark lesson mode, find the index and go to it
+							if (lessonSelect && lessonSelect.value === 'bookmarks') {
+								const targetIndex = bookmarkLessonData.findIndex(b => 
+									b.file === bookmark.file && b.page === bookmark.page
+								);
+								if (targetIndex !== -1) {
+									console.log('Found bookmark at index:', targetIndex);
+									currentBookmarkIndex = targetIndex;
+									loadCurrentBookmark();
+									bookmarkMenu.style.display = 'none';
+								} else {
+									console.log('Bookmark not found in lesson data');
+								}
+							} else {
+								// Normal mode - load file and go to page
+								if (bookmark.file !== getCurrentFileKey()) {
+									loadPdf(bookmark.file, true).then(() => {
+										goToPage(bookmark.page);
+										bookmarkMenu.style.display = 'none';
+									}).catch(() => {
+										console.log('Could not load file:', bookmark.file);
+									});
+								} else {
+									goToPage(bookmark.page);
+									bookmarkMenu.style.display = 'none';
+								}
+							}
+						}
+					});
+					
+					// Remove bookmark
+					removeBtn.addEventListener('click', (e) => {
+						e.stopPropagation();
+						removeBookmark(bookmark.page);
+					});
+					
+					bookmarkList.appendChild(item);
+				});
+			}
+
+			// Bookmark lesson functionality
+			let bookmarkLessonData = [];
+			let currentBookmarkIndex = 0;
+
+			// Save/restore lesson select value
+			function saveLessonSelection() {
+				if (!lessonSelect) return;
+				try { 
+					localStorage.setItem(LESSON_SELECT_KEY, lessonSelect.value); 
+				} catch {}
+			}
+
+			function restoreLessonSelection() {
+				if (!lessonSelect) return;
+				try {
+					const saved = localStorage.getItem(LESSON_SELECT_KEY);
+					if (saved) {
+						lessonSelect.value = saved;
+						// If restored value is 'bookmarks', load bookmark lesson
+						if (saved === 'bookmarks') {
+							loadBookmarksLesson();
+						}
+					}
+				} catch {}
+			}
+
+			function loadBookmarksLesson() {
+				const bookmarks = getBookmarks();
+				bookmarkLessonData = Object.values(bookmarks).sort((a, b) => a.timestamp - b.timestamp);
+				currentBookmarkIndex = 0;
+				
+				if (bookmarkLessonData.length === 0) {
+					// Show empty state
+					showBookmarkEmptyState();
+					return;
+				}
+				
+				// Load first bookmark
+				loadCurrentBookmark();
+			}
+
+			function showBookmarkEmptyState() {
+				// Clear canvas and show message
+				canvas.width = 900;
+				canvas.height = 200;
+				ctx.fillStyle = '#ffffff';
+				ctx.fillRect(0, 0, canvas.width, canvas.height);
+				ctx.fillStyle = '#111';
+				ctx.font = '20px Segoe UI, Roboto, Arial';
+				ctx.fillText('Chưa có bookmark nào để học', 20, 80);
+				ctx.font = '14px Segoe UI, Roboto, Arial';
+				ctx.fillText('Hãy đánh dấu một số trang để tạo bài học bookmark', 20, 110);
+				
+				// Update UI
+				totalPages = 0;
+				pageCountEl.textContent = '0';
+				pageNumberInput.value = '0';
+				updateButtons();
+				updateBookmarkUI();
+			}
+
+			function loadCurrentBookmark() {
+				if (bookmarkLessonData.length === 0) return;
+				
+				const bookmark = bookmarkLessonData[currentBookmarkIndex];
+				console.log('Loading bookmark:', {
+					index: currentBookmarkIndex,
+					bookmark: bookmark,
+					file: bookmark.file,
+					page: bookmark.page
+				});
+				
+				currentFilePath = bookmark.file;
+				
+				// Load the actual PDF file first
+				loadPdf(bookmark.file, true).then(() => {
+					console.log('PDF loaded, updating UI...');
+					
+					// Override totalPages after loadPdf (which might have changed it)
+					totalPages = bookmarkLessonData.length;
+					pageCountEl.textContent = String(totalPages);
+					
+					// Update page number input to show bookmark index
+					pageNumberInput.value = String(currentBookmarkIndex + 1);
+					
+					// Go to the specific bookmarked page
+					currentPageNumber = bookmark.page;
+					queueRender(bookmark.page);
+					
+					updateButtons();
+					updateBookmarkUI();
+					
+					// Debug info
+					console.log('Bookmark lesson updated:', {
+						bookmarkIndex: currentBookmarkIndex + 1,
+						totalBookmarks: bookmarkLessonData.length,
+						pdfPage: bookmark.page,
+						file: bookmark.file,
+						displayText: `Trang ${currentBookmarkIndex + 1} / ${bookmarkLessonData.length}`
+					});
+				}).catch((err) => {
+					console.log('Could not load bookmark file:', bookmark.file, err);
+				});
+			}
+
+			function goToNextBookmark() {
+				if (bookmarkLessonData.length === 0) return;
+				
+				console.log('Before Next:', {
+					currentIndex: currentBookmarkIndex,
+					totalBookmarks: bookmarkLessonData.length,
+					currentBookmark: bookmarkLessonData[currentBookmarkIndex]
+				});
+				
+				if (currentBookmarkIndex < bookmarkLessonData.length - 1) {
+					currentBookmarkIndex++;
+				} else {
+					// If at the end, loop back to the beginning
+					currentBookmarkIndex = 0;
+				}
+				
+				console.log('After Next:', {
+					newIndex: currentBookmarkIndex,
+					newBookmark: bookmarkLessonData[currentBookmarkIndex]
+				});
+				
+				loadCurrentBookmark();
+			}
+
+			function goToPrevBookmark() {
+				if (bookmarkLessonData.length === 0) return;
+				
+				console.log('Before Previous:', {
+					currentIndex: currentBookmarkIndex,
+					totalBookmarks: bookmarkLessonData.length,
+					currentBookmark: bookmarkLessonData[currentBookmarkIndex]
+				});
+				
+				if (currentBookmarkIndex > 0) {
+					currentBookmarkIndex--;
+					console.log('After Previous:', {
+						newIndex: currentBookmarkIndex,
+						newBookmark: bookmarkLessonData[currentBookmarkIndex]
+					});
+					loadCurrentBookmark();
+				} else {
+					console.log('Already at first bookmark, cannot go previous');
+				}
 			}
 
 			function updateGuideOverlay(viewportWidth, viewportHeight) {
@@ -275,15 +660,33 @@
 
 
 			function updateButtons() {
-				prevBtn.disabled = !pdfDoc || currentPageNumber <= 1 || renderingInProgress;
-				nextBtn.disabled = !pdfDoc || currentPageNumber >= totalPages || renderingInProgress;
-				pageNumberInput.disabled = !pdfDoc || renderingInProgress;
-				zoomInput.disabled = !pdfDoc || renderingInProgress;
+				// Check if we're in bookmark lesson mode
+				if (lessonSelect && lessonSelect.value === 'bookmarks') {
+					// In bookmark lesson mode, only disable based on position, not rendering
+					prevBtn.disabled = !pdfDoc || currentBookmarkIndex <= 0;
+					nextBtn.disabled = !pdfDoc || currentBookmarkIndex >= bookmarkLessonData.length - 1;
+					pageNumberInput.disabled = !pdfDoc || renderingInProgress;
+					zoomInput.disabled = !pdfDoc || renderingInProgress;
+					
+					console.log('updateButtons (bookmark mode):', {
+						currentBookmarkIndex: currentBookmarkIndex,
+						totalBookmarks: bookmarkLessonData.length,
+						prevBtnDisabled: prevBtn.disabled,
+						nextBtnDisabled: nextBtn.disabled,
+						pdfDoc: !!pdfDoc,
+						renderingInProgress: renderingInProgress
+					});
+				} else {
+					prevBtn.disabled = !pdfDoc || currentPageNumber <= 1 || renderingInProgress;
+					nextBtn.disabled = !pdfDoc || currentPageNumber >= totalPages || renderingInProgress;
+					pageNumberInput.disabled = !pdfDoc || renderingInProgress;
+					zoomInput.disabled = !pdfDoc || renderingInProgress;
+				}
 			}
 
 			async function renderPage(pageNum) {
 				renderingInProgress = true;
-				updateButtons();
+				// Don't update buttons here to avoid conflicts
 				try {
 					const page = await pdfDoc.getPage(pageNum);
 					const viewport = page.getViewport({ scale: zoom });
@@ -312,7 +715,17 @@
 					requestAnimationFrame(() => { restoreScrollPosition(); });
 				} finally {
 					renderingInProgress = false;
+					
+					// Update UI for bookmark lesson mode
+					if (lessonSelect && lessonSelect.value === 'bookmarks') {
+						totalPages = bookmarkLessonData.length;
+						pageCountEl.textContent = String(totalPages);
+						pageNumberInput.value = String(currentBookmarkIndex + 1);
+					}
+					
+					// Update buttons only once at the end
 					updateButtons();
+					
 					if (pendingPageNumber !== null) {
 						const next = pendingPageNumber;
 						pendingPageNumber = null;
@@ -337,7 +750,27 @@
 				currentPageNumber = clamped;
 				try { localStorage.setItem('pdf_last_page', String(clamped)); } catch {}
 				pageNumberInput.value = String(clamped);
+				updateBookmarkUI(); // Update bookmark button state
 				queueRender(clamped);
+			}
+
+			function goToNextPage() {
+				if (!pdfDoc) return;
+				
+				// Check if we're in bookmark lesson mode
+				if (lessonSelect && lessonSelect.value === 'bookmarks') {
+					goToNextBookmark();
+					return;
+				}
+				
+				if (randomCheckbox && randomCheckbox.checked) {
+					// Random page when checkbox is checked
+					const randomPage = Math.floor(Math.random() * totalPages) + 1;
+					goToPage(randomPage);
+				} else {
+					// Normal next page
+					goToPage(currentPageNumber + 1);
+				}
 			}
 
 			async function loadPdf(src, resetToPage1 = false) {
@@ -364,6 +797,7 @@
 				currentPageNumber = startPage;
 				pageNumberInput.value = String(startPage);
 				updateButtons();
+				updateBookmarkUI(); // Update bookmark button state
 				await renderPage(startPage);
 			}
 
@@ -385,12 +819,51 @@
 				}
 			}
 
-			// UI events
-			prevBtn.addEventListener('click', () => goToPage(currentPageNumber - 1));
-			nextBtn.addEventListener('click', () => goToPage(currentPageNumber + 1));
+			// UI events - Simple approach
+			prevBtn.onclick = function(e) {
+				alert('Previous clicked!');
+				console.log('=== PREVIOUS BUTTON CLICKED ===');
+				
+				if (lessonSelect && lessonSelect.value === 'bookmarks') {
+					console.log('Bookmark mode - calling goToPrevBookmark()');
+					goToPrevBookmark();
+				} else {
+					console.log('Normal mode - calling goToPage()');
+					goToPage(currentPageNumber - 1);
+				}
+			};
+			nextBtn.onclick = function(e) {
+				alert('Next clicked!');
+				console.log('=== NEXT BUTTON CLICKED ===');
+				
+				if (lessonSelect && lessonSelect.value === 'bookmarks') {
+					console.log('Bookmark mode - calling goToNextBookmark()');
+					goToNextBookmark();
+				} else {
+					console.log('Normal mode - calling normal next page logic');
+					if (randomCheckbox && randomCheckbox.checked) {
+						// Random page when checkbox is checked
+						const randomPage = Math.floor(Math.random() * totalPages) + 1;
+						goToPage(randomPage);
+					} else {
+						// Normal next page
+						goToPage(currentPageNumber + 1);
+					}
+				}
+			};
 			pageNumberInput.addEventListener('change', () => {
 				const val = parseInt(pageNumberInput.value, 10);
-				if (!Number.isNaN(val)) goToPage(val);
+				if (!Number.isNaN(val)) {
+					// Check if we're in bookmark lesson mode
+					if (lessonSelect && lessonSelect.value === 'bookmarks') {
+						if (val >= 1 && val <= bookmarkLessonData.length) {
+							currentBookmarkIndex = val - 1;
+							loadCurrentBookmark();
+						}
+					} else {
+						goToPage(val);
+					}
+				}
 			});
 			function setZoomPercent(percent) {
 				// Save current scroll ratio before changing zoom
@@ -409,15 +882,66 @@
 			if (rangeSelect) {
 				rangeSelect.addEventListener('change', () => { saveRangeSelection(); queueRender(currentPageNumber); });
 			}
+			// Save random checkbox state when changed
+			if (randomCheckbox) {
+				randomCheckbox.addEventListener('change', saveRandomCheckbox);
+			}
+
+			// Bookmark event listeners
+			if (bookmarkBtn) {
+				bookmarkBtn.addEventListener('click', () => {
+					if (isBookmarked(currentPageNumber)) {
+						removeBookmark(currentPageNumber);
+					} else {
+						addBookmark(currentPageNumber);
+					}
+				});
+			}
+
+			if (bookmarkListBtn && bookmarkMenu) {
+				bookmarkListBtn.addEventListener('click', () => {
+					const isVisible = bookmarkMenu.style.display === 'block';
+					bookmarkMenu.style.display = isVisible ? 'none' : 'block';
+					if (!isVisible) {
+						renderBookmarkList();
+					}
+				});
+
+				// Close dropdown when clicking outside
+				document.addEventListener('click', (e) => {
+					if (!bookmarkDropdown.contains(e.target)) {
+						bookmarkMenu.style.display = 'none';
+					}
+				});
+			}
+
+			// Save lesson selection when changed
+			if (lessonSelect) {
+				lessonSelect.addEventListener('change', saveLessonSelection);
+			}
 			// Preserve scroll on zoom change by saving before and restoring after render
 			zoomInput.addEventListener('focus', () => { saveScrollPosition(); });
 
 			document.addEventListener('keydown', (e) => {
 				if (!pdfDoc) return;
 				if (e.key === 'ArrowRight') {
-					goToPage(currentPageNumber + 1);
+					console.log('Right arrow pressed');
+					if (lessonSelect && lessonSelect.value === 'bookmarks') {
+						console.log('Bookmark mode - calling goToNextBookmark()');
+						goToNextBookmark();
+					} else {
+						console.log('Normal mode - calling goToNextPage()');
+						goToNextPage();
+					}
 				} else if (e.key === 'ArrowLeft') {
-					goToPage(currentPageNumber - 1);
+					console.log('Left arrow pressed');
+					if (lessonSelect && lessonSelect.value === 'bookmarks') {
+						console.log('Bookmark mode - calling goToPrevBookmark()');
+						goToPrevBookmark();
+					} else {
+						console.log('Normal mode - calling goToPage()');
+						goToPage(currentPageNumber - 1);
+					}
 				}
 			});
 
@@ -435,8 +959,15 @@
 				reader.readAsArrayBuffer(file);
 			});
 
-			// Populate lessonSelect 1..50
+			// Populate lessonSelect 1..50 + Bookmarks
 			(function initLessonSelect() {
+				// Add Bookmarks option first
+				const bookmarksOption = document.createElement('option');
+				bookmarksOption.value = 'bookmarks';
+				bookmarksOption.textContent = '📚 Bookmarks';
+				lessonSelect.appendChild(bookmarksOption);
+				
+				// Add vocabulary lessons
 				for (let i = 1; i <= 50; i++) {
 					const option = document.createElement('option');
 					option.value = String(i);
@@ -444,14 +975,27 @@
 					lessonSelect.appendChild(option);
 				}
 				lessonSelect.addEventListener('change', () => {
-					const idx = parseInt(lessonSelect.value, 10);
-					if (!Number.isNaN(idx)) {
-						const path = 'storage/japan/vocabulary-' + idx + '.pdf';
-						saveLastFile(path);
-						// Reset page number in localStorage when changing lesson
-						try { localStorage.setItem('pdf_last_page', '1'); } catch {}
-						// Reset to page 1 when changing lesson
-						loadPdf(path, true).catch(() => {/* handled below on canvas message if needed */});
+					const value = lessonSelect.value;
+					
+					if (value === 'bookmarks') {
+						// Handle bookmarks selection
+						loadBookmarksLesson();
+					} else {
+						const idx = parseInt(value, 10);
+						if (!Number.isNaN(idx)) {
+							const path = 'storage/japan/vocabulary-' + idx + '.pdf';
+							saveLastFile(path);
+							// Load PDF first to get total pages, then check if random is enabled
+							loadPdf(path, true).then(() => {
+								// Only go to random page if checkbox is checked
+								if (randomCheckbox && randomCheckbox.checked) {
+									const randomPage = Math.floor(Math.random() * totalPages) + 1;
+									try { localStorage.setItem('pdf_last_page', String(randomPage)); } catch {}
+									goToPage(randomPage);
+								}
+								// If random is not checked, stay on page 1 (already loaded by loadPdf with resetToPage1=true)
+							}).catch(() => {/* handled below on canvas message if needed */});
+						}
 					}
 				});
 			})();
@@ -470,31 +1014,44 @@
 					zoom = percent / 100;
 				}
 			})();
-			// Reflect initial into lessonSelect if it matches vocabulary-N
-			(function syncLessonFromInitial(path) {
-				const match = /vocabulary-(\d+)\.pdf$/i.exec(path || '');
-				if (match) {
-					lessonSelect.value = String(parseInt(match[1], 10));
-				}
-			})(initial);
 			// Restore range selection before first render
 			restoreRangeSelection();
+			// Restore random checkbox state
+			restoreRandomCheckbox();
+			// Restore lesson selection first
+			restoreLessonSelection();
+			// Then reflect initial into lessonSelect if it matches vocabulary-N (only if no saved selection)
+			(function syncLessonFromInitial(path) {
+				const saved = localStorage.getItem(LESSON_SELECT_KEY);
+				// Only override if no saved selection
+				if (!saved) {
+					const match = /vocabulary-(\d+)\.pdf$/i.exec(path || '');
+					if (match) {
+						lessonSelect.value = String(parseInt(match[1], 10));
+					} else if (path === 'bookmarks') {
+						lessonSelect.value = 'bookmarks';
+					}
+				}
+			})(initial);
 			// Restore cover toggle
 			(function restoreCover() {
 				let v = null;
 				try { v = localStorage.getItem(GUIDE_COVER_KEY); } catch {}
 			})();
-			loadPdf(initial).catch(err => {
-				console.error('Không thể tải PDF:', err);
-				// Show a friendly message on canvas
-				const msg = 'Không thể mở PDF. Hãy dùng nút Mở PDF hoặc ?file=...';
-				canvas.width = 900; canvas.height = 200;
-				ctx.fillStyle = '#ffffff';
-				ctx.fillRect(0,0,canvas.width,canvas.height);
-				ctx.fillStyle = '#111';
-				ctx.font = '20px Segoe UI, Roboto, Arial';
-				ctx.fillText(msg, 20, 80);
-			});
+			// Only load PDF if not in bookmark lesson mode
+			if (lessonSelect.value !== 'bookmarks') {
+				loadPdf(initial).catch(err => {
+					console.error('Không thể tải PDF:', err);
+					// Show a friendly message on canvas
+					const msg = 'Không thể mở PDF. Hãy dùng nút Mở PDF hoặc ?file=...';
+					canvas.width = 900; canvas.height = 200;
+					ctx.fillStyle = '#ffffff';
+					ctx.fillRect(0,0,canvas.width,canvas.height);
+					ctx.fillStyle = '#111';
+					ctx.font = '20px Segoe UI, Roboto, Arial';
+					ctx.fillText(msg, 20, 80);
+				});
+			}
 		})();
 	</script>
 </body>
