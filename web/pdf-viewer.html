@@ -181,6 +181,7 @@
 			let currentPageNumber = 1;
 			let totalPages = 0;
 			const ZOOM_STORAGE_KEY = 'pdf_viewer_zoom_percent';
+			const LAST_FILE_KEY = 'pdf_viewer_last_file';
 			let zoom = 1;
 			let renderingInProgress = false;
 			let pendingPageNumber = null;
@@ -241,21 +242,21 @@
 				}
 			}
 
-			function makeScrollKey(filePath) {
-				return 'pdf_scroll_' + encodeURIComponent(filePath || '');
+			function makeScrollKey() {
+				return 'pdf_scroll_position';
 			}
 
 			function saveScrollPosition() {
-				if (!currentFilePath || !canvasWrap) return;
+				if (!canvasWrap) return;
 				const maxScroll = Math.max(1, canvasWrap.scrollHeight - canvasWrap.clientHeight);
 				const ratio = canvasWrap.scrollTop / maxScroll;
-				try { localStorage.setItem(makeScrollKey(currentFilePath), String(ratio)); } catch {}
+				try { localStorage.setItem(makeScrollKey(), String(ratio)); } catch {}
 			}
 
 			function restoreScrollPosition() {
-				if (!currentFilePath || !canvasWrap) return;
+				if (!canvasWrap) return;
 				let saved = null;
-				try { saved = localStorage.getItem(makeScrollKey(currentFilePath)); } catch {}
+				try { saved = localStorage.getItem(makeScrollKey()); } catch {}
 				const ratio = saved ? parseFloat(saved) : 0;
 				if (Number.isFinite(ratio)) {
 					const maxScroll = Math.max(1, canvasWrap.scrollHeight - canvasWrap.clientHeight);
@@ -265,7 +266,6 @@
 
 			// Save while scrolling (debounced)
 			canvasWrap.addEventListener('scroll', () => {
-				if (!currentFilePath) return;
 				if (scrollSaveTimer) clearTimeout(scrollSaveTimer);
 				scrollSaveTimer = setTimeout(() => { saveScrollPosition(); }, 200);
 			});
@@ -273,10 +273,6 @@
 			// Save on page unload as a last chance
 			window.addEventListener('beforeunload', () => { saveScrollPosition(); });
 
-			function getQueryParam(name) {
-				const params = new URLSearchParams(location.search);
-				return params.get(name);
-			}
 
 			function updateButtons() {
 				prevBtn.disabled = !pdfDoc || currentPageNumber <= 1 || renderingInProgress;
@@ -339,31 +335,54 @@
 				saveScrollPosition();
 				const clamped = Math.max(1, Math.min(pageNum, totalPages));
 				currentPageNumber = clamped;
-				try { localStorage.setItem('pdf_last_page_' + encodeURIComponent(currentFilePath), String(clamped)); } catch {}
+				try { localStorage.setItem('pdf_last_page', String(clamped)); } catch {}
 				pageNumberInput.value = String(clamped);
 				queueRender(clamped);
 			}
 
-			async function loadPdf(src) {
+			async function loadPdf(src, resetToPage1 = false) {
 				const loadingTask = pdfjsLib.getDocument(src);
 				pdfDoc = await loadingTask.promise;
 				totalPages = pdfDoc.numPages;
 				pageCountEl.textContent = String(totalPages);
 				// Determine current file path and restore last page
 				currentFilePath = typeof src === 'string' ? src : (src && src.url) || (src && src.filename) || 'blob';
-				let savedPage = null;
-				try { savedPage = localStorage.getItem('pdf_last_page_' + encodeURIComponent(currentFilePath)); } catch {}
-				const startPage = savedPage ? Math.max(1, Math.min(parseInt(savedPage, 10) || 1, pdfDoc.numPages)) : 1;
+				
+				// Save current file to localStorage
+				if (typeof src === 'string') {
+					saveLastFile(src);
+				}
+				
+				let startPage = 1;
+				if (!resetToPage1) {
+					// Only restore saved page if not resetting
+					let savedPage = null;
+					try { savedPage = localStorage.getItem('pdf_last_page'); } catch {}
+					startPage = savedPage ? Math.max(1, Math.min(parseInt(savedPage, 10) || 1, pdfDoc.numPages)) : 1;
+				}
+				
 				currentPageNumber = startPage;
 				pageNumberInput.value = String(startPage);
 				updateButtons();
 				await renderPage(startPage);
 			}
 
-			function setUrlFileParam(path) {
-				const url = new URL(location.href);
-				url.searchParams.set('file', path);
-				history.replaceState(null, '', url);
+
+			function saveLastFile(path) {
+				try {
+					localStorage.setItem(LAST_FILE_KEY, path);
+				} catch (err) {
+					console.log('Could not save last file to localStorage:', err);
+				}
+			}
+
+			function getLastFile() {
+				try {
+					return localStorage.getItem(LAST_FILE_KEY);
+				} catch (err) {
+					console.log('Could not get last file from localStorage:', err);
+					return null;
+				}
 			}
 
 			// UI events
@@ -409,6 +428,8 @@
 				const reader = new FileReader();
 				reader.onload = () => {
 					const buffer = new Uint8Array(reader.result);
+					// Save uploaded file name to localStorage
+					saveLastFile('uploaded:' + file.name);
 					loadPdf({ data: buffer, filename: file.name });
 				};
 				reader.readAsArrayBuffer(file);
@@ -426,16 +447,19 @@
 					const idx = parseInt(lessonSelect.value, 10);
 					if (!Number.isNaN(idx)) {
 						const path = 'storage/japan/vocabulary-' + idx + '.pdf';
-						setUrlFileParam(path);
-						loadPdf(path).catch(() => {/* handled below on canvas message if needed */});
+						saveLastFile(path);
+						// Reset page number in localStorage when changing lesson
+						try { localStorage.setItem('pdf_last_page', '1'); } catch {}
+						// Reset to page 1 when changing lesson
+						loadPdf(path, true).catch(() => {/* handled below on canvas message if needed */});
 					}
 				});
 			})();
 
-			// Auto load from query param or default sample
-			const qsFile = getQueryParam('file');
+			// Auto load from localStorage or default sample
+			const lastFile = getLastFile();
 			const defaultFile = 'storage/japan/vocabulary-1.pdf';
-			const initial = qsFile ? decodeURIComponent(qsFile) : defaultFile;
+			const initial = lastFile || defaultFile;
 			// Restore zoom from storage before first render
 			(function restoreZoom() {
 				let saved = null;

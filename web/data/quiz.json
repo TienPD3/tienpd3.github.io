@@ -48,6 +48,66 @@
     "explanation": "Mẫu câu này dùng để nói thích/ghét, giỏi/kém hoặc có cái gì.\nVí dụ: スキーは好きですか。 (Bạn có thích trượt tuyết không?)"
   },
   {
+    "lesson": "Bài 27",
+    "question": "V可能形",
+    "options": [
+      "Dùng để diễn đạt khả năng có thể làm gì đó",
+      "Dùng để nhấn mạnh hành động đã hoàn thành",
+      "Dùng để nói thói quen lặp lại nhiều lần",
+      "Dùng để bày tỏ mong muốn trong tương lai"
+    ],
+    "answer": 0,
+    "explanation": "Thể khả năng diễn tả năng lực hoặc điều kiện có thể thực hiện hành động.\nVí dụ: 日本語が話せます。 (Tôi có thể nói tiếng Nhật.)"
+  },
+  {
+    "lesson": "Bài 27",
+    "question": "見える／見られる, 聞こえる／聞ける",
+    "options": [
+      "見える／聞こえる: tự nhiên thấy/nghe; 見られる／聞ける: có khả năng nhìn/nghe do điều kiện",
+      "見える／聞こえる: khả năng cá nhân; 見られる／聞ける: không cố ý",
+      "見える／聞こえる: tương lai sẽ thấy/nghe; 見られる／聞ける: hiện tại có thể",
+      "見える／聞こえる: hành động chủ động; 見られる／聞ける: hành động bị động"
+    ],
+    "answer": 0,
+    "explanation": "見える／聞こえる: tự nhiên mà thấy/nghe; 見られる／聞ける: có khả năng do điều kiện.\nVí dụ: 富士山が見えます。 (Có thể nhìn thấy núi Phú Sĩ.)"
+  },
+  {
+    "lesson": "Bài 27",
+    "question": "N1は(＋)が、N2は(－)",
+    "options": [
+      "Dùng để so sánh đối lập giữa hai sự việc",
+      "Dùng để nhấn mạnh nguyên nhân và kết quả",
+      "Dùng để chỉ mục đích hành động",
+      "Dùng để biểu thị điều kiện giả định"
+    ],
+    "answer": 0,
+    "explanation": "Mẫu này dùng để nêu sự đối lập trong khả năng hoặc tình huống.\nVí dụ: 日本語は話せますが、書けません。 (Tôi có thể nói tiếng Nhật nhưng không viết được.)"
+  },
+  {
+    "lesson": "Bài 27",
+    "question": "できます",
+    "options": [
+      "Dùng để diễn đạt khả năng, sự hoàn thành hoặc cái gì đó được tạo ra",
+      "Dùng để nhấn mạnh ý định của người nói",
+      "Dùng để nói về thói quen trong quá khứ",
+      "Dùng để diễn tả cảm xúc nhất thời"
+    ],
+    "answer": 0,
+    "explanation": "できます có ba cách dùng: (1) có thể làm gì, (2) hoàn thành, (3) cái gì đó được xây dựng/được tạo ra.\nVí dụ: 漢字が書けます。 (Có thể viết chữ Hán.)"
+  },
+  {
+    "lesson": "Bài 27",
+    "question": "しか",
+    "options": [
+      "Đi kèm phủ định, nghĩa là chỉ, ngoài ra không có",
+      "Đi kèm khẳng định, nghĩa là nhiều",
+      "Đi kèm với danh từ để nhấn mạnh số lượng lớn",
+      "Đi kèm với động từ để nhấn mạnh khả năng"
+    ],
+    "answer": 0,
+    "explanation": "しか đi với động từ phủ định, nghĩa là chỉ có ~ mà thôi.\nVí dụ: 100円しか持っていません。 (Tôi chỉ có 100 yên.)"
+  },
+  {
     "lesson": "Bài 28",
     "question": "Vながら",
     "options": [
@@ -294,15 +354,15 @@
   },
   {
     "lesson": "Bài 36",
-    "question": "A Vる／Ｖない＋ように、Ｂ",
+    "question": "V1る／V1ない＋ように、V2",
     "options": [
-      "Làm B để đạt được A",
-      "Làm A để đạt được B",
-      "Làm B vì đã có A",
-      "Làm A vì muốn có B"
+      "Làm V2 để đạt được V1",
+      "Làm V1 để đạt được V2",
+      "Làm V2 vì đã có V1",
+      "Làm V1 vì muốn có V2"
     ],
     "answer": 0,
-    "explanation": "Mẫu câu chỉ mục đích: thực hiện B để có thể đạt được A.\nVí dụ: 新聞が読めるように、漢字を勉強します。 (Học kanji để có thể đọc báo.)"
+    "explanation": "Để, cho, vì...\nMẫu câu chỉ mục đích: Làm V2 để đạt được V1.\nVí dụ: 新聞が読めるように、漢字を勉強します。 (Học kanji để có thể đọc báo.)"
   },
   {
     "lesson": "Bài 36",
