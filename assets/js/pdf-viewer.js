@@ -27,6 +27,10 @@
   let pendingPageNumber = null;
   let currentFilePath = '';
   let scrollSaveTimer = null;
+  let bookmarkRenderTimer = null;
+  
+  // localStorage cache to reduce repeated reads
+  const localStorageCache = new Map();
 
   // Storage keys
   const ZOOM_STORAGE_KEY = 'pdf_viewer_zoom_percent';
@@ -55,43 +59,71 @@
     }
   }
 
+  // Optimized localStorage functions with caching
+  function getCachedItem(key, defaultValue = null) {
+    if (localStorageCache.has(key)) {
+      return localStorageCache.get(key);
+    }
+    try {
+      const value = localStorage.getItem(key) || defaultValue;
+      localStorageCache.set(key, value);
+      return value;
+    } catch {
+      return defaultValue;
+    }
+  }
+
+  function setCachedItem(key, value) {
+    try {
+      localStorage.setItem(key, value);
+      localStorageCache.set(key, value);
+    } catch {}
+  }
+
   function saveRangeSelection() {
     if (!rangeSelect) return;
-    try { localStorage.setItem(RANGE_SELECT_KEY, rangeSelect.value); } catch {}
+    setCachedItem(RANGE_SELECT_KEY, rangeSelect.value);
   }
 
   function restoreRangeSelection() {
-    let val = 'study';
-    try { val = localStorage.getItem(RANGE_SELECT_KEY) || 'study'; } catch {}
+    const val = getCachedItem(RANGE_SELECT_KEY, 'study');
     if (rangeSelect) rangeSelect.value = val;
   }
 
   function saveRandomCheckbox() {
     if (!randomCheckbox) return;
-    try { localStorage.setItem(RANDOM_CHECKBOX_KEY, randomCheckbox.checked ? 'true' : 'false'); } catch {}
+    setCachedItem(RANDOM_CHECKBOX_KEY, randomCheckbox.checked ? 'true' : 'false');
   }
 
   function restoreRandomCheckbox() {
-    let val = false;
-    try { val = localStorage.getItem(RANDOM_CHECKBOX_KEY) === 'true'; } catch {}
+    const val = getCachedItem(RANDOM_CHECKBOX_KEY, 'false') === 'true';
     if (randomCheckbox) randomCheckbox.checked = val;
   }
 
-  // Bookmark functions
+  // Bookmark functions with caching
   function getBookmarks() {
+    const cached = localStorageCache.get(BOOKMARKS_KEY);
+    if (cached !== undefined) {
+      return cached;
+    }
     try {
       const bookmarks = localStorage.getItem(BOOKMARKS_KEY);
-      return bookmarks ? JSON.parse(bookmarks) : {};
+      const parsed = bookmarks ? JSON.parse(bookmarks) : {};
+      localStorageCache.set(BOOKMARKS_KEY, parsed);
+      return parsed;
     } catch {
-      return {};
+      const empty = {};
+      localStorageCache.set(BOOKMARKS_KEY, empty);
+      return empty;
     }
   }
 
   function saveBookmarks(bookmarks) {
     try {
       localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+      localStorageCache.set(BOOKMARKS_KEY, bookmarks);
     } catch (err) {
-      console.log('Could not save bookmarks:', err);
+      // Could not save bookmarks
     }
   }
 
@@ -163,11 +195,17 @@
 
   function renderBookmarkList() {
     if (!bookmarkList) return;
-    const bookmarks = getBookmarks();
     
-    bookmarkList.innerHTML = '';
+    // Debounce bookmark rendering for better performance
+    if (bookmarkRenderTimer) {
+      clearTimeout(bookmarkRenderTimer);
+    }
     
-    const bookmarkArray = Object.values(bookmarks).sort((a, b) => a.timestamp - b.timestamp);
+    bookmarkRenderTimer = setTimeout(() => {
+      const bookmarks = getBookmarks();
+      bookmarkList.innerHTML = '';
+      
+      const bookmarkArray = Object.values(bookmarks).sort((a, b) => a.timestamp - b.timestamp);
     
     if (bookmarkArray.length === 0) {
       const emptyItem = document.createElement('div');
@@ -223,7 +261,7 @@
                 goToPage(bookmark.page);
                 bookmarkMenu.classList.add('hidden');
               }).catch(() => {
-                console.log('Could not load file:', bookmark.file);
+                // Could not load file
               });
             } else {
               goToPage(bookmark.page);
@@ -240,6 +278,7 @@
       
       bookmarkList.appendChild(item);
     });
+    }, 50); // 50ms debounce
   }
 
   // Bookmark lesson functionality
@@ -248,22 +287,18 @@
 
   function saveLessonSelection() {
     if (!lessonSelect) return;
-    try { 
-      localStorage.setItem(LESSON_SELECT_KEY, lessonSelect.value); 
-    } catch {}
+    setCachedItem(LESSON_SELECT_KEY, lessonSelect.value);
   }
 
   function restoreLessonSelection() {
     if (!lessonSelect) return;
-    try {
-      const saved = localStorage.getItem(LESSON_SELECT_KEY);
-      if (saved) {
-        lessonSelect.value = saved;
-        if (saved === 'bookmarks') {
-          loadBookmarksLesson();
-        }
+    const saved = getCachedItem(LESSON_SELECT_KEY);
+    if (saved) {
+      lessonSelect.value = saved;
+      if (saved === 'bookmarks') {
+        loadBookmarksLesson();
       }
-    } catch {}
+    }
   }
 
   function loadBookmarksLesson() {
@@ -312,7 +347,7 @@
       updateButtons();
       updateBookmarkUI();
     }).catch((err) => {
-      console.log('Could not load bookmark file:', bookmark.file, err);
+      // Could not load bookmark file
     });
   }
 
@@ -363,18 +398,15 @@
   }
 
   function saveScrollPosition() {
-    const container = document.querySelector('.overflow-auto');
     if (!container) return;
     const maxScroll = Math.max(1, container.scrollHeight - container.clientHeight);
     const ratio = container.scrollTop / maxScroll;
-    try { localStorage.setItem(makeScrollKey(), String(ratio)); } catch {}
+    setCachedItem(makeScrollKey(), String(ratio));
   }
 
   function restoreScrollPosition() {
-    const container = document.querySelector('.overflow-auto');
     if (!container) return;
-    let saved = null;
-    try { saved = localStorage.getItem(makeScrollKey()); } catch {}
+    const saved = getCachedItem(makeScrollKey());
     const ratio = saved ? parseFloat(saved) : 0;
     if (Number.isFinite(ratio)) {
       const maxScroll = Math.max(1, container.scrollHeight - container.clientHeight);
@@ -443,7 +475,7 @@
     saveScrollPosition();
     const clamped = Math.max(1, Math.min(pageNum, totalPages));
     currentPageNumber = clamped;
-    try { localStorage.setItem('pdf_last_page', String(clamped)); } catch {}
+    setCachedItem('pdf_last_page', String(clamped));
     pageNumberInput.value = String(clamped);
     updateBookmarkUI();
     queueRender(clamped);
@@ -468,7 +500,6 @@
   }
 
   async function loadPdf(src, resetToPage1 = false) {
-    console.log('loadPdf called with src:', src);
     try {
       // Add CORS and other options for PDF.js
       const loadingTask = pdfjsLib.getDocument({
@@ -481,9 +512,7 @@
         }
       });
       
-      console.log('PDF loading task created, waiting for promise...');
       pdfDoc = await loadingTask.promise;
-      console.log('PDF loaded successfully, pages:', pdfDoc.numPages);
       
       totalPages = pdfDoc.numPages;
       pageCountEl.textContent = String(totalPages);
@@ -495,8 +524,7 @@
       
       let startPage = 1;
       if (!resetToPage1) {
-        let savedPage = null;
-        try { savedPage = localStorage.getItem('pdf_last_page'); } catch {}
+        const savedPage = getCachedItem('pdf_last_page');
         startPage = savedPage ? Math.max(1, Math.min(parseInt(savedPage, 10) || 1, pdfDoc.numPages)) : 1;
       }
       
@@ -523,20 +551,11 @@
   }
 
   function saveLastFile(path) {
-    try {
-      localStorage.setItem(LAST_FILE_KEY, path);
-    } catch (err) {
-      console.log('Could not save last file to localStorage:', err);
-    }
+    setCachedItem(LAST_FILE_KEY, path);
   }
 
   function getLastFile() {
-    try {
-      return localStorage.getItem(LAST_FILE_KEY);
-    } catch (err) {
-      console.log('Could not get last file from localStorage:', err);
-      return null;
-    }
+    return getCachedItem(LAST_FILE_KEY, null);
   }
 
   // Event listeners
@@ -584,7 +603,7 @@
     const clamped = Math.max(25, Math.min(percent, 400));
     zoomInput.value = String(clamped);
     zoom = clamped / 100;
-    try { localStorage.setItem(ZOOM_STORAGE_KEY, String(clamped)); } catch {}
+    setCachedItem(ZOOM_STORAGE_KEY, String(clamped));
     queueRender(currentPageNumber);
   }
 
@@ -661,37 +680,50 @@
   let lessonManifest = null;
   const MANIFEST_URL = '/assets/storage/github.json';
   const STORAGE_BASE = '/assets/storage';
+  
+  // Manifest cache to avoid repeated fetches
+  let manifestCache = null;
+  let manifestLoadPromise = null;
 
   async function loadLessonManifest() {
-    try {
-      console.log('Loading lesson manifest from:', MANIFEST_URL);
-      const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
-      if (!response.ok) throw new Error('Failed to load manifest');
-      lessonManifest = await response.json();
-      console.log('Lesson manifest loaded:', lessonManifest);
+    // Return cached manifest if available
+    if (manifestCache) {
+      lessonManifest = manifestCache;
       return lessonManifest;
-    } catch (err) {
-      console.error('Could not load lesson manifest:', err);
-      return null;
     }
+    
+    // Return existing promise if already loading
+    if (manifestLoadPromise) {
+      return manifestLoadPromise;
+    }
+    
+    // Create new load promise
+    manifestLoadPromise = (async () => {
+      try {
+        const response = await fetch(MANIFEST_URL, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Failed to load manifest');
+        lessonManifest = await response.json();
+        manifestCache = lessonManifest;
+        return lessonManifest;
+      } catch (err) {
+        console.error('Could not load lesson manifest:', err);
+        return null;
+      }
+    })();
+    
+    return manifestLoadPromise;
   }
 
   function buildPdfUrl(lesson, index) {
-    console.log('buildPdfUrl called with lesson:', lesson, 'index:', index);
     if (!lessonManifest) {
-      console.log('No lesson manifest available');
       return null;
     }
     const entry = lessonManifest.find(x => x.lession === lesson);
-    console.log('Found entry:', entry);
     if (!entry) return null;
     const { folder, file } = entry;
     const filename = `${file.prefix}/${file.midfix}${index}${file.extension}`;
     
     const directUrl = `${STORAGE_BASE}/${folder}/${filename}`;
-    
-    console.log('Built filename:', filename);
-    console.log('Direct URL:', directUrl);
     
     return directUrl;
   }
@@ -700,10 +732,8 @@
   async function testUrlAccess(url) {
     try {
       const response = await fetch(url, { method: 'HEAD' });
-      console.log('URL test result:', response.status, response.ok);
       return response.ok;
     } catch (err) {
-      console.log('URL test failed:', err);
       return false;
     }
   }
@@ -735,18 +765,15 @@
         lessonSelect.appendChild(group);
       });
       
-      console.log('Dropdown populated with options:', Array.from(lessonSelect.options).map(o => ({ value: o.value, text: o.textContent })));
     }
     
     // Now sync lesson selection after manifest is loaded
     (function syncLessonFromInitial(path) {
-      const saved = localStorage.getItem(LESSON_SELECT_KEY);
-      console.log('Saved lesson select value:', saved);
+      const saved = getCachedItem(LESSON_SELECT_KEY);
       
       if (saved && saved !== 'bookmarks') {
         // Use saved value if it's not bookmarks
         lessonSelect.value = saved;
-        console.log('Restored lesson select to:', saved);
       } else if (!saved) {
         // Check for manifest format using dynamic pattern from manifest
         if (path && lessonManifest) {
@@ -757,7 +784,6 @@
             if (match) {
               const [, index] = match;
               lessonSelect.value = `${file.midfix}${index}`;
-              console.log('Set lesson select from path to:', lessonSelect.value);
               break;
             }
           }
@@ -773,74 +799,57 @@
     
     // Auto-load PDF after manifest is loaded and lesson selection is restored
     setTimeout(() => {
-      console.log('Auto-load check - lessonSelect.value:', lessonSelect.value);
       if (lessonSelect.value && lessonSelect.value !== 'bookmarks') {
-        console.log('Auto-loading PDF for selected lesson:', lessonSelect.value);
         lessonSelect.dispatchEvent(new Event('change'));
-      } else {
-        console.log('No auto-load - value is:', lessonSelect.value);
       }
     }, 100);
     
     lessonSelect.addEventListener('change', async () => {
       const value = lessonSelect.value;
-      console.log('Lesson selected:', value);
       
       if (value === 'bookmarks') {
         loadBookmarksLesson();
-      } else if (value.includes('minnao-')) {
-        // New format: minnao-1, minnao-2, etc.
-        const index = value.replace('minnao-', '');
-        console.log('Parsed value:', value, 'index:', index);
-        console.log('Available lessons:', lessonManifest?.map(l => ({ lession: l.lession, midfix: l.file.midfix, suffix: l.file.suffix })));
-        console.log('Looking for index:', parseInt(index), 'in lessons');
-        
-        // Find the lesson that contains this file
+      } else {
+        // Dynamic format based on manifest
+        // Find the lesson that contains this file by checking all entries
         const entry = lessonManifest?.find(lesson => {
-          console.log('Checking lesson:', lesson.lession, 'midfix:', lesson.file.midfix, 'suffix:', lesson.file.suffix);
-          return lesson.file.midfix === 'minnao-' && lesson.file.suffix.includes(parseInt(index));
+          const { midfix, suffix } = lesson.file;
+          // Extract the number from value (e.g., "minnao-1" -> "1")
+          const valueNumber = value.replace(midfix, '');
+          return suffix.includes(parseInt(valueNumber));
         });
         
         if (!entry) {
-          console.error('Lesson not found in manifest for:', value);
           return;
         }
         
         const lesson = entry.lession;
-        console.log('Found lesson:', lesson);
         
         const { folder, file } = entry;
-        const filename = `${file.prefix}/${file.midfix}${index}${file.extension}`;
+        const { midfix, suffix } = file;
+        const valueNumber = value.replace(midfix, '');
+        const filename = `${file.prefix}/${file.midfix}${valueNumber}${file.extension}`;
         
         // Try GitHub raw URL
         const urls = [
           `${STORAGE_BASE}/${folder}/${filename}`
         ];
         
-        console.log('Trying multiple URLs:', urls);
-        
         let loaded = false;
         for (const url of urls) {
           try {
-            console.log('Trying URL:', url);
             saveLastFile(url);
             await loadPdf(url, false);
-            console.log('PDF loaded successfully from:', url);
             if (randomCheckbox && randomCheckbox.checked && totalPages > 0) {
               const randomPage = Math.floor(Math.random() * totalPages) + 1;
-              try { localStorage.setItem('pdf_last_page', String(randomPage)); } catch {}
+              setCachedItem('pdf_last_page', String(randomPage));
               goToPage(randomPage);
             }
             loaded = true;
             break;
           } catch (err) {
-            console.log('Failed to load from:', url, err.message);
             continue;
           }
-        }
-        
-        if (!loaded) {
-          console.error('All URLs failed to load PDF');
         }
       }
     });
@@ -853,8 +862,7 @@
 
   // Restore settings
   (function restoreZoom() {
-    let saved = null;
-    try { saved = localStorage.getItem(ZOOM_STORAGE_KEY); } catch {}
+    const saved = getCachedItem(ZOOM_STORAGE_KEY);
     const percent = saved ? parseInt(saved, 10) : 100;
     if (!Number.isNaN(percent)) {
       zoomInput.value = String(percent);
@@ -864,17 +872,16 @@
 
   restoreRangeSelection();
   restoreRandomCheckbox();
-  // restoreLessonSelection(); // Moved to after manifest load
 
-
-
-  // Save scroll position on scroll
+  // Cache container element
   const container = document.querySelector('.overflow-auto');
+  
+  // Save scroll position on scroll with passive listener for better performance
   if (container) {
     container.addEventListener('scroll', () => {
       if (scrollSaveTimer) clearTimeout(scrollSaveTimer);
       scrollSaveTimer = setTimeout(() => { saveScrollPosition(); }, 200);
-    });
+    }, { passive: true });
   }
 
   window.addEventListener('beforeunload', () => { saveScrollPosition(); });
