@@ -164,6 +164,13 @@
           <label class="text-sm font-medium text-slate-700 dark:text-slate-300">Ngẫu nhiên</label>
         </div>
 
+        <!-- Audio Controls -->
+        <div class="flex items-center gap-2">
+          <button id="audioMuteBtn" class="inline-flex items-center gap-1 px-3 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors" title="Tắt/Bật tiếng">
+            🔊
+          </button>
+        </div>
+
         <!-- Bookmarks -->
         <div class="flex items-center gap-2">
           <button id="bookmarkBtn" class="inline-flex items-center gap-1 px-3 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors" title="Đánh dấu trang">
@@ -197,6 +204,9 @@
         </div>
       </div>
     </div>
+
+    <!-- Hidden Audio Player -->
+    <audio id="audioPlayer" preload="none"></audio>
 
   <script src="/assets/js/pdf-viewer.js" defer></script>
 </body>

@@ -18,6 +18,8 @@
   const bookmarkMenu = document.getElementById('bookmarkMenu');
   const bookmarkList = document.getElementById('bookmarkList');
   const bookmarkIndicator = document.getElementById('bookmarkIndicator');
+  const audioPlayer = document.getElementById('audioPlayer');
+  const audioMuteBtn = document.getElementById('audioMuteBtn');
 
   let pdfDoc = null;
   let currentPageNumber = 1;
@@ -28,6 +30,10 @@
   let currentFilePath = '';
   let scrollSaveTimer = null;
   let bookmarkRenderTimer = null;
+  let vocabularyData = null;
+  let currentAudio = null;
+  let isMuted = false;
+  let userHasInteracted = false;
   
   // localStorage cache to reduce repeated reads
   const localStorageCache = new Map();
@@ -39,8 +45,152 @@
   const RANDOM_CHECKBOX_KEY = 'pdf_random_checkbox_enabled';
   const BOOKMARKS_KEY = 'pdf_bookmarks';
   const LESSON_SELECT_KEY = 'pdf_lesson_select_value';
+  const MUTE_KEY = 'pdf_audio_muted';
 
   function clampPercent(v) { return Math.max(0, Math.min(100, v)); }
+
+  // Audio and vocabulary functions
+  async function loadVocabularyData() {
+    if (vocabularyData) return vocabularyData;
+    
+    try {
+      const response = await fetch('/assets/storage/japan/n4/minnao-n4.json');
+      if (!response.ok) throw new Error('Failed to load vocabulary data');
+      vocabularyData = await response.json();
+      return vocabularyData;
+    } catch (error) {
+      console.error('Error loading vocabulary data:', error);
+      return null;
+    }
+  }
+
+  function findAudioForPage(pageNumber) {
+    if (!vocabularyData) return null;
+    
+    // Get current lesson from lessonSelect
+    const currentLesson = lessonSelect ? lessonSelect.value : null;
+    if (!currentLesson || currentLesson === 'bookmarks') return null;
+    
+    // Extract lesson number from currentLesson (e.g., "minnao-26" -> "26")
+    const lessonMatch = currentLesson.match(/(\d+)$/);
+    if (!lessonMatch) return null;
+    
+    const lessonNumber = lessonMatch[1];
+    
+    // Find vocabulary items that match both lesson and page
+    const pageItems = vocabularyData.filter(item => 
+      item.lesson === lessonNumber && 
+      item.page === pageNumber
+    );
+    
+    if (pageItems.length === 0) return null;
+    
+    // Return the first item (with or without audio)
+    return pageItems[0];
+  }
+
+  // TTS fallback function
+  function fnPlayTTS(strText, strLang = 'ja') {
+    let elAudioElement = document.getElementById('tts-audio');
+    if (!elAudioElement) {
+      elAudioElement = document.createElement('audio');
+      elAudioElement.id = 'tts-audio';
+      document.body.appendChild(elAudioElement);
+    }
+    const strUrl = `https://proxy.junookyo.workers.dev/?language=${strLang}&text=${encodeURIComponent(strText || '')}&speed=1`;
+    elAudioElement.src = strUrl;
+    elAudioElement.muted = isMuted;
+    elAudioElement.play().catch(err => {
+      console.error('Lỗi khi phát TTS:', err);
+    });
+  }
+
+  function playAudio(audioUrl, word) {
+    if (!audioPlayer) return;
+    
+    // Stop current audio if playing
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    
+    // Only play audio if user has interacted and not muted
+    if (!userHasInteracted || isMuted) {
+      return;
+    }
+    
+    if (audioUrl && audioUrl.trim() !== '') {
+      // Use original audio if available
+      audioPlayer.src = audioUrl;
+      currentAudio = audioPlayer;
+      
+      audioPlayer.play().catch(err => {
+        console.log('Autoplay prevented:', err);
+      });
+    } else if (word) {
+      // Use TTS as fallback
+      fnPlayTTS(word, 'ja');
+    }
+    
+    updateMuteButton();
+  }
+
+  function updateMuteButton() {
+    if (!audioMuteBtn) return;
+    
+    if (isMuted) {
+      audioMuteBtn.textContent = '🔇';
+      audioMuteBtn.title = 'Bật tiếng';
+    } else {
+      audioMuteBtn.textContent = '🔊';
+      audioMuteBtn.title = 'Tắt tiếng';
+    }
+  }
+
+  function toggleMute() {
+    isMuted = !isMuted;
+    setCachedItem(MUTE_KEY, isMuted ? 'true' : 'false');
+    
+    if (audioPlayer) {
+      audioPlayer.muted = isMuted;
+    }
+    
+    // Also control TTS audio
+    const ttsAudio = document.getElementById('tts-audio');
+    if (ttsAudio) {
+      ttsAudio.muted = isMuted;
+    }
+    
+    updateMuteButton();
+  }
+
+  function stopAudio() {
+    if (audioPlayer) {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;
+    }
+    
+    // Also stop TTS audio
+    const ttsAudio = document.getElementById('tts-audio');
+    if (ttsAudio) {
+      ttsAudio.pause();
+      ttsAudio.currentTime = 0;
+    }
+  }
+
+  function tryPlayCurrentAudio() {
+    if (!userHasInteracted || isMuted) return;
+    
+    // Try to play current audio if available
+    if (audioPlayer && audioPlayer.src) {
+      audioPlayer.play().catch(err => {
+        console.log('Autoplay prevented:', err);
+      });
+    } else if (currentAudio && currentAudio.isTTS) {
+      // Play TTS if that's what we have
+      fnPlayTTS(currentAudio.word, 'ja');
+    }
+  }
 
   function getGuidePercents() {
     const selection = (rangeSelect && rangeSelect.value) || 'study';
@@ -470,6 +620,49 @@
     }
   }
 
+  async function loadAudioForPage(pageNum) {
+    // Only load audio if a lesson is selected (not bookmarks)
+    if (!lessonSelect || lessonSelect.value === 'bookmarks') {
+      stopAudio();
+      return;
+    }
+    
+    // Load vocabulary data if not already loaded
+    await loadVocabularyData();
+    
+    // Find audio for current page
+    const audioItem = findAudioForPage(pageNum);
+    
+    if (audioItem) {
+      // Load audio (original or TTS) but only play if user has interacted
+      if (audioItem.audio && audioItem.audio.trim() !== '') {
+        // Load original audio
+        if (audioPlayer) {
+          audioPlayer.src = audioItem.audio;
+          currentAudio = audioPlayer;
+        }
+      } else if (audioItem.word) {
+        // Prepare TTS (will be called when user interacts)
+        // Store word for later TTS call
+        currentAudio = { isTTS: true, word: audioItem.word };
+      }
+      
+      // Try to play if user has already interacted
+      if (userHasInteracted && !isMuted) {
+        if (audioItem.audio && audioItem.audio.trim() !== '') {
+          audioPlayer.play().catch(err => {
+            console.log('Autoplay prevented:', err);
+          });
+        } else if (audioItem.word) {
+          fnPlayTTS(audioItem.word, 'ja');
+        }
+      }
+    } else {
+      // Stop audio if no audio found for this page
+      stopAudio();
+    }
+  }
+
   function goToPage(pageNum) {
     if (!pdfDoc) return;
     saveScrollPosition();
@@ -479,6 +672,9 @@
     pageNumberInput.value = String(clamped);
     updateBookmarkUI();
     queueRender(clamped);
+    
+    // Load audio for the new page
+    loadAudioForPage(clamped);
   }
 
   function goToNextPage() {
@@ -533,6 +729,9 @@
       updateButtons();
       updateBookmarkUI();
       await renderPage(startPage);
+      
+      // Load audio for the initial page
+      loadAudioForPage(startPage);
     } catch (error) {
       console.error('Error loading PDF:', error);
       // Show error message on canvas
@@ -651,6 +850,25 @@
   if (lessonSelect) {
     lessonSelect.addEventListener('change', saveLessonSelection);
   }
+
+  // Audio control event listeners
+  if (audioMuteBtn) {
+    audioMuteBtn.addEventListener('click', () => {
+      userHasInteracted = true;
+      toggleMute();
+    });
+  }
+
+  // Track user interaction for autoplay
+  document.addEventListener('click', () => {
+    userHasInteracted = true;
+    tryPlayCurrentAudio();
+  }, { once: true });
+
+  document.addEventListener('keydown', () => {
+    userHasInteracted = true;
+    tryPlayCurrentAudio();
+  }, { once: true });
 
   zoomInput.addEventListener('focus', () => { saveScrollPosition(); });
 
@@ -799,6 +1017,8 @@
       
       if (value === 'bookmarks') {
         loadBookmarksLesson();
+        // Stop audio when switching to bookmarks
+        stopAudio();
       } else {
         // Dynamic format based on manifest
         // Find the lesson that contains this file by checking all entries
@@ -834,6 +1054,9 @@
               const randomPage = Math.floor(Math.random() * totalPages) + 1;
               setCachedItem('pdf_last_page', String(randomPage));
               goToPage(randomPage);
+            } else {
+              // Load audio for the current page after PDF is loaded
+              loadAudioForPage(currentPageNumber);
             }
             loaded = true;
             break;
@@ -850,6 +1073,9 @@
   const defaultFile = null; // Don't auto-load any PDF by default
   const initial = lastFile || defaultFile;
 
+  // Load vocabulary data on page load
+  loadVocabularyData();
+
   // Restore settings
   (function restoreZoom() {
     const saved = getCachedItem(ZOOM_STORAGE_KEY);
@@ -862,6 +1088,21 @@
 
   restoreRangeSelection();
   restoreRandomCheckbox();
+  
+  // Restore mute state
+  (function restoreMuteState() {
+    const saved = getCachedItem(MUTE_KEY);
+    isMuted = saved === 'true';
+    if (audioPlayer) {
+      audioPlayer.muted = isMuted;
+    }
+    // Also set TTS audio muted state
+    const ttsAudio = document.getElementById('tts-audio');
+    if (ttsAudio) {
+      ttsAudio.muted = isMuted;
+    }
+    updateMuteButton();
+  })();
 
   // Cache container element
   const container = document.querySelector('.overflow-auto');
