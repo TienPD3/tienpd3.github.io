@@ -728,16 +728,6 @@
     return directUrl;
   }
 
-  // Test if URL is accessible
-  async function testUrlAccess(url) {
-    try {
-      const response = await fetch(url, { method: 'HEAD' });
-      return response.ok;
-    } catch (err) {
-      return false;
-    }
-  }
-
   // Initialize lesson select
   (async function initLessonSelect() {
     const bookmarksOption = document.createElement('option');
