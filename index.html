@@ -1,37 +1,75 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tienpd3.github.io</title>
-  </head>
-  <body>
-    <h1># tienpd3.github.io</h1>
-    <h2># iAP Fake</h2>
-    <pre>
-      Ứng dụng này tôi làm free không tính tiền như các bên khác nếu thấy hay hãy donate cho tôi, để tôi có động lực làm thêm
-    
-      Paypal
-      Tài khoản: paypal.me/TienPD3
-      https://paypal.me/TienPD3?country.x=VN&locale.x=vi_VN
-    </pre>
-    <h2># iAP Fake QuantumultX</h2>
-    <pre>
-      <button onclick="copy('iAPFake.conf')">Copy</button>iAPFake.conf
-      <button onclick="copy('iAPFakePurchased.conf')">Copy</button>iAPFakePurchased.conf
-      <button onclick="copy('iAPFakePremium.conf')">Copy</button>iAPFakePremium.conf
-      <button onclick="copy('hostsVN-quantumultX.conf')">Copy</button>hostsVN-quantumultX.conf
-    </pre>
-    <h2># Japanese</h2>
-    <a href="website/index/kanji.html">Hack não Kanji</a><br />
-    <h2># Chứng khoán Pro</h2>
-    <a href="stock-pro-fireant.html">FireAnt</a><br />
-    <a href="stock-final.html">Chứng khoán Final</a><br />
-    <!-- <a href="stock-pro-cafef.html">Cafef</a> -->
-    <script>
-      function copy(strValue) {
-        navigator.clipboard.writeText('https://tienpd3.github.io/iAPFakePurchased/' + strValue);
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang chủ</title>
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+              400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+              800: '#3730a3', 900: '#312e81'
+            }
+          }
+        }
       }
-    </script>
-  </body>
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+  </style>
+  <script defer src="/assets/js/menu.js"></script>
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="Menu cấu hình bằng JSON">
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen">
+  <div class="max-w-5xl mx-auto px-4 py-8">
+    <header class="flex items-center justify-between gap-3">
+      <a id="logo" href="#" class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-lg bg-brand-600 text-white grid place-items-center shadow">
+          <span class="text-lg font-semibold">T</span>
+        </div>
+        <h1 id="title" class="text-2xl font-semibold">Menu</h1>
+      </a>
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800" aria-label="Toggle theme">
+          <span>🌓</span>
+          <span class="hidden sm:inline">Chế độ</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="mt-6">
+      <div class="relative">
+        <input id="search" type="text" placeholder="Tìm kiếm..." class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-4 py-3 pl-10 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
+        <div class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">🔎</div>
+      </div>
+    </section>
+
+    <main id="content" class="mt-6 space-y-8">
+      <!-- Rendered by JS -->
+    </main>
+
+    <footer class="mt-10 text-center text-sm text-slate-500 dark:text-slate-400">
+      <span>© <span id="year"></span> <span id="brand">TienPD3</span>. All rights reserved.</span>
+    </footer>
+  </div>
+
+  <noscript>
+    Vui lòng bật JavaScript để xem nội dung.
+  </noscript>
+</body>
 </html>
+
+
+

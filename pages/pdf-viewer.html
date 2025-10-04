@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDF Viewer</title>
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.min.js"></script>
+  <script>
+    // Wait for PDF.js to load
+    window.addEventListener('load', function() {
+      if (typeof pdfjsLib !== 'undefined') {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.16.105/build/pdf.worker.min.js";
+        console.log('PDF.js loaded successfully');
+      } else {
+        console.error('PDF.js failed to load');
+      }
+    });
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc',
+              400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca',
+              800: '#3730a3', 900: '#312e81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans; }
+    .pdf-canvas { 
+      background: white; 
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      display: block;
+    }
+    #textLayer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      color: transparent;
+      mix-blend-mode: multiply;
+    }
+    #textLayer span {
+      position: absolute;
+      white-space: pre;
+      transform-origin: 0% 0%;
+      pointer-events: auto;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+    .guide-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 4px;
+      pointer-events: none;
+      z-index: 5;
+      background: rgba(59, 130, 246, 0.6);
+      border-radius: 2px;
+    }
+    .guide-band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+      z-index: 4;
+      background: rgba(0, 0, 0, 0.92);
+    }
+    .bookmark-indicator {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen">
+  <div class="flex flex-col h-screen">
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 shadow-sm">
+      <div class="px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <a href="/" class="text-sm text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300">← Trang chủ</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Toolbar -->
+    <div class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-6 py-3">
+      <div class="flex items-center gap-4 flex-wrap">
+        <!-- Lesson Selector -->
+        <div class="flex items-center gap-2">
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-300">Bài học</label>
+          <select id="lessonSelect" class="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+          </select>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center gap-2">
+          <button id="prevBtn" disabled class="inline-flex items-center gap-1 px-3 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Trước
+          </button>
+          <button id="nextBtn" disabled class="inline-flex items-center gap-1 px-3 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            Sau
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Page Info -->
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-medium text-slate-700 dark:text-slate-300">Trang</span>
+          <input id="pageNumber" type="number" min="1" value="1" class="w-16 px-2 py-1 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded text-sm text-center focus:ring-2 focus:ring-brand-500 focus:border-brand-500" />
+          <span class="text-sm text-slate-500 dark:text-slate-400">/ <span id="pageCount">0</span></span>
+        </div>
+
+        <div class="flex-1"></div>
+
+        <!-- Zoom -->
+        <div class="flex items-center gap-2">
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-300">Zoom</label>
+          <input id="zoomInput" type="number" min="25" max="400" step="5" value="100" class="w-20 px-2 py-1 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded text-sm text-center focus:ring-2 focus:ring-brand-500 focus:border-brand-500" />
+          <span class="text-sm text-slate-500 dark:text-slate-400">%</span>
+        </div>
+
+        <!-- Study Mode -->
+        <div class="flex items-center gap-2">
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-300">Chế độ</label>
+          <select id="rangeSelect" class="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500">
+            <option value="study">Học tập</option>
+            <option value="easy">Dễ</option>
+            <option value="normal">Bình thường</option>
+            <option value="hard">Khó</option>
+            <option value="very.hard">Rất khó</option>
+          </select>
+        </div>
+
+        <!-- Random -->
+        <div class="flex items-center gap-2">
+          <input id="randomCheckbox" type="checkbox" class="w-4 h-4 text-brand-600 bg-white dark:bg-slate-700 border-slate-300 dark:border-slate-600 rounded focus:ring-brand-500" />
+          <label class="text-sm font-medium text-slate-700 dark:text-slate-300">Ngẫu nhiên</label>
+        </div>
+
+        <!-- Bookmarks -->
+        <div class="flex items-center gap-2">
+          <button id="bookmarkBtn" class="inline-flex items-center gap-1 px-3 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors" title="Đánh dấu trang">
+            📖
+          </button>
+          <div class="relative">
+            <button id="bookmarkListBtn" class="inline-flex items-center gap-1 px-3 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg font-medium transition-colors" title="Danh sách bookmark">
+              📚
+            </button>
+            <div id="bookmarkMenu" class="hidden absolute top-full right-0 mt-2 w-64 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg z-50 max-h-80 overflow-y-auto">
+              <div class="px-4 py-3 border-b border-slate-200 dark:border-slate-700">
+                <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">Bookmarks</h3>
+              </div>
+              <div id="bookmarkList" class="p-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF Viewer -->
+    <div class="flex-1 overflow-auto bg-slate-100 dark:bg-slate-800 p-6">
+      <div class="flex justify-center">
+        <div class="relative">
+          <canvas id="pdfCanvas" class="pdf-canvas"></canvas>
+          <div id="textLayer" class="textLayer"></div>
+          <div id="guideBand" class="guide-band"></div>
+          <div id="guideFromLine" class="guide-line"></div>
+          <div id="guideToLine" class="guide-line"></div>
+          <div id="bookmarkIndicator" class="bookmark-indicator">🔖 Đã đánh dấu</div>
+        </div>
+      </div>
+    </div>
+
+  <script src="/assets/js/pdf-viewer.js" defer></script>
+</body>
+</html>
+
+

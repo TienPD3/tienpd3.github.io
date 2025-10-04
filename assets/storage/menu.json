@@ -1,0 +1,86 @@
+{
+  "title": "Trang Menu",
+  "logo": {
+    "text": "TienPD3",
+    "href": "/"
+  },
+  "theme": "system",
+  "search": true,
+  "groups": [
+    {
+      "title": "Trang chủ",
+      "items": [
+        {
+          "label": "Home",
+          "href": "index.html",
+          "emoji": "🏠"
+        }
+      ]
+    },
+    {
+      "title": "Website",
+      "items": [
+        {
+          "label": "Quiz",
+          "href": "website/index/quiz.html",
+          "emoji": "🧠"
+        },
+        {
+          "label": "Kanji",
+          "href": "website/index/kanji.html",
+          "emoji": "🈶"
+        },
+        {
+          "label": "JP",
+          "href": "website/index/jp.html",
+          "emoji": "🇯🇵"
+        },
+        {
+          "label": "Code",
+          "href": "website/index/code.html",
+          "emoji": "💻"
+        }
+      ]
+    },
+    {
+      "title": "Backup",
+      "items": [
+        {
+          "label": "Stock (FireAnt)",
+          "href": "backup/stock-pro-fireant.html",
+          "emoji": "📈"
+        },
+        {
+          "label": "Stock (CafeF)",
+          "href": "backup/stock-pro-cafef.html",
+          "emoji": "📊"
+        },
+        {
+          "label": "Page Manager",
+          "href": "backup/page-manager.html",
+          "emoji": "📄"
+        }
+      ]
+    },
+    {
+      "title": "Tiện ích",
+      "items": [
+        {
+          "label": "So sánh PDF",
+          "href": "pages/pdf-compare.html",
+          "emoji": "📄"
+        },
+        {
+          "label": "PDF Viewer",
+          "href": "pages/pdf-viewer.html",
+          "emoji": "📖"
+        },
+        {
+          "label": "Flashcard",
+          "href": "pages/flashcard.html",
+          "emoji": "🎴"
+        }
+      ]
+    }
+  ]
+}

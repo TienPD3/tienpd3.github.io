@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcard Học Tập</title>
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .card-flip {
+      perspective: 1000px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .card-flip.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .card-back {
+      transform: rotateY(180deg);
+    }
+    .progress-bar {
+      transition: width 0.3s ease;
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen">
+  <div class="flex flex-col h-screen">
+    <!-- Header -->
+    <header class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm">
+      <div class="px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Flashcard Học Tập</h1>
+            <a href="/" class="text-sm text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 transition-colors">← Trang chủ</a>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="text-sm text-slate-600 dark:text-slate-400">
+              <span id="currentCard">1</span> / <span id="totalCards">0</span>
+            </div>
+            <div class="w-32 bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+              <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full progress-bar" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex items-center justify-center p-6">
+      <div class="w-full max-w-4xl">
+        <!-- Card Container -->
+        <div class="card-flip" id="cardContainer">
+          <div class="card-inner">
+            <!-- Front of Card -->
+            <div class="card-front bg-white dark:bg-slate-800 shadow-xl card-hover">
+              <div class="text-center">
+                <div class="text-6xl mb-6" id="cardEmoji">📚</div>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4" id="cardQuestion">Chọn bộ flashcard để bắt đầu</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400" id="cardHint">Nhấn vào bộ flashcard bên dưới để bắt đầu học</p>
+              </div>
+            </div>
+            
+            <!-- Back of Card -->
+            <div class="card-back bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-xl card-hover">
+              <div class="text-center">
+                <div class="text-6xl mb-6" id="cardEmoji">✅</div>
+                <h2 class="text-3xl font-bold mb-4" id="cardAnswer">Đáp án</h2>
+                <p class="text-lg opacity-90" id="cardExplanation">Giải thích chi tiết</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex justify-center gap-4 mt-8">
+          <button id="flipBtn" class="hidden px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+            <span class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              Lật thẻ
+            </span>
+          </button>
+          
+          <button id="nextBtn" class="hidden px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+            <span class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+              Tiếp theo
+            </span>
+          </button>
+          
+          <button id="restartBtn" class="hidden px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+            <span class="flex items-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+              </svg>
+              Bắt đầu lại
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flashcard Sets -->
+    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-t border-slate-200/50 dark:border-slate-700/50 p-6">
+      <div class="max-w-6xl mx-auto">
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">Chọn bộ flashcard</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="flashcardSets">
+          <!-- Flashcard sets will be loaded here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/flashcard.js"></script>
+</body>
+</html>
+

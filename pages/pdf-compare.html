@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>So sánh PDF</title>
+  <link rel="icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="color-scheme" content="light dark" />
+  <style>
+    html { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  </style>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <header class="mb-6 flex items-center justify-between">
+      <h1 class="text-2xl font-semibold">So sánh PDF (hash + nội dung)</h1>
+      <a href="/" class="text-sm text-brand-600 hover:underline">← Trang chủ</a>
+    </header>
+
+    <section class="space-y-4">
+      <div class="grid gap-3 sm:grid-cols-2">
+        <label class="block">
+          <span class="text-sm">File A</span>
+          <input id="pdfA" type="file" accept="application/pdf" class="mt-1 block w-full" />
+        </label>
+        <label class="block">
+          <span class="text-sm">File B</span>
+          <input id="pdfB" type="file" accept="application/pdf" class="mt-1 block w-full" />
+        </label>
+      </div>
+      <div class="flex gap-3">
+        <button id="compare" class="rounded-lg border border-slate-200 dark:border-slate-700 px-4 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800">So sánh</button>
+        <button id="reset" class="rounded-lg border border-slate-200 dark:border-slate-700 px-4 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800">Làm mới</button>
+      </div>
+    </section>
+
+    <section class="mt-6 space-y-2">
+      <div class="text-sm text-slate-500">Kết quả</div>
+      <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-700">
+        <table class="min-w-full text-sm">
+          <thead class="bg-slate-50 dark:bg-slate-800/50">
+            <tr>
+              <th class="text-left px-3 py-2">File</th>
+              <th class="text-left px-3 py-2">Status</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+      <pre id="result" class="mono whitespace-pre-wrap rounded-xl border border-slate-200 dark:border-slate-700 p-3 bg-white/60 dark:bg-slate-800/60"></pre>
+    </section>
+  </div>
+
+  <script src="/assets/js/pdf-compare.js" defer></script>
+</body>
+</html>
