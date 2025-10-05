@@ -6,32 +6,13 @@
   <title>Flashcard Học Tập</title>
   <link rel="icon" href="/favicon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#f0f9ff',
-              100: '#e0f2fe',
-              200: '#bae6fd',
-              300: '#7dd3fc',
-              400: '#38bdf8',
-              500: '#0ea5e9',
-              600: '#0284c7',
-              700: '#0369a1',
-              800: '#075985',
-              900: '#0c4a6e',
-            }
-          }
-        }
-      }
-    }
-  </script>
   <style>
-    .card-flip {
+    .card-container {
       perspective: 1000px;
+      width: 100%;
+      height: 400px;
     }
+    
     .card-inner {
       position: relative;
       width: 100%;
@@ -40,9 +21,11 @@
       transition: transform 0.6s;
       transform-style: preserve-3d;
     }
-    .card-flip.flipped .card-inner {
+    
+    .card-container.flipped .card-inner {
       transform: rotateY(180deg);
     }
+    
     .card-front, .card-back {
       position: absolute;
       width: 100%;
@@ -53,122 +36,332 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
+    
+    .card-front {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
     .card-back {
       transform: rotateY(180deg);
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
     }
-    .progress-bar {
-      transition: width 0.3s ease;
-    }
-    .fade-in {
-      animation: fadeIn 0.5s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .card-hover {
-      transition: all 0.3s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    .card-clickable {
+      cursor: pointer;
     }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 min-h-screen">
-  <div class="flex flex-col h-screen">
+<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
+  <div class="container mx-auto px-4 py-8">
     <!-- Header -->
-    <header class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm">
-      <div class="px-6 py-4">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Flashcard Học Tập</h1>
-            <a href="/" class="text-sm text-brand-600 hover:text-brand-700 dark:text-brand-400 dark:hover:text-brand-300 transition-colors">← Trang chủ</a>
-          </div>
-          <div class="flex items-center gap-4">
-            <div class="text-sm text-slate-600 dark:text-slate-400">
-              <span id="currentCard">1</span> / <span id="totalCards">0</span>
-            </div>
-            <div class="w-32 bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-              <div id="progressBar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full progress-bar" style="width: 0%"></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <header class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-800 mb-2">🎓 Flashcard Học Tập</h1>
+      <p class="text-gray-600">Chọn bộ flashcard để bắt đầu học</p>
     </header>
 
-    <!-- Main Content -->
-    <div class="flex-1 flex items-center justify-center p-6">
-      <div class="w-full max-w-4xl">
-        <!-- Card Container -->
-        <div class="card-flip" id="cardContainer">
-          <div class="card-inner">
-            <!-- Front of Card -->
-            <div class="card-front bg-white dark:bg-slate-800 shadow-xl card-hover">
-              <div class="text-center">
-                <div class="text-6xl mb-6" id="cardEmoji">📚</div>
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4" id="cardQuestion">Chọn bộ flashcard để bắt đầu</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-400" id="cardHint">Nhấn vào bộ flashcard bên dưới để bắt đầu học</p>
-              </div>
-            </div>
-            
-            <!-- Back of Card -->
-            <div class="card-back bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-xl card-hover">
-              <div class="text-center">
-                <div class="text-6xl mb-6" id="cardEmoji">✅</div>
-                <h2 class="text-3xl font-bold mb-4" id="cardAnswer">Đáp án</h2>
-                <p class="text-lg opacity-90" id="cardExplanation">Giải thích chi tiết</p>
-              </div>
-            </div>
+    <!-- Progress -->
+    <div class="text-center mb-6">
+      <div class="text-lg text-gray-700">
+        <span id="currentCard">1</span> / <span id="totalCards">0</span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+        <div id="progressBar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Card Container -->
+    <div class="card-container mx-auto mb-8" id="cardContainer">
+      <div class="card-inner">
+        <!-- Front of Card -->
+        <div class="card-front card-clickable">
+          <div class="text-center">
+            <div class="text-6xl mb-4" id="cardEmoji">📚</div>
+            <h2 class="text-3xl font-bold mb-4" id="cardQuestion">Chọn bộ flashcard để bắt đầu</h2>
+            <p class="text-lg opacity-90" id="cardHint">Nhấn vào bộ flashcard bên dưới để bắt đầu học</p>
           </div>
         </div>
-
-        <!-- Controls -->
-        <div class="flex justify-center gap-4 mt-8">
-          <button id="flipBtn" class="hidden px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
-            <span class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-              </svg>
-              Lật thẻ
-            </span>
-          </button>
-          
-          <button id="nextBtn" class="hidden px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
-            <span class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-              Tiếp theo
-            </span>
-          </button>
-          
-          <button id="restartBtn" class="hidden px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
-            <span class="flex items-center gap-2">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-              </svg>
-              Bắt đầu lại
-            </span>
-          </button>
+        
+        <!-- Back of Card -->
+        <div class="card-back card-clickable">
+          <div class="text-center">
+            <div class="text-6xl mb-4" id="cardEmoji">✅</div>
+            <h2 class="text-3xl font-bold mb-4" id="cardAnswer">Đáp án</h2>
+            <p class="text-lg opacity-90" id="cardExplanation">Giải thích chi tiết</p>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex justify-center gap-4 mb-8">
+      <button id="prevBtn" class="hidden px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white font-semibold rounded-lg transition-colors">
+        ⬅️ Trước
+      </button>
+      
+      <button id="flipBtn" class="hidden px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors">
+        🔄 Lật thẻ
+      </button>
+      
+      <button id="nextBtn" class="hidden px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors">
+        ➡️ Tiếp theo
+      </button>
+      
+      <button id="restartBtn" class="hidden px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors">
+        🔄 Bắt đầu lại
+      </button>
     </div>
 
     <!-- Flashcard Sets -->
-    <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-t border-slate-200/50 dark:border-slate-700/50 p-6">
-      <div class="max-w-6xl mx-auto">
-        <h3 class="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">Chọn bộ flashcard</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="flashcardSets">
-          <!-- Flashcard sets will be loaded here -->
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="flashcardSets">
+      <!-- Flashcard sets will be loaded here -->
     </div>
   </div>
 
-  <script src="/assets/js/flashcard.js"></script>
+  <script>
+    // Simple Flashcard App
+    class FlashcardApp {
+      constructor() {
+        this.currentSet = null;
+        this.currentIndex = 0;
+        this.isFlipped = false;
+        
+        // DOM Elements
+        this.cardContainer = document.getElementById('cardContainer');
+        this.cardQuestion = document.getElementById('cardQuestion');
+        this.cardAnswer = document.getElementById('cardAnswer');
+        this.cardHint = document.getElementById('cardHint');
+        this.cardExplanation = document.getElementById('cardExplanation');
+        this.cardEmoji = document.getElementById('cardEmoji');
+        this.currentCardEl = document.getElementById('currentCard');
+        this.totalCardsEl = document.getElementById('totalCards');
+        this.progressBar = document.getElementById('progressBar');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.flipBtn = document.getElementById('flipBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.restartBtn = document.getElementById('restartBtn');
+        this.flashcardSets = document.getElementById('flashcardSets');
+        
+        // Flashcard Data
+        this.flashcardData = {
+          'japanese-n5': {
+            title: 'Tiếng Nhật N5',
+            emoji: '🇯🇵',
+            color: 'from-blue-500 to-cyan-500',
+            cards: [
+              { question: 'こんにちは', answer: 'Xin chào', explanation: 'Cách chào hỏi thông thường', emoji: '👋' },
+              { question: 'ありがとう', answer: 'Cảm ơn', explanation: 'Cách nói cảm ơn', emoji: '🙏' },
+              { question: 'すみません', answer: 'Xin lỗi', explanation: 'Cách xin lỗi', emoji: '😅' },
+              { question: 'はい', answer: 'Có / Vâng', explanation: 'Cách trả lời khẳng định', emoji: '✅' },
+              { question: 'いいえ', answer: 'Không', explanation: 'Cách trả lời phủ định', emoji: '❌' }
+            ]
+          },
+          'english-basic': {
+            title: 'Tiếng Anh Cơ Bản',
+            emoji: '🇺🇸',
+            color: 'from-green-500 to-emerald-500',
+            cards: [
+              { question: 'Hello', answer: 'Xin chào', explanation: 'Lời chào thông thường', emoji: '👋' },
+              { question: 'Thank you', answer: 'Cảm ơn', explanation: 'Cách nói cảm ơn', emoji: '🙏' },
+              { question: 'Please', answer: 'Làm ơn', explanation: 'Từ lịch sự khi yêu cầu', emoji: '🙏' },
+              { question: 'Sorry', answer: 'Xin lỗi', explanation: 'Cách xin lỗi', emoji: '😅' },
+              { question: 'Goodbye', answer: 'Tạm biệt', explanation: 'Lời chào tạm biệt', emoji: '👋' }
+            ]
+          },
+          'math-basic': {
+            title: 'Toán Học Cơ Bản',
+            emoji: '🔢',
+            color: 'from-purple-500 to-pink-500',
+            cards: [
+              { question: '2 + 2 = ?', answer: '4', explanation: 'Phép cộng cơ bản', emoji: '➕' },
+              { question: '5 × 3 = ?', answer: '15', explanation: 'Phép nhân', emoji: '✖️' },
+              { question: '10 ÷ 2 = ?', answer: '5', explanation: 'Phép chia', emoji: '➗' },
+              { question: '3² = ?', answer: '9', explanation: 'Lũy thừa', emoji: '🔢' },
+              { question: '√16 = ?', answer: '4', explanation: 'Căn bậc hai', emoji: '√' }
+            ]
+          }
+        };
+        
+        this.init();
+      }
+      
+      init() {
+        this.renderFlashcardSets();
+        this.setupEventListeners();
+      }
+      
+      renderFlashcardSets() {
+        this.flashcardSets.innerHTML = '';
+        
+        Object.entries(this.flashcardData).forEach(([key, set]) => {
+          const setElement = document.createElement('div');
+          setElement.className = `bg-gradient-to-br ${set.color} p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer`;
+          setElement.innerHTML = `
+            <div class="text-center text-white">
+              <div class="text-4xl mb-3">${set.emoji}</div>
+              <h4 class="text-xl font-bold mb-2">${set.title}</h4>
+              <p class="text-sm opacity-90">${set.cards.length} thẻ</p>
+            </div>
+          `;
+          
+          setElement.addEventListener('click', () => this.startFlashcardSet(key));
+          this.flashcardSets.appendChild(setElement);
+        });
+      }
+      
+      startFlashcardSet(setKey) {
+        this.currentSet = this.flashcardData[setKey];
+        this.currentIndex = 0;
+        this.isFlipped = false;
+        
+        // Hide sets, show controls
+        this.flashcardSets.style.display = 'none';
+        this.prevBtn.classList.remove('hidden');
+        this.flipBtn.classList.remove('hidden');
+        this.nextBtn.classList.remove('hidden');
+        this.restartBtn.classList.remove('hidden');
+        
+        // Update UI
+        this.updateCard();
+        this.updateProgress();
+      }
+      
+      updateCard() {
+        if (!this.currentSet) return;
+        
+        const card = this.currentSet.cards[this.currentIndex];
+        
+        if (!this.isFlipped) {
+          this.cardQuestion.textContent = card.question;
+          this.cardHint.textContent = '👆 Click vào thẻ để xem đáp án';
+          this.cardEmoji.textContent = card.emoji;
+          this.cardContainer.classList.remove('flipped');
+        } else {
+          this.cardAnswer.textContent = card.answer;
+          this.cardExplanation.textContent = card.explanation;
+          this.cardEmoji.textContent = card.emoji;
+          this.cardContainer.classList.add('flipped');
+        }
+      }
+      
+      updateProgress() {
+        if (!this.currentSet) return;
+        
+        this.currentCardEl.textContent = this.currentIndex + 1;
+        this.totalCardsEl.textContent = this.currentSet.cards.length;
+        
+        const progress = ((this.currentIndex + 1) / this.currentSet.cards.length) * 100;
+        this.progressBar.style.width = `${progress}%`;
+      }
+      
+      flipCard() {
+        this.isFlipped = !this.isFlipped;
+        this.updateCard();
+      }
+      
+      nextCard() {
+        if (this.currentIndex < this.currentSet.cards.length - 1) {
+          this.currentIndex++;
+          this.isFlipped = false;
+          this.updateCard();
+          this.updateProgress();
+        } else {
+          this.showCompletion();
+        }
+      }
+      
+      previousCard() {
+        if (this.currentIndex > 0) {
+          this.currentIndex--;
+          this.isFlipped = false;
+          this.updateCard();
+          this.updateProgress();
+        }
+      }
+      
+      showCompletion() {
+        this.cardContainer.innerHTML = `
+          <div class="bg-gradient-to-br from-green-500 to-emerald-500 text-white shadow-xl rounded-xl p-8 text-center">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-3xl font-bold mb-4">Hoàn thành!</h2>
+            <p class="text-lg opacity-90">Bạn đã học xong tất cả ${this.currentSet.cards.length} thẻ</p>
+          </div>
+        `;
+        
+        this.prevBtn.classList.add('hidden');
+        this.flipBtn.classList.add('hidden');
+        this.nextBtn.classList.add('hidden');
+      }
+      
+      restart() {
+        this.currentIndex = 0;
+        this.isFlipped = false;
+        
+        // Show sets again
+        this.flashcardSets.style.display = 'grid';
+        this.prevBtn.classList.add('hidden');
+        this.flipBtn.classList.add('hidden');
+        this.nextBtn.classList.add('hidden');
+        this.restartBtn.classList.add('hidden');
+        
+        // Reset card display
+        this.cardContainer.innerHTML = `
+          <div class="card-inner">
+            <div class="card-front card-clickable">
+              <div class="text-center">
+                <div class="text-6xl mb-4">📚</div>
+                <h2 class="text-3xl font-bold mb-4">Chọn bộ flashcard để bắt đầu</h2>
+                <p class="text-lg opacity-90">Nhấn vào bộ flashcard bên dưới để bắt đầu học</p>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        this.updateProgress();
+      }
+      
+      setupEventListeners() {
+        this.prevBtn.addEventListener('click', () => this.previousCard());
+        this.flipBtn.addEventListener('click', () => this.flipCard());
+        this.nextBtn.addEventListener('click', () => this.nextCard());
+        this.restartBtn.addEventListener('click', () => this.restart());
+        
+        // Card click to flip
+        this.cardContainer.addEventListener('click', () => {
+          if (this.currentSet) {
+            this.flipCard();
+          }
+        });
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+          if (this.currentSet) {
+            switch(e.key) {
+              case 'ArrowRight':
+                e.preventDefault();
+                this.nextCard();
+                break;
+              case 'ArrowLeft':
+                e.preventDefault();
+                this.previousCard();
+                break;
+              case 'ArrowUp':
+              case 'ArrowDown':
+                e.preventDefault();
+                this.flipCard();
+                break;
+            }
+          }
+        });
+      }
+    }
+    
+    // Start the app
+    new FlashcardApp();
+  </script>
 </body>
 </html>
-

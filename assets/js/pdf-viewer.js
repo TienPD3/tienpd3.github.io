@@ -64,18 +64,22 @@
     }
   }
 
-  function findAudioForPage(pageNumber) {
+  function findAudioForPage(pageNumber, targetLesson = null) {
     if (!vocabularyData) return null;
     
-    // Get current lesson from lessonSelect
-    const currentLesson = lessonSelect ? lessonSelect.value : null;
-    if (!currentLesson || currentLesson === 'bookmarks') return null;
+    // Use provided targetLesson or get from lessonSelect
+    let lessonNumber = targetLesson;
     
-    // Extract lesson number from currentLesson (e.g., "minnao-26" -> "26")
-    const lessonMatch = currentLesson.match(/(\d+)$/);
-    if (!lessonMatch) return null;
-    
-    const lessonNumber = lessonMatch[1];
+    if (!lessonNumber) {
+      const currentLesson = lessonSelect ? lessonSelect.value : null;
+      if (!currentLesson || currentLesson === 'bookmarks') return null;
+      
+      // Extract lesson number from currentLesson (e.g., "minnao-26" -> "26")
+      const lessonMatch = currentLesson.match(/(\d+)$/);
+      if (!lessonMatch) return null;
+      
+      lessonNumber = lessonMatch[1];
+    }
     
     // Find vocabulary items that match both lesson and page
     const pageItems = vocabularyData.filter(item => 
@@ -90,16 +94,23 @@
   }
 
   // TTS fallback function
-  function fnPlayTTS(strText, strLang = 'ja') {
+  function fnPlayTTS(strText, strLang = 'ja', forceUnmute = false) {
     let elAudioElement = document.getElementById('tts-audio');
     if (!elAudioElement) {
       elAudioElement = document.createElement('audio');
       elAudioElement.id = 'tts-audio';
       document.body.appendChild(elAudioElement);
+      
+      // Add event listener to restore mute state after TTS ends
+      elAudioElement.addEventListener('ended', () => {
+        if (isMuted) {
+          elAudioElement.muted = true;
+        }
+      });
     }
     const strUrl = `https://proxy.junookyo.workers.dev/?language=${strLang}&text=${encodeURIComponent(strText || '')}&speed=1`;
     elAudioElement.src = strUrl;
-    elAudioElement.muted = isMuted;
+    elAudioElement.muted = forceUnmute ? false : isMuted;
     elAudioElement.play().catch(err => {
       console.error('Lỗi khi phát TTS:', err);
     });
@@ -153,6 +164,13 @@
     
     if (audioPlayer) {
       audioPlayer.muted = isMuted;
+      
+      // If unmuting and audio is loaded, try to play
+      if (!isMuted && audioPlayer.src && userHasInteracted) {
+        audioPlayer.play().catch(err => {
+          console.log('Autoplay prevented:', err);
+        });
+      }
     }
     
     // Also control TTS audio
@@ -178,8 +196,15 @@
     }
   }
 
-  function tryPlayCurrentAudio() {
-    if (!userHasInteracted || isMuted) return;
+  function tryPlayCurrentAudio(forcePlay = false) {
+    // If forcePlay is true (Q key), ignore mute state
+    if (!forcePlay && isMuted) return;
+    
+    // For Q key, always reload audio for current page to ensure correct content
+    if (forcePlay) {
+      loadAudioForPage(currentPageNumber, true);
+      return;
+    }
     
     // Try to play current audio if available
     if (audioPlayer && audioPlayer.src) {
@@ -188,7 +213,10 @@
       });
     } else if (currentAudio && currentAudio.isTTS) {
       // Play TTS if that's what we have
-      fnPlayTTS(currentAudio.word, 'ja');
+      fnPlayTTS(currentAudio.word, 'ja', forcePlay);
+    } else {
+      // If no current audio, try to load audio for current page
+      loadAudioForPage(currentPageNumber);
     }
   }
 
@@ -496,6 +524,9 @@
       queueRender(bookmark.page);
       updateButtons();
       updateBookmarkUI();
+      
+      // Load audio for the bookmark page
+      loadAudioForPage(bookmark.page);
     }).catch((err) => {
       // Could not load bookmark file
     });
@@ -620,21 +651,55 @@
     }
   }
 
-  async function loadAudioForPage(pageNum) {
-    // Only load audio if a lesson is selected (not bookmarks)
-    if (!lessonSelect || lessonSelect.value === 'bookmarks') {
+  async function loadAudioForPage(pageNum, forcePlay = false) {
+    // For bookmark mode, we need to get the lesson from the current bookmark
+    let targetLesson = null;
+    
+    if (lessonSelect && lessonSelect.value === 'bookmarks') {
+      // In bookmark mode, get lesson from current bookmark
+      if (bookmarkLessonData && bookmarkLessonData.length > 0 && currentBookmarkIndex < bookmarkLessonData.length) {
+        const currentBookmark = bookmarkLessonData[currentBookmarkIndex];
+        
+        if (currentBookmark && currentBookmark.file) {
+          // Extract lesson number from bookmark file path
+          // Try both patterns: bai39 and minnao-39
+          let lessonMatch = currentBookmark.file.match(/bai(\d+)/);
+          if (!lessonMatch) {
+            lessonMatch = currentBookmark.file.match(/minnao-(\d+)/);
+          }
+          
+          if (lessonMatch) {
+            targetLesson = lessonMatch[1];
+          }
+        }
+      }
+      
+      if (!targetLesson) {
+        stopAudio();
+        return;
+      }
+    } else if (!lessonSelect || !lessonSelect.value) {
       stopAudio();
       return;
+    } else {
+      // Normal lesson mode
+      const lessonMatch = lessonSelect.value.match(/(\d+)$/);
+      if (lessonMatch) {
+        targetLesson = lessonMatch[1];
+      } else {
+        stopAudio();
+        return;
+      }
     }
     
     // Load vocabulary data if not already loaded
     await loadVocabularyData();
     
     // Find audio for current page
-    const audioItem = findAudioForPage(pageNum);
+    const audioItem = findAudioForPage(pageNum, targetLesson);
     
     if (audioItem) {
-      // Load audio (original or TTS) but only play if user has interacted
+      // Load audio (original or TTS)
       if (audioItem.audio && audioItem.audio.trim() !== '') {
         // Load original audio
         if (audioPlayer) {
@@ -642,20 +707,39 @@
           currentAudio = audioPlayer;
         }
       } else if (audioItem.word) {
-        // Prepare TTS (will be called when user interacts)
-        // Store word for later TTS call
+        // Prepare TTS
         currentAudio = { isTTS: true, word: audioItem.word };
       }
       
-      // Try to play if user has already interacted
-      if (userHasInteracted && !isMuted) {
+      // Always load audio, but only play if conditions are met
+      const shouldPlay = forcePlay || (userHasInteracted && !isMuted);
+      
+      if (shouldPlay) {
         if (audioItem.audio && audioItem.audio.trim() !== '') {
-          audioPlayer.play().catch(err => {
-            console.log('Autoplay prevented:', err);
-          });
+          if (forcePlay) {
+            // For Q key, temporarily unmute and play
+            audioPlayer.muted = false;
+            audioPlayer.play().catch(err => {
+              console.log('Autoplay prevented:', err);
+            });
+            // Don't restore mute immediately, let it play
+          } else {
+            audioPlayer.play().catch(err => {
+              console.log('Autoplay prevented:', err);
+            });
+          }
         } else if (audioItem.word) {
-          fnPlayTTS(audioItem.word, 'ja');
+          fnPlayTTS(audioItem.word, 'ja', forcePlay);
         }
+      } else {
+        // Even when muted, ensure audio is loaded for Q key
+        if (audioItem.audio && audioItem.audio.trim() !== '') {
+          // Audio is already loaded above, just don't play
+          if (audioPlayer) {
+            audioPlayer.muted = isMuted; // Set mute state
+          }
+        }
+        // For TTS, we don't need to preload since it's generated on demand
       }
     } else {
       // Stop audio if no audio found for this page
@@ -859,6 +943,24 @@
     });
   }
 
+  // Restore mute state after audio ends
+  if (audioPlayer) {
+    audioPlayer.addEventListener('ended', () => {
+      // Restore mute state after audio finishes
+      if (isMuted) {
+        audioPlayer.muted = true;
+      }
+    });
+    
+    // Also handle pause event
+    audioPlayer.addEventListener('pause', () => {
+      // Restore mute state when paused
+      if (isMuted) {
+        audioPlayer.muted = true;
+      }
+    });
+  }
+
   // Track user interaction for autoplay
   document.addEventListener('click', () => {
     userHasInteracted = true;
@@ -874,6 +976,15 @@
 
   document.addEventListener('keydown', (e) => {
     if (!pdfDoc) return;
+    
+    // Handle Q key for audio playback
+    if (e.key === 'q' || e.key === 'Q') {
+      e.preventDefault();
+      userHasInteracted = true;
+      tryPlayCurrentAudio(true); // Force play regardless of mute state
+      return;
+    }
+    
     if (e.key === 'ArrowRight') {
       if (lessonSelect && lessonSelect.value === 'bookmarks') {
         goToNextBookmark();
