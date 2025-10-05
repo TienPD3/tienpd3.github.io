@@ -1,279 +1,323 @@
 [
     {
-        "kanji": "会",
-        "vietnamese_origin": "HỘI"
-    },
-    {
-        "kanji": "動",
-        "vietnamese_origin": "ĐỘNG"
-    },
-    {
-        "kanji": "歩",
-        "vietnamese_origin": "BỘ"
-    },
-    {
-        "kanji": "急",
-        "vietnamese_origin": "CẤP"
-    },
-    {
-        "kanji": "切",
-        "vietnamese_origin": "THIẾT"
-    },
-    {
-        "kanji": "送",
-        "vietnamese_origin": "TỐNG"
-    },
-    {
-        "kanji": "習",
-        "vietnamese_origin": "TẬP"
-    },
-    {
-        "kanji": "歌",
-        "vietnamese_origin": "CA"
-    },
-    {
-        "kanji": "終",
-        "vietnamese_origin": "CHUNG"
-    },
-    {
-        "kanji": "社",
-        "vietnamese_origin": "XÃ"
-    },
-    {
-        "kanji": "銀",
-        "vietnamese_origin": "NGÂN"
-    },
-    {
-        "kanji": "医",
-        "vietnamese_origin": "Y"
-    },
-    {
-        "kanji": "病",
-        "vietnamese_origin": "BỆNH"
-    },
-    {
-        "kanji": "院",
-        "vietnamese_origin": "VIỆN"
-    },
-    {
-        "kanji": "国",
-        "vietnamese_origin": "QUỐC"
-    },
-    {
-        "kanji": "世",
-        "vietnamese_origin": "THẾ"
-    },
-    {
-        "kanji": "界",
-        "vietnamese_origin": "GIỚI"
-    },
-    {
-        "kanji": "教",
-        "vietnamese_origin": "GIÁO"
-    },
-    {
-        "kanji": "研",
-        "vietnamese_origin": "NGHIÊN"
-    },
-    {
-        "kanji": "究",
-        "vietnamese_origin": "CỨU"
-    },
-    {
-        "kanji": "売",
-        "vietnamese_origin": "MẠI"
-    },
-    {
-        "kanji": "働",
-        "vietnamese_origin": "ĐỘNG"
-    },
-    {
-        "kanji": "勉",
-        "vietnamese_origin": "MIỄN"
-    },
-    {
-        "kanji": "強",
-        "vietnamese_origin": "CƯỜNG"
-    },
-    {
-        "kanji": "泳",
-        "vietnamese_origin": "VỊNH"
-    },
-    {
-        "kanji": "部",
-        "vietnamese_origin": "BỘ"
-    },
-    {
-        "kanji": "屋",
-        "vietnamese_origin": "ỐC"
-    },
-    {
-        "kanji": "室",
-        "vietnamese_origin": "THẤT"
-    },
-    {
-        "kanji": "場",
-        "vietnamese_origin": "TRƯỜNG, TRÀNG"
-    },
-    {
-        "kanji": "所",
-        "vietnamese_origin": "SỞ"
-    },
-    {
-        "kanji": "図",
-        "vietnamese_origin": "ĐỒ"
-    },
-    {
-        "kanji": "館",
-        "vietnamese_origin": "QUÁN"
-    },
-    {
-        "kanji": "家",
-        "vietnamese_origin": "GIA, CÔ"
-    },
-    {
-        "kanji": "族",
-        "vietnamese_origin": "TỘC"
-    },
-    {
-        "kanji": "試",
-        "vietnamese_origin": "THÍ"
-    },
-    {
-        "kanji": "験",
-        "vietnamese_origin": "NGHIỆM"
-    },
-    {
-        "kanji": "映",
-        "vietnamese_origin": "ÁNH"
-    },
-    {
-        "kanji": "画",
-        "vietnamese_origin": "HỌA, HOẠCH"
-    },
-    {
-        "kanji": "宿",
-        "vietnamese_origin": "TÚC"
-    },
-    {
-        "kanji": "題",
-        "vietnamese_origin": "ĐỀ"
-    },
-    {
-        "kanji": "紙",
-        "vietnamese_origin": "CHỈ"
-    },
-    {
-        "kanji": "英",
-        "vietnamese_origin": "ANH"
-    },
-    {
-        "kanji": "語",
-        "vietnamese_origin": "NGỮ"
-    },
-    {
-        "kanji": "待",
-        "vietnamese_origin": "ĐÃI"
-    },
-    {
-        "kanji": "開",
-        "vietnamese_origin": "KHAI"
-    },
-    {
-        "kanji": "閉",
-        "vietnamese_origin": "BẾ"
-    },
-    {
-        "kanji": "持",
-        "vietnamese_origin": "TRÌ"
-    },
-    {
-        "kanji": "使",
-        "vietnamese_origin": "SỬ, SỨ"
-    },
-    {
-        "kanji": "止",
-        "vietnamese_origin": "CHỈ"
-    },
-    {
-        "kanji": "住",
-        "vietnamese_origin": "TRỤ, TRÚ"
-    },
-    {
-        "kanji": "乗",
-        "vietnamese_origin": "THỪA"
-    },
-    {
-        "kanji": "降",
-        "vietnamese_origin": "HÀNG, GIÁNG"
-    },
-    {
-        "kanji": "私",
-        "vietnamese_origin": "TƯ"
-    },
-    {
-        "kanji": "夫",
-        "vietnamese_origin": "PHU"
-    },
-    {
-        "kanji": "主",
-        "vietnamese_origin": "CHỦ"
-    },
-    {
-        "kanji": "奥",
-        "vietnamese_origin": "ÁO"
-    },
-    {
-        "kanji": "妻",
-        "vietnamese_origin": "THÊ"
-    },
-    {
-        "kanji": "兄",
-        "vietnamese_origin": "HUYNH"
-    },
-    {
-        "kanji": "弟",
-        "vietnamese_origin": "ĐỆ"
-    },
-    {
-        "kanji": "姉",
-        "vietnamese_origin": "TỈ"
-    },
-    {
-        "kanji": "妹",
-        "vietnamese_origin": "MUỘI"
-    },
-    {
-        "kanji": "春",
-        "vietnamese_origin": "XUÂN"
-    },
-    {
-        "kanji": "夏",
-        "vietnamese_origin": "HẠ"
-    },
-    {
-        "kanji": "秋",
-        "vietnamese_origin": "THU"
-    },
-    {
-        "kanji": "冬",
-        "vietnamese_origin": "ĐÔNG"
-    },
-    {
-        "kanji": "雪",
-        "vietnamese_origin": "TUYẾT"
-    },
-    {
-        "kanji": "海",
-        "vietnamese_origin": "HẢI"
-    },
-    {
-        "kanji": "天",
-        "vietnamese_origin": "THIÊN"
-    },
-    {
-        "kanji": "空",
-        "vietnamese_origin": "KHÔNG"
+        "lesson": "Bài 26",
+        "kanji_list": [
+            {
+                "kanji": "会",
+                "vietnamese_origin": "HỘI"
+            },
+            {
+                "kanji": "動",
+                "vietnamese_origin": "ĐỘNG"
+            },
+            {
+                "kanji": "歩",
+                "vietnamese_origin": "BỘ"
+            },
+            {
+                "kanji": "急",
+                "vietnamese_origin": "CẤP"
+            },
+            {
+                "kanji": "切",
+                "vietnamese_origin": "THIẾT"
+            },
+            {
+                "kanji": "送",
+                "vietnamese_origin": "TỐNG"
+            },
+            {
+                "kanji": "習",
+                "vietnamese_origin": "TẬP"
+            },
+            {
+                "kanji": "歌",
+                "vietnamese_origin": "CA"
+            },
+            {
+                "kanji": "終",
+                "vietnamese_origin": "CHUNG"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 27",
+        "kanji_list": [
+            {
+                "kanji": "社",
+                "vietnamese_origin": "XÃ"
+            },
+            {
+                "kanji": "銀",
+                "vietnamese_origin": "NGÂN"
+            },
+            {
+                "kanji": "医",
+                "vietnamese_origin": "Y"
+            },
+            {
+                "kanji": "病",
+                "vietnamese_origin": "BỆNH"
+            },
+            {
+                "kanji": "院",
+                "vietnamese_origin": "VIỆN"
+            },
+            {
+                "kanji": "国",
+                "vietnamese_origin": "QUỐC"
+            },
+            {
+                "kanji": "世",
+                "vietnamese_origin": "THẾ"
+            },
+            {
+                "kanji": "界",
+                "vietnamese_origin": "GIỚI"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 28",
+        "kanji_list": [
+            {
+                "kanji": "教",
+                "vietnamese_origin": "GIÁO"
+            },
+            {
+                "kanji": "研",
+                "vietnamese_origin": "NGHIÊN"
+            },
+            {
+                "kanji": "究",
+                "vietnamese_origin": "CỨU"
+            },
+            {
+                "kanji": "売",
+                "vietnamese_origin": "MẠI"
+            },
+            {
+                "kanji": "働",
+                "vietnamese_origin": "ĐỘNG"
+            },
+            {
+                "kanji": "勉",
+                "vietnamese_origin": "MIỄN"
+            },
+            {
+                "kanji": "強",
+                "vietnamese_origin": "CƯỜNG"
+            },
+            {
+                "kanji": "泳",
+                "vietnamese_origin": "VỊNH"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 29",
+        "kanji_list": [
+            {
+                "kanji": "部",
+                "vietnamese_origin": "BỘ"
+            },
+            {
+                "kanji": "屋",
+                "vietnamese_origin": "ỐC"
+            },
+            {
+                "kanji": "室",
+                "vietnamese_origin": "THẤT"
+            },
+            {
+                "kanji": "場",
+                "vietnamese_origin": "TRƯỜNG, TRÀNG"
+            },
+            {
+                "kanji": "所",
+                "vietnamese_origin": "SỞ"
+            },
+            {
+                "kanji": "図",
+                "vietnamese_origin": "ĐỒ"
+            },
+            {
+                "kanji": "館",
+                "vietnamese_origin": "QUÁN"
+            },
+            {
+                "kanji": "家",
+                "vietnamese_origin": "GIA, CÔ"
+            },
+            {
+                "kanji": "族",
+                "vietnamese_origin": "TỘC"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 30",
+        "kanji_list": [
+            {
+                "kanji": "毎",
+                "vietnamese_origin": "MỖI"
+            },
+            {
+                "kanji": "朝",
+                "vietnamese_origin": "TRIỀU"
+            },
+            {
+                "kanji": "昼",
+                "vietnamese_origin": "TRÚ"
+            },
+            {
+                "kanji": "晩",
+                "vietnamese_origin": "VÃN"
+            },
+            {
+                "kanji": "夜",
+                "vietnamese_origin": "DẠ"
+            },
+            {
+                "kanji": "午",
+                "vietnamese_origin": "NGỌ"
+            },
+            {
+                "kanji": "前",
+                "vietnamese_origin": "TIỀN"
+            },
+            {
+                "kanji": "後",
+                "vietnamese_origin": "HẬU"
+            },
+            {
+                "kanji": "週",
+                "vietnamese_origin": "CHU"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 31",
+        "kanji_list": [
+            {
+                "kanji": "試",
+                "vietnamese_origin": "THÍ"
+            },
+            {
+                "kanji": "験",
+                "vietnamese_origin": "NGHIỆM"
+            },
+            {
+                "kanji": "映",
+                "vietnamese_origin": "ÁNH"
+            },
+            {
+                "kanji": "画",
+                "vietnamese_origin": "HỌA, HOẠCH"
+            },
+            {
+                "kanji": "宿",
+                "vietnamese_origin": "TÚC"
+            },
+            {
+                "kanji": "題",
+                "vietnamese_origin": "ĐỀ"
+            },
+            {
+                "kanji": "紙",
+                "vietnamese_origin": "CHỈ"
+            },
+            {
+                "kanji": "英",
+                "vietnamese_origin": "ANH"
+            },
+            {
+                "kanji": "語",
+                "vietnamese_origin": "NGỮ"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 32",
+        "kanji_list": [
+            {
+                "kanji": "待",
+                "vietnamese_origin": "ĐÃI"
+            },
+            {
+                "kanji": "開",
+                "vietnamese_origin": "KHAI"
+            },
+            {
+                "kanji": "閉",
+                "vietnamese_origin": "BẾ"
+            },
+            {
+                "kanji": "持",
+                "vietnamese_origin": "TRÌ"
+            },
+            {
+                "kanji": "使",
+                "vietnamese_origin": "SỬ, SỨ"
+            },
+            {
+                "kanji": "止",
+                "vietnamese_origin": "CHỈ"
+            },
+            {
+                "kanji": "住",
+                "vietnamese_origin": "TRỤ, TRÚ"
+            },
+            {
+                "kanji": "乗",
+                "vietnamese_origin": "THỪA"
+            },
+            {
+                "kanji": "降",
+                "vietnamese_origin": "HÀNG, GIÁNG"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 33",
+        "kanji_list": [
+            {
+                "kanji": "私",
+                "vietnamese_origin": "TƯ"
+            },
+            {
+                "kanji": "夫",
+                "vietnamese_origin": "PHU"
+            },
+            {
+                "kanji": "主",
+                "vietnamese_origin": "CHỦ"
+            },
+            {
+                "kanji": "奥",
+                "vietnamese_origin": "ÁO"
+            },
+            {
+                "kanji": "妻",
+                "vietnamese_origin": "THÊ"
+            },
+            {
+                "kanji": "兄",
+                "vietnamese_origin": "HUYNH"
+            },
+            {
+                "kanji": "弟",
+                "vietnamese_origin": "ĐỆ"
+            },
+            {
+                "kanji": "姉",
+                "vietnamese_origin": "TỈ"
+            },
+            {
+                "kanji": "妹",
+                "vietnamese_origin": "MUỘI"
+            }
+        ]
     },
     {
         "lesson": "Bài 34",
@@ -309,6 +353,610 @@
             {
                 "kanji": "空",
                 "vietnamese_origin": "KHÔNG"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 35",
+        "kanji_list": [
+            {
+                "kanji": "暑",
+                "vietnamese_origin": "THỬ"
+            },
+            {
+                "kanji": "寒",
+                "vietnamese_origin": "HÀN"
+            },
+            {
+                "kanji": "早",
+                "vietnamese_origin": "TẢO"
+            },
+            {
+                "kanji": "速",
+                "vietnamese_origin": "TỐC"
+            },
+            {
+                "kanji": "遅",
+                "vietnamese_origin": "TRÌ"
+            },
+            {
+                "kanji": "重",
+                "vietnamese_origin": "TRỌNG"
+            },
+            {
+                "kanji": "軽",
+                "vietnamese_origin": "KHINH"
+            },
+            {
+                "kanji": "近",
+                "vietnamese_origin": "CẬN"
+            },
+            {
+                "kanji": "遠",
+                "vietnamese_origin": "VIỄN"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 36",
+        "kanji_list": [
+            {
+                "kanji": "質",
+                "vietnamese_origin": "CHẤT"
+            },
+            {
+                "kanji": "問",
+                "vietnamese_origin": "VẤN"
+            },
+            {
+                "kanji": "答",
+                "vietnamese_origin": "ĐÁP"
+            },
+            {
+                "kanji": "作",
+                "vietnamese_origin": "TÁC"
+            },
+            {
+                "kanji": "思",
+                "vietnamese_origin": "TƯ"
+            },
+            {
+                "kanji": "始",
+                "vietnamese_origin": "THỦY"
+            },
+            {
+                "kanji": "着",
+                "vietnamese_origin": "TRỨ"
+            },
+            {
+                "kanji": "集",
+                "vietnamese_origin": "TẬP"
+            },
+            {
+                "kanji": "練",
+                "vietnamese_origin": "LUYỆN"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 37",
+        "kanji_list": [
+            {
+                "kanji": "晴",
+                "vietnamese_origin": "TÌNH"
+            },
+            {
+                "kanji": "星",
+                "vietnamese_origin": "TINH"
+            },
+            {
+                "kanji": "風",
+                "vietnamese_origin": "PHONG"
+            },
+            {
+                "kanji": "然",
+                "vietnamese_origin": "NHIÊN"
+            },
+            {
+                "kanji": "油",
+                "vietnamese_origin": "DU"
+            },
+            {
+                "kanji": "原",
+                "vietnamese_origin": "NGUYÊN"
+            },
+            {
+                "kanji": "皿",
+                "vietnamese_origin": "MÃNH"
+            },
+            {
+                "kanji": "発",
+                "vietnamese_origin": "PHÁT"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 38",
+        "kanji_list": [
+            {
+                "kanji": "便",
+                "vietnamese_origin": "TIỆN"
+            },
+            {
+                "kanji": "利",
+                "vietnamese_origin": "LỢI"
+            },
+            {
+                "kanji": "不",
+                "vietnamese_origin": "BẤT"
+            },
+            {
+                "kanji": "静",
+                "vietnamese_origin": "TĨNH"
+            },
+            {
+                "kanji": "同",
+                "vietnamese_origin": "ĐỒNG"
+            },
+            {
+                "kanji": "有",
+                "vietnamese_origin": "HỮU"
+            },
+            {
+                "kanji": "親",
+                "vietnamese_origin": "THÂN"
+            },
+            {
+                "kanji": "細",
+                "vietnamese_origin": "TẾ"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 39",
+        "kanji_list": [
+            {
+                "kanji": "駅",
+                "vietnamese_origin": "DỊCH"
+            },
+            {
+                "kanji": "店",
+                "vietnamese_origin": "ĐIẾM"
+            },
+            {
+                "kanji": "池",
+                "vietnamese_origin": "TRÌ"
+            },
+            {
+                "kanji": "公",
+                "vietnamese_origin": "CÔNG"
+            },
+            {
+                "kanji": "園",
+                "vietnamese_origin": "VIÊN"
+            },
+            {
+                "kanji": "洋",
+                "vietnamese_origin": "DƯƠNG"
+            },
+            {
+                "kanji": "辺",
+                "vietnamese_origin": "BIÊN"
+            },
+            {
+                "kanji": "交",
+                "vietnamese_origin": "GIAO"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 40",
+        "kanji_list": [
+            {
+                "kanji": "漢",
+                "vietnamese_origin": "HÁN"
+            },
+            {
+                "kanji": "数",
+                "vietnamese_origin": "SỐ"
+            },
+            {
+                "kanji": "旅",
+                "vietnamese_origin": "LỮ"
+            },
+            {
+                "kanji": "薬",
+                "vietnamese_origin": "DƯỢC"
+            },
+            {
+                "kanji": "台",
+                "vietnamese_origin": "ĐÀI"
+            },
+            {
+                "kanji": "里",
+                "vietnamese_origin": "LÍ"
+            },
+            {
+                "kanji": "才",
+                "vietnamese_origin": "TÀI"
+            },
+            {
+                "kanji": "去",
+                "vietnamese_origin": "KHỨ"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 41",
+        "kanji_list": [
+            {
+                "kanji": "若",
+                "vietnamese_origin": "NHƯỢC"
+            },
+            {
+                "kanji": "短",
+                "vietnamese_origin": "ĐOẢN"
+            },
+            {
+                "kanji": "弱",
+                "vietnamese_origin": "NHƯỢC"
+            },
+            {
+                "kanji": "正",
+                "vietnamese_origin": "CHÍNH"
+            },
+            {
+                "kanji": "広",
+                "vietnamese_origin": "QUẢNG"
+            },
+            {
+                "kanji": "低",
+                "vietnamese_origin": "ĐÊ"
+            },
+            {
+                "kanji": "楽",
+                "vietnamese_origin": "LẠC, NHẠC"
+            },
+            {
+                "kanji": "太",
+                "vietnamese_origin": "THÁI"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 42",
+        "kanji_list": [
+            {
+                "kanji": "運",
+                "vietnamese_origin": "VẬN"
+            },
+            {
+                "kanji": "合",
+                "vietnamese_origin": "HỢP"
+            },
+            {
+                "kanji": "当",
+                "vietnamese_origin": "ĐƯƠNG"
+            },
+            {
+                "kanji": "考",
+                "vietnamese_origin": "KHẢO"
+            },
+            {
+                "kanji": "走",
+                "vietnamese_origin": "TẨU"
+            },
+            {
+                "kanji": "治",
+                "vietnamese_origin": "TRỊ"
+            },
+            {
+                "kanji": "通",
+                "vietnamese_origin": "THÔNG"
+            },
+            {
+                "kanji": "知",
+                "vietnamese_origin": "TRI"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 43",
+        "kanji_list": [
+            {
+                "kanji": "文",
+                "vietnamese_origin": "VĂN"
+            },
+            {
+                "kanji": "化",
+                "vietnamese_origin": "HÓA"
+            },
+            {
+                "kanji": "経",
+                "vietnamese_origin": "KINH"
+            },
+            {
+                "kanji": "済",
+                "vietnamese_origin": "TẾ"
+            },
+            {
+                "kanji": "政",
+                "vietnamese_origin": "CHÍNH"
+            },
+            {
+                "kanji": "歴",
+                "vietnamese_origin": "LỊCH"
+            },
+            {
+                "kanji": "史",
+                "vietnamese_origin": "SỬ"
+            },
+            {
+                "kanji": "育",
+                "vietnamese_origin": "DỤC"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 44",
+        "kanji_list": [
+            {
+                "kanji": "料",
+                "vietnamese_origin": "LIỆU"
+            },
+            {
+                "kanji": "理",
+                "vietnamese_origin": "LÍ"
+            },
+            {
+                "kanji": "味",
+                "vietnamese_origin": "VỊ"
+            },
+            {
+                "kanji": "飯",
+                "vietnamese_origin": "PHẠN"
+            },
+            {
+                "kanji": "野",
+                "vietnamese_origin": "DÃ"
+            },
+            {
+                "kanji": "酒",
+                "vietnamese_origin": "TỬU"
+            },
+            {
+                "kanji": "品",
+                "vietnamese_origin": "PHẨM"
+            },
+            {
+                "kanji": "麦",
+                "vietnamese_origin": "MẠCH"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 45",
+        "kanji_list": [
+            {
+                "kanji": "船",
+                "vietnamese_origin": "THUYỀN"
+            },
+            {
+                "kanji": "地",
+                "vietnamese_origin": "ĐỊA"
+            },
+            {
+                "kanji": "鉄",
+                "vietnamese_origin": "THIẾT"
+            },
+            {
+                "kanji": "特",
+                "vietnamese_origin": "ĐẶC"
+            },
+            {
+                "kanji": "客",
+                "vietnamese_origin": "KHÁCH"
+            },
+            {
+                "kanji": "様",
+                "vietnamese_origin": "DẠNG"
+            },
+            {
+                "kanji": "荷",
+                "vietnamese_origin": "HÀ"
+            },
+            {
+                "kanji": "馬",
+                "vietnamese_origin": "MÃ"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 46",
+        "kanji_list": [
+            {
+                "kanji": "番",
+                "vietnamese_origin": "PHIÊN"
+            },
+            {
+                "kanji": "号",
+                "vietnamese_origin": "HIỆU"
+            },
+            {
+                "kanji": "写",
+                "vietnamese_origin": "TẢ"
+            },
+            {
+                "kanji": "真",
+                "vietnamese_origin": "CHÂN"
+            },
+            {
+                "kanji": "計",
+                "vietnamese_origin": "KẾ"
+            },
+            {
+                "kanji": "宅",
+                "vietnamese_origin": "TRẠCH"
+            },
+            {
+                "kanji": "玉",
+                "vietnamese_origin": "NGỌC"
+            },
+            {
+                "kanji": "工",
+                "vietnamese_origin": "CÔNG"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 47",
+        "kanji_list": [
+            {
+                "kanji": "白",
+                "vietnamese_origin": "BẠCH"
+            },
+            {
+                "kanji": "黒",
+                "vietnamese_origin": "HẮC"
+            },
+            {
+                "kanji": "赤",
+                "vietnamese_origin": "XÍCH"
+            },
+            {
+                "kanji": "青",
+                "vietnamese_origin": "THANH"
+            },
+            {
+                "kanji": "緑",
+                "vietnamese_origin": "LỤC"
+            },
+            {
+                "kanji": "黄",
+                "vietnamese_origin": "HOÀNG"
+            },
+            {
+                "kanji": "色",
+                "vietnamese_origin": "SẮC"
+            },
+            {
+                "kanji": "丸",
+                "vietnamese_origin": "HOÀN"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 48",
+        "kanji_list": [
+            {
+                "kanji": "心",
+                "vietnamese_origin": "TÂM"
+            },
+            {
+                "kanji": "自",
+                "vietnamese_origin": "TỰ"
+            },
+            {
+                "kanji": "声",
+                "vietnamese_origin": "THANH"
+            },
+            {
+                "kanji": "服",
+                "vietnamese_origin": "PHỤC"
+            },
+            {
+                "kanji": "毛",
+                "vietnamese_origin": "MAO"
+            },
+            {
+                "kanji": "糸",
+                "vietnamese_origin": "MỊCH"
+            },
+            {
+                "kanji": "科",
+                "vietnamese_origin": "KHOA"
+            },
+            {
+                "kanji": "鳴",
+                "vietnamese_origin": "MINH"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 49",
+        "kanji_list": [
+            {
+                "kanji": "道",
+                "vietnamese_origin": "ĐẠO"
+            },
+            {
+                "kanji": "村",
+                "vietnamese_origin": "THÔN"
+            },
+            {
+                "kanji": "区",
+                "vietnamese_origin": "KHU"
+            },
+            {
+                "kanji": "市",
+                "vietnamese_origin": "THỊ"
+            },
+            {
+                "kanji": "都",
+                "vietnamese_origin": "ĐÔ"
+            },
+            {
+                "kanji": "県",
+                "vietnamese_origin": "HUYỆN"
+            },
+            {
+                "kanji": "府",
+                "vietnamese_origin": "PHỦ"
+            },
+            {
+                "kanji": "京",
+                "vietnamese_origin": "KINH"
+            }
+        ]
+    },
+    {
+        "lesson": "Bài 50",
+        "kanji_list": [
+            {
+                "kanji": "衣",
+                "vietnamese_origin": "Y"
+            },
+            {
+                "kanji": "光",
+                "vietnamese_origin": "QUANG"
+            },
+            {
+                "kanji": "雲",
+                "vietnamese_origin": "VÂN"
+            },
+            {
+                "kanji": "王",
+                "vietnamese_origin": "VƯƠNG"
+            },
+            {
+                "kanji": "草",
+                "vietnamese_origin": "THẢO"
+            },
+            {
+                "kanji": "湖",
+                "vietnamese_origin": "HỒ"
+            },
+            {
+                "kanji": "谷",
+                "vietnamese_origin": "CỐC"
+            },
+            {
+                "kanji": "虫",
+                "vietnamese_origin": "TRÙNG"
+            },
+            {
+                "kanji": "羽",
+                "vietnamese_origin": "VŨ"
             }
         ]
     }

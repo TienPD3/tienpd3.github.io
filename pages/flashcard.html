@@ -10,7 +10,7 @@
     .card-container {
       perspective: 1000px;
       width: 100%;
-      height: 400px;
+      height: 420px;
     }
     
     .card-inner {
@@ -31,24 +31,18 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 1rem;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 2.5rem;
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid #e5e7eb;
     }
     
-    .card-front {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-    }
-    
-    .card-back {
-      transform: rotateY(180deg);
-      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-      color: white;
-    }
+    .card-front { transform: rotateY(0deg); }
+    .card-back { transform: rotateY(180deg); }
     
     .card-clickable {
       cursor: pointer;
@@ -56,22 +50,17 @@
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen">
-  <div class="container mx-auto px-4 py-8">
+<body class="bg-white min-h-screen">
+  <div class="container mx-auto px-4 py-6 max-w-3xl">
     <!-- Header -->
-    <header class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-gray-800 mb-2">🎓 Flashcard Học Tập</h1>
-      <p class="text-gray-600">Chọn bộ flashcard để bắt đầu học</p>
+    <header class="text-center mb-6">
+      <h1 class="text-2xl font-semibold text-gray-800 mb-1">Flashcard</h1>
+      <p class="text-gray-500 text-sm">Chọn bộ để bắt đầu học</p>
     </header>
 
-    <!-- Progress -->
-    <div class="text-center mb-6">
-      <div class="text-lg text-gray-700">
-        <span id="currentCard">1</span> / <span id="totalCards">0</span>
-      </div>
-      <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-        <div id="progressBar" class="bg-blue-500 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
-      </div>
+    <!-- Simple counter -->
+    <div class="text-center mb-4 text-gray-700 text-base">
+      <span id="currentCard">1</span> / <span id="totalCards">0</span>
     </div>
 
     <!-- Card Container -->
@@ -79,41 +68,38 @@
       <div class="card-inner">
         <!-- Front of Card -->
         <div class="card-front card-clickable">
-          <div class="text-center">
-            <div class="text-6xl mb-4" id="cardEmoji">📚</div>
-            <h2 class="text-3xl font-bold mb-4" id="cardQuestion">Chọn bộ flashcard để bắt đầu</h2>
-            <p class="text-lg opacity-90" id="cardHint">Nhấn vào bộ flashcard bên dưới để bắt đầu học</p>
+          <div class="text-center relative w-full h-full flex items-center justify-center">
+            <div class="absolute top-3 left-3 text-xs md:text-sm text-slate-500" id="cardHint">Get a hint</div>
+            <h2 class="text-3xl md:text-4xl font-semibold leading-normal max-w-3xl" id="cardQuestion">Chọn bộ flashcard để bắt đầu</h2>
           </div>
         </div>
         
         <!-- Back of Card -->
         <div class="card-back card-clickable">
-          <div class="text-center">
-            <div class="text-6xl mb-4" id="cardEmoji">✅</div>
-            <h2 class="text-3xl font-bold mb-4" id="cardAnswer">Đáp án</h2>
-            <p class="text-lg opacity-90" id="cardExplanation">Giải thích chi tiết</p>
+          <div class="text-center relative w-full h-full flex items-center justify-center">
+            <div class="absolute top-3 left-3 text-xs md:text-sm text-slate-500">Answer</div>
+            <div class="max-w-3xl">
+              <h2 class="text-3xl md:text-4xl font-semibold leading-normal mb-2" id="cardAnswer">Đáp án</h2>
+              <p class="text-base md:text-lg text-slate-600" id="cardExplanation">Giải thích chi tiết</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Controls -->
-    <div class="flex justify-center gap-4 mb-8">
-      <button id="prevBtn" class="hidden px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white font-semibold rounded-lg transition-colors">
-        ⬅️ Trước
+    <div class="flex items-center justify-center gap-4 mb-6">
+      <button id="prevBtn" class="hidden px-4 py-2 text-sm md:text-base border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-md transition-colors">
+        Trước
       </button>
       
-      <button id="flipBtn" class="hidden px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors">
-        🔄 Lật thẻ
+      <button id="flipBtn" class="hidden px-4 py-2 text-sm md:text-base bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md transition-colors">Lật thẻ</button>
+      
+      <button id="nextBtn" class="hidden px-4 py-2 text-sm md:text-base border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-md transition-colors">
+        Tiếp theo
       </button>
       
-      <button id="nextBtn" class="hidden px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors">
-        ➡️ Tiếp theo
-      </button>
-      
-      <button id="restartBtn" class="hidden px-6 py-3 bg-red-500 hover:bg-red-600 text-white font-semibold rounded-lg transition-colors">
-        🔄 Bắt đầu lại
-      </button>
+      <button id="restartBtn" class="hidden px-4 py-2 text-sm md:text-base border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-md transition-colors">Bắt đầu lại</button>
     </div>
 
     <!-- Flashcard Sets -->
@@ -136,10 +122,8 @@
         this.cardAnswer = document.getElementById('cardAnswer');
         this.cardHint = document.getElementById('cardHint');
         this.cardExplanation = document.getElementById('cardExplanation');
-        this.cardEmoji = document.getElementById('cardEmoji');
         this.currentCardEl = document.getElementById('currentCard');
         this.totalCardsEl = document.getElementById('totalCards');
-        this.progressBar = document.getElementById('progressBar');
         this.prevBtn = document.getElementById('prevBtn');
         this.flipBtn = document.getElementById('flipBtn');
         this.nextBtn = document.getElementById('nextBtn');
@@ -150,39 +134,41 @@
         this.flashcardData = {
           'japanese-n5': {
             title: 'Tiếng Nhật N5',
-            emoji: '🇯🇵',
             color: 'from-blue-500 to-cyan-500',
             cards: [
-              { question: 'こんにちは', answer: 'Xin chào', explanation: 'Cách chào hỏi thông thường', emoji: '👋' },
-              { question: 'ありがとう', answer: 'Cảm ơn', explanation: 'Cách nói cảm ơn', emoji: '🙏' },
-              { question: 'すみません', answer: 'Xin lỗi', explanation: 'Cách xin lỗi', emoji: '😅' },
-              { question: 'はい', answer: 'Có / Vâng', explanation: 'Cách trả lời khẳng định', emoji: '✅' },
-              { question: 'いいえ', answer: 'Không', explanation: 'Cách trả lời phủ định', emoji: '❌' }
+              { question: 'こんにちは', answer: 'Xin chào', explanation: 'Cách chào hỏi thông thường' },
+              { question: 'ありがとう', answer: 'Cảm ơn', explanation: 'Cách nói cảm ơn' },
+              { question: 'すみません', answer: 'Xin lỗi', explanation: 'Cách xin lỗi' },
+              { question: 'はい', answer: 'Có / Vâng', explanation: 'Cách trả lời khẳng định' },
+              { question: 'いいえ', answer: 'Không', explanation: 'Cách trả lời phủ định' }
             ]
           },
           'english-basic': {
             title: 'Tiếng Anh Cơ Bản',
-            emoji: '🇺🇸',
             color: 'from-green-500 to-emerald-500',
             cards: [
-              { question: 'Hello', answer: 'Xin chào', explanation: 'Lời chào thông thường', emoji: '👋' },
-              { question: 'Thank you', answer: 'Cảm ơn', explanation: 'Cách nói cảm ơn', emoji: '🙏' },
-              { question: 'Please', answer: 'Làm ơn', explanation: 'Từ lịch sự khi yêu cầu', emoji: '🙏' },
-              { question: 'Sorry', answer: 'Xin lỗi', explanation: 'Cách xin lỗi', emoji: '😅' },
-              { question: 'Goodbye', answer: 'Tạm biệt', explanation: 'Lời chào tạm biệt', emoji: '👋' }
+              { question: 'Hello', answer: 'Xin chào', explanation: 'Lời chào thông thường' },
+              { question: 'Thank you', answer: 'Cảm ơn', explanation: 'Cách nói cảm ơn' },
+              { question: 'Please', answer: 'Làm ơn', explanation: 'Từ lịch sự khi yêu cầu' },
+              { question: 'Sorry', answer: 'Xin lỗi', explanation: 'Cách xin lỗi' },
+              { question: 'Goodbye', answer: 'Tạm biệt', explanation: 'Lời chào tạm biệt' }
             ]
           },
           'math-basic': {
             title: 'Toán Học Cơ Bản',
-            emoji: '🔢',
             color: 'from-purple-500 to-pink-500',
             cards: [
-              { question: '2 + 2 = ?', answer: '4', explanation: 'Phép cộng cơ bản', emoji: '➕' },
-              { question: '5 × 3 = ?', answer: '15', explanation: 'Phép nhân', emoji: '✖️' },
-              { question: '10 ÷ 2 = ?', answer: '5', explanation: 'Phép chia', emoji: '➗' },
-              { question: '3² = ?', answer: '9', explanation: 'Lũy thừa', emoji: '🔢' },
-              { question: '√16 = ?', answer: '4', explanation: 'Căn bậc hai', emoji: '√' }
+              { question: '2 + 2 = ?', answer: '4', explanation: 'Phép cộng cơ bản' },
+              { question: '5 × 3 = ?', answer: '15', explanation: 'Phép nhân' },
+              { question: '10 ÷ 2 = ?', answer: '5', explanation: 'Phép chia' },
+              { question: '3² = ?', answer: '9', explanation: 'Lũy thừa' },
+              { question: '√16 = ?', answer: '4', explanation: 'Căn bậc hai' }
             ]
+          },
+          'kanji-n4': {
+            title: 'Kanji N4',
+            color: 'from-rose-500 to-pink-500',
+            cards: [] // will be loaded dynamically
           }
         };
         
@@ -202,13 +188,17 @@
           setElement.className = `bg-gradient-to-br ${set.color} p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 cursor-pointer`;
           setElement.innerHTML = `
             <div class="text-center text-white">
-              <div class="text-4xl mb-3">${set.emoji}</div>
               <h4 class="text-xl font-bold mb-2">${set.title}</h4>
               <p class="text-sm opacity-90">${set.cards.length} thẻ</p>
             </div>
           `;
           
-          setElement.addEventListener('click', () => this.startFlashcardSet(key));
+          setElement.addEventListener('click', async () => {
+            if (key === 'kanji-n4' && this.flashcardData['kanji-n4'].cards.length === 0) {
+              await this.loadKanjiN4FromJson();
+            }
+            this.startFlashcardSet(key);
+          });
           this.flashcardSets.appendChild(setElement);
         });
       }
@@ -237,13 +227,11 @@
         
         if (!this.isFlipped) {
           this.cardQuestion.textContent = card.question;
-          this.cardHint.textContent = '👆 Click vào thẻ để xem đáp án';
-          this.cardEmoji.textContent = card.emoji;
+          this.cardHint.textContent = 'Click vào thẻ để xem đáp án';
           this.cardContainer.classList.remove('flipped');
         } else {
           this.cardAnswer.textContent = card.answer;
           this.cardExplanation.textContent = card.explanation;
-          this.cardEmoji.textContent = card.emoji;
           this.cardContainer.classList.add('flipped');
         }
       }
@@ -254,8 +242,7 @@
         this.currentCardEl.textContent = this.currentIndex + 1;
         this.totalCardsEl.textContent = this.currentSet.cards.length;
         
-        const progress = ((this.currentIndex + 1) / this.currentSet.cards.length) * 100;
-        this.progressBar.style.width = `${progress}%`;
+        // Progress bar removed for simplified UI
       }
       
       flipCard() {
@@ -357,6 +344,33 @@
             }
           }
         });
+      }
+
+      async loadKanjiN4FromJson() {
+        try {
+          const res = await fetch('/assets/storage/japan/n4/kanji-n4.json');
+          const lessons = await res.json();
+          const cards = [];
+          for (const lesson of lessons) {
+            const lessonName = lesson.lesson || '';
+            for (const item of (lesson.kanji_list || [])) {
+              const kanji = item.kanji || '';
+              const vn = item.vietnamese_origin || '';
+              if (kanji && vn) {
+                cards.push({
+                  question: kanji,
+                  answer: vn,
+                  explanation: lessonName,
+                  emoji: '🈷️'
+                });
+              }
+            }
+          }
+          this.flashcardData['kanji-n4'].cards = cards;
+        } catch (e) {
+          console.error('Failed to load Kanji N4 JSON', e);
+          alert('Không tải được dữ liệu Kanji N4');
+        }
       }
     }
     
