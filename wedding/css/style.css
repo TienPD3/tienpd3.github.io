@@ -82,6 +82,8 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
 .bar {
@@ -188,6 +190,7 @@ body {
     margin-bottom: 4rem;
 }
 
+.groom,
 .bride, .groom {
     text-align: center;
     flex: 1;
