@@ -195,8 +195,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
-    <script src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
+    <script src="../scripts/kuroshiro/kuroshiro.min.js"></script>
+    <script src="../scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
     
     <script>
         $(document).ready(function() {
@@ -278,9 +278,10 @@
                 $('.loading').show();
                 $('#resultDisplay').hide();
                 $('#resultActions').hide();
-                
+                debugger;
                 inputText = inputText.trim().replace(/\s\s/g, '');
                 inputText = inputText.trim().replace(/\n/g, '')
+                inputText = inputText.trim().replace(/\./g, '\.\n');
                 inputText = inputText.trim().replace(/。/g, '。\n');
                 try {
                     const furiganaText = await convertToFurigana(inputText);
