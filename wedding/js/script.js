@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initTransferSection();
     initGallery();
     initSmoothScroll();
+
 });
 
 // Countdown Timer
 function initCountdown() {
-    const weddingDate = new Date('2024-12-25T11:00:00').getTime();
+    const weddingDate = new Date('2025-10-25T17:00:00').getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();
