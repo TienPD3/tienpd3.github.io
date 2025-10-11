@@ -160,13 +160,17 @@ function initScrollAnimations() {
 
 // Transfer Section functionality
 function initTransferSection() {
-    // Initialize copy to clipboard functionality for account numbers
-    const accountNumbers = document.querySelectorAll('.account-number');
-    
-    accountNumbers.forEach(accountNumber => {
-        accountNumber.addEventListener('click', function() {
-            const accountNum = this.textContent.trim();
-            copyToClipboard(accountNum);
+    const transferCards = document.querySelectorAll('.transfer-card');
+
+    transferCards.forEach(card => {
+        card.addEventListener('click', function(event) {
+            const accountNumberEl = event.target.closest('.account-number');
+            if (accountNumberEl) {
+                const accountNumber = accountNumberEl.dataset.account;
+                if (accountNumber) {
+                    copyToClipboard(accountNumber);
+                }
+            }
         });
     });
     

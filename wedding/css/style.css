@@ -189,7 +189,6 @@ body {
     gap: 4rem;
     margin-bottom: 4rem;
 }
-
 .groom,
 .bride, .groom {
     text-align: center;
@@ -459,26 +458,6 @@ body {
 
 .account-number:hover {
     background-color: #f9f9f9;
-}
-
-.copy-btn {
-    background: #d4af37;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    margin-left: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.copy-btn:hover {
-    background: #b8941f;
-    transform: scale(1.1);
 }
 
 .qr-code {
