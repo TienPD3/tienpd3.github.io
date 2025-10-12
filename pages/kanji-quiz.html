@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc nghiệm Kanji</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        #quiz-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #5a67d8;
+        }
+        #progress {
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+        #question {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 2rem 0;
+            color: #2d3748;
+        }
+        #options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .option-btn {
+            background-color: #edf2f7;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+        .option-btn:hover:not(:disabled) {
+            background-color: #e2e8f0;
+            transform: translateY(-2px);
+        }
+        .option-btn:disabled {
+            cursor: not-allowed;
+        }
+        .option-btn.correct {
+            background-color: #c6f6d5;
+            border-color: #68d391;
+            color: #2f855a;
+        }
+        .option-btn.incorrect {
+            background-color: #fed7d7;
+            border-color: #fc8181;
+            color: #c53030;
+        }
+        #feedback {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        #feedback.hidden {
+            display: none;
+        }
+        #next-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-top: 1.5rem;
+            background-color: #5a67d8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        #next-btn:hover {
+            background-color: #4c51bf;
+        }
+        #next-btn.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="quiz-container">
+    <h1>Trắc nghiệm Kanji</h1>
+    <div id="progress"></div>
+    <div id="question"></div>
+    <div id="options"></div>
+    <div id="feedback" class="hidden"></div>
+    <button id="next-btn" class="hidden">Câu tiếp theo</button>
+</div>
+
+<script>
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const feedbackEl = document.getElementById('feedback');
+    const nextBtn = document.getElementById('next-btn');
+    const progressEl = document.getElementById('progress');
+
+    let quizData = [];
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    async function startQuiz() {
+        try {
+            // Đường dẫn đã được cập nhật để trỏ đến tệp kanji.json
+            const response = await fetch('../assets/storage/kanji.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            quizData = await response.json();
+            // Xáo trộn câu hỏi để mỗi lần làm bài có thứ tự khác nhau
+            quizData.sort(() => Math.random() - 0.5);
+            showQuestion();
+        } catch (error) {
+            questionEl.textContent = 'Lỗi khi tải dữ liệu trắc nghiệm.';
+            console.error('Could not fetch quiz data:', error);
+        }
+    }
+
+    function showQuestion() {
+        resetState();
+        const currentQuestion = quizData[currentQuestionIndex];
+        questionEl.textContent = currentQuestion.question;
+        progressEl.textContent = `Câu ${currentQuestionIndex + 1} / ${quizData.length}`;
+
+        currentQuestion.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.textContent = option;
+            button.classList.add('option-btn');
+            button.addEventListener('click', () => selectAnswer(index, currentQuestion.answer));
+            optionsEl.appendChild(button);
+        });
+    }
+
+    function resetState() {
+        optionsEl.innerHTML = '';
+        feedbackEl.classList.add('hidden');
+        feedbackEl.textContent = '';
+        nextBtn.classList.add('hidden');
+    }
+
+    function selectAnswer(selectedIndex, correctIndex) {
+        const optionButtons = optionsEl.querySelectorAll('.option-btn');
+        optionButtons.forEach(button => button.disabled = true);
+
+        const currentQuestion = quizData[currentQuestionIndex];
+
+        if (selectedIndex === correctIndex) {
+            optionButtons[selectedIndex].classList.add('correct');
+            feedbackEl.innerHTML = `<strong>Chính xác!</strong><br>${currentQuestion.explanation}`;
+            score++;
+        } else {
+            optionButtons[selectedIndex].classList.add('incorrect');
+            optionButtons[correctIndex].classList.add('correct');
+            feedbackEl.innerHTML = `<strong>Sai rồi!</strong><br>${currentQuestion.explanation}`;
+        }
+
+        feedbackEl.classList.remove('hidden');
+        if (currentQuestionIndex < quizData.length - 1) {
+            nextBtn.classList.remove('hidden');
+        } else {
+            questionEl.textContent = `Hoàn thành!`;
+            optionsEl.innerHTML = `Bạn đã trả lời đúng ${score} / ${quizData.length} câu.`;
+        }
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentQuestionIndex++;
+        showQuestion();
+    });
+
+    startQuiz();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2486 @@
+[
+  {
+    "lesson": "Từ vựng 会",
+    "question": "会う",
+    "options": [
+      "あう",
+      "おう",
+      "あい",
+      "えう"
+    ],
+    "answer": 0,
+    "explanation": "会う (あう) nghĩa là 'gặp, gặp nhau'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "会社",
+    "options": [
+      "かいしゃ",
+      "かいじゃ",
+      "かいしょう",
+      "がいしゃ"
+    ],
+    "answer": 0,
+    "explanation": "会社 (かいしゃ) nghĩa là 'công ty'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "会社員",
+    "options": [
+      "かいしゃいん",
+      "かいしゃえん",
+      "かいしゃあん",
+      "がいしゃいん"
+    ],
+    "answer": 0,
+    "explanation": "会社員 (かいしゃいん) nghĩa là 'nhân viên công ty'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "会議",
+    "options": [
+      "かいぎ",
+      "かいき",
+      "がいぎ",
+      "かいぎい"
+    ],
+    "answer": 0,
+    "explanation": "会議 (かいぎ) nghĩa là 'cuộc họp'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "会議室",
+    "options": [
+      "かいぎしつ",
+      "かいきしつ",
+      "かいぎしづ",
+      "かいぎしす"
+    ],
+    "answer": 0,
+    "explanation": "会議室 (かいぎしつ) nghĩa là 'phòng họp'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "運動会",
+    "options": [
+      "うんどうかい",
+      "うんとうかい",
+      "うんどうがい",
+      "おんどうかい"
+    ],
+    "answer": 0,
+    "explanation": "運動会 (うんどうかい) nghĩa là 'hội thể thao'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "国会議事堂",
+    "options": [
+      "こっかいぎじどう",
+      "こくかいぎじどう",
+      "こっかいきじとう",
+      "こっかいぎじとう"
+    ],
+    "answer": 0,
+    "explanation": "国会議事堂 (こっかいぎじどう) nghĩa là 'tòa nhà quốc hội'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "展覧会",
+    "options": [
+      "てんらんかい",
+      "てんらんがい",
+      "でんらんかい",
+      "てんらんか"
+    ],
+    "answer": 0,
+    "explanation": "展覧会 (てんらんかい) nghĩa là 'hội triển lãm'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "教会",
+    "options": [
+      "きょうかい",
+      "きょかい",
+      "きょうがい",
+      "きょっかい"
+    ],
+    "answer": 0,
+    "explanation": "教会 (きょうかい) nghĩa là 'giáo hội, nhà thờ'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "都会",
+    "options": [
+      "とかい",
+      "どかい",
+      "とうかい",
+      "とがい"
+    ],
+    "answer": 0,
+    "explanation": "都会 (とかい) nghĩa là 'thành phố, đô thị'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "機会",
+    "options": [
+      "きかい",
+      "きがい",
+      "きっかい",
+      "ぎかい"
+    ],
+    "answer": 0,
+    "explanation": "機会 (きかい) nghĩa là 'cơ hội'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "会場",
+    "options": [
+      "かいじょう",
+      "かいじょ",
+      "がいじょう",
+      "かいじゅう"
+    ],
+    "answer": 0,
+    "explanation": "会場 (かいじょう) nghĩa là 'hội trường'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "社会",
+    "options": [
+      "しゃかい",
+      "じゃかい",
+      "しゃがい",
+      "しょうかい"
+    ],
+    "answer": 0,
+    "explanation": "社会 (しゃかい) nghĩa là 'xã hội'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "忘年会",
+    "options": [
+      "ぼうねんかい",
+      "ぼねんかい",
+      "ぼうねんがい",
+      "もうねんかい"
+    ],
+    "answer": 0,
+    "explanation": "忘年会 (ぼうねんかい) nghĩa là 'tiệc cuối năm, tất niên'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "新年会",
+    "options": [
+      "しんねんかい",
+      "しねんかい",
+      "しんねんがい",
+      "じんねんかい"
+    ],
+    "answer": 0,
+    "explanation": "新年会 (しんねんかい) nghĩa là 'tiệc năm mới'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "二次会",
+    "options": [
+      "にじかい",
+      "にちかい",
+      "にじがい",
+      "にしかい"
+    ],
+    "answer": 0,
+    "explanation": "二次会 (にじかい) nghĩa là 'tiệc tăng hai'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "発表会",
+    "options": [
+      "はっぴょうかい",
+      "はぴょうかい",
+      "はっぴょうがい",
+      "はっびょうかい"
+    ],
+    "answer": 0,
+    "explanation": "発表会 (はっぴょうかい) nghĩa là 'buổi giới thiệu, buổi ra mắt'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "大会",
+    "options": [
+      "たいかい",
+      "だいかい",
+      "たいがい",
+      "たかい"
+    ],
+    "answer": 0,
+    "explanation": "大会 (たいかい) nghĩa là 'đại hội'."
+  },
+  {
+    "lesson": "Từ vựng 会",
+    "question": "講演会",
+    "options": [
+      "こうえんかい",
+      "こえんかい",
+      "こうえんがい",
+      "ごうえんかい"
+    ],
+    "answer": 0,
+    "explanation": "講演会 (こうえんかい) nghĩa là 'buổi thuyết trình'."
+  },
+  {
+    "lesson": "Từ vựng 歩",
+    "question": "歩く",
+    "options": [
+      "あるく",
+      "あゆく",
+      "あるぐ",
+      "ほく"
+    ],
+    "answer": 0,
+    "explanation": "歩く (あるく) có nghĩa là 'đi bộ'."
+  },
+  {
+    "lesson": "Từ vựng 歩",
+    "question": "散歩する",
+    "options": [
+      "さんぽする",
+      "さんぼする",
+      "さんほする",
+      "さんぽうるする"
+    ],
+    "answer": 0,
+    "explanation": "散歩する (さんぽする) có nghĩa là 'đi dạo'."
+  },
+  {
+    "lesson": "Từ vựng 急",
+    "question": "急ぐ",
+    "options": [
+      "いそぐ",
+      "いそく",
+      "いぞぐ",
+      "きゅうぐ"
+    ],
+    "answer": 0,
+    "explanation": "急ぐ (いそぐ) có nghĩa là 'khẩn trương, nhanh chóng'."
+  },
+  {
+    "lesson": "Từ vựng 急",
+    "question": "急行",
+    "options": [
+      "きゅうこう",
+      "きゅうこ",
+      "きょうこう",
+      "きゅこう"
+    ],
+    "answer": 0,
+    "explanation": "急行 (きゅうこう) có nghĩa là 'tốc hành'."
+  },
+  {
+    "lesson": "Từ vựng 急",
+    "question": "特急",
+    "options": [
+      "とっきゅう",
+      "どっきゅう",
+      "とっきゅ",
+      "とくきゅう"
+    ],
+    "answer": 0,
+    "explanation": "特急 (とっきゅう) có nghĩa là 'hỏa tốc, thần tốc'."
+  },
+  {
+    "lesson": "Từ vựng 急",
+    "question": "急に",
+    "options": [
+      "きゅうに",
+      "きゅに",
+      "きょうに",
+      "きゅううに"
+    ],
+    "answer": 0,
+    "explanation": "急に (きゅうに) có nghĩa là 'đột nhiên, bất chợt'."
+  },
+  {
+    "lesson": "Từ vựng 急",
+    "question": "救急車",
+    "options": [
+      "きゅうきゅうしゃ",
+      "きゅきゅうしゃ",
+      "きゅうきゅうじゃ",
+      "きゅうきゅうしゃあ"
+    ],
+    "answer": 0,
+    "explanation": "救急車 (きゅうきゅうしゃ) có nghĩa là 'xe cấp cứu'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "切る",
+    "options": [
+      "きる",
+      "きれ",
+      "さる",
+      "きい"
+    ],
+    "answer": 0,
+    "explanation": "切る (きる) có nghĩa là 'cắt, tạm ngừng'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "切れる",
+    "options": [
+      "きれる",
+      "きる",
+      "きえる",
+      "きれえる"
+    ],
+    "answer": 0,
+    "explanation": "切れる (きれる) có nghĩa là 'gãy, đứt, hết hạn'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "切符",
+    "options": [
+      "きっぷ",
+      "きっぶ",
+      "きつぷ",
+      "きゆっぷ"
+    ],
+    "answer": 0,
+    "explanation": "切符 (きっぷ) có nghĩa là 'vé'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "切手",
+    "options": [
+      "きって",
+      "きつて",
+      "きて",
+      "きいて"
+    ],
+    "answer": 0,
+    "explanation": "切手 (きって) có nghĩa là 'tem'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "締め切り",
+    "options": [
+      "しめきり",
+      "じめきり",
+      "しめぎり",
+      "しめきいり"
+    ],
+    "answer": 0,
+    "explanation": "締め切り (しめきり) có nghĩa là 'hạn cuối, deadline'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "缶切り",
+    "options": [
+      "かんきり",
+      "がんきり",
+      "かんぎり",
+      "かんきい"
+    ],
+    "answer": 0,
+    "explanation": "缶切り (かんきり) có nghĩa là 'đồ khui nắp'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "親切な",
+    "options": [
+      "しんせつな",
+      "しんぜつな",
+      "おやせつな",
+      "しんせっな"
+    ],
+    "answer": 0,
+    "explanation": "親切な (しんせつな) có nghĩa là 'thân thiện'."
+  },
+  {
+    "lesson": "Từ vựng 切",
+    "question": "大切な",
+    "options": [
+      "たいせつな",
+      "だいせつな",
+      "たいぜつな",
+      "たいせっな"
+    ],
+    "answer": 0,
+    "explanation": "大切な (たいせつな) có nghĩa là 'quan trọng'."
+  },
+  {
+    "lesson": "Từ vựng 送",
+    "question": "送る",
+    "options": [
+      "おくる",
+      "おぐる",
+      "そうる",
+      "おきる"
+    ],
+    "answer": 0,
+    "explanation": "送る (おくる) có nghĩa là 'gửi'."
+  },
+  {
+    "lesson": "Từ vựng 習",
+    "question": "習う",
+    "options": [
+      "ならう",
+      "しゅうう",
+      "ならうう",
+      "なう"
+    ],
+    "answer": 0,
+    "explanation": "習う (ならう) có nghĩa là 'học'."
+  },
+  {
+    "lesson": "Từ vựng 習",
+    "question": "練習",
+    "options": [
+      "れんしゅう",
+      "れんしゅ",
+      "れんじゅう",
+      "れんしゅうう"
+    ],
+    "answer": 0,
+    "explanation": "練習 (れんしゅう) có nghĩa là 'luyện tập, thực hành'."
+  },
+  {
+    "lesson": "Từ vựng 習",
+    "question": "予習する",
+    "options": [
+      "よしゅうする",
+      "よっしゅうする",
+      "よしゅする",
+      "よじゅうする"
+    ],
+    "answer": 0,
+    "explanation": "予習する (よしゅうする) có nghĩa là 'soạn bài'."
+  },
+  {
+    "lesson": "Từ vựng 習",
+    "question": "復習する",
+    "options": [
+      "ふくしゅうする",
+      "ふくしゅする",
+      "ふくじゅうする",
+      "ふしゅうする"
+    ],
+    "answer": 0,
+    "explanation": "復習する (ふくしゅうする) có nghĩa là 'ôn tập'."
+  },
+  {
+    "lesson": "Từ vựng 習",
+    "question": "習慣",
+    "options": [
+      "しゅうかん",
+      "しゅかん",
+      "しゅうがん",
+      "じゅうかん"
+    ],
+    "answer": 0,
+    "explanation": "習慣 (しゅうかん) có nghĩa là 'thói quen'."
+  },
+  {
+    "lesson": "Từ vựng 習",
+    "question": "習字",
+    "options": [
+      "しゅうじ",
+      "しゅじ",
+      "しゅうし",
+      "じゅうじ"
+    ],
+    "answer": 0,
+    "explanation": "習字 (しゅうじ) có nghĩa là 'luyện chữ'."
+  },
+  {
+    "lesson": "Từ vựng 歌",
+    "question": "歌",
+    "options": [
+      "うた",
+      "か",
+      "うたう",
+      "ううた"
+    ],
+    "answer": 0,
+    "explanation": "歌 (うた) có nghĩa là 'bài hát'."
+  },
+  {
+    "lesson": "Từ vựng 歌",
+    "question": "歌う",
+    "options": [
+      "うたう",
+      "かう",
+      "うう",
+      "うた"
+    ],
+    "answer": 0,
+    "explanation": "歌う (うたう) có nghĩa là 'hát'."
+  },
+  {
+    "lesson": "Từ vựng 歌",
+    "question": "歌手",
+    "options": [
+      "かしゅ",
+      "かじゅ",
+      "うたしゅ",
+      "かしゅう"
+    ],
+    "answer": 0,
+    "explanation": "歌手 (かしゅ) có nghĩa là 'ca sĩ'."
+  },
+  {
+    "lesson": "Từ vựng 歌",
+    "question": "歌舞伎",
+    "options": [
+      "かぶき",
+      "かぷき",
+      "うたぶき",
+      "かぶぎ"
+    ],
+    "answer": 0,
+    "explanation": "歌舞伎 (かぶき) có nghĩa là 'kịch Kabuki'."
+  },
+  {
+    "lesson": "Từ vựng 国",
+    "question": "お国",
+    "options": [
+      "おくに",
+      "おこく",
+      "おぐに",
+      "おくん"
+    ],
+    "answer": 0,
+    "explanation": "お国 (おくに) có nghĩa là 'quốc gia, đất nước'."
+  },
+  {
+    "lesson": "Từ vựng 国",
+    "question": "外国",
+    "options": [
+      "がいこく",
+      "かいこく",
+      "がいごく",
+      "がいこっく"
+    ],
+    "answer": 0,
+    "explanation": "外国 (がいこく) có nghĩa là 'nước ngoài'."
+  },
+  {
+    "lesson": "Từ vựng 国",
+    "question": "韓国",
+    "options": [
+      "かんこく",
+      "がんこく",
+      "かんごく",
+      "かんこっく"
+    ],
+    "answer": 0,
+    "explanation": "韓国 (かんこく) có nghĩa là 'Hàn Quốc'."
+  },
+  {
+    "lesson": "Từ vựng 国",
+    "question": "中国",
+    "options": [
+      "ちゅうごく",
+      "ちゅうこく",
+      "じゅうごく",
+      "ちゅごく"
+    ],
+    "answer": 0,
+    "explanation": "中国 (ちゅうごく) có nghĩa là 'Trung Quốc'."
+  },
+  {
+    "lesson": "Từ vựng 国",
+    "question": "国際",
+    "options": [
+      "こくさい",
+      "こくざい",
+      "ごくさい",
+      "こっさい"
+    ],
+    "answer": 0,
+    "explanation": "国際 (こくさい) có nghĩa là 'quốc tế'."
+  },
+  {
+    "lesson": "Từ vựng 国",
+    "question": "国連",
+    "options": [
+      "こくれん",
+      "こくれんん",
+      "ごくれん",
+      "こっれん"
+    ],
+    "answer": 0,
+    "explanation": "国連 (こくれん) có nghĩa là 'liên hợp quốc'."
+  },
+  {
+    "lesson": "Từ vựng 世",
+    "question": "世話",
+    "options": [
+      "せわ",
+      "せは",
+      "せいわ",
+      "ぜわ"
+    ],
+    "answer": 0,
+    "explanation": "世話 (せわ) có nghĩa là 'sự chăm sóc'."
+  },
+  {
+    "lesson": "Từ vựng 世",
+    "question": "世界",
+    "options": [
+      "せかい",
+      "せがい",
+      "せいかい",
+      "ぜかい"
+    ],
+    "answer": 0,
+    "explanation": "世界 (せかい) có nghĩa là 'thế giới'."
+  },
+  {
+    "lesson": "Từ vựng 世",
+    "question": "世界中",
+    "options": [
+      "せかいじゅう",
+      "せかいちゅう",
+      "せかいしゅう",
+      "ぜかいじゅう"
+    ],
+    "answer": 0,
+    "explanation": "世界中 (せかいじゅう) có nghĩa là 'khắp thế giới'."
+  },
+  {
+    "lesson": "Từ vựng 世",
+    "question": "世界遺産",
+    "options": [
+      "せかいいさん",
+      "せかいいざん",
+      "せかいいさんん",
+      "ぜかいいさん"
+    ],
+    "answer": 0,
+    "explanation": "世界遺産 (せかいいさん) có nghĩa là 'di sản thế giới'."
+  },
+  {
+    "lesson": "Từ vựng 世",
+    "question": "世界初",
+    "options": [
+      "せかいはつ",
+      "せかいぱつ",
+      "せかいばつ",
+      "せかいはっ"
+    ],
+    "answer": 0,
+    "explanation": "世界初 (せかいはつ) có nghĩa là 'đầu tiên trên thế giới'."
+  },
+  {
+    "lesson": "Từ vựng 世",
+    "question": "世紀",
+    "options": [
+      "せいき",
+      "せき",
+      "せいぎ",
+      "ぜいき"
+    ],
+    "answer": 0,
+    "explanation": "世紀 (せいき) có nghĩa là 'thế kỷ'."
+  },
+  {
+    "lesson": "Từ vựng 教",
+    "question": "教える",
+    "options": [
+      "おしえる",
+      "おそえる",
+      "おしえうる",
+      "きょうえる"
+    ],
+    "answer": 0,
+    "explanation": "教える (おしえる) có nghĩa là 'giảng dạy'."
+  },
+  {
+    "lesson": "Từ vựng 教",
+    "question": "教師",
+    "options": [
+      "きょうし",
+      "きょうじ",
+      "きょし",
+      "きょおし"
+    ],
+    "answer": 0,
+    "explanation": "教師 (きょうし) có nghĩa là 'giáo viên'."
+  },
+  {
+    "lesson": "Từ vựng 教",
+    "question": "教室",
+    "options": [
+      "きょうしつ",
+      "きょうしっ",
+      "きょしつ",
+      "きょうじつ"
+    ],
+    "answer": 0,
+    "explanation": "教室 (きょうしつ) có nghĩa là 'phòng học'."
+  },
+  {
+    "lesson": "Từ vựng 教",
+    "question": "教育",
+    "options": [
+      "きょういく",
+      "きょいく",
+      "きょういっく",
+      "きょおいく"
+    ],
+    "answer": 0,
+    "explanation": "教育 (きょういく) có nghĩa là 'giáo dục'."
+  },
+  {
+    "lesson": "Từ vựng 研",
+    "question": "研究する",
+    "options": [
+      "けんきゅうする",
+      "げんきゅうする",
+      "けんきゅする",
+      "けんきゅううる"
+    ],
+    "answer": 0,
+    "explanation": "研究する (けんきゅうする) có nghĩa là 'nghiên cứu'."
+  },
+  {
+    "lesson": "Từ vựng 研",
+    "question": "研究者",
+    "options": [
+      "けんきゅうしゃ",
+      "けんきゅうじゃ",
+      "けんきゅしゃ",
+      "げんきゅうしゃ"
+    ],
+    "answer": 0,
+    "explanation": "研究者 (けんきゅうしゃ) có nghĩa là 'nhà nghiên cứu'."
+  },
+  {
+    "lesson": "Từ vựng 研",
+    "question": "研究室",
+    "options": [
+      "けんきゅうしつ",
+      "けんきゅしつ",
+      "けんきゅうじつ",
+      "げんきゅうしつ"
+    ],
+    "answer": 0,
+    "explanation": "研究室 (けんきゅうしつ) có nghĩa là 'phòng nghiên cứu'."
+  },
+  {
+    "lesson": "Từ vựng 終",
+    "question": "終わる",
+    "options": [
+      "おわる",
+      "おえる",
+      "おわえる",
+      "しゅうわる"
+    ],
+    "answer": 0,
+    "explanation": "終わる (おわる) có nghĩa là 'kết thúc'."
+  },
+  {
+    "lesson": "Từ vựng 終",
+    "question": "終わり",
+    "options": [
+      "おわり",
+      "おえり",
+      "おわあり",
+      "しゅうわり"
+    ],
+    "answer": 0,
+    "explanation": "終わり (おわり) có nghĩa là 'sự kết thúc'."
+  },
+  {
+    "lesson": "Từ vựng 社",
+    "question": "本社",
+    "options": [
+      "ほんしゃ",
+      "ほんじゃ",
+      "ぽんしゃ",
+      "ほんさ"
+    ],
+    "answer": 0,
+    "explanation": "本社 (ほんしゃ) có nghĩa là 'trụ sở chính'."
+  },
+  {
+    "lesson": "Từ vựng 社",
+    "question": "旅行社",
+    "options": [
+      "りょこうしゃ",
+      "りょこしゃ",
+      "りょうこうしゃ",
+      "りょこうじゃ"
+    ],
+    "answer": 0,
+    "explanation": "旅行社 (りょこうしゃ) có nghĩa là 'công ty du lịch'."
+  },
+  {
+    "lesson": "Từ vựng 社",
+    "question": "神社",
+    "options": [
+      "じんじゃ",
+      "しんじゃ",
+      "じんしゃ",
+      "しんしゃ"
+    ],
+    "answer": 0,
+    "explanation": "神社 (じんじゃ) có nghĩa là 'đền thờ, miếu'."
+  },
+  {
+    "lesson": "Từ vựng 銀",
+    "question": "銀行",
+    "options": [
+      "ぎんこう",
+      "きんこう",
+      "ぎんごう",
+      "ぎんこ"
+    ],
+    "answer": 0,
+    "explanation": "銀行 (ぎんこう) có nghĩa là 'ngân hàng'."
+  },
+  {
+    "lesson": "Từ vựng 銀",
+    "question": "銀行員",
+    "options": [
+      "ぎんこういん",
+      "ぎんこうえん",
+      "きんこういん",
+      "ぎんこいん"
+    ],
+    "answer": 0,
+    "explanation": "銀行員 (ぎんこういん) có nghĩa là 'nhân viên ngân hàng'."
+  },
+  {
+    "lesson": "Từ vựng 医",
+    "question": "医者",
+    "options": [
+      "いしゃ",
+      "いじゃ",
+      "いさ",
+      "いしや"
+    ],
+    "answer": 0,
+    "explanation": "医者 (いしゃ) có nghĩa là 'bác sĩ'."
+  },
+  {
+    "lesson": "Từ vựng 医",
+    "question": "歯医者",
+    "options": [
+      "はいしゃ",
+      "はしゃ",
+      "はいじゃ",
+      "はいいしゃ"
+    ],
+    "answer": 0,
+    "explanation": "歯医者 (はいしゃ) có nghĩa là 'bác sĩ nha khoa'."
+  },
+  {
+    "lesson": "Từ vựng 医",
+    "question": "医学",
+    "options": [
+      "いがく",
+      "いかく",
+      "いかっく",
+      "いがっく"
+    ],
+    "answer": 0,
+    "explanation": "医学 (いがく) có nghĩa là 'y học'."
+  },
+  {
+    "lesson": "Từ vựng 医",
+    "question": "医学部",
+    "options": [
+      "いがくぶ",
+      "いがくぷ",
+      "いかくぶ",
+      "いがっくぶ"
+    ],
+    "answer": 0,
+    "explanation": "医学部 (いがくぶ) có nghĩa là 'khoa y, ngành y'."
+  },
+  {
+    "lesson": "Từ vựng 病",
+    "question": "病院",
+    "options": [
+      "びょういん",
+      "びょいん",
+      "ひょういん",
+      "びょうえん"
+    ],
+    "answer": 0,
+    "explanation": "病院 (びょういん) có nghĩa là 'bệnh viện'."
+  },
+  {
+    "lesson": "Từ vựng 病",
+    "question": "病気",
+    "options": [
+      "びょうき",
+      "びょうぎ",
+      "ひょうき",
+      "びょき"
+    ],
+    "answer": 0,
+    "explanation": "病気 (びょうき) có nghĩa là 'bệnh tật, ốm'."
+  },
+  {
+    "lesson": "Từ vựng 院",
+    "question": "美容院",
+    "options": [
+      "びよういん",
+      "びょいん",
+      "びよいん",
+      "びようえん"
+    ],
+    "answer": 0,
+    "explanation": "美容院 (びよういん) có nghĩa là 'tiệm làm tóc, salon'."
+  },
+  {
+    "lesson": "Từ vựng 院",
+    "question": "大学院",
+    "options": [
+      "だいがくいん",
+      "たいがくいん",
+      "だいがくえん",
+      "だいがくい"
+    ],
+    "answer": 0,
+    "explanation": "大学院 (だいがくいん) có nghĩa là 'viện đào tạo sau đại học, cao học'."
+  },
+  {
+    "lesson": "Từ vựng 院",
+    "question": "入院する",
+    "options": [
+      "にゅういんする",
+      "にゅいんする",
+      "にゅうえんする",
+      "にゅういんうる"
+    ],
+    "answer": 0,
+    "explanation": "入院する (にゅういんする) có nghĩa là 'nhập viện'."
+  },
+  {
+    "lesson": "Từ vựng 院",
+    "question": "退院する",
+    "options": [
+      "たいいんする",
+      "だいいんする",
+      "たいえんする",
+      "たいいんうる"
+    ],
+    "answer": 0,
+    "explanation": "退院する (たいいんする) có nghĩa là 'ra viện'."
+  },
+  {
+    "lesson": "Từ vựng 売",
+    "question": "売る",
+    "options": [
+      "うる",
+      "うれる",
+      "ばいる",
+      "うう"
+    ],
+    "answer": 0,
+    "explanation": "売る (うる) có nghĩa là 'bán'."
+  },
+  {
+    "lesson": "Từ vựng 売",
+    "question": "売れる",
+    "options": [
+      "うれる",
+      "うる",
+      "うえる",
+      "ばいれる"
+    ],
+    "answer": 0,
+    "explanation": "売れる (うれる) có nghĩa là 'bán chạy, nổi tiếng'."
+  },
+  {
+    "lesson": "Từ vựng 売",
+    "question": "売り場",
+    "options": [
+      "うりば",
+      "うりぱ",
+      "うりじょう",
+      "うば"
+    ],
+    "answer": 0,
+    "explanation": "売り場 (うりば) có nghĩa là 'quầy hàng, sàn hàng'."
+  },
+  {
+    "lesson": "Từ vựng 売",
+    "question": "自動販売機",
+    "options": [
+      "じどうはんばいき",
+      "しどうはんばいき",
+      "じどうはんばいぎ",
+      "じどはんばいき"
+    ],
+    "answer": 0,
+    "explanation": "自動販売機 (じどうはんばいき) có nghĩa là 'máy bán hàng tự động'."
+  },
+  {
+    "lesson": "Từ vựng 働",
+    "question": "働く",
+    "options": [
+      "はたらく",
+      "はだらく",
+      "どうく",
+      "はたらっく"
+    ],
+    "answer": 0,
+    "explanation": "働く (はたらく) có nghĩa là 'làm việc'."
+  },
+  {
+    "lesson": "Từ vựng 働",
+    "question": "働きすぎ",
+    "options": [
+      "はたらきすぎ",
+      "はたらきすぎい",
+      "はたらきすき",
+      "はだらきすぎ"
+    ],
+    "answer": 0,
+    "explanation": "働きすぎ (はたらきすぎ) có nghĩa là 'làm việc quá sức'."
+  },
+  {
+    "lesson": "Từ vựng 勉",
+    "question": "勉強する",
+    "options": [
+      "べんきょうする",
+      "ぺんきょうする",
+      "べんきょする",
+      "べんぎょうする"
+    ],
+    "answer": 0,
+    "explanation": "勉強する (べんきょうする) có nghĩa là 'học'."
+  },
+  {
+    "lesson": "Từ vựng 強",
+    "question": "強い",
+    "options": [
+      "つよい",
+      "づよい",
+      "きょい",
+      "つうよい"
+    ],
+    "answer": 0,
+    "explanation": "強い (つよい) có nghĩa là 'khỏe, bền, mạnh mẽ'."
+  },
+  {
+    "lesson": "Từ vựng 泳",
+    "question": "泳ぐ",
+    "options": [
+      "およぐ",
+      "およく",
+      "えいぐ",
+      "およおぐ"
+    ],
+    "answer": 0,
+    "explanation": "泳ぐ (およぐ) có nghĩa là 'bơi'."
+  },
+  {
+    "lesson": "Từ vựng 泳",
+    "question": "水泳",
+    "options": [
+      "すいえい",
+      "すいおよ",
+      "ずいえい",
+      "すえい"
+    ],
+    "answer": 0,
+    "explanation": "水泳 (すいえい) có nghĩa là 'bơi lội, môn bơi lội'."
+  },
+  {
+    "lesson": "Từ vựng 部",
+    "question": "部屋",
+    "options": [
+      "へや",
+      "べや",
+      "ぺや",
+      "ぶや"
+    ],
+    "answer": 0,
+    "explanation": "部屋 (へや) có nghĩa là 'phòng'."
+  },
+  {
+    "lesson": "Từ vựng 部",
+    "question": "全部",
+    "options": [
+      "ぜんぶ",
+      "せんぶ",
+      "ぜんぷ",
+      "ぜんぶう"
+    ],
+    "answer": 0,
+    "explanation": "全部 (ぜんぶ) có nghĩa là 'toàn bộ'."
+  },
+  {
+    "lesson": "Từ vựng 部",
+    "question": "部長",
+    "options": [
+      "ぶちょう",
+      "ふちょう",
+      "ぷちょう",
+      "ぶちょ"
+    ],
+    "answer": 0,
+    "explanation": "部長 (ぶちょう) có nghĩa là 'trưởng phòng'."
+  },
+  {
+    "lesson": "Từ vựng 屋",
+    "question": "屋上",
+    "options": [
+      "おくじょう",
+      "やじょう",
+      "おくしょう",
+      "おっくじょう"
+    ],
+    "answer": 0,
+    "explanation": "屋上 (おくじょう) có nghĩa là 'mái nhà, tầng thượng'."
+  },
+  {
+    "lesson": "Từ vựng 室",
+    "question": "和室",
+    "options": [
+      "わしつ",
+      "わしっ",
+      "わじつ",
+      "わむろ"
+    ],
+    "answer": 0,
+    "explanation": "和室 (わしつ) có nghĩa là 'phòng kiểu Nhật'."
+  },
+  {
+    "lesson": "Từ vựng 室",
+    "question": "号室",
+    "options": [
+      "ごうしつ",
+      "こうしつ",
+      "ごしつ",
+      "ごうじつ"
+    ],
+    "answer": 0,
+    "explanation": "号室 (ごうしつ) có nghĩa là 'số phòng'."
+  },
+  {
+    "lesson": "Từ vựng 場",
+    "question": "乗り場",
+    "options": [
+      "のりば",
+      "のりぱ",
+      "のりじょう",
+      "のば"
+    ],
+    "answer": 0,
+    "explanation": "乗り場 (のりば) có nghĩa là 'điểm lên - xuống xe'."
+  },
+  {
+    "lesson": "Từ vựng 場",
+    "question": "場所",
+    "options": [
+      "ばしょ",
+      "ぱしょ",
+      "ばじょ",
+      "ばところ"
+    ],
+    "answer": 0,
+    "explanation": "場所 (ばしょ) có nghĩa là 'địa điểm'."
+  },
+  {
+    "lesson": "Từ vựng 場",
+    "question": "置き場",
+    "options": [
+      "おきば",
+      "おきぱ",
+      "おきじょう",
+      "おば"
+    ],
+    "answer": 0,
+    "explanation": "置き場 (おきば) có nghĩa là 'nơi để, chỗ để'."
+  },
+  {
+    "lesson": "Từ vựng 場",
+    "question": "駐車場",
+    "options": [
+      "ちゅうしゃじょう",
+      "ちゅうしゃじょ",
+      "ちゅうさじょう",
+      "ちゅうしゃじょうう"
+    ],
+    "answer": 0,
+    "explanation": "駐車場 (ちゅうしゃじょう) có nghĩa là 'bãi đỗ xe'."
+  },
+  {
+    "lesson": "Từ vựng 場",
+    "question": "市場調査",
+    "options": [
+      "しじょうちょうさ",
+      "しじょうちょさ",
+      "いちばちょうさ",
+      "しじょうちょうざ"
+    ],
+    "answer": 0,
+    "explanation": "市場調査 (しじょうちょうさ) có nghĩa là 'điều tra thị trường'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "所",
+    "options": [
+      "ところ",
+      "どころ",
+      "しょ",
+      "とろ"
+    ],
+    "answer": 0,
+    "explanation": "所 (ところ) có nghĩa là 'nơi, chỗ'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "台所",
+    "options": [
+      "だいどころ",
+      "たいどころ",
+      "だいところ",
+      "だいどこ"
+    ],
+    "answer": 0,
+    "explanation": "台所 (だいどころ) có nghĩa là 'nhà bếp'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "元の所",
+    "options": [
+      "もとのところ",
+      "もとのどころ",
+      "げんのところ",
+      "もとところ"
+    ],
+    "answer": 0,
+    "explanation": "元の所 (もとのところ) có nghĩa là 'chỗ cũ, vị trí cũ'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "事務所",
+    "options": [
+      "じむしょ",
+      "しむしょ",
+      "じむじょ",
+      "じむところ"
+    ],
+    "answer": 0,
+    "explanation": "事務所 (じむしょ) có nghĩa là 'văn phòng'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "住所",
+    "options": [
+      "じゅうしょ",
+      "しゅうしょ",
+      "じゅうじょ",
+      "じゅしょ"
+    ],
+    "answer": 0,
+    "explanation": "住所 (じゅうしょ) có nghĩa là 'địa chỉ'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "市役所",
+    "options": [
+      "しやくしょ",
+      "ようやくしょ",
+      "しやくじょ",
+      "しやっくしょ"
+    ],
+    "answer": 0,
+    "explanation": "市役所 (しやくしょ) có nghĩa là 'tòa thị chính'."
+  },
+  {
+    "lesson": "Từ vựng 所",
+    "question": "近所",
+    "options": [
+      "きんじょ",
+      "きんしょ",
+      "ぎんじょ",
+      "きんじょう"
+    ],
+    "answer": 0,
+    "explanation": "近所 (きんじょ) có nghĩa là 'hàng xóm, lân cận'."
+  },
+  {
+    "lesson": "Từ vựng 図",
+    "question": "図書館",
+    "options": [
+      "としょかん",
+      "ずしょかん",
+      "どしょかん",
+      "としょがん"
+    ],
+    "answer": 0,
+    "explanation": "図書館 (としょかん) có nghĩa là 'thư viện'."
+  },
+  {
+    "lesson": "Từ vựng 図",
+    "question": "図",
+    "options": [
+      "ず",
+      "づ",
+      "と",
+      "ずう"
+    ],
+    "answer": 0,
+    "explanation": "図 (ず) có nghĩa là 'hình minh họa'."
+  },
+  {
+    "lesson": "Từ vựng 図",
+    "question": "地図",
+    "options": [
+      "ちず",
+      "ちづ",
+      "じず",
+      "ちずう"
+    ],
+    "answer": 0,
+    "explanation": "地図 (ちず) có nghĩa là 'bản đồ'."
+  },
+  {
+    "lesson": "Từ vựng 館",
+    "question": "旅館",
+    "options": [
+      "りょかん",
+      "りょがん",
+      "りょうかん",
+      "りょかんん"
+    ],
+    "answer": 0,
+    "explanation": "旅館 (りょかん) có nghĩa là 'nhà trọ kiểu Nhật'."
+  },
+  {
+    "lesson": "Từ vựng 館",
+    "question": "美術館",
+    "options": [
+      "びじゅつかん",
+      "びじゅかん",
+      "びじゅつがん",
+      "びじゅうつかん"
+    ],
+    "answer": 0,
+    "explanation": "美術館 (びじゅつかん) có nghĩa là 'bảo tàng mỹ thuật'."
+  },
+  {
+    "lesson": "Từ vựng 家",
+    "question": "家",
+    "options": [
+      "いえ",
+      "うち",
+      "か",
+      "や"
+    ],
+    "answer": 0,
+    "explanation": "家 (いえ) có nghĩa là 'nhà'. (うち cũng là một cách đọc khác)."
+  },
+  {
+    "lesson": "Từ vựng 家",
+    "question": "家賃",
+    "options": [
+      "やちん",
+      "いえちん",
+      "かちん",
+      "やじん"
+    ],
+    "answer": 0,
+    "explanation": "家賃 (やちん) có nghĩa là 'tiền nhà'."
+  },
+  {
+    "lesson": "Từ vựng 家",
+    "question": "家族",
+    "options": [
+      "かぞく",
+      "かそく",
+      "いえぞく",
+      "かぞっく"
+    ],
+    "answer": 0,
+    "explanation": "家族 (かぞく) có nghĩa là 'gia đình'."
+  },
+  {
+    "lesson": "Từ vựng 家",
+    "question": "家内",
+    "options": [
+      "かない",
+      "いえない",
+      "かうち",
+      "かないい"
+    ],
+    "answer": 0,
+    "explanation": "家内 (かない) có nghĩa là 'vợ mình'."
+  },
+  {
+    "lesson": "Từ vựng 家",
+    "question": "家具",
+    "options": [
+      "かぐ",
+      "かき",
+      "いえぐ",
+      "かく"
+    ],
+    "answer": 0,
+    "explanation": "家具 (かぐ) có nghĩa là 'dụng cụ gia đình'."
+  },
+  {
+    "lesson": "Từ vựng 家",
+    "question": "小説家",
+    "options": [
+      "しょうせつか",
+      "しょうせつや",
+      "しょうせつかあ",
+      "しょせつか"
+    ],
+    "answer": 0,
+    "explanation": "小説家 (しょうせつか) có nghĩa là 'tiểu thuyết gia'."
+  },
+  {
+    "lesson": "Từ vựng 族",
+    "question": "家族",
+    "options": [
+      "かぞく",
+      "かぞっく",
+      "かそく",
+      "がぞく"
+    ],
+    "answer": 0,
+    "explanation": "家族 (かぞく) có nghĩa là 'gia đình'."
+  },
+  {
+    "lesson": "Từ vựng 毎",
+    "question": "毎朝",
+    "options": [
+      "まいあさ",
+      "まいにちあさ",
+      "まいあざ",
+      "まいあさあ"
+    ],
+    "answer": 0,
+    "explanation": "毎朝 (まいあさ) có nghĩa là 'mỗi sáng'."
+  },
+  {
+    "lesson": "Từ vựng 毎",
+    "question": "毎日",
+    "options": [
+      "まいにち",
+      "まいじつ",
+      "まいび",
+      "まいひ"
+    ],
+    "answer": 0,
+    "explanation": "毎日 (まいにち) có nghĩa là 'mỗi ngày'."
+  },
+  {
+    "lesson": "Từ vựng 毎",
+    "question": "毎月",
+    "options": [
+      "まいつき",
+      "まいげつ",
+      "まいづき",
+      "まいつきい"
+    ],
+    "answer": 0,
+    "explanation": "毎月 (まいつき) có nghĩa là 'mỗi tháng'."
+  },
+  {
+    "lesson": "Từ vựng 朝",
+    "question": "朝",
+    "options": [
+      "あさ",
+      "あざ",
+      "ちょう",
+      "あさあ"
+    ],
+    "answer": 0,
+    "explanation": "朝 (あさ) có nghĩa là 'buổi sáng'."
+  },
+  {
+    "lesson": "Từ vựng 朝",
+    "question": "朝ごはん",
+    "options": [
+      "あさごはん",
+      "あさこはん",
+      "ちょうごはん",
+      "あさごはんん"
+    ],
+    "answer": 0,
+    "explanation": "朝ごはん (あさごはん) có nghĩa là 'bữa sáng'."
+  },
+  {
+    "lesson": "Từ vựng 昼",
+    "question": "昼",
+    "options": [
+      "ひる",
+      "ぴる",
+      "ちゅう",
+      "ひいる"
+    ],
+    "answer": 0,
+    "explanation": "昼 (ひる) có nghĩa là 'buổi trưa'."
+  },
+  {
+    "lesson": "Từ vựng 昼",
+    "question": "昼ごはん",
+    "options": [
+      "ひるごはん",
+      "ひるこはん",
+      "ちゅうごはん",
+      "ひるごはんん"
+    ],
+    "answer": 0,
+    "explanation": "昼ごはん (ひるごはん) có nghĩa là 'bữa trưa'."
+  },
+  {
+    "lesson": "Từ vựng 昼",
+    "question": "昼休み",
+    "options": [
+      "ひるやすみ",
+      "ひるやずみ",
+      "ちゅうやすみ",
+      "ひるやすうみ"
+    ],
+    "answer": 0,
+    "explanation": "昼休み (ひるやすみ) có nghĩa là 'nghỉ trưa'."
+  },
+  {
+    "lesson": "Từ vựng 晩",
+    "question": "晩",
+    "options": [
+      "ばん",
+      "ぱん",
+      "まん",
+      "はん"
+    ],
+    "answer": 0,
+    "explanation": "晩 (ばん) có nghĩa là 'buổi tối'."
+  },
+  {
+    "lesson": "Từ vựng 晩",
+    "question": "毎晩",
+    "options": [
+      "まいばん",
+      "まいぱん",
+      "まいはん",
+      "まいばんん"
+    ],
+    "answer": 0,
+    "explanation": "毎晩 (まいばん) có nghĩa là 'mỗi tối'."
+  },
+  {
+    "lesson": "Từ vựng 晩",
+    "question": "晩ごはん",
+    "options": [
+      "ばんごはん",
+      "ぱんごはん",
+      "ばんこはん",
+      "ばんごはんん"
+    ],
+    "answer": 0,
+    "explanation": "晩ごはん (ばんごはん) có nghĩa là 'bữa tối'."
+  },
+  {
+    "lesson": "Từ vựng 夜",
+    "question": "夜",
+    "options": [
+      "よる",
+      "よ",
+      "や",
+      "よおる"
+    ],
+    "answer": 0,
+    "explanation": "夜 (よる) có nghĩa là 'buổi đêm'."
+  },
+  {
+    "lesson": "Từ vựng 夜",
+    "question": "今夜",
+    "options": [
+      "こんや",
+      "こんよる",
+      "きんや",
+      "いまや"
+    ],
+    "answer": 0,
+    "explanation": "今夜 (こんや) có nghĩa là 'đêm nay'."
+  },
+  {
+    "lesson": "Từ vựng 夜",
+    "question": "夜行バス",
+    "options": [
+      "やこうバス",
+      "よるこうバス",
+      "やぎょうバス",
+      "やこバス"
+    ],
+    "answer": 0,
+    "explanation": "夜行バス (やこうバス) có nghĩa là 'xe bus chạy đêm'."
+  },
+  {
+    "lesson": "Từ vựng 午",
+    "question": "午前",
+    "options": [
+      "ごぜん",
+      "ごぜんん",
+      "ごぜ",
+      "ごうぜん"
+    ],
+    "answer": 0,
+    "explanation": "午前 (ごぜん) có nghĩa là 'buổi sáng'."
+  },
+  {
+    "lesson": "Từ vựng 午",
+    "question": "午後",
+    "options": [
+      "ごご",
+      "ごうご",
+      "ごこ",
+      "ここ"
+    ],
+    "answer": 0,
+    "explanation": "午後 (ごご) có nghĩa là 'buổi chiều'."
+  },
+  {
+    "lesson": "Từ vựng 前",
+    "question": "お名前",
+    "options": [
+      "おなまえ",
+      "おなえ",
+      "おぜん",
+      "おなまあえ"
+    ],
+    "answer": 0,
+    "explanation": "お名前 (おなまえ) có nghĩa là 'tên'."
+  },
+  {
+    "lesson": "Từ vựng 前",
+    "question": "前",
+    "options": [
+      "まえ",
+      "ぜん",
+      "ま",
+      "まあえ"
+    ],
+    "answer": 0,
+    "explanation": "前 (まえ) có nghĩa là 'trước'."
+  },
+  {
+    "lesson": "Từ vựng 前",
+    "question": "駅前",
+    "options": [
+      "えきまえ",
+      "えきぜん",
+      "えきのまえ",
+      "えきまあえ"
+    ],
+    "answer": 0,
+    "explanation": "駅前 (えきまえ) có nghĩa là 'trước nhà ga'."
+  },
+  {
+    "lesson": "Từ vựng 週",
+    "question": "先週",
+    "options": [
+      "せんしゅう",
+      "せんしゅ",
+      "ぜんしゅう",
+      "せんしゅうう"
+    ],
+    "answer": 0,
+    "explanation": "先週 (せんしゅう) có nghĩa là 'tuần trước'."
+  },
+  {
+    "lesson": "Từ vựng 週",
+    "question": "今週",
+    "options": [
+      "こんしゅう",
+      "こんしゅ",
+      "ごんしゅう",
+      "きんしゅう"
+    ],
+    "answer": 0,
+    "explanation": "今週 (こんしゅう) có nghĩa là 'tuần này'."
+  },
+  {
+    "lesson": "Từ vựng 週",
+    "question": "来週",
+    "options": [
+      "らいしゅう",
+      "らいしゅ",
+      "らいじゅう",
+      "らいしゅうう"
+    ],
+    "answer": 0,
+    "explanation": "来週 (らいしゅう) có nghĩa là 'tuần sau'."
+  },
+  {
+    "lesson": "Từ vựng 週",
+    "question": "週末",
+    "options": [
+      "しゅうまつ",
+      "しゅまつ",
+      "じゅうまつ",
+      "しゅうまづ"
+    ],
+    "answer": 0,
+    "explanation": "週末 (しゅうまつ) có nghĩa là 'cuối tuần'."
+  },
+  {
+    "lesson": "Từ vựng 週",
+    "question": "再来週",
+    "options": [
+      "さらいしゅう",
+      "ざらいしゅう",
+      "さいらいしゅう",
+      "さらいしゅ"
+    ],
+    "answer": 0,
+    "explanation": "再来週 (さらいしゅう) có nghĩa là 'tuần sau nữa'."
+  },
+  {
+    "lesson": "Từ vựng 試",
+    "question": "試験",
+    "options": [
+      "しけん",
+      "じけん",
+      "しげん",
+      "しけんん"
+    ],
+    "answer": 0,
+    "explanation": "試験 (しけん) có nghĩa là 'kỳ thi'."
+  },
+  {
+    "lesson": "Từ vựng 試",
+    "question": "試合",
+    "options": [
+      "しあい",
+      "じあい",
+      "しあう",
+      "しいあい"
+    ],
+    "answer": 0,
+    "explanation": "試合 (しあい) có nghĩa là 'trận đấu'."
+  },
+  {
+    "lesson": "Từ vựng 験",
+    "question": "実験",
+    "options": [
+      "じっけん",
+      "しっけん",
+      "じけん",
+      "じっげん"
+    ],
+    "answer": 0,
+    "explanation": "実験 (じっけん) có nghĩa là 'thí nghiệm'."
+  },
+  {
+    "lesson": "Từ vựng 映",
+    "question": "映画",
+    "options": [
+      "えいが",
+      "えか",
+      "えが",
+      "えいが"
+    ],
+    "answer": 0,
+    "explanation": "映画 (えいが) có nghĩa là 'phim, bộ phim'."
+  },
+  {
+    "lesson": "Từ vựng 画",
+    "question": "映画館",
+    "options": [
+      "えいがかん",
+      "えいががん",
+      "えがかん",
+      "えいがかんん"
+    ],
+    "answer": 0,
+    "explanation": "映画館 (えいがかん) có nghĩa là 'rạp chiếu phim'."
+  },
+  {
+    "lesson": "Từ vựng 宿",
+    "question": "宿題",
+    "options": [
+      "しゅくだい",
+      "しゅくだり",
+      "じゅくだい",
+      "しゅくたい"
+    ],
+    "answer": 0,
+    "explanation": "宿題 (しゅくだい) có nghĩa là 'bài tập về nhà'."
+  },
+  {
+    "lesson": "Từ vựng 持",
+    "question": "持つ",
+    "options": [
+      "もつ",
+      "もづ",
+      "もす",
+      "もち"
+    ],
+    "answer": 0,
+    "explanation": "持つ (もつ) có nghĩa là 'mang, cầm, có'."
+  },
+  {
+    "lesson": "Từ vựng 持",
+    "question": "持っていく",
+    "options": [
+      "もっていく",
+      "もていく",
+      "もっていく",
+      "もってゆく"
+    ],
+    "answer": 0,
+    "explanation": "持っていく (もっていく) có nghĩa là 'mang đi'."
+  },
+  {
+    "lesson": "Từ vựng 持",
+    "question": "持ってくる",
+    "options": [
+      "もってくる",
+      "もてくる",
+      "もってきる",
+      "もってこる"
+    ],
+    "answer": 0,
+    "explanation": "持ってくる (もってくる) có nghĩa là 'mang đến'."
+  },
+  {
+    "lesson": "Từ vựng 持",
+    "question": "気持ち",
+    "options": [
+      "きもち",
+      "きもし",
+      "ぎもち",
+      "きもちい"
+    ],
+    "answer": 0,
+    "explanation": "気持ち (きもち) có nghĩa là 'cảm xúc'."
+  },
+  {
+    "lesson": "Từ vựng 使",
+    "question": "使う",
+    "options": [
+      "つかう",
+      "づかう",
+      "しかう",
+      "つか"
+    ],
+    "answer": 0,
+    "explanation": "使う (つかう) có nghĩa là 'sử dụng'."
+  },
+  {
+    "lesson": "Từ vựng 使",
+    "question": "使用禁止",
+    "options": [
+      "しようきんし",
+      "しよきんし",
+      "しようきんじ",
+      "じようきんし"
+    ],
+    "answer": 0,
+    "explanation": "使用禁止 (しようきんし) có nghĩa là 'cấm sử dụng'."
+  },
+  {
+    "lesson": "Từ vựng 使",
+    "question": "使用中",
+    "options": [
+      "しようちゅう",
+      "しよちゅう",
+      "しようじゅう",
+      "じようちゅう"
+    ],
+    "answer": 0,
+    "explanation": "使用中 (しようちゅう) có nghĩa là 'đang sử dụng'."
+  },
+  {
+    "lesson": "Từ vựng 止",
+    "question": "止まる",
+    "options": [
+      "とまる",
+      "どまる",
+      "とめる",
+      "しまる"
+    ],
+    "answer": 0,
+    "explanation": "止まる (とまる) có nghĩa là 'dừng lại'."
+  },
+  {
+    "lesson": "Từ vựng 止",
+    "question": "止める",
+    "options": [
+      "とめる",
+      "どめる",
+      "とまる",
+      "しめる"
+    ],
+    "answer": 0,
+    "explanation": "止める (とめる) có nghĩa là 'ngừng, hủy bỏ'."
+  },
+  {
+    "lesson": "Từ vựng 止",
+    "question": "中止",
+    "options": [
+      "ちゅうし",
+      "ちゅうじ",
+      "ちゅし",
+      "なかやめ"
+    ],
+    "answer": 0,
+    "explanation": "中止 (ちゅうし) có nghĩa là 'ngừng, hủy bỏ'."
+  },
+  {
+    "lesson": "Từ vựng 止",
+    "question": "立入禁止",
+    "options": [
+      "たちいりきんし",
+      "たちいりきんじ",
+      "たちいりきんし",
+      "たちりきんし"
+    ],
+    "answer": 0,
+    "explanation": "立入禁止 (たちいりきんし) có nghĩa là 'cấm vào'."
+  },
+  {
+    "lesson": "Từ vựng 住",
+    "question": "住む",
+    "options": [
+      "すむ",
+      "ずむ",
+      "じゅうむ",
+      "すうむ"
+    ],
+    "answer": 0,
+    "explanation": "住む (すむ) có nghĩa là 'sống'."
+  },
+  {
+    "lesson": "Từ vựng 住",
+    "question": "住所",
+    "options": [
+      "じゅうしょ",
+      "しゅうしょ",
+      "じゅうじょ",
+      "じゅしょ"
+    ],
+    "answer": 0,
+    "explanation": "住所 (じゅうしょ) có nghĩa là 'địa chỉ'."
+  },
+  {
+    "lesson": "Từ vựng 降",
+    "question": "降る",
+    "options": [
+      "ふる",
+      "ぶる",
+      "こうる",
+      "ふうる"
+    ],
+    "answer": 0,
+    "explanation": "降る (ふる) có nghĩa là 'rơi (mưa)'."
+  },
+  {
+    "lesson": "Từ vựng 降",
+    "question": "降りる",
+    "options": [
+      "おりる",
+      "おびる",
+      "ふりる",
+      "おりいる"
+    ],
+    "answer": 0,
+    "explanation": "降りる (おりる) có nghĩa là 'xuống khỏi, rút khỏi'."
+  },
+  {
+    "lesson": "Từ vựng 降",
+    "question": "降ろす",
+    "options": [
+      "おろす",
+      "おろす",
+      "ふろす",
+      "こうろす"
+    ],
+    "answer": 0,
+    "explanation": "降ろす (おろす) có nghĩa là 'thả xuống, rút tiền'."
+  },
+  {
+    "lesson": "Từ vựng 私",
+    "question": "私 (tôi - thông thường)",
+    "options": [
+      "わたし",
+      "わたくし",
+      "わし",
+      "あたし"
+    ],
+    "answer": 0,
+    "explanation": "私 (わたし) có nghĩa là 'tôi'."
+  },
+  {
+    "lesson": "Từ vựng 私",
+    "question": "私 (tôi - khiêm tốn)",
+    "options": [
+      "わたくし",
+      "わたし",
+      "わたく",
+      "わし"
+    ],
+    "answer": 0,
+    "explanation": "私 (わたくし) là cách nói 'tôi' khiêm nhường hơn."
+  },
+  {
+    "lesson": "Từ vựng 夫",
+    "question": "夫",
+    "options": [
+      "おっと",
+      "おと",
+      "ふ",
+      "おっど"
+    ],
+    "answer": 0,
+    "explanation": "夫 (おっと) có nghĩa là 'chồng (của mình)'."
+  },
+  {
+    "lesson": "Từ vựng 夫",
+    "question": "大丈夫",
+    "options": [
+      "だいじょうぶ",
+      "たいじょうぶ",
+      "だいじょうふ",
+      "だいじょぶ"
+    ],
+    "answer": 0,
+    "explanation": "大丈夫 (だいじょうぶ) có nghĩa là 'ổn rồi, không sao đâu'."
+  },
+  {
+    "lesson": "Từ vựng 題",
+    "question": "問題",
+    "options": [
+      "もんだい",
+      "もたい",
+      "もんたい",
+      "もんだり"
+    ],
+    "answer": 0,
+    "explanation": "問題 (もんだい) có nghĩa là 'vấn đề'."
+  },
+  {
+    "lesson": "Từ vựng 題",
+    "question": "飲み放題",
+    "options": [
+      "のみほうだい",
+      "のみほうたい",
+      "のむほうだい",
+      "のみほうだい"
+    ],
+    "answer": 0,
+    "explanation": "飲み放題 (のみほうだい) có nghĩa là 'buffet đồ uống'."
+  },
+  {
+    "lesson": "Từ vựng 題",
+    "question": "食べ放題",
+    "options": [
+      "たべほうだい",
+      "たべほうたい",
+      "たべるほうだい",
+      "たほうだい"
+    ],
+    "answer": 0,
+    "explanation": "食べ放題 (たべほうだい) có nghĩa là 'buffet đồ ăn'."
+  },
+  {
+    "lesson": "Từ vựng 紙",
+    "question": "紙",
+    "options": [
+      "かみ",
+      "がみ",
+      "し",
+      "かあみ"
+    ],
+    "answer": 0,
+    "explanation": "紙 (かみ) có nghĩa là 'giấy'."
+  },
+  {
+    "lesson": "Từ vựng 紙",
+    "question": "手紙",
+    "options": [
+      "てがみ",
+      "てかみ",
+      "しゅがみ",
+      "てがあみ"
+    ],
+    "answer": 0,
+    "explanation": "手紙 (てがみ) có nghĩa là 'thư'."
+  },
+  {
+    "lesson": "Từ vựng 英",
+    "question": "英語",
+    "options": [
+      "えいご",
+      "えご",
+      "えいこ",
+      "えいごう"
+    ],
+    "answer": 0,
+    "explanation": "英語 (えいご) có nghĩa là 'tiếng Anh'."
+  },
+  {
+    "lesson": "Từ vựng 語",
+    "question": "何語",
+    "options": [
+      "なにご",
+      "なんご",
+      "なにご",
+      "なんご"
+    ],
+    "answer": 0,
+    "explanation": "何語 (なにご) có nghĩa là 'ngôn ngữ nào'."
+  },
+  {
+    "lesson": "Từ vựng 語",
+    "question": "日本語",
+    "options": [
+      "にほんご",
+      "にっぽんご",
+      "にほんこ",
+      "にほんごう"
+    ],
+    "answer": 0,
+    "explanation": "日本語 (にほんご) có nghĩa là 'tiếng Nhật'."
+  },
+  {
+    "lesson": "Từ vựng 待",
+    "question": "待つ",
+    "options": [
+      "まつ",
+      "ます",
+      "たいつ",
+      "まつつ"
+    ],
+    "answer": 0,
+    "explanation": "待つ (まつ) có nghĩa là 'đợi'."
+  },
+  {
+    "lesson": "Từ vựng 待",
+    "question": "お待ちください",
+    "options": [
+      "おまちください",
+      "おまつください",
+      "おまちくたさい",
+      "おまちください"
+    ],
+    "answer": 0,
+    "explanation": "お待ちください (おまちください) có nghĩa là 'xin hãy đợi'."
+  },
+  {
+    "lesson": "Từ vựng 待",
+    "question": "お待たせしました",
+    "options": [
+      "おまたせしました",
+      "おまちせしました",
+      "おまたせしました",
+      "おまたしました"
+    ],
+    "answer": 0,
+    "explanation": "お待たせしました (おまたせしました) có nghĩa là 'cảm ơn vì đã chờ đợi'."
+  },
+  {
+    "lesson": "Từ vựng 待",
+    "question": "招待する",
+    "options": [
+      "しょうたいする",
+      "しょたいする",
+      "しょうだいする",
+      "じょうたいする"
+    ],
+    "answer": 0,
+    "explanation": "招待する (しょうたいする) có nghĩa là 'chiêu đãi, mời'."
+  },
+  {
+    "lesson": "Từ vựng 開",
+    "question": "開く (tha động từ)",
+    "options": [
+      "あく",
+      "ひらく",
+      "あける",
+      "かく"
+    ],
+    "answer": 0,
+    "explanation": "開く (あく) có nghĩa là 'mở ra (tự động từ)'."
+  },
+  {
+    "lesson": "Từ vựng 開",
+    "question": "開ける",
+    "options": [
+      "あける",
+      "あげる",
+      "ひらける",
+      "かける"
+    ],
+    "answer": 0,
+    "explanation": "開ける (あける) có nghĩa là 'mở ra (tha động từ)'."
+  },
+  {
+    "lesson": "Từ vựng 開",
+    "question": "開く (nghĩa khác)",
+    "options": [
+      "ひらく",
+      "あく",
+      "ひらける",
+      "かいらく"
+    ],
+    "answer": 0,
+    "explanation": "開く (ひらく) cũng có nghĩa là 'mở', thường dùng cho sự kiện, tài khoản."
+  },
+  {
+    "lesson": "Từ vựng 開",
+    "question": "開発する",
+    "options": [
+      "かいはつする",
+      "かいはっする",
+      "かいぱつする",
+      "がいはつする"
+    ],
+    "answer": 0,
+    "explanation": "開発する (かいはつする) có nghĩa là 'khai phá, phát triển'."
+  },
+  {
+    "lesson": "Từ vựng 閉",
+    "question": "閉める",
+    "options": [
+      "しめる",
+      "じめる",
+      "しまる",
+      "へいめる"
+    ],
+    "answer": 0,
+    "explanation": "閉める (しめる) có nghĩa là 'đóng lại (tha động từ)'."
+  },
+  {
+    "lesson": "Từ vựng 閉",
+    "question": "閉まる",
+    "options": [
+      "しまる",
+      "じまる",
+      "しめる",
+      "へいまる"
+    ],
+    "answer": 0,
+    "explanation": "閉まる (しまる) có nghĩa là 'đóng lại (tự động từ)'."
+  },
+  {
+    "lesson": "Từ vựng 閉",
+    "question": "閉じる",
+    "options": [
+      "とじる",
+      "どじる",
+      "おじる",
+      "へいじる"
+    ],
+    "answer": 0,
+    "explanation": "閉じる (とじる) có nghĩa là 'đóng (sách, mắt)'."
+  },
+  {
+    "lesson": "Từ vựng 主",
+    "question": "ご主人",
+    "options": [
+      "ごしゅじん",
+      "ごしゅひと",
+      "ごしゅうじん",
+      "しゅじん"
+    ],
+    "answer": 0,
+    "explanation": "ご主人 (ごしゅじん) có nghĩa là 'chồng (của người khác)'."
+  },
+  {
+    "lesson": "Từ vựng 主",
+    "question": "主人公",
+    "options": [
+      "しゅじんこう",
+      "しゅじんこ",
+      "しゅうじんこう",
+      "しゅじんごう"
+    ],
+    "answer": 0,
+    "explanation": "主人公 (しゅじんこう) có nghĩa là 'nhân vật chính'."
+  },
+  {
+    "lesson": "Từ vựng 奥",
+    "question": "奥さん",
+    "options": [
+      "おくさん",
+      "おうさん",
+      "おっくさん",
+      "おくさま"
+    ],
+    "answer": 0,
+    "explanation": "奥さん (おくさん) có nghĩa là 'vợ (của người khác)'."
+  },
+  {
+    "lesson": "Từ vựng 奥",
+    "question": "奥様",
+    "options": [
+      "おくさま",
+      "おうさま",
+      "おくさん",
+      "おくさあま"
+    ],
+    "answer": 0,
+    "explanation": "奥様 (おくさま) là cách nói 'vợ (của người khác)' trang trọng hơn."
+  },
+  {
+    "lesson": "Từ vựng 妻",
+    "question": "妻",
+    "options": [
+      "つま",
+      "さい",
+      "づま",
+      "つう"
+    ],
+    "answer": 0,
+    "explanation": "妻 (つま) có nghĩa là 'vợ (của mình)'."
+  },
+  {
+    "lesson": "Từ vựng 兄",
+    "question": "兄",
+    "options": [
+      "あに",
+      "にい",
+      "けい",
+      "きょう"
+    ],
+    "answer": 0,
+    "explanation": "兄 (あに) có nghĩa là 'anh trai'."
+  },
+  {
+    "lesson": "Từ vựng 兄",
+    "question": "お兄さん",
+    "options": [
+      "おにいさん",
+      "おあにさん",
+      "おにいさんん",
+      "おにさん"
+    ],
+    "answer": 0,
+    "explanation": "お兄さん (おにいさん) có nghĩa là 'anh trai (người khác)'."
+  },
+  {
+    "lesson": "Từ vựng 兄",
+    "question": "兄弟",
+    "options": [
+      "きょうだい",
+      "けいてい",
+      "きょだい",
+      "きょうたい"
+    ],
+    "answer": 0,
+    "explanation": "兄弟 (きょうだい) có nghĩa là 'anh em'."
+  },
+  {
+    "lesson": "Từ vựng 弟",
+    "question": "弟",
+    "options": [
+      "おとうと",
+      "おとおと",
+      "だい",
+      "でい"
+    ],
+    "answer": 0,
+    "explanation": "弟 (おとうと) có nghĩa là 'em trai'."
+  },
+  {
+    "lesson": "Từ vựng 弟",
+    "question": "弟さん",
+    "options": [
+      "おとうとさん",
+      "おとおとさん",
+      "おとうさん",
+      "だいさん"
+    ],
+    "answer": 0,
+    "explanation": "弟さん (おとうとさん) có nghĩa là 'em trai (người khác)'."
+  },
+  {
+    "lesson": "Từ vựng 姉",
+    "question": "姉",
+    "options": [
+      "あね",
+      "ねえ",
+      "し",
+      "あねえ"
+    ],
+    "answer": 0,
+    "explanation": "姉 (あね) có nghĩa là 'chị gái'."
+  },
+  {
+    "lesson": "Từ vựng 姉",
+    "question": "お姉さん",
+    "options": [
+      "おねえさん",
+      "おあねさん",
+      "おねさん",
+      "おねえさんん"
+    ],
+    "answer": 0,
+    "explanation": "お姉さん (おねえさん) có nghĩa là 'chị gái (người khác)'."
+  },
+  {
+    "lesson": "Từ vựng 姉",
+    "question": "姉妹",
+    "options": [
+      "しまい",
+      "じまい",
+      "あねいもうと",
+      "しま"
+    ],
+    "answer": 0,
+    "explanation": "姉妹 (しまい) có nghĩa là 'chị em'."
+  },
+  {
+    "lesson": "Từ vựng 妹",
+    "question": "妹",
+    "options": [
+      "いもうと",
+      "いもと",
+      "まい",
+      "いもう"
+    ],
+    "answer": 0,
+    "explanation": "妹 (いもうと) có nghĩa là 'em gái'."
+  },
+  {
+    "lesson": "Từ vựng 妹",
+    "question": "妹さん",
+    "options": [
+      "いもうとさん",
+      "いもとさん",
+      "いもうさん",
+      "まいさん"
+    ],
+    "answer": 0,
+    "explanation": "妹さん (いもうとさん) có nghĩa là 'em gái (người khác)'."
+  },
+  {
+    "lesson": "Từ vựng 春",
+    "question": "春",
+    "options": [
+      "はる",
+      "ばる",
+      "しゅん",
+      "はあ"
+    ],
+    "answer": 0,
+    "explanation": "春 (はる) có nghĩa là 'mùa xuân'."
+  },
+  {
+    "lesson": "Từ vựng 夏",
+    "question": "夏",
+    "options": [
+      "なつ",
+      "なづ",
+      "か",
+      "なつつ"
+    ],
+    "answer": 0,
+    "explanation": "夏 (なつ) có nghĩa là 'mùa hè'."
+  }
+]
