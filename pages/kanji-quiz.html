@@ -29,6 +29,16 @@
             background-color: #f8d7da;
             border-color: #f5c2c7;
         }
+        .dropdown-menu {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .dropdown-menu .form-check {
+            padding-left: 3rem; /* Add padding to align checkboxes */
+        }
+        .dropdown-menu .form-check-input {
+            margin-left: -1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -40,10 +50,15 @@
 
         <div class="quizSettings card p-3 mb-4">
             <div class="mb-3">
-                <label for="lessonSelect" class="form-label">Chọn bài học:</label>
-                <select id="lessonSelect" class="form-select" aria-label="Chọn bài học">
-                    <option value="all" selected>Tất cả</option>
-                </select>
+                <label class="form-label">Chọn bài học:</label>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" id="lessonDropdownBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tất cả
+                    </button>
+                    <ul class="dropdown-menu w-100" aria-labelledby="lessonDropdownBtn" id="lessonList">
+                        <!-- Lesson checkboxes will be populated here -->
+                    </ul>
+                </div>
             </div>
     
             <div class="mb-3 row">
@@ -81,7 +96,7 @@
 
         const $quizContainer = $('#quizContainer');
         const $toast = $('#toast');
-        const $lessonSelect = $('#lessonSelect');
+        const $lessonList = $('#lessonList');
 
         function showToast(message) {
             $toast.text(message).fadeIn();
@@ -164,16 +179,66 @@
             $.getJSON('../assets/storage/kanji.json')
                 .done(data => {
                     allQuestions = data;
-                    const lessons = [...new Set(data.map(item => item.lesson))].sort();
-                    $lessonSelect.append(lessons.map(lesson => $('<option>').val(lesson).text(lesson)));
+                    const lessons = ['all', ...[...new Set(data.map(item => item.lesson))].sort()];
+                    
+                    lessons.forEach(lesson => {
+                        const $li = $('<li>');
+                        const $div = $('<div>').addClass('form-check dropdown-item-text');
+                        const $input = $('<input>').addClass('form-check-input').attr({
+                            type: 'checkbox',
+                            value: lesson,
+                            id: `chk-lesson-${lesson}`
+                        });
+                        if (lesson === 'all') {
+                            $input.prop('checked', true);
+                        }
+                        const $label = $('<label>').addClass('form-check-label').attr('for', `chk-lesson-${lesson}`).text(lesson === 'all' ? 'Tất cả' : lesson);
+                        
+                        $div.append($input, $label);
+                        $li.append($div);
+                        $lessonList.append($li);
+                    });
+
+                    loadLessonSelection(); // Load saved selections
+
+                    // Prevent dropdown from closing when clicking on an item
+                    $lessonList.on('click', function(e) {
+                        e.stopPropagation();
+                    });
+
+                    // Handle checkbox logic
+                    $lessonList.find('input[type="checkbox"]').on('change', function() {
+                        const isAllChecked = $('#chk-lesson-all').is(':checked');
+                        if ($(this).val() === 'all' && this.checked) {
+                            // If 'All' is checked, uncheck others
+                            $lessonList.find('input[type="checkbox"]').not(this).prop('checked', false);
+                        } else if ($(this).val() !== 'all' && this.checked) {
+                            // If another option is checked, uncheck 'All'
+                            $('#chk-lesson-all').prop('checked', false);
+                        }
+
+                        // If no checkboxes are checked, check 'All'
+                        if ($lessonList.find('input:checked').length === 0) {
+                            $('#chk-lesson-all').prop('checked', true);
+                        }
+                        updateDropdownButtonText();
+                    });
                 })
                 .fail(() => showToast('Không thể tải dữ liệu câu hỏi.'));
         }
 
         $('#startQuizBtn').on('click', function() {
-            const selectedLesson = $lessonSelect.val();
+            // Save current selection on start
+            saveLessonSelection();
 
-            let baseData = (selectedLesson === 'all') ? allQuestions : allQuestions.filter(q => q.lesson === selectedLesson);
+            const selectedLessons = $lessonList.find('input:checked').map(function() { return $(this).val(); }).get();
+
+            if (selectedLessons.length === 0) {
+                showToast('Vui lòng chọn ít nhất một bài học.');
+                return;
+            }
+
+            let baseData = (selectedLessons.includes('all')) ? allQuestions : allQuestions.filter(q => selectedLessons.includes(q.lesson));
             
             let questionsForQuiz = prepareQuestions(JSON.parse(JSON.stringify(baseData))); // Use a deep copy
 
@@ -192,8 +257,62 @@
             $('#quizMain').removeClass('hidden');
         });
 
+        function updateDropdownButtonText() {
+            const $checked = $lessonList.find('input:checked');
+            const $button = $('#lessonDropdownBtn');
+            if ($checked.length === 0) {
+                $button.text('Chọn bài học');
+            } else if ($checked.length === 1) {
+                const val = $checked.val();
+                $button.text(val === 'all' ? 'Tất cả' : val);
+            } else if ($checked.length > 1) {
+                $button.text(`Đã chọn ${$checked.length} bài`);
+            } else if ($('#chk-lesson-all').is(':checked')) {
+                $button.text('Tất cả');
+            }
+        }
+
+        function saveLessonSelection() {
+            const selectedLessons = $lessonList.find('input:checked').map(function() {
+                return $(this).val();
+            }).get();
+            localStorage.setItem('kanjiQuizSelectedLessons', JSON.stringify(selectedLessons));
+
+            const scrollPosition = $lessonList.scrollTop();
+            localStorage.setItem('kanjiQuizDropdownScroll', scrollPosition);
+        }
+
+        function loadLessonSelection() {
+            const savedLessons = JSON.parse(localStorage.getItem('kanjiQuizSelectedLessons'));
+            if (savedLessons && savedLessons.length > 0) {
+                $lessonList.find('input[type="checkbox"]').prop('checked', false); // Uncheck all first
+                savedLessons.forEach(lesson => {
+                    $lessonList.find(`input[value="${lesson}"]`).prop('checked', true);
+                });
+
+                if ($lessonList.find('input:checked').length === 0) {
+                    $('#chk-lesson-all').prop('checked', true);
+                }
+            } else {
+                $('#chk-lesson-all').prop('checked', true);
+            }
+            updateDropdownButtonText();
+        }
+
         $(document).ready(function() {
             loadAndPrepareData();
+
+            const dropdownElement = document.getElementById('lessonDropdownBtn');
+            dropdownElement.addEventListener('hide.bs.dropdown', function () {
+                saveLessonSelection();
+            });
+
+            dropdownElement.addEventListener('shown.bs.dropdown', function () {
+                const savedScroll = localStorage.getItem('kanjiQuizDropdownScroll');
+                if (savedScroll) {
+                    $lessonList.scrollTop(savedScroll);
+                }
+            });
         });
     </script>
 
