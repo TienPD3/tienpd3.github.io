@@ -1,202 +1,204 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Trắc nghiệm Kanji</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        #quiz-container {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
-        }
-        h1 {
-            text-align: center;
-            color: #5a67d8;
-        }
-        #progress {
-            text-align: center;
-            font-size: 0.9em;
-            color: #777;
-            margin-bottom: 1rem;
-        }
-        #question {
-            font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
-            margin: 2rem 0;
-            color: #2d3748;
-        }
-        #options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        .option-btn {
-            background-color: #edf2f7;
-            border: 2px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 1rem;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-        }
-        .option-btn:hover:not(:disabled) {
-            background-color: #e2e8f0;
-            transform: translateY(-2px);
-        }
-        .option-btn:disabled {
-            cursor: not-allowed;
-        }
-        .option-btn.correct {
-            background-color: #c6f6d5;
-            border-color: #68d391;
-            color: #2f855a;
-        }
-        .option-btn.incorrect {
-            background-color: #fed7d7;
-            border-color: #fc8181;
-            color: #c53030;
-        }
-        #feedback {
-            margin-top: 1.5rem;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 1.1rem;
-        }
-        #feedback.hidden {
-            display: none;
-        }
-        #next-btn {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            margin-top: 1.5rem;
-            background-color: #5a67d8;
+        .hidden { display: none; }
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            min-width: 250px;
+            padding: 10px 20px;
+            background-color: #000000cc;
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        #next-btn:hover {
-            background-color: #4c51bf;
-        }
-        #next-btn.hidden {
+            border-radius: 5px;
             display: none;
+            z-index: 1050;
+        }
+        .list-group-item.correct {
+            background-color: #d1e7dd;
+            border-color: #a3cfbb;
+        }
+        .list-group-item.incorrect {
+            background-color: #f8d7da;
+            border-color: #f5c2c7;
         }
     </style>
 </head>
 <body>
 
-<div id="quiz-container">
-    <h1>Trắc nghiệm Kanji</h1>
-    <div id="progress"></div>
-    <div id="question"></div>
-    <div id="options"></div>
-    <div id="feedback" class="hidden"></div>
-    <button id="next-btn" class="hidden">Câu tiếp theo</button>
-</div>
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Trắc nghiệm Kanji</h2>
+        </div>
 
-<script>
-    const questionEl = document.getElementById('question');
-    const optionsEl = document.getElementById('options');
-    const feedbackEl = document.getElementById('feedback');
-    const nextBtn = document.getElementById('next-btn');
-    const progressEl = document.getElementById('progress');
+        <div class="quizSettings card p-3 mb-4">
+            <div class="mb-3">
+                <label for="lessonSelect" class="form-label">Chọn bài học:</label>
+                <select id="lessonSelect" class="form-select" aria-label="Chọn bài học">
+                    <option value="all" selected>Tất cả</option>
+                </select>
+            </div>
+    
+            <div class="mb-3 row">
+                <div class="col-md-6">
+                    <label for="startQuestion" class="form-label">Từ câu:</label>
+                    <input type="number" id="startQuestion" value="1" min="1" step="5" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label for="endQuestion" class="form-label">Đến câu:</label>
+                    <input type="number" id="endQuestion" value="" min="5" step="5" class="form-control">
+                </div>
+            </div>
+    
+            <div class="mb-3">
+                <button id="startQuizBtn" class="btn btn-primary w-100">Bắt đầu</button>
+            </div>
+        </div>
 
-    let quizData = [];
-    let currentQuestionIndex = 0;
-    let score = 0;
+        <div id="quizMain" class="hidden">
+            <div id="quizContainer" class="card p-4 mb-3">
+                <!-- Questions will be rendered here -->
+            </div>
+        </div>
+    </div>
 
-    async function startQuiz() {
-        try {
-            // Đường dẫn đã được cập nhật để trỏ đến tệp kanji.json
-            const response = await fetch('../assets/storage/kanji.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+    <div id="toast"></div>
+
+    <!-- Bootstrap Bundle JS (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let allQuestions = [];
+        let filteredQuestions = [];
+        let userAnswers = [];
+
+        const $quizContainer = $('#quizContainer');
+        const $toast = $('#toast');
+        const $lessonSelect = $('#lessonSelect');
+
+        function showToast(message) {
+            $toast.text(message).fadeIn();
+            setTimeout(() => $toast.fadeOut(), 3000);
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
             }
-            quizData = await response.json();
-            // Xáo trộn câu hỏi để mỗi lần làm bài có thứ tự khác nhau
-            quizData.sort(() => Math.random() - 0.5);
-            showQuestion();
-        } catch (error) {
-            questionEl.textContent = 'Lỗi khi tải dữ liệu trắc nghiệm.';
-            console.error('Could not fetch quiz data:', error);
         }
-    }
 
-    function showQuestion() {
-        resetState();
-        const currentQuestion = quizData[currentQuestionIndex];
-        questionEl.textContent = currentQuestion.question;
-        progressEl.textContent = `Câu ${currentQuestionIndex + 1} / ${quizData.length}`;
+        // This function now directly uses the questions from the JSON file
+        function prepareQuestions(data) {
+            // Shuffle options for each question to make it more challenging
+            data.forEach(q => {
+                const correctAnswerText = q.options[q.answer];
+                shuffleArray(q.options);
+                // Find the new index of the correct answer after shuffling
+                q.newAnswerIndex = q.options.indexOf(correctAnswerText);
+            });
+            return data;
+        }
 
-        currentQuestion.options.forEach((option, index) => {
-            const button = document.createElement('button');
-            button.textContent = option;
-            button.classList.add('option-btn');
-            button.addEventListener('click', () => selectAnswer(index, currentQuestion.answer));
-            optionsEl.appendChild(button);
+        function renderAllQuestions() {
+            $quizContainer.empty();
+            filteredQuestions.forEach((q, qIndex) => {
+                const $questionDiv = $('<div>').addClass('mb-4');
+                const $questionText = $('<div>').addClass('mb-2 fs-5').html(`<b>Câu ${qIndex + 1}:</b> ${q.question}`);
+                $questionDiv.append($questionText);
+
+                const $answersList = $('<div>').addClass('list-group');
+                q.options.forEach((answer, aIndex) => {
+                    const $answerItem = $('<button>')
+                        .attr('type', 'button')
+                        .addClass('list-group-item list-group-item-action')
+                        .html(answer)
+                        .on('click', function() {
+                            userAnswers[qIndex] = aIndex;
+                            $(this).addClass('active').siblings().removeClass('active');
+                            $questionDiv.find('.check-btn').prop('disabled', false);
+                        });
+                    $answersList.append($answerItem);
+                });
+                $questionDiv.append($answersList);
+
+                const $checkBtn = $('<button>').addClass('btn btn-success mt-3 float-end check-btn').text('Kiểm tra').prop('disabled', true);
+                $checkBtn.on('click', function() {
+                    $(this).prop('disabled', true);
+                    $answersList.children('button').prop('disabled', true).off('click');
+
+                    const isCorrect = userAnswers[qIndex] === q.newAnswerIndex;
+                    const correctAnswerText = q.options[q.newAnswerIndex];
+
+                    if (isCorrect) {
+                        $answersList.children().eq(userAnswers[qIndex]).addClass('correct').prepend('✔ ');
+                        speakAnswer(correctAnswerText);
+                    } else {
+                        $answersList.children().eq(userAnswers[qIndex]).addClass('incorrect').prepend('✖ ');
+                        $answersList.children().eq(q.newAnswerIndex).addClass('correct').prepend('✔ ');
+                    }
+
+                    const $explanation = $('<p>').addClass('mt-2 alert alert-info').html(q.explanation);
+                    $questionDiv.append($explanation);
+                });
+                $questionDiv.append($checkBtn);
+                $quizContainer.append($questionDiv);
+            });
+        }
+
+        function speakAnswer(text) {
+            if (!text || !('speechSynthesis' in window)) return;
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ja-JP';
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function loadAndPrepareData() {
+            $.getJSON('../assets/storage/kanji.json')
+                .done(data => {
+                    allQuestions = data;
+                    const lessons = [...new Set(data.map(item => item.lesson))].sort();
+                    $lessonSelect.append(lessons.map(lesson => $('<option>').val(lesson).text(lesson)));
+                })
+                .fail(() => showToast('Không thể tải dữ liệu câu hỏi.'));
+        }
+
+        $('#startQuizBtn').on('click', function() {
+            const selectedLesson = $lessonSelect.val();
+
+            let baseData = (selectedLesson === 'all') ? allQuestions : allQuestions.filter(q => q.lesson === selectedLesson);
+            
+            let questionsForQuiz = prepareQuestions(JSON.parse(JSON.stringify(baseData))); // Use a deep copy
+
+            const startQ = parseInt($('#startQuestion').val()) || 1;
+            let endQ = parseInt($('#endQuestion').val());
+            if (!endQ || endQ > questionsForQuiz.length) {
+                endQ = questionsForQuiz.length;
+            }
+            
+            filteredQuestions = questionsForQuiz.slice(startQ - 1, endQ);
+            shuffleArray(filteredQuestions);
+            userAnswers = new Array(filteredQuestions.length).fill(null);
+
+            renderAllQuestions();
+            $('.quizSettings').hide();
+            $('#quizMain').removeClass('hidden');
         });
-    }
 
-    function resetState() {
-        optionsEl.innerHTML = '';
-        feedbackEl.classList.add('hidden');
-        feedbackEl.textContent = '';
-        nextBtn.classList.add('hidden');
-    }
+        $(document).ready(function() {
+            loadAndPrepareData();
+        });
+    </script>
 
-    function selectAnswer(selectedIndex, correctIndex) {
-        const optionButtons = optionsEl.querySelectorAll('.option-btn');
-        optionButtons.forEach(button => button.disabled = true);
-
-        const currentQuestion = quizData[currentQuestionIndex];
-
-        if (selectedIndex === correctIndex) {
-            optionButtons[selectedIndex].classList.add('correct');
-            feedbackEl.innerHTML = `<strong>Chính xác!</strong><br>${currentQuestion.explanation}`;
-            score++;
-        } else {
-            optionButtons[selectedIndex].classList.add('incorrect');
-            optionButtons[correctIndex].classList.add('correct');
-            feedbackEl.innerHTML = `<strong>Sai rồi!</strong><br>${currentQuestion.explanation}`;
-        }
-
-        feedbackEl.classList.remove('hidden');
-        if (currentQuestionIndex < quizData.length - 1) {
-            nextBtn.classList.remove('hidden');
-        } else {
-            questionEl.textContent = `Hoàn thành!`;
-            optionsEl.innerHTML = `Bạn đã trả lời đúng ${score} / ${quizData.length} câu.`;
-        }
-    }
-
-    nextBtn.addEventListener('click', () => {
-        currentQuestionIndex++;
-        showQuestion();
-    });
-
-    startQuiz();
-</script>
+</body>
+</html>
 
 </body>
 </html>
