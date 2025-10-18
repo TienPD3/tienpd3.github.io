@@ -1,0 +1,268 @@
+
+[
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Vていただけませんか",
+    "back": {
+      "meaning": "Anh/chị làm ơn ~ giúp tôi được không ạ? (cách nói lịch sự)",
+      "example": {
+        "japanese": "いい先生を紹介していただけませんか。",
+        "vietnamese": "Anh/chị làm ơn giới thiệu cho tôi một giáo viên tốt được không ạ?"
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Từ để hỏi + Vたらいいですか",
+    "back": {
+      "meaning": "Nên/Phải làm ~ như thế nào? (dùng để xin lời khuyên)",
+      "example": {
+        "japanese": "バレンタインデーに女性に何をあげたらいいですか。",
+        "vietnamese": "Vào ngày Valentine thì nên tặng gì cho các bạn nữ ạ?"
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "～んですが、～ (Mào đầu)",
+    "back": {
+      "meaning": "Dùng làm lời mào đầu để bắt đầu một câu chuyện, nhờ vả hoặc xin ý kiến một cách mềm mỏng, lịch sự.",
+      "example": {
+        "japanese": "まだよくわからないんですが、もう一度教えていただけませんか。",
+        "vietnamese": "Tôi vẫn chưa hiểu rõ lắm, anh/chị làm ơn giải thích lại một lần nữa được không ạ?"
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Thể thường + んです (Hỏi và giải thích lý do)",
+    "back": {
+      "meaning": "Dùng trong cặp câu hỏi-đáp để hỏi và giải thích về nguyên nhân, lý do.",
+      "example": {
+        "japanese": "Q: どうして遅れたんですか？\nA: バスが来なかったんです。",
+        "vietnamese": "Q: Tại sao bạn lại đến muộn?\nA: Vì xe buýt đã không đến."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Thể thường + んです (Tìm hiểu và trình bày sự tình)",
+    "back": {
+      "meaning": "Dùng trong cặp câu hỏi-đáp để tìm hiểu sự tình của đối phương và trình bày tình hình của mình, giúp câu nói mềm mại hơn.",
+      "example": {
+        "japanese": "Q: どうしたんですか？\nA: 調子が悪いんです。",
+        "vietnamese": "Q: Có chuyện gì vậy?\nA: Tôi cảm thấy không khỏe."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Danh từ + が + Động từ Thể khả năng",
+    "back": {
+      "meaning": "Diễn tả khả năng, có thể làm việc gì đó.",
+      "example": {
+        "japanese": "私は漢字が書けます。",
+        "vietnamese": "Tôi có thể viết được chữ Hán."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "N1は～が、N2は～",
+    "back": {
+      "meaning": "N1 thì ..., nhưng N2 thì ... (dùng để so sánh hai sự việc đối lập)",
+      "example": {
+        "japanese": "日本語は話せますが、英語はあまり話せません。",
+        "vietnamese": "Tiếng Nhật thì tôi có thể nói nhưng tiếng Anh thì không nói được nhiều lắm."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Nができます",
+    "back": {
+      "meaning": "Có thể làm (danh từ).\n2. Cái gì đó được hoàn thành, được làm xong.",
+      "example": {
+        "japanese": "テニスができます。",
+        "vietnamese": "Tôi có thể chơi tennis."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "Vることができます",
+    "back": {
+      "meaning": "Có thể làm (động từ). Nhấn mạnh vào hành động cụ thể.",
+      "example": {
+        "japanese": "漢字を書くことができます。",
+        "vietnamese": "Tôi có thể viết chữ Hán."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 1",
+    "front": "NしかVません",
+    "back": {
+      "meaning": "Chỉ ~ (luôn đi với động từ thể phủ định, mang ý nghĩa giới hạn)",
+      "example": {
+        "japanese": "私は英語しか話せません。",
+        "vietnamese": "Tôi chỉ có thể nói tiếng Anh."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "V1 ながら、V2",
+    "back": {
+      "meaning": "Vừa làm V1, vừa làm V2 (hai hành động xảy ra đồng thời).",
+      "example": {
+        "japanese": "テレビを見ながら、ご飯を食べます。",
+        "vietnamese": "Tôi vừa xem TV vừa ăn cơm."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "V1 ながら、Vる人が好き",
+    "back": {
+      "meaning": "Thích người vừa làm V1 vừa làm V2.",
+      "example": {
+        "japanese": "音楽を聴きながら勉強する人が好きです。",
+        "vietnamese": "Tôi thích những người vừa nghe nhạc vừa học bài."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "V1 ながら、Vる人がきらい",
+    "back": {
+      "meaning": "Ghét người vừa làm V1 vừa làm V2.",
+      "example": {
+        "japanese": "ご飯を食べながら電話を使う人がきらいです。",
+        "vietnamese": "Tôi ghét những người vừa ăn cơm vừa dùng điện thoại."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Sは～し、～し、(それに)～",
+    "back": {
+      "meaning": "...vừa...vừa..., hơn nữa...",
+      "example": {
+        "japanese": "先生は面白いし、親切だし、それに経験もあります。",
+        "vietnamese": "Thầy giáo vừa thú vị, vừa tốt bụng, hơn nữa lại còn có kinh nghiệm."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Sは～し、～し、(それで)～",
+    "back": {
+      "meaning": "Vì... và vì..., cho nên...",
+      "example": {
+        "japanese": "雨も降っているし、荷物も多いし、それでタクシーで帰りました。",
+        "vietnamese": "Trời thì mưa, hành lý thì nhiều, vì vậy tôi đã về bằng taxi."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "いつも Vています",
+    "back": {
+      "meaning": "Luôn làm gì đó (diễn tả một thói quen thường xuyên).",
+      "example": {
+        "japanese": "暇なとき、いつもテレビを見ています。",
+        "vietnamese": "Khi rảnh, tôi luôn xem TV."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Vてしまいます (Hoàn thành)",
+    "back": {
+      "meaning": "Sẽ làm xong, hoàn thành một việc gì đó.",
+      "example": {
+        "japanese": "今、このマンガを読んでしまいます。",
+        "vietnamese": "Bây giờ tôi sẽ đọc xong cuốn manga này."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Vてしまいました (Tiếc nuối)",
+    "back": {
+      "meaning": "Lỡ ~ mất rồi (diễn tả sự tiếc nuối về một hành động đã xảy ra).",
+      "example": {
+        "japanese": "財布を忘れてしまいました。",
+        "vietnamese": "Tôi lỡ để quên ví mất rồi."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Vちゃう / Vじゃう (Cảnh báo)",
+    "back": {
+      "meaning": "...mất đấy nhé! (Dùng để cảnh báo hoặc đe dọa nhẹ, là dạng văn nói của Vてしまう).",
+      "example": {
+        "japanese": "食べないと食べちゃうよ。",
+        "vietnamese": "Nếu không ăn là tớ ăn hết mất đấy nhé."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Vちゃった / Vじゃった (Tiếc nuối - Văn nói)",
+    "back": {
+      "meaning": "(Lỡ) ~ mất rồi (Dạng văn nói của Vてしまいました, thể hiện sự tiếc nuối).",
+      "example": {
+        "japanese": "財布を忘れちゃった。",
+        "vietnamese": "Tôi lỡ quên ví mất rồi."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "[Địa điểm] に NがV[tha]てあります",
+    "back": {
+      "meaning": "Ở [địa điểm] có [N] đang được làm gì đó (trạng thái của vật).",
+      "example": {
+        "japanese": "壁に絵が貼ってあります。",
+        "vietnamese": "Trên tường có dán một bức tranh."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "N は [địa điểm] に V[tha]てあります",
+    "back": {
+      "meaning": "Cái gì đó thì đang ở [địa điểm] ~ (nhấn mạnh vào chủ thể).",
+      "example": {
+        "japanese": "カレンダーは壁に貼ってあります。",
+        "vietnamese": "Tấm lịch thì đang được dán ở trên tường."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "もう V[tha]てあります = もう V ました",
+    "back": {
+      "meaning": "Đã làm gì đó sẵn rồi (hành động đã được chuẩn bị trước).",
+      "example": {
+        "japanese": "A: 食器を洗いましたか。\nB: はい、もう洗ってあります。",
+        "vietnamese": "A: Bạn đã rửa bát đĩa chưa?\nB: Vâng, tôi đã rửa sẵn rồi."
+      }
+    }
+  },
+  {
+    "lesson": "Ngữ pháp N4 - Page 2",
+    "front": "Vておく (Chuẩn bị)",
+    "back": {
+      "meaning": "Làm gì đó trước để chuẩn bị cho mục đích sau này.",
+      "example": {
+        "japanese": "誕生日のパーティーをするまえに、プレゼントを買っておく。",
+        "vietnamese": "Trước khi tổ chức tiệc sinh nhật, tôi sẽ mua sẵn quà."
+      }
+    }
+  }
+]
+
