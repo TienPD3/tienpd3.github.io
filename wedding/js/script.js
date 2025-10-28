@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Countdown Timer
 function initCountdown() {
-    const weddingDate = new Date('2025-10-25T17:00:00').getTime();
+    const weddingDate = new Date('2025-11-08T14:00:00').getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();
