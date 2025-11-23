@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Trắc Nghiệm Tiếng Nhật - 80 Câu Hoàn Chỉnh</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        h1 { color: #333; border-bottom: 2px solid #5cb85c; padding-bottom: 10px; }
+        .question-item { 
+            margin-bottom: 20px; 
+            padding: 15px; 
+            background-color: white; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .question-item strong { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 1.1em; 
+            color: #007bff; 
+        }
+        .meaning {
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .options label { 
+            display: block; 
+            margin-left: 20px; 
+            padding: 5px 0;
+            cursor: pointer;
+        }
+        .options label:hover {
+            background-color: #e9ecef;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bài Trắc Nghiệm: Chọn cách đọc Hiragana đúng (80 Câu)</h1>
+    <form id="quizForm">
+        
+        <div class="question-item">
+            <p>1. <strong>便利</strong> <span class="meaning">(Tiện lợi)</span></p>
+            <div class="options" id="q1_options">
+                <label><input type="radio" name="q1" value="くすゆき"> くすゆき</label>
+                <label><input type="radio" name="q1" value="しむぬふ"> しむぬふ</label>
+                <label><input type="radio" name="q1" value="べんり"> べんり</label>
+                <label><input type="radio" name="q1" value="やな"> やな</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>2. <strong>天才</strong> <span class="meaning">(Thiên tài)</span></p>
+            <div class="options" id="q2_options">
+                <label><input type="radio" name="q2" value="めなよ"> めなよ</label>
+                <label><input type="radio" name="q2" value="てんさい"> てんさい</label>
+                <label><input type="radio" name="q2" value="じぎるず"> じぎるず</label>
+                <label><input type="radio" name="q2" value="せたよた"> せたよた</label>
+            </div>
+        </div>
+        
+        <div class="question-item">
+            <p>3. <strong>弱い</strong> <span class="meaning">(Yếu)</span></p>
+            <div class="options" id="q3_options">
+                <label><input type="radio" name="q3" value="よわい"> よわい</label>
+                <label><input type="radio" name="q3" value="るけそ"> るけそ</label>
+                <label><input type="radio" name="q3" value="げき"> げき</label>
+                <label><input type="radio" name="q3" value="やみよ"> やみよ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>4. <strong>政治</strong> <span class="meaning">(Chính trị)</span></p>
+            <div class="options" id="q4_options">
+                <label><input type="radio" name="q4" value="せいじ"> せいじ</label>
+                <label><input type="radio" name="q4" value="ろぬ"> ろぬ</label>
+                <label><input type="radio" name="q4" value="むつ"> むつ</label>
+                <label><input type="radio" name="q4" value="てか"> てか</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>5. <strong>広い</strong> <span class="meaning">(Rộng)</span></p>
+            <div class="options" id="q5_options">
+                <label><input type="radio" name="q5" value="るろの"> るろの</label>
+                <label><input type="radio" name="q5" value="ひろい"> ひろい</label>
+                <label><input type="radio" name="q5" value="まさ"> まさ</label>
+                <label><input type="radio" name="q5" value="きの"> きの</label>
+            </div>
+        </div>
+        
+        <div class="question-item">
+            <p>6. <strong>短い</strong> <span class="meaning">(Ngắn)</span></p>
+            <div class="options" id="q6_options">
+                <label><input type="radio" name="q6" value="りぬ"> りぬ</label>
+                <label><input type="radio" name="q6" value="くつめけ"> くつめけ</label>
+                <label><input type="radio" name="q6" value="みじかい"> みじかい</label>
+                <label><input type="radio" name="q6" value="めすはじ"> めすはじ</label>
+            </div>
+        </div>
+        
+        <div class="question-item">
+            <p>7. <strong>性格</strong> <span class="meaning">(Tính cách)</span></p>
+            <div class="options" id="q7_options">
+                <label><input type="radio" name="q7" value="けへふ"> けへふ</label>
+                <label><input type="radio" name="q7" value="るかか"> るかか</label>
+                <label><input type="radio" name="q7" value="ろろに"> ろろに</label>
+                <label><input type="radio" name="q7" value="せいかく"> せいかく</label>
+            </div>
+        </div>
+        
+        <div class="question-item">
+            <p>8. <strong>治る</strong> <span class="meaning">(Khỏi bệnh)</span></p>
+            <div class="options" id="q8_options">
+                <label><input type="radio" name="q8" value="はたふ"> はたふ</label>
+                <label><input type="radio" name="q8" value="なおる"> なおる</label>
+                <label><input type="radio" name="q8" value="ひほらほ"> ひほらほ</label>
+                <label><input type="radio" name="q8" value="みけちよ"> みけちよ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>9. <strong>育つ</strong> <span class="meaning">(Lớn lên)</span></p>
+            <div class="options" id="q9_options">
+                <label><input type="radio" name="q9" value="しさつ"> しさつ</label>
+                <label><input type="radio" name="q9" value="へぬこけ"> へぬこけ</label>
+                <label><input type="radio" name="q9" value="そだつ"> そだつ</label>
+                <label><input type="radio" name="q9" value="ちす"> ちす</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>10. <strong>経験</strong> <span class="meaning">(Kinh nghiệm)</span></p>
+            <div class="options" id="q10_options">
+                <label><input type="radio" name="q10" value="ひり"> ひり</label>
+                <label><input type="radio" name="q10" value="けいけん"> けいけん</label>
+                <label><input type="radio" name="q10" value="ねろふ"> ねろふ</label>
+                <label><input type="radio" name="q10" value="たず"> たず</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>11. <strong>野菜</strong> <span class="meaning">(Rau củ)</span></p>
+            <div class="options" id="q11_options">
+                <label><input type="radio" name="q11" value="すにぬね"> すにぬね</label>
+                <label><input type="radio" name="q11" value="やさい"> やさい</label>
+                <label><input type="radio" name="q11" value="めさて"> めさて</label>
+                <label><input type="radio" name="q11" value="ざずぬよ"> ざずぬよ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>12. <strong>米</strong> <span class="meaning">(Gạo)</span></p>
+            <div class="options" id="q12_options">
+                <label><input type="radio" name="q12" value="ちの"> ちno</label>
+                <label><input type="radio" name="q12" value="こめ"> こめ</label>
+                <label><input type="radio" name="q12" value="のはも"> のはも</label>
+                <label><input type="radio" name="q12" value="さし"> さし</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>13. <strong>麦</strong> <span class="meaning">(Lúa mạch)</span></p>
+            <div class="options" id="q13_options">
+                <label><input type="radio" name="q13" value="むぎ"> むぎ</label>
+                <label><input type="radio" name="q13" value="かげげ"> かげげ</label>
+                <label><input type="radio" name="q13" value="ぎゆ"> ぎゆ</label>
+                <label><input type="radio" name="q13" value="にさめほ"> にさめほ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>14. <strong>品物</strong> <span class="meaning">(Hàng hóa)</span></p>
+            <div class="options" id="q14_options">
+                <label><input type="radio" name="q14" value="しぬ"> しぬ</label>
+                <label><input type="radio" name="q14" value="じせ"> じせ</label>
+                <label><input type="radio" name="q14" value="しなもの"> しなもの</label>
+                <label><input type="radio" name="q14" value="けれな"> けれな</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>15. <strong>作文</strong> <span class="meaning">(Bài văn)</span></p>
+            <div class="options" id="q15_options">
+                <label><input type="radio" name="q15" value="よに"> よに</label>
+                <label><input type="radio" name="q15" value="やにせめ"> やにせめ</label>
+                <label><input type="radio" name="q15" value="とやねず"> とやねず</label>
+                <label><input type="radio" name="q15" value="さくぶん"> さくぶん</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>16. <strong>世界中</strong> <span class="meaning">(Khắp thế giới)</span></p>
+            <div class="options" id="q16_options">
+                <label><input type="radio" name="q16" value="ずはにへ"> ずはにへ</label>
+                <label><input type="radio" name="q16" value="ちゆろ"> ちゆろ</label>
+                <label><input type="radio" name="q16" value="りふさ"> りふさ</label>
+                <label><input type="radio" name="q16" value="せかいじゅう"> せかいじゅう</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>17. <strong>遠い</strong> <span class="meaning">(Xa)</span></p>
+            <div class="options" id="q17_options">
+                <label><input type="radio" name="q17" value="きてやら"> きてやら</label>
+                <label><input type="radio" name="q17" value="ねずさく"> ねずさく</label>
+                <label><input type="radio" name="q17" value="とおい"> とおい</label>
+                <label><input type="radio" name="q17" value="わはり"> わはり</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>18. <strong>西洋化</strong> <span class="meaning">(Tây Âu hóa)</span></p>
+            <div class="options" id="q18_options">
+                <label><input type="radio" name="q18" value="ごて"> ごて</label>
+                <label><input type="radio" name="q18" value="せいようか"> せいようか</label>
+                <label><input type="radio" name="q18" value="ごめちげ"> ごめちげ</label>
+                <label><input type="radio" name="q18" value="ねの"> ねの</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>19. <strong>政治家</strong> <span class="meaning">(Chính trị gia)</span></p>
+            <div class="options" id="q19_options">
+                <label><input type="radio" name="q19" value="せこめ"> せこめ</label>
+                <label><input type="radio" name="q19" value="せいじか"> せいじか</label>
+                <label><input type="radio" name="q19" value="しつ"> しつ</label>
+                <label><input type="radio" name="q19" value="りみこせ"> りみこせ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>20. <strong>運んで</strong> <span class="meaning">(Mang vác/Vận chuyển)</span></p>
+            <div class="options" id="q20_options">
+                <label><input type="radio" name="q20" value="むぎ"> むぎ</label>
+                <label><input type="radio" name="q20" value="はこんで"> はこんで</label>
+                <label><input type="radio" name="q20" value="ふつ"> ふつ</label>
+                <label><input type="radio" name="q20" value="げごと"> げごと</label>
+            </div>
+        </div>
+        
+        <div class="question-item">
+            <p>21. <strong>通る</strong> <span class="meaning">(Đi qua)</span></p>
+            <div class="options" id="q21_options">
+                <label><input type="radio" name="q21" value="はざれつ"> はざれつ</label>
+                <label><input type="radio" name="q21" value="のふ"> のふ</label>
+                <label><input type="radio" name="q21" value="りごぎこ"> りごぎこ</label>
+                <label><input type="radio" name="q21" value="とおる"> とおる</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>22. <strong>走って</strong> <span class="meaning">(Chạy)</span></p>
+            <div class="options" id="q22_options">
+                <label><input type="radio" name="q22" value="はしって"> はしって</label>
+                <label><input type="radio" name="q22" value="よげ"> よげ</label>
+                <label><input type="radio" name="q22" value="さきと"> さきと</label>
+                <label><input type="radio" name="q22" value="のこけ"> のこけ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>23. <strong>当たる</strong> <span class="meaning">(Trúng/Va chạm)</span></p>
+            <div class="options" id="q23_options">
+                <label><input type="radio" name="q23" value="わへふ"> わへふ</label>
+                <label><input type="radio" name="q23" value="ろゆげや"> ろゆげや</label>
+                <label><input type="radio" name="q23" value="あたる"> あたる</label>
+                <label><input type="radio" name="q23" value="ひせはご"> ひせはご</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>24. <strong>考えかた</strong> <span class="meaning">(Cách suy nghĩ)</span></p>
+            <div class="options" id="q24_options">
+                <label><input type="radio" name="q24" value="るひつ"> るひつ</label>
+                <label><input type="radio" name="q24" value="かんがえかた"> かんがえかた</label>
+                <label><input type="radio" name="q24" value="もはず"> もはず</label>
+                <label><input type="radio" name="q24" value="ぎる"> ぎる</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>25. <strong>不便</strong> <span class="meaning">(Bất tiện)</span></p>
+            <div class="options" id="q25_options">
+                <label><input type="radio" name="q25" value="たひ"> たひ</label>
+                <label><input type="radio" name="q25" value="ふべん"> ふべん</label>
+                <label><input type="radio" name="q25" value="もごなけ"> もごなけ</label>
+                <label><input type="radio" name="q25" value="てく"> てく</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>26. <strong>利用する</strong> <span class="meaning">(Sử dụng)</span></p>
+            <div class="options" id="q26_options">
+                <label><input type="radio" name="q26" value="まもせ"> まもせ</label>
+                <label><input type="radio" name="q26" value="みてちれ"> みてちれ</label>
+                <label><input type="radio" name="q26" value="てよよの"> てよよno</label>
+                <label><input type="radio" name="q26" value="りようする"> りようする</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>27. <strong>電池</strong> <span class="meaning">(Pin)</span></p>
+            <div class="options" id="q27_options">
+                <label><input type="radio" name="q27" value="ずのる"> ずのる</label>
+                <label><input type="radio" name="q27" value="ざさむぬ"> ざさむぬ</label>
+                <label><input type="radio" name="q27" value="けたけ"> けたけ</label>
+                <label><input type="radio" name="q27" value="でんち"> でんち</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>28. <strong>この辺り</strong> <span class="meaning">(Khu vực này)</span></p>
+            <div class="options" id="q28_options">
+                <label><input type="radio" name="q28" value="とま"> とま</label>
+                <label><input type="radio" name="q28" value="めせらむ"> めせらむ</label>
+                <label><input type="radio" name="q28" value="わろ"> わろ</label>
+                <label><input type="radio" name="q28" value="このあたり"> このあたり</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>29. <strong>交通</strong> <span class="meaning">(Giao thông)</span></p>
+            <div class="options" id="q29_options">
+                <label><input type="radio" name="q29" value="めけやか"> めけやか</label>
+                <label><input type="radio" name="q29" value="こうつう"> こうつう</label>
+                <label><input type="radio" name="q29" value="まよ"> まよ</label>
+                <label><input type="radio" name="q29" value="のよさや"> のよさや</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>30. <strong>同じ</strong> <span class="meaning">(Giống nhau)</span></p>
+            <div class="options" id="q30_options">
+                <label><input type="radio" name="q30" value="ぬくず"> ぬくず</label>
+                <label><input type="radio" name="q30" value="すほわ"> すほわ</label>
+                <label><input type="radio" name="q30" value="ここ"> ここ</label>
+                <label><input type="radio" name="q30" value="おなじ"> おなじ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>31. <strong>正しくない</strong> <span class="meaning">(Không đúng)</span></p>
+            <div class="options" id="q31_options">
+                <label><input type="radio" name="q31" value="みげわむ"> みげわむ</label>
+                <label><input type="radio" name="q31" value="げり"> げり</label>
+                <label><input type="radio" name="q31" value="きげ"> きげ</label>
+                <label><input type="radio" name="q31" value="ただしくない"> ただしくない</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>32. <strong>旅行</strong> <span class="meaning">(Du lịch)</span></p>
+            <div class="options" id="q32_options">
+                <label><input type="radio" name="q32" value="ねすたよ"> ねすたよ</label>
+                <label><input type="radio" name="q32" value="りょこう"> りょこう</label>
+                <label><input type="radio" name="q32" value="くつざも"> くつざも</label>
+                <label><input type="radio" name="q32" value="ぎぎ"> ぎぎ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>33. <strong>数えます</strong> <span class="meaning">(Đếm)</span></p>
+            <div class="options" id="q33_options">
+                <label><input type="radio" name="q33" value="かぞえます"> かぞえます</label>
+                <label><input type="radio" name="q33" value="きも"> きも</label>
+                <label><input type="radio" name="q33" value="ごに"> ごに</label>
+                <label><input type="radio" name="q33" value="にご"> にご</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>34. <strong>薬</strong> <span class="meaning">(Thuốc)</span></p>
+            <div class="options" id="q34_options">
+                <label><input type="radio" name="q34" value="くすり"> くすり</label>
+                <label><input type="radio" name="q34" value="わげけ"> わげけ</label>
+                <label><input type="radio" name="q34" value="きへゆ"> きへゆ</label>
+                <label><input type="radio" name="q34" value="ぎろ"> ぎろ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>35. <strong>楽しみ</strong> <span class="meaning">(Niềm vui)</span></p>
+            <div class="options" id="q35_options">
+                <label><input type="radio" name="q35" value="たのしみ"> たのしみ</label>
+                <label><input type="radio" name="q35" value="らさ"> らさ</label>
+                <label><input type="radio" name="q35" value="わよちひ"> わよちひ</label>
+                <label><input type="radio" name="q35" value="かわ"> かわ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>36. <strong>全然</strong> <span class="meaning">(Hoàn toàn)</span></p>
+            <div class="options" id="q36_options">
+                <label><input type="radio" name="q36" value="よずご"> よずご</label>
+                <label><input type="radio" name="q36" value="ぜんぜん"> ぜんぜん</label>
+                <label><input type="radio" name="q36" value="ちふ"> ちふ</label>
+                <label><input type="radio" name="q36" value="ほほち"> ほほち</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>37. <strong>洋服</strong> <span class="meaning">(Quần áo tây)</span></p>
+            <div class="options" id="q37_options">
+                <label><input type="radio" name="q37" value="ねよじ"> ねよじ</label>
+                <label><input type="radio" name="q37" value="まこ"> まこ</label>
+                <label><input type="radio" name="q37" value="よわむち"> よわむち</label>
+                <label><input type="radio" name="q37" value="ようふく"> ようふく</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>38. <strong>発見</strong> <span class="meaning">(Phát hiện)</span></p>
+            <div class="options" id="q38_options">
+                <label><input type="radio" name="q38" value="つきみじ"> つきみじ</label>
+                <label><input type="radio" name="q38" value="しずき"> しずき</label>
+                <label><input type="radio" name="q38" value="ずざ"> ずざ</label>
+                <label><input type="radio" name="q38" value="はっけん"> はっけん</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>39. <strong>練習</strong> <span class="meaning">(Luyện tập)</span></p>
+            <div class="options" id="q39_options">
+                <label><input type="radio" name="q39" value="くほく"> くほく</label>
+                <label><input type="radio" name="q39" value="みく"> みく</label>
+                <label><input type="radio" name="q39" value="れんしゅう"> れんしゅう</label>
+                <label><input type="radio" name="q39" value="ひちじ"> ひちじ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>40. <strong>晴れる</strong> <span class="meaning">(Nắng)</span></p>
+            <div class="options" id="q40_options">
+                <label><input type="radio" name="q40" value="ねした"> ねした</label>
+                <label><input type="radio" name="q40" value="つわむ"> つわむ</label>
+                <label><input type="radio" name="q40" value="はれる"> はれる</label>
+                <label><input type="radio" name="q40" value="そじはゆ"> そじはゆ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>41. <strong>静か</strong> <span class="meaning">(Yên tĩnh)</span></p>
+            <div class="options" id="q41_options">
+                <label><input type="radio" name="q41" value="ねれきせ"> ねれきせ</label>
+                <label><input type="radio" name="q41" value="ねげとげ"> ねげとげ</label>
+                <label><input type="radio" name="q41" value="しずか"> しずか</label>
+                <label><input type="radio" name="q41" value="ゆげせ"> ゆげせ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>42. <strong>父親</strong> <span class="meaning">(Cha)</span></p>
+            <div class="options" id="q42_options">
+                <label><input type="radio" name="q42" value="みく"> みく</label>
+                <label><input type="radio" name="q42" value="ちね"> ちね</label>
+                <label><input type="radio" name="q42" value="らふ"> らふ</label>
+                <label><input type="radio" name="q42" value="ちちおや"> ちちおや</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>43. <strong>公園</strong> <span class="meaning">(Công viên)</span></p>
+            <div class="options" id="q43_options">
+                <label><input type="radio" name="q43" value="ぎさ"> ぎさ</label>
+                <label><input type="radio" name="q43" value="れるゆ"> れるゆ</label>
+                <label><input type="radio" name="q43" value="くこげと"> くこげと</label>
+                <label><input type="radio" name="q43" value="こうえん"> こうえん</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>44. <strong>交番</strong> <span class="meaning">(Đồn cảnh sát nhỏ)</span></p>
+            <div class="options" id="q44_options">
+                <label><input type="radio" name="q44" value="さぬ"> さぬ</label>
+                <label><input type="radio" name="q44" value="ちよゆ"> ちよゆ</label>
+                <label><input type="radio" name="q44" value="ねにめ"> ねにめ</label>
+                <label><input type="radio" name="q44" value="こうばん"> こうばん</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>45. <strong>毎晩</strong> <span class="meaning">(Mỗi tối)</span></p>
+            <div class="options" id="q45_options">
+                <label><input type="radio" name="q45" value="まいばん"> まいばん</label>
+                <label><input type="radio" name="q45" value="かへ"> かへ</label>
+                <label><input type="radio" name="q45" value="さみ"> さみ</label>
+                <label><input type="radio" name="q45" value="てくくゆ"> てくくゆ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>46. <strong>住所</strong> <span class="meaning">(Địa chỉ)</span></p>
+            <div class="options" id="q46_options">
+                <label><input type="radio" name="q46" value="へめ"> へめ</label>
+                <label><input type="radio" name="q46" value="じゅうしょ"> じゅうしょ</label>
+                <label><input type="radio" name="q46" value="てりぎ"> てりぎ</label>
+                <label><input type="radio" name="q46" value="るじつ"> るじつ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>47. <strong>台風</strong> <span class="meaning">(Bão)</span></p>
+            <div class="options" id="q47_options">
+                <label><input type="radio" name="q47" value="みり"> みり</label>
+                <label><input type="radio" name="q47" value="たいふう"> たいふう</label>
+                <label><input type="radio" name="q47" value="のせち"> のせち</label>
+                <label><input type="radio" name="q47" value="ほざ"> ほざ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>48. <strong>給料</strong> <span class="meaning">(Lương)</span></p>
+            <div class="options" id="q48_options">
+                <label><input type="radio" name="q48" value="りめほじ"> りめほじ</label>
+                <label><input type="radio" name="q48" value="きゅうりょう"> きゅうりょう</label>
+                <label><input type="radio" name="q48" value="けさかず"> けさかず</label>
+                <label><input type="radio" name="q48" value="ろげずご"> ろげずご</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>49. <strong>文化</strong> <span class="meaning">(Văn hóa)</span></p>
+            <div class="options" id="q49_options">
+                <label><input type="radio" name="q49" value="りひこ"> りひこ</label>
+                <label><input type="radio" name="q49" value="によ"> によ</label>
+                <label><input type="radio" name="q49" value="げもたし"> げもたし</label>
+                <label><input type="radio" name="q49" value="ぶんか"> ぶんか</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>50. <strong>経済</strong> <span class="meaning">(Kinh tế)</span></p>
+            <div class="options" id="q50_options">
+                <label><input type="radio" name="q50" value="ぎめつり"> ぎめつり</label>
+                <label><input type="radio" name="q50" value="ぎる"> ぎる</label>
+                <label><input type="radio" name="q50" value="かきけざ"> かきけざ</label>
+                <label><input type="radio" name="q50" value="けいざい"> けいざい</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>51. <strong>医者</strong> <span class="meaning">(Bác sĩ)</span></p>
+            <div class="options" id="q51_options">
+                <label><input type="radio" name="q51" value="げてとか"> げてとか</label>
+                <label><input type="radio" name="q51" value="いしゃ"> いしゃ</label>
+                <label><input type="radio" name="q51" value="すにて"> すにて</label>
+                <label><input type="radio" name="q51" value="へへそし"> へへそし</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>52. <strong>工場</strong> <span class="meaning">(Nhà máy)</span></p>
+            <div class="options" id="q52_options">
+                <label><input type="radio" name="q52" value="むよやよ"> むよやよ</label>
+                <label><input type="radio" name="q52" value="きすろむ"> きすろむ</label>
+                <label><input type="radio" name="q52" value="ろすりみ"> ろすりみ</label>
+                <label><input type="radio" name="q52" value="こうじょう"> こうじょう</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>53. <strong>予定</strong> <span class="meaning">(Dự định)</span></p>
+            <div class="options" id="q53_options">
+                <label><input type="radio" name="q53" value="よてい"> よてい</label>
+                <label><input type="radio" name="q53" value="げめ"> げめ</label>
+                <label><input type="radio" name="q53" value="はきずな"> はきずな</label>
+                <label><input type="radio" name="q53" value="よひ"> よひ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>54. <strong>運転</strong> <span class="meaning">(Lái xe)</span></p>
+            <div class="options" id="q54_options">
+                <label><input type="radio" name="q54" value="うんてん"> うんてん</label>
+                <label><input type="radio" name="q54" value="ちこ"> ちこ</label>
+                <label><input type="radio" name="q54" value="のめなて"> のめなて</label>
+                <label><input type="radio" name="q54" value="めすし"> めすし</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>55. <strong>地図</strong> <span class="meaning">(Bản đồ)</span></p>
+            <div class="options" id="q55_options">
+                <label><input type="radio" name="q55" value="てて"> てて</label>
+                <label><input type="radio" name="q55" value="ちず"> ちず</label>
+                <label><input type="radio" name="q55" value="はみ"> はみ</label>
+                <label><input type="radio" name="q55" value="さじよ"> さじよ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>56. <strong>湖</strong> <span class="meaning">(Hồ nước)</span></p>
+            <div class="options" id="q56_options">
+                <label><input type="radio" name="q56" value="ごたにむ"> ごたにむ</label>
+                <label><input type="radio" name="q56" value="みずうみ"> みずうみ</label>
+                <label><input type="radio" name="q56" value="るもりつ"> るもりつ</label>
+                <label><input type="radio" name="q56" value="よろは"> よろは</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>57. <strong>港</strong> <span class="meaning">(Cảng)</span></p>
+            <div class="options" id="q57_options">
+                <label><input type="radio" name="q57" value="かぬたひ"> かぬたひ</label>
+                <label><input type="radio" name="q57" value="ちらそ"> ちらそ</label>
+                <label><input type="radio" name="q57" value="みなと"> みなと</label>
+                <label><input type="radio" name="q57" value="しやり"> しやり</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>58. <strong>以上</strong> <span class="meaning">(Trở lên)</span></p>
+            <div class="options" id="q58_options">
+                <label><input type="radio" name="q58" value="こずるの"> こずるの</label>
+                <label><input type="radio" name="q58" value="されこま"> されこま</label>
+                <label><input type="radio" name="q58" value="いじょう"> いじょう</label>
+                <label><input type="radio" name="q58" value="ます"> ます</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>59. <strong>以下</strong> <span class="meaning">(Trở xuống)</span></p>
+            <div class="options" id="q59_options">
+                <label><input type="radio" name="q59" value="もくゆ"> もくゆ</label>
+                <label><input type="radio" name="q59" value="そねめ"> そねめ</label>
+                <label><input type="radio" name="q59" value="しき"> しき</label>
+                <label><input type="radio" name="q59" value="いか"> いか</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>60. <strong>以内</strong> <span class="meaning">(Trong vòng)</span></p>
+            <div class="options" id="q60_options">
+                <label><input type="radio" name="q60" value="ごのは"> ごのは</label>
+                <label><input type="radio" name="q60" value="むきざ"> むきざ</label>
+                <label><input type="radio" name="q60" value="いない"> いない</label>
+                <label><input type="radio" name="q60" value="きそ"> きそ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>61. <strong>向かう</strong> <span class="meaning">(Hướng về)</span></p>
+            <div class="options" id="q61_options">
+                <label><input type="radio" name="q61" value="むかう"> むかう</label>
+                <label><input type="radio" name="q61" value="るぬす"> るぬす</label>
+                <label><input type="radio" name="q61" value="ひわす"> ひわす</label>
+                <label><input type="radio" name="q61" value="とざ"> とざ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>62. <strong>返事</strong> <span class="meaning">(Trả lời)</span></p>
+            <div class="options" id="q62_options">
+                <label><input type="radio" name="q62" value="ゆこ"> ゆこ</label>
+                <label><input type="radio" name="q62" value="へんじ"> へんじ</label>
+                <label><input type="radio" name="q62" value="むげひへ"> むげひへ</label>
+                <label><input type="radio" name="q62" value="ぎのずず"> ぎのずず</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>63. <strong>決める</strong> <span class="meaning">(Quyết định)</span></p>
+            <div class="options" id="q63_options">
+                <label><input type="radio" name="q63" value="じぬ"> じぬ</label>
+                <label><input type="radio" name="q63" value="じへり"> じへり</label>
+                <label><input type="radio" name="q63" value="きめる"> きめる</label>
+                <label><input type="radio" name="q63" value="しのよ"> しのよ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>64. <strong>決まる</strong> <span class="meaning">(Được quyết định)</span></p>
+            <div class="options" id="q64_options">
+                <label><input type="radio" name="q64" value="ねら"> ねら</label>
+                <label><input type="radio" name="q64" value="きまる"> きまる</label>
+                <label><input type="radio" name="q64" value="てご"> てご</label>
+                <label><input type="radio" name="q64" value="げよ"> げよ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>65. <strong>会議</strong> <span class="meaning">(Cuộc họp)</span></p>
+            <div class="options" id="q65_options">
+                <label><input type="radio" name="q65" value="ねみ"> ねみ</label>
+                <label><input type="radio" name="q65" value="かいぎ"> かいぎ</label>
+                <label><input type="radio" name="q65" value="ぬた"> ぬた</label>
+                <label><input type="radio" name="q65" value="ひか"> ひか</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>66. <strong>空港</strong> <span class="meaning">(Sân bay)</span></p>
+            <div class="options" id="q66_options">
+                <label><input type="radio" name="q66" value="やきねみ"> やきねみ</label>
+                <label><input type="radio" name="q66" value="くうこう"> くうこう</label>
+                <label><input type="radio" name="q66" value="わふろ"> わふろ</label>
+                <label><input type="radio" name="q66" value="ずま"> ずま</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>67. <strong>警察</strong> <span class="meaning">(Cảnh sát)</span></p>
+            <div class="options" id="q67_options">
+                <label><input type="radio" name="q67" value="よぬ"> よぬ</label>
+                <label><input type="radio" name="q67" value="ぬてくく"> ぬてくく</label>
+                <label><input type="radio" name="q67" value="もわげろ"> もわげろ</label>
+                <label><input type="radio" name="q67" value="けいさつ"> けいさつ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>68. <strong>部長</strong> <span class="meaning">(Trưởng phòng/Trưởng ban)</span></p>
+            <div class="options" id="q68_options">
+                <label><input type="radio" name="q68" value="ふほげる"> ふほげる</label>
+                <label><input type="radio" name="q68" value="ぶちょう"> ぶちょう</label>
+                <label><input type="radio" name="q68" value="わけ"> わけ</label>
+                <label><input type="radio" name="q68" value="たみほ"> たみほ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>69. <strong>社長</strong> <span class="meaning">(Giám đốc công ty)</span></p>
+            <div class="options" id="q69_options">
+                <label><input type="radio" name="q69" value="ほさは"> ほさは</label>
+                <label><input type="radio" name="q69" value="そけ"> そけ</label>
+                <label><input type="radio" name="q69" value="しゃちょう"> しゃちょう</label>
+                <label><input type="radio" name="q69" value="ごじじね"> ごじじね</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>70. <strong>店員</strong> <span class="meaning">(Nhân viên cửa hàng)</span></p>
+            <div class="options" id="q70_options">
+                <label><input type="radio" name="q70" value="ききち"> ききち</label>
+                <label><input type="radio" name="q70" value="へせきわ"> へせきわ</label>
+                <label><input type="radio" name="q70" value="てんいん"> てんいん</label>
+                <label><input type="radio" name="q70" value="げそへ"> げそへ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>71. <strong>通学</strong> <span class="meaning">(Đi học)</span></p>
+            <div class="options" id="q71_options">
+                <label><input type="radio" name="q71" value="ゆひな"> ゆひな</label>
+                <label><input type="radio" name="q71" value="しじもせ"> しじもせ</label>
+                <label><input type="radio" name="q71" value="けくぎげ"> けくぎげ</label>
+                <label><input type="radio" name="q71" value="つうがく"> つうがく</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>72. <strong>通勤</strong> <span class="meaning">(Đi làm)</span></p>
+            <div class="options" id="q72_options">
+                <label><input type="radio" name="q72" value="はほ"> はほ</label>
+                <label><input type="radio" name="q72" value="ゆほ"> ゆほ</label>
+                <label><input type="radio" name="q72" value="つうきん"> つうきん</label>
+                <label><input type="radio" name="q72" value="くなつ"> くなつ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>73. <strong>必要</strong> <span class="meaning">(Cần thiết)</span></p>
+            <div class="options" id="q73_options">
+                <label><input type="radio" name="q73" value="れひ"> れひ</label>
+                <label><input type="radio" name="q73" value="らるに"> らるに</label>
+                <label><input type="radio" name="q73" value="ひつよう"> ひつよう</label>
+                <label><input type="radio" name="q73" value="のむ"> のむ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>74. <strong>選ぶ</strong> <span class="meaning">(Chọn)</span></p>
+            <div class="options" id="q74_options">
+                <label><input type="radio" name="q74" value="かきめち"> かきめち</label>
+                <label><input type="radio" name="q74" value="はも"> はも</label>
+                <label><input type="radio" name="q74" value="えらぶ"> えらぶ</label>
+                <label><input type="radio" name="q74" value="げむき"> げむき</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>75. <strong>決して</strong> <span class="meaning">(Không bao giờ)</span></p>
+            <div class="options" id="q75_options">
+                <label><input type="radio" name="q75" value="ざくねし"> ざくねし</label>
+                <label><input type="radio" name="q75" value="ろこ"> ろこ</label>
+                <label><input type="radio" name="q75" value="げほて"> げほて</label>
+                <label><input type="radio" name="q75" value="けっして"> けっして</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>76. <strong>最後</strong> <span class="meaning">(Cuối cùng)</span></p>
+            <div class="options" id="q76_options">
+                <label><input type="radio" name="q76" value="やぎ"> やぎ</label>
+                <label><input type="radio" name="q76" value="みちふら"> みちふら</label>
+                <label><input type="radio" name="q76" value="さいご"> さいご</label>
+                <label><input type="radio" name="q76" value="はやつす"> はやつす</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>77. <strong>最初</strong> <span class="meaning">(Đầu tiên)</span></p>
+            <div class="options" id="q77_options">
+                <label><input type="radio" name="q77" value="よきず"> よきず</label>
+                <label><input type="radio" name="q77" value="られこ"> られこ</label>
+                <label><input type="radio" name="q77" value="まきざ"> まきざ</label>
+                <label><input type="radio" name="q77" value="さいしょ"> さいしょ</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>78. <strong>特別</strong> <span class="meaning">(Đặc biệt)</span></p>
+            <div class="options" id="q78_options">
+                <label><input type="radio" name="q78" value="ちめ"> ちめ</label>
+                <label><input type="radio" name="q78" value="とくべつ"> とくべつ</label>
+                <label><input type="radio" name="q78" value="さねし"> さねし</label>
+                <label><input type="radio" name="q78" value="ねりけな"> ねりけな</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>79. <strong>若い</strong> <span class="meaning">(Trẻ)</span></p>
+            <div class="options" id="q79_options">
+                <label><input type="radio" name="q79" value="わかい"> わかい</label>
+                <label><input type="radio" name="q79" value="すひけ"> すひけ</label>
+                <label><input type="radio" name="q79" value="じねふめ"> じねふめ</label>
+                <label><input type="radio" name="q79" value="ひね"> ひね</label>
+            </div>
+        </div>
+
+        <div class="question-item">
+            <p>80. <strong>簡単</strong> <span class="meaning">(Đơn giản)</span></p>
+            <div class="options" id="q80_options">
+                <label><input type="radio" name="q80" value="ねごみ"> ねごみ</label>
+                <label><input type="radio" name="q80" value="ちせも"> ちせも</label>
+                <label><input type="radio" name="q80" value="せち"> せち</label>
+                <label><input type="radio" name="q80" value="かんたん"> かんたん</label>
+            </div>
+        </div>
+
+        <button type="submit">Nộp bài & Xem kết quả</button>
+        <p id="result">Kết quả của bạn sẽ hiển thị ở đây.</p>
+    </form>
+
+    <script>
+        // Hàm xáo trộn mảng (Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Danh sách đáp án đúng
+        const correctAnswers = {
+            q1: "べんり", q2: "てんさい", q3: "よわい", q4: "せいじ", q5: "ひろい", q6: "みじかい", q7: "せいかく", q8: "なおる", q9: "そだつ", q10: "けいけん",
+            q11: "やさい", q12: "こめ", q13: "むぎ", q14: "しなもの", q15: "さくぶん", q16: "せかいじゅう", q17: "とおい", q18: "せいようか", q19: "せいじか", q20: "はこんで",
+            q21: "とおる", q22: "はしって", q23: "あたる", q24: "かんがえかた", q25: "ふべん", q26: "りようする", q27: "でんち", q28: "このあたり", q29: "こうつう", q30: "おなじ",
+            q31: "ただしくない", q32: "りょこう", q33: "かぞえます", q34: "くすり", q35: "たのしみ", q36: "ぜんぜん", q37: "ようふく", q38: "はっけん", q39: "れんしゅう", q40: "はれる",
+            q41: "しずか", q42: "ちちおや", q43: "こうえん", q44: "こうばん", q45: "まいばん", q46: "じゅうしょ", q47: "たいふう", q48: "きゅうりょう", q49: "ぶんか", q50: "けいざい",
+            q51: "いしゃ", q52: "こうじょう", q53: "よてい", q54: "うんてん", q55: "ちず", q56: "みずうみ", q57: "みなと", q58: "いじょう", q59: "いか", q60: "いない",
+            q61: "むかう", q62: "へんじ", q63: "きめる", q64: "きまる", q65: "かいぎ", q66: "くうこう", q67: "けいさつ", q68: "ぶちょう", q69: "しゃちょう", q70: "てんいん",
+            q71: "つうがく", q72: "つうきん", q73: "ひつよう", q74: "えらぶ", q75: "けっして", q76: "さいご", q77: "さいしょ", q78: "とくべつ", q79: "わかい", q80: "かんたん"
+        };
+        
+        // Hàm xáo trộn đáp án cho tất cả các câu hỏi
+        function randomizeOptions() {
+            const totalQuestions = 80;
+            for (let i = 1; i <= totalQuestions; i++) {
+                const optionsContainer = document.getElementById(`q${i}_options`);
+                if (optionsContainer) {
+                    const options = Array.from(optionsContainer.children);
+                    const shuffledOptions = shuffleArray(options);
+
+                    optionsContainer.innerHTML = '';
+                    shuffledOptions.forEach(option => optionsContainer.appendChild(option));
+                }
+            }
+        }
+
+        function checkAnswer(event) {
+            const selectedRadio = event.target;
+            const questionName = selectedRadio.name;
+            const selectedValue = selectedRadio.value;
+            const correctAnswerValue = correctAnswers[questionName];
+            const allOptionsForQuestion = document.querySelectorAll(`input[name="${questionName}"]`);
+
+            // Disable all options for this question to prevent changes
+            allOptionsForQuestion.forEach(radio => {
+                radio.disabled = true;
+            });
+
+            // Highlight the correct answer
+            allOptionsForQuestion.forEach(radio => {
+                if (radio.value === correctAnswerValue) {
+                    radio.parentElement.style.backgroundColor = '#d4edda'; // light green
+                    radio.parentElement.style.fontWeight = 'bold';
+                }
+            });
+
+            // If the user's choice was wrong, highlight it in red
+            if (selectedValue !== correctAnswerValue) {
+                selectedRadio.parentElement.style.backgroundColor = '#f8d7da'; // light red
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            randomizeOptions();
+            const allRadioButtons = document.querySelectorAll('input[type="radio"]');
+            allRadioButtons.forEach(radio => {
+                radio.addEventListener('change', checkAnswer);
+            });
+
+            // Hide the submit button and result area as they are no longer needed
+            const submitButton = document.querySelector('button[type="submit"]');
+            if(submitButton) submitButton.style.display = 'none';
+            const resultP = document.getElementById('result');
+            if(resultP) resultP.style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>

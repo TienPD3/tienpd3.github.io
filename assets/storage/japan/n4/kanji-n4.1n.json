@@ -1,0 +1,1106 @@
+[
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "兇漢",
+    "options": [
+      "きょうかん",
+      "きょかん",
+      "きゅうかん",
+      "きょうがん"
+    ],
+    "answer": 0,
+    "explanation": "兇漢 (きょうかん) nghĩa là 'kẻ hung ác, tên côn đồ'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "兇漢",
+    "options": [
+      "きょうかん",
+      "きょかん",
+      "きょうがん",
+      "きゅうかん"
+    ],
+    "answer": 0,
+    "explanation": "兇漢 (きょうかん) nghĩa là 'kẻ hung ác, tên côn đồ' (đồng nghĩa với 凶漢)."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "凶漢",
+    "options": [
+      "きょうかん",
+      "きょかん",
+      "きょうがん",
+      "きゅうかん"
+    ],
+    "answer": 0,
+    "explanation": "凶漢 (きょうかん) nghĩa là 'kẻ hung ác, tên côn đồ'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "前漢",
+    "options": [
+      "ぜんかん",
+      "ぜんがん",
+      "せんかん",
+      "ぜんか"
+    ],
+    "answer": 0,
+    "explanation": "前漢 (ぜんかん) nghĩa là 'triều đại Tiền Hán' (của Trung Quốc)."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "単漢",
+    "options": [
+      "たんかん",
+      "だんかん",
+      "たんがん",
+      "とうかん"
+    ],
+    "answer": 0,
+    "explanation": "単漢 (たんかん) nghĩa là 'Hán tự đơn lẻ' (thường dùng trong '単漢字')."
+  },
+  {
+    "lesson": "Từ vựng 字",
+    "question": "漢字",
+    "options": [
+      "かんじ",
+      "かんし",
+      "がんじ",
+      "かんじゅう"
+    ],
+    "answer": 0,
+    "explanation": "漢字 (かんじ) nghĩa là 'Hán tự, chữ Hán'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "和漢",
+    "options": [
+      "わかん",
+      "わがん",
+      "わうかん",
+      "かかん"
+    ],
+    "answer": 0,
+    "explanation": "和漢 (わかん) nghĩa là 'Nhật Bản và Trung Quốc'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "国漢",
+    "options": [
+      "こっかん",
+      "こかん",
+      "こっがん",
+      "ごっかん"
+    ],
+    "answer": 0,
+    "explanation": "国漢 (こっかん) nghĩa là 'Quốc văn (văn Nhật) và Hán văn'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "天漢",
+    "options": [
+      "てんかん",
+      "てんがん",
+      "でんかん",
+      "てかん"
+    ],
+    "answer": 0,
+    "explanation": "天漢 (てんかん) nghĩa là 'Sông Ngân Hà, dải ngân hà'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "好漢",
+    "options": [
+      "こうかん",
+      "こかん",
+      "こうがん",
+      "ごうかん"
+    ],
+    "answer": 0,
+    "explanation": "好漢 (こうかん) nghĩa là 'người tốt, người hào hiệp, hảo hán'."
+  },
+  {
+    "lesson": "Từ vựng 漢",
+    "question": "巨漢",
+    "options": [
+      "きょかん",
+      "きょうかん",
+      "きょがん",
+      "ごかん"
+    ],
+    "answer": 0,
+    "explanation": "巨漢 (きょかん) nghĩa là 'người khổng lồ, người có vóc dáng to lớn'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "お数",
+    "options": [
+      "おかず",
+      "おがず",
+      "おすう",
+      "おうかず"
+    ],
+    "answer": 0,
+    "explanation": "お数 (おかず) nghĩa là 'món ăn kèm, thức ăn (ăn với cơm)'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "丁数",
+    "options": [
+      "ちょうすう",
+      "ちょすう",
+      "じょうすう",
+      "ちょうしゅう"
+    ],
+    "answer": 0,
+    "explanation": "丁数 (ちょうすう) nghĩa là 'số tờ (giấy), số bìa (đậu phụ)'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "中数",
+    "options": [
+      "ちゅうすう",
+      "じゅうすう",
+      "なかず",
+      "ちゅうしゅう"
+    ],
+    "answer": 0,
+    "explanation": "中数 (ちゅうすう) nghĩa là 'số ở giữa, số trung vị' hoặc 'số nhiều (ngữ pháp cổ)'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "乗数",
+    "options": [
+      "じょうすう",
+      "しょうすう",
+      "のりすう",
+      "じょすう"
+    ],
+    "answer": 0,
+    "explanation": "乗数 (じょうすう) nghĩa là 'số nhân (trong phép tính nhân)'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "乱数",
+    "options": [
+      "らんすう",
+      "らんずう",
+      "みだすう",
+      "らんしゅう"
+    ],
+    "answer": 0,
+    "explanation": "乱数 (らんすう) nghĩa là 'số ngẫu nhiên'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "人数",
+    "options": [
+      "にんずう",
+      "ひとかず",
+      "にんすう",
+      "ひとすう"
+    ],
+    "answer": 0,
+    "explanation": "人数 (にんずう) nghĩa là 'số người, sĩ số'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "人数",
+    "options": [
+      "ひとかず",
+      "にんずう",
+      "ひとすう",
+      "にんかず"
+    ],
+    "answer": 0,
+    "explanation": "人数 (ひとかず) nghĩa là 'có vai vế, được xem trọng' hoặc 'một số lượng người nhất định'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "代数",
+    "options": [
+      "だいすう",
+      "たいすう",
+      "だいずう",
+      "かわりすう"
+    ],
+    "answer": 0,
+    "explanation": "代数 (だいすう) nghĩa là 'Đại số học (môn toán)'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "数える",
+    "options": [
+      "かぞえる",
+      "かずえる",
+      "かぞうる",
+      "かざえる"
+    ],
+    "answer": 0,
+    "explanation": "数える (かぞえる) nghĩa là 'đếm, đếm số'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "仮数",
+    "options": [
+      "かすう",
+      "かりすう",
+      "かしょう",
+      "かずう"
+    ],
+    "answer": 0,
+    "explanation": "仮数 (かすう) nghĩa là 'phần định trị (trong số dấu phẩy động)'."
+  },
+  {
+    "lesson": "Từ vựng 数",
+    "question": "件数",
+    "options": [
+      "けんすう",
+      "げんすう",
+      "けんずう",
+      "けんしゅう"
+    ],
+    "answer": 0,
+    "explanation": "件数 (けんすう) nghĩa là 'số vụ, số trường hợp, số sự kiện'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅亭",
+    "options": [
+      "りょてい",
+      "りょでい",
+      "りょうてい",
+      "ろてい"
+    ],
+    "answer": 0,
+    "explanation": "旅亭 (りょてい) nghĩa là 'lữ quán, khách sạn kiểu Nhật, nhà trọ'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅人",
+    "options": [
+      "たびびと",
+      "たびひと",
+      "だびびと",
+      "たびうと"
+    ],
+    "answer": 0,
+    "explanation": "旅人 (たびびと) nghĩa là 'người du lịch, lữ khách'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅人",
+    "options": [
+      "たびにん",
+      "たびじん",
+      "たびみん",
+      "だびにん"
+    ],
+    "answer": 0,
+    "explanation": "旅人 (たびにん) nghĩa là 'người rày đây mai đó, dân du đãng (như con bạc)'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅人",
+    "options": [
+      "りょじん",
+      "りょしん",
+      "りょうじん",
+      "ろじん"
+    ],
+    "answer": 0,
+    "explanation": "旅人 (りょじん) nghĩa là 'người du lịch, hành khách' (cách đọc trang trọng)."
+  },
+  {
+    "lesson": "Từ vựng 行",
+    "question": "旅行",
+    "options": [
+      "りょこう",
+      "りょぎょう",
+      "りょうこう",
+      "りょごう"
+    ],
+    "answer": 0,
+    "explanation": "旅行 (りょこう) nghĩa là 'du lịch'."
+  },
+  {
+    "lesson": "Từ vựng 行",
+    "question": "旅行会社",
+    "options": [
+      "りょこうがいしゃ",
+      "りょこうかいしゃ",
+      "りょぎょうがいしゃ",
+      "りょこうかしゃ"
+    ],
+    "answer": 0,
+    "explanation": "旅行会社 (りょこうがいしゃ) nghĩa là 'công ty du lịch'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅信",
+    "options": [
+      "りょしん",
+      "りょじん",
+      "りょうしん",
+      "ろしん"
+    ],
+    "answer": 0,
+    "explanation": "旅信 (りょしん) nghĩa là 'tin tức (thư) từ nơi du lịch'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅信",
+    "options": [
+      "たびだより",
+      "たびより",
+      "たびだよい",
+      "だびだより"
+    ],
+    "answer": 0,
+    "explanation": "旅信 (たびだより) nghĩa là 'tin tức (thư) từ nơi du lịch'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅僧",
+    "options": [
+      "たびそう",
+      "たびぞう",
+      "たびしょう",
+      "だびそう"
+    ],
+    "answer": 0,
+    "explanation": "旅僧 (たびそう) nghĩa là 'nhà sư đi tu hành ở nhiều nơi, tăng lữ đi hành cước'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅先",
+    "options": [
+      "たびさき",
+      "たびざき",
+      "たびせん",
+      "だびさき"
+    ],
+    "answer": 0,
+    "explanation": "旅先 (たびさき) nghĩa là 'nơi du lịch, điểm đến du lịch'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅券",
+    "options": [
+      "りょけん",
+      "りょげん",
+      "りょうけん",
+      "ろけん"
+    ],
+    "answer": 0,
+    "explanation": "旅券 (りょけん) nghĩa là 'hộ chiếu (passport)'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅団",
+    "options": [
+      "りょだん",
+      "りょたん",
+      "りょうだん",
+      "ろだん"
+    ],
+    "answer": 0,
+    "explanation": "旅団 (りょだん) nghĩa là 'lữ đoàn (quân sự)'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅館",
+    "options": [
+      "りょかん",
+      "りょがん",
+      "りょうかん",
+      "りょけん"
+    ],
+    "answer": 0,
+    "explanation": "旅館 (りょかん) nghĩa là 'quán trọ kiểu Nhật, lữ quán'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅行者",
+    "options": [
+      "りょこうしゃ",
+      "りょこしゃ",
+      "りょうこうしゃ",
+      "りょぎょうしゃ"
+    ],
+    "answer": 0,
+    "explanation": "旅行者 (りょこうしゃ) nghĩa là 'người du lịch, du khách'."
+  },
+  {
+    "lesson": "Từ vựng 旅",
+    "question": "旅子",
+    "options": [
+      "たびこ",
+      "たびご",
+      "だびこ",
+      "たびし"
+    ],
+    "answer": 0,
+    "explanation": "旅子 (たびこ) nghĩa là 'diễn viên kịch kabuki vị thành niên đi lưu diễn (thường kiêm bán dâm)'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "お薬",
+    "options": [
+      "おくすり",
+      "おぐすり",
+      "おうくすり",
+      "おすり"
+    ],
+    "answer": 0,
+    "explanation": "お薬 (おくすり) nghĩa là 'thuốc' (cách nói lịch sự)."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "上薬",
+    "options": [
+      "うわぐすり",
+      "うえぐすり",
+      "うわくすり",
+      "じょうやく"
+    ],
+    "answer": 0,
+    "explanation": "上薬 (うわぐすり) nghĩa là 'nước men, men gốm' (dùng trong gốm sứ)."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "下薬",
+    "options": [
+      "げやく",
+      "したぐすり",
+      "げやぐ",
+      "かやく"
+    ],
+    "answer": 0,
+    "explanation": "下薬 (げやく) nghĩa là 'thuốc xổ, thuốc nhuận tràng'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "丸薬",
+    "options": [
+      "がんやく",
+      "まるぐすり",
+      "がんやぐ",
+      "かんやく"
+    ],
+    "answer": 0,
+    "explanation": "丸薬 (がんやく) nghĩa là 'thuốc viên tròn, thuốc hoàn'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "主薬",
+    "options": [
+      "しゅやく",
+      "しゅやぐ",
+      "しゅうやく",
+      "おもやく"
+    ],
+    "answer": 0,
+    "explanation": "主薬 (しゅやく) nghĩa là 'thành phần chính của thuốc, hoạt chất'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "仙薬",
+    "options": [
+      "せんやく",
+      "せんやぐ",
+      "ぜんやく",
+      "せんぐすり"
+    ],
+    "answer": 0,
+    "explanation": "仙薬 (せんやく) nghĩa là 'tiên dược, thuốc trường sinh bất tử'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "休薬",
+    "options": [
+      "きゅうやく",
+      "きゅやく",
+      "きゅうやぐ",
+      "やすみぐすり"
+    ],
+    "answer": 0,
+    "explanation": "休薬 (きゅうやく) nghĩa là 'thời gian nghỉ thuốc, ngưng thuốc (tạm thời)'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "伸薬",
+    "options": [
+      "しんくすり",
+      "しんぐすり",
+      "しんやく",
+      "のびぐすり"
+    ],
+    "answer": 0,
+    "explanation": "伸薬 (しんくすり) nghĩa là 'thuốc duỗi, thuốc giãn' (đọc theo nghĩa kanji, cách đọc này không phổ biến)."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "偽薬",
+    "options": [
+      "ぎやく",
+      "ぎやぐ",
+      "きやく",
+      "にせぐすり"
+    ],
+    "answer": 0,
+    "explanation": "偽薬 (ぎやく) nghĩa là 'giả dược, thuốc placebo'."
+  },
+  {
+    "lesson": "Từ vựng 薬",
+    "question": "傷薬",
+    "options": [
+      "きずぐすり",
+      "きずくすり",
+      "しょうやく",
+      "きずやく"
+    ],
+    "answer": 0,
+    "explanation": "傷薬 (きずぐすり) nghĩa là 'thuốc bôi vết thương'."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "一台",
+    "options": [
+      "いちだい",
+      "いしだい",
+      "いったい",
+      "いちたい"
+    ],
+    "answer": 0,
+    "explanation": "一台 (いちだい) nghĩa là 'một cái/chiếc' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "七台",
+    "options": [
+      "ななだい",
+      "しちだい",
+      "なだい",
+      "ななた"
+    ],
+    "answer": 0,
+    "explanation": "七台 (ななだい) nghĩa là 'bảy cái/chiếc' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "三台",
+    "options": [
+      "さんだい",
+      "さだい",
+      "さんたい",
+      "さんだ"
+    ],
+    "answer": 0,
+    "explanation": "三台 (さんだい) nghĩa là 'ba cái/chiếc' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "中台",
+    "options": [
+      "ちゅうだい",
+      "なかだい",
+      "ちゅだい",
+      "じゅうだい"
+    ],
+    "answer": 0,
+    "explanation": "中台 (ちゅうだい) nghĩa là 'bệ giữa (của đèn lồng đá, tượng Phật)'."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "九台",
+    "options": [
+      "きゅうだい",
+      "くだい",
+      "きゅだい",
+      "きゅうたい"
+    ],
+    "answer": 0,
+    "explanation": "九台 (きゅうだい) nghĩa là 'chín cái/chiếc' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "二台",
+    "options": [
+      "にだい",
+      "ふただい",
+      "にたい",
+      "じだい"
+    ],
+    "answer": 0,
+    "explanation": "二台 (にだい) nghĩa là 'hai cái/chiếc' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "五台",
+    "options": [
+      "ごだい",
+      "いつだい",
+      "ごうだい",
+      "ごたい"
+    ],
+    "answer": 0,
+    "explanation": "五台 (ごだい) nghĩa là 'năm cái/chiếc' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "人台",
+    "options": [
+      "じんだい",
+      "ひとだい",
+      "にんだい",
+      "じんたい"
+    ],
+    "answer": 0,
+    "explanation": "人台 (じんだい) nghĩa là 'ma-nơ-canh, cốt người (dùng trong may mặc)'."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "仙台",
+    "options": [
+      "せんだい",
+      "せんたい",
+      "せだい",
+      "ぜんだい"
+    ],
+    "answer": 0,
+    "explanation": "仙台 (せんだい) nghĩa là 'thành phố Sendai (ở Nhật Bản)'."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "何台",
+    "options": [
+      "なんだい",
+      "なにだい",
+      "なんたい",
+      "なだい"
+    ],
+    "answer": 0,
+    "explanation": "何台 (なんだい) nghĩa là 'mấy cái/chiếc?' (dùng đếm máy móc, xe cộ)."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "台",
+    "options": [
+      "だい",
+      "たい",
+      "うてな",
+      "でい"
+    ],
+    "answer": 0,
+    "explanation": "台 (だい) nghĩa là 'cái bệ, cái đài' hoặc dùng làm 'từ đếm (máy móc, xe cộ)'."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "台所",
+    "options": [
+      "だいどころ",
+      "たいどころ",
+      "だいしょ",
+      "だいところ"
+    ],
+    "answer": 0,
+    "explanation": "台所 (だいどころ) nghĩa là 'nhà bếp, bếp'."
+  },
+  {
+    "lesson": "Từ vựng 台",
+    "question": "台風",
+    "options": [
+      "たいふう",
+      "だいふう",
+      "たいふ",
+      "たいかぜ"
+    ],
+    "answer": 0,
+    "explanation": "台風 (たいふう) nghĩa là 'bão, bão thái phong'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "お里",
+    "options": [
+      "おさと",
+      "おり",
+      "おざと",
+      "おさとう"
+    ],
+    "answer": 0,
+    "explanation": "お里 (おさと) nghĩa là 'quê nhà, nhà bố mẹ đẻ (của người vợ)'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "一里",
+    "options": [
+      "いちり",
+      "いしり",
+      "いちさと",
+      "いちうり"
+    ],
+    "answer": 0,
+    "explanation": "一里 (いちり) nghĩa là 'một dặm (đơn vị đo cũ của Nhật, khoảng 3.9km)'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "万里",
+    "options": [
+      "ばんり",
+      "まんり",
+      "ばんさと",
+      "ばんうり"
+    ],
+    "answer": 0,
+    "explanation": "万里 (ばんり) nghĩa là 'vạn dặm, rất xa (ví dụ trong Vạn Lý Trường Thành)'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "人里",
+    "options": [
+      "ひとざと",
+      "ひとさと",
+      "じんり",
+      "ひとざとう"
+    ],
+    "answer": 0,
+    "explanation": "人里 (ひとざと) nghĩa là 'nơi có người ở, làng mạc (thường nói về khu vực gần núi)'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "加里",
+    "options": [
+      "かり",
+      "かさと",
+      "かざと",
+      "かうり"
+    ],
+    "answer": 0,
+    "explanation": "加里 (かり) nghĩa là 'Kali (potassium)' (thường dùng trong nông nghiệp, phân bón)."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "千里",
+    "options": [
+      "せんり",
+      "ちり",
+      "せんさと",
+      "せんうり"
+    ],
+    "answer": 0,
+    "explanation": "千里 (せんり) nghĩa là 'nghìn dặm, khoảng cách rất xa'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "半里",
+    "options": [
+      "はんり",
+      "はんさと",
+      "ばんり",
+      "はんうり"
+    ],
+    "answer": 0,
+    "explanation": "半里 (はんり) nghĩa là 'nửa dặm (khoảng 2km)'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "古里",
+    "options": [
+      "ふるさと",
+      "こり",
+      "ぶるさと",
+      "こざと"
+    ],
+    "answer": 0,
+    "explanation": "古里 (ふるさと) nghĩa là 'quê hương, cố hương' (đồng nghĩa với 故郷)."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "山里",
+    "options": [
+      "やまざと",
+      "さんり",
+      "やまさと",
+      "やまうら"
+    ],
+    "answer": 0,
+    "explanation": "山里 (やまざと) nghĩa là 'làng quê ở vùng núi, sơn thôn'."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "巴里",
+    "options": [
+      "パリ",
+      "はり",
+      "ともり",
+      "ばり"
+    ],
+    "answer": 0,
+    "explanation": "巴里 (パリ) nghĩa là 'Paris' (thủ đô nước Pháp - đây là từ phiên âm Ateji)."
+  },
+  {
+    "lesson": "Từ vựng 里",
+    "question": "万里の長城",
+    "options": [
+      "ばんりのちょうじょう",
+      "まんりのちょうじょう",
+      "ばんりのちょじょう",
+      "ばんりのながしろ"
+    ],
+    "answer": 0,
+    "explanation": "万里の長城 (ばんりのちょうじょう) nghĩa là 'Vạn Lý Trường Thành'."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "一才",
+    "options": [
+      "いっさい",
+      "いちさい",
+      "いさい",
+      "いっさい"
+    ],
+    "answer": 0,
+    "explanation": "一才 (いっさい) nghĩa là 'một tuổi'."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "万才",
+    "options": [
+      "ばんざい",
+      "まんさい",
+      "ばんさい",
+      "まんざい"
+    ],
+    "answer": 0,
+    "explanation": "万才 (ばんざい) nghĩa là 'muôn tuổi, vạn tuế' (thường viết là 万歳)."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "三才",
+    "options": [
+      "さんさい",
+      "みさい",
+      "さんざい",
+      "さんざ"
+    ],
+    "answer": 0,
+    "explanation": "三才 (さんさい) nghĩa là 'ba tuổi'. (Cũng có nghĩa là 'Tam Tài: Thiên-Địa-Nhân')."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "不才",
+    "options": [
+      "ふさい",
+      "ぶさい",
+      "ふうさい",
+      "ふざい"
+    ],
+    "answer": 0,
+    "explanation": "不才 (ふさい) nghĩa là 'bất tài, không có tài năng' (thường dùng khiêm tốn nói về bản thân)."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "世才",
+    "options": [
+      "せさい",
+      "よさい",
+      "せいさい",
+      "せざい"
+    ],
+    "answer": 0,
+    "explanation": "世才 (せさい) nghĩa là 'tài xoay xở, tài quán xuyến việc đời'."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "天才",
+    "options": [
+      "てんさい",
+      "てんざい",
+      "でんさい",
+      "てんせい"
+    ],
+    "answer": 0,
+    "explanation": "天才 (てんさい) nghĩa là 'thiên tài, người có tài năng bẩm sinh'."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "人才",
+    "options": [
+      "じんさい",
+      "ひとさい",
+      "じんざい",
+      "にんさい"
+    ],
+    "answer": 0,
+    "explanation": "人才 (じんさい) nghĩa là 'nhân tài' (thường viết là 人材)."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "何才",
+    "options": [
+      "なんさい",
+      "なにさい",
+      "なんざい",
+      "なさい"
+    ],
+    "answer": 0,
+    "explanation": "何才 (なんさい) nghĩa là 'mấy tuổi?' (cách dùng thông thường của 何歳)."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "俊才",
+    "options": [
+      "しゅんさい",
+      "しゅさい",
+      "じゅんさい",
+      "しゅんざい"
+    ],
+    "answer": 0,
+    "explanation": "俊才 (しゅんさい) nghĩa là 'tuấn tài, người tài giỏi xuất chúng'."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "俗才",
+    "options": [
+      "ぞくさい",
+      "しょくさい",
+      "ぞうさい",
+      "ぞくざい"
+    ],
+    "answer": 0,
+    "explanation": "俗才 (ぞくさい) nghĩa là 'tài năng thông thường, tài vặt (lo việc đời thường)'."
+  },
+  {
+    "lesson": "Từ vựng 才",
+    "question": "偉才",
+    "options": [
+      "いさい",
+      "えさい",
+      "いざい",
+      "いっさい"
+    ],
+    "answer": 0,
+    "explanation": "偉才 (いさい) nghĩa là 'vĩ tài, tài năng vĩ đại, tài năng kiệt xuất'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "削去",
+    "options": [
+      "さっきょ",
+      "さくきょ",
+      "さきょ",
+      "さっきょう"
+    ],
+    "answer": 0,
+    "explanation": "削去 (さっきょ) nghĩa là 'gọt bỏ đi, xóa bỏ, gạch bỏ'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "卒去",
+    "options": [
+      "しゅっきょ",
+      "しゅきょ",
+      "しゅっきょう",
+      "そっきょ"
+    ],
+    "answer": 0,
+    "explanation": "卒去 (しゅっきょ) nghĩa là 'chết, qua đời' (dùng cho người có tước vị từ Tam vị trở xuống, Ngũ vị trở lên)."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "卒去",
+    "options": [
+      "そっきょ",
+      "そきょ",
+      "そっきょう",
+      "しゅっきょ"
+    ],
+    "answer": 0,
+    "explanation": "卒去 (そっきょ) nghĩa là 'chết, qua đời' (dùng cho người có thân phận, tước vị, cách đọc quen thuộc của しゅっきょ)."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去る",
+    "options": [
+      "さる",
+      "きる",
+      "きょる",
+      "さろ"
+    ],
+    "answer": 0,
+    "explanation": "去る (さる) nghĩa là 'rời đi, bỏ đi, qua đi (thời gian)'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去勢",
+    "options": [
+      "きょせい",
+      "きょさい",
+      "きょぜい",
+      "きょうせい"
+    ],
+    "answer": 0,
+    "explanation": "去勢 (きょせい) nghĩa là 'thiến (động vật)'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去声",
+    "options": [
+      "きょしょう",
+      "きょせい",
+      "きょじょう",
+      "きょしょう"
+    ],
+    "answer": 0,
+    "explanation": "去声 (きょしょう) nghĩa là 'thanh Tứ, thanh Khứ (trong Hán tự tứ thanh)'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去就",
+    "options": [
+      "きょしゅう",
+      "きょじゅう",
+      "きょしゅ",
+      "きょうしゅう"
+    ],
+    "answer": 0,
+    "explanation": "去就 (きょしゅう) nghĩa là 'đi hay ở, quyết định ra đi hay ở lại, hành động (tương lai)'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去年",
+    "options": [
+      "きょねん",
+      "きょね",
+      "こぞ",
+      "きょうねん"
+    ],
+    "answer": 0,
+    "explanation": "去年 (きょねん) nghĩa là 'năm ngoái, năm trước'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去月",
+    "options": [
+      "きょげつ",
+      "きょがつ",
+      "こげつ",
+      "きょうげつ"
+    ],
+    "answer": 0,
+    "explanation": "去月 (きょげつ) nghĩa là 'tháng trước, tháng rồi'."
+  },
+  {
+    "lesson": "Từ vựng 去",
+    "question": "去来",
+    "options": [
+      "きょらい",
+      "きょい",
+      "こらい",
+      "きょうらい"
+    ],
+    "answer": 0,
+    "explanation": "去来 (きょらい) nghĩa là 'đi và đến, đến rồi đi, quá khứ và tương lai'."
+  }
+]

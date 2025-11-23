@@ -176,7 +176,7 @@
         }
 
         function loadAndPrepareData() {
-            $.getJSON('../assets/storage/kanji.json')
+            $.getJSON('../assets/storage/japan/n4/kanji-n4.1n.json')
                 .done(data => {
                     allQuestions = data;
                     const lessons = ['all', ...[...new Set(data.map(item => item.lesson))].sort()];

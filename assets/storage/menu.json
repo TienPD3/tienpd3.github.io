@@ -79,6 +79,11 @@
           "label": "Flashcard",
           "href": "pages/flashcard.html",
           "emoji": "🎴"
+        },
+        {
+          "label": "Kanji Quiz",
+          "href": "pages/kanji-quiz.html",
+          "emoji": "🈴"
         }
       ]
     }

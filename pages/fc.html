@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard 80 Từ Vựng Tiếng Nhật</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            margin: 0; 
+            background-color: #f0f2f5;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .flashcard {
+            width: 100%;
+            height: 250px;
+            perspective: 1000px;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+        }
+        .flashcard.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card-front {
+            background-color: #007bff;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        .card-back {
+            background-color: #5cb85c;
+            color: white;
+            transform: rotateY(180deg);
+            font-size: 20px;
+            line-height: 1.5;
+        }
+        .reading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .meaning {
+            font-style: italic;
+            font-size: 18px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .controls button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background-color: #343a40;
+            color: white;
+        }
+        .controls button:hover {
+            background-color: #5a6268;
+        }
+        #counter {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Học Tiếng Nhật: Kanji sang Hiragana & Nghĩa (1-80)</h1>
+        <div id="flashcard" class="flashcard">
+            <div class="card-inner">
+                <div class="card-front card-face" id="card-front"></div>
+                <div class="card-back card-face" id="card-back"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button onclick="prevCard()">Thẻ trước</button>
+            <button onclick="nextCard()">Thẻ tiếp theo</button>
+            <div style="margin-top: 10px;">
+                <input type="checkbox" id="study-mode" name="study-mode">
+                <label for="study-mode">Chế độ học tích lũy</label>
+            </div>
+        </div>
+        <p id="counter">Thẻ 1 / 80</p>
+    </div>
+
+    <script>
+        const vocabulary = [
+            {kanji: "便利", hira: "べんり", meaning: "Tiện lợi"},
+            {kanji: "天才", hira: "てんさい", meaning: "Thiên tài"},
+            {kanji: "弱い", hira: "よわい", meaning: "Yếu"},
+            {kanji: "政治", hira: "せいじ", meaning: "Chính trị"},
+            {kanji: "広い", hira: "ひろい", meaning: "Rộng"},
+            {kanji: "短い", hira: "みじかい", meaning: "Ngắn"},
+            {kanji: "性格", hira: "せいかく", meaning: "Tính cách"},
+            {kanji: "治る", hira: "なおる", meaning: "Khỏi bệnh"},
+            {kanji: "育つ", hira: "そだつ", meaning: "Lớn lên"},
+            {kanji: "経験", hira: "けいけん", meaning: "Kinh nghiệm"},
+            {kanji: "野菜", hira: "やさい", meaning: "Rau củ"},
+            {kanji: "米", hira: "こめ", meaning: "Gạo"},
+            {kanji: "麦", hira: "むぎ", meaning: "Lúa mạch"},
+            {kanji: "品物", hira: "しなもの", meaning: "Hàng hóa"},
+            {kanji: "作文", hira: "さくぶん", meaning: "Bài văn"},
+            {kanji: "世界中", hira: "せかいじゅう", meaning: "Khắp thế giới"},
+            {kanji: "遠い", hira: "とおい", meaning: "Xa"},
+            {kanji: "西洋化", hira: "せいようか", meaning: "Tây Âu hóa"},
+            {kanji: "政治家", hira: "せいじか", meaning: "Chính trị gia"},
+            {kanji: "運んで", hira: "はこんで", meaning: "Mang vác/Vận chuyển"},
+            {kanji: "通る", hira: "とおる", meaning: "Đi qua"},
+            {kanji: "走って", hira: "はしって", meaning: "Chạy"},
+            {kanji: "当たる", hira: "あたる", meaning: "Trúng/Va chạm"},
+            {kanji: "考えかた", hira: "かんがえかた", meaning: "Cách suy nghĩ"},
+            {kanji: "不便", hira: "ふべん", meaning: "Bất tiện"},
+            {kanji: "利用する", hira: "りようする", meaning: "Sử dụng"},
+            {kanji: "電池", hira: "でんち", meaning: "Pin"},
+            {kanji: "この辺り", hira: "このあたり", meaning: "Khu vực này"},
+            {kanji: "交通", hira: "こうつう", meaning: "Giao thông"},
+            {kanji: "同じ", hira: "おなじ", meaning: "Giống nhau"},
+            {kanji: "正しくない", hira: "ただしくない", meaning: "Không đúng"},
+            {kanji: "旅行", hira: "りょこう", meaning: "Du lịch"},
+            {kanji: "数えます", hira: "かぞえます", meaning: "Đếm"},
+            {kanji: "薬", hira: "くすり", meaning: "Thuốc"},
+            {kanji: "楽しみ", hira: "たのしみ", meaning: "Niềm vui"},
+            {kanji: "全然", hira: "ぜんぜん", meaning: "Hoàn toàn"},
+            {kanji: "洋服", hira: "ようふく", meaning: "Quần áo tây"},
+            {kanji: "発見", hira: "はっけん", meaning: "Phát hiện"},
+            {kanji: "練習", hira: "れんしゅう", meaning: "Luyện tập"},
+            {kanji: "晴れる", hira: "はれる", meaning: "Nắng"},
+            {kanji: "静か", hira: "しずか", meaning: "Yên tĩnh"},
+            {kanji: "父親", hira: "ちちおや", meaning: "Cha"},
+            {kanji: "公園", hira: "こうえん", meaning: "Công viên"},
+            {kanji: "交番", hira: "こうばん", meaning: "Đồn cảnh sát nhỏ"},
+            {kanji: "毎晩", hira: "まいばん", meaning: "Mỗi tối"},
+            {kanji: "住所", hira: "じゅうしょ", meaning: "Địa chỉ"},
+            {kanji: "台風", hira: "たいふう", meaning: "Bão"},
+            {kanji: "給料", hira: "きゅうりょう", meaning: "Lương"},
+            {kanji: "文化", hira: "ぶんか", meaning: "Văn hóa"},
+            {kanji: "経済", hira: "けいざい", meaning: "Kinh tế"},
+            {kanji: "医者", hira: "いしゃ", meaning: "Bác sĩ"},
+            {kanji: "工場", hira: "こうじょう", meaning: "Nhà máy"},
+            {kanji: "予定", hira: "よてい", meaning: "Dự định"},
+            {kanji: "運転", hira: "うんてん", meaning: "Lái xe"},
+            {kanji: "地図", hira: "ちず", meaning: "Bản đồ"},
+            {kanji: "湖", hira: "みずうみ", meaning: "Hồ nước"},
+            {kanji: "港", hira: "みなと", meaning: "Cảng"},
+            {kanji: "以上", hira: "いじょう", meaning: "Trở lên"},
+            {kanji: "以下", hira: "いか", meaning: "Trở xuống"},
+            {kanji: "以内", hira: "いない", meaning: "Trong vòng"},
+            {kanji: "向かう", hira: "むかう", meaning: "Hướng về"},
+            {kanji: "返事", hira: "へんじ", meaning: "Trả lời"},
+            {kanji: "決める", hira: "きめる", meaning: "Quyết định"},
+            {kanji: "決まる", hira: "きまる", meaning: "Được quyết định"},
+            {kanji: "会議", hira: "かいぎ", meaning: "Cuộc họp"},
+            {kanji: "空港", hira: "くうこう", meaning: "Sân bay"},
+            {kanji: "警察", hira: "けいさつ", meaning: "Cảnh sát"},
+            {kanji: "部長", hira: "ぶちょう", meaning: "Trưởng phòng/Trưởng ban"},
+            {kanji: "社長", hira: "しゃちょう", meaning: "Giám đốc công ty"},
+            {kanji: "店員", hira: "てんいん", meaning: "Nhân viên cửa hàng"},
+            {kanji: "通学", hira: "つうがく", meaning: "Đi học"},
+            {kanji: "通勤", hira: "つうきん", meaning: "Đi làm"},
+            {kanji: "必要", hira: "ひつよう", meaning: "Cần thiết"},
+            {kanji: "選ぶ", hira: "えらぶ", meaning: "Chọn"},
+            {kanji: "決して", hira: "けっして", meaning: "Không bao giờ"},
+            {kanji: "最後", hira: "さいご", meaning: "Cuối cùng"},
+            {kanji: "最初", hira: "さいしょ", meaning: "Đầu tiên"},
+            {kanji: "特別", hira: "とくべつ", meaning: "Đặc biệt"},
+            {kanji: "若い", hira: "わかい", meaning: "Trẻ"},
+            {kanji: "簡単", hira: "かんたん", meaning: "Đơn giản"}
+        ];
+
+        let currentCardIndex = 0;
+        let positionInDeck = 0;
+        let cumulativeDeck = [0];
+        let isStudyMode = false;
+
+        const totalCards = vocabulary.length;
+        const flashcardElement = document.getElementById('flashcard');
+        const cardFront = document.getElementById('card-front');
+        const cardBack = document.getElementById('card-back');
+        const counterElement = document.getElementById('counter');
+        const studyModeCheckbox = document.getElementById('study-mode');
+
+        function updateCard() {
+            const cardData = vocabulary[currentCardIndex];
+            
+            cardFront.innerHTML = cardData.kanji;
+            cardBack.innerHTML = `
+                <div class="reading">${cardData.hira}</div>
+                <div class="meaning">(${cardData.meaning})</div>
+            `;
+            
+            if (isStudyMode) {
+                counterElement.textContent = `Học dồn: Thẻ ${positionInDeck + 1} / ${cumulativeDeck.length}`;
+            } else {
+                counterElement.textContent = `Thẻ ${currentCardIndex + 1} / ${totalCards}`;
+            }
+            
+            flashcardElement.classList.remove('flipped');
+        }
+
+        function toggleFlip() {
+            flashcardElement.classList.toggle('flipped');
+        }
+
+        function nextCard() {
+            if (isStudyMode) {
+                // Are we at the end of the current review sequence?
+                if (positionInDeck >= cumulativeDeck.length - 1) {
+                    // Yes. Time to add a new card to the deck (if possible).
+                    if (cumulativeDeck.length < totalCards) {
+                        const nextCardToAdd = cumulativeDeck.length;
+                        cumulativeDeck.push(nextCardToAdd);
+                    }
+                    // Restart the sequence from the beginning of the (newly expanded) deck.
+                    positionInDeck = 0;
+                } else {
+                    // No. Just advance to the next card in the current sequence.
+                    positionInDeck++;
+                }
+                currentCardIndex = cumulativeDeck[positionInDeck];
+            } else {
+                // Original behavior
+                currentCardIndex = (currentCardIndex + 1) % totalCards;
+            }
+            updateCard();
+        }
+
+        function prevCard() {
+            if (isStudyMode) {
+                if (positionInDeck > 0) {
+                    positionInDeck--;
+                }
+                currentCardIndex = cumulativeDeck[positionInDeck];
+            } else {
+                currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+            }
+            updateCard();
+        }
+        
+        function resetState() {
+            currentCardIndex = 0;
+            cumulativeDeck = [0];
+            positionInDeck = 0;
+            updateCard();
+        }
+
+        // --- Event Listeners ---
+        flashcardElement.addEventListener('click', toggleFlip);
+
+        studyModeCheckbox.addEventListener('change', function() {
+            isStudyMode = this.checked;
+            resetState();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowRight') {
+                nextCard();
+            } else if (event.key === 'ArrowLeft') {
+                prevCard();
+            } else if (event.key === 'ArrowUp' || event.key === ' ') { // Also flip with spacebar
+                toggleFlip();
+            }
+        });
+
+        // Initial Load
+        updateCard();
+    </script>
+</body>
+</html>
