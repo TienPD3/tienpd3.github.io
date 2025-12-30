@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Trắc nghiệm Kanji N5</title>
+<style>
+body { font-family: Arial, sans-serif; background:#f5f5f5; }
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+.question { margin-bottom: 22px; padding:10px; border-radius:6px; }
+.question p { font-weight: bold; }
+label {
+  display: block;
+  margin-left: 20px;
+  cursor: pointer;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+.correct {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: bold;
+}
+.wrong {
+  background: #fdecea;
+  color: #c62828;
+  font-weight: bold;
+}
+b { color:#d32f2f; }
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>Trắc nghiệm Kanji N5 (chọn là biết đúng / sai)</h2>
+<form id="quiz"></form>
+<button onclick="submitQuiz()">Nộp bài</button>
+<div id="result"></div>
+</div>
+
+<script>
+const questions = [
+ {text:"<b>教会</b>で 友だちに 会いました。", answers:["きょうがい","きょうかい","きょうか","きょかい"], correct:"きょうかい"},
+ {text:"レイさんは <b>親切</b> なので 友だちが たくさん います。", answers:["しせつ","しゅんせつ","しんせつ","しんぜつ"], correct:"しんせつ"},
+ {text:"<b>近所</b>の 人と きっさてんで お茶を 飲みました。", answers:["ぎんじょ","ぎんしょ","きんしょ","きんじょ"], correct:"きんじょ"},
+ {text:"安い ホテルを <b>予約</b>したいので インターネットで さがしました。", answers:["よやく","よおやく","ようやく","よやくう"], correct:"よやく"},
+ {text:"国の 母に <b>郵便</b>局から プレゼントを 送りました。", answers:["ゆびん","ゆうべん","ゆひん","ゆうびん"], correct:"ゆうびん"},
+ {text:"あなたは 大学で 何を <b>研究</b>して いるのですか。", answers:["けんきゅう","げんきゅう","げんきゅ","けんきゅ"], correct:"けんきゅう"},
+ {text:"この 地方は どんな <b>産業</b>が さかんですか。", answers:["ざんぎょう","さんぎょう","さんぎ","ざんぎょ"], correct:"さんぎょう"},
+ {text:"あぶないですから <b>屋上</b>で あそばないで ください。", answers:["おくじょ","おぐじょ","おくじょう","おぐじょう"], correct:"おくじょう"},
+ {text:"わたしと 山田さんは 教師と 学生の <b>関係</b>です。", answers:["かんげい","がんげい","かんけい","がんけい"], correct:"かんけい"},
+ {text:"きのう 3時間<b>以上</b> べんきょうしました。", answers:["いがい","いじょう","いない","いか"], correct:"いじょう"},
+ {text:"もう 少し <b>近い</b> ほうが いいです。", answers:["ちかい","はやい","ひろい","ふとい"], correct:"ちかい"},
+ {text:"あしたは <b>都合</b>が わるいです。", answers:["とごう","つかい","つごう","とかい"], correct:"つごう"},
+ {text:"ドアを <b>引いて</b> ください。", answers:["ふいて","ひいて","ついて","おいて"], correct:"ひいて"},
+ {text:"<b>女性</b>の おてあらいは あちらです。", answers:["しょせい","だんせい","じょせい","たんせい"], correct:"じょせい"},
+ {text:"いつから <b>習って</b> いるんですか。", answers:["おそわって","かよって","おこなって","ならって"], correct:"ならって"},
+ {text:"あそこに いるのは はやしさんの <b>お姉さん</b>です。", answers:["おねえさん","おにいさん","おねさん","おにさん"], correct:"おねえさん"},
+ {text:"さいきん テレビの <b>番組</b>が おもしろくないです。", answers:["番組","香組","番編","香編"], correct:"番組"},
+ {text:"明日7時に 学校に <b>集まって</b> ください。", answers:["集まって","阜まって","隻まって","焦まって"], correct:"集まって"},
+ {text:"うわさが 口から 口へと <b>伝わる</b>。", answers:["番わる","伝わる","進わる","捕わる"], correct:"伝わる"},
+ {text:"けんこうの ために 毎日 <b>野菜</b>を 食べましょう。", answers:["理業","野葉","菜園","野菜"], correct:"野菜"},
+ {text:"<b>校長</b>先生は 今日 こうぎを してくれました。", answers:["学長","校長","教長","兄長"], correct:"校長"},
+ {text:"子どもを お医者さんに <b>育て</b>たいです。", answers:["生きて","建て","望て","育て"], correct:"育て"},
+ {text:"おとといの <b>夜</b> パーティーに 行きました。", answers:["晚","夜","挽","液"], correct:"夜"},
+ {text:"あの <b>白い</b> 車が わたしのです。", answers:["赤い","青い","黒い","白い"], correct:"白い"},
+ {text:"<b>食堂</b>は あの たてものの 中です。", answers:["食室","飯室","食堂","飯堂"], correct:"食堂"},
+ {text:"まどを <b>閉めて</b> ください。", answers:["関めて","閉めて","問めて","開めて"], correct:"閉めて"},
+ {text:"なかさんは <b>親切</b>です。", answers:["親切","新切","親功","新功"], correct:"親切"}
+];
+
+function shuffle(arr) {
+  return arr.sort(() => Math.random() - 0.5);
+}
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((q, i) => {
+  const div = document.createElement("div");
+  div.className = "question";
+  const shuffled = shuffle([...q.answers]);
+
+  div.innerHTML = `<p>Câu ${i + 1}. ${q.text}</p>`;
+  shuffled.forEach(a => {
+    const label = document.createElement("label");
+    label.innerHTML = `<input type="radio" name="q${i}" value="${a}"> ${a}`;
+    label.querySelector("input").addEventListener("change", () => checkAnswer(i, a, div));
+    div.appendChild(label);
+  });
+  quiz.appendChild(div);
+});
+
+function checkAnswer(index, selected, container) {
+  const q = questions[index];
+  const labels = container.querySelectorAll("label");
+  labels.forEach(l => {
+    const input = l.querySelector("input");
+    input.disabled = true;
+    if (input.value === q.correct) l.classList.add("correct");
+    if (input.value === selected && selected !== q.correct) l.classList.add("wrong");
+  });
+}
+
+function submitQuiz() {
+  let score = 0;
+  questions.forEach((q, i) => {
+    const checked = document.querySelector(`input[name="q${i}"]:checked`);
+    if (checked && checked.value === q.correct) score++;
+  });
+  document.getElementById("result").innerText =
+    `Bạn đúng ${score} / ${questions.length} câu`;
+}
+</script>
+
+</body>
+</html>
