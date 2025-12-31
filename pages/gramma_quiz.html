@@ -100,6 +100,14 @@
             cursor: not-allowed;
             opacity: 0.5;
         }
+
+        .mode-toggle {
+            display: flex;
+            align-items: center;
+        }
+        .mode-toggle label {
+            margin-left: 5px;
+        }
         h1 {
             text-align: center;
             color: #444;
@@ -115,10 +123,16 @@
         <button id="prev-btn">Previous</button>
         <span id="question-counter"></span>
         <button id="next-btn">Next</button>
+        <div class="mode-toggle">
+            <input type="checkbox" id="cumulative-mode-checkbox">
+            <label for="cumulative-mode-checkbox">Lặp lại</label>
+        </div>
     </div>
 
     <script>
         let currentQuestionIndex = 0;
+        let cumulativeMaxIndex = 0;
+        let isCumulativeMode = false;
         let quizData = [];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -146,15 +160,51 @@
             showQuestion(currentQuestionIndex);
         }
 
+        function resetAllQuestions() {
+            const allQuestionBlocks = document.querySelectorAll('.question-block');
+            allQuestionBlocks.forEach(block => {
+                block.classList.remove('answered');
+                const options = block.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.classList.remove('disabled', 'correct', 'incorrect');
+                });
+            });
+        }
+
         function setupNavigation() {
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
+            const cumulativeModeCheckbox = document.getElementById('cumulative-mode-checkbox');
+
+            cumulativeModeCheckbox.addEventListener('change', (e) => {
+                isCumulativeMode = e.target.checked;
+                resetAllQuestions();
+                if (isCumulativeMode) {
+                    cumulativeMaxIndex = currentQuestionIndex;
+                    currentQuestionIndex = 0;
+                } else {
+                    currentQuestionIndex = cumulativeMaxIndex;
+                }
+                showQuestion(currentQuestionIndex);
+            });
 
             nextBtn.addEventListener('click', () => {
-                if (currentQuestionIndex < quizData.length - 1) {
-                    currentQuestionIndex++;
-                    showQuestion(currentQuestionIndex);
+                if (isCumulativeMode) {
+                    if (currentQuestionIndex === cumulativeMaxIndex) {
+                        if (cumulativeMaxIndex < quizData.length - 1) {
+                            cumulativeMaxIndex++;
+                        }
+                        currentQuestionIndex = 0;
+                        resetAllQuestions();
+                    } else {
+                        currentQuestionIndex++;
+                    }
+                } else {
+                    if (currentQuestionIndex < quizData.length - 1) {
+                        currentQuestionIndex++;
+                    }
                 }
+                showQuestion(currentQuestionIndex);
             });
 
             prevBtn.addEventListener('click', () => {
@@ -170,14 +220,20 @@
             questionBlocks.forEach((block, i) => {
                 block.classList.toggle('hidden', i !== index);
             });
-
+            
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
             const counter = document.getElementById('question-counter');
 
             prevBtn.disabled = index === 0;
-            nextBtn.disabled = index === quizData.length - 1;
+
+            const isAtEnd = !isCumulativeMode && index === quizData.length - 1;
+            nextBtn.disabled = isAtEnd;
+
             counter.textContent = `Question ${index + 1} of ${quizData.length}`;
+            if (isCumulativeMode) {
+                counter.textContent = `Question ${index + 1} of ${cumulativeMaxIndex + 1} (Review)`;
+            }
         }
 
         function shuffleArray(array) {
@@ -193,7 +249,7 @@
 
             quizData.forEach((q, index) => {
                 const questionBlock = document.createElement('div');
-                questionBlock.className = 'question-block hidden'; // All hidden initially
+                questionBlock.className = 'question-block hidden';
                 questionBlock.id = `question-${index}`;
 
                 const questionText = document.createElement('p');
@@ -242,7 +298,7 @@
                         } else {
                             optionItem.classList.add('incorrect');
                             Array.from(parentOptions.children).forEach(child => {
-                                if (child.textContent.startsWith(q.correctAnswer)) { // Use startsWith to avoid matching translation text
+                                if (child.textContent.startsWith(q.correctAnswer)) {
                                     child.classList.add('correct');
                                 }
                             });
