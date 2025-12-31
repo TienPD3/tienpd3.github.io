@@ -1,0 +1,781 @@
+[
+  {
+    "question": "1. 友だちに プレゼントを もらったので （　　）を 言った。",
+    "options": [
+      "うれしい",
+      "おれい",
+      "おいわい",
+      "よろこび"
+    ],
+    "correctAnswer": "おれい",
+    "translation": {
+      "question": "1. Vì đã nhận được quà từ bạn bè nên tôi đã nói lời (cảm ơn).",
+      "options": {
+        "うれしい": "vui mừng",
+        "おれい": "cảm ơn",
+        "おいわい": "chúc mừng",
+        "よろこび": "niềm vui"
+      }
+    }
+  },
+  {
+    "question": "2. なくしたかぎを（　　　）けど、どこにも ないんです。",
+    "options": [
+      "しらべた",
+      "さがした",
+      "みつけた",
+      "あつめた"
+    ],
+    "correctAnswer": "さがした",
+    "translation": {
+        "question": "2. Tôi đã (tìm) chìa khóa bị mất nhưng không thấy ở đâu cả.",
+        "options": {
+            "しらべた": "điều tra",
+            "さがした": "tìm kiếm",
+            "みつけた": "tìm thấy",
+            "あつめた": "thu thập"
+        }
+    }
+  },
+  {
+    "question": "3. いつも おいしい料理を 作りますが、（　　）しっぱいする ことも あります。",
+    "options": [
+      "たまに",
+      "あまり",
+      "よく",
+      "たいてい"
+    ],
+    "correctAnswer": "たまに",
+    "translation": {
+        "question": "3. Tôi luôn nấu những món ăn ngon, nhưng (thỉnh thoảng) cũng có lúc thất bại.",
+        "options": {
+            "たまに": "thỉnh thoảng",
+            "あまり": "không lắm",
+            "よく": "thường xuyên",
+            "たいてい": "thường"
+        }
+    }
+  },
+  {
+    "question": "4. 父は（　　　）ので、わたしが べんきょうを しないときは、いつも おこります。",
+    "options": [
+      "にがい",
+      "きびしい",
+      "はずかしい",
+      "めずらしい"
+    ],
+    "correctAnswer": "きびしい",
+    "translation": {
+        "question": "4. Bố tôi (nghiêm khắc) nên mỗi khi tôi không học bài, ông đều nổi giận.",
+        "options": {
+            "にがい": "đắng",
+            "きびしい": "nghiêm khắc",
+            "はずかしい": "xấu hổ",
+            "めずらしい": "hiếm"
+        }
+    }
+  },
+  {
+    "question": "5. 家を 買うために 銀行 から お金を（　　）ました。",
+    "options": [
+      "あずけ",
+      "もらい",
+      "かり",
+      "かし"
+    ],
+    "correctAnswer": "かり",
+    "translation": {
+        "question": "5. Tôi đã (vay) tiền từ ngân hàng để mua nhà.",
+        "options": {
+            "あずけ": "gửi",
+            "もらい": "nhận",
+            "かり": "vay",
+            "かし": "cho vay"
+        }
+    }
+  },
+  {
+    "question": "6. 　外国に 行くときは パスポートが（　　　）です。",
+    "options": [
+      "ひつよう",
+      "あんぜん",
+      "じゅうぶん",
+      "ていねい"
+    ],
+    "correctAnswer": "ひつよう",
+    "translation": {
+        "question": "6. Khi đi nước ngoài, hộ chiếu là (cần thiết).",
+        "options": {
+            "ひつよう": "cần thiết",
+            "あんぜん": "an toàn",
+            "じゅうぶん": "đầy đủ",
+            "ていねい": "lịch sự"
+        }
+    }
+  },
+  {
+    "question": "7. 川の そばで あそんで いたら あぶないよ と（　　）。",
+    "options": [
+      "中止された",
+      "注意された",
+      "会話された",
+      "手伝われた"
+    ],
+    "correctAnswer": "注意された",
+    "translation": {
+        "question": "7. Tôi đã bị (nhắc nhở) rằng chơi gần sông rất nguy hiểm.",
+        "options": {
+            "中止された": "bị hủy bỏ",
+            "注意された": "bị nhắc nhở",
+            "会話された": "bị nói chuyện",
+            "手伝われた": "được giúp đỡ"
+        }
+    }
+  },
+  {
+    "question": "8. この まんがは、わたしの 国でも わかい人に（　　　）があります。",
+    "options": [
+      "きぶん",
+      "しゅみ",
+      "きょうみ",
+      "にんき"
+    ],
+    "correctAnswer": "にんき",
+     "translation": {
+        "question": "8. Truyện tranh này cũng (phổ biến) với những người trẻ tuổi ở đất nước tôi.",
+        "options": {
+            "きぶん": "tâm trạng",
+            "しゅみ": "sở thích",
+            "きょうみ": "hứng thú",
+            "にんき": "phổ biến"
+        }
+    }
+  },
+  {
+    "question": "9. 電車が（　　）いたので すわれました。",
+    "options": [
+      "少し",
+      "広く",
+      "こんで",
+      "すいて"
+    ],
+    "correctAnswer": "すいて",
+    "translation": {
+        "question": "9. Vì tàu điện (vắng) nên tôi đã có thể ngồi.",
+        "options": {
+            "少し": "một chút",
+            "広く": "rộng",
+            "こんで": "đông",
+            "すいて": "vắng"
+        }
+    }
+  },
+  {
+    "question": "10. ふうとうが 小さいので、しりょうの かみは 半分に（　　　）いれてください。",
+    "options": [
+      "わって",
+      "かえて",
+      "おって",
+      "こわして"
+    ],
+    "correctAnswer": "おって",
+     "translation": {
+        "question": "10. Vì phong bì nhỏ nên hãy (gấp) đôi tờ tài liệu rồi cho vào.",
+        "options": {
+            "わって": "chia",
+            "かえて": "thay đổi",
+            "おって": "gấp",
+            "こわして": "làm hỏng"
+        }
+    }
+  },
+  {
+    "question": "11. 10 年も 日本に いたので もう 日本の 生活に（　　）。",
+    "options": [
+      "なれました",
+      "くらしました",
+      "ふえました",
+      "なりました"
+    ],
+    "correctAnswer": "なれました",
+    "translation": {
+        "question": "11. Vì đã ở Nhật 10 năm nên tôi đã (quen) với cuộc sống ở Nhật.",
+        "options": {
+            "なれました": "quen",
+            "くらしました": "sống",
+            "ふえました": "tăng lên",
+            "なりました": "trở thành"
+        }
+    }
+  },
+  {
+    "question": "12. この レストランは りょうりの（　　　）が 多いので、いろいろ たべられます。",
+    "options": [
+      "じゅつ",
+      "かんけい",
+      "しゅるい",
+      "けいけん"
+    ],
+    "correctAnswer": "しゅるい",
+    "translation": {
+        "question": "12. Nhà hàng này có nhiều (loại) món ăn nên bạn có thể ăn nhiều thứ.",
+        "options": {
+            "じゅつ": "kỹ thuật",
+            "かんけい": "quan hệ",
+            "しゅるい": "loại",
+            "けいけん": "kinh nghiệm"
+        }
+    }
+  },
+  {
+    "question": "13. ブラジルから（　　）コーヒーを 売っています。",
+    "options": [
+      "売った",
+      "そうたいした",
+      "ゆにゅうした",
+      "ゆしゅつした"
+    ],
+    "correctAnswer": "ゆにゅうした",
+    "translation": {
+        "question": "13. Họ đang bán cà phê (nhập khẩu) từ Brazil.",
+        "options": {
+            "売った": "đã bán",
+            "そうたいした": "đã về sớm",
+            "ゆにゅうした": "đã nhập khẩu",
+            "ゆしゅつした": "đã xuất khẩu"
+        }
+    }
+  },
+  {
+    "question": "14. サッカーを したいのに、一人（　　　）、できません。",
+    "options": [
+      "くらべなくて",
+      "すぎなくて",
+      "つづかなくて",
+      "たりなくて"
+    ],
+    "correctAnswer": "たりなくて",
+     "translation": {
+        "question": "14. Tôi muốn chơi bóng đá nhưng không thể vì (thiếu) một người.",
+        "options": {
+            "くらべなくて": "không so sánh",
+            "すぎなくて": "không quá",
+            "つづかなくて": "không tiếp tục",
+            "たりなくて": "không đủ"
+        }
+    }
+  },
+  {
+    "question": "15. 十分 時間が あるから（　　）でしょう。",
+    "options": [
+      "急ぎ",
+      "ちこく",
+      "まにあう",
+      "ゆっくり"
+    ],
+    "correctAnswer": "まにあう",
+    "translation": {
+        "question": "15. Vì có đủ thời gian nên chắc sẽ (kịp).",
+        "options": {
+            "急ぎ": "vội",
+            "ちこく": "muộn",
+            "まにあう": "kịp",
+            "ゆっくり": "thong thả"
+        }
+    }
+  },
+  {
+    "question": "16. 日本では 20 さい（　　）なら おさけが 飲めます。",
+    "options": [
+      "以外",
+      "以内",
+      "以下",
+      "以上"
+    ],
+    "correctAnswer": "以上",
+    "translation": {
+        "question": "16. Ở Nhật, nếu (trên) 20 tuổi thì có thể uống rượu.",
+        "options": {
+            "以外": "ngoài",
+            "以内": "trong vòng",
+            "以下": "dưới",
+            "以上": "trên"
+        }
+    }
+  },
+  {
+    "question": "17. （　　）食べちゃったから、 ケーキは のこっていない。",
+    "options": [
+      "ぜんぶ",
+      "少し",
+      "一つも",
+      "だいたい"
+    ],
+    "correctAnswer": "ぜんぶ",
+    "translation": {
+        "question": "17. Vì đã ăn (hết) rồi nên không còn chiếc bánh nào.",
+        "options": {
+            "ぜんぶ": "tất cả",
+            "少し": "một chút",
+            "一つも": "không một cái nào",
+            "だいたい": "khoảng"
+        }
+    }
+  },
+  {
+    "question": "1. さいふは たしかに ここに おいた はずなのに。",
+    "options": [
+      "さいふが ここに あることを 知らなかった。",
+      "さいふが ここに ないと 思っていた。",
+      "さいふが ここに あると 思っていた。",
+      "さいふが ここに あると 思っていなかった。"
+    ],
+    "correctAnswer": "さいふが ここに あると 思っていた。",
+    "translation": {
+        "question": "1. Rõ ràng là tôi đã để ví ở đây vậy mà...",
+        "options": {
+            "さいふが ここに あることを 知らなかった。": "Tôi không biết là có ví ở đây.",
+            "さいふが ここに ないと 思っていた。": "Tôi đã nghĩ là không có ví ở đây.",
+            "さいふが ここに あると 思っていた。": "Tôi đã nghĩ là có ví ở đây.",
+            "さいふが ここに あると 思っていなかった。": "Tôi đã không nghĩ là có ví ở đây."
+        }
+    }
+  },
+  {
+    "question": "2. いつ ぬすまれたんですか。",
+    "options": [
+      "いつ わたされたんですか。",
+      "いつ おされたんですか。",
+      "いつ よばれたんですか。",
+      "いつ とられたんですか。"
+    ],
+    "correctAnswer": "いつ とられたんですか。",
+    "translation": {
+        "question": "2. Bạn bị lấy trộm khi nào vậy?",
+        "options": {
+            "いつ わたされたんですか。": "Bạn được trao cho khi nào vậy?",
+            "いつ おされたんですか。": "Bạn bị đẩy khi nào vậy?",
+            "いつ よばれたんですか。": "Bạn được gọi khi nào vậy?",
+            "いつ とられたんですか。": "Bạn bị lấy khi nào vậy?"
+        }
+    }
+  },
+  {
+    "question": "3. ここで 急行に 乗りかえた ほうが 早く 着く。",
+    "options": [
+      "ここで ふつう電車に 乗ったほうが 時間が かかる。",
+      "ここで 特急に 乗ったほうが 時間が かかる。",
+      "ここで おりたほうが 時間が かからない。",
+      "ここで 急行に 乗ったほうが 時間が かからない。"
+    ],
+    "correctAnswer": "ここで 急行に 乗ったほうが 時間が かからない。",
+    "translation": {
+        "question": "3. Đổi sang tàu tốc hành ở đây sẽ đến nơi nhanh hơn.",
+        "options": {
+            "ここで ふつう電車に 乗ったほうが 時間が かかる。": "Đi tàu thường ở đây sẽ tốn thời gian hơn.",
+            "ここで 特急に 乗ったほうが 時間が かかる。": "Đi tàu tốc hành đặc biệt ở đây sẽ tốn thời gian hơn.",
+            "ここで おりたほうが 時間が かからない。": "Xuống ở đây sẽ không tốn thời gian.",
+            "ここで 急行に 乗ったほうが 時間が かからない。": "Đi tàu tốc hành ở đây sẽ không tốn thời gian."
+        }
+    }
+  },
+  {
+    "question": "4. じょせいは 一人も いませんでした。",
+    "options": [
+      "おとこの ひとは 一人も いませんでした。",
+      "おんなの ひとは 一人も いませんでした。",
+      "おとなは 一人も いませんでした。",
+      "子どもは 一人も いませんでした。"
+    ],
+    "correctAnswer": "おんなの ひとは 一人も いませんでした。",
+    "translation": {
+        "question": "4. Không có một người phụ nữ nào cả.",
+        "options": {
+            "おとこの ひとは 一人も いませんでした。": "Không có một người đàn ông nào cả.",
+            "おんなの ひとは 一人も いませんでした。": "Không có một người phụ nữ nào cả.",
+            "おとなは 一人も いませんでした。": "Không có một người lớn nào cả.",
+            "子どもは 一人も いませんでした。": "Không có một đứa trẻ nào cả."
+        }
+    }
+  },
+  {
+    "question": "5. お父さんの くつを みがいて あげました。",
+    "options": [
+      "お父さんの くつを きれいに して あげました。",
+      "お父さんの くつを そうじして あげました。",
+      "お父さんの くつを しまって あげました。",
+      "お父さんの くつを ならべて あげました。"
+    ],
+    "correctAnswer": "お父さんの くつを きれいに して あげました。",
+    "translation": {
+        "question": "5. Tôi đã đánh giày cho bố.",
+        "options": {
+            "お父さんの くつを きれいに して あげました。": "Tôi đã làm sạch giày cho bố.",
+            "お父さんの くつを そうじして あげました。": "Tôi đã dọn dẹp giày cho bố.",
+            "お父さんの くつを しまって あげました。": "Tôi đã cất giày cho bố.",
+            "お父さんの くつを ならべて あげました。": "Tôi đã sắp xếp giày cho bố."
+        }
+    }
+  },
+  {
+    "question": "6. おしゃべりは やめてください。",
+    "options": [
+      "話を するのは やめてください。",
+      "しゃしんを とるのは やめてください。",
+      "ものを 食べるのは やめてください。",
+      "たばこを すうのは やめてください。"
+    ],
+    "correctAnswer": "話を するのは やめてください。",
+    "translation": {
+        "question": "6. Xin hãy ngừng nói chuyện.",
+        "options": {
+            "話を するのは やめてください。": "Xin hãy ngừng nói chuyện.",
+            "しゃしんを とるのは やめてください。": "Xin hãy ngừng chụp ảnh.",
+            "ものを 食べるのは やめてください。": "Xin hãy ngừng ăn uống.",
+            "たばこを すうのは やめてください。": "Xin hãy ngừng hút thuốc."
+        }
+    }
+  },
+  {
+    "question": "7. 明日 先生が 家に いらっしゃるなら うかがいたいのですが。",
+    "options": [
+      "明日 先生が 家に 来れば 行きたいです。",
+      "明日 先生が 家に いれば 行きたいです。",
+      "明日 先生が 家に 行けば 行きたいです。",
+      "明日 先生が 家に いれば 聞きたいです。"
+    ],
+    "correctAnswer": "明日 先生が 家に いれば 行きたいです。",
+    "translation": {
+        "question": "7. Nếu ngày mai thầy/cô có ở nhà, em muốn đến thăm ạ.",
+        "options": {
+            "明日 先生が 家に 来れば 行きたいです。": "Nếu ngày mai thầy/cô đến nhà, em muốn đi.",
+            "明日 先生が 家に いれば 行きたいです。": "Nếu ngày mai thầy/cô có ở nhà, em muốn đi.",
+            "明日 先生が 家に 行けば 行きたいです。": "Nếu ngày mai thầy/cô đi đến nhà, em muốn đi.",
+            "明日 先生が 家に いれば 聞きたいです。": "Nếu ngày mai thầy/cô có ở nhà, em muốn hỏi."
+        }
+    }
+  },
+  {
+    "question": "8. ここでは いろいろな ものを せいさんしています。",
+    "options": [
+      "ここでは いろいろな ものを かしています。",
+      "ここでは いろいろな ものを うっています。",
+      "ここでは いろいろな ものを つくっています。",
+      "ここでは いろいろな ものを つかっています。"
+    ],
+    "correctAnswer": "ここでは いろいろな ものを つくっています。",
+    "translation": {
+        "question": "8. Ở đây chúng tôi sản xuất nhiều thứ khác nhau.",
+        "options": {
+            "ここでは いろいろな ものを かしています。": "Ở đây chúng tôi cho vay nhiều thứ khác nhau.",
+            "ここでは いろいろな ものを うっています。": "Ở đây chúng tôi bán nhiều thứ khác nhau.",
+            "ここでは いろいろな ものを つくっています。": "Ở đây chúng tôi làm ra nhiều thứ khác nhau.",
+            "ここでは いろいろな ものを つかっています。": "Ở đây chúng tôi sử dụng nhiều thứ khác nhau."
+        }
+    }
+  },
+  {
+    "question": "9. 日曜日は 予定が あるので 出席できません。",
+    "options": [
+      "日曜日は ぐあいが あるので 行けません。",
+      "日曜日は 用事が 悪いので 行けません。",
+      "日曜日は 都合が 悪いので 行けません。",
+      "日曜日は 時間が あるので 行けません。"
+    ],
+    "correctAnswer": "日曜日は 都合が 悪いので 行けません。",
+    "translation": {
+        "question": "9. Chủ nhật tôi có việc bận nên không thể tham dự được.",
+        "options": {
+            "日曜日は ぐあいが あるので 行けません。": "Chủ nhật tôi không khỏe nên không đi được.",
+            "日曜日は 用事が 悪いので 行けません。": "Chủ nhật tôi có việc bận nên không đi được.",
+            "日曜日は 都合が 悪いので 行けません。": "Chủ nhật tôi không tiện nên không đi được.",
+            "日曜日は 時間が あるので 行けません。": "Chủ nhật tôi có thời gian nên không đi được."
+        }
+    }
+  },
+  {
+    "question": "1. 楽しい",
+    "options": [
+      "プレゼントを もらって 楽しいです。",
+      "とても 楽しいごはんを 食べました。",
+      "びょうきが ひどくなって 楽しかったです。",
+      "きのうの パーティーは 楽しかったです。"
+    ],
+    "correctAnswer": "きのうの パーティーは 楽しかったです。",
+    "translation": {
+        "question": "1. Vui vẻ",
+        "options": {
+            "プレゼントを もらって 楽しいです。": "Tôi vui vì nhận được quà.",
+            "とても 楽しいごはんを 食べました。": "Tôi đã ăn một bữa cơm rất vui vẻ.",
+            "びょうきが ひどくなって 楽しかったです。": "Bệnh trở nên nặng hơn và tôi đã rất vui.",
+            "きのうの パーティーは 楽しかったです。": "Bữa tiệc hôm qua rất vui."
+        }
+    }
+  },
+  {
+    "question": "2. じんこう",
+    "options": [
+      "日よう日の どうぶつえんは、じんこうが とても 多いです。",
+      "わたしの 会社は 大きくて、じんこうが とても 多いです。",
+      "この まちは、マンションが たくさんあって、じんこうが 多いです。",
+      "わたしの かぞくは、じんこうが 多くて、いつも にぎやかです。"
+    ],
+    "correctAnswer": "この まちは、マンションが たくさんあって、じんこうが 多いです。",
+    "translation": {
+        "question": "2. Dân số",
+        "options": {
+            "日よう日の どうぶつえんは、じんこうが とても 多いです。": "Vườn thú vào ngày chủ nhật rất đông dân số.",
+            "わたしの 会社は 大きくて、じんこうが とても 多いです。": "Công ty của tôi lớn và có rất đông dân số.",
+            "この まちは、マンションが たくさんあって、じんこうが 多いです。": "Thành phố này có nhiều chung cư và dân số đông.",
+            "わたしの かぞくは、じんこうが 多くて、いつも にぎやかです。": "Gia đình tôi có đông dân số và lúc nào cũng nhộn nhịp."
+        }
+    }
+  },
+  {
+    "question": "3. 便利",
+    "options": [
+      "この家は せますぎて、便利です。",
+      "アパートですから 便利な 駅に 近いです。",
+      "これは 何でも 開けられる 便利な どうぐです。",
+      "あの人の かんがえは 便利です。"
+    ],
+    "correctAnswer": "これは 何でも 開けられる 便利な どうぐです。",
+    "translation": {
+        "question": "3. Tiện lợi",
+        "options": {
+            "この家は せますぎて、便利です。": "Ngôi nhà này quá hẹp và tiện lợi.",
+            "アパートですから 便利な 駅に 近いです。": "Vì là căn hộ nên gần nhà ga tiện lợi.",
+            "これは 何でも 開けられる 便利な どうぐです。": "Đây là một dụng cụ tiện lợi có thể mở bất cứ thứ gì.",
+            "あの人の かんがえは 便利です。": "Suy nghĩ của người đó thật tiện lợi."
+        }
+    }
+  },
+  {
+    "question": "4. こむ",
+    "options": [
+      "みちが こんでいたので、時間が かかります。",
+      "りょこうの にもつが 多くて、かばんが こんでいます。",
+      "いろいろな いけんを 聞いたので、あたまが こんでいます。",
+      "おかしを 食べすぎて、おなかが こんでいます。"
+    ],
+    "correctAnswer": "みちが こんでいたので、時間が かかります。",
+    "translation": {
+        "question": "4. Đông đúc",
+        "options": {
+            "みちが こんでいたので、時間が かかります。": "Vì đường đông nên sẽ mất thời gian.",
+            "りょこうの にもつが 多くて、かばんが こんでいます。": "Hành lý du lịch nhiều nên cặp bị đông.",
+            "いろいろな いけんを 聞いたので、あたまが こんでいます。": "Vì đã nghe nhiều ý kiến khác nhau nên đầu óc tôi bị đông.",
+            "おかしを 食べすぎて、おなかが こんでいます。": "Vì ăn quá nhiều bánh kẹo nên bụng tôi bị đông."
+        }
+    }
+  },
+  {
+    "question": "5. れんらく",
+    "options": [
+      "ジムさんは れんらくが 上手ですから 友だちが たくさんいます。",
+      "にもつが 着いたら すぐに れんらくを してください。",
+      "ゆうびんきょくから 手紙で れんらくに しました。",
+      "友だちの れんらくが 好きですから 電話を 待っています。"
+    ],
+    "correctAnswer": "にもつが 着いたら すぐに れんらくを してください。",
+    "translation": {
+        "question": "5. Liên lạc",
+        "options": {
+            "ジムさんは れんらくが 上手ですから 友だちが たくさんいます。": "Anh Jim giỏi liên lạc nên có nhiều bạn bè.",
+            "にもつが 着いたら すぐに れんらくを してください。": "Khi hành lý đến, hãy liên lạc ngay lập tức.",
+            "ゆうびんきょくから 手紙で れんらくに しました。": "Tôi đã liên lạc bằng thư từ bưu điện.",
+            "友だちの れんらくが 好きですから 電話を 待っています。": "Tôi thích liên lạc của bạn bè nên đang đợi điện thoại."
+        }
+    }
+  },
+  {
+    "question": "6. にげる",
+    "options": [
+      "かぜが ふいて、ぼうしが にげて しまいました。",
+      "けいさつが 来ましたが、どろぼうは にげて しまいました。",
+      "コップが たおれて、なかの 水が にげて しまいました。",
+      "バスていに ついたとき、バスは にげて しまいました。"
+    ],
+    "correctAnswer": "けいさつが 来ましたが、どろぼうは にげて しまいました。",
+    "translation": {
+        "question": "6. Bỏ chạy",
+        "options": {
+            "かぜが ふいて、ぼうしが にげて しまいました。": "Gió thổi và chiếc mũ đã bỏ chạy.",
+            "けいさつが 来ましたが、どろぼうは にげて しまいました。": "Cảnh sát đã đến nhưng tên trộm đã bỏ chạy.",
+            "コップが たおれて、なかの 水が にげて しまいました。": "Cốc bị đổ và nước bên trong đã bỏ chạy.",
+            "バスていに ついたとき、バスは にげて しまいました。": "Khi tôi đến bến xe buýt, xe buýt đã bỏ chạy."
+        }
+    }
+  },
+  {
+    "question": "7. やくそく",
+    "options": [
+      "あの車は メイさんの やくそくの 車です。",
+      "やくそくを やったのに きれて しまいました。",
+      "サムさんと やくそくに なったら うれしいです。",
+      "やくそくを したら まもらなければ なりません。"
+    ],
+    "correctAnswer": "やくそくを したら まもらなければ なりません。",
+    "translation": {
+        "question": "7. Lời hứa",
+        "options": {
+            "あの車は メイさんの やくそくの 車です。": "Chiếc xe đó là chiếc xe hứa hẹn của bạn Mei.",
+            "やくそくを やったのに きれて しまいました。": "Mặc dù đã hứa nhưng lại bị cắt đứt.",
+            "サムさんと やくそくに なったら うれしいです。": "Nếu tôi có một lời hứa với Sam, tôi sẽ rất vui.",
+            "やくそくを したら まもらなければ なりません。": "Nếu đã hứa thì phải giữ lời."
+        }
+    }
+  },
+  {
+    "question": "8. ふべん",
+    "options": [
+      "この スポーツは ルールが ふべんで、おぼえられません。",
+      "しゅくだいが たくさん ありましたから、ふべんです。",
+      "先生の 話は せんもんの ことばが 多くて、ふべんで わかりにくいです。",
+      "ぎんこうは いえから とおいので、いくのに ふべんです。"
+    ],
+    "correctAnswer": "ぎんこうは いえから とおいので、いくのに ふべんです。",
+    "translation": {
+        "question": "8. Bất tiện",
+        "options": {
+            "この スポーツは ルールが ふべんで、おぼえられません。": "Môn thể thao này có luật lệ bất tiện, tôi không thể nhớ được.",
+            "しゅくだいが たくさん ありましたから、ふべんです。": "Vì có nhiều bài tập về nhà nên thật bất tiện.",
+            "先生の 話は せんもんの ことばが 多くて、ふべんで わかりにくいです。": "Bài nói của giáo viên có nhiều từ chuyên môn, bất tiện và khó hiểu.",
+            "ぎんこうは いえから とおいので、いくのに ふべんです。": "Ngân hàng ở xa nhà nên đi lại bất tiện."
+        }
+    }
+  },
+  {
+    "question": "9. さびしい",
+    "options": [
+      "友だちが いなくて さびしい人に なりました。",
+      "友だちと 別れて さびしく しました。",
+      "子どもは お母さんが いないので さびしそうです。",
+      "試合に かって さびしいです。"
+    ],
+    "correctAnswer": "子どもは お母さんが いないので さびしそうです。",
+    "translation": {
+        "question": "9. Buồn, cô đơn",
+        "options": {
+            "友だちが いなくて さびしい人に なりました。": "Tôi đã trở thành một người cô đơn vì không có bạn bè.",
+            "友だちと 別れて さびしく しました。": "Tôi đã buồn vì chia tay bạn bè.",
+            "子どもは お母さんが いないので さびしそうです。": "Đứa trẻ có vẻ buồn vì không có mẹ.",
+            "試合に かって さびしいです。": "Tôi buồn vì đã thắng trận đấu."
+        }
+    }
+  },
+  {
+    "question": "1　うでに つける 時計を「うでどけい」（　　　）いいます。",
+    "options": [
+      "が",
+      "に",
+      "で",
+      "と"
+    ],
+    "correctAnswer": "と",
+    "translation": {
+        "question": "1. Đồng hồ đeo ở tay được gọi (là) 'đồng hồ đeo tay'.",
+        "options": {
+            "が": "が",
+            "に": "に",
+            "で": "で",
+            "と": "と"
+        }
+    }
+  },
+  {
+    "question": "2　この かばんは 軽いから、旅行（　　　）便利です。",
+    "options": [
+      "と",
+      "を",
+      "に",
+      "の"
+    ],
+    "correctAnswer": "に",
+    "translation": {
+        "question": "2. Chiếc cặp này nhẹ nên tiện (cho) việc đi du lịch.",
+        "options": {
+            "と": "と",
+            "を": "を",
+            "に": "に",
+            "の": "の"
+        }
+    }
+  },
+  {
+    "question": "3　父は ネクタイを 30 本以上 持って いますが、私は 2 本（　　　）持って いません。",
+    "options": [
+      "が",
+      "ずつ",
+      "しか",
+      "ぐらい"
+    ],
+    "correctAnswer": "しか",
+    "translation": {
+        "question": "3. Bố tôi có hơn 30 chiếc cà vạt, nhưng tôi (chỉ) có 2 chiếc.",
+        "options": {
+            "が": "が",
+            "ずつ": "mỗi",
+            "しか": "chỉ",
+            "ぐらい": "khoảng"
+        }
+    }
+  },
+  {
+    "question": "4　きのう 読んだ 本（　　　）、赤は 元気が 出る 色だそうです。",
+    "options": [
+      "について",
+      "からは",
+      "より",
+      "によると"
+    ],
+    "correctAnswer": "によると",
+    "translation": {
+        "question": "4. (Theo) cuốn sách tôi đọc hôm qua, màu đỏ là màu mang lại năng lượng.",
+        "options": {
+            "について": "về",
+            "からは": "từ",
+            "より": "hơn",
+            "によると": "theo"
+        }
+    }
+  },
+  {
+    "question": "5　毎週 日曜日の 朝は、（　　　）10 時ごろまで 寝て います。",
+    "options": [
+      "だいたい",
+      "だんだん",
+      "なかなか",
+      "ひじょうに"
+    ],
+    "correctAnswer": "だいたい",
+    "translation": {
+        "question": "5. Sáng chủ nhật hàng tuần, tôi ngủ đến (khoảng) 10 giờ.",
+        "options": {
+            "だいたい": "khoảng",
+            "だんだん": "dần dần",
+            "なかなか": "mãi mà",
+            "ひじょうに": "rất"
+        }
+    }
+  },
+  {
+    "question": "6　青木「石川さん、きのう（　　　）パーティーに 来なかったんですか。」\n　　石川「ようじが あったんです。」",
+    "options": [
+      "どの",
+      "どうして",
+      "どのぐらい",
+      "どうやって"
+    ],
+    "correctAnswer": "どうして",
+    "translation": {
+        "question": "6. Aoki: \"Anh Ishikawa, (tại sao) hôm qua anh không đến bữa tiệc?\"\n　　Ishikawa: \"Tôi có việc bận.\"",
+        "options": {
+            "どの": "cái nào",
+            "どうして": "tại sao",
+            "どのぐらい": "bao lâu",
+            "どうやって": "làm thế nào"
+        }
+    }
+  }
+]

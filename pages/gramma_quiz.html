@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本語文法クイズ</title>
+    <style>
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .question-block {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .question-block:last-child {
+            border-bottom: none;
+        }
+        .question-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .option {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .option:hover {
+            background: #f0f0f0;
+        }
+        .option.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+            font-weight: bold;
+        }
+        .option.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        .option.disabled {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .translation {
+            display: none;
+            font-style: italic;
+            color: #666;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+        .question-block.answered .translation {
+            display: inline;
+        }
+
+        .question-block.hidden {
+            display: none;
+        }
+
+        .navigation-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .navigation-controls button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #f0f0f0;
+        }
+
+        .navigation-controls button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>日本語文法クイズ</h1>
+    <div id="quiz-container"></div>
+
+    <div class="navigation-controls">
+        <button id="prev-btn">Previous</button>
+        <span id="question-counter"></span>
+        <button id="next-btn">Next</button>
+    </div>
+
+    <script>
+        let currentQuestionIndex = 0;
+        let quizData = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('../assets/storage/gramma_quiz.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    quizData = data;
+                    startQuiz();
+                })
+                .catch(error => {
+                    console.error('Error fetching quiz data:', error);
+                    const quizContainer = document.getElementById('quiz-container');
+                    quizContainer.innerHTML = '<p style="color: red;">クイズデータの読み込みに失敗しました。ファイルパスを確認してください。</p>';
+                });
+        });
+
+        function startQuiz() {
+            renderQuiz();
+            setupNavigation();
+            showQuestion(currentQuestionIndex);
+        }
+
+        function setupNavigation() {
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+
+            nextBtn.addEventListener('click', () => {
+                if (currentQuestionIndex < quizData.length - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    showQuestion(currentQuestionIndex);
+                }
+            });
+        }
+        
+        function showQuestion(index) {
+            const questionBlocks = document.querySelectorAll('.question-block');
+            questionBlocks.forEach((block, i) => {
+                block.classList.toggle('hidden', i !== index);
+            });
+
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const counter = document.getElementById('question-counter');
+
+            prevBtn.disabled = index === 0;
+            nextBtn.disabled = index === quizData.length - 1;
+            counter.textContent = `Question ${index + 1} of ${quizData.length}`;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function renderQuiz() {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = '';
+
+            quizData.forEach((q, index) => {
+                const questionBlock = document.createElement('div');
+                questionBlock.className = 'question-block hidden'; // All hidden initially
+                questionBlock.id = `question-${index}`;
+
+                const questionText = document.createElement('p');
+                questionText.className = 'question-text';
+                const cleanQuestion = q.question.replace(/^\d+[\.．\s]*/, '');
+                questionText.innerHTML = `${index + 1}. ${cleanQuestion}`;
+                
+                if (q.translation && q.translation.question) {
+                    const translationSpan = document.createElement('span');
+                    translationSpan.className = 'translation';
+                    translationSpan.textContent = `(${q.translation.question})`;
+                    questionText.appendChild(translationSpan);
+                }
+                questionBlock.appendChild(questionText);
+
+                const optionsList = document.createElement('ul');
+                optionsList.className = 'options';
+
+                let shuffledOptions = [...q.options];
+                shuffleArray(shuffledOptions);
+
+                shuffledOptions.forEach(option => {
+                    const optionItem = document.createElement('li');
+                    optionItem.className = 'option';
+                    optionItem.textContent = option;
+
+                    if (q.translation && q.translation.options && q.translation.options[option]) {
+                        const translationSpan = document.createElement('span');
+                        translationSpan.className = 'translation';
+                        translationSpan.textContent = ` (${q.translation.options[option]})`;
+                        optionItem.appendChild(translationSpan);
+                    }
+                    
+                    optionItem.addEventListener('click', () => {
+                        const parentOptions = optionItem.parentElement;
+                        const questionBlock = parentOptions.parentElement;
+
+                        questionBlock.classList.add('answered');
+
+                        Array.from(parentOptions.children).forEach(child => {
+                            child.classList.add('disabled');
+                        });
+
+                        if (option === q.correctAnswer) {
+                            optionItem.classList.add('correct');
+                        } else {
+                            optionItem.classList.add('incorrect');
+                            Array.from(parentOptions.children).forEach(child => {
+                                if (child.textContent.startsWith(q.correctAnswer)) { // Use startsWith to avoid matching translation text
+                                    child.classList.add('correct');
+                                }
+                            });
+                        }
+                    });
+                    optionsList.appendChild(optionItem);
+                });
+
+                questionBlock.appendChild(optionsList);
+                quizContainer.appendChild(questionBlock);
+            });
+        }
+    </script>
+
+</body>
+</html>
