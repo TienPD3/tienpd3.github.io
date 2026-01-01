@@ -124,6 +124,7 @@
         <label for="end-range">Đến:</label>
         <input type="number" id="end-range" style="width: 60px; padding: 5px;">
         <button id="filter-btn" style="padding: 5px 10px;">Lọc</button>
+        <button id="reset-btn" style="padding: 5px 10px; margin-left: 5px; background-color: #f8d7da; border-color: #f5c6cb;">Bắt đầu lại</button>
         <span id="total-questions-info" style="margin-left: 10px;"></span>
     </div>
 
@@ -145,15 +146,112 @@
         let isCumulativeMode = false;
         let originalQuizData = [];
         let activeQuizData = [];
+        let userAnswers = {};
+
+        function saveState() {
+            // Capture the shuffled order of options for questions that have been seen
+            activeQuizData.forEach((q, index) => {
+                const questionBlock = document.getElementById(`question-${index}`);
+                if (questionBlock && questionBlock.classList.contains('seen')) {
+                    const originalIndex = originalQuizData.indexOf(q);
+                    if (!userAnswers[originalIndex]) userAnswers[originalIndex] = {};
+                    
+                    const optionsList = questionBlock.querySelector('.options');
+                    const options = Array.from(optionsList.children);
+                    userAnswers[originalIndex].optionOrder = options.map(opt => opt.textContent.split(' (')[0]);
+                }
+            });
+
+            const state = {
+                currentQuestionIndex,
+                cumulativeMaxIndex,
+                isCumulativeMode,
+                startRange: document.getElementById('start-range').value,
+                endRange: document.getElementById('end-range').value,
+                userAnswers,
+            };
+            localStorage.setItem('grammaQuizState', JSON.stringify(state));
+        }
+
+        function loadState(savedStateJSON) {
+            const state = JSON.parse(savedStateJSON);
+
+            currentQuestionIndex = state.currentQuestionIndex || 0;
+            cumulativeMaxIndex = state.cumulativeMaxIndex || 0;
+            isCumulativeMode = state.isCumulativeMode || false;
+            userAnswers = state.userAnswers || {};
+
+            document.getElementById('start-range').value = state.startRange;
+            document.getElementById('end-range').value = state.endRange;
+            document.getElementById('cumulative-mode-checkbox').checked = isCumulativeMode;
+
+            let start = parseInt(state.startRange) - 1;
+            let end = parseInt(state.endRange);
+            activeQuizData = originalQuizData.slice(start, end);
+
+            renderQuiz();
+
+            // Apply saved states to the DOM
+            activeQuizData.forEach((q, index) => {
+                const originalIndex = originalQuizData.indexOf(q);
+                const questionState = userAnswers[originalIndex];
+                if (!questionState) return;
+
+                const questionBlock = document.getElementById(`question-${index}`);
+                if (questionState.seen) {
+                    questionBlock.classList.add('seen');
+                    // Restore shuffled order
+                    if (questionState.optionOrder) {
+                        const optionsList = questionBlock.querySelector('.options');
+                        const optionElements = Array.from(optionsList.children);
+                        const sortedElements = questionState.optionOrder.map(text => 
+                            optionElements.find(el => el.textContent.split(' (')[0] === text)
+                        ).filter(Boolean); // Filter out undefined if an option text changes
+                        
+                        // Make sure we have all options before re-appending
+                        if (sortedElements.length === optionElements.length) {
+                             sortedElements.forEach(el => optionsList.appendChild(el));
+                        }
+                    }
+                }
+                if (questionState.answered) {
+                    questionBlock.classList.add('answered');
+                    const options = questionBlock.querySelectorAll('.option');
+                    options.forEach(optionItem => {
+                        optionItem.classList.add('disabled');
+                        const optionText = optionItem.textContent.split(' (')[0];
+                        if (optionText === q.correctAnswer) {
+                            optionItem.classList.add('correct');
+                        }
+                        if (optionText === questionState.selection && optionText !== q.correctAnswer) {
+                            optionItem.classList.add('incorrect');
+                        }
+                    });
+                }
+            });
+
+            if (activeQuizData.length > 0) {
+                setupNavigation();
+                showQuestion(currentQuestionIndex);
+            } else {
+                document.querySelector('.navigation-controls').style.display = 'none';
+            }
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
             fetch('../assets/storage/gramma_quiz.json')
                 .then(response => response.json())
                 .then(data => {
                     originalQuizData = data;
-                    activeQuizData = [...originalQuizData];
                     initializeFilterControls();
-                    startQuiz();
+
+                    const savedStateJSON = localStorage.getItem('grammaQuizState');
+                    if (savedStateJSON) {
+                        loadState(savedStateJSON);
+                    } else {
+                        // Manually trigger filter to get initial activeQuizData
+                        document.getElementById('filter-btn').click();
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching quiz data:', error);
@@ -165,14 +263,17 @@
             const startRange = document.getElementById('start-range');
             const endRange = document.getElementById('end-range');
             const filterBtn = document.getElementById('filter-btn');
+            const resetBtn = document.getElementById('reset-btn');
             const totalInfo = document.getElementById('total-questions-info');
 
             totalInfo.textContent = `(Tổng: ${originalQuizData.length} câu)`;
             startRange.max = originalQuizData.length;
-            endRange.value = originalQuizData.length;
+            if(!endRange.value) endRange.value = originalQuizData.length;
             endRange.max = originalQuizData.length;
 
             filterBtn.addEventListener('click', () => {
+                const wasCumulative = document.getElementById('cumulative-mode-checkbox').checked;
+
                 let start = parseInt(startRange.value) - 1;
                 let end = parseInt(endRange.value);
 
@@ -186,7 +287,21 @@
                 }
                 
                 activeQuizData = originalQuizData.slice(start, end);
+                userAnswers = {}; // Reset answers on new filter
                 startQuiz();
+
+                if (wasCumulative) {
+                    const newCheckbox = document.getElementById('cumulative-mode-checkbox');
+                    newCheckbox.checked = true;
+                    newCheckbox.dispatchEvent(new Event('change'));
+                }
+            });
+
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Bạn có chắc muốn xoá toàn bộ tiến trình và bắt đầu lại?')) {
+                    localStorage.removeItem('grammaQuizState');
+                    location.reload();
+                }
             });
         }
 
@@ -203,15 +318,24 @@
             } else {
                  document.querySelector('.navigation-controls').style.display = 'none';
             }
+            saveState(); // Save the initial state of the new quiz
         }
 
         function resetAllQuestions() {
             document.querySelectorAll('.question-block').forEach(block => {
-                block.classList.remove('answered');
+                block.classList.remove('answered', 'seen');
                 block.querySelectorAll('.option').forEach(option => {
                     option.classList.remove('disabled', 'correct', 'incorrect');
                 });
             });
+            // Also reset the answers data for the active quiz
+            activeQuizData.forEach(q => {
+                const originalIndex = originalQuizData.indexOf(q);
+                if (userAnswers[originalIndex]) {
+                    delete userAnswers[originalIndex];
+                }
+            });
+            saveState();
         }
 
         function setupNavigation() {
@@ -238,6 +362,7 @@
                     currentQuestionIndex = cumulativeMaxIndex;
                 }
                 showQuestion(currentQuestionIndex);
+                saveState();
             });
 
             newNextBtn.addEventListener('click', () => {
@@ -257,6 +382,7 @@
                     }
                 }
                 showQuestion(currentQuestionIndex);
+                saveState();
             });
 
             newPrevBtn.addEventListener('click', () => {
@@ -264,6 +390,7 @@
                     currentQuestionIndex--;
                     showQuestion(currentQuestionIndex);
                 }
+                saveState();
             });
         }
         
@@ -272,6 +399,25 @@
                 block.classList.toggle('hidden', i !== index);
             });
             
+            const questionBlock = document.getElementById(`question-${index}`);
+            if (questionBlock && !questionBlock.classList.contains('seen')) {
+                questionBlock.classList.add('seen');
+                
+                const q = activeQuizData[index];
+                const originalIndex = originalQuizData.indexOf(q);
+                if (!userAnswers[originalIndex]) userAnswers[originalIndex] = {};
+                userAnswers[originalIndex].seen = true;
+
+                const optionsList = questionBlock.querySelector('.options');
+                if (optionsList) {
+                    const options = Array.from(optionsList.children);
+                    shuffleArray(options);
+                    options.forEach(option => optionsList.appendChild(option));
+                }
+            }
+            
+            currentQuestionIndex = index;
+
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
             const counter = document.getElementById('question-counter');
@@ -327,10 +473,7 @@
                 const optionsList = document.createElement('ul');
                 optionsList.className = 'options';
 
-                let shuffledOptions = [...q.options];
-                shuffleArray(shuffledOptions);
-
-                shuffledOptions.forEach(option => {
+                q.options.forEach(option => {
                     const optionItem = document.createElement('li');
                     optionItem.className = 'option';
                     optionItem.textContent = option;
@@ -347,6 +490,11 @@
                         if (questionBlock.classList.contains('answered')) return;
                         questionBlock.classList.add('answered');
 
+                        const originalIndex = originalQuizData.indexOf(q);
+                        if (!userAnswers[originalIndex]) userAnswers[originalIndex] = {};
+                        userAnswers[originalIndex].answered = true;
+                        userAnswers[originalIndex].selection = option.split(' (')[0];
+
                         const parentOptions = optionItem.parentElement;
                         Array.from(parentOptions.children).forEach(child => child.classList.add('disabled'));
 
@@ -360,6 +508,7 @@
                                 }
                             });
                         }
+                        saveState();
                     });
                     optionsList.appendChild(optionItem);
                 });
