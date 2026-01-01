@@ -117,6 +117,16 @@
 <body>
 
     <h1>日本語文法クイズ</h1>
+
+    <div class="filter-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; align-items: center; gap: 10px;">
+        <label for="start-range">Từ:</label>
+        <input type="number" id="start-range" min="1" value="1" style="width: 60px; padding: 5px;">
+        <label for="end-range">Đến:</label>
+        <input type="number" id="end-range" style="width: 60px; padding: 5px;">
+        <button id="filter-btn" style="padding: 5px 10px;">Lọc</button>
+        <span id="total-questions-info" style="margin-left: 10px;"></span>
+    </div>
+
     <div id="quiz-container"></div>
 
     <div class="navigation-controls">
@@ -126,8 +136,6 @@
         <div class="mode-toggle">
             <input type="checkbox" id="cumulative-mode-checkbox">
             <label for="cumulative-mode-checkbox">Lặp lại</label>
-            <input type="number" id="cumulative-max-input" min="1" style="width: 60px; margin-left: 10px;">
-            <button id="set-cumulative-max-btn" style="margin-left: 5px;">Set</button>
         </div>
     </div>
 
@@ -135,44 +143,94 @@
         let currentQuestionIndex = 0;
         let cumulativeMaxIndex = 0;
         let isCumulativeMode = false;
-        let quizData = [];
+        let originalQuizData = [];
+        let activeQuizData = [];
 
         document.addEventListener('DOMContentLoaded', () => {
             fetch('../assets/storage/gramma_quiz.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
-                    quizData = data;
+                    originalQuizData = data;
+                    activeQuizData = [...originalQuizData];
+                    initializeFilterControls();
                     startQuiz();
                 })
                 .catch(error => {
                     console.error('Error fetching quiz data:', error);
-                    const quizContainer = document.getElementById('quiz-container');
-                    quizContainer.innerHTML = '<p style="color: red;">クイズデータの読み込みに失敗しました。ファイルパスを確認してください。</p>';
+                    document.getElementById('quiz-container').innerHTML = '<p style="color: red;">クイズデータの読み込みに失敗しました。</p>';
                 });
         });
 
+        function initializeFilterControls() {
+            const startRange = document.getElementById('start-range');
+            const endRange = document.getElementById('end-range');
+            const filterBtn = document.getElementById('filter-btn');
+            const totalInfo = document.getElementById('total-questions-info');
+
+            totalInfo.textContent = `(Tổng: ${originalQuizData.length} câu)`;
+            startRange.max = originalQuizData.length;
+            endRange.value = originalQuizData.length;
+            endRange.max = originalQuizData.length;
+
+            filterBtn.addEventListener('click', () => {
+                let start = parseInt(startRange.value) - 1;
+                let end = parseInt(endRange.value);
+
+                if (isNaN(start) || start < 0 || start >= originalQuizData.length) {
+                    start = 0;
+                    startRange.value = 1;
+                }
+                if (isNaN(end) || end > originalQuizData.length || end < start + 1) {
+                    end = originalQuizData.length;
+                    endRange.value = end;
+                }
+                
+                activeQuizData = originalQuizData.slice(start, end);
+                startQuiz();
+            });
+        }
+
         function startQuiz() {
-            renderQuizShell(); // Renders the static parts of the questions
-            setupNavigation();
-            showQuestion(currentQuestionIndex);
+            currentQuestionIndex = 0;
+            cumulativeMaxIndex = 0;
+            document.getElementById('cumulative-mode-checkbox').checked = false;
+            isCumulativeMode = false;
+            
+            renderQuiz();
+            if (activeQuizData.length > 0) {
+                setupNavigation();
+                showQuestion(currentQuestionIndex);
+            } else {
+                 document.querySelector('.navigation-controls').style.display = 'none';
+            }
+        }
+
+        function resetAllQuestions() {
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.classList.remove('answered');
+                block.querySelectorAll('.option').forEach(option => {
+                    option.classList.remove('disabled', 'correct', 'incorrect');
+                });
+            });
         }
 
         function setupNavigation() {
+            document.querySelector('.navigation-controls').style.display = 'flex';
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
             const cumulativeModeCheckbox = document.getElementById('cumulative-mode-checkbox');
-            const maxInput = document.getElementById('cumulative-max-input');
-            const setMaxBtn = document.getElementById('set-cumulative-max-btn');
+            
+            // Remove old listeners to prevent duplication
+            const newNextBtn = nextBtn.cloneNode(true);
+            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+            const newPrevBtn = prevBtn.cloneNode(true);
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+            const newCumulativeModeCheckbox = cumulativeModeCheckbox.cloneNode(true);
+            cumulativeModeCheckbox.parentNode.replaceChild(newCumulativeModeCheckbox, cumulativeModeCheckbox);
 
-            maxInput.value = 1;
-
-            cumulativeModeCheckbox.addEventListener('change', (e) => {
+            newCumulativeModeCheckbox.addEventListener('change', (e) => {
                 isCumulativeMode = e.target.checked;
+                resetAllQuestions();
                 if (isCumulativeMode) {
                     cumulativeMaxIndex = currentQuestionIndex;
                     currentQuestionIndex = 0;
@@ -182,115 +240,53 @@
                 showQuestion(currentQuestionIndex);
             });
 
-            nextBtn.addEventListener('click', () => {
+            newNextBtn.addEventListener('click', () => {
                 if (isCumulativeMode) {
                     if (currentQuestionIndex === cumulativeMaxIndex) {
-                        if (cumulativeMaxIndex < quizData.length - 1) {
+                        if (cumulativeMaxIndex < activeQuizData.length - 1) {
                             cumulativeMaxIndex++;
                         }
                         currentQuestionIndex = 0;
+                        resetAllQuestions();
                     } else {
                         currentQuestionIndex++;
                     }
                 } else {
-                    if (currentQuestionIndex < quizData.length - 1) {
+                    if (currentQuestionIndex < activeQuizData.length - 1) {
                         currentQuestionIndex++;
-                        cumulativeMaxIndex = currentQuestionIndex;
                     }
                 }
                 showQuestion(currentQuestionIndex);
             });
 
-            prevBtn.addEventListener('click', () => {
+            newPrevBtn.addEventListener('click', () => {
                 if (currentQuestionIndex > 0) {
                     currentQuestionIndex--;
                     showQuestion(currentQuestionIndex);
                 }
             });
-
-            setMaxBtn.addEventListener('click', () => {
-                const newMax = parseInt(maxInput.value, 10) - 1;
-
-                if (!isNaN(newMax) && newMax >= 0 && newMax < quizData.length) {
-                    cumulativeMaxIndex = newMax;
-                    if (!isCumulativeMode) {
-                        currentQuestionIndex = cumulativeMaxIndex;
-                    } else {
-                        currentQuestionIndex = 0;
-                    }
-                    showQuestion(currentQuestionIndex);
-                } else {
-                    alert(`Please enter a number between 1 and ${quizData.length}`);
-                }
-            });
         }
         
         function showQuestion(index) {
-            const questionBlocks = document.querySelectorAll('.question-block');
-            questionBlocks.forEach((block, i) => {
+            document.querySelectorAll('.question-block').forEach((block, i) => {
                 block.classList.toggle('hidden', i !== index);
             });
             
-            currentQuestionIndex = index;
-
-            // --- Update UI elements ---
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
             const counter = document.getElementById('question-counter');
-            const maxInput = document.getElementById('cumulative-max-input');
 
             prevBtn.disabled = index === 0;
-            const isAtEnd = !isCumulativeMode && index === quizData.length - 1;
-            nextBtn.disabled = isAtEnd;
-            maxInput.value = cumulativeMaxIndex + 1;
 
+            const isAtEndInNormalMode = !isCumulativeMode && index === activeQuizData.length - 1;
+            const isAtEndOfCumulativeRange = isCumulativeMode && index === cumulativeMaxIndex && cumulativeMaxIndex === activeQuizData.length - 1;
+            nextBtn.disabled = isAtEndInNormalMode || isAtEndOfCumulativeRange;
+            
             if (isCumulativeMode) {
                 counter.textContent = `Question ${index + 1} of ${cumulativeMaxIndex + 1} (Review)`;
             } else {
-                counter.textContent = `Question ${index + 1} of ${quizData.length}`;
+                counter.textContent = `Question ${index + 1} of ${activeQuizData.length}`;
             }
-
-            // --- Render/Re-render options for the current question ---
-            const questionBlock = document.getElementById(`question-${index}`);
-            const q = quizData[index];
-
-            questionBlock.classList.remove('answered');
-            const optionsList = questionBlock.querySelector('.options');
-            optionsList.innerHTML = '';
-
-            let shuffledOptions = [...q.options];
-            shuffleArray(shuffledOptions);
-
-            shuffledOptions.forEach(option => {
-                const optionItem = document.createElement('li');
-                optionItem.className = 'option';
-                optionItem.textContent = option;
-
-                if (q.translation && q.translation.options && q.translation.options[option]) {
-                    const translationSpan = document.createElement('span');
-                    translationSpan.className = 'translation';
-                    translationSpan.textContent = ` (${q.translation.options[option]})`;
-                    optionItem.appendChild(translationSpan);
-                }
-                
-                optionItem.addEventListener('click', () => {
-                    questionBlock.classList.add('answered');
-                    Array.from(optionsList.children).forEach(child => {
-                        child.classList.add('disabled');
-                    });
-                    if (option === q.correctAnswer) {
-                        optionItem.classList.add('correct');
-                    } else {
-                        optionItem.classList.add('incorrect');
-                        Array.from(optionsList.children).forEach(child => {
-                            if (child.textContent.startsWith(q.correctAnswer)) {
-                                child.classList.add('correct');
-                            }
-                        });
-                    }
-                });
-                optionsList.appendChild(optionItem);
-            });
         }
 
         function shuffleArray(array) {
@@ -300,11 +296,16 @@
             }
         }
 
-        function renderQuizShell() {
+        function renderQuiz() {
             const quizContainer = document.getElementById('quiz-container');
             quizContainer.innerHTML = '';
 
-            quizData.forEach((q, index) => {
+            if (activeQuizData.length === 0) {
+                quizContainer.innerHTML = '<p>Không có câu hỏi nào trong khoảng đã chọn.</p>';
+                return;
+            }
+
+            activeQuizData.forEach((q, index) => {
                 const questionBlock = document.createElement('div');
                 questionBlock.className = 'question-block hidden';
                 questionBlock.id = `question-${index}`;
@@ -312,7 +313,8 @@
                 const questionText = document.createElement('p');
                 questionText.className = 'question-text';
                 const cleanQuestion = q.question.replace(/^\d+[\.．\s]*/, '');
-                questionText.innerHTML = `${index + 1}. ${cleanQuestion}`;
+                const displayIndex = originalQuizData.indexOf(q) + 1;
+                questionText.innerHTML = `${displayIndex}. ${cleanQuestion}`;
                 
                 if (q.translation && q.translation.question) {
                     const translationSpan = document.createElement('span');
@@ -324,8 +326,45 @@
 
                 const optionsList = document.createElement('ul');
                 optionsList.className = 'options';
-                questionBlock.appendChild(optionsList);
 
+                let shuffledOptions = [...q.options];
+                shuffleArray(shuffledOptions);
+
+                shuffledOptions.forEach(option => {
+                    const optionItem = document.createElement('li');
+                    optionItem.className = 'option';
+                    optionItem.textContent = option;
+
+                    if (q.translation && q.translation.options && q.translation.options[option]) {
+                        const translationSpan = document.createElement('span');
+                        translationSpan.className = 'translation';
+                        translationSpan.textContent = ` (${q.translation.options[option]})`;
+                        optionItem.appendChild(translationSpan);
+                    }
+                    
+                    optionItem.addEventListener('click', () => {
+                        const questionBlock = optionItem.closest('.question-block');
+                        if (questionBlock.classList.contains('answered')) return;
+                        questionBlock.classList.add('answered');
+
+                        const parentOptions = optionItem.parentElement;
+                        Array.from(parentOptions.children).forEach(child => child.classList.add('disabled'));
+
+                        if (option === q.correctAnswer) {
+                            optionItem.classList.add('correct');
+                        } else {
+                            optionItem.classList.add('incorrect');
+                            Array.from(parentOptions.children).forEach(child => {
+                                if (child.textContent.split(' (')[0] === q.correctAnswer) {
+                                    child.classList.add('correct');
+                                }
+                            });
+                        }
+                    });
+                    optionsList.appendChild(optionItem);
+                });
+
+                questionBlock.appendChild(optionsList);
                 quizContainer.appendChild(questionBlock);
             });
         }
