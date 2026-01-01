@@ -460,12 +460,14 @@
                 questionText.className = 'question-text';
                 const cleanQuestion = q.question.replace(/^\d+[\.．\s]*/, '');
                 const displayIndex = originalQuizData.indexOf(q) + 1;
-                questionText.innerHTML = `${displayIndex}. ${cleanQuestion}`;
+                const formattedQuestion = cleanQuestion.replace(/\n/g, '<br/>');
+                questionText.innerHTML = `${displayIndex}. ${formattedQuestion}`;
                 
                 if (q.translation && q.translation.question) {
                     const translationSpan = document.createElement('span');
                     translationSpan.className = 'translation';
-                    translationSpan.textContent = `(${q.translation.question})`;
+                    const formattedTranslation = q.translation.question.replace(/\n/g, '<br/>');
+                    translationSpan.innerHTML = `(${formattedTranslation})`;
                     questionText.appendChild(translationSpan);
                 }
                 questionBlock.appendChild(questionText);

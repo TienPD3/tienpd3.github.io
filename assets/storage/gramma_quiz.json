@@ -9,7 +9,7 @@
     ],
     "correctAnswer": "おれい",
     "translation": {
-      "question": "1. Vì đã nhận được quà từ bạn bè nên tôi đã nói lời (cảm ơn).",
+      "question": "1. Vì đã nhận được quà từ bạn bè nên tôi đã nói lời (cảm ơn).\n",
       "options": {
         "うれしい": "vui mừng",
         "おれい": "cảm ơn",
@@ -769,13 +769,431 @@
     ],
     "correctAnswer": "どうして",
     "translation": {
-        "question": "6. Aoki: \"Anh Ishikawa, (tại sao) hôm qua anh không đến bữa tiệc?\"\n　　Ishikawa: \"Tôi có việc bận.\"",
+        "question": "6. Aoki: \"Anh Ishikawa, (tại sao) hôm qua anh không đến bữa tiệc?\"\n\t\tIshikawa: \"Tôi có việc bận.\"",
         "options": {
             "どの": "cái nào",
             "どうして": "tại sao",
             "どのぐらい": "bao lâu",
             "どうやって": "làm thế nào"
         }
+    }
+  },
+  {
+    "question": "うちの むすこは いつも そうじ（　　　）ほかの ことを 始めて しまうので、\n　　そうじが ぜんぜん 終わらない。",
+    "options": [
+      "あいだ",
+      "ときに",
+      "のとちゅうで",
+      "のあと"
+    ],
+    "correctAnswer": "のとちゅうで",
+    "translation": {
+      "question": "Con trai tôi lúc nào cũng bắt đầu làm việc khác (giữa chừng) trong lúc dọn dẹp, vì vậy việc dọn dẹp mãi không xong.",
+      "options": {
+        "あいだ": "trong khi",
+        "ときに": "khi",
+        "のとちゅうで": "giữa chừng",
+        "のあと": "sau khi"
+      }
+    }
+  },
+  {
+    "question": "8　山下「チンさんは 京都に（　　　）ことが ありますか。」\n　　チン「はい、あります。」",
+    "options": [
+      "行き",
+      "行った",
+      "行こう",
+      "行って"
+    ],
+    "correctAnswer": "行った",
+    "translation": {
+      "question": "8. Yamashita: \"Anh Chin này, anh đã bao giờ (đến) Kyoto chưa?\"\nChin: \"Vâng, tôi đi rồi.\"",
+      "options": {
+        "行き": "đi (dạng danh từ)",
+        "行った": "đã đi",
+        "行こう": "chúng ta hãy đi",
+        "行って": "đi (dạng te)"
+      }
+    }
+  },
+  {
+    "question": "9　私が 山田さんに 初めて（　　　）3 年前です。",
+    "options": [
+      "会って",
+      "会ってから",
+      "会ったまま",
+      "会ったのは"
+    ],
+    "correctAnswer": "会ったのは",
+    "translation": {
+      "question": "9. Lần đầu tiên tôi (gặp) anh Yamada là 3 năm trước.",
+      "options": {
+        "会って": "gặp (dạng te)",
+        "会ってから": "sau khi gặp",
+        "会ったまま": "cứ để nguyên tình trạng đã gặp",
+        "会ったのは": "cái việc đã gặp thì là"
+      }
+    }
+  },
+  {
+    "question": "10（大学で）\n　A「今日 いっしょに カラオケに 行かない？」\n　B「ごめん。あした中に（　　　）しゅくだいが まだ 終わって いないから、今日は 行けないんだ。」",
+    "options": [
+      "出しては いない",
+      "出さないと いけない",
+      "出さなくても いい",
+      "出さない ほうが いい"
+    ],
+    "correctAnswer": "出さないと いけない",
+    "translation": {
+      "question": "10. (Ở trường đại học)\nA: \"Hôm nay cùng đi karaoke không?\"\nB: \"Xin lỗi. Vì bài tập (phải nộp) trong ngày mai vẫn chưa làm xong nên hôm nay tôi không đi được.\"",
+      "options": {
+        "出しては いない": "không nộp",
+        "出さないと いけない": "phải nộp",
+        "出さなくても いい": "không cần nộp cũng được",
+        "出さない ほうが いい": "không nộp thì tốt hơn"
+      }
+    }
+  },
+  {
+    "question": "11　田中さんは 花を プレゼントして、かのじょを（　　　）。",
+    "options": [
+      "よろこんだ",
+      "よろこべた",
+      "よろこばせた",
+      "よろこばれた"
+    ],
+    "correctAnswer": "よろこばせた",
+    "translation": {
+      "question": "11. Anh Tanaka đã tặng hoa và (làm cho) bạn gái của mình vui.",
+      "options": {
+        "よろこんだ": "đã vui",
+        "よろこべた": "đã có thể vui",
+        "よろこばせた": "đã làm cho vui",
+        "よろこばれた": "đã được làm cho vui"
+      }
+    }
+  },
+  {
+    "question": "12　西川「林さん、遅れて すみません。」\n　　中田「いいえ、私も 今（　　　）。」",
+    "options": [
+      "来た ところです",
+      "来る ところです",
+      "来て いました",
+      "来て います"
+    ],
+    "correctAnswer": "来た ところです",
+    "translation": {
+      "question": "12. Nishikawa: \"Anh Hayashi, xin lỗi tôi đến muộn.\"\nNakata: \"Không sao, tôi cũng vừa (mới đến) thôi.\"",
+      "options": {
+        "来た ところです": "vừa mới đến",
+        "来る ところです": "sắp đến",
+        "来て いました": "đã đang đến",
+        "来て います": "đang đến"
+      }
+    }
+  },
+  {
+    "question": "13（レストランで）\n　中山「木村さんは 何を 食べる？」\n　木村「私は カレーに（　　　）。」",
+    "options": [
+      "する",
+      "いい",
+      "ください",
+      "食べよう"
+    ],
+    "correctAnswer": "する",
+    "translation": {
+      "question": "13. (Tại nhà hàng)\nNakayama: \"Chị Kimura ăn gì?\"\nKimura: \"Tôi (quyết định chọn) cà ri.\"",
+      "options": {
+        "する": "quyết định chọn",
+        "いい": "tốt",
+        "ください": "xin hãy cho tôi",
+        "食べよう": "chúng ta hãy ăn"
+      }
+    }
+  },
+  {
+    "question": "A「その本、かりても いいですか。」\nB「どうぞ。わたし、今 ちょうど 読みおわった（　　　）ですから。」",
+    "options": [
+      "らしい",
+      "ところ",
+      "かた",
+      "はず"
+    ],
+    "correctAnswer": "ところ",
+    "translation": {
+      "question": "A: \"Cuốn sách đó, tôi mượn được không?\"\nB: \"Xin mời. Vì tôi vừa mới đọc xong (đúng lúc) này.\"",
+      "options": {
+        "らしい": "có vẻ là",
+        "ところ": "đúng lúc",
+        "かた": "cách",
+        "はず": "chắc chắn là"
+      }
+    }
+  },
+  {
+    "question": "A「明日は はれるかな。」\nB「天気予報に よると（　　　）。」",
+    "options": [
+      "はれて いるそうです",
+      "はれたそうです",
+      "はれるそうです",
+      "はれそうです"
+    ],
+    "correctAnswer": "はれるそうです",
+    "translation": {
+      "question": "A: \"Ngày mai trời có nắng không nhỉ.\"\nB: \"Theo dự báo thời tiết thì (nghe nói là trời sẽ nắng).\"",
+      "options": {
+        "はれて いるそうです": "nghe nói là đang nắng",
+        "はれたそうです": "nghe nói là đã nắng",
+        "はれるそうです": "nghe nói là sẽ nắng",
+        "はれそうです": "có vẻ sắp nắng"
+      }
+    }
+  },
+  {
+    "question": "A「どうして おそく なったの。」\nB「事故で（　　　）。」",
+    "options": [
+      "電車を 止まらせて しまったんです",
+      "電車が 止まれて しまったんです",
+      "電車を 止まらせたんです",
+      "電車が 止まって しまったんです"
+    ],
+    "correctAnswer": "電車が 止まって しまったんです",
+    "translation": {
+      "question": "A: \"Tại sao bạn lại đến muộn vậy?\"\nB: \"Vì (tàu điện đã bị dừng lại) do tai nạn.\"",
+      "options": {
+        "電車を 止まらせて しまったんです": "tôi đã lỡ làm cho tàu dừng lại",
+        "電車が 止まれて しまったんです": "(lỗi ngữ pháp)",
+        "電車を 止まらせたんです": "tôi đã làm cho tàu dừng lại",
+        "電車が 止まって しまったんです": "tàu điện đã bị dừng lại"
+      }
+    }
+  },
+  {
+    "question": "A「ワンさんが 何時に 来るか 知って いますか。」\nB「６時までには（　　　）が。」",
+    "options": [
+      "来る はずです",
+      "来る つもりです",
+      "来たいんです",
+      "来させられる ことです"
+    ],
+    "correctAnswer": "来る はずです",
+    "translation": {
+      "question": "A: \"Bạn có biết mấy giờ anh Wang sẽ đến không?\"\nB: \"Chắc là anh ấy (sẽ đến) trước 6 giờ.\"",
+      "options": {
+        "来る はずです": "chắc chắn sẽ đến",
+        "来る つもりです": "dự định sẽ đến",
+        "来たいんです": "muốn đến",
+        "来させられる ことです": "việc bị bắt đến"
+      }
+    }
+  },
+  {
+    "question": "A「その本は だれの ですか。」\nB「（　　　）。」",
+    "options": [
+      "さあ、だれのか わかりません",
+      "さあ、本が どうか わかりません",
+      "いいえ、これは 英語の 本では ありません",
+      "いいえ、これは だれのでは ありません"
+    ],
+    "correctAnswer": "さあ、だれのか わかりません",
+    "translation": {
+      "question": "A: \"Cuốn sách đó là của ai vậy?\"\nB: \"(À, tôi không biết là của ai cả).\"",
+      "options": {
+        "さあ、だれのか わかりません": "À, tôi không biết là của ai cả",
+        "さあ、本が どうか わかりません": "À, tôi không biết cuốn sách thì thế nào",
+        "いいえ、これは 英語の 本では ありません": "Không, đây không phải là sách tiếng Anh",
+        "いいえ、これは だれのでは ありません": "Không, đây không phải là của ai cả"
+      }
+    }
+  },
+  {
+    "question": "A「日曜日の パーティーに 出席できますか。」\nB「ええ、（　　　）。」",
+    "options": [
+      "仕事が 終われば 行けません",
+      "仕事が なければ 行けます",
+      "仕事が あっても 行けません",
+      "仕事が あるから 行けます"
+    ],
+    "correctAnswer": "仕事が なければ 行けます",
+    "translation": {
+      "question": "A: \"Bạn có thể tham dự bữa tiệc vào Chủ nhật không?\"\nB: \"Vâng, (nếu không có việc thì tôi có thể đi được).\"",
+      "options": {
+        "仕事が 終われば 行けません": "Nếu công việc kết thúc thì tôi không đi được",
+        "仕事が なければ 行けます": "Nếu không có việc thì tôi có thể đi được",
+        "仕事が あっても 行けません": "Dù có việc thì tôi cũng không đi được",
+        "仕事が あるから 行けます": "Vì có việc nên tôi có thể đi được"
+      }
+    }
+  },
+  {
+    "question": "A「先生、おさけを 飲んでも いいですか。」\nB「おさけは（　　　）ですよ。」",
+    "options": [
+      "少しだけ よくない",
+      "少しぐらい よくない",
+      "少しでも いい",
+      "少しなら いい"
+    ],
+    "correctAnswer": "少しなら いい",
+    "translation": {
+      "question": "A: \"Thưa thầy, em uống rượu có được không ạ?\"\nB: \"Rượu thì (nếu một chút thì được) đấy.\"",
+      "options": {
+        "少しだけ よくない": "chỉ một chút thì không tốt",
+        "少しぐらい よくない": "khoảng một chút thì không tốt",
+        "少しでも いい": "dù một chút cũng được",
+        "少しなら いい": "nếu một chút thì được"
+      }
+    }
+  },
+  {
+    "question": "A「どんな 仕事を する つもりですか。」\nB「お金を（　　　）お店を 始めたいです。」",
+    "options": [
+      "貸して あげたら",
+      "貸して やれば",
+      "貸して もらえたら",
+      "貸して もらうと"
+    ],
+    "correctAnswer": "貸して もらえたら",
+    "translation": {
+      "question": "A: \"Bạn dự định làm công việc gì?\"\nB: \"Tôi muốn mở một cửa hàng (nếu có thể được ai đó cho vay) tiền.\"",
+      "options": {
+        "貸して あげたら": "nếu tôi cho vay",
+        "貸して やれば": "nếu mình cho vay (dùng với người dưới)",
+        "貸して もらえたら": "nếu có thể được cho vay",
+        "貸して もらうと": "hễ được cho vay thì"
+      }
+    }
+  },
+  {
+    "question": "A「あなたも いっしょに 行かない？」\nB「仕事が いそがしくて（　　　）行けないわ。」",
+    "options": [
+      "行きたいから",
+      "行きたいけど",
+      "行かないから",
+      "行きたくて"
+    ],
+    "correctAnswer": "行きたいけど",
+    "translation": {
+      "question": "A: \"Bạn cũng đi cùng không?\"\nB: \"Vì công việc bận rộn nên (tôi muốn đi nhưng) không đi được.\"",
+      "options": {
+        "行きたいから": "vì tôi muốn đi",
+        "行きたいけど": "tôi muốn đi nhưng",
+        "行かないから": "vì tôi không đi",
+        "行きたくて": "vì muốn đi nên"
+      }
+    }
+  },
+  {
+    "question": "A「先生は まだ 会議中なんですが。」\nB「じゃ、ここで（　　　）いいですか。」",
+    "options": [
+      "待たせて いただいても",
+      "待って いただいても",
+      "お待ち くださっても",
+      "待たせて くださっても"
+    ],
+    "correctAnswer": "待たせて いただいても",
+    "translation": {
+      "question": "A: \"Thầy vẫn đang họp ạ.\"\nB: \"Vậy, tôi (xin phép được chờ) ở đây có được không ạ?\"",
+      "options": {
+        "待たせて いただいても": "nếu tôi được phép chờ (khiêm tốn)",
+        "待って いただいても": "nếu tôi được chờ (khiêm tốn, nhưng không phải thể sai khiến)",
+        "お待ち くださっても": "nếu ngài chờ cho (kính ngữ)",
+        "待たせて くださっても": "nếu ngài cho phép chờ (kính ngữ)"
+      }
+    }
+  },
+  {
+    "question": "A「どうして（　　　）の？」\nB「ぼくの おもちゃを こわしたから。」",
+    "options": [
+      "妹が なかせた",
+      "妹と ないている",
+      "妹が なかれた",
+      "妹を なかせた"
+    ],
+    "correctAnswer": "妹を なかせた",
+    "translation": {
+      "question": "A: \"Tại sao bạn lại (làm em gái khóc) thế?\"\nB: \"Vì nó đã làm hỏng đồ chơi của tớ.\"",
+      "options": {
+        "妹が なかせた": "em gái đã làm khóc",
+        "妹と ないている": "đang khóc cùng em gái",
+        "妹が なかれた": "đã bị em gái khóc",
+        "妹を なかせた": "đã làm em gái khóc"
+      }
+    }
+  },
+  {
+    "question": "A「みどりちゃん、ねつが 高いのよ。」\nB「じゃ、病院へ（　　　）。」",
+    "options": [
+      "行く つもりだ",
+      "行く ことに なる",
+      "行った ほうが いい",
+      "行っても いい"
+    ],
+    "correctAnswer": "行った ほうが いい",
+    "translation": {
+      "question": "A: \"Bé Midori đang sốt cao đấy.\"\nB: \"Vậy thì, (nên đến bệnh viện) thì hơn.\"",
+      "options": {
+        "行く つもりだ": "dự định đi",
+        "行く ことに なる": "sẽ thành ra là đi",
+        "行った ほうが いい": "nên đi thì tốt hơn",
+        "行っても いい": "đi cũng được"
+      }
+    }
+  },
+  {
+    "question": "A「リさんは 食べ物の 好き きらいが ないんですね。」\nB「ええ、子どもの とき 母に（　　　）からです。」",
+    "options": [
+      "何かを 食べさせた",
+      "何でも 食べさせられた",
+      "何でも 食べられた",
+      "何か 食べた"
+    ],
+    "correctAnswer": "何でも 食べさせられた",
+    "translation": {
+      "question": "A: \"Anh Lý không kén ăn nhỉ.\"\nB: \"Vâng, là vì hồi nhỏ tôi (đã bị mẹ bắt ăn bất cứ thứ gì).\"",
+      "options": {
+        "何かを 食べさせた": "đã cho ăn cái gì đó",
+        "何でも 食べさせられた": "đã bị bắt ăn bất cứ thứ gì",
+        "何でも 食べられた": "đã có thể ăn bất cứ thứ gì",
+        "何か 食べた": "đã ăn cái gì đó"
+      }
+    }
+  },
+  {
+    "question": "A「（　　　）頭が いたいです。」\nB「薬を 飲んで ねた ほうが いいですよ。」",
+    "options": [
+      "かぜを ひいたのに",
+      "かぜを ひかなくて",
+      "かぜを ひいたので",
+      "かぜを ひくから"
+    ],
+    "correctAnswer": "かぜを ひいたので",
+    "translation": {
+      "question": "A: \"(Vì bị cảm nên) tôi bị đau đầu.\"\nB: \"Bạn nên uống thuốc rồi ngủ thì hơn đấy.\"",
+      "options": {
+        "かぜを ひいたのに": "dù đã bị cảm",
+        "かぜを ひかなくて": "vì không bị cảm",
+        "かぜを ひいたので": "vì đã bị cảm",
+        "かぜを ひくから": "vì sẽ bị cảm"
+      }
+    }
+  },
+  {
+    "question": "A「わたしは 魚や 肉は 食べられないんです。」\nB「じゃ、（　　　）ね。」",
+    "options": [
+      "やさい料理なら 食べられます",
+      "やさい料理だったら 食べさせます",
+      "やさい料理が 食べさせられます",
+      "やさい料理なら 食べられません"
+    ],
+    "correctAnswer": "やさい料理なら 食べられます",
+    "translation": {
+      "question": "A: \"Tôi không thể ăn cá hay thịt được.\"\nB: \"Vậy thì, (nếu là món rau thì có thể ăn được) nhỉ.\"",
+      "options": {
+        "やさい料理なら 食べられます": "nếu là món rau thì có thể ăn được",
+        "やさい料理だったら 食べさせます": "nếu là món rau thì tôi sẽ cho ăn",
+        "やさい料理が 食べさせられます": "món rau có thể bị bắt ăn",
+        "やさい料理なら 食べられません": "nếu là món rau thì không thể ăn được"
+      }
     }
   }
 ]
