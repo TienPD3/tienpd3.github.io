@@ -125,6 +125,10 @@
         <input type="number" id="end-range" style="width: 60px; padding: 5px;">
         <button id="filter-btn" style="padding: 5px 10px;">Lọc</button>
         <button id="reset-btn" style="padding: 5px 10px; margin-left: 5px; background-color: #f8d7da; border-color: #f5c6cb;">Bắt đầu lại</button>
+        <div style="display: flex; align-items: center; margin-left: 10px;">
+            <input type="checkbox" id="randomize-questions-checkbox">
+            <label for="randomize-questions-checkbox">Trộn câu hỏi</label>
+        </div>
         <span id="total-questions-info" style="margin-left: 10px;"></span>
         <button id="review-incorrect-btn" style="padding: 5px 10px; margin-left: 10px; background-color: #ffc107; border-color: #ffc107;">Xem lại câu sai</button>
         <span id="score-info" style="margin-left: 10px; font-weight: bold;"></span>
@@ -152,6 +156,13 @@
         let isReviewMode = false;
         let preReviewActiveQuizData = [];
 
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
         function saveState() {
             // Capture the shuffled order of options for questions that have been seen
             activeQuizData.forEach((q, index) => {
@@ -167,6 +178,7 @@
                 }
             });
 
+            const isRandomized = document.getElementById('randomize-questions-checkbox').checked;
             const state = {
                 currentQuestionIndex: isReviewMode ? 0 : currentQuestionIndex,
                 cumulativeMaxIndex,
@@ -174,6 +186,8 @@
                 startRange: document.getElementById('start-range').value,
                 endRange: document.getElementById('end-range').value,
                 userAnswers,
+                isRandomized,
+                questionOrder: isRandomized ? activeQuizData.map(q => originalQuizData.indexOf(q)) : null,
             };
             localStorage.setItem('grammaQuizState', JSON.stringify(state));
         }
@@ -189,10 +203,16 @@
             document.getElementById('start-range').value = state.startRange;
             document.getElementById('end-range').value = state.endRange;
             document.getElementById('cumulative-mode-checkbox').checked = isCumulativeMode;
+            document.getElementById('randomize-questions-checkbox').checked = state.isRandomized || false;
 
             let start = parseInt(state.startRange) - 1;
             let end = parseInt(state.endRange);
-            activeQuizData = originalQuizData.slice(start, end);
+
+            if (state.isRandomized && state.questionOrder && state.questionOrder.length > 0) {
+                activeQuizData = state.questionOrder.map(index => originalQuizData[index]).filter(Boolean);
+            } else {
+                activeQuizData = originalQuizData.slice(start, end);
+            }
 
             renderQuiz();
 
@@ -287,12 +307,14 @@
             const filterBtn = document.getElementById('filter-btn');
             const startRange = document.getElementById('start-range');
             const endRange = document.getElementById('end-range');
+            const randomizeCheckbox = document.getElementById('randomize-questions-checkbox');
             
             if (isReviewMode) {
                 // Disable filter controls
                 filterBtn.disabled = true;
                 startRange.disabled = true;
                 endRange.disabled = true;
+                randomizeCheckbox.disabled = true;
 
                 preReviewActiveQuizData = [...activeQuizData]; 
 
@@ -309,6 +331,7 @@
                     filterBtn.disabled = false;
                     startRange.disabled = false;
                     endRange.disabled = false;
+                    randomizeCheckbox.disabled = false;
                     return;
                 }
                 
@@ -323,6 +346,7 @@
                 filterBtn.disabled = false;
                 startRange.disabled = false;
                 endRange.disabled = false;
+                randomizeCheckbox.disabled = false;
 
                 reviewBtn.textContent = 'Xem lại câu sai';
                 reviewBtn.style.backgroundColor = '#ffc107';
@@ -351,6 +375,7 @@
 
             filterBtn.addEventListener('click', () => {
                 const wasCumulative = document.getElementById('cumulative-mode-checkbox').checked;
+                const shouldRandomize = document.getElementById('randomize-questions-checkbox').checked;
 
                 let start = parseInt(startRange.value) - 1;
                 let end = parseInt(endRange.value);
@@ -365,6 +390,11 @@
                 }
                 
                 activeQuizData = originalQuizData.slice(start, end);
+
+                if (shouldRandomize) {
+                    shuffleArray(activeQuizData);
+                }
+                
                 userAnswers = {}; // Reset answers on new filter
                 startQuiz();
 
@@ -526,13 +556,6 @@
                 counter.textContent = `Câu sai ${index + 1}/${activeQuizData.length}`;
             } else {
                 counter.textContent = `Question ${index + 1} of ${activeQuizData.length}`;
-            }
-        }
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
             }
         }
 
