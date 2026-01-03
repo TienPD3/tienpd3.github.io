@@ -118,7 +118,7 @@
 
     <h1>日本語文法クイズ</h1>
 
-    <div class="filter-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; align-items: center; gap: 10px;">
+    <div class="filter-controls" style="margin-bottom: 20px; padding: 10px; background: #f0f0f0; border-radius: 5px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
         <label for="start-range">Từ:</label>
         <input type="number" id="start-range" min="1" value="1" style="width: 60px; padding: 5px;">
         <label for="end-range">Đến:</label>
@@ -126,6 +126,8 @@
         <button id="filter-btn" style="padding: 5px 10px;">Lọc</button>
         <button id="reset-btn" style="padding: 5px 10px; margin-left: 5px; background-color: #f8d7da; border-color: #f5c6cb;">Bắt đầu lại</button>
         <span id="total-questions-info" style="margin-left: 10px;"></span>
+        <button id="review-incorrect-btn" style="padding: 5px 10px; margin-left: 10px; background-color: #ffc107; border-color: #ffc107;">Xem lại câu sai</button>
+        <span id="score-info" style="margin-left: 10px; font-weight: bold;"></span>
     </div>
 
     <div id="quiz-container"></div>
@@ -147,10 +149,13 @@
         let originalQuizData = [];
         let activeQuizData = [];
         let userAnswers = {};
+        let isReviewMode = false;
+        let preReviewActiveQuizData = [];
 
         function saveState() {
             // Capture the shuffled order of options for questions that have been seen
             activeQuizData.forEach((q, index) => {
+                if (isReviewMode) return; // Don't save option order changes in review mode
                 const questionBlock = document.getElementById(`question-${index}`);
                 if (questionBlock && questionBlock.classList.contains('seen')) {
                     const originalIndex = originalQuizData.indexOf(q);
@@ -163,7 +168,7 @@
             });
 
             const state = {
-                currentQuestionIndex,
+                currentQuestionIndex: isReviewMode ? 0 : currentQuestionIndex,
                 cumulativeMaxIndex,
                 isCumulativeMode,
                 startRange: document.getElementById('start-range').value,
@@ -191,7 +196,7 @@
 
             renderQuiz();
 
-            // Apply saved states to the DOM
+            // Apply saved states to the DOM - for seen and option order
             activeQuizData.forEach((q, index) => {
                 const originalIndex = originalQuizData.indexOf(q);
                 const questionState = userAnswers[originalIndex];
@@ -206,35 +211,20 @@
                         const optionElements = Array.from(optionsList.children);
                         const sortedElements = questionState.optionOrder.map(text => 
                             optionElements.find(el => el.textContent.split(' (')[0] === text)
-                        ).filter(Boolean); // Filter out undefined if an option text changes
+                        ).filter(Boolean);
                         
-                        // Make sure we have all options before re-appending
                         if (sortedElements.length === optionElements.length) {
                              sortedElements.forEach(el => optionsList.appendChild(el));
                         }
                     }
                 }
-                if (questionState.answered) {
-                    questionBlock.classList.add('answered');
-                    const options = questionBlock.querySelectorAll('.option');
-                    options.forEach(optionItem => {
-                        optionItem.classList.add('disabled');
-                        const optionText = optionItem.textContent.split(' (')[0];
-                        if (optionText === q.correctAnswer) {
-                            optionItem.classList.add('correct');
-                        }
-                        if (optionText === questionState.selection && optionText !== q.correctAnswer) {
-                            optionItem.classList.add('incorrect');
-                        }
-                    });
-                }
+                // The answered styling is now handled by renderQuiz
             });
 
             if (activeQuizData.length > 0) {
                 setupNavigation();
                 showQuestion(currentQuestionIndex);
-            } else {
-                document.querySelector('.navigation-controls').style.display = 'none';
+                calculateScore(); // To show score on load
             }
         }
 
@@ -259,12 +249,100 @@
                 });
         });
 
+        function calculateScore() {
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let answeredCount = 0;
+            
+            const dataSet = isReviewMode ? preReviewActiveQuizData : activeQuizData;
+
+            dataSet.forEach(q => {
+                const originalIndex = originalQuizData.indexOf(q);
+                const answerInfo = userAnswers[originalIndex];
+
+                if (answerInfo && answerInfo.answered) {
+                    answeredCount++;
+                    const correctAnswer = q.correctAnswer;
+                    if (answerInfo.selection === correctAnswer) {
+                        correctCount++;
+                    } else {
+                        incorrectCount++;
+                    }
+                }
+            });
+            
+            const scoreInfo = document.getElementById('score-info');
+            if (scoreInfo) {
+                if (answeredCount > 0) {
+                    scoreInfo.textContent = `Đúng: ${correctCount}, Sai: ${incorrectCount} (Tổng: ${answeredCount})`;
+                } else {
+                    scoreInfo.textContent = '';
+                }
+            }
+        }
+
+        function toggleReviewMode() {
+            isReviewMode = !isReviewMode;
+            const reviewBtn = document.getElementById('review-incorrect-btn');
+            const filterBtn = document.getElementById('filter-btn');
+            const startRange = document.getElementById('start-range');
+            const endRange = document.getElementById('end-range');
+            
+            if (isReviewMode) {
+                // Disable filter controls
+                filterBtn.disabled = true;
+                startRange.disabled = true;
+                endRange.disabled = true;
+
+                preReviewActiveQuizData = [...activeQuizData]; 
+
+                const incorrectQuestions = preReviewActiveQuizData.filter(q => {
+                    const originalIndex = originalQuizData.indexOf(q);
+                    const answerInfo = userAnswers[originalIndex];
+                    return answerInfo && answerInfo.answered && answerInfo.selection !== q.correctAnswer;
+                });
+
+                if (incorrectQuestions.length === 0) {
+                    alert('Không có câu trả lời sai nào để xem lại.');
+                    isReviewMode = false; // back to normal
+                    // Re-enable filter controls
+                    filterBtn.disabled = false;
+                    startRange.disabled = false;
+                    endRange.disabled = false;
+                    return;
+                }
+                
+                reviewBtn.textContent = 'Quay lại Quiz';
+                reviewBtn.style.backgroundColor = '#28a745';
+                reviewBtn.style.borderColor = '#28a745';
+
+                activeQuizData = incorrectQuestions;
+                startQuiz();
+            } else {
+                // Re-enable filter controls
+                filterBtn.disabled = false;
+                startRange.disabled = false;
+                endRange.disabled = false;
+
+                reviewBtn.textContent = 'Xem lại câu sai';
+                reviewBtn.style.backgroundColor = '#ffc107';
+                reviewBtn.style.borderColor = '#ffc107';
+
+                activeQuizData = preReviewActiveQuizData;
+                startQuiz();
+            }
+        }
+
         function initializeFilterControls() {
             const startRange = document.getElementById('start-range');
             const endRange = document.getElementById('end-range');
             const filterBtn = document.getElementById('filter-btn');
             const resetBtn = document.getElementById('reset-btn');
             const totalInfo = document.getElementById('total-questions-info');
+            const reviewBtn = document.getElementById('review-incorrect-btn');
+
+            reviewBtn.addEventListener('click', toggleReviewMode);
+
 
             totalInfo.textContent = `(Tổng: ${originalQuizData.length} câu)`;
             startRange.max = originalQuizData.length;
@@ -300,6 +378,7 @@
             resetBtn.addEventListener('click', () => {
                 if (confirm('Bạn có chắc muốn xoá toàn bộ tiến trình và bắt đầu lại?')) {
                     localStorage.removeItem('grammaQuizState');
+                    isReviewMode = false;
                     location.reload();
                 }
             });
@@ -308,15 +387,15 @@
         function startQuiz() {
             currentQuestionIndex = 0;
             cumulativeMaxIndex = 0;
-            document.getElementById('cumulative-mode-checkbox').checked = false;
+            const cumulativeCheckbox = document.getElementById('cumulative-mode-checkbox');
+            cumulativeCheckbox.checked = false;
+            cumulativeCheckbox.disabled = isReviewMode;
             isCumulativeMode = false;
             
             renderQuiz();
             if (activeQuizData.length > 0) {
                 setupNavigation();
                 showQuestion(currentQuestionIndex);
-            } else {
-                 document.querySelector('.navigation-controls').style.display = 'none';
             }
             saveState(); // Save the initial state of the new quiz
         }
@@ -328,14 +407,18 @@
                     option.classList.remove('disabled', 'correct', 'incorrect');
                 });
             });
-            // Also reset the answers data for the active quiz
+            
             activeQuizData.forEach(q => {
                 const originalIndex = originalQuizData.indexOf(q);
                 if (userAnswers[originalIndex]) {
-                    delete userAnswers[originalIndex];
+                    delete userAnswers[originalIndex].answered;
+                    delete userAnswers[originalIndex].selection;
                 }
             });
             saveState();
+            calculateScore();
+            renderQuiz(); // re-render to apply changes
+            showQuestion(currentQuestionIndex);
         }
 
         function setupNavigation() {
@@ -344,15 +427,16 @@
             const prevBtn = document.getElementById('prev-btn');
             const cumulativeModeCheckbox = document.getElementById('cumulative-mode-checkbox');
             
-            // Remove old listeners to prevent duplication
             const newNextBtn = nextBtn.cloneNode(true);
             nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
             const newPrevBtn = prevBtn.cloneNode(true);
             prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
             const newCumulativeModeCheckbox = cumulativeModeCheckbox.cloneNode(true);
             cumulativeModeCheckbox.parentNode.replaceChild(newCumulativeModeCheckbox, cumulativeModeCheckbox);
+            newCumulativeModeCheckbox.disabled = isReviewMode;
 
             newCumulativeModeCheckbox.addEventListener('change', (e) => {
+                if (isReviewMode) return;
                 isCumulativeMode = e.target.checked;
                 resetAllQuestions();
                 if (isCumulativeMode) {
@@ -408,11 +492,13 @@
                 if (!userAnswers[originalIndex]) userAnswers[originalIndex] = {};
                 userAnswers[originalIndex].seen = true;
 
-                const optionsList = questionBlock.querySelector('.options');
-                if (optionsList) {
-                    const options = Array.from(optionsList.children);
-                    shuffleArray(options);
-                    options.forEach(option => optionsList.appendChild(option));
+                if (!isReviewMode) {
+                    const optionsList = questionBlock.querySelector('.options');
+                    if (optionsList) {
+                        const options = Array.from(optionsList.children);
+                        shuffleArray(options);
+                        options.forEach(option => optionsList.appendChild(option));
+                    }
                 }
             }
             
@@ -424,12 +510,20 @@
 
             prevBtn.disabled = index === 0;
 
-            const isAtEndInNormalMode = !isCumulativeMode && index === activeQuizData.length - 1;
-            const isAtEndOfCumulativeRange = isCumulativeMode && index === cumulativeMaxIndex && cumulativeMaxIndex === activeQuizData.length - 1;
-            nextBtn.disabled = isAtEndInNormalMode || isAtEndOfCumulativeRange;
+            let isAtEnd;
+            if (isReviewMode) {
+                isAtEnd = index === activeQuizData.length - 1;
+            } else if (isCumulativeMode) {
+                 isAtEnd = index === cumulativeMaxIndex && cumulativeMaxIndex === activeQuizData.length - 1;
+            } else {
+                isAtEnd = index === activeQuizData.length - 1;
+            }
+            nextBtn.disabled = isAtEnd;
             
             if (isCumulativeMode) {
                 counter.textContent = `Question ${index + 1} of ${cumulativeMaxIndex + 1} (Review)`;
+            } else if (isReviewMode) {
+                counter.textContent = `Câu sai ${index + 1}/${activeQuizData.length}`;
             } else {
                 counter.textContent = `Question ${index + 1} of ${activeQuizData.length}`;
             }
@@ -447,7 +541,10 @@
             quizContainer.innerHTML = '';
 
             if (activeQuizData.length === 0) {
-                quizContainer.innerHTML = '<p>Không có câu hỏi nào trong khoảng đã chọn.</p>';
+                quizContainer.innerHTML = isReviewMode
+                    ? '<p>Chúc mừng! Bạn không có câu sai nào để xem lại.</p>'
+                    : '<p>Không có câu hỏi nào trong khoảng đã chọn.</p>';
+                document.querySelector('.navigation-controls').style.display = 'none';
                 return;
             }
 
@@ -475,7 +572,18 @@
                 const optionsList = document.createElement('ul');
                 optionsList.className = 'options';
 
-                q.options.forEach(option => {
+                // Use saved order in review mode or for answered questions
+                const originalIndex = originalQuizData.indexOf(q);
+                const questionState = userAnswers[originalIndex];
+                let optionOrder = q.options;
+                if (questionState && questionState.optionOrder && (isReviewMode || questionState.answered)) {
+                    // Create a stable order based on the saved one
+                    let savedOrder = questionState.optionOrder;
+                    optionOrder = [...savedOrder, ...q.options.filter(o => !savedOrder.includes(o))];
+                }
+
+
+                optionOrder.forEach(option => {
                     const optionItem = document.createElement('li');
                     optionItem.className = 'option';
                     optionItem.textContent = option;
@@ -488,14 +596,16 @@
                     }
                     
                     optionItem.addEventListener('click', () => {
+                        if (isReviewMode) return; // Disable answering in review mode
+
                         const questionBlock = optionItem.closest('.question-block');
                         if (questionBlock.classList.contains('answered')) return;
                         questionBlock.classList.add('answered');
 
-                        const originalIndex = originalQuizData.indexOf(q);
-                        if (!userAnswers[originalIndex]) userAnswers[originalIndex] = {};
-                        userAnswers[originalIndex].answered = true;
-                        userAnswers[originalIndex].selection = option.split(' (')[0];
+                        const originalIndexOfQ = originalQuizData.indexOf(q);
+                        if (!userAnswers[originalIndexOfQ]) userAnswers[originalIndexOfQ] = {};
+                        userAnswers[originalIndexOfQ].answered = true;
+                        userAnswers[originalIndexOfQ].selection = option.split(' (')[0];
 
                         const parentOptions = optionItem.parentElement;
                         Array.from(parentOptions.children).forEach(child => child.classList.add('disabled'));
@@ -511,12 +621,30 @@
                             });
                         }
                         saveState();
+                        calculateScore();
                     });
                     optionsList.appendChild(optionItem);
                 });
 
                 questionBlock.appendChild(optionsList);
                 quizContainer.appendChild(questionBlock);
+
+                if (questionState && questionState.answered) {
+                    questionBlock.classList.add('answered');
+                    const options = questionBlock.querySelectorAll('.option');
+                    options.forEach(optionItem => {
+                        const optionText = optionItem.textContent.split(' (')[0];
+                        if (isReviewMode || questionState.selection) {
+                            optionItem.classList.add('disabled');
+                        }
+                        if (optionText === q.correctAnswer) {
+                            optionItem.classList.add('correct');
+                        }
+                        if (optionText === questionState.selection && optionText !== q.correctAnswer) {
+                            optionItem.classList.add('incorrect');
+                        }
+                    });
+                }
             });
         }
     </script>
