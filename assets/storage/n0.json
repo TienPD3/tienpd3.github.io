@@ -1,0 +1,1822 @@
+[
+  {
+    "id": "BD-001",
+    "jp": "本書は、〜に関する基本設計を記載する。",
+    "vn": "Tài liệu này ghi basic design liên quan đến ~.",
+    "furigana_html": "<ruby>本書<rp>(</rp><rt>ほんしょ</rt><rp>)</rp></ruby>は、〜に<ruby>関<rp>(</rp><rt>かん</rt><rp>)</rp></ruby>する<ruby>基本設計<rp>(</rp><rt>きほんせっけい</rt><rp>)</rp></ruby>を<ruby>記載<rp>(</rp><rt>きさい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-002",
+    "jp": "本書の目的は、〜を明確化することである。",
+    "vn": "Mục đích là làm rõ ~.",
+    "furigana_html": "<ruby>本書<rp>(</rp><rt>ほんしょ</rt><rp>)</rp></ruby>の<ruby>目的<rp>(</rp><rt>もくてき</rt><rp>)</rp></ruby>は、〜を<ruby>明確化<rp>(</rp><rt>めいかくか</rt><rp>)</rp></ruby>することである。"
+  },
+  {
+    "id": "BD-003",
+    "jp": "本書の位置付けは、詳細設計のインプットとする。",
+    "vn": "Vị trí của tài liệu là input cho detailed design.",
+    "furigana_html": "<ruby>本書<rp>(</rp><rt>ほんしょ</rt><rp>)</rp></ruby>の<ruby>位置付<rp>(</rp><rt>いちづ</rt><rp>)</rp></ruby>けは、<ruby>詳細設計<rp>(</rp><rt>しょうさいせっけい</rt><rp>)</rp></ruby>のインプットとする。"
+  },
+  {
+    "id": "BD-004",
+    "jp": "対象読者は、〜担当者を想定する。",
+    "vn": "Đối tượng đọc: người phụ trách ~.",
+    "furigana_html": "<ruby>対象<rp>(</rp><rt>たいしょう</rt><rp>)</rp></ruby><ruby>読者<rp>(</rp><rt>どくしゃ</rt><rp>)</rp></ruby>は、〜<ruby>担当者<rp>(</rp><rt>たんとうしゃ</rt><rp>)</rp></ruby>を<ruby>想定<rp>(</rp><rt>そうてい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-005",
+    "jp": "参照資料は以下の通り。",
+    "vn": "Tài liệu tham khảo như sau.",
+    "furigana_html": "<ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby><ruby>資料<rp>(</rp><rt>しりょう</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-006",
+    "jp": "用語の定義は以下の通り。",
+    "vn": "Định nghĩa thuật ngữ như sau.",
+    "furigana_html": "<ruby>用語<rp>(</rp><rt>ようご</rt><rp>)</rp></ruby>の<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-007",
+    "jp": "前提条件は以下の通り。",
+    "vn": "Điều kiện tiên quyết như sau.",
+    "furigana_html": "<ruby>前提<rp>(</rp><rt>ぜんてい</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-008",
+    "jp": "留意事項を以下に示す。",
+    "vn": "Các điểm cần lưu ý như sau.",
+    "furigana_html": "<ruby>留意事項<rp>(</rp><rt>りゅういじこう</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-009",
+    "jp": "対応範囲は以下の通りとする。",
+    "vn": "Phạm vi xử lý như sau.",
+    "furigana_html": "<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby><ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>りとする。"
+  },
+  {
+    "id": "BD-010",
+    "jp": "対象外とする。",
+    "vn": "Ngoài phạm vi.",
+    "furigana_html": "<ruby>対象外<rp>(</rp><rt>たいしょうがい</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-011",
+    "jp": "本対応では〜は行わない。",
+    "vn": "Trong lần xử lý này không thực hiện ~.",
+    "furigana_html": "<ruby>本<rp>(</rp><rt>ほん</rt><rp>)</rp></ruby><ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>では〜は<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>わない。"
+  },
+  {
+    "id": "BD-012",
+    "jp": "既存仕様を踏襲する。",
+    "vn": "Giữ theo spec hiện có.",
+    "furigana_html": "<ruby>既存<rp>(</rp><rt>きそん</rt><rp>)</rp></ruby><ruby>仕様<rp>(</rp><rt>しよう</rt><rp>)</rp></ruby>を<ruby>踏襲<rp>(</rp><rt>とうしゅう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-013",
+    "jp": "既存処理を流用する。",
+    "vn": "Tái sử dụng xử lý cũ.",
+    "furigana_html": "<ruby>既存<rp>(</rp><rt>きそん</rt><rp>)</rp></ruby><ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>を<ruby>流用<rp>(</rp><rt>りゅうよう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-014",
+    "jp": "影響範囲は〜である。",
+    "vn": "Phạm vi ảnh hưởng là ~.",
+    "furigana_html": "<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby><ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>は〜である。"
+  },
+  {
+    "id": "BD-015",
+    "jp": "以下に示す通り。",
+    "vn": "Như trình bày dưới đây.",
+    "furigana_html": "<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-016",
+    "jp": "〜とする。",
+    "vn": "Quy định là ~.",
+    "furigana_html": "〜とする。"
+  },
+  {
+    "id": "BD-017",
+    "jp": "〜するものとする。",
+    "vn": "Quy ước hệ thống sẽ ~.",
+    "furigana_html": "〜するものとする。"
+  },
+  {
+    "id": "BD-018",
+    "jp": "〜を原則とする。",
+    "vn": "Nguyên tắc là ~.",
+    "furigana_html": "〜を<ruby>原則<rp>(</rp><rt>げんそく</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-019",
+    "jp": "例外として〜を許容する。",
+    "vn": "Ngoại lệ cho phép ~.",
+    "furigana_html": "<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>として〜を<ruby>許容<rp>(</rp><rt>きょよう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-020",
+    "jp": "必要に応じて〜する。",
+    "vn": "Khi cần thì ~.",
+    "furigana_html": "<ruby>必要<rp>(</rp><rt>ひつよう</rt><rp>)</rp></ruby>に<ruby>応<rp>(</rp><rt>おう</rt><rp>)</rp></ruby>じて〜する。"
+  },
+  {
+    "id": "BD-021",
+    "jp": "機能一覧を以下に示す。",
+    "vn": "Danh sách chức năng như sau.",
+    "furigana_html": "<ruby>機能<rp>(</rp><rt>きのう</rt><rp>)</rp></ruby><ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-022",
+    "jp": "機能概要は以下の通り。",
+    "vn": "Tổng quan chức năng như sau.",
+    "furigana_html": "<ruby>機能<rp>(</rp><rt>きのう</rt><rp>)</rp></ruby><ruby>概要<rp>(</rp><rt>がいよう</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-023",
+    "jp": "利用者は〜である。",
+    "vn": "Người dùng là ~.",
+    "furigana_html": "<ruby>利用者<rp>(</rp><rt>りようしゃ</rt><rp>)</rp></ruby>は〜である。"
+  },
+  {
+    "id": "BD-024",
+    "jp": "発生タイミングは〜である。",
+    "vn": "Thời điểm phát sinh là ~.",
+    "furigana_html": "<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>タイミングは〜である。"
+  },
+  {
+    "id": "BD-025",
+    "jp": "起動条件は〜である。",
+    "vn": "Điều kiện khởi chạy là ~.",
+    "furigana_html": "<ruby>起動<rp>(</rp><rt>きどう</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は〜である。"
+  },
+  {
+    "id": "BD-026",
+    "jp": "終了条件は〜である。",
+    "vn": "Điều kiện kết thúc là ~.",
+    "furigana_html": "<ruby>終了<rp>(</rp><rt>しゅうりょう</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は〜である。"
+  },
+  {
+    "id": "BD-027",
+    "jp": "業務ルールは以下の通り。",
+    "vn": "Rule nghiệp vụ như sau.",
+    "furigana_html": "<ruby>業務<rp>(</rp><rt>ぎょうむ</rt><rp>)</rp></ruby>ルールは<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-028",
+    "jp": "判定条件は以下の通り。",
+    "vn": "Điều kiện phán định như sau.",
+    "furigana_html": "<ruby>判定<rp>(</rp><rt>はんてい</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-029",
+    "jp": "計算方法は以下の通り。",
+    "vn": "Cách tính như sau.",
+    "furigana_html": "<ruby>計算<rp>(</rp><rt>けいさん</rt><rp>)</rp></ruby><ruby>方法<rp>(</rp><rt>ほうほう</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-030",
+    "jp": "優先順位は以下の通り。",
+    "vn": "Thứ tự ưu tiên như sau.",
+    "furigana_html": "<ruby>優先<rp>(</rp><rt>ゆうせん</rt><rp>)</rp></ruby><ruby>順位<rp>(</rp><rt>じゅんい</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-031",
+    "jp": "処理フローを以下に示す。",
+    "vn": "Luồng xử lý như sau.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>フローを<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-032",
+    "jp": "処理概要を以下に示す。",
+    "vn": "Tổng quan xử lý như sau.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>概要<rp>(</rp><rt>がいよう</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-033",
+    "jp": "処理手順は以下の通り。",
+    "vn": "Trình tự xử lý như sau.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-034",
+    "jp": "入力を受け付ける。",
+    "vn": "Tiếp nhận input.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby>を<ruby>受<rp>(</rp><rt>う</rt><rp>)</rp></ruby>け<ruby>付<rp>(</rp><rt>つ</rt><rp>)</rp></ruby>ける。"
+  },
+  {
+    "id": "BD-035",
+    "jp": "データを取得する。",
+    "vn": "Lấy dữ liệu.",
+    "furigana_html": "データを<ruby>取得<rp>(</rp><rt>しゅとく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-036",
+    "jp": "データを登録する。",
+    "vn": "Đăng ký/insert dữ liệu.",
+    "furigana_html": "データを<ruby>登録<rp>(</rp><rt>とうろく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-037",
+    "jp": "データを更新する。",
+    "vn": "Cập nhật dữ liệu.",
+    "furigana_html": "データを<ruby>更新<rp>(</rp><rt>こうしん</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-038",
+    "jp": "データを削除する。",
+    "vn": "Xóa dữ liệu.",
+    "furigana_html": "データを<ruby>削除<rp>(</rp><rt>さくじょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-039",
+    "jp": "結果を表示する。",
+    "vn": "Hiển thị kết quả.",
+    "furigana_html": "<ruby>結果<rp>(</rp><rt>けっか</rt><rp>)</rp></ruby>を<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-040",
+    "jp": "処理を終了する。",
+    "vn": "Kết thúc xử lý.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>を<ruby>終了<rp>(</rp><rt>しゅうりょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-041",
+    "jp": "〜の場合、〜する。",
+    "vn": "Trường hợp ~ thì ~.",
+    "furigana_html": "〜の<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>、〜する。"
+  },
+  {
+    "id": "BD-042",
+    "jp": "〜でない場合、エラーとする。",
+    "vn": "Nếu không phải ~ thì coi là lỗi.",
+    "furigana_html": "〜でない<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>、エラーとする。"
+  },
+  {
+    "id": "BD-043",
+    "jp": "条件を満たす場合のみ実行する。",
+    "vn": "Chỉ chạy khi thỏa điều kiện.",
+    "furigana_html": "<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>を<ruby>満<rp>(</rp><rt>み</rt><rp>)</rp></ruby>たす<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>のみ<ruby>実行<rp>(</rp><rt>じっこう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-044",
+    "jp": "条件に該当しない場合はスキップする。",
+    "vn": "Nếu không thuộc điều kiện thì skip.",
+    "furigana_html": "<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>に<ruby>該当<rp>(</rp><rt>がいとう</rt><rp>)</rp></ruby>しない<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>はスキップする。"
+  },
+  {
+    "id": "BD-045",
+    "jp": "画面一覧を以下に示す。",
+    "vn": "Danh sách màn hình như sau.",
+    "furigana_html": "<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby><ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-046",
+    "jp": "画面概要を以下に示す。",
+    "vn": "Tổng quan màn hình như sau.",
+    "furigana_html": "<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby><ruby>概要<rp>(</rp><rt>がいよう</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-047",
+    "jp": "画面IDは〜とする。",
+    "vn": "ID màn hình là ~.",
+    "furigana_html": "<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>IDは〜とする。"
+  },
+  {
+    "id": "BD-048",
+    "jp": "入力項目は以下の通り。",
+    "vn": "Các mục nhập như sau.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-049",
+    "jp": "表示項目は以下の通り。",
+    "vn": "Các mục hiển thị như sau.",
+    "furigana_html": "<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-050",
+    "jp": "必須項目とする。",
+    "vn": "Là mục bắt buộc.",
+    "furigana_html": "<ruby>必須<rp>(</rp><rt>ひっす</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-051",
+    "jp": "任意入力とする。",
+    "vn": "Nhập tùy chọn.",
+    "furigana_html": "<ruby>任意<rp>(</rp><rt>にんい</rt><rp>)</rp></ruby><ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-052",
+    "jp": "初期表示は〜とする。",
+    "vn": "Hiển thị ban đầu là ~.",
+    "furigana_html": "<ruby>初期<rp>(</rp><rt>しょき</rt><rp>)</rp></ruby><ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-053",
+    "jp": "初期値は〜とする。",
+    "vn": "Giá trị mặc định là ~.",
+    "furigana_html": "<ruby>初期値<rp>(</rp><rt>しょきち</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-054",
+    "jp": "選択肢は〜を表示する。",
+    "vn": "Danh sách lựa chọn hiển thị ~.",
+    "furigana_html": "<ruby>選択肢<rp>(</rp><rt>せんたくし</rt><rp>)</rp></ruby>は〜を<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-055",
+    "jp": "活性／非活性を制御する。",
+    "vn": "Điều khiển enable/disable.",
+    "furigana_html": "<ruby>活性<rp>(</rp><rt>かっせい</rt><rp>)</rp></ruby>／<ruby>非活性<rp>(</rp><rt>ひかっせい</rt><rp>)</rp></ruby>を<ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-056",
+    "jp": "表示／非表示を制御する。",
+    "vn": "Điều khiển hiện/ẩn.",
+    "furigana_html": "<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>／<ruby>非表示<rp>(</rp><rt>ひひょうじ</rt><rp>)</rp></ruby>を<ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-057",
+    "jp": "入力形式は〜とする。",
+    "vn": "Định dạng nhập là ~.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby><ruby>形式<rp>(</rp><rt>けいしき</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-058",
+    "jp": "最大長は〜文字とする。",
+    "vn": "Độ dài tối đa là ~ ký tự.",
+    "furigana_html": "<ruby>最大長<rp>(</rp><rt>さいだいちょう</rt><rp>)</rp></ruby>は〜<ruby>文字<rp>(</rp><rt>もじ</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-059",
+    "jp": "桁数は〜桁までとする。",
+    "vn": "Số chữ số tối đa ~.",
+    "furigana_html": "<ruby>桁数<rp>(</rp><rt>けたすう</rt><rp>)</rp></ruby>は〜<ruby>桁<rp>(</rp><rt>けた</rt><rp>)</rp></ruby>までとする。"
+  },
+  {
+    "id": "BD-060",
+    "jp": "小数点以下は〜桁までとする。",
+    "vn": "Phần thập phân tối đa ~ chữ số.",
+    "furigana_html": "<ruby>小数点<rp>(</rp><rt>しょうすうてん</rt><rp>)</rp></ruby><ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>は〜<ruby>桁<rp>(</rp><rt>けた</rt><rp>)</rp></ruby>までとする。"
+  },
+  {
+    "id": "BD-061",
+    "jp": "入力チェックを行う。",
+    "vn": "Thực hiện validate input.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-062",
+    "jp": "必須チェックを行う。",
+    "vn": "Check bắt buộc.",
+    "furigana_html": "<ruby>必須<rp>(</rp><rt>ひっす</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-063",
+    "jp": "形式チェックを行う。",
+    "vn": "Check định dạng.",
+    "furigana_html": "<ruby>形式<rp>(</rp><rt>けいしき</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-064",
+    "jp": "範囲チェックを行う。",
+    "vn": "Check phạm vi.",
+    "furigana_html": "<ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-065",
+    "jp": "重複チェックを行う。",
+    "vn": "Check trùng lặp.",
+    "furigana_html": "<ruby>重複<rp>(</rp><rt>じゅうふく</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-066",
+    "jp": "整合性チェックを行う。",
+    "vn": "Check tính nhất quán.",
+    "furigana_html": "<ruby>整合性<rp>(</rp><rt>せいごうせい</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-067",
+    "jp": "エラー時は当該項目を強調表示する。",
+    "vn": "Khi lỗi thì highlight field tương ứng.",
+    "furigana_html": "エラー<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は<ruby>当該<rp>(</rp><rt>とうがい</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>を<ruby>強調<rp>(</rp><rt>きょうちょう</rt><rp>)</rp></ruby><ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-068",
+    "jp": "確認ダイアログを表示する。",
+    "vn": "Hiển thị dialog xác nhận.",
+    "furigana_html": "<ruby>確認<rp>(</rp><rt>かくにん</rt><rp>)</rp></ruby>ダイアログを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-069",
+    "jp": "二重送信を防止する。",
+    "vn": "Chống gửi 2 lần.",
+    "furigana_html": "<ruby>二重<rp>(</rp><rt>にじゅう</rt><rp>)</rp></ruby><ruby>送信<rp>(</rp><rt>そうしん</rt><rp>)</rp></ruby>を<ruby>防止<rp>(</rp><rt>ぼうし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-070",
+    "jp": "ページングを行う。",
+    "vn": "Thực hiện paging.",
+    "furigana_html": "ページングを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-071",
+    "jp": "ソート／フィルタを提供する。",
+    "vn": "Cung cấp sort/filter.",
+    "furigana_html": "ソート／フィルタを<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-072",
+    "jp": "画面遷移は以下の通り。",
+    "vn": "Điều hướng màn hình như sau.",
+    "furigana_html": "<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby><ruby>遷移<rp>(</rp><rt>せんい</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-073",
+    "jp": "〜成功時、〜画面へ遷移する。",
+    "vn": "Khi thành công thì chuyển sang màn ~.",
+    "furigana_html": "〜<ruby>成功<rp>(</rp><rt>せいこう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>、〜<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>へ<ruby>遷移<rp>(</rp><rt>せんい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-074",
+    "jp": "キャンセル時は遷移しない。",
+    "vn": "Khi cancel thì không chuyển màn.",
+    "furigana_html": "キャンセル<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は<ruby>遷移<rp>(</rp><rt>せんい</rt><rp>)</rp></ruby>しない。"
+  },
+  {
+    "id": "BD-075",
+    "jp": "メッセージ一覧を以下に示す。",
+    "vn": "Danh sách message như sau.",
+    "furigana_html": "メッセージ<ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-076",
+    "jp": "エラーメッセージを表示する。",
+    "vn": "Hiển thị thông báo lỗi.",
+    "furigana_html": "エラーメッセージを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-077",
+    "jp": "警告メッセージを表示する。",
+    "vn": "Hiển thị cảnh báo.",
+    "furigana_html": "<ruby>警告<rp>(</rp><rt>けいこく</rt><rp>)</rp></ruby>メッセージを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-078",
+    "jp": "完了メッセージを表示する。",
+    "vn": "Hiển thị message hoàn tất.",
+    "furigana_html": "<ruby>完了<rp>(</rp><rt>かんりょう</rt><rp>)</rp></ruby>メッセージを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-079",
+    "jp": "テーブル一覧を以下に示す。",
+    "vn": "Danh sách bảng như sau.",
+    "furigana_html": "テーブル<ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-080",
+    "jp": "テーブル定義は別紙参照。",
+    "vn": "Định nghĩa bảng xem phụ lục.",
+    "furigana_html": "テーブル<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>は<ruby>別紙<rp>(</rp><rt>べっし</rt><rp>)</rp></ruby><ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>。"
+  },
+  {
+    "id": "BD-081",
+    "jp": "カラム定義は以下の通り。",
+    "vn": "Định nghĩa cột như sau.",
+    "furigana_html": "カラム<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-082",
+    "jp": "データ型は〜とする。",
+    "vn": "Kiểu dữ liệu là ~.",
+    "furigana_html": "データ<ruby>型<rp>(</rp><rt>がた</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-083",
+    "jp": "デフォルト値は〜とする。",
+    "vn": "Giá trị default là ~.",
+    "furigana_html": "デフォルト<ruby>値<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-084",
+    "jp": "NULL許可／非許可は〜とする。",
+    "vn": "Cho phép/không cho phép NULL là ~.",
+    "furigana_html": "NULL<ruby>許可<rp>(</rp><rt>きょか</rt><rp>)</rp></ruby>／<ruby>非許可<rp>(</rp><rt>ひきょか</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-085",
+    "jp": "主キーは〜とする。",
+    "vn": "Khóa chính là ~.",
+    "furigana_html": "<ruby>主<rp>(</rp><rt>しゅ</rt><rp>)</rp></ruby>キーは〜とする。"
+  },
+  {
+    "id": "BD-086",
+    "jp": "外部キーは〜を参照する。",
+    "vn": "Khóa ngoại tham chiếu ~.",
+    "furigana_html": "<ruby>外部<rp>(</rp><rt>がいぶ</rt><rp>)</rp></ruby>キーは〜を<ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-087",
+    "jp": "一意制約を付与する。",
+    "vn": "Gắn unique constraint.",
+    "furigana_html": "<ruby>一意<rp>(</rp><rt>いちい</rt><rp>)</rp></ruby><ruby>制約<rp>(</rp><rt>せいやく</rt><rp>)</rp></ruby>を<ruby>付与<rp>(</rp><rt>ふよ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-088",
+    "jp": "インデックスを付与する。",
+    "vn": "Tạo index.",
+    "furigana_html": "インデックスを<ruby>付与<rp>(</rp><rt>ふよ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-089",
+    "jp": "論理削除とする。",
+    "vn": "Xóa logic (soft delete).",
+    "furigana_html": "<ruby>論理<rp>(</rp><rt>ろんり</rt><rp>)</rp></ruby><ruby>削除<rp>(</rp><rt>さくじょ</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-090",
+    "jp": "登録日時／更新日時を保持する。",
+    "vn": "Lưu ngày giờ tạo/cập nhật.",
+    "furigana_html": "<ruby>登録<rp>(</rp><rt>とうろく</rt><rp>)</rp></ruby><ruby>日時<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>／<ruby>更新<rp>(</rp><rt>こうしん</rt><rp>)</rp></ruby><ruby>日時<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>を<ruby>保持<rp>(</rp><rt>ほじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-091",
+    "jp": "排他制御を行う。",
+    "vn": "Thực hiện kiểm soát đồng thời (lock).",
+    "furigana_html": "<ruby>排他<rp>(</rp><rt>はいた</rt><rp>)</rp></ruby><ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>を<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-092",
+    "jp": "外部IF仕様を以下に示す。",
+    "vn": "Thông số IF ngoài như sau.",
+    "furigana_html": "<ruby>外部<rp>(</rp><rt>がいぶ</rt><rp>)</rp></ruby>IF<ruby>仕様<rp>(</rp><rt>しよう</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-093",
+    "jp": "IF方式はRESTとする。",
+    "vn": "Phương thức IF là REST.",
+    "furigana_html": "IF<ruby>方式<rp>(</rp><rt>ほうしき</rt><rp>)</rp></ruby>はRESTとする。"
+  },
+  {
+    "id": "BD-094",
+    "jp": "エンドポイントは以下の通り。",
+    "vn": "Endpoint như sau.",
+    "furigana_html": "エンドポイントは<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-095",
+    "jp": "リクエスト項目は以下の通り。",
+    "vn": "Các trường request như sau.",
+    "furigana_html": "リクエスト<ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-096",
+    "jp": "レスポンス項目は以下の通り。",
+    "vn": "Các trường response như sau.",
+    "furigana_html": "レスポンス<ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-097",
+    "jp": "正常時は200を返却する。",
+    "vn": "Khi 정상 thì trả 200.",
+    "furigana_html": "<ruby>正常<rp>(</rp><rt>せいじょう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は200を<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-098",
+    "jp": "異常時はエラーコードを返却する。",
+    "vn": "Khi lỗi thì trả error code.",
+    "furigana_html": "<ruby>異常<rp>(</rp><rt>いじょう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>はエラーコードを<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-099",
+    "jp": "タイムアウトは〜秒とする。",
+    "vn": "Timeout là ~ giây.",
+    "furigana_html": "タイムアウトは〜<ruby>秒<rp>(</rp><rt>びょう</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-100",
+    "jp": "冪等性を担保する。",
+    "vn": "Đảm bảo tính idempotent.",
+    "furigana_html": "<ruby>冪等性<rp>(</rp><rt>べきとうせい</rt><rp>)</rp></ruby>を<ruby>担保<rp>(</rp><rt>たんぽ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-101",
+    "jp": "バッチ処理概要を以下に示す。",
+    "vn": "Tổng quan batch như sau.",
+    "furigana_html": "バッチ<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>概要<rp>(</rp><rt>がいよう</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-102",
+    "jp": "起動方式はスケジュール起動とする。",
+    "vn": "Cách khởi chạy là theo schedule.",
+    "furigana_html": "<ruby>起動<rp>(</rp><rt>きどう</rt><rp>)</rp></ruby><ruby>方式<rp>(</rp><rt>ほうしき</rt><rp>)</rp></ruby>はスケジュール<ruby>起動<rp>(</rp><rt>きどう</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-103",
+    "jp": "異常終了時は通知する。",
+    "vn": "Khi abnormal end thì thông báo.",
+    "furigana_html": "<ruby>異常<rp>(</rp><rt>いじょう</rt><rp>)</rp></ruby><ruby>終了<rp>(</rp><rt>しゅうりょう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は<ruby>通知<rp>(</rp><rt>つうち</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-104",
+    "jp": "ログ出力方針を以下に示す。",
+    "vn": "Chính sách log như sau.",
+    "furigana_html": "ログ<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby><ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-105",
+    "jp": "ログレベルはINFO/WARN/ERRORとする。",
+    "vn": "Log level là INFO/WARN/ERROR.",
+    "furigana_html": "ログレベルはINFO/WARN/ERRORとする。"
+  },
+  {
+    "id": "BD-106",
+    "jp": "例外発生時はログを出力する。",
+    "vn": "Khi exception thì xuất log.",
+    "furigana_html": "<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby><ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>はログを<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-107",
+    "jp": "個人情報はログに出力しない。",
+    "vn": "Không ghi thông tin cá nhân vào log.",
+    "furigana_html": "<ruby>個人情報<rp>(</rp><rt>こじんじょうほう</rt><rp>)</rp></ruby>はログに<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby>しない。"
+  },
+  {
+    "id": "BD-108",
+    "jp": "ログ保管期間は〜とする。",
+    "vn": "Thời gian lưu log là ~.",
+    "furigana_html": "ログ<ruby>保管<rp>(</rp><rt>ほかん</rt><rp>)</rp></ruby><ruby>期間<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-109",
+    "jp": "認証／認可を行う。",
+    "vn": "Thực hiện xác thực/phân quyền.",
+    "furigana_html": "<ruby>認証<rp>(</rp><rt>にんしょう</rt><rp>)</rp></ruby>／<ruby>認可<rp>(</rp><rt>にんか</rt><rp>)</rp></ruby>を<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-110",
+    "jp": "権限により操作可否を制御する。",
+    "vn": "Kiểm soát thao tác theo quyền.",
+    "furigana_html": "<ruby>権限<rp>(</rp><rt>けんげん</rt><rp>)</rp></ruby>により<ruby>操作<rp>(</rp><rt>そうさ</rt><rp>)</rp></ruby><ruby>可否<rp>(</rp><rt>かひ</rt><rp>)</rp></ruby>を<ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-111",
+    "jp": "通信はTLSを使用する。",
+    "vn": "Giao tiếp dùng TLS.",
+    "furigana_html": "<ruby>通信<rp>(</rp><rt>つうしん</rt><rp>)</rp></ruby>はTLSを<ruby>使用<rp>(</rp><rt>しよう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-112",
+    "jp": "パスワードは暗号化して保存する。",
+    "vn": "Mật khẩu được mã hóa khi lưu.",
+    "furigana_html": "パスワードは<ruby>暗号化<rp>(</rp><rt>あんごうか</rt><rp>)</rp></ruby>して<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-113",
+    "jp": "性能要件は以下の通り。",
+    "vn": "Yêu cầu hiệu năng như sau.",
+    "furigana_html": "<ruby>性能<rp>(</rp><rt>せいのう</rt><rp>)</rp></ruby><ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-114",
+    "jp": "レスポンスタイムは〜秒以内とする。",
+    "vn": "Response time trong ~ giây trở xuống.",
+    "furigana_html": "レスポンスタイムは〜<ruby>秒<rp>(</rp><rt>びょう</rt><rp>)</rp></ruby><ruby>以内<rp>(</rp><rt>いない</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-115",
+    "jp": "同時接続数は〜とする。",
+    "vn": "Số kết nối đồng thời là ~.",
+    "furigana_html": "<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby><ruby>接続数<rp>(</rp><rt>せつぞくすう</rt><rp>)</rp></ruby>は〜とする。"
+  },
+  {
+    "id": "BD-116",
+    "jp": "正常系は以下の通り。",
+    "vn": "Luồng 정상 như sau.",
+    "furigana_html": "<ruby>正常系<rp>(</rp><rt>せいじょうけい</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-117",
+    "jp": "異常系は以下の通り。",
+    "vn": "Luồng bất thường như sau.",
+    "furigana_html": "<ruby>異常系<rp>(</rp><rt>いじょうけい</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-118",
+    "jp": "境界値を考慮する。",
+    "vn": "Xem xét giá trị biên.",
+    "furigana_html": "<ruby>境界値<rp>(</rp><rt>きょうかいち</rt><rp>)</rp></ruby>を<ruby>考慮<rp>(</rp><rt>こうりょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-119",
+    "jp": "別紙参照。",
+    "vn": "Xem phụ lục.",
+    "furigana_html": "<ruby>別紙<rp>(</rp><rt>べっし</rt><rp>)</rp></ruby><ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>。"
+  },
+  {
+    "id": "BD-120",
+    "jp": "別途協議の上決定する。",
+    "vn": "Sẽ trao đổi riêng rồi quyết định.",
+    "furigana_html": "<ruby>別途<rp>(</rp><rt>べっと</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>の<ruby>上<rp>(</rp><rt>うえ</rt><rp>)</rp></ruby><ruby>決定<rp>(</rp><rt>けってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-120",
+    "jp": "別途協議の上決定する。",
+    "vn": "Sẽ trao đổi riêng rồi quyết định.",
+    "furigana_html": "<ruby>別途<rp>(</rp><rt>べっと</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>の<ruby>上<rp>(</rp><rt>うえ</rt><rp>)</rp></ruby><ruby>決定<rp>(</rp><rt>けってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-121",
+    "jp": "本機能は、〜を提供する。",
+    "vn": "Chức năng này cung cấp ~.",
+    "furigana_html": "<ruby>本機能<rp>(</rp><rt>ほんきのう</rt><rp>)</rp></ruby>は、〜を<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-122",
+    "jp": "本仕様は、現行仕様をベースに作成する。",
+    "vn": "Spec này được tạo dựa trên spec hiện hành.",
+    "furigana_html": "<ruby>本仕様<rp>(</rp><rt>ほんしよう</rt><rp>)</rp></ruby>は、<ruby>現行<rp>(</rp><rt>げんこう</rt><rp>)</rp></ruby><ruby>仕様<rp>(</rp><rt>しよう</rt><rp>)</rp></ruby>をベースに<ruby>作成<rp>(</rp><rt>さくせい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-123",
+    "jp": "仕様変更が発生した場合は、影響調査を実施する。",
+    "vn": "Nếu phát sinh thay đổi spec thì thực hiện điều tra ảnh hưởng.",
+    "furigana_html": "<ruby>仕様変更<rp>(</rp><rt>しようへんこう</rt><rp>)</rp></ruby>が<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby>した<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>は、<ruby>影響<rp>(</rp><rt>えいきょう</rt><rp>)</rp></ruby><ruby>調査<rp>(</rp><rt>ちょうさ</rt><rp>)</rp></ruby>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-124",
+    "jp": "制約事項は以下の通り。",
+    "vn": "Các ràng buộc như sau.",
+    "furigana_html": "<ruby>制約事項<rp>(</rp><rt>せいやくじこう</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-125",
+    "jp": "非機能要件は以下の通り。",
+    "vn": "Yêu cầu phi chức năng như sau.",
+    "furigana_html": "<ruby>非機能<rp>(</rp><rt>ひきのう</rt><rp>)</rp></ruby><ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-126",
+    "jp": "セキュリティ要件は以下の通り。",
+    "vn": "Yêu cầu bảo mật như sau.",
+    "furigana_html": "セキュリティ<ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-127",
+    "jp": "可用性要件は以下の通り。",
+    "vn": "Yêu cầu tính sẵn sàng như sau.",
+    "furigana_html": "<ruby>可用性<rp>(</rp><rt>かようせい</rt><rp>)</rp></ruby><ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-128",
+    "jp": "保守性を考慮した設計とする。",
+    "vn": "Thiết kế có xét đến tính dễ bảo trì.",
+    "furigana_html": "<ruby>保守性<rp>(</rp><rt>ほしゅせい</rt><rp>)</rp></ruby>を<ruby>考慮<rp>(</rp><rt>こうりょ</rt><rp>)</rp></ruby>した<ruby>設計<rp>(</rp><rt>せっけい</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-129",
+    "jp": "拡張性を考慮した構成とする。",
+    "vn": "Cấu hình có xét đến khả năng mở rộng.",
+    "furigana_html": "<ruby>拡張性<rp>(</rp><rt>かくちょうせい</rt><rp>)</rp></ruby>を<ruby>考慮<rp>(</rp><rt>こうりょ</rt><rp>)</rp></ruby>した<ruby>構成<rp>(</rp><rt>こうせい</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-130",
+    "jp": "シーケンス図を以下に示す。",
+    "vn": "Sơ đồ sequence như sau.",
+    "furigana_html": "シーケンス<ruby>図<rp>(</rp><rt>ず</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-131",
+    "jp": "ER図を以下に示す。",
+    "vn": "Sơ đồ ER như sau.",
+    "furigana_html": "ER<ruby>図<rp>(</rp><rt>ず</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-132",
+    "jp": "データフローを以下に示す。",
+    "vn": "Data flow như sau.",
+    "furigana_html": "データフローを<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-133",
+    "jp": "処理はトランザクション管理下で実行する。",
+    "vn": "Xử lý được thực thi dưới quản lý transaction.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>はトランザクション<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby><ruby>下<rp>(</rp><rt>か</rt><rp>)</rp></ruby>で<ruby>実行<rp>(</rp><rt>じっこう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-134",
+    "jp": "エラー発生時はロールバックする。",
+    "vn": "Khi phát sinh lỗi thì rollback.",
+    "furigana_html": "エラー<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>はロールバックする。"
+  },
+  {
+    "id": "BD-135",
+    "jp": "処理完了後にコミットする。",
+    "vn": "Commit sau khi xử lý hoàn tất.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>完了<rp>(</rp><rt>かんりょう</rt><rp>)</rp></ruby><ruby>後<rp>(</rp><rt>ご</rt><rp>)</rp></ruby>にコミットする。"
+  },
+  {
+    "id": "BD-136",
+    "jp": "例外は上位へスローする。",
+    "vn": "Exception được throw lên tầng trên.",
+    "furigana_html": "<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>は<ruby>上位<rp>(</rp><rt>じょうい</rt><rp>)</rp></ruby>へスローする。"
+  },
+  {
+    "id": "BD-137",
+    "jp": "リトライ回数は〜回までとする。",
+    "vn": "Số lần retry tối đa là ~ lần.",
+    "furigana_html": "リトライ<ruby>回数<rp>(</rp><rt>かいすう</rt><rp>)</rp></ruby>は〜<ruby>回<rp>(</rp><rt>かい</rt><rp>)</rp></ruby>までとする。"
+  },
+  {
+    "id": "BD-138",
+    "jp": "タイムアウト発生時は処理を中断する。",
+    "vn": "Khi timeout thì dừng xử lý.",
+    "furigana_html": "タイムアウト<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>を<ruby>中断<rp>(</rp><rt>ちゅうだん</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-139",
+    "jp": "採番ルールは以下の通り。",
+    "vn": "Quy tắc đánh số như sau.",
+    "furigana_html": "<ruby>採番<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>ルールは<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-140",
+    "jp": "コード値はマスタから取得する。",
+    "vn": "Giá trị code được lấy từ master.",
+    "furigana_html": "コード<ruby>値<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>はマスタから<ruby>取得<rp>(</rp><rt>しゅとく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-141",
+    "jp": "マスタメンテナンス機能を提供する。",
+    "vn": "Cung cấp chức năng bảo trì master.",
+    "furigana_html": "マスタメンテナンス<ruby>機能<rp>(</rp><rt>きのう</rt><rp>)</rp></ruby>を<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-142",
+    "jp": "権限ロールを以下に示す。",
+    "vn": "Danh sách role quyền như sau.",
+    "furigana_html": "<ruby>権限<rp>(</rp><rt>けんげん</rt><rp>)</rp></ruby>ロールを<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-143",
+    "jp": "操作ログ（監査ログ）を出力する。",
+    "vn": "Xuất log thao tác (audit log).",
+    "furigana_html": "<ruby>操作<rp>(</rp><rt>そうさ</rt><rp>)</rp></ruby>ログ（<ruby>監査<rp>(</rp><rt>かんさ</rt><rp>)</rp></ruby>ログ）を<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-144",
+    "jp": "キャッシュを利用して性能を向上させる。",
+    "vn": "Dùng cache để cải thiện hiệu năng.",
+    "furigana_html": "キャッシュを<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>して<ruby>性能<rp>(</rp><rt>せいのう</rt><rp>)</rp></ruby>を<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>させる。"
+  },
+  {
+    "id": "BD-145",
+    "jp": "セッション管理方針は以下の通り。",
+    "vn": "Chính sách quản lý session như sau.",
+    "furigana_html": "セッション<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby><ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-146",
+    "jp": "バックアップ／リストア方針は以下の通り。",
+    "vn": "Chính sách backup/restore như sau.",
+    "furigana_html": "バックアップ／リストア<ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-147",
+    "jp": "運用手順は別紙参照。",
+    "vn": "Quy trình vận hành xem phụ lục.",
+    "furigana_html": "<ruby>運用<rp>(</rp><rt>うんよう</rt><rp>)</rp></ruby><ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>別紙<rp>(</rp><rt>べっし</rt><rp>)</rp></ruby><ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>。"
+  },
+  {
+    "id": "BD-148",
+    "jp": "障害発生時の対応手順は以下の通り。",
+    "vn": "Trình tự xử lý khi xảy ra sự cố như sau.",
+    "furigana_html": "<ruby>障害<rp>(</rp><rt>しょうがい</rt><rp>)</rp></ruby><ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>の<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby><ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-149",
+    "jp": "リリース手順は以下の通り。",
+    "vn": "Trình tự release như sau.",
+    "furigana_html": "リリース<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-150",
+    "jp": "移行方針は以下の通り。",
+    "vn": "Chính sách migrate như sau.",
+    "furigana_html": "<ruby>移行<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby><ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-151",
+    "jp": "システム構成を以下に示す。",
+    "vn": "Cấu hình hệ thống như sau.",
+    "furigana_html": "システム<ruby>構成<rp>(</rp><rt>こうせい</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-152",
+    "jp": "全体構成は三層アーキテクチャとする。",
+    "vn": "Kiến trúc tổng thể là 3 tầng.",
+    "furigana_html": "<ruby>全体<rp>(</rp><rt>ぜんたい</rt><rp>)</rp></ruby><ruby>構成<rp>(</rp><rt>こうせい</rt><rp>)</rp></ruby>は<ruby>三層<rp>(</rp><rt>さんそう</rt><rp>)</rp></ruby>アーキテクチャとする。"
+  },
+  {
+    "id": "BD-153",
+    "jp": "プレゼンテーション層はWebブラウザとする。",
+    "vn": "Tầng presentation là web browser.",
+    "furigana_html": "プレゼンテーション<ruby>層<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>はWebブラウザとする。"
+  },
+  {
+    "id": "BD-154",
+    "jp": "アプリケーション層はAPIサーバで提供する。",
+    "vn": "Tầng application cung cấp qua API server.",
+    "furigana_html": "アプリケーション<ruby>層<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>はAPIサーバで<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-155",
+    "jp": "データ層はRDBMSを利用する。",
+    "vn": "Tầng data sử dụng RDBMS.",
+    "furigana_html": "データ<ruby>層<rp>(</rp><rt>そう</rt><rp>)</rp></ruby>はRDBMSを<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-156",
+    "jp": "論理構成と物理構成を分離して記載する。",
+    "vn": "Tách riêng mô tả logical và physical.",
+    "furigana_html": "<ruby>論理<rp>(</rp><rt>ろんり</rt><rp>)</rp></ruby><ruby>構成<rp>(</rp><rt>こうせい</rt><rp>)</rp></ruby>と<ruby>物理<rp>(</rp><rt>ぶつり</rt><rp>)</rp></ruby><ruby>構成<rp>(</rp><rt>こうせい</rt><rp>)</rp></ruby>を<ruby>分離<rp>(</rp><rt>ぶんり</rt><rp>)</rp></ruby>して<ruby>記載<rp>(</rp><rt>きさい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-157",
+    "jp": "利用者は社内ネットワークから利用する。",
+    "vn": "Người dùng sử dụng từ mạng nội bộ.",
+    "furigana_html": "<ruby>利用者<rp>(</rp><rt>りようしゃ</rt><rp>)</rp></ruby>は<ruby>社内<rp>(</rp><rt>しゃない</rt><rp>)</rp></ruby>ネットワークから<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-158",
+    "jp": "認証はSSOとする。",
+    "vn": "Xác thực dùng SSO.",
+    "furigana_html": "<ruby>認証<rp>(</rp><rt>にんしょう</rt><rp>)</rp></ruby>はSSOとする。"
+  },
+  {
+    "id": "BD-159",
+    "jp": "認可はロールベースで制御する。",
+    "vn": "Phân quyền theo role-based.",
+    "furigana_html": "<ruby>認可<rp>(</rp><rt>にんか</rt><rp>)</rp></ruby>はロールベースで<ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-160",
+    "jp": "通信はHTTPSを必須とする。",
+    "vn": "Giao tiếp bắt buộc HTTPS.",
+    "furigana_html": "<ruby>通信<rp>(</rp><rt>つうしん</rt><rp>)</rp></ruby>はHTTPSを<ruby>必須<rp>(</rp><rt>ひっす</rt><rp>)</rp></ruby>とする。"
+  },
+
+  {
+    "id": "BD-161",
+    "jp": "画面はレスポンシブデザインに対応する。",
+    "vn": "Màn hình hỗ trợ responsive design.",
+    "furigana_html": "<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>はレスポンシブデザインに<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-162",
+    "jp": "共通ヘッダー／フッターを提供する。",
+    "vn": "Cung cấp header/footer dùng chung.",
+    "furigana_html": "<ruby>共通<rp>(</rp><rt>きょうつう</rt><rp>)</rp></ruby>ヘッダー／フッターを<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-163",
+    "jp": "画面権限によりメニューの表示を制御する。",
+    "vn": "Hiển thị menu được điều khiển theo quyền màn hình.",
+    "furigana_html": "<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby><ruby>権限<rp>(</rp><rt>けんげん</rt><rp>)</rp></ruby>によりメニューの<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>を<ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-164",
+    "jp": "一覧は検索条件を指定して表示する。",
+    "vn": "Danh sách hiển thị theo điều kiện tìm kiếm.",
+    "furigana_html": "<ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>は<ruby>検索<rp>(</rp><rt>けんさく</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>を<ruby>指定<rp>(</rp><rt>してい</rt><rp>)</rp></ruby>して<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-165",
+    "jp": "検索条件が未指定の場合は全件表示しない。",
+    "vn": "Nếu không chỉ định điều kiện tìm kiếm thì không hiển thị toàn bộ.",
+    "furigana_html": "<ruby>検索<rp>(</rp><rt>けんさく</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>が<ruby>未指定<rp>(</rp><rt>みしてい</rt><rp>)</rp></ruby>の<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>は<ruby>全件<rp>(</rp><rt>ぜんけん</rt><rp>)</rp></ruby><ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>しない。"
+  },
+  {
+    "id": "BD-166",
+    "jp": "一覧はページングを行う。",
+    "vn": "Danh sách có paging.",
+    "furigana_html": "<ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>はページングを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-167",
+    "jp": "並び替え（ソート）を提供する。",
+    "vn": "Cung cấp sắp xếp (sort).",
+    "furigana_html": "<ruby>並<rp>(</rp><rt>なら</rt><rp>)</rp></ruby>び<ruby>替<rp>(</rp><rt>か</rt><rp>)</rp></ruby>え（ソート）を<ruby>提供<rp>(</rp><rt>ていきょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-168",
+    "jp": "フィルタ条件を指定できるようにする。",
+    "vn": "Cho phép chỉ định điều kiện filter.",
+    "furigana_html": "フィルタ<ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>を<ruby>指定<rp>(</rp><rt>してい</rt><rp>)</rp></ruby>できるようにする。"
+  },
+  {
+    "id": "BD-169",
+    "jp": "入力フォームはIMEモードを考慮する。",
+    "vn": "Form nhập có xét IME mode.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby>フォームはIMEモードを<ruby>考慮<rp>(</rp><rt>こうりょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-170",
+    "jp": "日付はYYYY/MM/DD形式とする。",
+    "vn": "Ngày tháng theo định dạng YYYY/MM/DD.",
+    "furigana_html": "<ruby>日付<rp>(</rp><rt>ひづけ</rt><rp>)</rp></ruby>はYYYY/MM/DD<ruby>形式<rp>(</rp><rt>けいしき</rt><rp>)</rp></ruby>とする。"
+  },
+
+  {
+    "id": "BD-171",
+    "jp": "入力チェックはクライアント／サーバの両方で実施する。",
+    "vn": "Validate input ở cả client và server.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby>チェックはクライアント／サーバの<ruby>両方<rp>(</rp><rt>りょうほう</rt><rp>)</rp></ruby>で<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-172",
+    "jp": "必須項目は未入力の場合、エラーとする。",
+    "vn": "Mục bắt buộc nếu không nhập thì lỗi.",
+    "furigana_html": "<ruby>必須<rp>(</rp><rt>ひっす</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>未入力<rp>(</rp><rt>みにゅうりょく</rt><rp>)</rp></ruby>の<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>、エラーとする。"
+  },
+  {
+    "id": "BD-173",
+    "jp": "文字数が上限を超える場合、エラーとする。",
+    "vn": "Nếu số ký tự vượt quá giới hạn thì lỗi.",
+    "furigana_html": "<ruby>文字数<rp>(</rp><rt>もじすう</rt><rp>)</rp></ruby>が<ruby>上限<rp>(</rp><rt>じょうげん</rt><rp>)</rp></ruby>を<ruby>超<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>える<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>、エラーとする。"
+  },
+  {
+    "id": "BD-174",
+    "jp": "不正文字が含まれる場合、エラーとする。",
+    "vn": "Nếu chứa ký tự không hợp lệ thì lỗi.",
+    "furigana_html": "<ruby>不正<rp>(</rp><rt>ふせい</rt><rp>)</rp></ruby><ruby>文字<rp>(</rp><rt>もじ</rt><rp>)</rp></ruby>が<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まれる<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>、エラーとする。"
+  },
+  {
+    "id": "BD-175",
+    "jp": "数値項目は範囲チェックを行う。",
+    "vn": "Trường số thực hiện check phạm vi.",
+    "furigana_html": "<ruby>数値<rp>(</rp><rt>すうち</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>範囲<rp>(</rp><rt>はんい</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-176",
+    "jp": "重複データが存在する場合、エラーとする。",
+    "vn": "Nếu tồn tại dữ liệu trùng thì lỗi.",
+    "furigana_html": "<ruby>重複<rp>(</rp><rt>じゅうふく</rt><rp>)</rp></ruby>データが<ruby>存在<rp>(</rp><rt>そんざい</rt><rp>)</rp></ruby>する<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>、エラーとする。"
+  },
+  {
+    "id": "BD-177",
+    "jp": "登録ボタン押下時に確認ダイアログを表示する。",
+    "vn": "Khi nhấn nút đăng ký thì hiển thị dialog xác nhận.",
+    "furigana_html": "<ruby>登録<rp>(</rp><rt>とうろく</rt><rp>)</rp></ruby>ボタン<ruby>押下<rp>(</rp><rt>おうか</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>に<ruby>確認<rp>(</rp><rt>かくにん</rt><rp>)</rp></ruby>ダイアログを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-178",
+    "jp": "二重送信を防止する。",
+    "vn": "Chống gửi hai lần.",
+    "furigana_html": "<ruby>二重<rp>(</rp><rt>にじゅう</rt><rp>)</rp></ruby><ruby>送信<rp>(</rp><rt>そうしん</rt><rp>)</rp></ruby>を<ruby>防止<rp>(</rp><rt>ぼうし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-179",
+    "jp": "処理中はローディングを表示する。",
+    "vn": "Trong lúc xử lý hiển thị loading.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>中<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>はローディングを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-180",
+    "jp": "処理完了後に完了メッセージを表示する。",
+    "vn": "Sau khi xử lý xong hiển thị message hoàn tất.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>完了<rp>(</rp><rt>かんりょう</rt><rp>)</rp></ruby><ruby>後<rp>(</rp><rt>ご</rt><rp>)</rp></ruby>に<ruby>完了<rp>(</rp><rt>かんりょう</rt><rp>)</rp></ruby>メッセージを<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-181",
+    "jp": "エラーメッセージは利用者に分かりやすい文言とする。",
+    "vn": "Thông báo lỗi phải dễ hiểu với người dùng.",
+    "furigana_html": "エラーメッセージは<ruby>利用者<rp>(</rp><rt>りようしゃ</rt><rp>)</rp></ruby>に<ruby>分<rp>(</rp><rt>わ</rt><rp>)</rp></ruby>かりやすい<ruby>文言<rp>(</rp><rt>もんごん</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-182",
+    "jp": "内部例外の詳細は画面に表示しない。",
+    "vn": "Không hiển thị chi tiết exception nội bộ trên màn hình.",
+    "furigana_html": "<ruby>内部<rp>(</rp><rt>ないぶ</rt><rp>)</rp></ruby><ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>の<ruby>詳細<rp>(</rp><rt>しょうさい</rt><rp>)</rp></ruby>は<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>に<ruby>表示<rp>(</rp><rt>ひょうじ</rt><rp>)</rp></ruby>しない。"
+  },
+  {
+    "id": "BD-183",
+    "jp": "エラー発生時は入力内容を保持する。",
+    "vn": "Khi lỗi thì giữ lại nội dung đã nhập.",
+    "furigana_html": "エラー<ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby><ruby>内容<rp>(</rp><rt>ないよう</rt><rp>)</rp></ruby>を<ruby>保持<rp>(</rp><rt>ほじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-184",
+    "jp": "例外は共通ハンドラで捕捉する。",
+    "vn": "Exception được bắt bằng handler dùng chung.",
+    "furigana_html": "<ruby>例外<rp>(</rp><rt>れいがい</rt><rp>)</rp></ruby>は<ruby>共通<rp>(</rp><rt>きょうつう</rt><rp>)</rp></ruby>ハンドラで<ruby>捕捉<rp>(</rp><rt>ほそく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-185",
+    "jp": "ログに相関IDを出力する。",
+    "vn": "Xuất correlation ID vào log.",
+    "furigana_html": "ログに<ruby>相関<rp>(</rp><rt>そうかん</rt><rp>)</rp></ruby>IDを<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-186",
+    "jp": "ログ出力方針は以下の通り。",
+    "vn": "Chính sách xuất log như sau.",
+    "furigana_html": "ログ<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby><ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-187",
+    "jp": "機微情報はログに出力しない。",
+    "vn": "Không xuất thông tin nhạy cảm vào log.",
+    "furigana_html": "<ruby>機微<rp>(</rp><rt>きび</rt><rp>)</rp></ruby><ruby>情報<rp>(</rp><rt>じょうほう</rt><rp>)</rp></ruby>はログに<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby>しない。"
+  },
+  {
+    "id": "BD-188",
+    "jp": "監査ログを保持する。",
+    "vn": "Lưu audit log.",
+    "furigana_html": "<ruby>監査<rp>(</rp><rt>かんさ</rt><rp>)</rp></ruby>ログを<ruby>保持<rp>(</rp><rt>ほじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-189",
+    "jp": "ログの保存期間は〜日とする。",
+    "vn": "Thời gian lưu log là ~ ngày.",
+    "furigana_html": "ログの<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby><ruby>期間<rp>(</rp><rt>きかん</rt><rp>)</rp></ruby>は〜<ruby>日<rp>(</rp><rt>にち</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-190",
+    "jp": "ログのローテーションを行う。",
+    "vn": "Thực hiện log rotation.",
+    "furigana_html": "ログのローテーションを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+
+  {
+    "id": "BD-191",
+    "jp": "APIはREST方式とする。",
+    "vn": "API theo REST.",
+    "furigana_html": "APIはREST<ruby>方式<rp>(</rp><rt>ほうしき</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-192",
+    "jp": "リクエスト／レスポンスはJSON形式とする。",
+    "vn": "Request/response theo JSON.",
+    "furigana_html": "リクエスト／レスポンスはJSON<ruby>形式<rp>(</rp><rt>けいしき</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-193",
+    "jp": "エンドポイント一覧を以下に示す。",
+    "vn": "Danh sách endpoint như sau.",
+    "furigana_html": "エンドポイント<ruby>一覧<rp>(</rp><rt>いちらん</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-194",
+    "jp": "リクエスト項目は必須／任意を明記する。",
+    "vn": "Trường request ghi rõ bắt buộc/tuỳ chọn.",
+    "furigana_html": "リクエスト<ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>必須<rp>(</rp><rt>ひっす</rt><rp>)</rp></ruby>／<ruby>任意<rp>(</rp><rt>にんい</rt><rp>)</rp></ruby>を<ruby>明記<rp>(</rp><rt>めいき</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-195",
+    "jp": "レスポンス項目は型と桁数を明記する。",
+    "vn": "Trường response ghi rõ type và độ dài.",
+    "furigana_html": "レスポンス<ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>は<ruby>型<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>と<ruby>桁数<rp>(</rp><rt>けたすう</rt><rp>)</rp></ruby>を<ruby>明記<rp>(</rp><rt>めいき</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-196",
+    "jp": "正常時は200を返却する。",
+    "vn": "Khi 정상 trả 200.",
+    "furigana_html": "<ruby>正常<rp>(</rp><rt>せいじょう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は200を<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-197",
+    "jp": "入力エラー時は400を返却する。",
+    "vn": "Lỗi input trả 400.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby>エラー<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は400を<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-198",
+    "jp": "認証エラー時は401を返却する。",
+    "vn": "Lỗi xác thực trả 401.",
+    "furigana_html": "<ruby>認証<rp>(</rp><rt>にんしょう</rt><rp>)</rp></ruby>エラー<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は401を<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-199",
+    "jp": "権限エラー時は403を返却する。",
+    "vn": "Lỗi quyền truy cập trả 403.",
+    "furigana_html": "<ruby>権限<rp>(</rp><rt>けんげん</rt><rp>)</rp></ruby>エラー<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は403を<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-200",
+    "jp": "想定外エラー時は500を返却する。",
+    "vn": "Lỗi không mong đợi trả 500.",
+    "furigana_html": "<ruby>想定外<rp>(</rp><rt>そうていがい</rt><rp>)</rp></ruby>エラー<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は500を<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-201",
+    "jp": "タイムアウトは〜秒とする。",
+    "vn": "Timeout là ~ giây.",
+    "furigana_html": "タイムアウトは〜<ruby>秒<rp>(</rp><rt>びょう</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-202",
+    "jp": "リトライは最大〜回までとする。",
+    "vn": "Retry tối đa ~ lần.",
+    "furigana_html": "リトライは<ruby>最大<rp>(</rp><rt>さいだい</rt><rp>)</rp></ruby>〜<ruby>回<rp>(</rp><rt>かい</rt><rp>)</rp></ruby>までとする。"
+  },
+  {
+    "id": "BD-203",
+    "jp": "冪等性を担保する。",
+    "vn": "Đảm bảo tính idempotent.",
+    "furigana_html": "<ruby>冪等性<rp>(</rp><rt>べきとうせい</rt><rp>)</rp></ruby>を<ruby>担保<rp>(</rp><rt>たんぽ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-204",
+    "jp": "リクエストIDをヘッダーで受領する。",
+    "vn": "Nhận request ID qua header.",
+    "furigana_html": "リクエストIDをヘッダーで<ruby>受領<rp>(</rp><rt>じゅりょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-205",
+    "jp": "レスポンスに処理結果コードを含める。",
+    "vn": "Response bao gồm mã kết quả xử lý.",
+    "furigana_html": "レスポンスに<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>結果<rp>(</rp><rt>けっか</rt><rp>)</rp></ruby>コードを<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>める。"
+  },
+  {
+    "id": "BD-206",
+    "jp": "入力値はサーバでサニタイズする。",
+    "vn": "Giá trị input được sanitize ở server.",
+    "furigana_html": "<ruby>入力<rp>(</rp><rt>にゅうりょく</rt><rp>)</rp></ruby><ruby>値<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>はサーバでサニタイズする。"
+  },
+  {
+    "id": "BD-207",
+    "jp": "SQLインジェクション対策を実施する。",
+    "vn": "Thực hiện chống SQL injection.",
+    "furigana_html": "SQLインジェクション<ruby>対策<rp>(</rp><rt>たいさく</rt><rp>)</rp></ruby>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-208",
+    "jp": "XSS対策を実施する。",
+    "vn": "Thực hiện chống XSS.",
+    "furigana_html": "XSS<ruby>対策<rp>(</rp><rt>たいさく</rt><rp>)</rp></ruby>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-209",
+    "jp": "CSRF対策を実施する。",
+    "vn": "Thực hiện chống CSRF.",
+    "furigana_html": "CSRF<ruby>対策<rp>(</rp><rt>たいさく</rt><rp>)</rp></ruby>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-210",
+    "jp": "パスワードはハッシュ化して保存する。",
+    "vn": "Mật khẩu lưu dưới dạng hash.",
+    "furigana_html": "パスワードはハッシュ<ruby>化<rp>(</rp><rt>か</rt><rp>)</rp></ruby>して<ruby>保存<rp>(</rp><rt>ほぞん</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-211",
+    "jp": "個人情報は暗号化して保管する。",
+    "vn": "Thông tin cá nhân được mã hoá khi lưu trữ.",
+    "furigana_html": "<ruby>個人<rp>(</rp><rt>こじん</rt><rp>)</rp></ruby><ruby>情報<rp>(</rp><rt>じょうほう</rt><rp>)</rp></ruby>は<ruby>暗号化<rp>(</rp><rt>あんごうか</rt><rp>)</rp></ruby>して<ruby>保管<rp>(</rp><rt>ほかん</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-212",
+    "jp": "セッションタイムアウトは〜分とする。",
+    "vn": "Session timeout là ~ phút.",
+    "furigana_html": "セッションタイムアウトは〜<ruby>分<rp>(</rp><rt>ふん</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-213",
+    "jp": "同時ログインの扱いは以下の通り。",
+    "vn": "Quy định về đăng nhập đồng thời như sau.",
+    "furigana_html": "<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby>ログインの<ruby>扱<rp>(</rp><rt>あつか</rt><rp>)</rp></ruby>いは<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-214",
+    "jp": "権限がない場合は操作できない。",
+    "vn": "Không có quyền thì không thao tác được.",
+    "furigana_html": "<ruby>権限<rp>(</rp><rt>けんげん</rt><rp>)</rp></ruby>がない<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>は<ruby>操作<rp>(</rp><rt>そうさ</rt><rp>)</rp></ruby>できない。"
+  },
+  {
+    "id": "BD-215",
+    "jp": "パラメータはバリデーションを行う。",
+    "vn": "Tham số được validation.",
+    "furigana_html": "パラメータはバリデーションを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-216",
+    "jp": "共通エラー画面へ遷移する。",
+    "vn": "Chuyển sang màn lỗi dùng chung.",
+    "furigana_html": "<ruby>共通<rp>(</rp><rt>きょうつう</rt><rp>)</rp></ruby>エラー<ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>へ<ruby>遷移<rp>(</rp><rt>せんい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-217",
+    "jp": "業務エラーはメッセージで通知する。",
+    "vn": "Lỗi nghiệp vụ được thông báo bằng message.",
+    "furigana_html": "<ruby>業務<rp>(</rp><rt>ぎょうむ</rt><rp>)</rp></ruby>エラーはメッセージで<ruby>通知<rp>(</rp><rt>つうち</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-218",
+    "jp": "システムエラーは管理者へ通知する。",
+    "vn": "Lỗi hệ thống thông báo cho admin.",
+    "furigana_html": "システムエラーは<ruby>管理者<rp>(</rp><rt>かんりしゃ</rt><rp>)</rp></ruby>へ<ruby>通知<rp>(</rp><rt>つうち</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-219",
+    "jp": "通知はメールで送信する。",
+    "vn": "Thông báo gửi qua email.",
+    "furigana_html": "<ruby>通知<rp>(</rp><rt>つうち</rt><rp>)</rp></ruby>はメールで<ruby>送信<rp>(</rp><rt>そうしん</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-220",
+    "jp": "通知条件は以下の通り。",
+    "vn": "Điều kiện thông báo như sau.",
+    "furigana_html": "<ruby>通知<rp>(</rp><rt>つうち</rt><rp>)</rp></ruby><ruby>条件<rp>(</rp><rt>じょうけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+
+  {
+    "id": "BD-221",
+    "jp": "DBは論理削除とする。",
+    "vn": "DB dùng xóa logic (soft delete).",
+    "furigana_html": "DBは<ruby>論理<rp>(</rp><rt>ろんり</rt><rp>)</rp></ruby><ruby>削除<rp>(</rp><rt>さくじょ</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-222",
+    "jp": "削除フラグで判定する。",
+    "vn": "Phán định bằng cờ xóa.",
+    "furigana_html": "<ruby>削除<rp>(</rp><rt>さくじょ</rt><rp>)</rp></ruby>フラグで<ruby>判定<rp>(</rp><rt>はんてい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-223",
+    "jp": "登録日時／更新日時を保持する。",
+    "vn": "Lưu ngày giờ tạo/cập nhật.",
+    "furigana_html": "<ruby>登録<rp>(</rp><rt>とうろく</rt><rp>)</rp></ruby><ruby>日時<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>／<ruby>更新<rp>(</rp><rt>こうしん</rt><rp>)</rp></ruby><ruby>日時<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>を<ruby>保持<rp>(</rp><rt>ほじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-224",
+    "jp": "更新者を保持する。",
+    "vn": "Lưu người cập nhật.",
+    "furigana_html": "<ruby>更新者<rp>(</rp><rt>こうしんしゃ</rt><rp>)</rp></ruby>を<ruby>保持<rp>(</rp><rt>ほじ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-225",
+    "jp": "排他制御を行う。",
+    "vn": "Thực hiện kiểm soát đồng thời (lock).",
+    "furigana_html": "<ruby>排他<rp>(</rp><rt>はいた</rt><rp>)</rp></ruby><ruby>制御<rp>(</rp><rt>せいぎょ</rt><rp>)</rp></ruby>を<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-226",
+    "jp": "排他方式は楽観ロックとする。",
+    "vn": "Cơ chế lock là optimistic lock.",
+    "furigana_html": "<ruby>排他<rp>(</rp><rt>はいた</rt><rp>)</rp></ruby><ruby>方式<rp>(</rp><rt>ほうしき</rt><rp>)</rp></ruby>は<ruby>楽観<rp>(</rp><rt>らっかん</rt><rp>)</rp></ruby>ロックとする。"
+  },
+  {
+    "id": "BD-227",
+    "jp": "バージョン番号で競合を検知する。",
+    "vn": "Phát hiện xung đột bằng version number.",
+    "furigana_html": "バージョン<ruby>番号<rp>(</rp><rt>ばんごう</rt><rp>)</rp></ruby>で<ruby>競合<rp>(</rp><rt>きょうごう</rt><rp>)</rp></ruby>を<ruby>検知<rp>(</rp><rt>けんち</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-228",
+    "jp": "インデックスを付与する。",
+    "vn": "Tạo index.",
+    "furigana_html": "インデックスを<ruby>付与<rp>(</rp><rt>ふよ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-229",
+    "jp": "検索キーにインデックスを付与する。",
+    "vn": "Tạo index cho key tìm kiếm.",
+    "furigana_html": "<ruby>検索<rp>(</rp><rt>けんさく</rt><rp>)</rp></ruby>キーにインデックスを<ruby>付与<rp>(</rp><rt>ふよ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-230",
+    "jp": "参照整合性を担保する。",
+    "vn": "Đảm bảo tính toàn vẹn tham chiếu.",
+    "furigana_html": "<ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby><ruby>整合性<rp>(</rp><rt>せいごうせい</rt><rp>)</rp></ruby>を<ruby>担保<rp>(</rp><rt>たんぽ</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-231",
+    "jp": "主キーを設定する。",
+    "vn": "Thiết lập khóa chính.",
+    "furigana_html": "<ruby>主<rp>(</rp><rt>しゅ</rt><rp>)</rp></ruby>キーを<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-232",
+    "jp": "外部キーを設定する。",
+    "vn": "Thiết lập khóa ngoại.",
+    "furigana_html": "<ruby>外部<rp>(</rp><rt>がいぶ</rt><rp>)</rp></ruby>キーを<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-233",
+    "jp": "一意制約を付与する。",
+    "vn": "Gắn ràng buộc unique.",
+    "furigana_html": "<ruby>一意<rp>(</rp><rt>いちい</rt><rp>)</rp></ruby><ruby>制約<rp>(</rp><rt>せいやく</rt><rp>)</rp></ruby>を<ruby>付与<rp>(</rp><rt>ふよ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-234",
+    "jp": "NULL許可／非許可を定義する。",
+    "vn": "Định nghĩa cho phép/không cho phép NULL.",
+    "furigana_html": "NULL<ruby>許可<rp>(</rp><rt>きょか</rt><rp>)</rp></ruby>／<ruby>非許可<rp>(</rp><rt>ひきょか</rt><rp>)</rp></ruby>を<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-235",
+    "jp": "デフォルト値を設定する。",
+    "vn": "Thiết lập giá trị mặc định.",
+    "furigana_html": "デフォルト<ruby>値<rp>(</rp><rt>ち</rt><rp>)</rp></ruby>を<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-236",
+    "jp": "採番はシーケンスで行う。",
+    "vn": "Đánh số bằng sequence.",
+    "furigana_html": "<ruby>採番<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby>はシーケンスで<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-237",
+    "jp": "採番仕様は以下の通り。",
+    "vn": "Đặc tả đánh số như sau.",
+    "furigana_html": "<ruby>採番<rp>(</rp><rt>さいばん</rt><rp>)</rp></ruby><ruby>仕様<rp>(</rp><rt>しよう</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-238",
+    "jp": "マスタデータは管理画面で保守する。",
+    "vn": "Dữ liệu master được bảo trì trên màn quản trị.",
+    "furigana_html": "マスタデータは<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby><ruby>画面<rp>(</rp><rt>がめん</rt><rp>)</rp></ruby>で<ruby>保守<rp>(</rp><rt>ほしゅ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-239",
+    "jp": "マスタの取込はCSVで行う。",
+    "vn": "Import master bằng CSV.",
+    "furigana_html": "マスタの<ruby>取込<rp>(</rp><rt>とりこみ</rt><rp>)</rp></ruby>はCSVで<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-240",
+    "jp": "CSV取込時は形式チェックを行う。",
+    "vn": "Khi import CSV thì check format.",
+    "furigana_html": "CSV<ruby>取込<rp>(</rp><rt>とりこみ</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>は<ruby>形式<rp>(</rp><rt>けいしき</rt><rp>)</rp></ruby>チェックを<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+
+  {
+    "id": "BD-241",
+    "jp": "バッチは夜間に実行する。",
+    "vn": "Batch chạy ban đêm.",
+    "furigana_html": "バッチは<ruby>夜間<rp>(</rp><rt>やかん</rt><rp>)</rp></ruby>に<ruby>実行<rp>(</rp><rt>じっこう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-242",
+    "jp": "スケジュールはジョブ管理で設定する。",
+    "vn": "Schedule được cấu hình bằng job management.",
+    "furigana_html": "スケジュールはジョブ<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby>で<ruby>設定<rp>(</rp><rt>せってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-243",
+    "jp": "バッチ起動は手動／自動に対応する。",
+    "vn": "Khởi chạy batch hỗ trợ manual/auto.",
+    "furigana_html": "バッチ<ruby>起動<rp>(</rp><rt>きどう</rt><rp>)</rp></ruby>は<ruby>手動<rp>(</rp><rt>しゅどう</rt><rp>)</rp></ruby>／<ruby>自動<rp>(</rp><rt>じどう</rt><rp>)</rp></ruby>に<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-244",
+    "jp": "バッチ実行結果をログに出力する。",
+    "vn": "Kết quả chạy batch được xuất ra log.",
+    "furigana_html": "バッチ<ruby>実行<rp>(</rp><rt>じっこう</rt><rp>)</rp></ruby><ruby>結果<rp>(</rp><rt>けっか</rt><rp>)</rp></ruby>をログに<ruby>出力<rp>(</rp><rt>しゅつりょく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-245",
+    "jp": "バッチ異常終了時はリターンコードを返却する。",
+    "vn": "Khi batch kết thúc bất thường trả return code.",
+    "furigana_html": "バッチ<ruby>異常<rp>(</rp><rt>いじょう</rt><rp>)</rp></ruby><ruby>終了<rp>(</rp><rt>しゅうりょう</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>はリターンコードを<ruby>返却<rp>(</rp><rt>へんきゃく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-246",
+    "jp": "バッチは再実行を考慮する。",
+    "vn": "Batch được thiết kế có xét chạy lại.",
+    "furigana_html": "バッチは<ruby>再実行<rp>(</rp><rt>さいじっこう</rt><rp>)</rp></ruby>を<ruby>考慮<rp>(</rp><rt>こうりょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-247",
+    "jp": "途中からの再開は対応しない。",
+    "vn": "Không hỗ trợ resume từ giữa chừng.",
+    "furigana_html": "<ruby>途中<rp>(</rp><rt>とちゅう</rt><rp>)</rp></ruby>からの<ruby>再開<rp>(</rp><rt>さいかい</rt><rp>)</rp></ruby>は<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>しない。"
+  },
+  {
+    "id": "BD-248",
+    "jp": "処理対象は対象日で絞り込む。",
+    "vn": "Đối tượng xử lý được lọc theo ngày 대상.",
+    "furigana_html": "<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby><ruby>対象<rp>(</rp><rt>たいしょう</rt><rp>)</rp></ruby>は<ruby>対象日<rp>(</rp><rt>たいしょうび</rt><rp>)</rp></ruby>で<ruby>絞<rp>(</rp><rt>しぼ</rt><rp>)</rp></ruby>り<ruby>込<rp>(</rp><rt>こ</rt><rp>)</rp></ruby>む。"
+  },
+  {
+    "id": "BD-249",
+    "jp": "大量データは分割して処理する。",
+    "vn": "Dữ liệu lớn được chia nhỏ để xử lý.",
+    "furigana_html": "<ruby>大量<rp>(</rp><rt>たいりょう</rt><rp>)</rp></ruby>データは<ruby>分割<rp>(</rp><rt>ぶんかつ</rt><rp>)</rp></ruby>して<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-250",
+    "jp": "性能に配慮してバルク処理を利用する。",
+    "vn": "Dùng bulk để tối ưu hiệu năng.",
+    "furigana_html": "<ruby>性能<rp>(</rp><rt>せいのう</rt><rp>)</rp></ruby>に<ruby>配慮<rp>(</rp><rt>はいりょ</rt><rp>)</rp></ruby>してバルク<ruby>処理<rp>(</rp><rt>しょり</rt><rp>)</rp></ruby>を<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-251",
+    "jp": "性能要件は以下の通り。",
+    "vn": "Yêu cầu hiệu năng như sau.",
+    "furigana_html": "<ruby>性能<rp>(</rp><rt>せいのう</rt><rp>)</rp></ruby><ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-252",
+    "jp": "レスポンスタイムは〜秒以内とする。",
+    "vn": "Response time trong ~ giây trở xuống.",
+    "furigana_html": "レスポンスタイムは〜<ruby>秒<rp>(</rp><rt>びょう</rt><rp>)</rp></ruby><ruby>以内<rp>(</rp><rt>いない</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-253",
+    "jp": "同時利用者数は〜人とする。",
+    "vn": "Số user đồng thời là ~ người.",
+    "furigana_html": "<ruby>同時<rp>(</rp><rt>どうじ</rt><rp>)</rp></ruby><ruby>利用者数<rp>(</rp><rt>りようしゃすう</rt><rp>)</rp></ruby>は〜<ruby>人<rp>(</rp><rt>にん</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-254",
+    "jp": "ピーク時の負荷を考慮する。",
+    "vn": "Xem xét tải tại thời điểm peak.",
+    "furigana_html": "ピーク<ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>の<ruby>負荷<rp>(</rp><rt>ふか</rt><rp>)</rp></ruby>を<ruby>考慮<rp>(</rp><rt>こうりょ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-255",
+    "jp": "キャッシュを利用して性能を向上させる。",
+    "vn": "Dùng cache để cải thiện hiệu năng.",
+    "furigana_html": "キャッシュを<ruby>利用<rp>(</rp><rt>りよう</rt><rp>)</rp></ruby>して<ruby>性能<rp>(</rp><rt>せいのう</rt><rp>)</rp></ruby>を<ruby>向上<rp>(</rp><rt>こうじょう</rt><rp>)</rp></ruby>させる。"
+  },
+  {
+    "id": "BD-256",
+    "jp": "キャッシュの有効期限は〜分とする。",
+    "vn": "TTL cache là ~ phút.",
+    "furigana_html": "キャッシュの<ruby>有効<rp>(</rp><rt>ゆうこう</rt><rp>)</rp></ruby><ruby>期限<rp>(</rp><rt>きげん</rt><rp>)</rp></ruby>は〜<ruby>分<rp>(</rp><rt>ふん</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-257",
+    "jp": "可用性要件は以下の通り。",
+    "vn": "Yêu cầu tính sẵn sàng như sau.",
+    "furigana_html": "<ruby>可用性<rp>(</rp><rt>かようせい</rt><rp>)</rp></ruby><ruby>要件<rp>(</rp><rt>ようけん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-258",
+    "jp": "稼働時間は24/365を想定する。",
+    "vn": "Giả định thời gian hoạt động 24/365.",
+    "furigana_html": "<ruby>稼働<rp>(</rp><rt>かどう</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>は24/365を<ruby>想定<rp>(</rp><rt>そうてい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-259",
+    "jp": "計画停止は月〜回とする。",
+    "vn": "Dừng theo kế hoạch là ~ lần/tháng.",
+    "furigana_html": "<ruby>計画<rp>(</rp><rt>けいかく</rt><rp>)</rp></ruby><ruby>停止<rp>(</rp><rt>ていし</rt><rp>)</rp></ruby>は<ruby>月<rp>(</rp><rt>つき</rt><rp>)</rp></ruby>〜<ruby>回<rp>(</rp><rt>かい</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-260",
+    "jp": "バックアップ方針は以下の通り。",
+    "vn": "Chính sách backup như sau.",
+    "furigana_html": "バックアップ<ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+
+  {
+    "id": "BD-261",
+    "jp": "バックアップは日次で取得する。",
+    "vn": "Backup hằng ngày.",
+    "furigana_html": "バックアップは<ruby>日次<rp>(</rp><rt>にちじ</rt><rp>)</rp></ruby>で<ruby>取得<rp>(</rp><rt>しゅとく</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-262",
+    "jp": "リストア手順は別紙参照。",
+    "vn": "Thủ tục restore xem phụ lục.",
+    "furigana_html": "リストア<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>別紙<rp>(</rp><rt>べっし</rt><rp>)</rp></ruby><ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>。"
+  },
+  {
+    "id": "BD-263",
+    "jp": "運用監視項目を以下に示す。",
+    "vn": "Các hạng mục giám sát vận hành như sau.",
+    "furigana_html": "<ruby>運用<rp>(</rp><rt>うんよう</rt><rp>)</rp></ruby><ruby>監視<rp>(</rp><rt>かんし</rt><rp>)</rp></ruby><ruby>項目<rp>(</rp><rt>こうもく</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-264",
+    "jp": "CPU／メモリ／ディスクを監視する。",
+    "vn": "Giám sát CPU/memory/disk.",
+    "furigana_html": "CPU／メモリ／ディスクを<ruby>監視<rp>(</rp><rt>かんし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-265",
+    "jp": "死活監視を行う。",
+    "vn": "Thực hiện health check.",
+    "furigana_html": "<ruby>死活<rp>(</rp><rt>しかつ</rt><rp>)</rp></ruby><ruby>監視<rp>(</rp><rt>かんし</rt><rp>)</rp></ruby>を<ruby>行<rp>(</rp><rt>おこな</rt><rp>)</rp></ruby>う。"
+  },
+  {
+    "id": "BD-266",
+    "jp": "APIの応答時間を監視する。",
+    "vn": "Giám sát thời gian phản hồi API.",
+    "furigana_html": "APIの<ruby>応答<rp>(</rp><rt>おうとう</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>を<ruby>監視<rp>(</rp><rt>かんし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-267",
+    "jp": "エラー率を監視する。",
+    "vn": "Giám sát tỷ lệ lỗi.",
+    "furigana_html": "エラー<ruby>率<rp>(</rp><rt>りつ</rt><rp>)</rp></ruby>を<ruby>監視<rp>(</rp><rt>かんし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-268",
+    "jp": "閾値を超過した場合はアラートを通知する。",
+    "vn": "Nếu vượt ngưỡng thì gửi cảnh báo.",
+    "furigana_html": "<ruby>閾値<rp>(</rp><rt>いきち</rt><rp>)</rp></ruby>を<ruby>超過<rp>(</rp><rt>ちょうか</rt><rp>)</rp></ruby>した<ruby>場合<rp>(</rp><rt>ばあい</rt><rp>)</rp></ruby>はアラートを<ruby>通知<rp>(</rp><rt>つうち</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-269",
+    "jp": "障害発生時の対応フローを以下に示す。",
+    "vn": "Luồng xử lý khi sự cố xảy ra như sau.",
+    "furigana_html": "<ruby>障害<rp>(</rp><rt>しょうがい</rt><rp>)</rp></ruby><ruby>発生<rp>(</rp><rt>はっせい</rt><rp>)</rp></ruby><ruby>時<rp>(</rp><rt>じ</rt><rp>)</rp></ruby>の<ruby>対応<rp>(</rp><rt>たいおう</rt><rp>)</rp></ruby>フローを<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-270",
+    "jp": "復旧目標時間（RTO）は〜とする。",
+    "vn": "RTO là ~.",
+    "furigana_html": "<ruby>復旧<rp>(</rp><rt>ふっきゅう</rt><rp>)</rp></ruby><ruby>目標<rp>(</rp><rt>もくひょう</rt><rp>)</rp></ruby><ruby>時間<rp>(</rp><rt>じかん</rt><rp>)</rp></ruby>（RTO）は〜とする。"
+  },
+
+  {
+    "id": "BD-271",
+    "jp": "復旧目標時点（RPO）は〜とする。",
+    "vn": "RPO là ~.",
+    "furigana_html": "<ruby>復旧<rp>(</rp><rt>ふっきゅう</rt><rp>)</rp></ruby><ruby>目標<rp>(</rp><rt>もくひょう</rt><rp>)</rp></ruby><ruby>時点<rp>(</rp><rt>じてん</rt><rp>)</rp></ruby>（RPO）は〜とする。"
+  },
+  {
+    "id": "BD-272",
+    "jp": "テスト方針は以下の通り。",
+    "vn": "Chính sách test như sau.",
+    "furigana_html": "テスト<ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-273",
+    "jp": "単体テストを実施する。",
+    "vn": "Thực hiện unit test.",
+    "furigana_html": "<ruby>単体<rp>(</rp><rt>たんたい</rt><rp>)</rp></ruby>テストを<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-274",
+    "jp": "結合テストを実施する。",
+    "vn": "Thực hiện integration test.",
+    "furigana_html": "<ruby>結合<rp>(</rp><rt>けつごう</rt><rp>)</rp></ruby>テストを<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-275",
+    "jp": "総合テストを実施する。",
+    "vn": "Thực hiện system test.",
+    "furigana_html": "<ruby>総合<rp>(</rp><rt>そうごう</rt><rp>)</rp></ruby>テストを<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-276",
+    "jp": "受入テストは利用者が実施する。",
+    "vn": "UAT do người dùng thực hiện.",
+    "furigana_html": "<ruby>受入<rp>(</rp><rt>うけいれ</rt><rp>)</rp></ruby>テストは<ruby>利用者<rp>(</rp><rt>りようしゃ</rt><rp>)</rp></ruby>が<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-277",
+    "jp": "テスト環境は本番と同等とする。",
+    "vn": "Môi trường test tương đương production.",
+    "furigana_html": "テスト<ruby>環境<rp>(</rp><rt>かんきょう</rt><rp>)</rp></ruby>は<ruby>本番<rp>(</rp><rt>ほんばん</rt><rp>)</rp></ruby>と<ruby>同等<rp>(</rp><rt>どうとう</rt><rp>)</rp></ruby>とする。"
+  },
+  {
+    "id": "BD-278",
+    "jp": "テストデータは個人情報を含まない。",
+    "vn": "Test data không chứa thông tin cá nhân.",
+    "furigana_html": "テストデータは<ruby>個人<rp>(</rp><rt>こじん</rt><rp>)</rp></ruby><ruby>情報<rp>(</rp><rt>じょうほう</rt><rp>)</rp></ruby>を<ruby>含<rp>(</rp><rt>ふく</rt><rp>)</rp></ruby>まない。"
+  },
+  {
+    "id": "BD-279",
+    "jp": "性能テストを実施する。",
+    "vn": "Thực hiện performance test.",
+    "furigana_html": "<ruby>性能<rp>(</rp><rt>せいのう</rt><rp>)</rp></ruby>テストを<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-280",
+    "jp": "脆弱性診断を実施する。",
+    "vn": "Thực hiện kiểm tra lỗ hổng bảo mật.",
+    "furigana_html": "<ruby>脆弱性<rp>(</rp><rt>ぜいじゃくせい</rt><rp>)</rp></ruby><ruby>診断<rp>(</rp><rt>しんだん</rt><rp>)</rp></ruby>を<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-281",
+    "jp": "移行方針は以下の通り。",
+    "vn": "Chính sách migrate như sau.",
+    "furigana_html": "<ruby>移行<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby><ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-282",
+    "jp": "移行対象データを洗い出す。",
+    "vn": "Rà soát dữ liệu 대상 migrate.",
+    "furigana_html": "<ruby>移行<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby><ruby>対象<rp>(</rp><rt>たいしょう</rt><rp>)</rp></ruby>データを<ruby>洗<rp>(</rp><rt>あら</rt><rp>)</rp></ruby>い<ruby>出<rp>(</rp><rt>だ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-283",
+    "jp": "移行ツールは別途作成する。",
+    "vn": "Tool migrate sẽ tạo riêng.",
+    "furigana_html": "<ruby>移行<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby>ツールは<ruby>別途<rp>(</rp><rt>べっと</rt><rp>)</rp></ruby><ruby>作成<rp>(</rp><rt>さくせい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-284",
+    "jp": "移行リハーサルを実施する。",
+    "vn": "Thực hiện rehearsal migrate.",
+    "furigana_html": "<ruby>移行<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby>リハーサルを<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-285",
+    "jp": "移行手順は別紙参照。",
+    "vn": "Thủ tục migrate xem phụ lục.",
+    "furigana_html": "<ruby>移行<rp>(</rp><rt>いこう</rt><rp>)</rp></ruby><ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>は<ruby>別紙<rp>(</rp><rt>べっし</rt><rp>)</rp></ruby><ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>。"
+  },
+  {
+    "id": "BD-286",
+    "jp": "リリース方針は以下の通り。",
+    "vn": "Chính sách release như sau.",
+    "furigana_html": "リリース<ruby>方針<rp>(</rp><rt>ほうしん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-287",
+    "jp": "段階的にリリースする。",
+    "vn": "Release theo từng giai đoạn.",
+    "furigana_html": "<ruby>段階<rp>(</rp><rt>だんかい</rt><rp>)</rp></ruby><ruby>的<rp>(</rp><rt>てき</rt><rp>)</rp></ruby>にリリースする。"
+  },
+  {
+    "id": "BD-288",
+    "jp": "ロールバック手順を用意する。",
+    "vn": "Chuẩn bị thủ tục rollback.",
+    "furigana_html": "ロールバック<ruby>手順<rp>(</rp><rt>てじゅん</rt><rp>)</rp></ruby>を<ruby>用意<rp>(</rp><rt>ようい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-289",
+    "jp": "リリース判定基準は以下の通り。",
+    "vn": "Tiêu chí quyết định release như sau.",
+    "furigana_html": "リリース<ruby>判定<rp>(</rp><rt>はんてい</rt><rp>)</rp></ruby><ruby>基準<rp>(</rp><rt>きじゅん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-290",
+    "jp": "周知はメールで実施する。",
+    "vn": "Thông báo phổ biến bằng email.",
+    "furigana_html": "<ruby>周知<rp>(</rp><rt>しゅうち</rt><rp>)</rp></ruby>はメールで<ruby>実施<rp>(</rp><rt>じっし</rt><rp>)</rp></ruby>する。"
+  },
+
+  {
+    "id": "BD-291",
+    "jp": "用語集を以下に示す。",
+    "vn": "Bảng thuật ngữ như sau.",
+    "furigana_html": "<ruby>用語集<rp>(</rp><rt>ようごしゅう</rt><rp>)</rp></ruby>を<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>に<ruby>示<rp>(</rp><rt>しめ</rt><rp>)</rp></ruby>す。"
+  },
+  {
+    "id": "BD-292",
+    "jp": "略語は初出で定義する。",
+    "vn": "Viết tắt được định nghĩa ở lần xuất hiện đầu tiên.",
+    "furigana_html": "<ruby>略語<rp>(</rp><rt>りゃくご</rt><rp>)</rp></ruby>は<ruby>初出<rp>(</rp><rt>しょしゅつ</rt><rp>)</rp></ruby>で<ruby>定義<rp>(</rp><rt>ていぎ</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-293",
+    "jp": "参照資料は最新版を参照する。",
+    "vn": "Tài liệu tham khảo dùng bản mới nhất.",
+    "furigana_html": "<ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby><ruby>資料<rp>(</rp><rt>しりょう</rt><rp>)</rp></ruby>は<ruby>最新版<rp>(</rp><rt>さいしんばん</rt><rp>)</rp></ruby>を<ruby>参照<rp>(</rp><rt>さんしょう</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-294",
+    "jp": "変更履歴を管理する。",
+    "vn": "Quản lý lịch sử thay đổi.",
+    "furigana_html": "<ruby>変更<rp>(</rp><rt>へんこう</rt><rp>)</rp></ruby><ruby>履歴<rp>(</rp><rt>りれき</rt><rp>)</rp></ruby>を<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-295",
+    "jp": "レビュー観点は以下の通り。",
+    "vn": "Các điểm review như sau.",
+    "furigana_html": "<ruby>レビュー<rp>(</rp><rt>れびゅー</rt><rp>)</rp></ruby><ruby>観点<rp>(</rp><rt>かんてん</rt><rp>)</rp></ruby>は<ruby>以下<rp>(</rp><rt>いか</rt><rp>)</rp></ruby>の<ruby>通<rp>(</rp><rt>とお</rt><rp>)</rp></ruby>り。"
+  },
+  {
+    "id": "BD-296",
+    "jp": "未決定事項は別途整理する。",
+    "vn": "Các mục chưa quyết định sẽ整理 riêng.",
+    "furigana_html": "<ruby>未決定<rp>(</rp><rt>みけってい</rt><rp>)</rp></ruby><ruby>事項<rp>(</rp><rt>じこう</rt><rp>)</rp></ruby>は<ruby>別途<rp>(</rp><rt>べっと</rt><rp>)</rp></ruby><ruby>整理<rp>(</rp><rt>せいり</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-297",
+    "jp": "課題は課題管理表で管理する。",
+    "vn": "Vấn đề được quản lý bằng bảng quản lý issue.",
+    "furigana_html": "<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby>は<ruby>課題<rp>(</rp><rt>かだい</rt><rp>)</rp></ruby><ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby><ruby>表<rp>(</rp><rt>ひょう</rt><rp>)</rp></ruby>で<ruby>管理<rp>(</rp><rt>かんり</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-298",
+    "jp": "決定事項は議事録に記載する。",
+    "vn": "Nội dung đã quyết định được ghi vào biên bản.",
+    "furigana_html": "<ruby>決定<rp>(</rp><rt>けってい</rt><rp>)</rp></ruby><ruby>事項<rp>(</rp><rt>じこう</rt><rp>)</rp></ruby>は<ruby>議事録<rp>(</rp><rt>ぎじろく</rt><rp>)</rp></ruby>に<ruby>記載<rp>(</rp><rt>きさい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-299",
+    "jp": "別途協議の上決定する。",
+    "vn": "Sẽ trao đổi riêng rồi quyết định.",
+    "furigana_html": "<ruby>別途<rp>(</rp><rt>べっと</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>の<ruby>上<rp>(</rp><rt>うえ</rt><rp>)</rp></ruby><ruby>決定<rp>(</rp><rt>けってい</rt><rp>)</rp></ruby>する。"
+  },
+  {
+    "id": "BD-300",
+    "jp": "本書に記載のない事項は、別途協議とする。",
+    "vn": "Các nội dung không ghi trong tài liệu này sẽ trao đổi riêng.",
+    "furigana_html": "<ruby>本書<rp>(</rp><rt>ほんしょ</rt><rp>)</rp></ruby>に<ruby>記載<rp>(</rp><rt>きさい</rt><rp>)</rp></ruby>のない<ruby>事項<rp>(</rp><rt>じこう</rt><rp>)</rp></ruby>は、<ruby>別途<rp>(</rp><rt>べっと</rt><rp>)</rp></ruby><ruby>協議<rp>(</rp><rt>きょうぎ</rt><rp>)</rp></ruby>とする。"
+  }
+]
