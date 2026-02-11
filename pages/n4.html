@@ -41,19 +41,26 @@ button {
   font-size: 18px;
   font-weight: bold;
 }
+#options {
+    margin-bottom: 1rem;
+}
 </style>
 </head>
 <body>
 
 <div class="container">
 <h2>Trắc nghiệm Kanji N5 (chọn là biết đúng / sai)</h2>
+<div id="options">
+    <label><input type="checkbox" id="randomize-questions"> Randomize Questions</label>
+    <label><input type="checkbox" id="randomize-answers" checked> Randomize Answers</label>
+</div>
 <form id="quiz"></form>
 <button onclick="submitQuiz()">Nộp bài</button>
 <div id="result"></div>
 </div>
 
 <script>
-const questions = [
+const originalQuestions = [
  {text:"<b>教会</b>で 友だちに 会いました。", answers:["きょうがい","きょうかい","きょうか","きょかい"], correct:"きょうかい"},
  {text:"レイさんは <b>親切</b> なので 友だちが たくさん います。", answers:["しせつ","しゅんせつ","しんせつ","しんぜつ"], correct:"しんせつ"},
  {text:"<b>近所</b>の 人と きっさてんで お茶を 飲みました。", answers:["ぎんじょ","ぎんしょ","きんしょ","きんじょ"], correct:"きんじょ"},
@@ -82,27 +89,40 @@ const questions = [
  {text:"まどを <b>しめて</b> ください。", answers:["関めて","閉めて","問めて","開めて"], correct:"閉めて"},
  {text:"なかさんは <b>しんせつ</b>です。", answers:["親切","新切","親功","新功"], correct:"親切"}
 ];
+let questions = []; // Will hold the currently rendered questions
+
+const randomizeQuestionsCheckbox = document.getElementById('randomize-questions');
+const randomizeAnswersCheckbox = document.getElementById('randomize-answers');
+
+randomizeQuestionsCheckbox.addEventListener('change', renderQuiz);
+randomizeAnswersCheckbox.addEventListener('change', renderQuiz);
 
 function shuffle(arr) {
   return arr.sort(() => Math.random() - 0.5);
 }
 
-const quiz = document.getElementById("quiz");
+function renderQuiz() {
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = '';
+    document.getElementById("result").innerText = '';
 
-questions.forEach((q, i) => {
-  const div = document.createElement("div");
-  div.className = "question";
-  const shuffled = shuffle([...q.answers]);
+    questions = randomizeQuestionsCheckbox.checked ? shuffle([...originalQuestions]) : [...originalQuestions];
 
-  div.innerHTML = `<p>Câu ${i + 1}. ${q.text}</p>`;
-  shuffled.forEach(a => {
-    const label = document.createElement("label");
-    label.innerHTML = `<input type="radio" name="q${i}" value="${a}"> ${a}`;
-    label.querySelector("input").addEventListener("change", () => checkAnswer(i, a, div));
-    div.appendChild(label);
-  });
-  quiz.appendChild(div);
-});
+    questions.forEach((q, i) => {
+        const div = document.createElement("div");
+        div.className = "question";
+        const answers = randomizeAnswersCheckbox.checked ? shuffle([...q.answers]) : q.answers;
+
+        div.innerHTML = `<p>Câu ${i + 1}. ${q.text}</p>`;
+        answers.forEach(a => {
+            const label = document.createElement("label");
+            label.innerHTML = `<input type="radio" name="q${i}" value="${a}"> ${a}`;
+            label.querySelector("input").addEventListener("change", () => checkAnswer(i, a, div));
+            div.appendChild(label);
+        });
+        quiz.appendChild(div);
+    });
+}
 
 function checkAnswer(index, selected, container) {
   const q = questions[index];
@@ -124,6 +144,8 @@ function submitQuiz() {
   document.getElementById("result").innerText =
     `Bạn đúng ${score} / ${questions.length} câu`;
 }
+
+renderQuiz();
 </script>
 
 </body>

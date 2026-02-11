@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Splitter</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 2rem; }
+        button { font-size: 1.2rem; padding: 0.8rem 1.5rem; cursor: pointer; }
+        #status { margin-top: 1rem; font-style: italic; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>JSON File Splitter</h1>
+    <p>Click the button below to split the <code>assets/storage/dic.json</code> file into smaller files of 2000 records each.</p>
+    <button id="splitButton">Split JSON</button>
+    <div id="status"></div>
+
+    <script>
+        document.getElementById('splitButton').addEventListener('click', async () => {
+            const statusDiv = document.getElementById('status');
+            const button = document.getElementById('splitButton');
+            button.disabled = true;
+            statusDiv.textContent = 'Fetching JSON file... This may take a moment.';
+
+            try {
+                const response = await fetch('/assets/storage/dic.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                statusDiv.textContent = `Successfully loaded ${data.length} records. Now splitting...`;
+
+                const chunkSize = 250;
+                for (let i = 0; i < data.length; i += chunkSize) {
+                    const chunk = data.slice(i, i + chunkSize);
+                    const part = (i / chunkSize) + 1;
+                    const fileName = `dic_part_${part}.json`;
+                    
+                    statusDiv.textContent = `Processing part ${part}...`;
+
+                    const blob = new Blob([JSON.stringify(chunk, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = fileName;
+                    document.body.appendChild(a);
+                    a.click();
+                    
+                    // Clean up the DOM and revoke the URL
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }
+
+                statusDiv.textContent = 'All files have been split and downloaded.';
+
+            } catch (error) {
+                statusDiv.textContent = `Error: ${error.message}`;
+                console.error('Error splitting JSON:', error);
+            } finally {
+                button.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

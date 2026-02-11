@@ -1,0 +1,236 @@
+[
+  {
+    "problem_title": "問題４：つぎの ぶんを よんで、しつもんに こたえてください。こたえは 1・2・3・4 から いちばん いいものを ひとつ えらんでください。（4点×4）",
+    "translation": {
+      "problem_title": "Mục 4: Đọc các đoạn văn sau và trả lời câu hỏi. Hãy chọn câu trả lời đúng nhất từ 1, 2, 3, 4. (4 điểm × 4)"
+    },
+    "sub_questions": [
+      {
+        "passage": "ボブさんは 旅館に とまって みたいです。花旅館の ふろ と トイレが ついて いる 部屋は 5000円です。ふろが ない 部屋は 1000円 安く、トイレも ないと さらに 500円 安く なります。1人で とまると 部屋代は 10％ 多く 払わなければ なりません。でも、友だちの しょうかいなので、払わなくても いいと 言われました。食事は 朝は 1000円、夜は 3500円です。部屋は いちばん 安いのが いいです。でも、夕食は 日本料理を 旅館で 食べたいです。",
+        "question": "ぜんぶで いくら 払いますか。",
+        "options": [
+          "7000円",
+          "7350円",
+          "7500円",
+          "7700円"
+        ],
+        "correctAnswer": "7000円",
+        "translation": {
+          "passage": "Anh Bob muốn thử ở trọ tại một nhà trọ kiểu Nhật (ryokan). Tại Hanaryokan, phòng có bồn tắm và nhà vệ sinh giá 5000 yên. Phòng không có bồn tắm rẻ hơn 1000 yên, và nếu không có cả nhà vệ sinh thì rẻ hơn nữa 500 yên. Nếu ở một mình thì phải trả thêm 10% tiền phòng. Nhưng vì được bạn bè giới thiệu nên anh ấy được cho biết là không cần phải trả. Bữa ăn sáng là 1000 yên, bữa tối là 3500 yên. Anh ấy muốn phòng rẻ nhất. Nhưng anh ấy muốn ăn bữa tối là món ăn Nhật tại nhà trọ.",
+          "question": "① Tổng cộng anh ấy phải trả bao nhiêu?",
+          "options": {
+            "7000円": "7000 yên",
+            "7350円": "7350 yên",
+            "7500円": "7500 yên",
+            "7700円": "7700 yên"
+          }
+        }
+      },
+      {
+        "passage": "この紙が 日本語学校に はって あります。\nバスケットボールを しませんか\n10月14日（日）の 夜7時から9時まで、市の 体育館で バスケットボールを しませんか。利用料金は 2時間 1000円なので、10人 集まれば、1人 100円で できます。一緒に やりたい 人は、今週中に 私（ユン）の ところに 来て、クラスと 名前を 教えて ください。\n10月1日（月） ユン・ジホン（Aクラス）",
+        "question": "ユンさんと 一緒に バスケットボールを したい 人は、まず どうしなければ なりませんか。",
+        "options": [
+          "今週中に、バスケットボールを したい 人を 10人 集めます。",
+          "今週中に、ユンさんの ところに 行って クラスと 名前を 言います。",
+          "10月14日（日）までに、ユンさんに 100円を 払います。",
+          "10月14日（日）の 夜7時までに、体育館に 行きます。"
+        ],
+        "correctAnswer": "今週中に、ユンさんの ところに 行って クラスと 名前を 言います。",
+        "translation": {
+          "passage": "Tờ giấy này được dán ở trường tiếng Nhật.\nBạn có muốn chơi bóng rổ không?\nVào lúc 7 đến 9 giờ tối Chủ nhật, ngày 14 tháng 10, bạn có muốn chơi bóng rổ tại nhà thi đấu của thành phố không? Phí sử dụng là 1000 yên cho 2 giờ, vì vậy nếu tập hợp được 10 người thì mỗi người chỉ cần trả 100 yên. Những ai muốn tham gia, vui lòng đến chỗ tôi (Yun) trong tuần này và cho biết lớp và tên của bạn.\nThứ Hai, ngày 1 tháng 10. Yun Jihon (Lớp A)",
+          "question": "② Người muốn chơi bóng rổ cùng anh Yun trước hết phải làm gì?",
+          "options": {
+            "今週中に、バスケットボールを したい 人を 10人 集めます。": "Trong tuần này, tập hợp 10 người muốn chơi bóng rổ.",
+            "今週中に、ユンさんの ところに 行って クラスと 名前を 言います。": "Trong tuần này, đến gặp anh Yun và nói lớp và tên.",
+            "10月14日（日）までに、ユンさんに 100円を 払います。": "Trước Chủ nhật, ngày 14 tháng 10, trả 100 yên cho anh Yun.",
+            "10月14日（日）の 夜7時までに、体育館に 行きます。": " Trước 7 giờ tối Chủ nhật, ngày 14 tháng 10, đến nhà thi đấu."
+          }
+        }
+      },
+      {
+        "passage": "おじいさんの たんじょう日に、なべ料理や 手まきずし などを 作りました。なべ料理は 魚や 肉や やさいを 切って、なべに 入れて にながら 食べます。手まきずしは ごはんと 好きな さしみ や たまごを のりで つつんで 食べます。どちらも とても おいしいし、じぶんの 好きな 物だけ 食べる ことが できます。それに、準備に 時間が かかりません。おじいさんは 食べた後、「めっちゃ うまい」と 言いました。おじいさんの 顔は うれしそうでした。\n※さしみ：生で 食べる ために うすく 切った 魚",
+        "question": "なべ料理や 手まきずしを 作った 理由で ないのは どれですか。",
+        "options": [
+          "とても おいしいから",
+          "好きな ものだけ 食べられるから",
+          "おじいさんが 食べられないから",
+          "短い 時間で 準備 できるから"
+        ],
+        "correctAnswer": "おじいさんが 食べられないから",
+        "translation": {
+          "passage": "Vào ngày sinh nhật của ông, chúng tôi đã làm các món như lẩu và sushi cuộn tay. Lẩu là món ăn vừa nấu vừa ăn bằng cách cắt cá, thịt, rau rồi cho vào nồi. Sushi cuộn tay là món ăn bằng cách dùng rong biển cuộn cơm với sashimi hoặc trứng tùy thích. Cả hai đều rất ngon và bạn có thể chỉ ăn những thứ mình thích. Hơn nữa, việc chuẩn bị không tốn nhiều thời gian. Sau khi ăn, ông nói: \"Ngon cực kỳ\". Vẻ mặt ông trông rất vui.\n*Sashimi: Cá thái lát mỏng để ăn sống",
+          "question": "③ Đâu không phải là lý do làm món lẩu và sushi cuộn tay?",
+          "options": {
+            "とても おいしいから": "Vì rất ngon",
+            "好きな ものだけ 食べられるから": "Vì có thể chỉ ăn những thứ mình thích",
+            "おじいさんが 食べられないから": "Vì ông không thể ăn được",
+            "短い 時間で 準備 できるから": "Vì có thể chuẩn bị trong thời gian ngắn"
+          }
+        }
+      },
+      {
+        "passage": "木や 草や 花が 病気を なおすと 言ったら、おどろくでしょう。ガンに なって、もう 病気は なおらないと 医者に 言われた 人が、森に ひっこして 毎日 何時間も 木の そばで すごす 生活を 始めたら、いつの まにか ガンが なおって いたという ことも あるそうです。病気が なおった ほんとうの 理由は 分からないのですが、花を 見ただけで、あるいは 花の いい においで 気持ちが よく なることは、だれでも 経験した ことが あるでしょう。わらうと 病気が よく なったり、いやな ことが つづくと 病気に なったり します。病気と 心の 間に ふかい 関係が ある ことが 分かって きました。",
+        "question": "何が 書かれて いますか。",
+        "options": [
+          "悪い 病気に なったら、森で 生活する ことが いいです。",
+          "ガンは なおる 理由が 分かりません。",
+          "病気と 気持ちは ふかい 関係が あります。",
+          "すべての 病気の 原因は 心に あります。"
+        ],
+        "correctAnswer": "病気と 気持ちは ふかい 関係が あります。",
+        "translation": {
+          "passage": "Nếu tôi nói rằng cây cối, cỏ và hoa có thể chữa bệnh, có lẽ bạn sẽ ngạc nhiên. Nghe nói có trường hợp một người bị ung thư và được bác sĩ cho biết là bệnh không thể chữa khỏi, sau khi chuyển đến sống trong rừng và bắt đầu cuộc sống dành nhiều giờ mỗi ngày bên cạnh cây cối, bệnh ung thư đã khỏi lúc nào không hay. Lý do thực sự của việc khỏi bệnh thì không rõ, nhưng chắc hẳn ai cũng đã từng trải nghiệm cảm giác dễ chịu hơn chỉ bằng cách ngắm hoa hoặc ngửi mùi hương dễ chịu của hoa. Khi cười, bệnh tật có thể thuyên giảm, và khi những chuyện không vui kéo dài, người ta có thể bị bệnh. Người ta đã dần hiểu ra rằng có một mối quan hệ sâu sắc giữa bệnh tật và tinh thần.",
+          "question": "④ Điều gì được viết trong bài?",
+          "options": {
+            "悪い 病気に なったら、森で 生活する ことが いいです。": "Nếu bị bệnh nặng, sống trong rừng là một điều tốt.",
+            "ガンは なおる 理由が 分かりません。": "Không rõ lý do tại sao ung thư lại khỏi.",
+            "病気と 気持ちは ふかい 関係が あります。": "Bệnh tật và tâm trạng có mối quan hệ sâu sắc.",
+            "すべての 病気の 原因は 心に あります。": "Nguyên nhân của mọi bệnh tật đều nằm ở tinh thần."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "problem_title": "問題５：つぎの ぶんしょうを よんで、しつもんに こたえてください。こたえは 1・2・3・4 から いちばん いいものを ひとつ えらんでください。（4点×4）",
+    "translation": {
+      "problem_title": "Mục 5: Đọc đoạn văn sau và trả lời câu hỏi. Hãy chọn câu trả lời đúng nhất từ 1, 2, 3, 4. (4 điểm × 4)"
+    },
+    "sub_questions": [
+      {
+        "passage": "日本語の 朝の あいさつは「おはよう」あるいは「おはようございます」である。「おはようございます」は だれにでも 使えるが、「おはよう」は 年上の 人には 使えない。昼は「こんにちは」、夜は「こんばんは」と 言う。この あいさつの 中で「こんにちは」と「こんばんは」は 家族などには 使わない。\nまた「おはよう（ございます）」を 朝ではなく 夜 使う 場合も ある。夜 始まる仕事を している 場合などだ。ふつうの 人には 夜は 一日が 終わる 時間だが、夜 働く 人に とっては 一日の 始まりの 朝の ような 時間なのだ。たとえば 歌手や 店などで 夜 働く 人が、その日 はじめて 会った 人に 使う。夜だが、これから 仕事が 始まる 一日の 初めだ という ことを あらわして いるのだと 思う。日本語を 勉強する とき、まず あいさつから 始める。でも、これらの ことは 教科書では 習わないに ちがいない。",
+        "question": "正しい あいさつの しかたは どれですか。",
+        "options": [
+          "朝、先生に「おはよう」と 言う。",
+          "昼、お父さんに「こんにちは」と 言う。",
+          "朝、友だちに「おはようございます」と 言う。",
+          "夜、「こんにちは」と 言う。"
+        ],
+        "correctAnswer": "朝、友だちに「おはようございます」と 言う。",
+        "translation": {
+          "passage": "Lời chào buổi sáng trong tiếng Nhật là \"ohayou\" hoặc \"ohayou gozaimasu\". \"Ohayou gozaimasu\" có thể dùng với bất kỳ ai, nhưng \"ohayou\" không thể dùng với người lớn tuổi hơn. Buổi trưa nói \"konnichiwa\", buổi tối nói \"konbanwa\". Trong số những lời chào này, \"konnichiwa\" và \"konbanwa\" không được dùng cho gia đình.\nNgoài ra, cũng có trường hợp dùng \"ohayou (gozaimasu)\" vào buổi tối chứ không phải buổi sáng. Ví dụ như trong trường hợp làm công việc bắt đầu vào ban đêm. Đối với người bình thường, buổi tối là thời gian kết thúc một ngày, nhưng đối với những người làm việc ban đêm, đó là thời gian giống như buổi sáng bắt đầu một ngày. Ví dụ, ca sĩ hay những người làm việc ban đêm tại các cửa hàng sử dụng nó với người họ gặp lần đầu tiên trong ngày. Tôi nghĩ rằng mặc dù là ban đêm, nó thể hiện rằng đó là sự khởi đầu của một ngày làm việc sắp bắt đầu. Khi học tiếng Nhật, người ta bắt đầu từ lời chào. Nhưng, những điều này chắc chắn không được dạy trong sách giáo khoa.",
+          "question": "① Cách chào hỏi nào là đúng?",
+          "options": {
+            "朝、先生に「おはよう」と 言う。": "Nói \"ohayou\" với giáo viên vào buổi sáng.",
+            "昼、お父さんに「こんにちは」と 言う。": "Nói \"konnichiwa\" với bố vào buổi trưa.",
+            "朝、友だちに「おはようございます」と 言う。": "Nói \"ohayou gozaimasu\" với bạn bè vào buổi sáng.",
+            "夜、「こんにちは」と 言う。": "Nói \"konnichiwa\" vào buổi tối."
+          }
+        }
+      },
+      {
+        "passage": "日本語の 朝の あいさつは「おはよう」あるいは「おはようございます」である。「おはようございます」は だれにでも 使えるが、「おはよう」は 年上の 人には 使えない。昼は「こんにちは」、夜は「こんばんは」と 言う。この あいさつの 中で「こんにちは」と「こんばんは」は 家族などには 使わない。\nまた「おはよう（ございます）」を 朝ではなく 夜 使う 場合も ある。夜 始まる仕事を している 場合などだ。ふつうの 人には 夜は 一日が 終わる 時間だが、夜 働く 人に とっては 一日の 始まりの 朝の ような 時間なのだ。たとえば 歌手や 店などで 夜 働く 人が、その日 はじめて 会った 人に 使う。夜だが、これから 仕事が 始まる 一日の 初めだ という ことを あらわして いるのだと 思う。日本語を 勉強する とき、まず あいさつから 始める。でも、これらの ことは 教科書では 習わないに ちがいない。",
+        "question": "「こんばんは」の 正しい使い方は どれですか。",
+        "options": [
+          "朝、「おはよう」の かわりに「こんばんは」と 言った。",
+          "夜、お酒を 飲みに 行って 部長に 会った とき、「こんばんは」と 言った。",
+          "夜、外で お姉さんに 会った ので「こんばんは」と 言った。",
+          "昼、近所の 人に「こんばんは」と 言った。"
+        ],
+        "correctAnswer": "夜、お酒を 飲みに 行って 部長に 会った とき、「こんばんは」と 言った。",
+        "translation": {
+          "passage": "",
+          "question": "② Cách sử dụng đúng của \"konbanwa\" là gì?",
+          "options": {
+            "朝、「おはよう」の かわりに「こんばんは」と 言った。": "Buổi sáng, nói \"konbanwa\" thay cho \"ohayou\".",
+            "夜、お酒を 飲みに 行って 部長に 会った とき、「こんばんは」と 言った。": "Buổi tối, khi đi uống rượu và gặp trưởng phòng, đã nói \"konbanwa\".",
+            "夜、外で お姉さんに 会った ので「こんばんは」と 言った。": "Buổi tối, vì gặp chị gái ở ngoài nên đã nói \"konbanwa\".",
+            "昼、近所の 人に「こんばんは」と 言った。": "Buổi trưa, nói \"konbanwa\" với người hàng xóm."
+          }
+        }
+      },
+      {
+        "passage": "日本語の 朝の あいさつは「おはよう」あるいは「おはようございます」である。「おはようございます」は だれにでも 使えるが、「おはよう」は 年上の 人には 使えない。昼は「こんにちは」、夜は「こんばんは」と 言う。この あいさつの 中で「こんにちは」と「こんばんは」は 家族などには 使わない。\nまた「おはよう（ございます）」を 朝ではなく 夜 使う 場合も ある。夜 始まる仕事を している 場合などだ。ふつうの 人には 夜は 一日が 終わる 時間だが、夜 働く 人に とっては 一日の 始まりの 朝の ような 時間なのだ。たとえば 歌手や 店などで 夜 働く 人が、その日 はじめて 会った 人に 使う。夜だが、これから 仕事が 始まる 一日の 初めだ という ことを あらわして いるのだと 思う。日本語を 勉強する とき、まず あいさつから 始める。でも、これらの ことは 教科書では 習わないに ちがいない。",
+        "question": "「おはよう」を 夜 使うのは なぜですか。",
+        "options": [
+          "夜 働いて いると、朝と 夜が わからなく なるから。",
+          "夜まで ずっと 働いて いるので、つかれて まちがえるから。",
+          "夜 働いて いると、生活が すべて 反対に なるから。",
+          "夜 働き始める 人には、夜が 朝と 同じ 一日の 始まり だから。"
+        ],
+        "correctAnswer": "夜 働き始める 人には、夜が 朝と 同じ 一日の 始まり だから。",
+        "translation": {
+          "passage": "",
+          "question": "③ Tại sao \"ohayou\" lại được dùng vào buổi tối?",
+          "options": {
+            "夜 働いて いると、朝と 夜が わからなく なるから。": "Vì khi làm việc vào ban đêm, sẽ không phân biệt được sáng và tối.",
+            "夜まで ずっと 働いて いるので、つかれて まちがえるから。": "Vì làm việc liên tục đến tối nên mệt và nhầm lẫn.",
+            "夜 働いて いると、生活が すべて 反対に なるから。": "Vì khi làm việc vào ban đêm, mọi sinh hoạt đều bị đảo lộn.",
+            "夜 働き始める 人には、夜が 朝と 同じ 一日の 始まり だから。": "Vì đối với những người bắt đầu làm việc vào ban đêm, buổi tối cũng là sự khởi đầu của một ngày giống như buổi sáng."
+          }
+        }
+      },
+      {
+        "passage": "日本語の 朝の あいさつは「おはよう」あるいは「おはようございます」である。「おはようございます」は だれにでも 使えるが、「おはよう」は 年上の 人には 使えない。昼は「こんにちは」、夜は「こんばんは」と 言う。この あいさつの 中で「こんにちは」と「こんばんは」は 家族などには 使わない。\nまた「おはよう（ございます）」を 朝ではなく 夜 使う 場合も ある。夜 始まる仕事を している 場合などだ。ふつうの 人には 夜は 一日が 終わる 時間だが、夜 働く 人に とっては 一日の 始まりの 朝の ような 時間なのだ。たとえば 歌手や 店などで 夜 働く 人が、その日 はじめて 会った 人に 使う。夜だが、これから 仕事が 始まる 一日の 初めだ という ことを あらわして いるのだと 思う。日本語を 勉強する とき、まず あいさつから 始める。でも、これらの ことは 教科書では 習わないに ちがいない。",
+        "question": "この 文章は 何に ついて 書かれて いますか。",
+        "options": [
+          "教科書では 習わないと 思う あいさつの 使い方。",
+          "教科書では 習った 日本語の 使い方。",
+          "日本語の 勉強の しかた。",
+          "年上の 人の あいさつの しかた。"
+        ],
+        "correctAnswer": "教科書では 習わないと 思う あいさつの 使い方。",
+        "translation": {
+          "passage": "",
+          "question": "④ Bài văn này viết về điều gì?",
+          "options": {
+            "教科書では 習わないと 思う あいさつの 使い方。": "Cách sử dụng lời chào mà tôi nghĩ không được dạy trong sách giáo khoa.",
+            "教科書では 習った 日本語の 使い方。": "Cách sử dụng tiếng Nhật đã học trong sách giáo khoa.",
+            "日本語の 勉強の しかた。": "Cách học tiếng Nhật.",
+            "年上の 人の あいさつの しかた。": "Cách chào hỏi người lớn tuổi."
+          }
+        }
+      }
+    ]
+  },
+  {
+    "problem_title": "問題６：右の ページを 見て、下の しつもんに こたえてください。こたえは 1・2・3・4 から いちばん いいものを 一つ えらんでください。（4点×2）",
+    "translation": {
+      "problem_title": "Mục 6: Nhìn vào trang bên phải và trả lời các câu hỏi dưới đây. Hãy chọn một câu trả lời đúng nhất từ 1, 2, 3, 4. (4 điểm x 2)"
+    },
+    "sub_questions": [
+      {
+        "passage": "右の ページを 見て、下の しつもんに こたえてください。こたえは 1・2・3・4 から いちばん いいものを 一つ えらんでください。（4点×2）\n① 今日は 3月22日です。スーパーに 買い物に 来ました。今、レジに 並んで います。あなたの かごの 中には、食パン、たまご、冷凍コロッケ、キャベツ、りんごが 入って います。\nどの クーポンが 使えますか。",
+        "question": "今日は 3月22日です。スーパーに 買い物に 来ました。今、レジに 並んで います。あなたの かごの 中には、食パン、たまご、冷凍コロッケ、キャベツ、りんごが 入って います。\nどの クーポンが 使えますか。",
+        "options": [
+          "①と④と⑥",
+          "②と⑤と⑭",
+          "⑤と⑦と⑮",
+          "⑥と⑨と⑭"
+        ],
+        "correctAnswer": "⑤と⑦と⑮",
+        "translation": {
+          "passage": "Nhìn vào trang bên phải và trả lời các câu hỏi dưới đây. Hãy chọn một câu trả lời đúng nhất từ 1, 2, 3, 4. (4 điểm x 2)",
+          "question": "① Hôm nay là ngày 22 tháng 3. Bạn đã đến siêu thị để mua sắm. Bây giờ, bạn đang xếp hàng ở quầy tính tiền. Trong giỏ của bạn có bánh mì gối, trứng, bánh croquette đông lạnh, bắp cải và táo.\nBạn có thể sử dụng phiếu giảm giá nào?",
+          "options": {
+            "①と④と⑥": "①, ④ và ⑥",
+            "②と⑤と⑭": "②, ⑤ và ⑭",
+            "⑤と⑦と⑮": "⑤, ⑦ và ⑮",
+            "⑥と⑨と⑭": "⑥, ⑨ và ⑭"
+          }
+        }
+      },
+      {
+        "passage": "右の ページを 見て、下の しつもんに こたえてください。こたえは 1・2・3・4 から いちばん いいものを 一つ えらんでください。（4点×2）\n② 今日は 3月4日です。あなたは、500円の 魚と 300円の ソーセージを 買おうと 思います。クーポンを 使うと、いくらに なりますか。",
+        "question": "今日は 3月4日です。あなたは、500円の 魚と 300円の ソーセージを 買おうと 思います。クーポンを 使うと、いくらに なりますか。",
+        "options": [
+          "720円",
+          "690円",
+          "670円",
+          "640円"
+        ],
+        "correctAnswer": "690円",
+        "translation": {
+          "passage": "",
+          "question": "② Hôm nay là ngày 4 tháng 3. Bạn định mua cá 500 yên và xúc xích 300 yên. Nếu sử dụng phiếu giảm giá, tổng cộng sẽ là bao nhiêu?",
+          "options": {
+            "720円": "720 yên",
+            "690円": "690 yên",
+            "670円": "670 yên",
+            "640円": "640 yên"
+          }
+        }
+      }
+    ]
+  }
+]

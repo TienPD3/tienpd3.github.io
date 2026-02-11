@@ -1,0 +1,1002 @@
+[
+  {
+    "jp": "システムテスト計画",
+    "vn": "システムテスト計画(ST plan)"
+  },
+  {
+    "jp": "<rpr id=\"59\">■(#142)OP</rpr><rpr id=\"56\">社員が行う予想印の公開にかかる業務が発生しないよう現状維持となるようにする</rpr>",
+    "vn": "<rpr id=\"59\">■(#142)</rpr><rpr id=\"56\"> Tình trạng hiện tại sẽ được duy trì để không phát sinh thêm các nghiệp vụ liên quan đến việc công bố dấu hiệu dự đoán do nhân viên OP thực hiện.</rpr>"
+  },
+  {
+    "jp": "開催スケジュール{}情報",
+    "vn": "開催スケジュール情報/{}Thông tin schedule tổ chức"
+  },
+  {
+    "jp": "<rpr id=\"15\">008.</rpr><rpr id=\"14\">開催スケジュール</rpr>{}仮登録",
+    "vn": "<rpr id=\"15\">008.</rpr><rpr id=\"14\">開催スケジュール</rpr>{}仮登録/Đăng ký tạm thời schedule tổ chức"
+  },
+  {
+    "jp": "<rpr id=\"15\">013.</rpr><rpr id=\"14\">開催スケジュール承認</rpr>",
+    "vn": "<rpr id=\"15\">013.</rpr><rpr id=\"14\">開催スケジュール承認/Approve schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">015.WEB</rpr><rpr id=\"14\">掲載</rpr>",
+    "vn": "<rpr id=\"15\">015.WEB</rpr><rpr id=\"14\">掲載/Bài đăng lên WEB</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">016.</rpr><rpr id=\"14\">開催スケジュール参照</rpr>",
+    "vn": "<rpr id=\"15\">016.</rpr><rpr id=\"14\">開催スケジュール参照/Refer schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">019.</rpr><rpr id=\"14\">開催スケジュール取込</rpr>",
+    "vn": "<rpr id=\"15\">019.</rpr><rpr id=\"14\">開催スケジュール取込/Import schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">020.</rpr><rpr id=\"14\">開催スケジュール</rpr>{}登録指示",
+    "vn": "<rpr id=\"15\">020.</rpr><rpr id=\"14\">開催スケジュール</rpr>{}登録指示/Chỉ thị đăng ký schedule tổ chức"
+  },
+  {
+    "jp": "<rpr id=\"15\">012.</rpr><rpr id=\"14\">開催スケジュール承認</rpr>{}依頼",
+    "vn": "<rpr id=\"15\">012.</rpr><rpr id=\"14\">開催スケジュール承認</rpr>{}依頼/Request approve schedule tổ chức"
+  },
+  {
+    "jp": "<rpr id=\"15\">018.</rpr><rpr id=\"14\">開催スケジュール受領</rpr>",
+    "vn": "<rpr id=\"15\">018.</rpr><rpr id=\"14\">開催スケジュール受領/Nhận yêu cầu schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">011.</rpr><rpr id=\"14\">開催スケジュール編集</rpr>",
+    "vn": "<rpr id=\"15\">011.</rpr><rpr id=\"14\">開催スケジュール編集/Edit schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "・自動／手動設定の項目は業務処理定義書に記載",
+    "vn": "・Có mô tả các mục thiết lập tự động/thủ công trong tài liệu định nghĩa xử lý nghiệp vụ"
+  },
+  {
+    "jp": "スケジュールの追加・変更の発生",
+    "vn": "Phát sinh add/change schedule"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">レース</rpr><rpr id=\"15\">DB</rpr><rpr id=\"14\">参照</rpr>",
+    "vn": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">レース</rpr><rpr id=\"15\">DB</rpr><rpr id=\"14\">参照/Refer DB cuộc đua</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"54\">レース</rpr><rpr id=\"53\">DB</rpr><rpr id=\"54\">の更新状況はリアルタイムに</rpr><rpr id=\"53\">Web</rpr><rpr id=\"54\">サイトに反映される</rpr>",
+    "vn": "<rpr id=\"54\">Tình trạng update DB race sẽ được phản ánh realtime lên </rpr><rpr id=\"53\">Web site</rpr><rpr id=\"54\"></rpr><rpr id=\"53\"></rpr><rpr id=\"54\"></rpr>"
+  },
+  {
+    "jp": "情報取得",
+    "vn": "Get thông tin"
+  },
+  {
+    "jp": "<rpr id=\"53\">OP</rpr><rpr id=\"54\">サイト上各競技の「データベース」タブに掲載される情報が更新される</rpr>",
+    "vn": "Thông tin được đăng trên tab 「データベース」 cho từng trận đấu trên site OP sẽ được cập nhật.<rpr id=\"53\"></rpr><rpr id=\"54\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"53\">(As-is)</rpr><rpr id=\"54\">朝バッチ情報として、</rpr><rpr id=\"53\">IRIS</rpr><rpr id=\"54\">から</rpr><rpr id=\"53\">OP</rpr><rpr id=\"55\">システムへ毎朝送信されている</rpr>",
+    "vn": "(As-is) Thông tin theo lô mỗi sáng được gửi từ hệ thống IRIS đến hệ thống OP.<rpr id=\"53\"></rpr><rpr id=\"54\"></rpr><rpr id=\"53\"></rpr><rpr id=\"54\"></rpr><rpr id=\"53\"></rpr><rpr id=\"55\"></rpr>"
+  },
+  {
+    "jp": "下記①②については、手動で取り込みを行う",
+    "vn": "Đối với các mục ① và ② sau, sẽ thực hiện import thủ công"
+  },
+  {
+    "jp": "①走路の回り方向の修正",
+    "vn": "① Sửa hướng chạy"
+  },
+  {
+    "jp": "②新設競技場データの入力",
+    "vn": "② Input data trường trận đấu mới xây"
+  },
+  {
+    "jp": "<rpr id=\"23\">・後続の</rpr><rpr id=\"29\">IF</rpr><rpr id=\"23\">検討に向け、現状何の項目をどのシステムからどのように取得しているのか、競技ごとに業務処理定義書にて整理</rpr>",
+    "vn": "・Nhằm xem xét IF tiếp theo, việc đang get những mục nào từ hệ thống nào và bằng cách nào sẽ được chỉnh lý(mô tả) ở tài liệu định nghĩa quy trình nghiệp vụ.<rpr id=\"23\"></rpr><rpr id=\"29\"></rpr><rpr id=\"23\"></rpr>"
+  },
+  {
+    "jp": "開催場・競走馬・ジョッキー・調教師・リーディング",
+    "vn": "開催場/trường đua・競走馬/ngựa đua・ジョッキー/kỵ sĩ・調教師/người huấn luyện・リーディング/Dẫn đầu"
+  },
+  {
+    "jp": "外部システム上の登録情報更新",
+    "vn": "Cập nhật thông tin đăng ký trên external system"
+  },
+  {
+    "jp": "<rpr id=\"23\">業界からの出走表更新のタイミング（レース前日／当日）、及び情報連携方法（電話連絡／データ連携）に応じた</rpr><rpr id=\"29\">OP</rpr><rpr id=\"23\">側の対応について、業務処理定義書にて記載</rpr>",
+    "vn": "Xử lý bên phía OP tương ứng với thời điểm update bản xuất phát từ trong ngành (một ngày trước cuộc đua/ngày diễn ra cuộc đua) và cách trao đổi thông tin (liên hệ qua điện thoại/trao đổi dữ liệu) được mô tả trong tài liệu định nghĩa xử lý nghiệp vụ.<rpr id=\"23\"></rpr><rpr id=\"29\"></rpr><rpr id=\"23\"></rpr>"
+  },
+  {
+    "jp": "A03-030301_オートレース情報_レース情報登録業務",
+    "vn": "A03-030301_オートレース情報_レース情報登録業務/A03-030301_Thông tin cuộc đua ô tô_Nghiệp vụ đăng ký thông tin cuộc đua"
+  },
+  {
+    "jp": "A03-030301-04_開催場・選手情報・ランキング",
+    "vn": "A03-030301-04_開催場・選手情報・ランキング(Trường đua/Thông tin về về tuyển thủ/Bảng xếp hạnh)"
+  },
+  {
+    "jp": "新要件No.128の削除に伴い、関連要件番号とコメントを削除",
+    "vn": "Do [新要件No.128/Yêu cầu mới số No.128] đã bị xóa nên xó các comment và Mã số yêu cầu liên quan"
+  },
+  {
+    "jp": "A03-030301-01_出走表",
+    "vn": "A03-030301-01_出走表/Bảng xuất phát"
+  },
+  {
+    "jp": "新要件No.27削除に伴い、23【補足事項】のサイネージに関する記述を削除",
+    "vn": "Do [新要件No.27/Yêu cầu mới số 27] bị xóa nên xóa phần mô tả về biển báo ở mục 23 [Thông tin bổ sung]"
+  },
+  {
+    "jp": "A03-030301-03_開催スケジュール",
+    "vn": "A03-030301-03_開催スケジュール/Schedule tổ chức"
+  },
+  {
+    "jp": "新要件No.147の削除に伴い、下記を変更",
+    "vn": "Do [新要件No.147/Yêu cầu mới số 147] bị xóa nên thực hiện những thay đổi sau đây:"
+  },
+  {
+    "jp": "・ステップ007、008を削除",
+    "vn": "・Xóa step 007、008"
+  },
+  {
+    "jp": "・ステップ033を削除",
+    "vn": "・Xóa step 033"
+  },
+  {
+    "jp": "・ステップ034「発売結果確認通知受信」を「発売結果確認」に変更",
+    "vn": "・Step 034 [発売結果確認通知受信/Nhận thông báo confirm kết quả bán hàng] thay đổi thành [発売結果確認/Confirm kết quả bán hàng]"
+  },
+  {
+    "jp": "・ステップ022の補足「・以下の項目については、出走表未確定状態の場合、登録内容を表示し内容を修正することができる」に「（手動で修正）」を追記",
+    "vn": "・Thêm \"(手動で修正/Sửa thủ công)\" vào phần bổ sung của step 022 [・以下の項目については、出走表未確定状態の場合、登録内容を表示し内容を修正することができる/・Đối với các mục sau, nếu danh sách xuất phát chưa được xác định, thì hiển thị nội dung đăng ký và có thể sửa nội dung đó]"
+  },
+  {
+    "jp": "新要件No.25の削除に伴い、下記を変更",
+    "vn": "Do [新要件No.25/Yêu cầu mới số 25] bị xóa nên thực hiện những thay đổi sau đây:"
+  },
+  {
+    "jp": "008.出走表仮登録における補足事項の文章を削除",
+    "vn": "Xóa text ở mục bổ sung ở phần [008.出走表仮登録/đăng ký tạm bảnh xuất phát]"
+  },
+  {
+    "jp": "欠車等で7車立て以下になった場合は、施行者に確認の上、発売を中止するか決定する",
+    "vn": "Nếu số lượng xe (ngựa) giảm xuống 7 chiếc hoặc ít hơn do xe bị thiếu, thì việc quyết định có ngừng bán vé hay không sẽ thực hiện sau khi confirm với người tổ chức."
+  },
+  {
+    "jp": "例：8R～12Rの5R分出走表が送られてきた際、自動で8R～12Rとして登録されるため、手動での修正が不要である",
+    "vn": "Ví dụ: Khi bảng xuất phát cho 5 cuộc đua từ R8 đến R12 được gửi đến, thì do được tự động đăng ký là 8R ~ 12R nên việc sửa thủ công là không cần thiết"
+  },
+  {
+    "jp": "022.出走表更新における補足事項の文言変更",
+    "vn": "Change text mục bổ sung ở [022.出走表更新/Update bảng xuất phát]"
+  },
+  {
+    "jp": "重勝式発売開始締切時刻",
+    "vn": "重勝式発売開始締切時刻/Time bắt đầu hạn chót bán vé cược cho hình thức nhiều lần thắng"
+  },
+  {
+    "jp": "034.発売結果確認における補足事項の文言変更",
+    "vn": "Thay đổi cách diễn đạt về mục bổ sung ở [034.発売結果確認/Confirm kết quả bán ra]"
+  },
+  {
+    "jp": "ステップ007.出走表手動登録を削除",
+    "vn": "Xóa step [007.出走表手動登録/Đăng ký thủ công bảng xuất phát]"
+  },
+  {
+    "jp": "【修正前】006.出走表手動連携→007.出走表手動登録",
+    "vn": "【Trước khi sửa】 006.出走表手動連携/Liên kết thủ công bảng xuất phát →007.出走表手動登録/Đăng ký thủ công bảng xuất phát"
+  },
+  {
+    "jp": "【修正後】006.出走表手動連携→IISV",
+    "vn": "【Sau khi sửa】 006.出走表手動連携/Liên kết thủ công bảng xuất phát→IISV"
+  },
+  {
+    "jp": "023.発売開始における業務処理定義書付与の文言を変更",
+    "vn": "023. Đã thay đổi cách diễn đạt của tài liệu định nghĩa quy trình kinh doanh tại thời điểm ra mắt"
+  },
+  {
+    "jp": "（発売開始時間到来）",
+    "vn": "（発売開始時間到来/đã đến thời gian bắt đầu bán ra）"
+  },
+  {
+    "jp": "014.内容の確認につながる外部システムの文言を変更",
+    "vn": "Change text ở external system có link đến [014.内容の確認/Confirm nội dung]"
+  },
+  {
+    "jp": "JKAシステム",
+    "vn": "JKA system"
+  },
+  {
+    "jp": "035.レース情報の変更対応における補足事項の文言削除と追加",
+    "vn": "Xóa và add text ở Mục bổ sung ở [035.レース情報の変更対応/đối ứng thau đổi thông tin cuộc đua]"
+  },
+  {
+    "jp": "(As-is)通常賭式毎の発売有無、出走車の取り消し（発売後取り消し、締切時刻修正）",
+    "vn": "(As-is) Hủy bỏ [通常賭式毎の発売有無/Có hay không bán ra của mỗi loại hình cá cược thông thường]、[出走車/xe tham gia chạy] （Hủy bỏ sau khi bán ra、sửa deadline time）"
+  },
+  {
+    "jp": "(As-is)通常賭式毎の発売有無、出走選手(車番)の取り消し、締切時刻修正",
+    "vn": "(As-is) Hủy bỏ [通常賭式毎の発売有無/Có hay không có bán ra của mỗi loại hình cá cược thông thường]、[出走選手(車番)/tuyển thủ tham gia chạy] 、sửa [締切時刻/deadline time]"
+  },
+  {
+    "jp": "022.出走表更新における補足事項の文言追加",
+    "vn": "Add text mục bổ sung ở [022.出走表更新/Update bảng xuất phát]"
+  },
+  {
+    "jp": "<rpr id=\"19\">023.</rpr><rpr id=\"20\">発売開始</rpr>",
+    "vn": "<rpr id=\"19\">023.</rpr><rpr id=\"20\">発売開始/Bắt đầu bán</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">011.</rpr><rpr id=\"20\">出走表仮登録完了</rpr>{}通知送信",
+    "vn": "<rpr id=\"19\">011.</rpr><rpr id=\"20\">出走表仮登録完了</rpr>{}通知送信/Gửi thông báo hoàn tất đăng ký tạm bảng xuất phát"
+  },
+  {
+    "jp": "<rpr id=\"15\">012.</rpr><rpr id=\"14\">出走表仮登録完了</rpr>{}通知受信",
+    "vn": "<rpr id=\"15\">012.</rpr><rpr id=\"14\">出走表仮登録完了</rpr>{}通知受信/Nhận thông báo hoàn tất đăng ký tạm bảng xuất phát"
+  },
+  {
+    "jp": "<rpr id=\"15\">013.</rpr><rpr id=\"14\">出走表確認</rpr>",
+    "vn": "<rpr id=\"15\">013.</rpr><rpr id=\"14\">出走表確認/Confirm bảng xuất phát</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">014.</rpr><rpr id=\"14\">内容の確認</rpr>",
+    "vn": "<rpr id=\"15\">014.</rpr><rpr id=\"14\">内容の確認/Confirm nội dung</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">020.</rpr><rpr id=\"14\">出走表確定指示</rpr>",
+    "vn": "<rpr id=\"15\">020.</rpr><rpr id=\"14\">出走表確定指示/Chỉ thị xác định bảng xuất phát</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">021.</rpr><rpr id=\"20\">出走表確定</rpr>",
+    "vn": "<rpr id=\"19\">021.</rpr><rpr id=\"20\">出走表確定/Xác định bảng xuất phát</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">026.</rpr><rpr id=\"14\">自動発売失敗通知受信</rpr>",
+    "vn": "<rpr id=\"15\">026.</rpr><rpr id=\"14\">自動発売失敗通知受信/Nhận thông báo việc bán ra tự động thất bại</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">029.</rpr><rpr id=\"14\">手動発売指示</rpr>",
+    "vn": "<rpr id=\"15\">029.</rpr><rpr id=\"14\">手動発売指示/Chỉ thị bán thủ công</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">034.</rpr><rpr id=\"14\">発売結果確認</rpr>",
+    "vn": "<rpr id=\"15\">034.</rpr><rpr id=\"14\">発売結果確認/Confirm kết quả bán ra</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">024.</rpr><rpr id=\"14\">自動発売成否</rpr>{}判定",
+    "vn": "<rpr id=\"15\">024.</rpr><rpr id=\"14\">自動発売成否判定/Phán định thành bại việc bán ra tự động]{}</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">032.</rpr><rpr id=\"14\">発売情報参照</rpr>",
+    "vn": "<rpr id=\"15\">032.</rpr><rpr id=\"14\">発売情報参照/Tham khảo thông tin bán ra</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">031.Web</rpr><rpr id=\"20\">掲載</rpr>",
+    "vn": "<rpr id=\"19\">031.Web</rpr><rpr id=\"20\">掲載/Bài đăng lên web </rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">025.</rpr><rpr id=\"20\">自動発売失敗通知</rpr>{}送信",
+    "vn": "<rpr id=\"19\">025.</rpr><rpr id=\"20\">自動発売失敗通知送信/Gửi thông báo việc bán ra tự động thất bại</rpr>{}"
+  },
+  {
+    "jp": "<rpr id=\"15\">005.IISV</rpr><rpr id=\"14\">担当者へ連絡</rpr>",
+    "vn": "<rpr id=\"15\">005.IISV</rpr><rpr id=\"14\">担当者へ連絡/Liên hệ đến PIC IRIS</rpr>"
+  },
+  {
+    "jp": "A04-010401-01_GW経由入金",
+    "vn": "A04-010401-01_GW経由入金/Nạp tiền qua GW"
+  },
+  {
+    "jp": "<rpr id=\"26\">IISV</rpr><rpr id=\"27\">担当者</rpr>",
+    "vn": "<rpr id=\"26\">IISV</rpr><rpr id=\"27\"> PIC</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"28\">・発売開始時間を自動設定する。",
+    "vn": "<rpr id=\"28\">・Set tự động thời gian bắt đầu bán hàng"
+  },
+  {
+    "jp": "LOTO場の前日発売開始時間について、初日は18:00、2日目以降は18:00 or 前日の最終レース発走時刻＋30分 の遅い方</rpr><rpr id=\"29\">に設定される</rpr>",
+    "vn": "‐Về thời gian bắt đầu mở bán trước 1 ngày ở sân LOTO đang được set: Ngày đầu tiên là 18:00, từ ngày thứ hai trở đi: 18:00 hoặc phương án muộn hơn là: Vào time  xuất phát của cuộc đua cuối cùng ngày hôm trước + 30 phút<rpr id=\"29\"></rpr></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">・モトロト</rpr><rpr id=\"23\">BIG</rpr><rpr id=\"24\">は後半</rpr><rpr id=\"23\">4</rpr><rpr id=\"24\">レース全て</rpr><rpr id=\"23\">8</rpr><rpr id=\"24\">車立ての場合のみ発売するルールになっている。",
+    "vn": "・Đang có rule là: Cá cược Motoloto BIG chỉ được phát hành trong trường hợp tất cả 4 cuộc đua sau cùng đều có 8 xe tham gia.<rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\">"
+  },
+  {
+    "jp": "欠車等で</rpr><rpr id=\"23\">7</rpr><rpr id=\"24\">車立て以下になった場合は、施行者に確認の上、発売を中止するか決定する</rpr>",
+    "vn": "Nếu số lượng xe (ngựa) giảm xuống 7 chiếc hoặc ít hơn do xe bị thiếu, thì việc quyết định có ngừng bán vé hay không sẽ thực hiện sau khi confirm với người tổ chức.</rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">022.</rpr><rpr id=\"20\">出走表更新</rpr>",
+    "vn": "<rpr id=\"19\">022.</rpr><rpr id=\"20\">出走表更新/Update bảng xuất phát</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"35\">JKA</rpr><rpr id=\"36\">システム</rpr><rpr id=\"37\">施行者</rpr>",
+    "vn": "Người thực thi hệ thống JKA<rpr id=\"35\"></rpr><rpr id=\"36\"></rpr><rpr id=\"37\"></rpr>"
+  },
+  {
+    "jp": "システムを利用して確認",
+    "vn": "Sử dụng system để confirm"
+  },
+  {
+    "jp": "<rpr id=\"24\">・出走表更新、</rpr><rpr id=\"38\">出走時刻</rpr><rpr id=\"32\">発走時刻</rpr><rpr id=\"24\">変更、締切時刻変更が発生するたび、</rpr><rpr id=\"23\">web</rpr><rpr id=\"24\">掲載を行う</rpr>",
+    "vn": "<rpr id=\"24\">・Bất cứ khi nào phát sinh việc update bảng xuất phát、</rpr>change <rpr id=\"38\">time xuất phát</rpr><rpr id=\"32\">time bắt đầu chạy</rpr><rpr id=\"24\">、change deadline time, thì những thống tin sẽ được đăng trên </rpr><rpr id=\"23\">Web</rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">・発売開始にあたり必要な条件（</rpr><rpr id=\"31\">発売許可電文受領</rpr><rpr id=\"24\">、発売開始時間到来</rpr><rpr id=\"31\">など</rpr><rpr id=\"24\">）について業務処理定義書にて記載</rpr>",
+    "vn": "<rpr id=\"24\">・Các điều kiện cần thiết để bắt đầu bán ra (</rpr>ví dụ như: <rpr id=\"31\">nhận được điện văn cho phép bán ra, đến thời gian bắt đầu bán rav.v.</rpr><rpr id=\"24\">) đều được ghi rõ trong tài liệu định nghĩa xử lý nghiệp vụ. </rpr><rpr id=\"31\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "・出走表は任意のタイミングで更新可能",
+    "vn": "・Có thể update bảng xuất phát vào thời điểm tùy ý"
+  },
+  {
+    "jp": "<rpr id=\"24\">　</rpr><rpr id=\"23\">※</rpr><rpr id=\"24\">出走表確定後でも更新可能</rpr>",
+    "vn": "<rpr id=\"24\">　</rpr><rpr id=\"23\">※</rpr><rpr id=\"24\">Ngay cả sau khi xác định bảng xuất phát cũng có thể update được</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">・以下の項目については、出走表未確定状態の場合、登録内容を表示し内容を修正することができる</rpr><rpr id=\"39\">（手動で修正）　</rpr>",
+    "vn": "<rpr id=\"24\">・Đối với các mục sau, nếu danh sách xuất phát chưa được xác định, thì hiển thị nội dung đăng ký và có thể sửa nội dung đó</rpr><rpr id=\"39\">(Sửa bằng tay)</rpr>"
+  },
+  {
+    "jp": "＜オートレース＞",
+    "vn": "＜Cuộc đua ô tô＞"
+  },
+  {
+    "jp": "<rpr id=\"24\">発売開始時刻、レース毎の</rpr><rpr id=\"31\">出走</rpr><rpr id=\"32\">発走</rpr><rpr id=\"24\">時刻</rpr><rpr id=\"23\">(</rpr><rpr id=\"40\">締切時刻</rpr><rpr id=\"23\">)</rpr><rpr id=\"24\">、出走登録車数、レース毎の通常賭式毎発売有無、重勝</rpr><rpr id=\"40\">賭</rpr><rpr id=\"24\">式</rpr><rpr id=\"30\">発売開始</rpr><rpr id=\"33\">/</rpr><rpr id=\"24\">締切時刻</rpr>",
+    "vn": "<rpr id=\"24\">発売開始時刻/time bắt đầu bán ra, レース毎の出走発走時刻(締切時刻)/time xuất phát và time bắt đầu chạy của từng cuộc đua (time hạn chót), 出走登録車数/số lượng đăng ký chạy, レース毎の通常賭式毎発売有無/có hay không việc bán ra các loại cược thông thường trong từng cuộc đua, 重勝賭式発売開始/締切時刻/time bắt đầu/hạn chót việc bán ra của hình thức cược thắng liên tục nhiều chặng</rpr><rpr id=\"31\"></rpr><rpr id=\"32\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"40\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"40\"></rpr><rpr id=\"33\"></rpr><rpr id=\"24\"></rpr><rpr id=\"30\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">015.</rpr><rpr id=\"20\">出走表更新</rpr>",
+    "vn": "<rpr id=\"19\">015.</rpr><rpr id=\"20\">出走表更新/Update bảng xuất phát</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">016.</rpr><rpr id=\"14\">出走表修正</rpr>",
+    "vn": "<rpr id=\"15\">016.</rpr><rpr id=\"14\">出走表修正/Sửa bảng xuất phát</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">出走表に誤りがあった場合は原則施行者に</rpr><rpr id=\"23\">IISV</rpr><rpr id=\"24\">上での出走表データ再連携を依頼するが、</rpr><rpr id=\"23\">OP</rpr><rpr id=\"24\">側で手動修正可能な機能を具備する</rpr>",
+    "vn": "<rpr id=\"24\">Trong trường hợp có lỗi trong bảng xuất phát, về nguyên tắc, ban tổ chức sẽ được yêu cầu liên kết lại dữ liệu bảng xuất phát trên IISV, nhưng hệ thống có chức năng cho phép sửa thủ công bên phía OP.</rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">035.</rpr><rpr id=\"14\">レース情報の変更対応</rpr>",
+    "vn": "<rpr id=\"15\">035.</rpr><rpr id=\"14\">レース情報の変更対応/Đối ứng change thông tin cuộc đua</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"28\">(As-is)</rpr><rpr id=\"29\">通常賭式毎の発売有無、出走</rpr><rpr id=\"42\">車</rpr><rpr id=\"43\">選手</rpr><rpr id=\"44\">(</rpr><rpr id=\"43\">車番</rpr><rpr id=\"44\">)</rpr><rpr id=\"29\">の取り消し</rpr><rpr id=\"42\">（発売前取り消し、発売後取り消し</rpr><rpr id=\"43\">、</rpr><rpr id=\"45\">締切時刻修正</rpr><rpr id=\"42\">）</rpr>",
+    "vn": "<rpr id=\"28\">(As-is)</rpr> Hủy Bỏ <rpr id=\"29\">[通常賭式毎の発売有無/Có hay không bán ra của loại hình cá cược thông thường]、[出走</rpr><rpr id=\"42\">車</rpr><rpr id=\"43\">選手</rpr><rpr id=\"44\">(</rpr><rpr id=\"43\">車番</rpr><rpr id=\"44\">)</rpr>/tuyển thủ xe xuất phát(số xe)]<rpr id=\"29\"></rpr><rpr id=\"42\">（Hủy bỏ trước khi bán ra、hủy bỏ sau khi bán ra</rpr><rpr id=\"43\">、</rpr><rpr id=\"45\">Sửa deadline time</rpr><rpr id=\"42\">）</rpr>"
+  },
+  {
+    "jp": "オートレース情報",
+    "vn": "Thông tin về cuộc đua ô tô"
+  },
+  {
+    "jp": "<rpr id=\"19\">001.</rpr><rpr id=\"20\">オッズ取得</rpr>",
+    "vn": "<rpr id=\"19\">001.</rpr><rpr id=\"20\">オッズ取得/Nhận tỷ lệ cược</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">002.Web</rpr><rpr id=\"20\">掲載内容更新</rpr>",
+    "vn": "<rpr id=\"19\">002.Web</rpr><rpr id=\"20\">掲載内容更新/Update nội dung bài đăng lên Web</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">オッズ参照</rpr>",
+    "vn": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">オッズ参照/refer tỷ lệ cược</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"47\">(As-is)1</rpr><rpr id=\"48\">分ごとにオッズ・試走タイム獲得ツールが起動し、</rpr><rpr id=\"47\">IISV</rpr><rpr id=\"48\">上のオッズ情報を取得する</rpr>",
+    "vn": "<rpr id=\"47\">(As-is)  Tool get tỷ lệ cược và thời gian chạy thử nghiệm sẽ được khởi động sau mỗi phút để get thông tin tỷ lệ cược trên </rpr><rpr id=\"47\">IISV</rpr><rpr id=\"48\"><rpr id=\"48\"></rpr></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"47\">-</rpr><rpr id=\"48\">競輪・競馬と異なり中間オッズ・最終オッズの区別は行われていないため、インプット・アウトプットの記載が競輪・競馬とは異なる</rpr>",
+    "vn": "- Không giống như đu xe đạp và đua ngựa, không có sự phân biệt giữa tỷ lệ cược trung gian và tỷ lệ cược cuối cùng, do đó mô tả input và output khác với đua xe đạp và đua ngựa.<rpr id=\"47\"></rpr><rpr id=\"48\"></rpr>"
+  },
+  {
+    "jp": "「オッズ取得」から「オッズ参照」まではレースごとに繰り返し実行される",
+    "vn": "Các bước từ 「オッズ取得/get tỷ lệ cược」 đến 「オッズ参照/refer tỷ lệ cược」 được thực hiện lặp đi lặp lại cho mỗi cuộc đua"
+  },
+  {
+    "jp": "オッズ取得",
+    "vn": "Get tỷ lệ cược"
+  },
+  {
+    "jp": "<rpr id=\"15\">006.</rpr><rpr id=\"14\">開催スケジュール</rpr>{}仮登録",
+    "vn": "<rpr id=\"15\">006.</rpr><rpr id=\"14\">開催スケジュール</rpr>{}仮登録/Đăng ký tạm thời schedule tổ chức"
+  },
+  {
+    "jp": "<rpr id=\"15\">010.</rpr><rpr id=\"14\">開催スケジュール承認</rpr>",
+    "vn": "<rpr id=\"15\">010.</rpr><rpr id=\"14\">開催スケジュール承認/Approve schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">012.WEB</rpr><rpr id=\"14\">掲載</rpr>",
+    "vn": "<rpr id=\"15\">012.WEB</rpr><rpr id=\"14\">掲載/Đăng lên WEB</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">013.</rpr><rpr id=\"14\">開催スケジュール参照</rpr>",
+    "vn": "<rpr id=\"15\">013.</rpr><rpr id=\"14\">開催スケジュール参照/Refer schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">開催スケジュール取込</rpr>",
+    "vn": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">開催スケジュール取込/Import schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">009.</rpr><rpr id=\"14\">開催スケジュール承認</rpr>{}依頼",
+    "vn": "<rpr id=\"15\">009.</rpr><rpr id=\"14\">開催スケジュール承認</rpr>{}依頼/Request approve schedule tổ chức"
+  },
+  {
+    "jp": "<rpr id=\"15\">002.</rpr><rpr id=\"14\">開催スケジュール受領</rpr>",
+    "vn": "<rpr id=\"15\">002.</rpr><rpr id=\"14\">開催スケジュール受領/Nhận schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">004.</rpr><rpr id=\"14\">開催スケジュール編集</rpr>",
+    "vn": "<rpr id=\"15\">004.</rpr><rpr id=\"14\">開催スケジュール編集/Edit schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">005.</rpr><rpr id=\"14\">開催スケジュール登録</rpr>",
+    "vn": "<rpr id=\"15\">005.</rpr><rpr id=\"14\">開催スケジュール登録/Đăng ký schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "取込んだ開催スケジュールは画面に表示され、手動編集可能である",
+    "vn": "Schedule tổ chức đã import sẽ hiển thị trên màn hình và có thể edit thủ công."
+  },
+  {
+    "jp": "<rpr id=\"15\">001.</rpr><rpr id=\"14\">開催スケジュール送付</rpr>",
+    "vn": "<rpr id=\"15\">001.</rpr><rpr id=\"14\">開催スケジュール送付/Gửi schedule tổ chức</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"26\">JKA</rpr><rpr id=\"27\">担当者</rpr>",
+    "vn": "<rpr id=\"26\">JKA</rpr><rpr id=\"27\">担当者/PIC JKA</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">・スケジュール登録実施月：</rpr><rpr id=\"23\">3</rpr><rpr id=\"24\">月・</rpr><rpr id=\"23\">5</rpr><rpr id=\"24\">月・</rpr><rpr id=\"23\">9</rpr><rpr id=\"24\">月・</rpr><rpr id=\"23\">11</rpr><rpr id=\"24\">月</rpr>",
+    "vn": "<rpr id=\"24\">Tháng thực hiện đăng ký schedule: tháng </rpr><rpr id=\"23\">3</rpr><rpr id=\"24\">, tháng </rpr><rpr id=\"23\">5</rpr><rpr id=\"24\">, tháng </rpr><rpr id=\"23\">9</rpr><rpr id=\"24\">, tháng </rpr><rpr id=\"23\">11</rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">情報取得期間：該当月の</rpr><rpr id=\"23\">1</rpr><rpr id=\"24\">日～</rpr><rpr id=\"23\">15</rpr><rpr id=\"24\">日</rpr>",
+    "vn": "<rpr id=\"24\">Kỳ hạn get thông tin: Từ ngày 1 đến ngày 15 của tháng tương ứng</rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"55\">・</rpr><rpr id=\"24\">上書きするチェックボックスがあり、節単位で開催スケジュールを上書きするか否かを制御している</rpr>",
+    "vn": "<rpr id=\"55\">・</rpr><rpr id=\"24\">Có checkbox ghi đè để kiểm soát việc có ghi đè lịch tổ chức theo từng phần hay không.</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">データベース参照</rpr>",
+    "vn": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">データベース参照/Tham khảo DB</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"48\">・</rpr><rpr id=\"47\">OP</rpr><rpr id=\"48\">サイト上各競技の「データベース」タブに掲載される情報が更新される</rpr>",
+    "vn": "<rpr id=\"48\">・</rpr><rpr id=\"47\">Thông tin được đăng trên tab 「データベース」 cho từng trận đấu trên site OP sẽ được cập nhật.<rpr id=\"48\"></rpr></rpr>"
+  },
+  {
+    "jp": "開催場・選手情報・ランキング",
+    "vn": "開催場・選手情報・ランキング(Trường đua/Thông tin về về tuyển thủ/Bảng xếp hạnh)"
+  },
+  {
+    "jp": "<rpr id=\"47\">(As-is)OP</rpr><rpr id=\"51\">キャッシュレスシステム側で一定周期ごとに</rpr><rpr id=\"47\">IISV</rpr><rpr id=\"48\">上のデータ取得を行っている</rpr>",
+    "vn": "(As-is) Hệ thống thanh toán không dùng tiền mặt OP đang thực hiện việc get data trên IISV theo chu kỳ nhất định.<rpr id=\"47\"></rpr><rpr id=\"51\"></rpr><rpr id=\"47\"></rpr><rpr id=\"48\"></rpr>"
+  },
+  {
+    "jp": "・手動での更新ができる機能を具備する",
+    "vn": "・Có trang bị chức năng có thể update thủ công"
+  },
+  {
+    "jp": "<rpr id=\"24\">・後続の</rpr><rpr id=\"23\">IF</rpr><rpr id=\"24\">検討に向け、どの項目を何のシステムからどのようにもらっているのか、競技ごとに業務処理定義書にて整理</rpr>",
+    "vn": "・Nhằm xem xét IF tiếp theo, việc đang get những mục nào từ hệ thống nào và bằng cách nào sẽ được chỉnh lý(mô tả) ở tài liệu định nghĩa quy trình nghiệp vụ.<rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">006.</rpr><rpr id=\"14\">出走表手動連携</rpr>",
+    "vn": "006.出走表手動連携/Liên kết thủ công bảng xuất phát<rpr id=\"15\"></rpr><rpr id=\"14\"></rpr>"
+  },
+  {
+    "jp": "A04-010401_電子マネー対応_電子マネー入金業務",
+    "vn": "A04-010401_電子マネー対応_電子マネー入金業務/Hỗ trợ tiền điện tử_Nghiệp vụ nạp tiền điện tử"
+  },
+  {
+    "jp": "関連要件番号#238の削除",
+    "vn": "Xóa No.Yêu cầu liên quan #238"
+  },
+  {
+    "jp": "新要件一覧#238の削除対応",
+    "vn": "Đối ứng xóa #238 [新要件一覧/List yêu cầu mới]"
+  },
+  {
+    "jp": "検討方針から#238の削除",
+    "vn": "Xóa #238 từ Phương châm xem xét"
+  },
+  {
+    "jp": "<rpr id=\"15\">001.OP</rpr><rpr id=\"14\">コインチャージ依頼</rpr>",
+    "vn": "<rpr id=\"15\">001.OP</rpr><rpr id=\"14\">コインチャージ依頼/Yêu cầu nạp tiền OP coin</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">009.OP</rpr><rpr id=\"14\">コインチャージ完了通知受信</rpr>",
+    "vn": "<rpr id=\"15\">009.OP</rpr><rpr id=\"14\">コインチャージ完了通知受信/Nhận thông báo hoàn tất giao dịch nạp tiền OP Coin </rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">005.</rpr><rpr id=\"14\">決済処理</rpr>",
+    "vn": "<rpr id=\"15\">005.</rpr><rpr id=\"14\">決済処理/Xử lý thanh toán</rpr>"
+  },
+  {
+    "jp": "各種決済システム",
+    "vn": "Hệ thống các loại thanh toán"
+  },
+  {
+    "jp": "<rpr id=\"15\">004.</rpr><rpr id=\"14\">決済情報入力</rpr>",
+    "vn": "<rpr id=\"15\">004.</rpr><rpr id=\"14\">決済情報入力/Nhập thông tin thanh toán</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">002.OP</rpr><rpr id=\"14\">コインチャージ</rpr>{}受付",
+    "vn": "<rpr id=\"15\">002.OP</rpr><rpr id=\"14\">コインチャージ</rpr>{}受付/Tiếp nhận nạp tiền OP coin"
+  },
+  {
+    "jp": "<rpr id=\"15\">008.OP</rpr><rpr id=\"14\">コインチャージ完了通知送信</rpr>",
+    "vn": "<rpr id=\"15\">008.OP</rpr><rpr id=\"14\">コインチャージ完了通知送信/Gửi thông báo hoàn tất giao dịch nạp tiền OP coin</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">決済手段選択</rpr>",
+    "vn": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">決済手段選択/Chọn phương thức thanh toán</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"21\">利用可能な決済手段は以下の</rpr><rpr id=\"20\">3</rpr><rpr id=\"21\">種を想定。",
+    "vn": "<rpr id=\"21\">Giả định 3 phương thức sau là các phương thức có dùng được.</rpr><rpr id=\"20\"></rpr><rpr id=\"21\">。"
+  },
+  {
+    "jp": "詳細は機能要件定義フェーズ以降にて検討する</rpr>",
+    "vn": "Chi tiết thì xem xét từ sau phase function requirement phase</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"21\">・クレジットカード系（</rpr><rpr id=\"20\">Visa</rpr><rpr id=\"21\">・</rpr><rpr id=\"20\">Master</rpr><rpr id=\"21\">・</rpr><rpr id=\"20\">JCB</rpr><rpr id=\"21\">・</rpr><rpr id=\"20\">AMEX</rpr><rpr id=\"21\">・</rpr><rpr id=\"20\">Diners</rpr><rpr id=\"21\">）</rpr>",
+    "vn": "・Thẻ tín dụng (Visa, Master, JCB, AMEX, Diners)<rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"21\">・</rpr><rpr id=\"20\">QR</rpr><rpr id=\"21\">コード決済系（</rpr><rpr id=\"20\">PayPay</rpr><rpr id=\"21\">・</rpr><rpr id=\"20\">LINEPay</rpr><rpr id=\"21\">・メルペイ）</rpr>",
+    "vn": "・Hệ thống thanh toán mã QR (PayPay, LINEPay, Merpay)<rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"21\">・銀行決済（</rpr><rpr id=\"20\">PayPay</rpr><rpr id=\"21\">銀行、</rpr><rpr id=\"20\">au</rpr><rpr id=\"21\">じぶん銀行、イオン銀行、</rpr><rpr id=\"20\">SBI</rpr><rpr id=\"21\">銀行以外はペイジー想定）</rpr>",
+    "vn": "・Thanh toán qua ngân hàng (PayPay Bank, au Jibun Bank, AEON Bank, Các ngân hàng khác SBI Bank coi là Pay-easy)<rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr>"
+  },
+  {
+    "jp": "チャージ金額を入力する",
+    "vn": "Nhập số tiề nạp"
+  },
+  {
+    "jp": "<rpr id=\"20\">-OP</rpr><rpr id=\"21\">コインの一日あたりのチャージ上限金額を定める</rpr>",
+    "vn": "-Set mức giới hạn số tiền nạp tối đa cho OP Coin trong một ngày.<rpr id=\"20\"></rpr><rpr id=\"21\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"20\">※</rpr><rpr id=\"21\">設計工程にて一日あたりのチャージ金額の上限を定義する</rpr>",
+    "vn": "<rpr id=\"20\">※</rpr><rpr id=\"21\">Xác định giới hạn tối đa nạp phí hàng ngày trong quá trình thiết kế</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"22\">■</rpr><rpr id=\"23\">(#21)</rpr><rpr id=\"22\">前払式支払（電子マネー）を導入する</rpr>",
+    "vn": "■(#21) Áp dụng phương thức thanh toán trả trước (tiền điện tử)<rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"22\">■</rpr><rpr id=\"23\">(#223)</rpr><rpr id=\"22\">インシデント発生時電子マネーのチャージにかかる開始</rpr><rpr id=\"23\">/</rpr><rpr id=\"22\">中止</rpr><rpr id=\"23\">/</rpr><rpr id=\"22\">終了を手動で行えるようにする</rpr>",
+    "vn": "■(#223) Thực hiện sao cho cho phép người dùng có thể thực hiện thủ công việc bắt đầu/ dừng/ kết thúc nạp tiền điện tử trong trường hợp xảy ra sự cố<rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr>"
+  },
+  {
+    "jp": "入金失敗の場合",
+    "vn": "Nếu nạp tiền thất bại"
+  },
+  {
+    "jp": "<rpr id=\"15\">A04-050103-01_</rpr><rpr id=\"14\">入金エラー へジャンプ</rpr>",
+    "vn": "<rpr id=\"15\">A04-050103-01_</rpr><rpr id=\"14\">入金エラー へジャンプ/Jump đến Lỗi nạp tiền</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">011.</rpr><rpr id=\"14\">決済情報連携</rpr>",
+    "vn": "<rpr id=\"15\">011.</rpr><rpr id=\"14\">決済情報連携/Liên kết thông tin thanh toán</rpr>"
+  },
+  {
+    "jp": "投票・入金/精算",
+    "vn": "Voting・Nạp tiền/Thanh toán"
+  },
+  {
+    "jp": "入金管理",
+    "vn": "Quản lý nạp tiền"
+  },
+  {
+    "jp": "電子マネー対応",
+    "vn": "Đối ứng tiền điện tử"
+  },
+  {
+    "jp": "電子マネー入金業務",
+    "vn": "Nghiệp vụ nạp tiền tiền điện tử"
+  },
+  {
+    "jp": "GW経由入金",
+    "vn": "Nạp tiền qua GW"
+  },
+  {
+    "jp": "会員のOPコインチャージ依頼",
+    "vn": "Yêu cầu nạp tiền OP coin của member"
+  },
+  {
+    "jp": "OPコインチャージ受付",
+    "vn": "Tiếp nhận nạp tiền OP coin"
+  },
+  {
+    "jp": "OPコインチャージ依頼情報",
+    "vn": "Thông tin yêu cầu nạp tiền OP coin"
+  },
+  {
+    "jp": "OPコインチャージ完了通知送信",
+    "vn": "Gửi thông báo hoàn tất giao dịch nạp tiền OP coin"
+  },
+  {
+    "jp": "<rpr id=\"15\">004.</rpr><rpr id=\"14\">入金結果送信</rpr>",
+    "vn": "<rpr id=\"15\">004.</rpr><rpr id=\"14\">入金結果送信/Gửi kết quả nạp tiền</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">005.</rpr><rpr id=\"14\">入金結果受信</rpr>",
+    "vn": "<rpr id=\"15\">005.</rpr><rpr id=\"14\">入金結果受信/Nhận kết quả nạp tiền</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"19\">NB</rpr><rpr id=\"18\">銀行システム</rpr>",
+    "vn": "<rpr id=\"19\">NB</rpr><rpr id=\"18\">bank system</rpr>"
+  },
+  {
+    "jp": "015~017のフローを追加",
+    "vn": "Add flow 015~017"
+  },
+  {
+    "jp": "高額的中者",
+    "vn": "Là Người trúng thưởng số tiền lớn"
+  },
+  {
+    "jp": "<rpr id=\"15\">007.OP</rpr><rpr id=\"14\">コインチャージ</rpr>{}完了通知送信",
+    "vn": "<rpr id=\"15\">007.OP</rpr><rpr id=\"14\">コインチャージ完了通知送信/Gửi thông báo hoàn tất giao dịch nạp tiền OP coin</rpr>{}"
+  },
+  {
+    "jp": "<rpr id=\"20\">OP</rpr><rpr id=\"21\">コインチャージ用口座に入金が行われたことが</rpr><rpr id=\"20\">OP</rpr><rpr id=\"21\">社システムに連携される</rpr>",
+    "vn": "Việc gửi tiền vào bank account để nạp tiền OP Coin đã được liên kết với hệ thống của công ty OP.<rpr id=\"20\"></rpr><rpr id=\"21\"></rpr><rpr id=\"20\"></rpr><rpr id=\"21\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.OP</rpr><rpr id=\"14\">コインチャージ用</rpr>{}口座への入金",
+    "vn": "<rpr id=\"15\">003.OP</rpr><rpr id=\"14\">コインチャージ用</rpr>{}口座への入金/Nạp tiền vào bank account để nạp tiền OP Coin"
+  },
+  {
+    "jp": "入金する名義人情報、及びチャージ金額を入力する",
+    "vn": "Nhập thông tin người đứng tên sẽ nạp tiền và số tiền nạp tiền."
+  },
+  {
+    "jp": "<rpr id=\"25\">-OPコインの一日あたりのチャージ上限金額を定める</rpr>",
+    "vn": "<rpr id=\"25\">-Set mức giới hạn số tiền nạp tối đa cho OP Coin trong một ngày.</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"20\">※</rpr><rpr id=\"21\">設計工程にて一日あたりのチャージ金額の上限を定義する</rpr>",
+    "vn": "<rpr id=\"20\">※</rpr><rpr id=\"21\">Xác định giới hạn tối đa nạp phí hàng ngày ở phase design</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"25\">※</rpr><rpr id=\"21\">設計工程以降に一日あたりのチャージ金額の上限を定義する</rpr>",
+    "vn": "<rpr id=\"25\">※</rpr><rpr id=\"21\">Xác định giới hạn tối đa nạp phí hàng ngày ở sau phase design trở đi</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"20\">OP</rpr><rpr id=\"21\">社側で誰がチャージを希望しているか入金前に把握する必要があるため、チャージ依頼情報の登録を実施する</rpr>",
+    "vn": "Vì công ty OP cần biết ai là người yêu cầu nạp tiền trước khi thực hiện thanh toán nên sẽ đăng ký thông tin yêu cầu nạp tiền.<rpr id=\"20\"></rpr><rpr id=\"21\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"27\">チャージ依頼情報との一致によりチャージ申請者が入金を行ったことを判断し、投票可能</rpr><rpr id=\"26\">OP</rpr><rpr id=\"27\">コイン限度額への反映を行う</rpr>",
+    "vn": "Nếu thông tin trùng khớp với thông tin yêu cầu nạp tiền thì người nộp đơn xin nạp tiền được xác định là đã nạp tiền và điều này được phản ánh trong hạn mức OP coin có thể vote<rpr id=\"27\"></rpr><rpr id=\"26\"></rpr><rpr id=\"27\"></rpr>"
+  },
+  {
+    "jp": "複数の支払い手段それぞれに対する入金方法が異なるため、詳細は業務処理定義書にて整理",
+    "vn": "Vì có nhiều phương thức thanh toán và cách nạp tiền sẽ khác nhau cho mỗi phương thức thanh toán nên thông tin chi tiết được mô tả trong tài liệu định nghĩa xử lý nghiệp vụ."
+  },
+  {
+    "jp": "<rpr id=\"22\">■</rpr><rpr id=\"23\">(#223)</rpr><rpr id=\"22\">インシデント発生時電子マネーのチャージにかかる開始</rpr><rpr id=\"23\">/</rpr><rpr id=\"22\">中止</rpr><rpr id=\"23\">/</rpr><rpr id=\"22\">終了を手動で行えるようにする </rpr>",
+    "vn": "■(#223) Thực hiện sao cho cho phép người dùng có thể thực hiện thủ công việc bắt đầu/ dừng/ kết thúc nạp tiền điện tử trong trường hợp xảy ra sự cố<rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr><rpr id=\"23\"></rpr><rpr id=\"22\"></rpr>"
+  },
+  {
+    "jp": "A04-020202-01_現金投票",
+    "vn": "A04-020202-01_現金投票/Voting bằng tiền mặt"
+  },
+  {
+    "jp": "要件#151の記載なし",
+    "vn": "Không có mô tả về [要件#151/Yêu cầu #151]"
+  },
+  {
+    "jp": "要件#151を以下に追加",
+    "vn": "Thêm [要件#245/Yêu cầu #245] vào mục bên dưới:"
+  },
+  {
+    "jp": "001,投票の要件の#236を削除",
+    "vn": "001, Xóa #236 của yêu cầu voting"
+  },
+  {
+    "jp": "要件の#236記載",
+    "vn": "Mô tả #236 của yêu cầu"
+  },
+  {
+    "jp": "要件の#236を削除",
+    "vn": "Xóa #236 của yêu cầu"
+  },
+  {
+    "jp": "001,投票の要件の#152を削除",
+    "vn": "001, Xóa #152 của yêu cầu voting"
+  },
+  {
+    "jp": "要件#152の記載あり",
+    "vn": "Có mô tả [要件#152/Yêu cầu #152]"
+  },
+  {
+    "jp": "要件の#152を削除",
+    "vn": "Xóa #152 của yêu cầu"
+  },
+  {
+    "jp": "<rpr id=\"30\">■</rpr><rpr id=\"31\">(#236)</rpr><rpr id=\"30\">購入可能な競技（レース）の拡張をできるようにする</rpr>",
+    "vn": "<rpr id=\"30\">■</rpr><rpr id=\"31\">(#236)</rpr><rpr id=\"30\">Thực hiện sao cho có thể mở rộng các trận đấu (cuộc đua) có thể mua</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"38\">・モトロト以外の</rpr><rpr id=\"39\">LOTO</rpr><rpr id=\"38\">ランダム投票では、買い目確認後のキャンセルが可能</rpr>",
+    "vn": "・Đối với vote random LOTO ngoài Motoroto, có thể cancel vote sau khi confirm [買い目/Option đã vote]<rpr id=\"38\"></rpr><rpr id=\"39\"></rpr><rpr id=\"38\"></rpr>"
+  },
+  {
+    "jp": "A04-020301-01_現金投票",
+    "vn": "A04-020301-01_現金投票/Voting bằng tiền mặt"
+  },
+  {
+    "jp": "要件#2を削除に伴って下記を変更",
+    "vn": "Do [要件No.#2/Yêu cầu số #2] bị xóa nên thực hiện những thay đổi sau đây:"
+  },
+  {
+    "jp": "・ステップ002コメントを削除",
+    "vn": "・Xóa comment step 002"
+  },
+  {
+    "jp": "A04-020103-01_現金投票",
+    "vn": "A04-020103-01_現金投票/Voting bằng tiền mặt"
+  },
+  {
+    "jp": "最終票数{}集計情報",
+    "vn": "最終票数集計情報/{}Thông tin summary số phiếu cuối cùng"
+  },
+  {
+    "jp": "<rpr id=\"23\">015</rpr><rpr id=\"34\">.</rpr><rpr id=\"35\">発売締切</rpr>",
+    "vn": "<rpr id=\"23\">015.</rpr><rpr id=\"35\">発売締切/Deadline bán ra</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"23\">015</rpr><rpr id=\"34\">.</rpr><rpr id=\"35\">発売締切</rpr>",
+    "vn": "<rpr id=\"23\">015</rpr><rpr id=\"34\">.</rpr><rpr id=\"35\">発売締切/Deadline bán ra</rpr>"
+  },
+  {
+    "jp": "A04-020401-01_現金投票",
+    "vn": "A04-020401-01_現金投票/voting bằng tiền mặt"
+  },
+  {
+    "jp": "A04-020104-01_現金投票",
+    "vn": "A04-020104-01_現金投票/voting bằng tiền mặt"
+  },
+  {
+    "jp": "投票情報のエンティティを修正",
+    "vn": "Sửa entity thông tin voting"
+  },
+  {
+    "jp": "禅定中間票数受信のフローを追加",
+    "vn": "Add flow \"Nhận số phiếu tạm thời Zenjo(tạm thời)"
+  },
+  {
+    "jp": "<rpr id=\"22\">013.</rpr><rpr id=\"23\">最終票数報告</rpr>",
+    "vn": "<rpr id=\"22\">013.</rpr><rpr id=\"23\">最終票数報告/Báo cáo số phiếu cuối cùng</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"22\">012.</rpr><rpr id=\"24\">発売締切</rpr>",
+    "vn": "<rpr id=\"22\">012.</rpr><rpr id=\"24\">発売締切/Deadline bán ra</rpr>"
+  },
+  {
+    "jp": "最終票数",
+    "vn": "最終票数/Số phiếu cuối cùng"
+  },
+  {
+    "jp": "<rpr id=\"28\">014.</rpr><rpr id=\"26\">最終票数集計結果送信の成否</rpr>",
+    "vn": "<rpr id=\"28\">014.</rpr><rpr id=\"26\">最終票数集計結果送信の成否/Thành bại việc gửi kết quả thu thập số phiếu cuối cùng</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"33\">Dokanto!</rpr><rpr id=\"34\">の場合、最終票数の報告は</rpr><rpr id=\"33\">4two</rpr><rpr id=\"34\">と</rpr><rpr id=\"33\">7</rpr><rpr id=\"34\">で</rpr><rpr id=\"33\">2</rpr><rpr id=\"34\">回送信される</rpr>",
+    "vn": "Trong trường hợp của Dokanto!, số phiếu bầu cuối cùng được báo cáo hai lần theo </rpr><rpr id=\"33\">4two</rpr><rpr id=\"34\"> và </rpr><rpr id=\"33\">7</rpr><rpr id=\"34\"></rpr><rpr id=\"34\"></rpr><rpr id=\"33\"></rpr><rpr id=\"34\"></rpr><rpr id=\"33\">"
+  },
+  {
+    "jp": "<rpr id=\"20\">002.</rpr><rpr id=\"21\">投票内容確認</rpr>",
+    "vn": "<rpr id=\"20\">002.</rpr><rpr id=\"21\">投票内容確認/Confirm nội dung voting</rpr>"
+  },
+  {
+    "jp": "・競技ごとの最終票数の連絡要否、連携タイミングについては業務処理定義書に記載",
+    "vn": "・Nhu cầu liên lạc số phiếu cuối cùng cho mỗi trận đấu và thời điểm liên kết sẽ được mô tả trong tài liệu định nghĩa xử lý nghiệp vụ."
+  },
+  {
+    "jp": "最終票数集計",
+    "vn": "Collect số phiếu cuối cùng"
+  },
+  {
+    "jp": "<rpr id=\"44\">015.</rpr><rpr id=\"24\">票数合算</rpr>",
+    "vn": "<rpr id=\"44\">015.</rpr><rpr id=\"24\">票数合算/Tính tổng số phiếu</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"44\">016.</rpr><rpr id=\"24\">全場分中間票数</rpr>",
+    "vn": "<rpr id=\"44\">016.</rpr><rpr id=\"24\">全場分中間票数/Số phiếu trung gian từ mọi nơi</rpr>"
+  },
+  {
+    "jp": "A04-020501-01_現金投票",
+    "vn": "A04-020501-01_現金投票/voting bằng tiền mặt"
+  },
+  {
+    "jp": "011.発売締切と008.投票完了通知送信のフローを分離",
+    "vn": "Phân tách flow [011.発売締切/deadline bán ra] và [008.投票完了通知送信/Gửi thông báo hoàn thành voting]"
+  },
+  {
+    "jp": "011.発売締切と008.投票完了通知送信は一連のフローで記載",
+    "vn": "Mô tả [011.発売締切/deadline bán ra] và [008.投票完了通知送信/Gửi thông báo hoàn tất bán ra] trên 1 chuỗi flow"
+  },
+  {
+    "jp": "モトロト",
+    "vn": "モトロト/Motoroto"
+  },
+  {
+    "jp": "A04-030201_競馬_通常賭式払戻管理",
+    "vn": "A04-030201_競馬_通常賭式払戻管理/A04-030201_Đua ngựa_Quản lý hoàn tiền cho loại hình cá cược thông thường"
+  },
+  {
+    "jp": "012.レース結果の送付の外部システム名を「IRIS」に修正",
+    "vn": "Sửa tên external system ở step \"012.レース結果の送付/Gửi kết quả cuộc đua\" thành 「IRIS」"
+  },
+  {
+    "jp": "払戻結果情報エンティティの名称を払戻情報に修正",
+    "vn": "Tên của entity thông tin kết quả hoàn tiền được fix thành \"払戻情報/thông tin hoàn tiền\""
+  },
+  {
+    "jp": "払戻情報",
+    "vn": "払戻情報/Thông tin hoàn tiền"
+  },
+  {
+    "jp": "015.高額的中者有無の確認の分岐の文言を修正",
+    "vn": "Fix text của phân nhánh 015.高額的中者有無の確認/Confirm có hay không người trúng thưởng số tiền lớn"
+  },
+  {
+    "jp": "<rpr id=\"18\">■</rpr><rpr id=\"19\">(#153)</rpr><rpr id=\"18\">投票券払い戻し結果・返還を受信後、会員の画面へ即時反映する </rpr>",
+    "vn": "<rpr id=\"18\">■</rpr><rpr id=\"19\">(#153)</rpr><rpr id=\"18\">Sau khi nhận kết quả・hoàn trả hoàn tiền phiếu bầu, thông tin này sẽ phản ánh ngay trên màn hình của member</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"28\">006.</rpr><rpr id=\"29\">的中者への払戻結果通知送信</rpr>",
+    "vn": "<rpr id=\"28\">006.</rpr><rpr id=\"29\">的中者への払戻結果通知送信/Gửi thông báo kết quả hoàn tiền đến người trúng thưởng</rpr>"
+  },
+  {
+    "jp": "競馬",
+    "vn": "Đua ngựa"
+  },
+  {
+    "jp": "A04-030202_競馬_重勝賭式払戻管理",
+    "vn": "A04-030202_競馬_重勝賭式払戻管理/A04-030202_Đua ngựa_Quản lý hoàn tiền loại hình cược nhiều chặng thắng liên tiếp"
+  },
+  {
+    "jp": "A04-030202-01_現金払戻",
+    "vn": "A04-030202-01_現金払戻/Hoàn trả tiền mặt"
+  },
+  {
+    "jp": "重勝払戻結果情報エンティティの名称を重勝払戻情報に修正",
+    "vn": "Sửa tên của entity \"Thông tin kết quả hoàn trả cược liên tiếp\" thành \"重勝払戻情報/Thông tin hoàn trả cược liên tiếp\"."
+  },
+  {
+    "jp": "勝払戻情報",
+    "vn": "勝払戻情報/Thông tin hoàn trả cược liên tiếp"
+  },
+  {
+    "jp": "書き込みフォーム",
+    "vn": "Form bài viết"
+  },
+  {
+    "jp": "012.レース結果の送付の外部システム名に「IRIS」を追加",
+    "vn": "Add external system name của [012.レース結果の送付/gửi kết quả race] thành 「IRIS」"
+  },
+  {
+    "jp": "IRISの記載なし",
+    "vn": "Không có mô tả IRIS"
+  },
+  {
+    "jp": "IRISを追加",
+    "vn": "Add IRIS"
+  },
+  {
+    "jp": "<rpr id=\"25\">012.</rpr><rpr id=\"26\">投票可能限度額</rpr>{}更新",
+    "vn": "<rpr id=\"25\">012.</rpr><rpr id=\"26\">投票可能限度額の更新/Update hạn mức có thể vote</rpr>{}"
+  },
+  {
+    "jp": "重勝払戻金情報",
+    "vn": "Thông tin số tiền hoàn trả cược nhiều chặng thắng liên tiếp"
+  },
+  {
+    "jp": "<rpr id=\"35\">NB</rpr><rpr id=\"33\">決済口座から会員口座への振込を実施する</rpr>",
+    "vn": "<rpr id=\"35\">Thực hiện chuyển khoản từ bank account thanh toán NB đến bank account member</rpr><rpr id=\"33\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"25\">006.</rpr><rpr id=\"26\">重勝的中可能</rpr>{}票数算出",
+    "vn": "<rpr id=\"25\">006.</rpr><rpr id=\"26\">重勝的中可能票数算出/Tính toán số phiếu có thể trúng thưởng cược thắng nhiều chặng liên tiếp]</rpr>{}"
+  },
+  {
+    "jp": "A04-040101-01_PayPay・楽天・SBI精算",
+    "vn": "A04-040101-01_PayPay・楽天・SBI精算/Thanh toán qua PayPay・Rakuten・SBI"
+  },
+  {
+    "jp": "関連要件番号から#67を削除",
+    "vn": "Xóa #67 từ Mã số yêu cầu liên quan"
+  },
+  {
+    "jp": "新要件一覧#67の削除対応",
+    "vn": "Đối ứng xóa #67 [新要件一覧/List yêu cầu mới]"
+  },
+  {
+    "jp": "具体の表現から#67を削除",
+    "vn": "Xóa #67 từ [具体の表現/Biểu hiện cụ thể]"
+  },
+  {
+    "jp": "A04-040101-02_その他銀行精算",
+    "vn": "A04-040101-02_その他銀行精算/Thanh toán qua ngân hàng khác"
+  },
+  {
+    "jp": "「003.口座振替」の文言修正。",
+    "vn": "Sửa text 「003.口座振替/chuyển khoản bank account」."
+  },
+  {
+    "jp": "精算は「振込」の文言を使用する。",
+    "vn": "[精算/Thanh toán] sẽ dùng text 「振込/chuyển khoản khác ngân hàng」."
+  },
+  {
+    "jp": "「003.口座振替」",
+    "vn": "「003.口座振替/chuyển khoản cùng ngân hàng qua bank account」"
+  },
+  {
+    "jp": "「003.口座振込」",
+    "vn": "「003.口座振込/chuyển khoản khác ngân hàng qua bank account」"
+  },
+  {
+    "jp": "精算処理シーケンスを現行システムの処理に合わせて修正",
+    "vn": "Sửa sequence xử lý thanh toán để phù hợp với quá trình xử lý của hệ thống hiện tại"
+  },
+  {
+    "jp": "003.口座振込→004.精算可否の確認→005.投票可能限度額の更新",
+    "vn": "003.口座振込/chuyển khoản khác ngân hàng qua bank account→004.精算可否の確認/Confirm có thể thanh toán được không→005.投票可能限度額の更新/Update hạn mức tối đa có thể voting"
+  },
+  {
+    "jp": "005.投票可能限度額の更新→003.口座振込→004.精算可否の確認",
+    "vn": "005.投票可能限度額の更新/Update hạng mức có thể voting →003.口座振込/chuyển khoản khác ngân hàng qua bank account→004.精算可否の確認/Confirm có thể thanh toán được không"
+  },
+  {
+    "jp": "基本設計①",
+    "vn": "Basic design ①"
+  },
+  {
+    "jp": "001.精算依頼→002.精算受付",
+    "vn": "001.精算依頼/Yêu cầu thanh toán →002.精算受付/Tiếp nhận thanh toán"
+  },
+  {
+    "jp": "001.精算依頼→",
+    "vn": "001.精算依頼/Yêu cầu thanh toán→"
+  },
+  {
+    "jp": "009.振込可否確認(振込可能な場合)→",
+    "vn": "009.振込可否確認(振込可能な場合)/confirm có thể chuyển khoản khác ngân hàng được không(Nếu có thể chuyển khoản khác ngân hàng)→"
+  },
+  {
+    "jp": "002.精算受付",
+    "vn": "002.精算受付/Tiếp nhận thanh toán"
+  },
+  {
+    "jp": "009.振込可否確認(振込不可な場合)→",
+    "vn": "009.振込可否確認(振込不可な場合)/confirm có thể chuyển khoản khác ngân hàng được không(Nếu không thể chuyển khoản khác ngân hàng)→"
+  },
+  {
+    "jp": "010.精算拒否通知送信→011.精算拒否通知受信",
+    "vn": "010.精算拒否通知送信/Gửi thông báo bị từ chối thanh toán→011.精算拒否通知受信/Nhận thông báo từ chối thanh toán"
+  },
+  {
+    "jp": "「002．清算受付」からポイントされている法令対応について注釈を「009.振込可否確認」にポイントするように修正",
+    "vn": "Sửa chú thích về việc đáp ứng quy định pháp luật pháp đã được đề cập từ 「002．清算受付/tiếp nhận thanh toán」 để chúng được đề cập đến 「009.振込可否確認/Confirm có thể chuyển khoản khác ngân hàng được không」"
+  },
+  {
+    "jp": "関連要件番号/検討方針に#245を追加",
+    "vn": "・Add #245 vào Mã số yêu cầu liên quan/Phương châm xem xét"
+  },
+  {
+    "jp": "「009.振込可否確認」に業務処理定義書付与のオブジェクトを追加",
+    "vn": "Add đối tượng cung cấp tài liệu định nghĩa xử lý nghiệp vụ vào 「009.振込可否確認/Confirm có thể chuyển khoản khác ngân hàng hay không」"
+  },
+  {
+    "jp": "<rpr id=\"16\">001.</rpr><rpr id=\"15\">精算依頼</rpr>",
+    "vn": "<rpr id=\"16\">001.</rpr><rpr id=\"15\">精算依頼/Yêu cầu thanh toán</rpr>"
+  }
+]

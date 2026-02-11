@@ -1,0 +1,1002 @@
+[
+  {
+    "jp": "目的、達成方法もSDEMに従って、記載お願いいたします。",
+    "vn": "Mục đích nhờ các bạn mô tả cách đạt được theo SDEM."
+  },
+  {
+    "jp": "OPが実施した要件定義をそのまま、コピーしたは、避けてください",
+    "vn": "Đừng chỉ sao chép y nguyên định nghĩa yêu cầu do OP thực hiện."
+  },
+  {
+    "jp": "目的をSDEMに合わせて文言の修正しました。",
+    "vn": "Nội dung đã được sửa đổi để phù hợp với mục đích của SDEM."
+  },
+  {
+    "jp": "３．１．テスト範囲の定義（スコープ）",
+    "vn": "3.1. Xác định phạm vi test(Scope)"
+  },
+  {
+    "jp": "外部接続先は結合テスト確認済とことでしょうか",
+    "vn": "Những nơi kết nối external có phải đã được xác nhận IT rồi đúng không?"
+  },
+  {
+    "jp": "外部システム先の定義を教えてください",
+    "vn": "Hãy cho tôi biết định nghĩa đích external system."
+  },
+  {
+    "jp": "外部接続先との確認は「外部接続テスト」となります。",
+    "vn": "Confirm với đích kết nối bên ngoài được gọi là \"Test kết nối external\"."
+  },
+  {
+    "jp": "システムテストでは、シュミレータを使用して実施する想定となります。",
+    "vn": "Giả định là System test sẽ sử dụng simulator để thực hiện"
+  },
+  {
+    "jp": "外部接続先：金融機関・開催者、外部サイトを想定しています。",
+    "vn": "Đích kết nối external: Giả định là các tổ chức tài chính, nhà tổ chức và các trang web bên ngoài."
+  },
+  {
+    "jp": "３．２．テスト対象",
+    "vn": "３．２．Đối tượng test"
+  },
+  {
+    "jp": "サブシステムは、Ph2-STEp2のRFP（1月22日ごろ配布予定）参照ください",
+    "vn": "Đối với hệ thống con, vui lòng tham khảo RFP Ph2-STEp2 (dự kiến gửi vào khoảng ngày 22 tháng 1)."
+  },
+  {
+    "jp": "、一部のPh2-STEp3にスライドさせたものがございます",
+    "vn": "Một số trong số chúng đã được chuyển sang Ph2-STEp3."
+  },
+  {
+    "jp": "連携いただいた後修正を行います。",
+    "vn": "Chúng tôi sẽ thực hiện chỉnh sửa sau khi nhận được file."
+  },
+  {
+    "jp": "変更点",
+    "vn": "Điểm thay đổi"
+  },
+  {
+    "jp": "シート名",
+    "vn": "Sheet name"
+  },
+  {
+    "jp": "変更内容",
+    "vn": "Nội dung thay đổi"
+  },
+  {
+    "jp": "受入テスト計画に合わせて追加した。",
+    "vn": "Được thêm vào theo đúng plan acceptance test."
+  },
+  {
+    "jp": "目的の文言を見直した。",
+    "vn": "Đã xem lại nội dung mục đích."
+  },
+  {
+    "jp": "品質保証計画との紐付きを追加した。",
+    "vn": "Đã thêm liên kết đến plan đảm bảo chất lượng"
+  },
+  {
+    "jp": "受入テスト計画に合わせてテストタイプを「５．テスト内容」へ移動した。",
+    "vn": "Test type đã được chuyển đến \"5. Nội dung thử nghiệm\" để phù hợp với plan acceptance test."
+  },
+  {
+    "jp": "テスト戦略書",
+    "vn": "File chiến lược test"
+  },
+  {
+    "jp": "<rpr id=\"3\">結合</rpr><rpr id=\"2\">テスト</rpr>",
+    "vn": "<rpr id=\"3\">IT</rpr><rpr id=\"2\"></rpr>"
+  },
+  {
+    "jp": "計画書",
+    "vn": "File kế hoạch"
+  },
+  {
+    "jp": "<rpr id=\"3\">結合</rpr><rpr id=\"2\">テスト仕様書</rpr>",
+    "vn": "<rpr id=\"3\">File test case IT<rpr id=\"2\"></rpr></rpr>"
+  },
+  {
+    "jp": "（テストケース）",
+    "vn": "（Testcase）"
+  },
+  {
+    "jp": "<rpr id=\"3\">単体</rpr><rpr id=\"2\">テスト</rpr>",
+    "vn": "UT<rpr id=\"3\"></rpr><rpr id=\"2\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"3\">単体</rpr><rpr id=\"2\">テスト仕様書</rpr>",
+    "vn": "File testcase UT<rpr id=\"3\"></rpr><rpr id=\"2\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"3\">外部接続</rpr><rpr id=\"2\">テスト</rpr>",
+    "vn": "Test kết nối external<rpr id=\"3\"></rpr><rpr id=\"2\"></rpr>"
+  },
+  {
+    "jp": "第三者検証",
+    "vn": "Verify của bên thứ ba"
+  },
+  {
+    "jp": "<rpr id=\"3\">インフラ</rpr><rpr id=\"2\">テスト</rpr>",
+    "vn": "Infra test<rpr id=\"3\"></rpr><rpr id=\"2\"></rpr>"
+  },
+  {
+    "jp": "インフラテスト",
+    "vn": "Infra test"
+  },
+  {
+    "jp": "システムテスト",
+    "vn": "System test"
+  },
+  {
+    "jp": "受入テスト",
+    "vn": "Acceptane test"
+  },
+  {
+    "jp": "（本書）",
+    "vn": "(Tài liệu này)"
+  },
+  {
+    "jp": "受入テスト仕様書",
+    "vn": "File testcase acceptance test"
+  },
+  {
+    "jp": "{}{}１．本書の位置付け{}{}",
+    "vn": "{}{}1. Vị trí của tài liệu này{}{}"
+  },
+  {
+    "jp": "システムテスト計画書の位置付けは、以下の通り。",
+    "vn": "Bên dưới là vị trí của system test plan."
+  },
+  {
+    "jp": "スケジュールにおけるシステムテストの位置付けは、以下の通り。",
+    "vn": "Bên dưới là vị trí của system test trong schedule"
+  },
+  {
+    "jp": "しすてむ",
+    "vn": "Hệ thống"
+  },
+  {
+    "jp": "{}{}２．テストの目的{}{}",
+    "vn": "{}{}2. Mục đích test{}{}"
+  },
+  {
+    "jp": "（１）目的",
+    "vn": "(1) Mục đích"
+  },
+  {
+    "jp": "システムテストの目的は、実際の利用者／運用者の利用シーン、運用を想定し、実際のシナリオに近い条件下でテストを行うことにより、",
+    "vn": "Mục đích của system test là mô phỏng các tình huống sử dụng và hoạt động của người dùng và người vận hành thực tế, đồng thời tiến hành thử nghiệm trong các điều kiện gần với các tình huống thực tế."
+  },
+  {
+    "jp": "現行サポート",
+    "vn": "Support hiện hành"
+  },
+  {
+    "jp": "「システム化業務説明書_会員管理_A02-001」の記載に合わせ、{}　フローに下記を追加。",
+    "vn": "Add thêm nội dung bên dưới vào flow theo mô tả của 「システム化業務説明書_会員管理_A02-001/mô tả nghiệp vụ systerm_quản lý member_A02-001」.{}"
+  },
+  {
+    "jp": "記載なし",
+    "vn": "Không có mô tả"
+  },
+  {
+    "jp": "上記を補足事項に記載",
+    "vn": "Mô tả nội dung ở trên vào [補足事項/Mục bổ sung]"
+  },
+  {
+    "jp": "メールに記載されているリンクの有効期限が切れた場合の処理について追記",
+    "vn": "Bổ sung về xử lý cho trường hợp link mô tả trong mail hết hạn"
+  },
+  {
+    "jp": "・リンクには有効期限あり",
+    "vn": "・リンクには有効期限あり/Link có thời hạn"
+  },
+  {
+    "jp": "003.ソーシャル登録選択",
+    "vn": "003.ソーシャル登録選択/Chọn đăng ký social"
+  },
+  {
+    "jp": "NEXTDEV-334より、パスワード未設定の会員は存在しないため記載を削除",
+    "vn": "Từ NEXTDEV-334, sẽ không tồn tại member chưa setting password nên sẽ xóa mô tả"
+  },
+  {
+    "jp": "A02-010201_市中銀行会員対応_市中銀行会員登録業務",
+    "vn": "[A02-010201_市中銀行会員対応_市中銀行会員登録業務/A02-010201_Đối ứng member ngân hàng thương mại_Nghiệp vụ đăng ký member ngân hàng thương mại]"
+  },
+  {
+    "jp": "A02-010201-01_三井住友銀行会員登録",
+    "vn": "[A02-010201-01_三井住友銀行会員登録/A02-010201-01_三井住友銀行会員登録/Đăng ký member Sumitomo Mitsui Bank]"
+  },
+  {
+    "jp": "関連要件番号#136の削除",
+    "vn": "Xóa #136 [関連要件番号/No.Yêu cầu liên quan]"
+  },
+  {
+    "jp": "新要件一覧#136の削除対応",
+    "vn": "Đối ứng xóa #136 [新要件一覧/List yêu cầu mới]"
+  },
+  {
+    "jp": "001-016, 038の削除",
+    "vn": "Xóa 001-016, 038"
+  },
+  {
+    "jp": "A02-010201-02_三井住友銀行以外会員登録",
+    "vn": "[A02-010201-02_三井住友銀行以外会員登録/A02-010201-02_Đăng ký member khác Sumitomo Mitsui Bank]"
+  },
+  {
+    "jp": "001-015, 038の削除",
+    "vn": "Xóa 001-015, 038"
+  },
+  {
+    "jp": "・ポータル会員登録完了を強調するため、最上部にその旨を記載",
+    "vn": "・Để nhấn mạnh việc hoàn thành đăng ký portal member thì sẽ mô tả nội dung đó ở phần trên cùng"
+  },
+  {
+    "jp": "昇格に代わる文言の変更対応",
+    "vn": "xử lý change text thay cho nâng cấp"
+  },
+  {
+    "jp": "023.ダイレクト会員規約への同意",
+    "vn": "023.ダイレクト会員規約への同意/Đồng ý với điều khoản direct member"
+  },
+  {
+    "jp": "ステップ032と037の凡例を「二重点線箱」から「実践箱」に変更",
+    "vn": "Đã thay đổi chú thích cho các bước 032 và 037 từ 「二重点線箱/hộp đường viền hai nét đứt」 thành 「実践箱/hộp đường viền nét liền」"
+  },
+  {
+    "jp": "ステップ053, 054を追加",
+    "vn": "Add step 053, 054"
+  },
+  {
+    "jp": "ステップ032と037の凡例を「二重点線箱」から「実践箱」に変更",
+    "vn": "Đã thay đổi chú thích cho các step 032 và 037 từ 「二重点線箱/hộp đường viền hai nét đứt」 thành 「実践箱/hộp đường viền nét liền」"
+  },
+  {
+    "jp": "ステップ039にソーシャルログインに関する補足事項を追記",
+    "vn": "Đã thêm thông tin bổ sung về [ソーシャルログイン/Social Login] vào step 039"
+  },
+  {
+    "jp": "・「026.アカウント情報作成」追加にあたって、ポータル会員となるまでの流れについて補足事項の記載を修正",
+    "vn": "・Khi add thêm 「026.アカウント情報作成/Tạo thông tin tài khoản」 thì sẽ chỉnh sửa mô tả mục bổ sung về flow cho đến khi trở thành portal member"
+  },
+  {
+    "jp": "【変更内容】関連要件番号欄から#80を削除",
+    "vn": "Xóa #80 từ cột \"【変更内容】関連要件番号/【Nội dung thay đổi】Mã số yêu cầu liên quan\""
+  },
+  {
+    "jp": "A02-020201_市中銀行会員対応_市中銀行会員管理",
+    "vn": "[A02-020201_市中銀行会員対応_市中銀行会員管理/A02-020201_Đối ứng member ngân hàng thương mại_Quản lý member ngân hàng thương mại]"
+  },
+  {
+    "jp": "A02-020201-04-1_重要項目以外修正 sheet追加",
+    "vn": "Add sheet [A02-020201-04-1_重要項目以外修正/A02-020201-04-1_Sửa item không phải item quan trọng]"
+  },
+  {
+    "jp": "【修正前】   #7,#80,#114,#196,#234",
+    "vn": "【Trước khi sửa】   #7,#80,#114,#196,#234"
+  },
+  {
+    "jp": "【修正後】   #7,#114,#196,#234",
+    "vn": "【Sau khi sửa】   #7,#114,#196,#234"
+  },
+  {
+    "jp": "・本ステップ完了時、ファンはポータル会員となる",
+    "vn": "・Khi hoàn thành step này thì user sẽ là portal member"
+  },
+  {
+    "jp": "一定期間（任意の設定値）が経過しても到達確認が取れていない場合、アカウント情報は削除される",
+    "vn": "Nếu quá thời gian quy định (giá trị setting bất kỳ) mà vẫn không nhận được xác nhận hoàn thành thì thông tin account sẽ bị xóa"
+  },
+  {
+    "jp": "NEXTDEV-361より、ポータル会員になった時点、投票会員になった時点それぞれに通知を送信するため、ポータル会員になった本ステップ後にポータル会員入会完了通知を送信するようにステップを追加",
+    "vn": "Từ NEXTDEV-361, do sẽ gửi thông báo lần lượt cho từng thời điểm trở thành [ポータル会員/portal member] và thời điểm trở thành [投票会員/voting member] nên sau step này - sau khi đã trở thành [ポータル会員/portal member] thì sẽ add thêm step để gửi thông báo hoàn thành gia nhập portal member"
+  },
+  {
+    "jp": "019.入会完了通知送信",
+    "vn": "019.入会完了通知送信/Gửi thông báo hoàn thành gia nhập"
+  },
+  {
+    "jp": "020.入会完了通知受信",
+    "vn": "020.入会完了通知受信/Nhận thông báo hoàn thành gia nhập"
+  },
+  {
+    "jp": "NEXTDEV-361より、ポータル会員になった時点、投票会員になった時点それぞれに通知を送信するため、通知の区別ができるよう修正",
+    "vn": "Từ NEXTDEV-361, do sẽ gửi thông báo lần lượt cho từng thời điểm trở thành [ポータル会員/portal member] và thời điểm trở thành [投票会員/voting member] nên sẽ chỉnh sửa sao cho có thể phân biệt được các thông báo"
+  },
+  {
+    "jp": "<rpr id=\"1\">【</rpr><rpr id=\"2\">検討方針</rpr><rpr id=\"1\">】</rpr>",
+    "vn": "<rpr id=\"1\">【</rpr><rpr id=\"2\">Phương châm xem xét</rpr><rpr id=\"1\">】</rpr>"
+  },
+  {
+    "jp": "■課題・要望詳細",
+    "vn": "■Chi tiết issue và mong muốn"
+  },
+  {
+    "jp": "業務処理定義書付与の必要性",
+    "vn": "Tính cần thiết của việc cấp tài liệu định nghĩa xử lý nghiệp vụ"
+  },
+  {
+    "jp": "・整理対象",
+    "vn": "・Đối tượng chỉnh lý"
+  },
+  {
+    "jp": "確認事項",
+    "vn": "Hạng mục confirm"
+  },
+  {
+    "jp": "帳票",
+    "vn": "Report"
+  },
+  {
+    "jp": "エンティティ",
+    "vn": "Entity"
+  },
+  {
+    "jp": "<rpr id=\"10\">ツール</rpr><rpr id=\"11\">/</rpr><rpr id=\"10\">システム</rpr>",
+    "vn": "<rpr id=\"10\">Tool</rpr><rpr id=\"11\">/</rpr><rpr id=\"10\">System</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"14\">XX(IT/</rpr><rpr id=\"9\">情報システム</rpr><rpr id=\"14\">)</rpr><rpr id=\"9\">へジャンプ</rpr>",
+    "vn": "Jump đến <rpr id=\"14\">XX(IT/</rpr><rpr id=\"9\">情報システム</rpr><rpr id=\"14\">)</rpr><rpr id=\"9\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">【</rpr><rpr id=\"4\">補足事項</rpr><rpr id=\"15\">】</rpr>",
+    "vn": "<rpr id=\"15\">【</rpr><rpr id=\"4\">Mục bổ sung</rpr><rpr id=\"15\">】</rpr>"
+  },
+  {
+    "jp": "ユーザー 単色塗りつぶし",
+    "vn": "User bôi màu đơn sắc"
+  },
+  {
+    "jp": "分類",
+    "vn": "Phân loại"
+  },
+  {
+    "jp": "記載内容",
+    "vn": "Nội dung mô tả"
+  },
+  {
+    "jp": "記載ルール",
+    "vn": "Quy tắc mô tả"
+  },
+  {
+    "jp": "<rpr id=\"30\">004.</rpr><rpr id=\"31\">ソーシャル認証送信</rpr>",
+    "vn": "<rpr id=\"30\">004.</rpr><rpr id=\"31\">ソーシャル認証送信/gửi xác thực social</rpr>"
+  },
+  {
+    "jp": "凡例",
+    "vn": "Chú thích"
+  },
+  {
+    "jp": "凡例は全て本シート中の[■凡例一覧表]にて記載する",
+    "vn": "Tất cả các chú thích sẽ được mô tả trong [■ Bảng list chú thích] ở sheet này."
+  },
+  {
+    "jp": "‐記号・呼称・使用方法は凡例一覧表に則る",
+    "vn": "‐Các ký hiệu, tên gọi, phương pháp sử dụng thì sẽ tuân theo bảng list chú thích"
+  },
+  {
+    "jp": "■凡例一覧表",
+    "vn": "■Bảng list chú thích"
+  },
+  {
+    "jp": "記号",
+    "vn": "Ký hiệu"
+  },
+  {
+    "jp": "呼称",
+    "vn": "Tên"
+  },
+  {
+    "jp": "詳細",
+    "vn": "Chi tiết"
+  },
+  {
+    "jp": "主体者の分類",
+    "vn": "Phân loại chủ thể"
+  },
+  {
+    "jp": "スイムレーン",
+    "vn": "Phân làn (Swimlane)"
+  },
+  {
+    "jp": "業務フロー内に出てくるシステム・登場人物などを分類する場合に使用する",
+    "vn": "Dùng để phân loại các hệ thống, nhân vật tham gia, v.v. xuất hiện trong quy trình nghiệp vụ."
+  },
+  {
+    "jp": "始点/終点",
+    "vn": "Điểm bắt đầu/Điểm kết thúc"
+  },
+  {
+    "jp": "始点",
+    "vn": "Điểm bắt đầu"
+  },
+  {
+    "jp": "終点",
+    "vn": "Điểm kết thúc"
+  },
+  {
+    "jp": "業務フローを終了する場合に使用する",
+    "vn": "Sử dụng khi kết thúc flow nghiệp vụ"
+  },
+  {
+    "jp": "業務の関係性",
+    "vn": "Mối quan hệ trong nghiệp vụ"
+  },
+  {
+    "jp": "作業線",
+    "vn": "Line work"
+  },
+  {
+    "jp": "作業の流れを示す際に使用する",
+    "vn": "Sử dụng để biểu thị flow work"
+  },
+  {
+    "jp": "システム線",
+    "vn": "Line system"
+  },
+  {
+    "jp": "データの流れを示す際に使用する",
+    "vn": "Được sử dụng để hiển thị luồng dữ liệu"
+  },
+  {
+    "jp": "作業分岐",
+    "vn": "Phân nhánh công việc"
+  },
+  {
+    "jp": "業務フロー内で分岐が発生する場合に使用する",
+    "vn": "Sử dụng khi phát sinh phân nhánh trong flow nghiệp vụ"
+  },
+  {
+    "jp": "・本人確認方法（eKYCサービス）はeKYCサービスを使用",
+    "vn": "・Phương pháp xác minh danh tính (dịch vụ eKYC) sẽ sử dụng dịch vụ eKYC"
+  },
+  {
+    "jp": "業務フロー内で、作業者がシステムを用いて行う作業を表現する場合に使用する",
+    "vn": "Sử dụng để biểu thị công việc mà người thực hiện sử dụng hệ thống để thực hiện trong flow nghiệp vụ"
+  },
+  {
+    "jp": "業務フロー内で、システムだけを用いて行う作業を表現する場合に使用する",
+    "vn": "Sử dụng để biểu thị công việc mà chỉ sử dụng hệ thống để thực hiện trong flow nghiệp vụ"
+  },
+  {
+    "jp": "A02-010401_電子マネー会員対応_電子マネー会員登録業務",
+    "vn": "A02-010401_電子マネー会員対応_電子マネー会員登録業務/A02-010401_Đối ứng member tiền điện tử_ Nghiệp vụ đăng ký member tiền điện tử"
+  },
+  {
+    "jp": "A02-010401-01_電子マネー会員登録",
+    "vn": "A02-010401-01_電子マネー会員登録/A02-010401-01_Đăng ký member tiền điện tử"
+  },
+  {
+    "jp": "キャリア判定システムに関する記載の削除",
+    "vn": "Xóa mô tả liên quan hệ thống phán đoán nhà mạng"
+  },
+  {
+    "jp": "新要件一覧#240の削除対応",
+    "vn": "Đối ứng xóa #240 [新要件一覧/List yêu cầu mới]"
+  },
+  {
+    "jp": "028の削除",
+    "vn": "Xóa 028"
+  },
+  {
+    "jp": "現状維持要件（#22、#208）の記載に注釈を追加",
+    "vn": "Thêm ghi chú vào phần mô tả về các yêu cầu duy trì trạng thái hiện tại (#22, #208)"
+  },
+  {
+    "jp": "＜要件内容＞",
+    "vn": "<Nội dung yêu cầu>"
+  },
+  {
+    "jp": "＜要件内容＞　※現状維持要件",
+    "vn": "<Nội dung yêu cầu> ※Yêu cầu duy trì trạng thái hiện tại"
+  },
+  {
+    "jp": "取り下げ要件（#240）に関する記載を削除",
+    "vn": "Xóa mô tả về các yêu cầu thu hồi (#240)"
+  },
+  {
+    "jp": "・本人確認方法（eKYCサービスまたはキャリア判定）は会員が選択可能",
+    "vn": "・Member có thể chọn phương thức xác minh danh tính (dịch vụ eKYC hoặc phán đoán nhà mạng)"
+  },
+  {
+    "jp": "・連携するキャリア判定は、docomo、au、SoftBankを想定（2023年11月時点）",
+    "vn": "・Việc phán đoán nhà mạng liên kết đang giả định phán đoán với các nhà mạng: docomo, au và SoftBank (thời điểm tháng 11 năm 2023)."
+  },
+  {
+    "jp": "‐OPシステムで入力した本人確認情報を、キャリア判定システムへ送信する",
+    "vn": "- Thông tin xác minh danh tính được nhập vào hệ thống OP sẽ được gửi đến hệ thống phán đoán nhà mạng."
+  },
+  {
+    "jp": "‐スイムレーン：外部（会員及びファン）",
+    "vn": "‐ Phân làn (swimlane): \"外部（会員及びファン）/External(Member và User)\""
+  },
+  {
+    "jp": "‐スイムレーン：外部（ステークホルダー及びシステム）",
+    "vn": "- Phân làn (swimlane): 外部（ステークホルダー及びシステム）/External (Stakeholders and Systems)"
+  },
+  {
+    "jp": "「eKYCサービスシステム」",
+    "vn": "「eKYCサービスシステム/eKYC Service system」"
+  },
+  {
+    "jp": "「014.本人確認情報登録」",
+    "vn": "「014.本人確認情報登録/đăng ký thông tin xác minh danh tính 」"
+  },
+  {
+    "jp": "ポータル会員から電子マネー会員になる場合を考慮し、投票会員のみ解約を行った会員についての記載を追加",
+    "vn": "Cân nhắc trường hợp portal member trở thành member tiền điện tử, thì thêm mô tả về những member đã thực hiện hủy bỏ chỉ dành cho member voting"
+  },
+  {
+    "jp": "・外部サービスを活用し、オンラインで手続きが完了する",
+    "vn": "・Sử dụng service bên ngoài để hoàn tất thủ tục online."
+  },
+  {
+    "jp": "‐外部サービスでの本人確認に失敗した場合、OPサイトで本人確認書類をアップロードして、CSでチェックし承認する",
+    "vn": "- Nếu xác minh danh tính thông qua service bên ngoài không thành công, hãy tải lên các chứng từ xác minh danh tính lên trang OP rồi thực hiện check, phê duyệt qua CS."
+  },
+  {
+    "jp": "帳票インタフェース",
+    "vn": "Report Interface"
+  },
+  {
+    "jp": "会員情報",
+    "vn": "Thông tin member"
+  },
+  {
+    "jp": "業務フロー内で外部ツール/システムを表現する場合に使用する",
+    "vn": "Được sử dụng để thể hiện exteral tool/system trong flow nghiệp vụ"
+  },
+  {
+    "jp": "登場人物",
+    "vn": "Nhân vật xuất hiện"
+  },
+  {
+    "jp": "業務フロー内で、スイムレーンのみの分類では表現できない登場人物を表現する場合に使用する",
+    "vn": "Sử dụng để biểu thị nhân vật mà không thể chỉ biểu thị bằng phân loại của Phân làn (Swimlane) trong flow nghiệp vụ"
+  },
+  {
+    "jp": "他の業務フローへのジャンプ",
+    "vn": "Jump sang flow nghiệp vụ khác"
+  },
+  {
+    "jp": "業務フロー内で、ジャンプ※が発生する場合に使用する。",
+    "vn": "Sử dụng khi phát sinh jump※ trong flow nghiệp vụ"
+  },
+  {
+    "jp": "【補足事項】",
+    "vn": "【Mục bổ sung】"
+  },
+  {
+    "jp": "ステップ：到達確認メール送信",
+    "vn": "Step: [到達確認メール送信/Gửi mail xác nhận hoàn thành]"
+  },
+  {
+    "jp": "ステップ011：アカウント情報更新",
+    "vn": "Step 011: [アカウント情報更新/update thông tin tài khoản]"
+  },
+  {
+    "jp": "027.本人確認方法選択",
+    "vn": "027.本人確認方法選択/Chọn phương thức xác minh danh tính"
+  },
+  {
+    "jp": "本人確認作業の始点として、「031.本人確認依頼」を追加。",
+    "vn": "Thêm 「031.本人確認依頼/Yêu cầu xác minh danh tính」 làm điểm bắt đầu cho việc xác minh danh tính."
+  },
+  {
+    "jp": "eKYCシステム",
+    "vn": "systerm eKYC"
+  },
+  {
+    "jp": "031.本人確認依頼",
+    "vn": "031.本人確認依頼/Yêu cầu xác minh danh tính"
+  },
+  {
+    "jp": "023.銀行口座選択",
+    "vn": "023.銀行口座選択/Chọn bank account"
+  },
+  {
+    "jp": "018.入会完了通知送信",
+    "vn": "018.入会完了通知送信/Gửi thông báo hoàn thành gia nhập"
+  },
+  {
+    "jp": "019.入会完了通知受信",
+    "vn": "019.入会完了通知受信/Nhận thông báo hoan thành gia nhập"
+  },
+  {
+    "jp": "外部（ステークホルダー及びシステム）",
+    "vn": "External (Stakeholders and System)"
+  },
+  {
+    "jp": "会員",
+    "vn": "Member"
+  },
+  {
+    "jp": "登録選択",
+    "vn": "Lựa chọn đăng ký"
+  },
+  {
+    "jp": "認証成否",
+    "vn": "xác thực thành công hay thất bại"
+  },
+  {
+    "jp": "認証失敗の場合",
+    "vn": "trường hợp xác thực thất bại"
+  },
+  {
+    "jp": "認証成功の場合",
+    "vn": "trường hợp xác thực thành công"
+  },
+  {
+    "jp": "選択する場合",
+    "vn": "nếu chọn"
+  },
+  {
+    "jp": "選択しない場合",
+    "vn": "nếu không chọn"
+  },
+  {
+    "jp": "アカウント情報",
+    "vn": "thông tin tài khoản"
+  },
+  {
+    "jp": "会員情報",
+    "vn": "thông tin member"
+  },
+  {
+    "jp": "送信失敗の場合",
+    "vn": "Nếu gửi thất bại"
+  },
+  {
+    "jp": "送信成功の場合",
+    "vn": "Nếu gửi thành công"
+  },
+  {
+    "jp": "システム",
+    "vn": "system"
+  },
+  {
+    "jp": "入会する場合",
+    "vn": "Nếu tham gia"
+  },
+  {
+    "jp": "入会しない場合",
+    "vn": "Nếu không tham gia"
+  },
+  {
+    "jp": "業務フローID",
+    "vn": "ID flow nghiệp vụ"
+  },
+  {
+    "jp": "※ジャンプとは、\"業務フローの中で発生するイレギュラー対応等の個別業務であり、複雑化を避けるため他のフローで表現した業務への遷移\"を指す",
+    "vn": "※Jump là \"nghiệp vụ riêng biệt cho đối ứng irregular v.v... phát sinh trong flow nghiệp vụ và việc điều hướng sang nghiệp vụ mà đã được biểu thị tại flow khác để tránh sự phức tạp\""
+  },
+  {
+    "jp": "別名",
+    "vn": "Tên riêng"
+  },
+  {
+    "jp": "外部（会員及びファン）",
+    "vn": "External (Member and user)"
+  },
+  {
+    "jp": "<rpr id=\"16\">既存</rpr><rpr id=\"17\">Web</rpr><rpr id=\"16\">サービス</rpr>{}システム",
+    "vn": "<rpr id=\"16\"></rpr><rpr id=\"17\"></rpr><rpr id=\"16\"></rpr>{}Hệ thống Web service hiện có"
+  },
+  {
+    "jp": "業務フロー名",
+    "vn": "Tên flow nghiệp vụ"
+  },
+  {
+    "jp": "会員管理",
+    "vn": "Quản lý member"
+  },
+  {
+    "jp": "登録処理",
+    "vn": "Xử lý đăng ký"
+  },
+  {
+    "jp": "電子マネー会員対応",
+    "vn": "Đối ứng member tiền điện tử"
+  },
+  {
+    "jp": "電子マネー会員登録業務",
+    "vn": "Nghiệp vụ đăng ký member tiền điện tử"
+  },
+  {
+    "jp": "電子マネー会員登録",
+    "vn": "Đăng ký member tiền điện tử"
+  },
+  {
+    "jp": "関連要件番号",
+    "vn": "Requirement No. liên quan"
+  },
+  {
+    "jp": "トリガー",
+    "vn": "Trigger"
+  },
+  {
+    "jp": "【修正後】「056.ポータル会員登録済」（分岐）追加",
+    "vn": "【Sau khi sửa】　Add 「056.ポータル会員登録済/Đã đăng ký member portal」（phân nhánh）"
+  },
+  {
+    "jp": "↓＜ポータル会員登録なし＞",
+    "vn": "↓＜Không đăng ký member portal＞"
+  },
+  {
+    "jp": "「047.アカウント情報作成」※【補足事項】追加",
+    "vn": "「047.アカウント情報作成/Tạo thông tin account」※Add 【補足事項/Hạng mục bổ sung】"
+  },
+  {
+    "jp": "「048.会員情報登録」",
+    "vn": "「048.会員情報登録/Đăng ký thông tin member」"
+  },
+  {
+    "jp": "↓＜ポータル会員登録済＞",
+    "vn": "↓＜Đã đăng ký member portal＞"
+  },
+  {
+    "jp": "ポータル会員⇒市中銀行会員 遷移可能の為",
+    "vn": "Vì có thể di chuyển từ [ポータル会員/portal member] ⇒ [市中銀行会員/member ngân hàng thương mại]"
+  },
+  {
+    "jp": "後終点追加",
+    "vn": "Add điểm cuối cùng"
+  },
+  {
+    "jp": "【修正前】   「032.会員・口座情報不一致 通知受信」",
+    "vn": "【Trước khi sửa】   「032.会員・口座情報不一致 通知受信/Nhận thông báo về thông tin member và bank account không khớp」"
+  },
+  {
+    "jp": "【変更内容】「032.会員・口座情報不一致 通知受信」",
+    "vn": "【Nội dung thay đổi】「032.会員・口座情報不一致 通知受信/Nhận thông báo về thông tin member và bank account không khớp」"
+  },
+  {
+    "jp": "「システム化業務説明書_会員管理_A02-007」の記載に合わせ、業務フローに下記処理を追加。",
+    "vn": "Add xử lý bên dưới vào flow nghiệp vụ theo mô tả của 「システム化業務説明書_会員管理_A02-007/Tài liệu giải thích nghiệp vụ system hóa_Quản lý member_A02-007」"
+  },
+  {
+    "jp": "後記載なし",
+    "vn": "Không có mô tả thêm"
+  },
+  {
+    "jp": "【修正後】   「032.会員・口座情報不一致 通知受信」",
+    "vn": "【Sau khi sửa】   「032.会員・口座情報不一致 通知受信/Nhận thông báo về thông tin member và bank account không khớp」"
+  },
+  {
+    "jp": "後終点追加",
+    "vn": "Add thêm điểm kết thúc"
+  },
+  {
+    "jp": "修正記述漏れ",
+    "vn": "Sửa thiếu"
+  },
+  {
+    "jp": "「035.会員情報の更新」",
+    "vn": "「035.会員情報の更新/Update thông tin member」"
+  },
+  {
+    "jp": "「036.利用開始可能通知送信」",
+    "vn": "「036.利用開始可能通知送信/Gửi thông báo có thể bắt đầu sử dụng」"
+  },
+  {
+    "jp": "「055.利用開始日確定通知書作成」",
+    "vn": "「055.利用開始日確定通知書作成/Tạo tài liệu thông báo xác định ngày bắt đầu sử dụng」"
+  },
+  {
+    "jp": "【変更内容】「037.利用開始可能通知受信」処理",
+    "vn": "【Nội dung thay đổi】 Xử lý 「037.利用開始可能通知受信/Nhận thông báo có thể bắt đầu sử dụng」"
+  },
+  {
+    "jp": "「利用開始日確定通知書」帳票ﾏｰｸ追加",
+    "vn": "Add mark report 「利用開始日確定通知書/Tài liệu thông báo xác định ngày bắt đầu sử dụng」"
+  },
+  {
+    "jp": "【修正前】   「037.利用開始可能通知受信」処理",
+    "vn": "【Trước khi sửa】   Xử lý 「037.利用開始可能通知受信/Nhận thông tin có thể bắt đầu sử dụng」"
+  },
+  {
+    "jp": "帳票ﾏｰｸなし",
+    "vn": "Không có mark report"
+  },
+  {
+    "jp": "【修正後】   「037.利用開始可能通知受信」処理",
+    "vn": "【Sau khi sửa】   Xử lý 「037.利用開始可能通知受信/Nhận thông tin có thể bắt đầu sử dụng」"
+  },
+  {
+    "jp": "「利用開始日確定通知書」帳票ﾏｰｸ",
+    "vn": "Mark report 「利用開始日確定通知書/Tài liệu thông báo xác định ngày bắt đầu sử dụng」"
+  },
+  {
+    "jp": "(#196) (#234)追加",
+    "vn": "Add thêm (#196) (#234)"
+  },
+  {
+    "jp": "【変更内容】041.入会申込手段選択（分岐）削除",
+    "vn": "【Nội dung thay đổi】 [041.入会申込手段選択（分岐）削除/Xóa chọn phương thức apply gia nhập(phân nhánh)"
+  },
+  {
+    "jp": "【修正前】始点",
+    "vn": "【Trước khi sửa】Điểm bắt đầu"
+  },
+  {
+    "jp": "041.入会申込手段選択",
+    "vn": "041.入会申込手段選択/Chọn phương thức apply gia nhập"
+  },
+  {
+    "jp": "053.サポートセンターに問合せ",
+    "vn": "053.サポートセンターに問合せ/Liên hệ với support center"
+  },
+  {
+    "jp": "【修正後】始点",
+    "vn": "【Sau khi sửa】Điểm bắt đầu"
+  },
+  {
+    "jp": "【変更内容】053.サポートセンターに問合せ 後 【補足事項】追加",
+    "vn": "【Nội dung thay đổi】 Add  【補足事項/hạng mục bổ sung】 vào sau [053.サポートセンターに問合せ/Liên hệ với support center]"
+  },
+  {
+    "jp": "【修正前】－",
+    "vn": "【Trước khi sửa】－"
+  },
+  {
+    "jp": "【修正後】　053.サポートセンターに問合せ 後 【補足事項】追加",
+    "vn": "【Sau khi sửa】 Add  【補足事項/hạng mục bổ sung】 vào sau [053.サポートセンターに問合せ/Liên hệ với support center]"
+  },
+  {
+    "jp": "【変更内容】内部システム中に分岐追加",
+    "vn": "【Nội dung thay đổi】Add phân nhánh vào trong internal system"
+  },
+  {
+    "jp": "【修正前】「047.アカウント情報作成」",
+    "vn": "【Trước khi sửa】「047.アカウント情報作成/Tạo thông tin tài khoản」"
+  },
+  {
+    "jp": "【修正前】   ■(#7)会員の入会・ログイン時にソーシャルログインを利用しアカウントを生成する仕組みを導入する",
+    "vn": "【Trước khi sửa】   ■(#7) Áp dụng cơ chế dùng social login để generate tài khoản khi đăng ký member・đăng nhập"
+  },
+  {
+    "jp": "【修正後】 ■(#7)会員の入会・ログイン時にソーシャルログインを利用しアカウントを生成する仕組みを導入する",
+    "vn": "【Sau khi sửa】   ■(#7) Áp dụng cơ chế dùng social login để generate tài khoản khi đăng ký member・đăng nhập"
+  },
+  {
+    "jp": "■(#196)多言語化対応、リージョン化を実現する",
+    "vn": "■(#196) Đối ứng được đa ngôn ngữ và thực hiện regionalization"
+  },
+  {
+    "jp": "■(#234)会員が自ら、多様で信頼できるログイン手段でログインできるようにする（LINE Yahoo X Google Facebook Apple）",
+    "vn": "■(#234) Cho phép member có thể tự login bằng nhiều phương thức đăng nhập đáng tin cậy (LINE Yahoo X Google Facebook Apple)"
+  },
+  {
+    "jp": "【変更内容】「039.登録情報参照」【補足事項】",
+    "vn": "【Nội dung thay đổi】「039.登録情報参照/Refer thông tin đăng ký」【補足事項/Hạng mục bổ sung】"
+  },
+  {
+    "jp": "＜注意＞記述",
+    "vn": "＜Chú ý＞Mô tả"
+  },
+  {
+    "jp": "・【補足事項】記述",
+    "vn": "・【Hạng mục bổ sung】 Mô tả"
+  },
+  {
+    "jp": "・【補足事項】削除",
+    "vn": "・【Hạng mục bổ sung】Xóa"
+  },
+  {
+    "jp": "外部システム",
+    "vn": "External system"
+  },
+  {
+    "jp": "<rpr id=\"25\">キャリア内部（</rpr><rpr id=\"29\">OP</rpr><rpr id=\"25\">）システム</rpr>",
+    "vn": "Carrier Internal (OP) System<rpr id=\"25\"></rpr><rpr id=\"29\"></rpr><rpr id=\"25\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"30\">005.</rpr><rpr id=\"31\">ソーシャル認証</rpr>",
+    "vn": "<rpr id=\"30\">005.</rpr><rpr id=\"31\">ソーシャル認証/xác nhận social</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"29\">003.</rpr><rpr id=\"25\">ソーシャル</rpr>",
+    "vn": "<rpr id=\"29\">003.</rpr><rpr id=\"25\">ソーシャル/social</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"29\">012.</rpr><rpr id=\"25\">会員情報入力</rpr>",
+    "vn": "<rpr id=\"29\">012.</rpr><rpr id=\"25\">会員情報入力/input thông tin member</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"35\">【</rpr><rpr id=\"36\">補足事項</rpr><rpr id=\"35\">】</rpr>",
+    "vn": "<rpr id=\"35\">【</rpr><rpr id=\"36\">Mục bổ sung</rpr><rpr id=\"35\">】</rpr>"
+  },
+  {
+    "jp": "・会員はメール受信後にメール内のリンクを押下する",
+    "vn": "・Các member nhấp vào link trong email sau khi nhận được"
+  },
+  {
+    "jp": "<rpr id=\"40\">001.</rpr><rpr id=\"24\">会員登録申請</rpr>",
+    "vn": "<rpr id=\"40\">001.</rpr><rpr id=\"24\">会員登録申請/Request đăng ký member</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"51\">【</rpr><rpr id=\"52\">補足事項</rpr><rpr id=\"51\">】</rpr>",
+    "vn": "<rpr id=\"51\">【</rpr><rpr id=\"52\">Mục bổ sung</rpr><rpr id=\"51\">】</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"49\">※</rpr><rpr id=\"50\">現状維持要件</rpr>",
+    "vn": "<rpr id=\"49\">※</rpr><rpr id=\"50\">Requirement duy trì trạng thái</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"30\">015.</rpr><rpr id=\"31\">本人確認</rpr>",
+    "vn": "<rpr id=\"30\">015.</rpr><rpr id=\"31\">本人確認/Xác minh danh tính</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"29\">eKYC</rpr><rpr id=\"25\">サービス</rpr>",
+    "vn": "<rpr id=\"29\">eKYC</rpr><rpr id=\"25\">service</rpr>"
+  },
+  {
+    "jp": "業務処理定義書付与",
+    "vn": "Cung cấp tài liệu định nghĩa xử lý nghiệp vụ"
+  },
+  {
+    "jp": "<rpr id=\"56\">【</rpr><rpr id=\"57\">システム要件</rpr><rpr id=\"56\">】</rpr>",
+    "vn": "<rpr id=\"56\">【</rpr><rpr id=\"57\">Systerm requirement</rpr><rpr id=\"56\">】</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"36\">・</rpr><rpr id=\"42\">本ステップ完了時、ファンはポータル会員となる</rpr>",
+    "vn": "<rpr id=\"36\">・</rpr><rpr id=\"42\">khi hoàn tất step này thì user sẽ thành portal member</rpr>"
+  },
+  {
+    "jp": "希望しない場合",
+    "vn": "Nếu không mong muốn"
+  },
+  {
+    "jp": "希望する場合",
+    "vn": "Nếu có mong muốn"
+  },
+  {
+    "jp": "<rpr id=\"40\">024.</rpr><rpr id=\"24\">電子マネー会員規約への同意</rpr>",
+    "vn": "<rpr id=\"40\">024.</rpr><rpr id=\"24\">電子マネー会員規約への同意/Đồng ý điều khoản member tiền điện tử</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"30\">026.</rpr><rpr id=\"31\">本人確認結果問合せ</rpr>",
+    "vn": "<rpr id=\"30\">026.</rpr><rpr id=\"31\">本人確認結果問合せ/Hỏi về kết quả xác minh danh tính</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"32\">本人確認結果を</rpr><rpr id=\"61\">eKYC</rpr><rpr id=\"62\">サービス</rpr><rpr id=\"32\">へ問合せ</rpr>",
+    "vn": "Truy vấn kết quả xác minh danh tính đến eKYC service<rpr id=\"32\"></rpr><rpr id=\"61\"></rpr><rpr id=\"62\"></rpr><rpr id=\"32\"></rpr>"
+  },
+  {
+    "jp": "変更情報反映",
+    "vn": "Phản ánh thông tin thay đổi"
+  },
+  {
+    "jp": "変更請求情報登録",
+    "vn": "Đăng ký thông tin billing thay đổi"
+  },
+  {
+    "jp": "<rpr id=\"63\">030.</rpr><rpr id=\"37\">投票会員入会</rpr>",
+    "vn": "<rpr id=\"63\">030.</rpr><rpr id=\"37\">投票会員入会/gia nhập voting member</rpr>"
+  },
+  {
+    "jp": "会員の重要項目以外変更請求",
+    "vn": "Yêu cầu thay đổi item khác item quan trọng của member"
+  },
+  {
+    "jp": "・ログイン時に認証できるよう作成する",
+    "vn": "・Tạo để bạn có thể xác thực khi đăng nhập"
+  },
+  {
+    "jp": "・ログインされず、会員登録が完了しない場合は削除される",
+    "vn": "・Sẽ bị xóa nếu bạn chưa đăng nhập và chưa hoàn tất việc đăng ký member"
+  },
+  {
+    "jp": "<rpr id=\"41\">‐</rpr><rpr id=\"42\">会員登録が完了した場合は、削除対象から外れるように更新する</rpr>",
+    "vn": "<rpr id=\"41\">‐</rpr><rpr id=\"42\">Nếu đã hoàn tất đăng ký member thì cập nhật để không còn nằm trong đối tượng bị delete</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"63\">eKYC</rpr><rpr id=\"37\">サービス</rpr>",
+    "vn": "<rpr id=\"63\">eKYC</rpr><rpr id=\"37\"> service</rpr>"
+  },
+  {
+    "jp": "インプット",
+    "vn": "Input"
+  }
+]

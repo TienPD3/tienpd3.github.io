@@ -1,0 +1,1002 @@
+[
+  {
+    "jp": "<rpr id=\"16\">007.</rpr><rpr id=\"15\">精算完了通知受信</rpr>",
+    "vn": "<rpr id=\"16\">007.</rpr><rpr id=\"15\">精算完了通知受信/Nhận thông báo hoàn tất thanh toán</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"16\">003.</rpr><rpr id=\"15\">口座</rpr><rpr id=\"19\">振込</rpr>",
+    "vn": "<rpr id=\"16\">003.</rpr><rpr id=\"15\">口座</rpr><rpr id=\"19\">振込/chuyển khoản khác ngân hàng qua bank account</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"16\">006.</rpr><rpr id=\"15\">精算完了通知送信</rpr>",
+    "vn": "<rpr id=\"16\">006.</rpr><rpr id=\"15\">精算完了通知送信/Gửi thông báo hoàn tất thanh toán</rpr>"
+  },
+  {
+    "jp": "精算失敗の場合",
+    "vn": "Nếu thanh toán thất bại"
+  },
+  {
+    "jp": "<rpr id=\"16\">002.</rpr><rpr id=\"15\">精算受付</rpr>",
+    "vn": "<rpr id=\"16\">002.</rpr><rpr id=\"15\">精算受付/Tiếp nhận thanh toán</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"21\">PayPay/</rpr><rpr id=\"22\">楽天</rpr><rpr id=\"21\">/SBI</rpr><rpr id=\"22\">銀行</rpr>{}システム",
+    "vn": "<rpr id=\"21\">PayPay/</rpr><rpr id=\"22\">[楽天/Rakuten]</rpr><rpr id=\"21\">/[SBI</rpr><rpr id=\"22\">銀行/SBI bank]</rpr>{}systerm"
+  },
+  {
+    "jp": "精算成功の場合",
+    "vn": "Trường hợp thanh toán thành công"
+  },
+  {
+    "jp": "<rpr id=\"23\">A04-050104-01_</rpr><rpr id=\"14\">精算エラー へジャンプ</rpr>",
+    "vn": "<rpr id=\"23\">Jump đến [A04-050104-01_</rpr><rpr id=\"14\">精算エラー/Lỗi thanh toán]</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">004.</rpr><rpr id=\"18\">精算成否確認</rpr>",
+    "vn": "<rpr id=\"24\">004.</rpr><rpr id=\"18\">精算成否確認/Confirm có gửi thanh toán thành công hay không</rpr>"
+  },
+  {
+    "jp": "精算依頼情報",
+    "vn": "精算依頼情報/Thông tin yêu cầu thanh toán"
+  },
+  {
+    "jp": "<rpr id=\"25\">- (To-be)</rpr><rpr id=\"26\">制約は設けるものの、上限回数は可変である</rpr>",
+    "vn": "<rpr id=\"25\">- (To-be)</rpr><rpr id=\"26\">Mặc dù có hạn chế những giới hạn trên có thể thay đổi</rpr>"
+  },
+  {
+    "jp": "法令対応として、特定会員の差押が発生した場合、随時精算によりユーザ口座へ振替しない機能を設ける",
+    "vn": "Để đáp ứng các yêu cầu pháp lý, một chức năng sẽ được thiết lập để ngăn chặn việc chuyển tiền vào tài khoản người dùng thông qua các phương thức thanh toán linh hoạt trong trường hợp tài khoản của một member cụ thể bị tịch thu."
+  },
+  {
+    "jp": "<rpr id=\"27\">■</rpr><rpr id=\"28\">(#154)</rpr><rpr id=\"27\">会員による精算指示受信後、会員の会員口座へ即時反映したい </rpr>",
+    "vn": "■ (#154) Sau khi nhận được hướng dẫn thanh toán từ member, tôi muốn phản ánh ngay vào bank account của member.<rpr id=\"27\"></rpr><rpr id=\"28\"></rpr><rpr id=\"27\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"20\">009.</rpr><rpr id=\"19\">振込可否確認</rpr>",
+    "vn": "009.振込可否確認confirm có thể chuyển khoản khác ngân hàng được không<rpr id=\"20\"></rpr><rpr id=\"19\"></rpr>"
+  },
+  {
+    "jp": "振込可能の場合",
+    "vn": "Nếu có thể chuyển khoản khác ngân hàng"
+  },
+  {
+    "jp": "振込不可の場合",
+    "vn": "Nếu không thể chuyển khoản khác ngân hàng"
+  },
+  {
+    "jp": "<rpr id=\"20\">010.</rpr><rpr id=\"19\">精算拒否通知送信</rpr>",
+    "vn": "010.精算拒否通知送信/Gửi thông báo bị từ chối thanh toán<rpr id=\"20\"></rpr><rpr id=\"19\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"20\">011.</rpr><rpr id=\"19\">精算拒否通知受信</rpr>",
+    "vn": "011.精算拒否通知受信/Nhận thông báo bị từ chối thanh toán<rpr id=\"20\"></rpr><rpr id=\"19\"></rpr>"
+  },
+  {
+    "jp": "精算管理",
+    "vn": "Quản lý thanh toán"
+  },
+  {
+    "jp": "現金（ダイレクト）対応",
+    "vn": "Đối ứng tiền mặt (direct)"
+  },
+  {
+    "jp": "現金（ダイレクト）精算業務",
+    "vn": "Nghiệp vụ thanh toán bằng tiền mặt(direct)"
+  },
+  {
+    "jp": "PayPay銀行・楽天銀行・SBI銀行精算",
+    "vn": "Thanh toán qua ngân hàng PayPay・Ngân hàng Rakuten・ Ngân hàng SBI"
+  },
+  {
+    "jp": "会員の精算依頼",
+    "vn": "Yêu cầu thanh toán member"
+  },
+  {
+    "jp": "精算受付",
+    "vn": "Tiếp nhận thanh toán"
+  },
+  {
+    "jp": "精算完了通知送信",
+    "vn": "Gửi thông báo hoàn tất thanh toán"
+  },
+  {
+    "jp": "A04-050104-01_精算エラー へジャンプ",
+    "vn": "Jump đến [A04-050104-01_精算エラー/Lỗi thanh toán]"
+  },
+  {
+    "jp": "その他銀行精算",
+    "vn": "Thanh toán qua ngân hàng khác"
+  },
+  {
+    "jp": "A02-040102_現金（ダイレクト）対応_現金（ダイレクト）一括精算業務",
+    "vn": "A02-040102_現金（ダイレクト）対応_現金（ダイレクト）一括精算業務/Đối ứng tiền mặt(direct)_Nghiệp vụ thanh toán 1 lần bằng tiền mặt(direct)"
+  },
+  {
+    "jp": "A04-040102-01_PayPay、楽天、SBI一括精算",
+    "vn": "A04-040102-01_PayPay、楽天、SBI一括精算/Thanh toán 1 lần bằng PayPay、Rakuten、SBI"
+  },
+  {
+    "jp": "関連要件番号から#214を削除",
+    "vn": "Xóa #214 từ Mã số yêu cầu liên quan"
+  },
+  {
+    "jp": "新要件一覧#214の削除対応",
+    "vn": "Đối ứng xóa #214 [新要件一覧/List yêu cầu mới]"
+  },
+  {
+    "jp": "001の注釈（#214）を削除",
+    "vn": "Xóa chú thích （#214） của 001"
+  },
+  {
+    "jp": "001の注釈（業務処理定義書付与）を削除",
+    "vn": "Xóa chú thích(Cung cấp tài liệu định nghĩa xử lý nghiệp vụ) của 001"
+  },
+  {
+    "jp": "補足事項を削除",
+    "vn": "Xóa mục bổ sung"
+  },
+  {
+    "jp": "A04-040102-02_その他銀行一括精算",
+    "vn": "A04-040102-02_その他銀行一括精算/Thanh toán 1 lần ngân hàng khác"
+  },
+  {
+    "jp": "現行システムの処理に合わせて運用者への通知を追加",
+    "vn": "Add thông báo đến người bận hành để phù hợp với xử lý của hệ thống hiện tại"
+  },
+  {
+    "jp": "・システム運用保守実行担当のスイムレーンを追加",
+    "vn": "・Add thêm phân làn (swimlane) ở phần đảm nhận thực hiện bảo trì vận hành hệ thống"
+  },
+  {
+    "jp": "・009.一括精算完了通知受信を追加",
+    "vn": "・ Add \"009.一括精算完了通知受信/nhận thông báo hoàn thành thanh toán 1 lần\""
+  },
+  {
+    "jp": "・010.運用向け一括精算完了通知送信を追加",
+    "vn": "・Add \"010.運用向け一括精算完了通知送信/Gửi thông báo hoàn thành thanh toán 1 lần để vận hành\""
+  },
+  {
+    "jp": "エラー対応を他の業務フローに合わせて修正",
+    "vn": "Sửa đổi cách đối ứng error để phù hợp với các quy trình business"
+  },
+  {
+    "jp": "エラー対応は補足にて記載",
+    "vn": "Phần đối ứng lỗi sẽ mô tả ở mục bổ sung"
+  },
+  {
+    "jp": "008.精算成否確認のフローを追加",
+    "vn": "Add \"008.精算成否確認のフロー/Flow confirm thanh toán thành công hay không\""
+  },
+  {
+    "jp": "システム運用保守実行担当",
+    "vn": "Đảm nhận thực hiện bảo trì vận hành hệ thống"
+  },
+  {
+    "jp": "<rpr id=\"16\">002.</rpr><rpr id=\"15\">一括精算指示</rpr>",
+    "vn": "<rpr id=\"16\">002.</rpr><rpr id=\"15\">一括精算指示/Chỉ thị thanh toán 1 lần</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"16\">003.</rpr><rpr id=\"15\">口座</rpr><rpr id=\"14\">振込</rpr>",
+    "vn": "<rpr id=\"16\">003.</rpr><rpr id=\"15\">口座</rpr><rpr id=\"14\">振込/chuyển khoản khác ngân hàng qua bank account</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"16\">007.</rpr><rpr id=\"15\">投票可能限度額参照</rpr>",
+    "vn": "<rpr id=\"16\">007.</rpr><rpr id=\"15\">投票可能限度額参照/Refer hạn mức tối đa có thể vote</rpr>"
+  },
+  {
+    "jp": "外部（システム及びステークホルダー）",
+    "vn": "External (System và Stakeholders)"
+  },
+  {
+    "jp": "銀行システム",
+    "vn": "Bank system"
+  },
+  {
+    "jp": "<rpr id=\"24\">■(#203)OP</rpr><rpr id=\"25\">社担当者が、一括精算のタイミングを任意で設定できるようにする</rpr>",
+    "vn": "<rpr id=\"24\">■(#203) Thực hiện sao cho OP PIC có thể tùy ý thiết lập thời điểm thanh toán 1 lần</rpr><rpr id=\"25\"></rpr>"
+  },
+  {
+    "jp": "本業務フローの目的：",
+    "vn": "Mục đích của flow nghiệp vụ này："
+  },
+  {
+    "jp": "<rpr id=\"16\">001.</rpr><rpr id=\"15\">一括精算対象者</rpr>{}抽出",
+    "vn": "<rpr id=\"16\">001.</rpr><rpr id=\"15\">一括精算対象者</rpr>{}抽出/Extract các đối tượng thanh toán 1 lần"
+  },
+  {
+    "jp": "一括精算{}対象者情報",
+    "vn": "Thông tin các đối tượng thanh toán 1 lần{}"
+  },
+  {
+    "jp": "<rpr id=\"16\">006.</rpr><rpr id=\"15\">一括精算完了通知受信</rpr>",
+    "vn": "<rpr id=\"16\">006.</rpr><rpr id=\"15\">一括精算完了通知受信/Nhận thông báo hoàn thành thanh toán 1 lần</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"16\">005.</rpr><rpr id=\"15\">一括精算完了通知送信</rpr>",
+    "vn": "<rpr id=\"16\">005.</rpr><rpr id=\"15\">一括精算完了通知送信/Gửi thông báo hoàn thành thanh toán 1 lần</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"22\">008.</rpr><rpr id=\"14\">精算成否確認</rpr>",
+    "vn": "<rpr id=\"22\">008.</rpr><rpr id=\"14\">精算成否確認/Confirm có gửi thành công hay không</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"22\">009.</rpr><rpr id=\"14\">一括精算完了通知受信</rpr>",
+    "vn": "<rpr id=\"22\">009.</rpr><rpr id=\"14\">一括精算完了通知受信/Nhận thông báo hoàn thành thanh toán 1 lần</rpr>"
+  },
+  {
+    "jp": "各会員の精算の成功失敗に関わらず、",
+    "vn": "Bất kể sự các member thanh toán thành công hay thất bại,"
+  },
+  {
+    "jp": "<rpr id=\"16\">001.</rpr><rpr id=\"15\">一括精算対象者</rpr>{}抽出",
+    "vn": "<rpr id=\"16\">001.</rpr><rpr id=\"15\">一括精算対象者</rpr>{}抽出/Extract các đối tượng thanh toán hàng loạt"
+  },
+  {
+    "jp": "<rpr id=\"25\">会員口座に入金されたお金はお客様からの預り金であり、</rpr><rpr id=\"24\">OP</rpr><rpr id=\"25\">社にとっては一時的に負債となる。",
+    "vn": "Tiền được gửi vào bank account member là khoản tiền gửi từ khách hàng, và đối với công ty OP, đây sẽ là một khoản nợ tạm thời.<rpr id=\"25\"></rpr><rpr id=\"24\"></rpr><rpr id=\"25\">"
+  },
+  {
+    "jp": "負債を長期間保有することを避けるため、一定期間口座にお金の動きがない会員に対しては、一括精算という形で預り金の返金を実施する</rpr>",
+    "vn": "Để tránh việc phải gánh nợ trong thời gian dài, nếu tài khoản không có biến động tài chính trong một khoảng thời gian nhất định, tiền gửi sẽ được hoàn trả dưới hình thức thanh toán 1 lần.</rpr>"
+  },
+  {
+    "jp": "一括精算処理と会員の入金・投票・精算の処理の重複が発生しない様、タイミングについて設計工程にて考慮する",
+    "vn": "Thời điểm của xử lý thanh toán 1 lần và xử lý nạp tiền, voting và thanh toán của member sẽ được xem xét trong ở giai đoạn design để tránh trùng lặp."
+  },
+  {
+    "jp": "現金（ダイレクト）一括精算業務",
+    "vn": "Nghiệp vụ thanh toán 1 lần bằng tiền mặt(direct)"
+  },
+  {
+    "jp": "PayPay銀行、楽天銀行、SBI銀行一括精算",
+    "vn": "Thanh toán 1 lần qua PayPay bank 、Raketen bank、SBI bank"
+  },
+  {
+    "jp": "一括精算処理開始タイミングの到来",
+    "vn": "Đến thời điểm bắt đầu xử lý thanh toán 1 lần"
+  },
+  {
+    "jp": "一括精算対象者抽出",
+    "vn": "Extract các đối tượng thanh toán 1 lần"
+  },
+  {
+    "jp": "一括精算情報",
+    "vn": "Thông tin thanh toán 1 lần"
+  },
+  {
+    "jp": "<rpr id=\"33\">その他</rpr><rpr id=\"20\">銀行システム</rpr>",
+    "vn": "<rpr id=\"33\">Other </rpr><rpr id=\"20\">bank system</rpr>"
+  },
+  {
+    "jp": "一括精算{}情報",
+    "vn": "Thông tin thanh toán{} hàng loạt"
+  },
+  {
+    "jp": "一括精算{}情報",
+    "vn": "Thông tin thanh toán{} 1 lần"
+  },
+  {
+    "jp": "<rpr id=\"22\">010.</rpr><rpr id=\"14\">運用向け一括精算完了通知送信</rpr>",
+    "vn": "<rpr id=\"22\">010.運用向け一括精算完了通知送信/Gửi thông báo hoàn thành thanh toán 1 lần để vận hành</rpr><rpr id=\"14\"></rpr>"
+  },
+  {
+    "jp": "各銀行の対象会員の一括精算が完了したタイミングで、銀行ごとに通知する",
+    "vn": "Thông báo sẽ được gửi đến từng ngân hàng khi việc thanh toán 1 lần của member đối tượng của các ngân hàng hoàn tất."
+  },
+  {
+    "jp": "A04-040402-01_電子マネー一括精算業務",
+    "vn": "A04-040402-01_電子マネー一括精算業務/Nghiệp vụ thanh toán 1 lần tiền điện tử"
+  },
+  {
+    "jp": "A02-040402-01_電子マネー対応_電子マネー一括精算業務",
+    "vn": "A02-040402-01_電子マネー対応_電子マネー一括精算業務/Đối ứng tiền điện tử_Nghiệp vụ thanh toán 1 lần tiền điện tử"
+  },
+  {
+    "jp": "補足事項の削除",
+    "vn": "Xóa mục bổ sung"
+  },
+  {
+    "jp": "新要件一覧#214の削除",
+    "vn": "Xóa #214 [新要件一覧/List yêu cầu mới]"
+  },
+  {
+    "jp": "現行システムに合わせた用語修正",
+    "vn": "Sửa thuật ngữa cho phù hợp với hệ thống hiện hành"
+  },
+  {
+    "jp": "一括的中チャージ",
+    "vn": "一括的中チャージ/Charge thắng cược 1 lần"
+  },
+  {
+    "jp": "一括チャージ（OPコイン的中残高）",
+    "vn": "一括チャージ（OPコイン的中残高）/Charge 1 lần (Số dư OP Coin thắng cược)"
+  },
+  {
+    "jp": "ステップ003のエンティティを修正",
+    "vn": "Sửa entity ở step 003"
+  },
+  {
+    "jp": "ステップ007のエンティティを修正",
+    "vn": "Sửa entity ở step 007"
+  },
+  {
+    "jp": "PayPay銀行",
+    "vn": "PayPay bank"
+  },
+  {
+    "jp": "ステップ001のエンティティを修正",
+    "vn": "Sửa entity ở step 001"
+  },
+  {
+    "jp": "投票可能限定OPコイン限度額情報",
+    "vn": "投票可能限定OPコイン限度額情報/Thông tin hạn mức OP coin có thể vote"
+  },
+  {
+    "jp": "ステップ002にエンティティを追加",
+    "vn": "Add entity vào step 002"
+  },
+  {
+    "jp": "失効と精算の処理を分離",
+    "vn": "Tách biệt xử lý hết hạn và xử lý thanh toán"
+  },
+  {
+    "jp": "002.投票可能OPコイン限度額更新→003.一括精算対象OPコイン的中残高抽出",
+    "vn": "002.投票可能OPコイン限度額更新/Update hạn mức OP coin có thể vote →003.一括精算対象OPコイン的中残高抽出/Extract số dư coin OP thắng cược đối tượng thanh toán 1 lần"
+  },
+  {
+    "jp": "002.投票可能OPコイン限度額更新→終点",
+    "vn": "002.投票可能OPコイン限度額更新/Update hạn mức OP coin có thể vote→Điểm kết thúc"
+  },
+  {
+    "jp": "始点→003.一括精算対象OPコイン的中残高抽出",
+    "vn": "Điểm bắt đầu →003.一括精算対象OPコイン的中残高抽出/Extract số dư coin OP thắng cược đối tượng thanh toán 1 lần"
+  },
+  {
+    "jp": "ステップ013の後に処理を追加",
+    "vn": "Add xử lý vào sau step 013"
+  },
+  {
+    "jp": "013.一括精算完了通知受信→終点",
+    "vn": "013.一括精算完了通知受信/Nhận thông báo hoàn thành thanh toán 1 lần→Điểm kết thúc"
+  },
+  {
+    "jp": "他業務フローに合わせて、精算処理に失敗した場合のフローを追記",
+    "vn": "Mô tả thêm flow trong trường hợp xử lý thanh toán thất bại để phù hợp với flow nghiệp vụ khác"
+  },
+  {
+    "jp": "「018.精算成否確認」を追記。",
+    "vn": "Add 「018.精算成否確認/Confirm có gửi thành công hay không」"
+  },
+  {
+    "jp": "失敗時は精算エラーへジャンプする旨を追記",
+    "vn": "Mô tả thêm nội dung về jump qua lỗi thanh toán khi thất bại"
+  },
+  {
+    "jp": "振込不能通知受信時のフローが未記載であったため追記",
+    "vn": "Mô tả thêm vì chưa mô tả flow khi nhận thông báo không thể chuyển khoản khác ngân hàng"
+  },
+  {
+    "jp": "会員の参照項目と更新された項目が合っていなかったため修正",
+    "vn": "Sửa lại vì item refer của member và item đã được update chưa khớp nhau"
+  },
+  {
+    "jp": "①「015. 投票可能OPコイン限度額参照」",
+    "vn": "①「015. 投票可能OPコイン限度額参照/Refer hạn mức OP coin có thể vote」"
+  },
+  {
+    "jp": "①「015. OPコイン的中残高・投票可能OPコイン限度額参照」",
+    "vn": "①「015. OPコイン的中残高・投票可能OPコイン限度額参照/Refer số dư coin OP thắng cược, hạn mức coin OP có thể vote」"
+  },
+  {
+    "jp": "②「016.OPコイン的中残高参照」",
+    "vn": "②「016.OPコイン的中残高参照/Refer số dư coin OP thắng cược」"
+  },
+  {
+    "jp": "「一括消失」の際は「一括精算情報」は関連しないためエンティティを削除",
+    "vn": "Xóa entity vì 「一括精算情報/thông tin thanh toán 1 lần」 không có liên quan khi 「一括消失/mất hàng loạt」"
+  },
+  {
+    "jp": "『014.OPコイン一括消失指示』に「一括精算情報」エンティティが存在",
+    "vn": "Tồn tạo entity 「一括精算情報/thông tin thanh toán 1 lần」 ở 『014.OPコイン一括消失指示/Chỉ thị mất hàng loạt OP coin』"
+  },
+  {
+    "jp": "『014.OPコイン一括消失指示』から「一括精算情報」エンティティを削除",
+    "vn": "Xóa entity 「一括精算情報/thông tin thanh toán 1 lần」 ra khỏi 『014.OPコイン一括消失指示/Chỉ thị mất hàng loạt OP coin』"
+  },
+  {
+    "jp": "電子マネー一括精算について、新要件No.203を適用するように修正。",
+    "vn": "Về thanh toán 1 lần tiền điện tử, fix để apply [新要件No.203/Yêu cầu mới No.203]"
+  },
+  {
+    "jp": "新要件No.203について記載なし。",
+    "vn": "Không có mô tả cho [新要件No.203/Yêu cầu mới No.203]"
+  },
+  {
+    "jp": "・関連要件番号に#203を追加。",
+    "vn": "・Thêm #203 vào Mã số yêu cầu liên quan."
+  },
+  {
+    "jp": "・「課題・要望詳細」に#203を追加。",
+    "vn": "・Thêm #203 vào 「課題・要望詳細/Chi tiết issue và mong muốn」"
+  },
+  {
+    "jp": "「一括精算処理実施日の夜間に、ダイレクト会員の登録銀行口座に対してOPコイン的中残高の精算が実施される」",
+    "vn": "「Vào ban đêm của ngày thực hiện xử lý thanh toán một lần, việc thanh toán số dư OP Coin thắng cược sẽ được thực hiện đối với tài khoản ngân hàng đã đăng ký của các member trực tiếp.」"
+  },
+  {
+    "jp": "「一括精算処理実施日の夜間に、ダイレクト会員及び電子マネー会員の登録銀行口座に対してOPコイン的中残高の精算が実施される」",
+    "vn": "「Vào ban đêm của ngày thực hiện xử lý thanh toán một lần, việc thanh toán số dư OP Coin thắng cược sẽ được thực hiện đối với tài khoản ngân hàng đã đăng ký của các member trực tiếp và member tiền điện tử」"
+  },
+  {
+    "jp": "<rpr id=\"15\">011.</rpr><rpr id=\"14\">口座振込</rpr>",
+    "vn": "<rpr id=\"15\">011.</rpr><rpr id=\"14\">口座振込/chuyển khoản khác ngân hàng qua bank account</rpr>"
+  },
+  {
+    "jp": "</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高</rpr><rpr id=\"14\">抽出</rpr>",
+    "vn": "</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高</rpr><rpr id=\"14\">抽出</rpr>/Extract số dư OP Coin thắng cược"
+  },
+  {
+    "jp": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">一括精算対象",
+    "vn": "<rpr id=\"15\">003.</rpr><rpr id=\"14\">一括精算対象/Đối tượng thanh toán 1 lần"
+  },
+  {
+    "jp": "<rpr id=\"15\">009.</rpr><rpr id=\"19\">一括チャージ（</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高）</rpr><rpr id=\"14\">完了通知受信</rpr>",
+    "vn": "<rpr id=\"15\">009.</rpr><rpr id=\"19\">一括チャージ（</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高）</rpr><rpr id=\"14\">完了通知受信/Nhận thông báo hoàn thành charge 1 lần(số dư OP Coin thắng cược)</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">010.</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高</rpr><rpr id=\"14\">更新</rpr>",
+    "vn": "<rpr id=\"15\">010.</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高</rpr><rpr id=\"14\">更新/Update số dư OP Coin thắng cược</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"21\">005.</rpr><rpr id=\"22\">払戻用銀行口座登録有無</rpr>",
+    "vn": "<rpr id=\"21\">005.</rpr><rpr id=\"22\">払戻用銀行口座登録有無/Có hay không có đăng ký bank account dùng để hoàn tiền</rpr>"
+  },
+  {
+    "jp": "</rpr><rpr id=\"24\">一括精算処理実施日の夜間に、ダイレクト会員</rpr><rpr id=\"25\">及び電子マネー会員</rpr><rpr id=\"24\">の登録銀行口座に対して</rpr><rpr id=\"26\">OP</rpr><rpr id=\"25\">コイン的中残高</rpr><rpr id=\"24\">の精算が実施される</rpr>",
+    "vn": "</rpr><rpr id=\"24\">「Vào ban đêm của ngày thực hiện xử lý thanh toán một lần, việc thanh toán số dư OP Coin thắng cược sẽ được thực hiện đối với tài khoản ngân hàng đã đăng ký của các member trực tiếp và member tiền điện tử」</rpr><rpr id=\"25\"></rpr><rpr id=\"24\"></rpr><rpr id=\"26\"></rpr><rpr id=\"25\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">006.</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高</rpr><rpr id=\"14\">更新</rpr>",
+    "vn": "<rpr id=\"15\">006.</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高</rpr><rpr id=\"14\">更新/Update số dư OP Coin thắng cược</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">007.</rpr><rpr id=\"14\">投票可能</rpr><rpr id=\"15\">OP</rpr><rpr id=\"14\">コイン限度額更新</rpr>",
+    "vn": "<rpr id=\"15\">007.</rpr><rpr id=\"14\">投票可能</rpr><rpr id=\"15\">OP</rpr><rpr id=\"14\">コイン限度額更新/Update hạn mức OP coin có thể vote"
+  },
+  {
+    "jp": "<rpr id=\"15\">008.</rpr><rpr id=\"19\">一括チャージ（</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高）</rpr><rpr id=\"14\">完了通知送信</rpr>",
+    "vn": "<rpr id=\"15\">008.</rpr><rpr id=\"19\">一括チャージ（</rpr><rpr id=\"18\">OP</rpr><rpr id=\"19\">コイン的中残高）</rpr><rpr id=\"14\">完了通知送信/Gửi thông báo hoàn thành charge 1 lần(số dư OP Coin thắng cược)</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"24\">業務処理定義書付与",
+    "vn": "<rpr id=\"24\">Cung cấp tài liệu định nghĩa xử lý nghiệp vụ"
+  },
+  {
+    "jp": "複数の支払い手段それぞれに対する一括精算処理が異なるため、詳細は業務処理定義書にて記載",
+    "vn": "Vì có nhiều phương thức thanh toán và cách thanh toán 1 lần sẽ khác nhau cho mỗi phương thức thanh toán nên thông tin chi tiết được mô tả trong tài liệu định nghĩa xử lý nghiệp vụ."
+  },
+  {
+    "jp": "<rpr id=\"40\">PayPay</rpr><rpr id=\"41\">銀行システムにて他行宛振込で不能となった場合、振込不能通知が連携される。</rpr>",
+    "vn": "Nếu không thể chuyển tiền sang ngân hàng khác bằng hệ thống ngân hàng PayPay, thì thông báo không thể chuyển sẽ được gửi đi.<rpr id=\"40\"></rpr><rpr id=\"41\"></rpr>"
+  },
+  {
+    "jp": "電子マネー一括精算業務",
+    "vn": "Nghiệp vụ thanh toán 1 lần tiền điện tử"
+  },
+  {
+    "jp": "<rpr id=\"18\">PayPay</rpr><rpr id=\"19\">銀行</rpr>",
+    "vn": "<rpr id=\"18\">PayPay</rpr><rpr id=\"19\">Bank</rpr>"
+  },
+  {
+    "jp": "</rpr><rpr id=\"23\">‐</rpr><rpr id=\"24\">払戻日から</rpr><rpr id=\"23\">60</rpr><rpr id=\"24\">日間が経過した</rpr><rpr id=\"26\">OP</rpr><rpr id=\"25\">コイン的中残高</rpr><rpr id=\"24\">が一括精算対象として抽出される",
+    "vn": "‐Số dư OP Coin trúng thưởng đã qua 60 ngày kể từ ngày hoàn tiền sẽ được trích xuất để làm đối tượng thanh toán một lần.</rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"26\"></rpr><rpr id=\"25\"></rpr><rpr id=\"24\">"
+  },
+  {
+    "jp": "</rpr><rpr id=\"23\">‐</rpr><rpr id=\"24\">一括精算対象の</rpr><rpr id=\"26\">OP</rpr><rpr id=\"25\">コイン的中残高</rpr><rpr id=\"24\">を保有する会員に対して実施日の数日前に通知を行う</rpr>",
+    "vn": "‐Thông báo sẽ được gửi cho các member đang nắm giữ số dư OP Coin trúng thưởng thuộc đối tượng thanh toán một lần vài ngày trước ngày thực hiện.</rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"26\"></rpr><rpr id=\"25\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"15\">002.</rpr><rpr id=\"14\">投票可能</rpr><rpr id=\"15\">OP</rpr><rpr id=\"14\">コイン</rpr>{}<rpr id=\"14\">限度額更新</rpr>",
+    "vn": "<rpr id=\"15\">002.</rpr><rpr id=\"14\">投票可能</rpr><rpr id=\"15\">OP</rpr><rpr id=\"14\">コイン限度額更新/Update hạn mức OP coin có thể vote</rpr>{}<rpr id=\"14\"></rpr>"
+  },
+  {
+    "jp": "<rpr id=\"23\">‐</rpr><rpr id=\"24\">チャージ日から</rpr><rpr id=\"23\">180</rpr><rpr id=\"24\">日間が経過した</rpr><rpr id=\"23\">OP</rpr><rpr id=\"24\">コインが一括精算（消失）対象として抽出される</rpr>",
+    "vn": "‐Số OP Coin đã qua 180 ngày kể từ ngày nạp sẽ được trích xuất để làm đối tượng thanh toán một lần (biến mất).<rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "</rpr><rpr id=\"26\">OP</rpr><rpr id=\"25\">コイン的中残高</rpr><rpr id=\"24\">の現金精算完了後に行われるため、ステップ</rpr><rpr id=\"23\">008</rpr><rpr id=\"24\">とは通知タイミングが異なる</rpr>",
+    "vn": "Vì việc thanh toán bằng tiền mặt cho số dư OP Coin trúng thưởng được thực hiện sau khi hoàn thành, nên thời điểm thông báo sẽ khác với bước 008.</rpr><rpr id=\"26\"></rpr><rpr id=\"25\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "一括精算業務は原則自動で実行されるが、手動での処理も可能とする",
+    "vn": "Nghiệp vụ thanh toán một lần về nguyên tắc sẽ được thực hiện tự động, nhưng cũng có thể xử lý bằng tay"
+  },
+  {
+    "jp": "<rpr id=\"18\">018.</rpr><rpr id=\"19\">精算成否確認</rpr>",
+    "vn": "<rpr id=\"18\">018.</rpr><rpr id=\"19\">精算成否確認/Confirm có gửi thành công hay không</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"18\">017.</rpr><rpr id=\"19\">振込不能通知送信</rpr>",
+    "vn": "<rpr id=\"18\">017.</rpr><rpr id=\"19\">振込不能通知送信/Gửi thông báo không thể chuyển khoản khác ngân hàng</rpr>"
+  },
+  {
+    "jp": "<rpr id=\"23\">‐</rpr><rpr id=\"24\">一括精算対象の</rpr><rpr id=\"23\">OP</rpr><rpr id=\"24\">コインを保有する会員に対し数日前に通知する</rpr>",
+    "vn": "‐Thông báo sẽ được gửi cho các thành viên đang nắm giữ OP Coin thuộc đối tượng thanh toán một lần vào vài ngày trước.<rpr id=\"23\"></rpr><rpr id=\"24\"></rpr><rpr id=\"23\"></rpr><rpr id=\"24\"></rpr>"
+  },
+  {
+    "jp": "A04-050104_外部連携時エラー_精算エラー",
+    "vn": "A04-050104_外部連携時エラー_精算エラー/A04-050104_Lỗi khi liên kết external_lỗi thanh toán"
+  },
+  {
+    "jp": "A04-050104-01_精算エラー",
+    "vn": "A04-050104-01_精算エラー/Lỗi thanh toán"
+  },
+  {
+    "jp": "003に補足を追記（QA表にて確認）",
+    "vn": "Mô tả bổ sung vào 003 （Confirm ở bảng QA）"
+  },
+  {
+    "jp": "013の補足を修正",
+    "vn": "Sửa bổ sung ở 013"
+  },
+  {
+    "jp": "補足事項（#67）を削除",
+    "vn": "Xóa mục bổ sung （#67）"
+  },
+  {
+    "jp": "・新要件#67の取り下げのため、現行仕様に合わせて自動再精算のフローを削除",
+    "vn": "・Do việc bãi bỏ yêu cầu mới số 67 nên luồng thanh toán lại tự động đã bị xóa để phù hợp với các specs hiện tại."
+  },
+  {
+    "jp": "・005.エラー対応依頼通知送信フロー前に自動再精算フローがあった",
+    "vn": "・Có flow thanh toán lại tự động trước flow [005.エラー対応依頼通知送信/Gửi thông báo yêu cầu đối ứng error]"
+  },
+  {
+    "jp": "・005.エラー対応依頼通知送信フロー前の自動再精算フローを削除。",
+    "vn": "・Xóa flow thanh toán lại tự động ở trước flow [005.エラー対応依頼通知送信/Gửi thông báo yêu cầu đối ứng error]"
+  },
+  {
+    "jp": "関連の補足事項も削除",
+    "vn": "Mục bổ sung liên quan cũng sẽ xóa đi"
+  },
+  {
+    "jp": "・手動振込対応時に振込用口座を使用するフローだった",
+    "vn": "・Là luồng sử dụng bank account chuyển khoản khác ngân hàng khi đối ứng chuyển khoản khác ngân hàng thủ công"
+  },
+  {
+    "jp": "・010.振込用口座への送金フローを削除",
+    "vn": "・Xóa flow [010.振込用口座への送金/Gửi tiền vào bank account chuyển khoản khác ngân hàng]"
+  },
+  {
+    "jp": "・新要件#67の取り下げのため、現行で人のみで行う作業について、使用する記号を修正。",
+    "vn": "・Vì hủy bỏ yêu cầu mới #67 nên sửa các ký hiệu sử dụng hiện tại cho task thực hiện chỉ do con người thực hiện"
+  },
+  {
+    "jp": "・新要件#67の取り下げのため、現行仕様に合わせて010.振込用口座への送金フローを削除",
+    "vn": "・Do việc bãi bỏ yêu cầu mới số 67 nên luồng [010.振込用口座への送金/Gửi tiền vào bank account chuyển khoản khác ngân hàng] đã bị xóa để phù hợp với các specs hiện tại."
+  },
+  {
+    "jp": "・「009.関係各所連絡/連携」「012.会員への振込対応準備」「013.会員への振込対応」",
+    "vn": "・「009.関係各所連絡/連携(Liên lạc/liên kết các nơi liên quan)」「012.会員への振込対応準備/Chuẩn bị đối ứng chuyển khoản khác ngân hàng đến member」「013.会員への振込対応/Đối ứng chuyển khoản khác ngân hàng đến member」"
+  },
+  {
+    "jp": "・凡例一覧表No.9の記号を使用していた",
+    "vn": "・Đã dùng ký hiệu No.9 ở Bảng list chú thích"
+  },
+  {
+    "jp": "・凡例一覧表No.8の記号を使用する",
+    "vn": "・Sửa dụng ký hiệu No.8 ở Bảng list chú thích"
+  },
+  {
+    "jp": "画像選択画面",
+    "vn": "Màn hình chọn hình ảnh"
+  },
+  {
+    "jp": "（納入遅延）",
+    "vn": "(Trì hoãn giao hàng)"
+  },
+  {
+    "jp": "20<fld id=\"4\" /><instr id=\"1\" /><bmk id=\"5\" name=\"Text2\" transform=\"open\"><instr id=\"2\" /><fld id=\"1\" /><rpr id=\"15\">25</rpr id=\"15\" transform=\"close\"><fld id=\"2\" /></bmk id=\"5\" transform=\"close\">年<fld id=\"5\" /><bmk id=\"6\" name=\"Text3\" transform=\"open\"><instr id=\"0\" /><fld id=\"1\" /><rpr id=\"15\">05</rpr id=\"15\" transform=\"close\"><fld id=\"2\" /></bmk id=\"6\" transform=\"close\">月<fld id=\"6\" /><instr id=\"1\" /><bmk id=\"7\" name=\"Text4\" transform=\"open\"><instr id=\"2\" /><fld id=\"1\" /><rpr id=\"15\">01</rpr id=\"15\" transform=\"close\"><fld id=\"2\" /></bmk id=\"7\" transform=\"close\">日",
+    "vn": "Ngày <fld id=\"4\" /><instr id=\"1\" /><bmk id=\"5\" name=\"Text2\" transform=\"open\"><instr id=\"2\" /><fld id=\"1\" /><rpr id=\"15\">01</rpr id=\"15\" transform=\"close\"><fld id=\"2\" /></bmk id=\"5\" transform=\"close\"> tháng <fld id=\"5\" /><bmk id=\"6\" name=\"Text3\" transform=\"open\"><instr id=\"0\" /><fld id=\"1\" /><rpr id=\"15\">05</rpr id=\"15\" transform=\"close\"><fld id=\"2\" /></bmk id=\"6\" transform=\"close\"> năm <fld id=\"6\" /><instr id=\"1\" /><bmk id=\"7\" name=\"Text4\" transform=\"open\"><instr id=\"2\" /><fld id=\"1\" /><rpr id=\"15\">2025</rpr id=\"15\" transform=\"close\"><fld id=\"2\" /></bmk id=\"7\" transform=\"close\">"
+  },
+  {
+    "jp": "代表取締役社長　　髙松　俊和",
+    "vn": "Toshikazu Takamatsu,  Chủ tịch kiêm Tổng giám đốc điều hành"
+  },
+  {
+    "jp": "NEXTPJ Ph2Step1のUAT支援～ハイパーケア工程を対応すること",
+    "vn": "Đối ứng giai đoạn UAT support ~ Hypercare của NEXTPJ Ph2Step1."
+  },
+  {
+    "jp": "2027年02月01日から2027年08月31日まで",
+    "vn": "Từ ngày 1 tháng 2 năm 2027 đến 31 tháng 8 năm 2027"
+  },
+  {
+    "jp": "<rpr id=\"16\">ビジネスイノベーション事業本部・部長・</rpr id=\"16\" transform=\"close\">NGUYEN　CUONG",
+    "vn": "<rpr id=\"16\">NGUYEN　CUONG- Trưởng phòng Đổi mới kinh doanh </rpr id=\"16\" transform=\"close\">"
+  },
+  {
+    "jp": "UAT支援工程：",
+    "vn": "Giai đoạn support UAT:"
+  },
+  {
+    "jp": "・UAT支援計画書：支援方針や支援範囲をまとめた計画書",
+    "vn": "・Tài liệu kế hoạch support UAT: Tài liệu kế hoạch tóm tắt phương châm support và phạm vi support ."
+  },
+  {
+    "jp": "・UAT支援報告書：UAT支援期間中に発生したQ&A、障害件数、支援内容をまとめた報告書",
+    "vn": "・Tài liệu báo cáo support UAT: Tài liệu báo cáo tóm tắt Q&A, số lượng bug và nội dung support đã phát sinh trong thời gian support AUT"
+  },
+  {
+    "jp": "ハイパーケア工程：",
+    "vn": "Giai đoạn Hypercare:"
+  },
+  {
+    "jp": "・問い合わせ/障害対応ログ：リリース直後のユーザー問い合わせ・障害発生を記録する一覧",
+    "vn": "・Log đối ứng bug/Hỏi đáp: Danh sách ghi lại các thắc mắc của người dùng và sự cố xảy ra ngay sau khi release."
+  },
+  {
+    "jp": "・ハイパーケア完了報告書：ハイパーケア期間が終了したことを示し、通常保守運用へ引き継ぐための報告書",
+    "vn": "・Tài liệu báo cáo hoàn thành Hypercare: Tài liệu báo cáo cho biết thời gian Hypercare đã kết thúc và chuyển sang hoạt động bảo trì thông thường"
+  },
+  {
+    "jp": "<rpr id=\"17\">※作業進行方式：</rpr id=\"17\" transform=\"close\">OP<rpr id=\"16\">が指定のレビューチェックリストに基づいた、作成物をレビューする。</rpr id=\"16\" transform=\"close\">",
+    "vn": "<rpr id=\"17\">※Phương pháp tiến hành công việc: </rpr id=\"17\" transform=\"close\">OP<rpr id=\"16\"> xem xét công việc dựa trên checklist review đã chỉ định.</rpr id=\"16\" transform=\"close\">"
+  },
+  {
+    "jp": "(1)納入期日：2027年08月31日",
+    "vn": "(1) Ngày giao hàng: 31 tháng 8 năm 2027"
+  },
+  {
+    "jp": "<rpr id=\"6\">(2)</rpr id=\"6\" transform=\"close\"><rpr id=\"16\">納入場所：</rpr id=\"16\" transform=\"close\">OP<rpr id=\"16\">が指定した場所</rpr id=\"16\" transform=\"close\">",
+    "vn": "(2) Địa điểm giao hàng: Địa điểm do OP chỉ định.<rpr id=\"6\"></rpr id=\"6\" transform=\"close\"><rpr id=\"16\"></rpr id=\"16\" transform=\"close\"><rpr id=\"16\"></rpr id=\"16\" transform=\"close\">"
+  },
+  {
+    "jp": "<rpr id=\"6\">(3)</rpr id=\"6\" transform=\"close\"><rpr id=\"16\">納入方法：</rpr id=\"16\" transform=\"close\">OP<rpr id=\"16\">が指定した方法</rpr id=\"16\" transform=\"close\">",
+    "vn": "(3) Phương thức giao hàng: Phương thức do OP chỉ định<rpr id=\"6\"></rpr id=\"6\" transform=\"close\"><rpr id=\"16\"></rpr id=\"16\" transform=\"close\"><rpr id=\"16\"></rpr id=\"16\" transform=\"close\">"
+  },
+  {
+    "jp": "(4)検査合格条件：計画された成果物が全て作成され、OPが指定のレビューチェックリストに基づいたレビュー結果がパスしていること",
+    "vn": "(4) Điều kiện đạt yêu cầu kiểm tra: Tất cả các sản phẩn diliver đã được lập kế hoạch đều được tạo ra, và kết quả đánh giá dựa trên checklist review do OP chỉ định phải đạt yêu cầu."
+  },
+  {
+    "jp": "<rpr id=\"16\">金</rpr id=\"16\" transform=\"close\"><rpr id=\"6\"><bmk id=\"9\" name=\"Text9\" transform=\"open\"> </bmk id=\"9\" transform=\"close\">60</rpr id=\"6\" transform=\"close\">,127,333<rpr id=\"17\">円（税抜）／　　金</rpr id=\"17\" transform=\"close\">66,140,066<rpr id=\"17\">円（税込）／</rpr id=\"17\" transform=\"close\">",
+    "vn": "<rpr id=\"16\">Số tiền: </rpr id=\"16\" transform=\"close\"><rpr id=\"6\"><bmk id=\"9\" name=\"Text9\" transform=\"open\"> </bmk id=\"9\" transform=\"close\">60</rpr id=\"6\" transform=\"close\">,127,333<rpr id=\"17\">Yên （Không bao gồm thuế）／　　Số tiền </rpr id=\"17\" transform=\"close\">66,140,066<rpr id=\"17\"> yên（Bao gồm thuế）／</rpr id=\"17\" transform=\"close\">"
+  },
+  {
+    "jp": "前提条件：別紙「オッズパークシステム再構築_提案書_システム開発_Phase2Step1_詳細設計～ハイパーケア工程」の「見積前提」による",
+    "vn": "Điều kiện tiền đề: Dựa trên 「見積前提/Tiền đề báo giá」 của tài liệu 「オッズパークシステム再構築_提案書_システム開発_Phase2Step1_詳細設計～ハイパーケア工程」"
+  },
+  {
+    "jp": "ビジネスイノベーション事業本部",
+    "vn": "Phòng Đổi mới Kinh doanh"
+  },
+  {
+    "jp": "グエン・クオン",
+    "vn": "Nguyễn Cường"
+  },
+  {
+    "jp": "第3営業本部　第3営業部",
+    "vn": "Trụ sở bán hàng thứ 3  Phòng bán hàng thứ 3"
+  },
+  {
+    "jp": "木村 範彦",
+    "vn": "Norihiko Kimura"
+  },
+  {
+    "jp": "河西 稔",
+    "vn": "Minoru Kasai"
+  },
+  {
+    "jp": "NEXTPJ Ph2Step1の基本設計工程を対応すること",
+    "vn": "Đối ứng giai đoạn thiết kế cơ bản của NEXTPJ Ph2Step1."
+  },
+  {
+    "jp": "2025年05月07日から2025年11月30日まで",
+    "vn": "Từ ngày 7 tháng 5 năm 2025 đến ngày 30 tháng 11 năm 2025"
+  },
+  {
+    "jp": "・Ph2Step1の基本設計書一式：",
+    "vn": "・Bộ tài liệu thiết kế cơ bản Ph2Step1:"
+  },
+  {
+    "jp": "画面遷移図",
+    "vn": "画面遷移図/Diagram di chuyển màn hình"
+  },
+  {
+    "jp": "画面一覧",
+    "vn": "画面一覧/Screen list"
+  },
+  {
+    "jp": "帳票一覧",
+    "vn": "帳票一覧/Report list"
+  },
+  {
+    "jp": "API一覧",
+    "vn": "API一覧/API list"
+  },
+  {
+    "jp": "メッセージ一覧",
+    "vn": "メッセージ一覧/Message list"
+  },
+  {
+    "jp": "業務コード一覧",
+    "vn": "業務コード一覧/Business code list"
+  },
+  {
+    "jp": "画面仕様書",
+    "vn": "画面仕様書/Screen specs"
+  },
+  {
+    "jp": "帳票仕様書",
+    "vn": "帳票仕様書/Report specs"
+  },
+  {
+    "jp": "API仕様書",
+    "vn": "API仕様書/API specs"
+  },
+  {
+    "jp": "運用設計書",
+    "vn": "運用設計書/Tài liệu design vận hành"
+  },
+  {
+    "jp": "・開発PoC結果（対象機能の詳細設計書、ソースコードパッケージ、単体テスト報告書）",
+    "vn": "・Kết quả PoC phát triển (DD cho chức năng đối tượng, source package, UTR)"
+  },
+  {
+    "jp": "・画面モックアップ",
+    "vn": "・Screen mockup"
+  },
+  {
+    "jp": "(1)納入期日：2025年11月30日",
+    "vn": "(1) Ngày giao hàng: 30 tháng 11 năm 2025"
+  },
+  {
+    "jp": "<rpr id=\"16\">金</rpr id=\"16\" transform=\"close\"><rpr id=\"6\"><bmk id=\"10\" name=\"Text9\" transform=\"open\"> </bmk id=\"10\" transform=\"close\">237</rpr id=\"6\" transform=\"close\">,<rpr id=\"6\">504</rpr id=\"6\" transform=\"close\">,<rpr id=\"4\">207円（税抜）／　　金</rpr id=\"4\" transform=\"close\">261,254,627<rpr id=\"17\">円（税込）／</rpr id=\"17\" transform=\"close\">",
+    "vn": "<rpr id=\"16\">Tiền </rpr id=\"16\" transform=\"close\"><rpr id=\"6\"><bmk id=\"10\" name=\"Text9\" transform=\"open\"> </bmk id=\"10\" transform=\"close\">237</rpr id=\"6\" transform=\"close\">,<rpr id=\"6\">504</rpr id=\"6\" transform=\"close\">,<rpr id=\"4\">207 Yên （không bao gồm thuế）／　　Tiền </rpr id=\"4\" transform=\"close\">261,254,627<rpr id=\"17\"> Yên（bao gồm thuế）／</rpr id=\"17\" transform=\"close\">"
+  },
+  {
+    "jp": "<rpr id=\"16\">総額</rpr id=\"16\" transform=\"close\">237,504,207<rpr id=\"17\">円（税抜）　　総額</rpr id=\"17\" transform=\"close\">261,254,627<rpr id=\"17\">円（税込）</rpr id=\"17\" transform=\"close\">",
+    "vn": "<rpr id=\"16\">Tổng số tiền: </rpr id=\"16\" transform=\"close\">237,504,207<rpr id=\"17\"> yên (chưa bao gồm thuế) Tổng số tiền: </rpr id=\"17\" transform=\"close\">261,254,627<rpr id=\"17\"> yên (đã bao gồm thuế)</rpr id=\"17\" transform=\"close\">"
+  },
+  {
+    "jp": "前提条件：別紙「オッズパークシステム再構築_提案書_システム開発_Phase2Step1_基本設計フェーズ.pptx」の「見積前提」による",
+    "vn": "Điều kiện tiền đề: Dựa trên 「見積前提/Tiền đề báo giá」 của tài liệu 「オッズパークシステム再構築_提案書_システム開発_Phase2Step1_基本設計フェーズ.pptx」"
+  },
+  {
+    "jp": "{}請負契約書{}",
+    "vn": "{}Hợp đồng nhận thầu{}"
+  },
+  {
+    "jp": "[COMPANY_NAME]（以下「OP」という。）と[COMPANY_NAME]（以下「請負人」という。）は、次のとおり契約（以下「本契約」という。）を締結する。",
+    "vn": "[COMPANY_NAME] (sau đây gọi là \"OP\") và [COMPANY_NAME] (sau đây gọi là \"Nhà thầu\") ký kết hợp đồng sau (sau đây gọi là \"Thỏa thuận này\") như sau."
+  },
+  {
+    "jp": "OPは、別紙記載の物件（以下「納入物件」という。）の完成（以下「本件請負」という。）を請負人に委託し、請負人はこれを請け負うことに合意した。",
+    "vn": "OP đã ủy thác cho nhà thầu việc hoàn thành(Dưới đây gọi là \"Công việc thầu này\") các sản phẩm được ghi trong phụ lục (sau đây gọi là \"sản phẩm bàn giao\") và nhà thầu đã đồng ý nhận thầu công việc này."
+  },
+  {
+    "jp": "（請負人の管理責任）",
+    "vn": "(Trách nhiệm quản lý của Nhà thầu)"
+  },
+  {
+    "jp": "請負人は、本件請負に従事する請負人の従業員（本条第２項に定める管理責任者も含む、以下「業務担当者」という。）について、労働法規その他関係法令に基づく雇用主としての一切の義務を負い、また業務担当者に負傷、障害または疾病等が生じた場合は、請負人が自らの負担と責任でこれを処理する。",
+    "vn": "\"Nhà thầu\" sẽ đảm nhận mọi nghĩa vụ với tư cách là người sử dụng lao động theo luật lao động và các luật liên quan khác đối với nhân viên của mình tham gia vào công việc thầu này (bao gồm cả đại diện quản lý được định nghĩa tại khoản 2 của Điều này, sau đây gọi là \"Người đảm nhận nghiệp vụ\") và trong trường hợp \"Người đảm nhận nghiệp vụ\" bị thương, tàn tật hoặc ốm đau, Công ty ủy thác sẽ xử lý bằng chi phí và trách nhiệm của riêng mình."
+  },
+  {
+    "jp": "２．請負人は、本件請負遂行のための管理責任者（以下「管理責任者」という。）を任命し、別紙に記載する。",
+    "vn": "2.  \"Nhà thầu\" sẽ chỉ định Người chịu trách nhiệm quản lý (sau đây gọi là \"Người chịu trách nhiệm quản lý\") để thực hiện \"Công việc thầu này\", người này sẽ được liệt kê trong Phụ lục."
+  },
+  {
+    "jp": "また請負人は、管理責任者に変更がある場合には、直ちにOPに対し書面により通知する。",
+    "vn": "Ngoài ra, \"Nhà thầu\" sẽ thông báo ngay cho OP bằng văn bản nếu có bất kỳ thay đổi nào về \"Người chịu trách nhiệm quản lý\"."
+  },
+  {
+    "jp": "業務担当者による本件請負の遂行を管理監督すること",
+    "vn": "Phải giám sát và quản lý việc thực hiện \"Công việc thầu này\" của \"Người đảm nhận nghiệp vụ\""
+  },
+  {
+    "jp": "OPとの間において本件請負の遂行に関する連絡および確認を行うこと",
+    "vn": "Phải liên lạc và xác nhận với OP về việc thực hiện \"Công việc thầu này\""
+  },
+  {
+    "jp": "４．OPは、管理責任者または業務担当者が業務遂行に不適格と判断した場合、請負人に対しその変更を求めることができる。",
+    "vn": "4. Nếu OP đã phán đoán rằng \"Người chịu trách nhiệm quản lý\" hay là \"Người đảm nhận nghiệp vụ\" không đủ năng lực để thực hiện nghiệp vụ , thì OP có thể yêu cầu Nhà thầu thực hiện thay đổi."
+  },
+  {
+    "jp": "OPは、本件請負の遂行に必要があると認めるときは、業務担当者による本件請負の遂行場所を指定し、または変更の指示をすることができる。",
+    "vn": "Khi OP cho rằng điều đó là cần thiết cho việc thực hiện \"Công việc thầu này\" , thì OP có thể chỉ định địa điểm mà \"Người đảm nhận nghiệp vụ\" sẽ thực hiện \"Công việc thầu này\" hoặc yêu cầu họ thay đổi địa điểm."
+  },
+  {
+    "jp": "２．請負人は、指定場所において本件請負を遂行する場合、OPが定める諸規則（OP指定場所における第三者が定める諸規則を含む。）を、業務担当者に遵守させる。",
+    "vn": "2. Trường hợp thực hiện \"Công việc thầu này\" tại địa điểm được chỉ định, Nhà thầu phải đảm bảo rằng \"Người đảm nhận nghiệp vụ\" các quy tắc do OP thiết lập (bao gồm cả các quy tắc do bên thứ ba thiết lập tại địa điểm do OP chỉ định)."
+  },
+  {
+    "jp": "この場合、請負人は、業務担当者に次の各号を遵守させる。",
+    "vn": "Trong trường hợp này, Nhà thầu phải đảm bảo rằng \"Người đảm nhận nghiệp vụ\" tuân thủ các mục sau."
+  },
+  {
+    "jp": "４．請負人は、OPが要求した場合または業務担当者が指定場所内に立ち入る必要がなくなった場合、業務担当者をして、貸与を受けたカードキー等を返還させる。",
+    "vn": "4. Khi được OP yêu cầu hoặc \"Người đảm nhận nghiệp vụ\" không còn nhu cầu vào khu vực được chỉ định nữa, Nhà thầu sẽ yêu cầu nhân viên kinh doanh trả lại chìa khóa thẻ đã cho mượn, v.v."
+  },
+  {
+    "jp": "OPは、OPが本件請負のために必要と判断した場合、請負人に対してOPの定める条件にて、OPの管理物（以下「貸与物」という。）を貸与する。",
+    "vn": "Nếu OP xác định điều đó là cần thiết cho \"Công việc thầu này\", OP sẽ cho Nhà thầu mượn các mặt hàng do OP quản lý (sau đây gọi là \"Vật phẩm cho mượn\") theo các điều kiện do OP xác định."
+  },
+  {
+    "jp": "請負人は、貸与物を善良な管理者の注意をもって管理、利用する。",
+    "vn": "Nhà thầu sẽ quản lý và sử dụng các Vật phẩm cho mượn với sự cẩn trọng của một người quản lý thận trọng."
+  },
+  {
+    "jp": "なお、当該貸与物の所有権その他一切の権利は請負人に移転しない。",
+    "vn": "Ngoài ra, quyền sở hữu các Vật phẩm cho mượn và bất kỳ quyền nào khác đối với chúng sẽ không được chuyển giao cho Nhà thầu."
+  },
+  {
+    "jp": "２．請負人は、貸与物を本件請負以外の目的で使用してはならない。",
+    "vn": "2. Nhà thầu không được sử dụng các Vật phẩm cho mượn cho bất kỳ mục đích nào khác ngoài mục đích \"Công việc thầu này\"."
+  },
+  {
+    "jp": "３．請負人は、本件請負が終了した場合またはOPの要求があった場合、速やかに貸与物をOPに返却しまたはOPの指示に従った措置を取る。",
+    "vn": "3. Khi \"Công việc thầu này\" đã kết thúc hoặc đã đạt yêu cầu của OP, Nhà thầu sẽ nhanh chóng trả lại các Vật phẩm đã mượn cho OP hoặc thực hiện các biện pháp theo hướng dẫn của OP."
+  },
+  {
+    "jp": "請負人は、OPより要求があった場合、本件請負の進捗等について、都度OPが要求する方法により報告を行う。",
+    "vn": "Nếu OP yêu cầu, Nhà thầu sẽ báo cáo về tiến độ của \"Công việc thầu này\" theo cách thức mà OP yêu cầu."
+  },
+  {
+    "jp": "OPは、いつでも、請負人による本件請負の処理の状況を、自らまたはOPが指定する第三者をして調査することができる。",
+    "vn": "OP có thể tự mình hoặc thông qua bên thứ ba do OP chỉ định để điều tra tình trạng xử lý về \"Công việc thầu này\" của Nhà thầu đảm nhận bất cứ lúc nào."
+  },
+  {
+    "jp": "２．請負人は、正当な理由がある場合に限り、前項の調査を拒むことができる。",
+    "vn": "2. Nhà thầu có thể từ chối cuộc điều tra theo đoạn trước chỉ khi có lý do chính đáng."
+  },
+  {
+    "jp": "<rpr id=\"0\">フォルダ構成</rpr id=\"0\" transform=\"close\"><rpr id=\"1\">ルール</rpr id=\"1\" transform=\"close\">",
+    "vn": "Rule về cấu trúc thư mục<rpr id=\"0\"></rpr id=\"0\" transform=\"close\"><rpr id=\"1\"></rpr id=\"1\" transform=\"close\">"
+  },
+  {
+    "jp": "Sharepoint標準フォルダ内の各直下に使用ルールのドキュメント、サブフォルダ、サンプルドキュメントを準備する",
+    "vn": "Chuẩn bị document, sub-folder, sample document về rule sử dụng ở ngay dưới mỗi thư mục tiêu chuẩn trong SharePoint."
+  },
+  {
+    "jp": "ルートフォルダはプロジェクトごとに分ける(ex. Step1, Step2を一緒にしない)",
+    "vn": "Tách riêng các route folder cho từng dự án (ví dụ: không Step1, Step cùng nhau)"
+  },
+  {
+    "jp": "各フォルダの用途",
+    "vn": "Mục đích của mỗi thư mục"
+  },
+  {
+    "jp": "<hlnk id=\"Rbad40a0c2b764c0d\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}010. 受領資料</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：日付_受領元_目的フォルダを配置し配下に各ドキュメントを配置。",
+    "vn": "{}010. 受領資料/Tài liệu nhận{} : Tạo các thư mục có định dạng \"日付_受領元_目的/Date_Nguồn nhận_Mục đích\" và đặt từng tài liệu vào trong folder đó.<hlnk id=\"Rbad40a0c2b764c0d\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\"></rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\"></rpr id=\"5\" transform=\"close\"><rpr id=\"3\">"
+  },
+  {
+    "jp": "アップデートの際にはこちらの内部ファイルを修</rpr id=\"3\" transform=\"close\">",
+    "vn": "Khi update thì sửa file nội nộ ở link bên dưới</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Ra2547f7066aa4283\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}015. 営業</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：営業関連(提案書、契約書等)のドキュメントを配置</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"Ra2547f7066aa4283\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}015. 営業/Sales</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Để các tài liệu liên quan đến sales (File proposal, file hợp đồng,...)</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Rec06461fb10848f4\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}020. 管理</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：ガントチャート、計画書、進捗・課題管理表等の管理ドキュメントを配置</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"Rec06461fb10848f4\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}020. 管理/Quản lý</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Để các tài liệu quản lý như Gantt Chart, project plan, tài liệu quản lý tiên độ/issue,...</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Rbeca90d63d2c4319\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}030. 会議</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"6\">{} </rpr id=\"6\" transform=\"close\"><rpr id=\"7\">：会議資料、その他関連ドキュメントを格納。",
+    "vn": "<hlnk id=\"Rbeca90d63d2c4319\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}030. 会議/Meeting</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"6\">{} </rpr id=\"6\" transform=\"close\"><rpr id=\"7\">：Lưu trữ các tài liệu họp hành và các tài liệu liên quan đến chúng"
+  },
+  {
+    "jp": "基本的には日付フォルダを掘る。",
+    "vn": "Về cơ bản là tìm kiếm thư mục theo ngày tháng."
+  },
+  {
+    "jp": "会議資料は基本フォーマットに従った</rpr id=\"7\" transform=\"close\"><rpr id=\"8\">MSOffice</rpr id=\"8\" transform=\"close\"><rpr id=\"9\">等のファイル</rpr id=\"9\" transform=\"close\"><rpr id=\"7\">で用意。</rpr id=\"7\" transform=\"close\">",
+    "vn": "Tài liệu họp được chuẩn bị trong MS Office hoặc các tệp tương tự khác theo format cơ bản.</rpr id=\"7\" transform=\"close\"><rpr id=\"8\"></rpr id=\"8\" transform=\"close\"><rpr id=\"9\"></rpr id=\"9\" transform=\"close\"><rpr id=\"7\"></rpr id=\"7\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"R83766cc75c2e4289\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}040. 要件定義</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"10\">{} </rpr id=\"10\" transform=\"close\"><rpr id=\"7\">：要件定義書、その他関連ドキュメントを格納。",
+    "vn": "<hlnk id=\"R83766cc75c2e4289\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}040. 要件定義/Định nghĩa yêu cầu</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"10\">{} </rpr id=\"10\" transform=\"close\"><rpr id=\"7\">：Lưu trữ các tài liệu định nghĩa yêu cầu và các tài liệu liên quan đến chúng"
+  },
+  {
+    "jp": "要件定義資料は基本フォーマットに従った</rpr id=\"7\" transform=\"close\"><rpr id=\"11\">MSOffice</rpr id=\"11\" transform=\"close\"><rpr id=\"7\">で用意。</rpr id=\"7\" transform=\"close\">",
+    "vn": "Các tài liệu định nghĩa yêu cầu được soạn thảo theo MSOffice với format cơ bản.</rpr id=\"7\" transform=\"close\"><rpr id=\"11\"></rpr id=\"11\" transform=\"close\"><rpr id=\"7\"></rpr id=\"7\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"R6246e7de4b4941a1\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}050. 基本設計</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：基本設計書、その他関連ドキュメントを格納。</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"R6246e7de4b4941a1\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}050. 基本設計/Basic design</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Lưu trữ các tài liệu basic design và các tài liệu liên quan đến chúng</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "051.詳細設計 : 詳細設計書、その他関連ドキュメントを格納。",
+    "vn": "051.詳細設計/Detail design: Lưu trữ các tài liệu detail design và các tài liệu liên quan đến chúng"
+  },
+  {
+    "jp": "<hlnk id=\"R1a696c497dd84e88\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}060. 開発</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：ソースコードや画像等のリソースは基本的にはGitを使用する。",
+    "vn": "<hlnk id=\"R1a696c497dd84e88\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}060. 開発/Develop</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">： Cơ bản sử dụng Git cho resource như là image, source code,..."
+  },
+  {
+    "jp": "<hlnk id=\"Rf41ba72bc1b54f5d\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}070. テスト</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：UT、IT、ST、脆弱性診断、UATドキュメントを格納。</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"Rf41ba72bc1b54f5d\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}070. テスト/Test</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Lưu trữ tài liệu UT、IT、ST、Phán đoán lỗ hỏng、UAT"
+  },
+  {
+    "jp": "<hlnk id=\"R2f0afc5bc3e94123\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}080. 移行</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：移行計画、移行設計、移行スケジュール等の移行関連ドキュメントを格納。</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"R2f0afc5bc3e94123\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}080. 移行/Migrate</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Lưu trữ tài liệu liên quan đến Plan migration, design migration、schedule migration,...</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "それ以外に必要な場合のみこちらを使用する</rpr id=\"3\" transform=\"close\">",
+    "vn": "Chỉ sử dụng nếu cần thiết</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Rc34f72ecf10f4a88\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}090. 納品物</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：リリースタイミングに分けてフォルダを作成し、その時点でのドキュメントを格納。",
+    "vn": "<hlnk id=\"Rc34f72ecf10f4a88\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}090. 納品物/Deliverables</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Tạo các thư mục theo thời gian release rồi lưu trữ tài liệu vào thời điểm đó."
+  },
+  {
+    "jp": "スナップショットとして保存するため基本的には編集は行わない。</rpr id=\"3\" transform=\"close\">",
+    "vn": "Vì được lưu dưới dạng Snapshot nên cơ bản thường không cần chỉnh sửa.</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"R9906d0d0eb154133\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}100. マニュアル</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：ユーザーマニュアル、管理者マニュアル等のドキュメントを格納。</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"R9906d0d0eb154133\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}100. マニュアル/Manual</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Lưu trữ tài liệu như user manual, admin manual,...</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Rcef5b00d48924bd8\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}200. 参考資料</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：参考資料として格納。",
+    "vn": "<hlnk id=\"Rcef5b00d48924bd8\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}200. 参考資料/Tài liệu tham khảo</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">： Lưu trữ làm tài liệu tham khảo."
+  },
+  {
+    "jp": "可能な限り日付フォルダを作成し、配下に目的を記載した簡易なドキュメントを用意すること</rpr id=\"3\" transform=\"close\">",
+    "vn": "Nếu có thể, tạo thư mục theo Date, rồi chuẩn bị các tài liệu đơn giản giải thích mục đích của từng thư mục.</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Rab47eb1a8c9a4465\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}300. Tool</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：ファイル一覧取得ツールなどを配置</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"Rab47eb1a8c9a4465\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}300. Tool</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Để các tool như tool để get file list,...</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"R051c2c099f58486f\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}400. 運用</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：運用関連ドキュメント(マニュアル、設計、記録等々)を格納</rpr id=\"3\" transform=\"close\">",
+    "vn": "<hlnk id=\"R051c2c099f58486f\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}400. 運用/Vận hành</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">： Store tài liệu liên quan đến vận hành(manual, design, log,...)</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"R00a054c297ac4f2d\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}900. 個人フォルダ</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：利用した個人名を記載したフォルダを作成し、個人間ファイル受け渡し等に使用。",
+    "vn": "<hlnk id=\"R00a054c297ac4f2d\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}900. 個人フォルダ/Thư mục cá nhân</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Tạo folder có tên cá nhận đã sử dụng và sử dụng khi chuyển file giữa các cá nhân,..."
+  },
+  {
+    "jp": "極力使用しない。",
+    "vn": "Tránh sử dụng nó càng nhiều càng tốt."
+  },
+  {
+    "jp": "使用した場合も利用が終わったあとは速やかに削除する。</rpr id=\"3\" transform=\"close\">",
+    "vn": "Ngay cả khi đã sử dụng, hãy xóa ngay sau khi dùng dùng.</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "<hlnk id=\"Rd426f76c8e274646\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}950.work</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：上記フォルダの目的外でどうしようもない場合のみに使用。",
+    "vn": "<hlnk id=\"Rd426f76c8e274646\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}950.work</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">：Chỉ sử dụng khi không còn lựa chọn nào khác ngoài mục đích của thư mục trên."
+  },
+  {
+    "jp": "<hlnk id=\"Ra6216dbe31db4df7\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}999. old</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">(基本的にはゴミ箱)：利用が終わったフォルダ、ファイルを移動。",
+    "vn": "<hlnk id=\"Ra6216dbe31db4df7\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}999. old</rpr id=\"4\" transform=\"close\"></hlnk><rpr id=\"5\">{} </rpr id=\"5\" transform=\"close\"><rpr id=\"3\">(về cơ bản là thùng rác): Di chuyển các thư mục và tệp mà bạn không còn sử dụng vào đây."
+  },
+  {
+    "jp": "一定期間経過の後、管理者が削除する。</rpr id=\"3\" transform=\"close\">",
+    "vn": "Sau một khoảng thời gian nhất định, người quản trị sẽ xóa nó.</rpr id=\"3\" transform=\"close\">"
+  },
+  {
+    "jp": "サブフォルダ配下のフォルダについて",
+    "vn": "Về các thư mục trong các thư mục con"
+  },
+  {
+    "jp": "サブフォルダ配下のフォルダ構成に関しては、適宜数字で分類し同様のフォルダが複数作られないようにする、判断に迷う場合はPMOに相談する",
+    "vn": "Về cấu trúc thư mục trong các thư mục con, hãy phân loại chúng với các con số thích hợp để tránh tạo nhiều thư mục tương tự nhau. Nếu có sự phân vân trong việc đưa ra quyết định, hãy tham khảo ý kiến của PMO."
+  },
+  {
+    "jp": "サンプル",
+    "vn": "Sample"
+  },
+  {
+    "jp": "<hlnk id=\"R01b01dd591c74cfd\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}070. テスト</rpr id=\"4\" transform=\"close\"></hlnk>{}",
+    "vn": "<hlnk id=\"R01b01dd591c74cfd\" fileName=\"document.xml\" href=\"\"><rpr id=\"4\">{}070. テスト/Test</rpr id=\"4\" transform=\"close\"></hlnk>{}"
+  },
+  {
+    "jp": "サブフォルダ配下のフォルダは上記を守っていれば必要なチームが作ってよい",
+    "vn": "Chỉ cần tuân thủ các điều trên, các team cần thiết có thể tạo các thư mục trong thư mục con."
+  }
+]

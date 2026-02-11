@@ -1,0 +1,1002 @@
+[
+  {
+    "jp": "※ToDoリストを追加していただけると、大変助かります",
+    "vn": "※Nhờ bạn add list ToDo."
+  },
+  {
+    "jp": "公営競技にハマるプロセスの流れを軸に上記分類を分け、ペルソナを作成",
+    "vn": "Chia phân loại trên dựa trên flow đam mê, hứng thú vào các cuộc thi đấu công khai rồi tạo Persona"
+  },
+  {
+    "jp": "論理型の成長するストーリーを考えれば成長段階ごとにアプリで必要な機能を洗い出せるのではないか",
+    "vn": "Nếu chúng ta nghĩ về câu chuyện tăng trưởng vè mặt logic, chúng ta có thể lọc ra được các chức năng cần thiết trong ứng dụng cho từng giai đoạn tăng trưởng?"
+  },
+  {
+    "jp": "ライトユーザー層にあたる直感型は今回のストーリーには入らないのか（OP",
+    "vn": "Phân loại \"直感/Intuitive\" tương ứng với tầng ít người dùng thì ko đưa vào câu chuyện lần này (OP"
+  },
+  {
+    "jp": "OPは新規獲得に力を入れているので直感型もフォローできるようにしてほしい",
+    "vn": "OP đang tập trung vào việc thu hút những người mới, vì vậy tôi muốn bạn cũng có thể follow theo kiểu \"直感/Intuitive\""
+  },
+  {
+    "jp": "フォローはしているがメイン層とは考えていない",
+    "vn": "Tôi sẽ follow nhưng nhưng tôi không nghĩ họ ở tầng main"
+  },
+  {
+    "jp": "ギャンブラー層へのフォローはどうなっているか（OP",
+    "vn": "Họ follow đến tầng \"ギャンブラー/Gambler\" như thế nào?"
+  },
+  {
+    "jp": "メインストーリーの他で言語化していく",
+    "vn": "Nói nó ở ngoài câu chuyện chính"
+  },
+  {
+    "jp": "少しギャンブル色が強すぎるのではないか（OP",
+    "vn": "Màu \"ギャンブラー/Gambler\"  có phải hơi mạng(đậm) hay không? (OP"
+  },
+  {
+    "jp": "負けてでも公営競技を楽しみたいと思えるような付加価値のストーリーも欲しい",
+    "vn": "Tôi cũng muốn một story giá trị gia tăng để khiến mọi người muốn thưởng thức các cuộc thi đấu công khai ngay cả khi họ thua"
+  },
+  {
+    "jp": "ストーリーは複数作る予定があるか（OP",
+    "vn": "Có plan tạo nhiều story không?  (OP"
+  },
+  {
+    "jp": "直感型のストーリーも構成していく",
+    "vn": "Chúng tôi cũng sẽ config một story dạng \"直感/Intuitive\""
+  },
+  {
+    "jp": "いただいた資料を確認しFBを行う。",
+    "vn": "Kiểm tra các tài liệu nhận được rồi FB nhé."
+  },
+  {
+    "jp": "必要であれば分科会を行う（OP★",
+    "vn": "Nếu cần thì điều chỉnh set subcommittee meeting (OP★"
+  },
+  {
+    "jp": "・サイトマップ作成",
+    "vn": "・Tạo sitemap"
+  },
+  {
+    "jp": "・サイトコンテンツ幅とブレイクポイントについて",
+    "vn": "・ Breakpoint và độ rộng nội dung site"
+  },
+  {
+    "jp": "次回提案予定（4D社★",
+    "vn": "Plan đề xuất tiếp theo （Công ty 4D★"
+  },
+  {
+    "jp": "・その他",
+    "vn": "・Others"
+  },
+  {
+    "jp": "自分の投票券の何が悪かったか、アドバイスをくれる機能があると良いかもしれない（OP",
+    "vn": "Sẽ thật tuyệt nếu có một tính năng cung cấp cho bạn lời khuyên về những gì đã xảy ra với lá phiếu của bạn (OP"
+  },
+  {
+    "jp": "フォーデジット議事録",
+    "vn": "FOURDIGIT MM"
+  },
+  {
+    "jp": "アジェンダ",
+    "vn": "Agenda"
+  },
+  {
+    "jp": "・状況確認",
+    "vn": "・ Kiểm tra trạng thái"
+  },
+  {
+    "jp": "・デザインリサーチ",
+    "vn": "・Nghiên cứu thiết kế"
+  },
+  {
+    "jp": "OP用アンケート作成し共有済み",
+    "vn": "Đã tạo và chia sẻ survey  cho OP"
+  },
+  {
+    "jp": "アンケート設定内容のページは4D社内ツールの為エラーが出てしまっていた",
+    "vn": "Page về nội dung setting survey đang bị lỗi vì là tool nội bộ của 4D."
+  },
+  {
+    "jp": "OP内アンケートは来週中に回収したい",
+    "vn": "Tôi muốn thu thập survey trong OP vào trong tuần tới"
+  },
+  {
+    "jp": "競輪のイメージに右回りの物があるのが気になる（OP",
+    "vn": "Tôi tò mò về hình ảnh cuộc đua có người thuận tay phải (OP"
+  },
+  {
+    "jp": "イメージの注釈を入れ対応する（4D",
+    "vn": "Tạo chú thích và đối ứng image đó(4D"
+  },
+  {
+    "jp": "・ワイヤーフレーム",
+    "vn": "・Wireframe"
+  },
+  {
+    "jp": "Figmaで作成して共有し、挙動確認、コメントをいただくような形にしたい",
+    "vn": "Tôi muốn làm theo dạng tạo nó trong Figma, chia sẻ nó, kiểm tra hoạt động của nó và nhận được phản hồi."
+  },
+  {
+    "jp": "設計書には記載しているがFigmaではページが漏れている事が過去あったので、設計書を読み解き、漏れがないようにしてほしい（OP",
+    "vn": "Mặc dù nó được mô tả trong tài liệu thiết kế, nhưng đã có những trường hợp trong quá khứ các trang bị rò rỉ trong Figma, vì vậy hãy đọc kỹ tài liệu thiết kế và đảm bảo rằng không có thiếu sót (OP"
+  },
+  {
+    "jp": "OP側でFigmaのアカウント作成が問題ないか確認。",
+    "vn": "Kiểm tra xem có vấn đề gì với việc tạo tài khoản Figma ở phía OP hay không."
+  },
+  {
+    "jp": "併せ4D内でもアカウントが準備できるか確認を行う",
+    "vn": "Đồng thời, kiểm tra xem tài khoản đã sẵn sàng ở cả 4D chưa"
+  },
+  {
+    "jp": "要所要所でPowerPointなどに落とし込みレポートを作成してほしい",
+    "vn": "Tôi muốn bạn tạo báo cáo theo định dạng PowerPoint,.. theo các điểm chính."
+  },
+  {
+    "jp": "・ユーザーインタビュー",
+    "vn": "・User interview"
+  },
+  {
+    "jp": "インタビューのサマリ作成。",
+    "vn": "Tạo summary cuộc phỏng vấn"
+  },
+  {
+    "jp": "次はペルソナの作成とペルソナの行動パターンへと進む",
+    "vn": "Tiếp theo sẽ chuyển sang việc tạo ra các persona và mô hình hành vi của họ."
+  },
+  {
+    "jp": "サマリは後ほどPDFで共有",
+    "vn": "Chia sẻ bản tóm tắt sau dưới dạng PDF"
+  },
+  {
+    "jp": "ペルソナは4～5名を想定している",
+    "vn": "Personas dự kiến là 4 ~ 5 người."
+  },
+  {
+    "jp": "投票系の画面は早めに欲しいが、作業順の調整は可能か（OP",
+    "vn": "Tôi muốn [投票系の画面/màn hình bỏ phiếu] càng sớm càng tốt, nhưng có thể điều chỉnh thứ tự công việc không?  (OP"
+  },
+  {
+    "jp": "問題ない。",
+    "vn": "Không vấn đề gì."
+  },
+  {
+    "jp": "調整を行う",
+    "vn": "Thực hiện điều chỉnh"
+  },
+  {
+    "jp": "WBSにコミュニケーションを移行したい",
+    "vn": "Tôi muốn chuyển communicate sang WBS"
+  },
+  {
+    "jp": "会議の課題はBacklogとTeamsのどちらがいいか（4D",
+    "vn": "Dùng nào tốt hơn cho suse cuộc họp: Backlog hay Teams （4D"
+  },
+  {
+    "jp": "一旦Backlogを記載する方法で問題ないが記載後にTeamsでリマインドをしてほしい（OP",
+    "vn": "Không có vấn đề gì với phương pháp viết Backlog, nhưng tôi muốn tạo remind trong Teams sau khi mô tả (OP"
+  },
+  {
+    "jp": "オートレースのヘビーユーザーが連絡が取れなかった",
+    "vn": "Không thể liên lạc với những người sử dụng đua xe ô tô"
+  },
+  {
+    "jp": "あわせミドル層はスケジュールが合わず19名のインタビューとなった",
+    "vn": "Ngoài ra, Do trùng lịch trình, chúng tôi chỉ phỏng vấn được 19 người thuộc nhóm tuổi trung niên."
+  },
+  {
+    "jp": "インタビューの結果をBacklogにまとめている最中（スプシを使用）",
+    "vn": "Tóm tắt kết quả phỏng vấn trong Backlog (sử dụng Spshi)"
+  },
+  {
+    "jp": "OP側でユーザー年代分布をまとめているので、準備ができ次第4D様にお渡しする（OP",
+    "vn": "Vì OP đang tóm tắt phân bố độ tuổi của người dùng, tôi sẽ chuyển nó cho 4D ngay khi  xong  (OP"
+  },
+  {
+    "jp": "どのデザインが使いやすいかのリサーチを行い、デザインの方向性を決めていきたい",
+    "vn": "Tôi muốn nghiên cứu thiết kế nào dễ sử dụng và quyết định hướng thiết kế"
+  },
+  {
+    "jp": "リサーチ対象は1000名ほどの規模で考えている",
+    "vn": "Đối tượng nghiên cứu có quy mô khoảng 1.000 người."
+  },
+  {
+    "jp": "リサーチ結果をもとに内容をかみ砕き、最適なものを構築していく（4D",
+    "vn": "Phân tích nội dung dựa trên kết quả nghiên cứu và xây dựng giải pháp tối ưu nhất (4D"
+  },
+  {
+    "jp": "ユーザーリサーチの質問内容は事前に共有をしてほしい（OP",
+    "vn": "Tôi muốn bạn chia sẻ trước nội dung của các câu hỏi nghiên cứu người dùng (OP"
+  },
+  {
+    "jp": "ライト、ポテビギのユーザー像はあるか（4D",
+    "vn": "Có hình ảnh người dùng của Light và Potebigi không? (4D"
+  },
+  {
+    "jp": "明確にはとれていないが、将来的なメイン顧客になる若い層を取っていきたい（OP",
+    "vn": "Mặc dù chưa rõ ràng, nhưng chúng tôi muốn thu hút những người trẻ tuổi, những người sẽ trở thành khách hàng chính của chúng tôi trong tương lai (OP"
+  },
+  {
+    "jp": "その他JRAだけやっているユーザーもターゲットとしたい（OP",
+    "vn": "Ngoài ra, Chúng tôi cũng muốn nhắm tới những người dùng chỉ chơi JRA. (OP"
+  },
+  {
+    "jp": "WBSをExcelに記載し共有していただける想定はあるか（OP",
+    "vn": "Có giả định là bạn có thể chia sẻ WBS trong Excel không? （OP"
+  },
+  {
+    "jp": "準備ができ次第お渡しする（4D",
+    "vn": "Chúng tôi sẽ gửi ngay khi xong （4D"
+  },
+  {
+    "jp": "システム側でのMTGは日程調整中。",
+    "vn": "MTG ở phía hệ thống đang được lên lịch."
+  },
+  {
+    "jp": "固まり次第連絡する（OP",
+    "vn": "Tôi sẽ liên lạc với bạn ngay khi nó được sửa xong (OP"
+  },
+  {
+    "jp": "環境が整い次第共有",
+    "vn": "Chia sẻ ngay khi môi trường sẵn sàng"
+  },
+  {
+    "jp": "オンラインでのビデオ通話で行う",
+    "vn": "Thực hiện cuộc gọi video trực tuyến"
+  },
+  {
+    "jp": "90分。",
+    "vn": "90 phút."
+  },
+  {
+    "jp": "OPのサイトを投影し操作してもらいながら進める",
+    "vn": "Sẽ chiếu site OP và người tham gia sẽ vừa thao tác vừa tiếp tục"
+  },
+  {
+    "jp": "ユーザーの利用の流れや流入経路、操作導線など大まかな部分を把握するのが目的",
+    "vn": "Mục đích là để nắm bắt phần chung như quy trình sử dụng của người dùng, Inflow route và lộ trình hoạt động."
+  },
+  {
+    "jp": "使いやすい部分や使いにくい部分のヒアリング",
+    "vn": "Nghe về các phần dễ sử dụng và khó sử dụng"
+  },
+  {
+    "jp": "OP側で途中、気になる事などあったら聞いてもOK",
+    "vn": "Nếu bạn có bất kỳ mối quan tâm nào về phía OP, bạn có thể hỏi họ"
+  },
+  {
+    "jp": "仮説として、ギャンブルやスポーツ、ゲームに対する姿勢を聞き、ユーザーをカテゴリ分け出来るのではないかと思っている",
+    "vn": "Giả thuyết của tôi là chúng ta có thể phân loại người dùng bằng cách hỏi về thái độ của họ đối với cờ bạc, thể thao và trò chơi."
+  },
+  {
+    "jp": "15名、各競技5名想定だったが21名に変更した（今週18名確定）",
+    "vn": "Kế hoạch ban đầu là 15 người, mỗi môn thể thao có 5 người tham gia, nhưng đã thay đổi thành 21 người (18 người đã được xác nhận trong tuần này)."
+  },
+  {
+    "jp": "ライト、ビギナー層を各1名づつ追加した",
+    "vn": "Đã thêm một cấp độ cho light and beginner levels."
+  },
+  {
+    "jp": "各ユーザー90分毎インタビューを行う",
+    "vn": "Tiến hành phỏng vấn 90 phút một lần cho mỗi người dùng"
+  },
+  {
+    "jp": "ユーザーにはOPのインタビューだとは伝えない（公営競技調査として行う）",
+    "vn": "Đừng nói với người dùng rằng đó là một cuộc phỏng vấn với OP (thực hiện như một cuộc khảo sát cạnh tranh công khai)"
+  },
+  {
+    "jp": "他社ではなくOPを利用している理由は聞いておきたい",
+    "vn": "Tôi muốn nghe lý do tại sao bạn sử dụng OP thay vì các công ty khác."
+  },
+  {
+    "jp": "・プロジェクト管理",
+    "vn": "・Quản lý dự án"
+  },
+  {
+    "jp": "WBSの状態すべてを落とし込むのはカロリーが高いのでタッチポイントだけ記載でもいいのでは（OP",
+    "vn": "Sẽ rất tốn công nếu phải viết ra toàn bộ tình huống WBS, vì vậy, tốt hơn là chỉ nên viết ra các touchpoint. (OP"
+  },
+  {
+    "jp": "フォーマットがあればいただけるとありがたい",
+    "vn": "Nếu có format thì gửi tôi nhé"
+  },
+  {
+    "jp": "OP側でフォーマットを用意する",
+    "vn": "Phía OP sẽ chuẩn bị format"
+  },
+  {
+    "jp": "河原塚、有馬で相談しフォーマットを検討する",
+    "vn": "Tham khảo ý kiến của Kawarazuka và Arima để xem xét định dạng"
+  },
+  {
+    "jp": "Teamsファイル共有で編集できる形だとありがたい",
+    "vn": "Tôi muốn nó ở dạng  dạng có thể edit được bằng chia sẻ tệp Teams"
+  },
+  {
+    "jp": "Teams上にフォルダを作ったので動作確認してほしい（OP→4D",
+    "vn": "Tôi đã tạo một thư mục trên Teams, vì vậy tôi muốn bạn kiểm tra thao tác (OP→4D"
+  },
+  {
+    "jp": "子課題が追加できるよう社内調整する（OP",
+    "vn": "Thực hiện các sắp xếp nội bộ để bổ sung các vấn đề nhỏ (OP"
+  },
+  {
+    "jp": "・キーワードリスト、ワーディングルール確認",
+    "vn": "・Confirm về Keyword list, wording rule "
+  },
+  {
+    "jp": "ワーディングルール",
+    "vn": "wording rule"
+  },
+  {
+    "jp": "キーワードリスト",
+    "vn": "Keyword list"
+  },
+  {
+    "jp": "Backlogに2名入っていない方がいたが問題ないか（OP",
+    "vn": "Có hai người không đưa vào Backlog nhưng mà lại có trong đó thì có vấn đề gì không? (OP"
+  },
+  {
+    "jp": "開発段階に入った時点で都度追加が発生するかもしれないが現時点では問題なし",
+    "vn": "Có thể có những bổ sung thêm trong quá trình phát triển, nhưng hiện tại không có vấn đề gì."
+  },
+  {
+    "jp": "UI検討進行中",
+    "vn": "Đang tiến hành xem xét UI"
+  },
+  {
+    "jp": "2025/3/10 非機能要件チーム",
+    "vn": "2025/3/10 Team requirement non-functional"
+  },
+  {
+    "jp": "環境面数/キャパシティ",
+    "vn": "Số lượng môi trường/Capacity"
+  },
+  {
+    "jp": "STG環境",
+    "vn": "Môi trường STG"
+  },
+  {
+    "jp": "2面（本番同等）、1面（開発同等）",
+    "vn": "2 cái（giống với production）、1 cái（giống với develop）"
+  },
+  {
+    "jp": "見積の前提として明確に記載すべし",
+    "vn": "Cần môt tả rõ ràng dưới dạng tiền đề estimate"
+  },
+  {
+    "jp": "開発環境",
+    "vn": "Môi trường develop"
+  },
+  {
+    "jp": "2面（最小）",
+    "vn": "2 cái （Tối thiểu）"
+  },
+  {
+    "jp": "リハーサル回数",
+    "vn": "Số lần rehearsal"
+  },
+  {
+    "jp": "移行リハーサル",
+    "vn": "Rehearsal migrate"
+  },
+  {
+    "jp": "5回＋予備1回",
+    "vn": "5 lần + 1 lần dự phòng"
+  },
+  {
+    "jp": "特別体制リハーサル",
+    "vn": "Rehearsal hệ thống đặc biệt"
+  },
+  {
+    "jp": "2回（予備含む）",
+    "vn": "2 lần (bao gồm cả phần dự phòng)"
+  },
+  {
+    "jp": "研修支援",
+    "vn": "Hỗ trợ đào tạo"
+  },
+  {
+    "jp": "指導者研修/集合研修",
+    "vn": "Đào tạo giảng viên/đào tạo nhóm"
+  },
+  {
+    "jp": "研修用環境準備 ex)研修用仮ID設定",
+    "vn": "Chuẩn bị môi trường đào tạo (ví dụ: thiết lập ID tạm thời để đào tạo)"
+  },
+  {
+    "jp": "研修用環境準備/ID(アクセス権)設定など発生しそう",
+    "vn": "Có thể cần phải chuẩn bị môi trường đào tạo/cài đặt ID (quyền truy cập), v.v."
+  },
+  {
+    "jp": "自席からできないか、とか言ってきそう",
+    "vn": "Họ có thể sẽ hỏi liệu họ có thể làm việc đó tại bàn làm việc của mình không."
+  },
+  {
+    "jp": "研修テキスト",
+    "vn": "Văn bản đào tạo"
+  },
+  {
+    "jp": "テキスト作成を含めていないことを記載",
+    "vn": "Mô tả là không bao gồm việc tạo văn bản"
+  },
+  {
+    "jp": "当日サポート",
+    "vn": "Hỗ trợ trong ngày"
+  },
+  {
+    "jp": "回数未定　→含めていないことを記載",
+    "vn": "Chưa chốt số lần　→Mô tả không include nó vào luôn"
+  },
+  {
+    "jp": "有償ソフトウェア",
+    "vn": "Phần mềm trả phí"
+  },
+  {
+    "jp": "プロダクト（ツール）",
+    "vn": "Product (Tool)"
+  },
+  {
+    "jp": "システムテストまでの工程で使うツールはベンダ準備（テスト戦略書に明記）",
+    "vn": "Các tool được sử dụng ở các giai đoạn đến system test sẽ được nhà cung cấp chuẩn bị (được chỉ định trong tài liệu テスト戦略書/Chiến lược test)"
+  },
+  {
+    "jp": "有償ソフトウェアのライセンス料（使用料）",
+    "vn": "Phí lisence(phí dùng) của những phần mềm trả phí"
+  },
+  {
+    "jp": "利用者数によって料金が設定されるものは、前提を置いて算出する必要あり",
+    "vn": "Đối với các phần mềm mà mức phí được thiết lập dựa trên số lượng người dùng thì cần làm nó thành tiền đề và tính toán"
+  },
+  {
+    "jp": "画面表示テスト",
+    "vn": "Test hiển thị màn hình"
+  },
+  {
+    "jp": "自前or外部委託",
+    "vn": "Nội bộ hoặc thuê ngoài"
+  },
+  {
+    "jp": "推奨環境（OS,ブラウザ，バージョン）での動作・表示検証",
+    "vn": "Verify hoạt động và hiển thị trên môi trường được đề xuất (OS, Browser, version)"
+  },
+  {
+    "jp": "環境を自前で用意するか、専門業者に委託するか",
+    "vn": "Bạn tự chuẩn bị môi trường hay thuê chuyên gia?"
+  },
+  {
+    "jp": "いずれにせよ、推奨環境未定のため見積不可能　→含めていないことを前提に記載",
+    "vn": "Trong mọi trường hợp, không thể ước tính được vì môi trường được khuyến nghị vẫn chưa được xác định.  -> Mô tả tiền đề là không include nó vào luôn"
+  },
+  {
+    "jp": "セキュリティテスト",
+    "vn": "Kiểm tra bảo mật"
+  },
+  {
+    "jp": "立会",
+    "vn": "Các phiên họp"
+  },
+  {
+    "jp": "セキュリティテストに含まれるペネトレーションテストはOP社主管で外部に委託（テスト戦略書に明記）",
+    "vn": "Kiểm thử xâm nhập, nằm trong thử nghiệm bảo mật, sẽ được thuê ngoài dưới sự giám sát của OP (như đã nêu trong tài liệu テスト戦略書/chiến lược test)."
+  },
+  {
+    "jp": "ただし立会を求められる可能性ある　→立会を含めていないことを記載",
+    "vn": "Tuy nhiên, bạn có thể được yêu cầu phải có mặt(phải họp chung) →vậy mô tả rằng không bao gồm việc này nhé"
+  },
+  {
+    "jp": "他のテスト",
+    "vn": "Các test khác"
+  },
+  {
+    "jp": "準備や確認支援",
+    "vn": "Hỗ trợ chuẩn bị và xác nhận"
+  },
+  {
+    "jp": "Ph.2対象外となっているテストであっても、テスト準備や結果確認支援を求められる可能性あり",
+    "vn": "Ngay cả khi testkhông nằm trong Ph.2, bạn vẫn có thể được yêu cầu giúp chuẩn bị test và xác nhận kết quả."
+  },
+  {
+    "jp": "Ex）現新比較テストの結果を画面で確認したい、とか言ってきそう",
+    "vn": "VD) Học có thể nói rằng: Tôi muốn xem kết quả test so sánh hiện tại và mới trên màn hình."
+  },
+  {
+    "jp": "その他",
+    "vn": "Others"
+  },
+  {
+    "jp": "マニュアル/手順書",
+    "vn": "Maunal/Guideline"
+  },
+  {
+    "jp": "研修支援は意外と工数かかります",
+    "vn": "Hỗ trợ đào tạo tốn rất nhiều effort hơn tưởng tượng"
+  },
+  {
+    "jp": "現場相手なので最初に決めた通りに進まない",
+    "vn": "Vì đối tác là hiện trường(nhà máy, nơi đua ngựa,..)  mọi việc không phải lúc nào cũng diễn ra như dự định ban đầu"
+  },
+  {
+    "jp": "直前にあれもこれもと言われる、等々",
+    "vn": "Vì đối tác là hiện trường(nhà máy, nơi đua ngựa,..) nên ngay trước lúc mọi việc không phải lúc nào cũng diễn ra như dự định ban đầu thì lại được nói thế này thế kia,v.v.."
+  },
+  {
+    "jp": "当初自前作成と切り分け→やっぱりそっちで作成できませんか、を吸収できるバッファ",
+    "vn": "Ban đầu, chúng tôi tách nó ra khỏi phần tạo của chúng tôi → Rốt cuộc phần buffer có thể  làm được luôn việc: bạn có thể tạo được hay không?"
+  },
+  {
+    "jp": "シート",
+    "vn": "Sheet"
+  },
+  {
+    "jp": "修正内容",
+    "vn": "Nội dung chỉnh sửa"
+  },
+  {
+    "jp": "備考",
+    "vn": "Notes"
+  },
+  {
+    "jp": "システムテスト計画書",
+    "vn": "System test plan"
+  },
+  {
+    "jp": "改訂履歴",
+    "vn": "Lịch sử sửa đổi"
+  },
+  {
+    "jp": "プロジェクト名",
+    "vn": "Tên dự án"
+  },
+  {
+    "jp": "入金成功の場合",
+    "vn": "Nếu nạp tiền thành công"
+  },
+  {
+    "jp": "新規作成",
+    "vn": "Tạo mới"
+  },
+  {
+    "jp": "作成者",
+    "vn": "Người tạo"
+  },
+  {
+    "jp": "オッズ・パーク",
+    "vn": "OddsPark"
+  },
+  {
+    "jp": "作成日",
+    "vn": "Ngày tạo"
+  },
+  {
+    "jp": "最終更新者",
+    "vn": "Người update cuối cùng"
+  },
+  {
+    "jp": "最終更新日",
+    "vn": "Ngày update cuối cùng"
+  },
+  {
+    "jp": "ー　目次　―",
+    "vn": "ー　Mục lục　―"
+  },
+  {
+    "jp": "目次",
+    "vn": "Mục lục"
+  },
+  {
+    "jp": "概要",
+    "vn": "Overview"
+  },
+  {
+    "jp": "本書の位置付け",
+    "vn": "Vị trí của tài liệu này"
+  },
+  {
+    "jp": "テスト全体における本ドキュメントの位置を記載する",
+    "vn": "Mô tả vị trí của tài liệu này trong phần test tổng thể"
+  },
+  {
+    "jp": "テストの目的",
+    "vn": "Mục tiêu test"
+  },
+  {
+    "jp": "システムテストの目的と、目的達成のために求められる要素を記載する",
+    "vn": "Mô tả mục đích system test và các yếu tố cần thiết để đạt được mục đích đó."
+  },
+  {
+    "jp": "テスト範囲の定義（スコープ）",
+    "vn": "Xác định phạm vi test(Scope)"
+  },
+  {
+    "jp": "システムテストの実施範囲をシステム全体の概念図で記載する",
+    "vn": "Mô tả phạm vi thực hiện system test trong sơ đồ khái niệm của toàn bộ hệ thống"
+  },
+  {
+    "jp": "スケジュール",
+    "vn": "Schedule"
+  },
+  {
+    "jp": "システムテスト仕様書作成、システムテスト実施のスケジュールを記載する",
+    "vn": "Mô tả schedule về việc tạo system testcase và thực hiện system test"
+  },
+  {
+    "jp": "テストタイプ毎に実施タイミングを記載する",
+    "vn": "Mô tả thời gian thực hiện cho từng test type"
+  },
+  {
+    "jp": "システムテスト実施に必要な準備作業とスケジュールを記載する",
+    "vn": "Mô tả schedule và công việc chuẩn bị cần thiết để thực hiện system test"
+  },
+  {
+    "jp": "テスト内容",
+    "vn": "Nội dung test"
+  },
+  {
+    "jp": "テストレベル",
+    "vn": "Test lavel"
+  },
+  {
+    "jp": "各工程での試験レベルの定義を記載する。",
+    "vn": "Mô tả định nghĩa về test level ở từng giai đoạn."
+  },
+  {
+    "jp": "テストタイプ",
+    "vn": "Test type"
+  },
+  {
+    "jp": "テストタイプ、テストレベル、観点を記載する",
+    "vn": "Mô tả test type, test level, quan điểm"
+  },
+  {
+    "jp": "テスト実施方法",
+    "vn": "Phương pháp thực hiện test"
+  },
+  {
+    "jp": "テスト実施方法、結果確認方法、エビデンスのまとめ、実施結果報告方法などを記載する。",
+    "vn": "Mô tả về các phương pháp như là cách thực hiện test, cách confirm kết quả, cách report kết quả thực hiện, gom eveiden,..."
+  },
+  {
+    "jp": "テスト環境",
+    "vn": "Môi trường test"
+  },
+  {
+    "jp": "システムテストで使用する環境を記載する",
+    "vn": "Mô tả môi trường được sử dụng trong system test"
+  },
+  {
+    "jp": "システムテストで使用する環境の構成図を記載する",
+    "vn": "Mô tả sơ đồ cấu hình của môi trường được sử dụng trong system test"
+  },
+  {
+    "jp": "テスト準備",
+    "vn": "Chuẩn bị test"
+  },
+  {
+    "jp": "テストケース・シナリオ",
+    "vn": "Testcase/scenario"
+  },
+  {
+    "jp": "テストケース・シナリオを作成する会社およびチームとインプット資料、作成時期を記載する",
+    "vn": "Mô tả công ty và team sẽ tạo ra testacase/scenario, tài liệu input và thời gian tạo"
+  },
+  {
+    "jp": "テスト環境",
+    "vn": "Môi trường test"
+  },
+  {
+    "jp": "テスト実施環境を構築する会社およびチームを記載する",
+    "vn": "Mô tả công ty và team sẽ build môi trường thực hiện test"
+  },
+  {
+    "jp": "テストツール",
+    "vn": "Test tool"
+  },
+  {
+    "jp": "使用するテストツールとツール作成する会社およびチーム、作成時期を記載する",
+    "vn": "Mô tả công ty và team sẽ tạo ra testtool/tool sẽ sử dụng, và thời gian tạo"
+  },
+  {
+    "jp": "テストデータ",
+    "vn": "Test data"
+  },
+  {
+    "jp": "使用するテストデータの種類、量、処理方法などを記載する",
+    "vn": "Mô tả type, số lượng, cách xử lý,... về test data sẽ dùng"
+  },
+  {
+    "jp": "端末/デバイス",
+    "vn": "Thiết bị đầu cuối/Device"
+  },
+  {
+    "jp": "テストに使用する端末/デバイスを用意する会社およびチームと、必要となるタイミングを記載する",
+    "vn": "Mô tả công ty và team sẽ cung cấp các thiết bị đầu cuối/thiết bị được sử dụng để test và thời điểm cần đến chúng"
+  },
+  {
+    "jp": "",
+    "vn": ""
+  },
+  {
+    "jp": "ステークホルダー調整",
+    "vn": "Điều chỉnh các bên liên quan"
+  },
+  {
+    "jp": "ステークホルダー調整を実施する会社およびチームを記載する",
+    "vn": "Mô tả công ty và team sẽ thực hiện điều kiện các bên liên quan"
+  },
+  {
+    "jp": "実施体制・役割分担",
+    "vn": "Org thực hiện/Phân chia vai trò"
+  },
+  {
+    "jp": "テストの実施体制とれぞれの役割を記載する",
+    "vn": "Mô tả org thực hiện test và mô tả vai trò của từng người"
+  },
+  {
+    "jp": "テスト開始基準と終了基準",
+    "vn": "Tiêu chuẩn bắt đầu test và tiêu chuẩn kết thúc test"
+  },
+  {
+    "jp": "システムテストの開始基準と終了基準を記載する",
+    "vn": "Mô tả các tiêu chuẩn bắt đầu và tiêu chuẩn kết thúc của system test"
+  },
+  {
+    "jp": "テスト管理",
+    "vn": "Quản lý test"
+  },
+  {
+    "jp": "進捗管理",
+    "vn": "Quản lý tiến độ"
+  },
+  {
+    "jp": "ServiceNowにて管理される見込み。",
+    "vn": "Dự kiến sẽ được quản lý ở ServiceNow."
+  },
+  {
+    "jp": "※プロジェクト計画書[2.3進捗実績の把握／進捗管理手順]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [2.3進捗実績の把握／進捗管理手順/Step quản lý tiên độ/Nắm rõ tiên độ thực tế] trong file project plan"
+  },
+  {
+    "jp": "課題管理",
+    "vn": "Quản lý issue"
+  },
+  {
+    "jp": "課題管理票にて管理される見込み。",
+    "vn": "Dự kiến vấn đề này sẽ được quản lý bằng [課題管理票/File quản lý issue]"
+  },
+  {
+    "jp": "※プロジェクト計画書[5.5問題・課題管理]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [5.5問題・課題管理/Quản lý iusse/vấn đề] trong file project plan"
+  },
+  {
+    "jp": "不具合管理",
+    "vn": "Quản lý bug"
+  },
+  {
+    "jp": "※プロジェクト計画書[5.4不具合管理]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [5.4不具合管理/Quản lý bug] trong file project plan"
+  },
+  {
+    "jp": "構成管理",
+    "vn": "Quản lý configuration"
+  },
+  {
+    "jp": "リスクの監視、エスカレーション方法など。",
+    "vn": "Giám sát risk, phương pháp escalation, v.v."
+  },
+  {
+    "jp": "※プロジェクト計画書[8.リスクマネジメント]に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [8.リスクマネジメント/Quản lý risk] trong file project plan"
+  },
+  {
+    "jp": "リリース管理",
+    "vn": "Quản lý release"
+  },
+  {
+    "jp": "構成管理方式など。",
+    "vn": "Phương pháp quản lý configuration , v.v."
+  },
+  {
+    "jp": "※プロジェクト計画書[2.5 本番移行・展開計画と本稼働判定]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [2.5 本番移行・展開計画と本稼働判定/Phán định golive và plan migrate/deploy lên production]trong file project plan"
+  },
+  {
+    "jp": "品質管理",
+    "vn": "Quản lý chất lượng"
+  },
+  {
+    "jp": "テスト環境への資材のリリース方式など。",
+    "vn": "Phương pháp release tài liệu vào môi trường test, v.v."
+  },
+  {
+    "jp": "成果物管理",
+    "vn": "Quản lý deliverable"
+  },
+  {
+    "jp": "品質評価ルール、評価基準など。",
+    "vn": "Rule đánh giá chất lượng, tiêu chuẩn đánh giá,..."
+  },
+  {
+    "jp": "※プロジェクト計画書[3.3品質管理単位・指標値・管理項目]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [3.3品質管理単位・指標値・管理項目/Item quản lý/Giá trị normal/ đơn vị quản lý chất lượng] trong file project plan"
+  },
+  {
+    "jp": "計画書、テスト仕様書などの管理サイクル、承認ルートなど。",
+    "vn": "Như là route approve, cycle quản lý về file plan,testcase,.."
+  },
+  {
+    "jp": "※プロジェクト計画書[5.3 仕様変更管理]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [5.3 仕様変更管理/Quản lý CR] trong file project plan"
+  },
+  {
+    "jp": "エビデンスに関する管理サイクル、承認ルートなど。",
+    "vn": "Như là route approve, cycle quản lý liên quan đến evidence"
+  },
+  {
+    "jp": "※プロジェクト計画書[1.5.3 成果物]の基準に準拠する。",
+    "vn": "※Tuân thủ theo các tiêu chuẩn ở mục [1.5.3 成果物/Deliverables] trong file project plan"
+  },
+  {
+    "jp": "合流ポイントの考え方",
+    "vn": "Quan điểm về point giao nhau(nhập làn)"
+  },
+  {
+    "jp": "追付き開発やフェーズ２、仕様変更、不具合修正など各検証タイミングで盛り込むことを記載する。",
+    "vn": "Mô tả những gì sẽ được đưa vào mỗi thời điểm verify như là develep follow-up hay là phase 2, CR, fix bug."
+  },
+  {
+    "jp": " 見直しした箇所を「0.見直し」に記載ください　受入試験も同様です",
+    "vn": " Hãy mô tả những chỗ đã xem lại ở mục 「0.見直し/Xem lại」　Accept test cũng tương tự."
+  },
+  {
+    "jp": "どのような観点で、何を見直したか",
+    "vn": "Đã xem lại cái gì và với quan điểm như thế nào?"
+  },
+  {
+    "jp": "指摘箇所",
+    "vn": "Những chỗ comment"
+  },
+  {
+    "jp": "指摘／質問",
+    "vn": "Comment/Câu hỏi"
+  },
+  {
+    "jp": "対処／回答",
+    "vn": "Xử lý/Trả lời"
+  },
+  {
+    "jp": "全体スケジュール",
+    "vn": "General schedule"
+  },
+  {
+    "jp": "データ移行アプリとは？",
+    "vn": "App migrate data là gì?"
+  },
+  {
+    "jp": "どこに説明が記載されていますでしょうか",
+    "vn": "Đang mô tả giải thích ở đâu?"
+  },
+  {
+    "jp": "合流ポイントの記載としてデータ移行ツールの記載が必要と判断し追加していました。",
+    "vn": "Chúng tôi phán đoán cần mô tả tool migrate data và đã add dưới dạng mô tả point giao nhau(nhập làn)"
+  },
+  {
+    "jp": "合流ポイント側の資料の追記するため、当スケジュール上では対象行を削除致します。",
+    "vn": "Để mô tả tài liệu về pont giao nhau(nhập làn) thì xáo dòng đối tượng trên schedule này."
+  },
+  {
+    "jp": "データ移行アプリについて、ここで書いている内容と現行ベンダーの移行支援の範囲を教えてください。",
+    "vn": "Về các app migrate data, hãy cho tôi biết phạm vi support migrate của vendor hiện hành và nội dung đang mô tả ở chỗ này."
+  },
+  {
+    "jp": "データ移行アプリとして記載していましたが、データ移行ツールとなります。",
+    "vn": "Đang mô tả là app migrate data nhưng nó là tool migrate data."
+  },
+  {
+    "jp": "上記理由により削除いたします。",
+    "vn": "Sẽ xóa vì lý do trên."
+  },
+  {
+    "jp": "データ移行ツールの設計書の記載から開発、テストの期間を明確にして、結合テストから使用できるように考えており、資料上に表そうとしていました。",
+    "vn": "Làm rõ các giai đoạn phát triển và test từ việc tạo tài liệu design cho tool migrate datacho công cụ di chuyển dữ liệu, và suy nghĩ sao cho có thể sử dụng được từ giai đoạn IT, và thử thể hiện điều này trong tài liệu."
+  },
+  {
+    "jp": "第三者検証とは、富士通としての取り組みの検証のことでしょうか？",
+    "vn": "Việc verify của bên thứ ba có phải đang nói về việc verify với effort của Fujistu?"
+  },
+  {
+    "jp": "当プロジェクトの開発に携わっていない、第三者部門による客観的な観点からシステムの妥当性を検証するテストとなります。",
+    "vn": "Việc test này sẽ verify tính hợp lệ của hệ thống theo quan điểm khách quan từ bộ phận bên thứ ba không tham gia vào quá trình develop dự án này."
+  },
+  {
+    "jp": "再委託に関する承諾書",
+    "vn": "Đơn chấp thuận liên quan đến việc ủy thác lại"
+  },
+  {
+    "jp": "2024年1月7日",
+    "vn": "Ngày 7 tháng 1 năm 2024"
+  },
+  {
+    "jp": "当社は、2024年　12月　26日付業務委託契約書（以下「本契約」といいます。）に基づき、本契約に定める業務を下記の会社に再委託することを承諾します。",
+    "vn": "Dựa trên Hợp Đồng ủy thác nghiệp vụ ngày 26 tháng 12 năm 2024 (sau đây gọi là \"Hợp Đồng này\"), chúng tôi đồng ý việc ủy thác lại những công việc nghiệp vụ được nêu trong Hợp Đồng này cho công ty bên dưới."
+  },
+  {
+    "jp": "[COMPANY_NAME]　御中",
+    "vn": "Kính gửi: [COMPANY_NAME]"
+  },
+  {
+    "jp": "東京都中央区京橋二丁目２番1号",
+    "vn": "2-2-1 Kyobashi, Quận Chuo, Tokyo"
+  },
+  {
+    "jp": "代表取締役社長　宮下　直之",
+    "vn": "Naoyuki Miyashita, Chủ tịch kiêm Tổng giám đốc điều hành"
+  },
+  {
+    "jp": "記",
+    "vn": "Ghi chú:"
+  },
+  {
+    "jp": "対象業務： NEXTプロジェクト　Ph.1_Step2　要件定義フェーズ",
+    "vn": "Nghiệp vụ đối tượng: Dự án NEXT Ph.1_Bước 2 Giai đoạn xác định yêu cầu"
+  },
+  {
+    "jp": "以上",
+    "vn": "...........HẾT.............."
+  },
+  {
+    "jp": "再委託先：　名称：株式会社ミューチュアル・グロース",
+    "vn": "Công ty ủy thác lại: Tên: Mutual Growth Co., Ltd."
+  },
+  {
+    "jp": "代表者名：宮原克博",
+    "vn": "Tên đại diện: Katsuhiro Miyahara"
+  },
+  {
+    "jp": "対象業務： NEXTプロジェクト　Ph.1_Step2　要件定義フェーズ（非機能設計）",
+    "vn": "Nghiệp vụ đối tượng: Dự án NEXT Ph.1_Bước 2 Giai đoạn xác định yêu cầu(Thiết kế phi chức năng)"
+  },
+  {
+    "jp": "当社は、2024年　12月　26日付業務委託契約書（以下「本契約」といいます。）に基づき、本契約に定める業務を下記の会社に再委託および再々委託することを承諾します。",
+    "vn": "Dựa trên Hợp Đồng ủy thác nghiệp vụ ngày 26 tháng 12 năm 2024 (sau đây gọi là \"Hợp Đồng này\"), chúng tôi đồng ý việc ủy thác lại những công việc nghiệp vụ được nêu trong Hợp Đồng này cho công ty bên dưới."
+  },
+  {
+    "jp": "再委託先からの委託先（再々委託先）：名称：株式会社ミューチュアル・グロース",
+    "vn": "Công ty ủy thác của công ty ủy thác lại(sub-subcontractor): Tên: Công ty TNHH Mutual Growth."
+  },
+  {
+    "jp": "当社は、2024年　12月　26日付業務委託契約書（以下「本契約」といいます。）に基づき、本契約に定める業務を下記の会社に再委託することを承諾します。",
+    "vn": "Dựa trên Hợp Đồng ủy thác nghiệp vụ ngày 26 tháng 12 năm 2024 (sau đây gọi là \"Hợp Đồng này\"), chúng tôi đồng ý việc ủy thác lại những công việc nghiệp vụ được nêu trong Hợp Đồng này cho công ty bên dưới."
+  },
+  {
+    "jp": "代表者名：Tran Thi Kim Phuong（トラン・ティ・キム・フォン）",
+    "vn": "Tên người đại diện: Trần Thị Kim Phượng"
+  },
+  {
+    "jp": "収入印紙貼付欄",
+    "vn": "Cột dán tem thu nhập"
+  },
+  {
+    "jp": "(２号文書に該当する場合のみ)",
+    "vn": "(Chỉ khi nó tương ứng với tài liệu số 2)"
+  },
+  {
+    "jp": "業務委託契約書",
+    "vn": "Hợp đồng ủy thác nghiệp vụ"
+  },
+  {
+    "jp": "[COMPANY_NAME]（以下「OP」という。）と[COMPANY_NAME]（以下「受託者」という。）は、次のとおり契約（以下「本契約」という。）を締結する。",
+    "vn": "[COMPANY_NAME] (sau đây gọi là \"OP\") và [COMPANY_NAME] (sau đây gọi là \"Công ty nhận ủy thác\") sẽ ký kết hợp đồng sau (sau đây gọi là \"Hợp Đồng này\") như sau."
+  },
+  {
+    "jp": "（目的）",
+    "vn": "（Mục đích）"
+  },
+  {
+    "jp": "第条",
+    "vn": "Các điều khoản"
+  }
+]
