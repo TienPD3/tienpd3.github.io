@@ -1,0 +1,78 @@
+#!name = All In One Pro Max Ultimate
+#!desc = YouTube + Locket + SoundCloud + Spotify + Nhiều App khác
+#!author = Gấu Lỏz CUTO_Tổng hợp các URL trên mạng
+
+#Shadowrocket Unlock nhiều app vip
+
+[Rule]
+AND,((DOMAIN-SUFFIX,googlevideo.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,youtubei.googleapis.com),(PROTOCOL,UDP)),REJECT
+
+[Header Rewrite]
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del x-revenuecat-etag
+^https?://api.revenuecat.com/.+/(receipts$|subscribers/?(.*?)*$) header-del X-RevenueCat-ETag
+
+# ===== Spotify iOS15 Header Rewrite =====
+http-request ^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/user-customization-service\/v1\/customize$ header-del if-none-match
+
+[Url Rewrite]
+^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads _ reject-200
+^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) _ reject-200
+^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext _ reject-200
+(^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+
+[Script]
+
+#Sub-Store
+Sub-Store Core=type=http-request,pattern=^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))),script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-1.min.js,requires-body=true,timeout=120
+Sub-Store Simple=type=http-request,pattern=^https?:\/\/sub\.store,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-0.min.js,requires-body=true
+Sub-Store Sync=type=cron,cronexp=0 0 * * *,wake-system=1,timeout=120,script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js
+
+#YouTube Premium
+youtube.request = type=http-request,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,engine=jsc,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/youtube.response.js
+youtube.response = type=http-response,pattern=^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch),requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/youtube.response.js,argument="{"lyricLang":"vi","captionLang":"vi","blockUpload":true,"blockImmersive":true,"debug":false}"
+
+# ===== Spotify iOS15 (app2smile) =====
+#!name=Spotify(iOS15)
+#!desc=部分解锁premium,建议重新登录,音质不能设置为超高
+# 1. 搜索界面 歌单/歌曲可以随意切换完全播放
+# 2. 音乐库已点赞歌曲随意切换完全播放
+
+spotify-json = type=http-request,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(artistview\/v1\/artist|album-entity-view\/v2\/album)\/,requires-body=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-json.js
+
+spotify-proto = type=http-response,pattern=^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(:443)?)\/(bootstrap\/v1\/bootstrap|user-customization-service\/v1\/customize)$,requires-body=1,binary-body-mode=1,max-size=0,script-path=https://raw.githubusercontent.com/app2smile/rules/master/js/spotify-proto.js,script-update-interval=0
+
+#SoundCloud
+SoundCloudGo+=type=http-response,pattern=https://api-mobile.soundcloud.com/configuration/ios,requires-body=1,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/SoundCloudGoPlus.js
+
+#AlightMotion
+AlightMotion = type=http-response,pattern=^https:\/\/us-central1-alight-creative\.cloudfunctions\.net\/getAccountStatusAndLicenses,requires-body=true,max-size=131072,timeout=10,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/AlightMotion.js
+
+#PicsArt
+PicsArt = type=http-request,pattern=^https:\/\/api\.picsart\.com\/gw-v2\/shop\/subscription\/apple\/purchases,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/PicsArt.js,requires-body=true,timeout=60
+
+#Wink
+Wink =type=http-response,pattern=^https?:\/\/api-sub\.meitu\.com\/v2\/user\/vip_info_by_group\.json,requires-body=1,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/WinkVipCrack.js
+
+#Truecaller
+Truecaller = type=http-response,pattern=^https://premium-(.+)\.truecaller\.com/v\d/(subscriptions|products\/apple),requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/TrueCaller.js
+
+#Kinemaster
+Kinemaster = type=http-response,pattern=^https:\/\/api-account\.kinemasters\.com\/v\d\/user\/subscribe$,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/Kinemaster.js
+
+#CamScanner
+Camscanner = type=http-response,pattern=https:\/\/(api|api-cs.*)\.intsig\.net\/purchase\/cs\/query_prop,requires-body=1,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/camScanner.js
+
+#BeautyPlus
+BeautyPlus = type=http-response,pattern=https:\/\/(api\.mr\.pixocial\.com\/v1\/manual_unlock|newbeee-api\.beautyplus\.com\/api\/v1\/asset\/balance),requires-body=true,max-size=-1,timeout=60,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/BeautyPlus.js
+
+#Locket
+revenuecat = type=http-response,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$),requires-body=true,max-size=-1,timeout=60,script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/Locket_DuyVinh09.js
+deleteHeader = type=http-request,pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/duyvinh09/Module_IOS/refs/heads/main/js/deleteHeader.js,timeout=60
+
+[Map Local]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad data-type=text data="" status-code=200
+
+[MITM]
+hostname = %APPEND%, *.googlevideo.com, youtubei.googleapis.com, www.youtube.com, s.youtube.com, -redirector*.googlevideo.com, premium*.truecaller.com, sub.store, api.revenuecat.com, api-mobile.soundcloud.com, api.picsart.com, us-central1-alight-creative.cloudfunctions.net, api-sub.meitu.com, api-account.kinemasters.com, ap*.intsig.net, api.mr.pixocial.com, newbeee-api.beautyplus.com, spclient.wg.spotify.com, *spclient.spotify.com
