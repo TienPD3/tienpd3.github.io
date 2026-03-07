@@ -49,4 +49,4 @@ obj.data = {
   "is_show_popup" : true
 };
 
-$done({ body: JSON.stringify(obj) });
+$done({body: JSON.stringify(obj)});
