@@ -5197,12 +5197,12 @@
       }
       decodeArgument() {
           let e = {
-              lyricLang: "off",
-              captionLang: "off",
-              blockUpload: !0,
-              blockImmersive: !0,
-              blockShorts: !1,
-              debug: !1
+              lyricLang: "vi",
+              captionLang: "vi",
+              blockUpload: "true",
+              blockImmersive: "true",
+              blockShorts: "false",
+              debug: "false"
           };
           return w.decodeParams(e)
       }
