@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+:root {
+  /* A theme inspired by old parchment and the Solarized Light color palette */
+  --background-color: #fdf6e3;
+  --sidebar-bg: rgba(245, 239, 216, 0.6); /* Fallback: Increased transparency */
+  --main-content-bg: #fdf6e3;
+  --text-color: #5d4037; /* Darker text for better contrast */
+  --accent-color: #b58900;
+  --hover-bg: #eee8d5;
+  --border-color: #dcd7cd;
+  --paper-border-color: #cbbfa8;
+  --paper-bg: rgba(254, 252, 245, 0.7); /* Fallback: Increased transparency */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Roboto', sans-serif;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--background-color);
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: var(--text-color);
+  font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--accent-color);
+  text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+#sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background-color: var(--sidebar-bg);
+  /* backdrop-filter: blur(8px); */ /* Removed for compatibility */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  height: 100%;
+  border-right: 1px solid var(--border-color);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3); /* For readability */
+}
+
+#sidebar .sidebar-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#sidebar .sidebar-header h3 {
+    color: var(--text-color);
+    font-size: 1.8em;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+#menu-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-right: -20px;
+  padding-right: 20px;
+}
+
+#menu-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#menu-container ul a {
+  display: block;
+  padding: 12px 15px;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1.1em;
+  font-weight: 400; /* Bolder font for readability */
+}
+
+#menu-container ul a:hover {
+  background-color: var(--hover-bg);
+}
+
+#menu-container ul a.active {
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: 700;
+}
+
+#menu-container ul ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+#menu-container ul ul a {
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+#menu-container .menu-icon {
+    margin-right: 10px;
+}
+
+#main-content {
+  flex-grow: 1;
+  background-color: transparent; /* Main container is now just a host */
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 20px; /* Space around the paper */
+}
+
+.paper {
+  background-color: var(--paper-bg);
+  /* backdrop-filter: blur(8px); */ /* Removed for compatibility */
+  padding: 40px;
+  border: double 4px var(--paper-border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  min-height: calc(100vh - 80px);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2); /* For readability */
+  overflow-y: auto;
+}
+
+#sidebar-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+  #sidebar.active {
+    transform: translateX(0);
+  }
+  #sidebar-toggle {
+    display: block;
+  }
+  #main-content {
+      padding: 60px 10px 10px 10px;
+  }
+  .paper {
+    padding: 20px;
+  }
+}

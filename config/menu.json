@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Trang Chủ",
+    "id": "home",
+    "contentUrl": "src/pages/home.html",
+    "icon": "bi-house-door"
+  },
+  {
+    "name": "Động Lực Sáng Mỗi Ngày",
+    "id": "morning-motivation",
+    "contentUrl": "src/pages/morning-motivation.html",
+    "icon": "bi-sunrise"
+  },
+  {
+    "name": "Quản Lý",
+    "id": "management",
+    "icon": "bi-folder",
+    "children": [
+      {
+        "name": "Quản Lý Dự Án",
+        "id": "project-management",
+        "contentUrl": "src/pages/quan-ly-du-an.html",
+        "icon": "bi-kanban"
+      },
+      {
+        "name": "Quản Lý Nhân Sự",
+        "id": "user-management",
+        "contentUrl": "src/pages/quan-ly-nhan-su.html",
+        "icon": "bi-people"
+      }
+    ]
+  },
+  {
+    "name": "Báo Cáo",
+    "id": "reports",
+    "icon": "bi-file-earmark-bar-graph",
+    "children": [
+      {
+        "name": "Báo Cáo Tháng",
+        "id": "monthly-report",
+        "contentUrl": "src/pages/bao-cao-thang.html",
+        "icon": "bi-file-earmark-text"
+      },
+      {
+        "name": "Báo Cáo Năm",
+        "id": "yearly-report",
+        "contentUrl": "src/pages/bao-cao-nam.html",
+        "icon": "bi-file-earmark-text-fill"
+      }
+    ]
+  },
+  {
+    "name": "Cài Đặt",
+    "id": "settings",
+    "contentUrl": "src/pages/cai-dat.html",
+    "icon": "bi-gear"
+  }
+]
