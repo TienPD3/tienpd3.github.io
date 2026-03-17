@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Script to extract hostnames from Shadowrocket config and update [MITM] section
+Tự động trích xuất hostname từ các pattern và cập nhật vào [MITM]
+Chạy được trên Mac, Windows, Linux
+"""
+
+import re
+import sys
+import os
+import argparse
+from pathlib import Path
+from typing import Set, List
+
+def extract_hostnames(content: str) -> List[str]:
+    """Trích xuất hostname từ pattern trong file config"""
+    hostnames: Set[str] = set()
+    
+    # Match các pattern lines: pattern=^https?://domain.com/...
+    # Tìm tất cả pattern từ content
+    for line in content.split('\n'):
+        # Skip dòng chỉ có comment
+        if not line.strip() or line.strip().startswith('#'):
+            continue
+        
+        # Check nếu pattern nằm sau # (tức là commented out)
+        pattern_pos = line.find('pattern=')
+        hash_pos = line.find('#')
+        
+        # Nếu # ở trước pattern hoặc pattern không tồn tại trên dòng này, bỏ qua
+        if pattern_pos == -1 or (hash_pos != -1 and hash_pos < pattern_pos):
+            continue
+        
+        # Extract pattern từ dòng
+        pattern_match = re.search(r'pattern=\^https[^,\s\n]+', line)
+        if not pattern_match:
+            continue
+        
+        match = pattern_match.group(0)
+        
+        # Bắt đầu từ sau "pattern=^https"
+        domain_part = re.sub(r'pattern=\^https\??:', '', match)
+        domain_part = domain_part.replace('\\/', '/')
+        domain_part = domain_part.lstrip('/\\')  # Xóa // ở đầu
+        
+        # Lấy domain (phần trước dấu /)
+        domain = domain_part.split('/')[0]
+        
+        # Xử lý escaped dots: \. -> .
+        domain = domain.replace('\\.', '.')
+        
+        # Xử lý regex grouping: (option1|option2) -> lấy từng option
+        if '(' in domain and '|' in domain:
+            matches_group = re.search(r'([^(]*)\(([^)]+)\)([^)]*)', domain)
+            if matches_group:
+                prefix = matches_group.group(1).rstrip('.')
+                options = matches_group.group(2).split('|')
+                suffix = matches_group.group(3).lstrip('.')
+                
+                # Thêm subdomain từ options
+                for option in options:
+                    option = option.strip().strip('.')
+                    if prefix:
+                        full_domain = f"{prefix}.{option}"
+                    else:
+                        full_domain = option
+                    
+                    if suffix:
+                        full_domain = f"{full_domain}.{suffix}"
+                    
+                    # Final cleanup
+                    full_domain = full_domain.strip('.')
+                    full_domain = re.sub(r'[^a-zA-Z0-9.*-]', '', full_domain)  # Xóa ký tự không hợp lệ
+                    full_domain = full_domain.rstrip('.-')  # Xóa . và - ở cuối
+                    full_domain = re.sub(r'\.-', '.', full_domain)  # .- -> .
+                    full_domain = re.sub(r'-\.', '.', full_domain)  # -. -> .
+                    full_domain = re.sub(r'\.+', '.', full_domain)  # ... -> .
+                    full_domain = re.sub(r'\*\.\.', '*.', full_domain)  # *.. -> *.
+                    
+                    if full_domain and '.' in full_domain:
+                        hostnames.add(full_domain)
+                continue
+        
+        # Nếu không có grouping, xử lý bình thường
+        # Xử lý wildcard patterns: (.+) hoặc (\w+) -> *
+        domain = re.sub(r'\([^)]*\+[^)]*\)', '*', domain)  # (.+) hoặc (\w+) -> *
+        domain = re.sub(r'\([^)]*\)', '', domain)     # Xóa (...) còn lại
+        domain = re.sub(r'[^a-zA-Z0-9.*-]', '', domain)  # Xóa ký tự không hợp lệ
+        domain = domain.strip('*').strip('-').strip('.')
+        domain = domain.rstrip('.-')  # Xóa . và - ở cuối
+        domain = re.sub(r'\*+', '*', domain)          # Merge ** -> *
+        domain = re.sub(r'\*\.\.', '*.', domain)      # *.. -> *.
+        domain = re.sub(r'\.+', '.', domain)          # ... -> .
+        
+        # Validate domain
+        if domain and '.' in domain:
+            hostnames.add(domain)
+    
+    return sorted(list(set(hostnames)))  # Remove duplicates
+
+def update_mitm_section(content: str, hostnames: List[str]) -> str:
+    """Cập nhật section [MITM] với danh sách hostname"""
+    hostname_list = '%APPEND%, ' + ', '.join(hostnames)
+    
+    # Thay thế phần MITM
+    pattern = r'\[MITM\]\s+hostname\s*=\s*[^\n]+'
+    new_mitm = f'[MITM]\nhostname = {hostname_list}'
+    
+    return re.sub(pattern, new_mitm, content)
+
+def main():
+    parser = argparse.ArgumentParser(
+        description='Tự động cập nhật hostname trong Shadowrocket config',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog='''
+Ví dụ:
+  python update_hostname.py                          # Dùng file mặc định
+  python update_hostname.py --preview                # Xem trước không cập nhật
+  python update_hostname.py --config path/to/file.conf
+        '''
+    )
+    parser.add_argument(
+        '--config', '-c',
+        default='All_In_One_Ultimate.conf',
+        help='Đường dẫn tới file config (mặc định: All_In_One_Ultimate.conf)'
+    )
+    parser.add_argument(
+        '--preview', '-p',
+        action='store_true',
+        help='Xem trước cập nhật mà không thay đổi file'
+    )
+    
+    args = parser.parse_args()
+    
+    # Tìm file config - trước tiên kiểm tra cùng thư mục script
+    script_dir = Path(__file__).parent
+    config_file = Path(args.config)
+    
+    if not config_file.exists():
+        # Thử tìm cùng thư mục script
+        config_file = script_dir / args.config
+        if not config_file.exists():
+            config_file = Path(args.config)
+    
+    print(f"🔍 Đang đọc file: {config_file}")
+    
+    if not config_file.exists():
+        print(f"❌ File không tìm thấy: {config_file}")
+        sys.exit(1)
+    
+    # Đọc file
+    with open(config_file, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Trích xuất hostnames
+    hostnames = extract_hostnames(content)
+    print(f"✅ Tìm thấy {len(hostnames)} hostname:")
+    for hostname in hostnames:
+        print(f"   • {hostname}")
+    
+    # Cập nhật file
+    new_content = update_mitm_section(content, hostnames)
+    
+    if args.preview:
+        print("\n📋 Preview cập nhật [MITM]:")
+        mitm_section = re.search(r'\[MITM\].*', new_content)
+        if mitm_section:
+            print(mitm_section.group(0))
+    else:
+        # Tạo backup
+        backup_file = config_file.with_suffix(config_file.suffix + '.backup')
+        with open(config_file, 'r', encoding='utf-8') as f:
+            backup_content = f.read()
+        with open(backup_file, 'w', encoding='utf-8') as f:
+            f.write(backup_content)
+        print(f"💾 Tạo backup: {backup_file}")
+        
+        # Ghi file mới
+        with open(config_file, 'w', encoding='utf-8') as f:
+            f.write(new_content)
+        print("✨ Cập nhật thành công!")
+    
+    print("\n📝 Danh sách hostname đã cập nhật:")
+    print(f"hostname = %APPEND%, {', '.join(hostnames)}")
+
+if __name__ == '__main__':
+    main()
