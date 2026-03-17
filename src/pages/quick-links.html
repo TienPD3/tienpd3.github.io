@@ -1,0 +1,146 @@
+<h1>⚡ Quick Links</h1>
+<p>Sao chép liên kết config dễ dàng trên iPhone</p>
+
+<style>
+  .link-card {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, rgba(254,252,245,0.9) 0%, rgba(238,232,213,0.8) 100%);
+    border: 2px solid #d4c4a8;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(181, 137, 0, 0.1);
+  }
+  
+  .link-title {
+    color: #b58900;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .link-text {
+    background: #fdf6e3;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    word-break: break-all;
+    color: #5d4037;
+    margin-bottom: 15px;
+    border-left: 4px solid #b58900;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .copy-btn {
+    background-color: #b58900;
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(181, 137, 0, 0.2);
+  }
+  
+  .copy-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(181, 137, 0, 0.3);
+    background-color: #a67a00;
+  }
+  
+  .copy-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(181, 137, 0, 0.2);
+  }
+  
+  .copy-feedback {
+    display: none;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .copy-feedback.show {
+    display: block;
+    animation: fadeInOut 2s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+</style>
+
+<div class="link-card">
+  <div class="link-title">📱 Shadownrocket - All In One Ultimate</div>
+  
+  <div class="link-text" id="linkText">https://raw.githubusercontent.com/TienPD3/tienpd3.github.io/refs/heads/main/tools/Shadownrocket/All_In_One_Ultimate.conf</div>
+  
+  <div class="button-group">
+    <button class="copy-btn" onclick="copyToClipboard()">
+      ✂️ Sao Chép Link
+    </button>
+  </div>
+  
+  <div class="copy-feedback" id="copyFeedback">
+    ✓ Đã sao chép!
+  </div>
+</div>
+
+<script>
+  function copyToClipboard() {
+    const linkText = document.getElementById('linkText').textContent;
+    
+    // Thử dùng Clipboard API (modern)
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(linkText).then(() => {
+        showFeedback();
+      }).catch(() => {
+        // Fallback nếu Clipboard API lỗi
+        fallbackCopy(linkText);
+      });
+    } else {
+      // Fallback cho browser cũ
+      fallbackCopy(linkText);
+    }
+  }
+  
+  function fallbackCopy(text) {
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    
+    try {
+      document.execCommand('copy');
+      showFeedback();
+    } catch (err) {
+      alert('Không thể sao chép. Vui lòng sao chép thủ công:\n\n' + text);
+    }
+    
+    document.body.removeChild(textArea);
+  }
+  
+  function showFeedback() {
+    const feedback = document.getElementById('copyFeedback');
+    feedback.classList.add('show');
+    
+    setTimeout(() => {
+      feedback.classList.remove('show');
+    }, 2000);
+  }
+</script>

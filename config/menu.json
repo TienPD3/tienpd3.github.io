@@ -12,6 +12,12 @@
     "icon": "bi-sunrise"
   },
   {
+    "name": "Quick Links",
+    "id": "quick-links",
+    "contentUrl": "src/pages/quick-links.html",
+    "icon": "bi-lightning-fill"
+  },
+  {
     "name": "Quản Lý",
     "id": "management",
     "icon": "bi-folder",
