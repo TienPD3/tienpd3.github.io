@@ -29,7 +29,12 @@ def extract_hostnames(content: str) -> List[str]:
             continue
         
         # Extract pattern từ dòng - match cả http lẫn https
+        # Format 1: pattern=^https?://...
         pattern_match = re.search(r'pattern=\^https?[^,\s\n]+', line)
+        
+        # Format 2: Từ [Map Local] - đường dẫn regex trực tiếp như ^https?://...
+        if not pattern_match:
+            pattern_match = re.search(r'\^https?[^\s\n]+', line)
         if not pattern_match:
             continue
         
@@ -37,8 +42,9 @@ def extract_hostnames(content: str) -> List[str]:
         
         # Extract domain từ pattern: pattern=^https?://domain or pattern=^https:\/\/domain
         # Approach: find domain part between protocol and first / or ,
-        # Extract everything after "pattern=^" and remove protocol part
+        # Extract everything after "pattern=^" và remove protocol part
         domain_part = match.replace('pattern=^', '')  # Remove "pattern=^"
+        domain_part = domain_part.replace('^', '')  # Remove "^" (từ [Map Local])
         
         # Remove protocol: https://, https?://, http://, or escaped versions
         domain_part = re.sub(r'^https?\??[:/]*', '', domain_part)  # Remove https:// or https:\/\/ or https?:// etc
