@@ -20,28 +20,29 @@ def extract_hostnames(content: str) -> List[str]:
     # Match các pattern lines: pattern=^https?://domain.com/...
     # Tìm tất cả pattern từ content
     for line in content.split('\n'):
-        # Skip dòng chỉ có comment
-        if not line.strip() or line.strip().startswith('#'):
+        # Skip dòng trống
+        if not line.strip():
             continue
         
-        # Check nếu pattern nằm sau # (tức là commented out)
-        pattern_pos = line.find('pattern=')
-        hash_pos = line.find('#')
-        
-        # Nếu # ở trước pattern hoặc pattern không tồn tại trên dòng này, bỏ qua
-        if pattern_pos == -1 or (hash_pos != -1 and hash_pos < pattern_pos):
+        # Skip dòng comment (bắt đầu với # hoặc ;)
+        if line.strip().startswith('#') or line.strip().startswith(';'):
             continue
         
-        # Extract pattern từ dòng
-        pattern_match = re.search(r'pattern=\^https[^,\s\n]+', line)
+        # Extract pattern từ dòng - match cả http lẫn https
+        pattern_match = re.search(r'pattern=\^https?[^,\s\n]+', line)
         if not pattern_match:
             continue
         
         match = pattern_match.group(0)
         
-        # Bắt đầu từ sau "pattern=^https"
-        domain_part = re.sub(r'pattern=\^https\??:', '', match)
-        domain_part = domain_part.replace('\\/', '/')
+        # Extract domain từ pattern: pattern=^https?://domain or pattern=^https:\/\/domain
+        # Approach: find domain part between protocol and first / or ,
+        # Extract everything after "pattern=^" and remove protocol part
+        domain_part = match.replace('pattern=^', '')  # Remove "pattern=^"
+        
+        # Remove protocol: https://, https?://, http://, or escaped versions
+        domain_part = re.sub(r'^https?\??[:/]*', '', domain_part)  # Remove https:// or https:\/\/ or https?:// etc
+        domain_part = domain_part.replace('\\/', '/')  # Normalize escaped slashes
         domain_part = domain_part.lstrip('/\\')  # Xóa // ở đầu
         
         # Lấy domain (phần trước dấu /)
@@ -49,6 +50,9 @@ def extract_hostnames(content: str) -> List[str]:
         
         # Xử lý escaped dots: \. -> .
         domain = domain.replace('\\.', '.')
+        
+        # Xóa port numbers nếu được gắn vào domain: example.com443 -> example.com
+        domain = re.sub(r'(\.[a-z]{2,})(\d+)$', r'\1', domain, flags=re.IGNORECASE)
         
         # Xử lý regex grouping: (option1|option2) -> lấy từng option
         if '(' in domain and '|' in domain:
@@ -86,6 +90,8 @@ def extract_hostnames(content: str) -> List[str]:
         # Xử lý wildcard patterns: (.+) hoặc (\w+) -> *
         domain = re.sub(r'\([^)]*\+[^)]*\)', '*', domain)  # (.+) hoặc (\w+) -> *
         domain = re.sub(r'\([^)]*\)', '', domain)     # Xóa (...) còn lại
+        # Xóa port numbers nếu được gắn vào domain: example.com443 -> example.com
+        domain = re.sub(r'(\.[a-z]{2,})(\d+)$', r'\1', domain, flags=re.IGNORECASE)
         domain = re.sub(r'[^a-zA-Z0-9.*-]', '', domain)  # Xóa ký tự không hợp lệ
         domain = domain.strip('*').strip('-').strip('.')
         domain = domain.rstrip('.-')  # Xóa . và - ở cuối
