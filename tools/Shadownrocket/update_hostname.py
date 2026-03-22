@@ -13,6 +13,19 @@ import argparse
 from pathlib import Path
 from typing import Set, List
 
+def extract_current_hostnames(content: str) -> List[str]:
+    """Trích xuất hostname từ [MITM] section hiện tại"""
+    mitm_match = re.search(r'\[MITM\]\s+hostname\s*=\s*([^\n]+)', content)
+    if not mitm_match:
+        return []
+    
+    hostname_line = mitm_match.group(1)
+    # Split by comma và loại bỏ %APPEND%
+    hostnames = [h.strip() for h in hostname_line.split(',')]
+    hostnames = [h for h in hostnames if h and h != '%APPEND%']
+    
+    return sorted(list(set(hostnames)))
+
 def extract_hostnames(content: str) -> List[str]:
     """Trích xuất hostname từ pattern trong file config"""
     hostnames: Set[str] = set()
@@ -111,7 +124,26 @@ def extract_hostnames(content: str) -> List[str]:
         if domain and '.' in domain:
             hostnames.add(domain)
     
-    return sorted(list(set(hostnames)))  # Remove duplicates
+    # Normalize: convert subdomains to wildcard (app.domain.com -> *.domain.com)
+    # Nếu chỉ có domain.com giữ nguyên, nếu có subdomain thì convert thành *.domain.com
+    normalized_hostnames = set()
+    
+    for host in hostnames:
+        if host.startswith('*.'):
+            # Đã là wildcard, giữ nguyên
+            normalized_hostnames.add(host)
+        else:
+            # Check số phần domains
+            parts = host.split('.')
+            if len(parts) >= 3:
+                # Có subdomain: app.domain.com -> *.domain.com
+                wildcard_host = '*.' + '.'.join(parts[1:])
+                normalized_hostnames.add(wildcard_host)
+            else:
+                # Chỉ có domain.com hoặc domain, giữ nguyên
+                normalized_hostnames.add(host)
+    
+    return sorted(list(normalized_hostnames))  # Remove duplicates
 
 def update_mitm_section(content: str, hostnames: List[str]) -> str:
     """Cập nhật section [MITM] với danh sách hostname"""
@@ -144,6 +176,11 @@ Ví dụ:
         action='store_true',
         help='Xem trước cập nhật mà không thay đổi file'
     )
+    parser.add_argument(
+        '--mitm-only',
+        action='store_true',
+        help='Chỉ cập nhật [MITM] section mà không re-extract hostname'
+    )
     
     args = parser.parse_args()
     
@@ -168,7 +205,12 @@ Ví dụ:
         content = f.read()
     
     # Trích xuất hostnames
-    hostnames = extract_hostnames(content)
+    if args.mitm_only:
+        print("📋 Chế độ chỉ cập nhật [MITM]")
+        hostnames = extract_current_hostnames(content)
+    else:
+        hostnames = extract_hostnames(content)
+    
     print(f"✅ Tìm thấy {len(hostnames)} hostname:")
     for hostname in hostnames:
         print(f"   • {hostname}")
