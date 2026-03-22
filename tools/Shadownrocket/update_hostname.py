@@ -93,13 +93,15 @@ def extract_hostnames(content: str) -> List[str]:
                 continue
         
         # Nếu không có grouping, xử lý bình thường
+        # Xử lý regex character classes: [\w-]+, [^/]+, etc. -> *
+        domain = re.sub(r'\[.*?\]\+?', '*', domain)  # [\w-]+ atau [^/]+ -> *
         # Xử lý wildcard patterns: (.+) hoặc (\w+) -> *
         domain = re.sub(r'\([^)]*\+[^)]*\)', '*', domain)  # (.+) hoặc (\w+) -> *
         domain = re.sub(r'\([^)]*\)', '', domain)     # Xóa (...) còn lại
         # Xóa port numbers nếu được gắn vào domain: example.com443 -> example.com
         domain = re.sub(r'(\.[a-z]{2,})(\d+)$', r'\1', domain, flags=re.IGNORECASE)
         domain = re.sub(r'[^a-zA-Z0-9.*-]', '', domain)  # Xóa ký tự không hợp lệ
-        domain = domain.strip('*').strip('-').strip('.')
+        domain = domain.strip('-').strip('.')  # Xóa - và . ở đầu/cuối (KHÔNG xóa *)
         domain = domain.rstrip('.-')  # Xóa . và - ở cuối
         domain = re.sub(r'\*+', '*', domain)          # Merge ** -> *
         domain = re.sub(r'\*\.\.', '*.', domain)      # *.. -> *.
