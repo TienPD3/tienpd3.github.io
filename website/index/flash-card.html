@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo Flash Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .flash-card {
+            width: 300px;
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flash-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front {
+            font-size: 20px;
+        }
+
+        .card-back {
+            font-size: 18px;
+            background-color: #4caf50;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="flash-card" onclick="flipCard()">
+        <div class="card-inner">
+            <div class="card-front" id="card-front">
+                Loading...
+            </div>
+            <div class="card-back" id="card-back">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="button" id="next-button" onclick="nextCard()">Next</button>
+    </div>
+
+    <script>
+
+        let url = new URL(location.href);
+        let searchParams = new URLSearchParams(url.search);
+
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzBECKFNcuxyy9nPu7TK-AzDglyUA_JcR6Y1PDD3McLq5VM4mOPmN6n2-GwBsj-8OB-yQ/exec';
+        const DATABASE = getParameter('database')
+
+        let currentCardIndex = 0;
+        let historyIndex = 1;
+
+        function getParameter(name) {
+          url = location.href;
+          name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+          var regexS = "[\\?&]"+name+"=([^&#]*)";
+          var regex = new RegExp( regexS );
+          var results = regex.exec( url );
+          return results == null ? null : results[1];
+        }
+
+        function updataData() {
+          const postData = {
+            'index': historyIndex, 
+            'action': 0,
+            'database': getParameter('database')
+          };
+
+          fetch(API_URL, {
+            method: 'POST',
+            body: JSON.stringify(postData),
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            }
+          })
+          .then(response => response.json())
+          .then(data => updateCard(data))
+          .catch(error => hideSpinner());
+        }
+
+        async function loadCards() {
+
+          fetch(`${API_URL}?database=${DATABASE}&isDropdown=0`)
+          .then(response => response.json())
+          .then(data => updateCard(data))
+        }
+
+        function updateCard(data) {
+            const cardFront = document.getElementById('card-front');
+            const cardBack = document.getElementById('card-back');
+            const prevButton = document.getElementById('prev-button');
+            const nextButton = document.getElementById('next-button');
+
+            if (data != null) {
+                cardFront.innerHTML = `${data.kanji}`;
+                cardBack.innerHTML = `${data.hiragana} <br />${data.mean}`;
+                historyIndex = data.index;
+            } else {
+                cardFront.textContent = 'No cards available';
+                cardBack.textContent = '';
+                prevButton.disabled = true;
+                nextButton.disabled = true;
+            }
+        }
+
+        function flipCard() {
+            const flashCard = document.querySelector('.flash-card');
+            flashCard.classList.toggle('flipped');
+        }
+
+        function nextCard() {
+            updataData();
+        }
+
+        loadCards();
+    </script>
+</body>
+</html>
