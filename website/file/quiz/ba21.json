@@ -1,0 +1,566 @@
+[
+  {
+    "question": "One of the requirements is as follows: A user can access the application using login id and password but can only access it from one device at a time. Which of the following corectly describes this?",
+    "options": {
+      "A": " It is a constraint",
+      "B": "It is a risk for the system",
+      "C": "It is a business rule for the system",
+      "D": "None of these"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: This is an example of a rule to be developed in the system and since it is to be developed as a system behaviour, it is considered as a business rule. Thus, option c is the correct answer."
+  },
+  {
+    "question": "Which of the following are used for modelling high level requirements? a) Use cases b) Context Diagrams c) Job Stories d) Personas",
+    "options": {
+      "A": "All four",
+      "B": "A and B",
+      "C": "A, B and C",
+      "D": "A, B, D"
+    },
+    "correct_answer": "A",
+    "explanation": "Explanation : All of the metioned options are used for representing high level requirements."
+  },
+  {
+    "question": "After several meetings with stakeholders, a BA can sense that some of the stakeholders don't look happy with the project. What can the BA do to understand the dissatisfaction? ",
+    "options": {
+      "A": "Collaborative Games",
+      "B": "Root Cause Analysis",
+      "C": "Arrange a lesson learned session with them",
+      "D": "Nothing needs to be done as this is normal"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Lessons Learned: used to understand stakeholders' satisfaction or dissatisfaction, and offer them an opportunity to help improve the working relationships. These techniques can also be beneficial at the close of any milestone within the effort, meaning you can apply it after an interaction and phase also."
+  },
+  {
+    "question": "A business analyst is preparing a document to justify the investment in a project. The BA discovers a major technical constraint just before the executive team is about to make a go - no - go decision. Which of the following will be impacted by this discovery?",
+    "options": {
+      "A": "Business need",
+      "B": "Desired outcomes",
+      "C": "Business case document",
+      "D": "Business strategy"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation:The Business case is a document used to assess constraints, assumptions, risks, and recommend a solution based on which executive team will take go - no go decision. Business need still remains and can be met through an alternative solution. Strategy defines the most effective way to apply the capabilities of an enterprise in order to reach a desired set of goals and objectives."
+  },
+  {
+    "question": "\"An order must not be placed when the billing address provided by the customer does not match the address on file with the credit card provider.\" This is an example of?",
+    "options": {
+      "A": "Calculation Rule",
+      "B": "Behavioural Rule",
+      "C": "Definitional Rule",
+      "D": "Conceptual Rule"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: Refer section 10.9.3.2 An order must not be placed when the billing address provided by the customer does not match the address on the credit card. This is a behavioural rule."
+  },
+  {
+    "question": "A project team has developed a login feature (with Userid and password) to meet a business requirement. The business requirement is to allow only authorized access into the system. What kind of relationship exists between the login screen and the business requirement? ",
+    "options": {
+      "A": "Necessity",
+      "B": "Validate",
+      "C": "Depends",
+      "D": "Satisfy"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: This is a satisfy relationship that showcases the relationship between an implementation element and requirements. In this question, enabling authorized access is the requirement whereas creating the login screen to fulfil the requirement is the implementation of it. Thus, option d is the correct answer. Refer Section 5.1.4.2."
+  },
+  {
+    "question": "Which one of the following is TRUE about the user story format/structure?",
+    "options": {
+      "A": "It has a mandatory structure of WHO DOES WHAT",
+      "B": "It has a mandatory structure of Given... When...Then",
+      "C": "It has no mandatory structure",
+      "D": "It has a mandatory structure of - As a..., You need to ......, so that ......"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: User story has no mandatory structure so options A, B and D are incorrect. Section 10.48.3.2"
+  },
+  {
+    "question": "Business case justifies the investment in a project. Which are the key components of a Business case document?",
+    "options": {
+      "A": "Benefits, costs, risk assessment, and business objectives",
+      "B": "Need assessment, desired outcomes, assess alternatives",
+      "C": "Business Problems, business objectives, assess alternatives, costs",
+      "D": "Desired outcomes, solution approach, costs, and risk assessment"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: From BABOK Techniques. Section- 10.7.3 Business case documents have four elements as needs assessment, desired outcomes, assess alternatives, and recommend a solution. Option b mentions all those elements and is the right answer."
+  },
+  {
+    "question": "Which of the following Elicitation techniques is used to elicit ideas and opinions about a service or product in a group environment?",
+    "options": {
+      "A": "Workshops",
+      "B": "Focus Groups",
+      "C": "Brainstorming",
+      "D": "Market Analysis"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: A focus group is a means to elicit ideas and opinions about a specific product, service, or opportunity in an interactive group environment. Thus, option b is the correct answer. Workshops and Brainstorming are also group activities. But Brainstorming is used to generate ideas (one or more) in a group environment. Typically Focus groups takes the output of brainstorming. Focus groups and Workshops are different as Focus group is focused on one function/idea whereas Workshops are conducted to discuss much wider scope than just one function. Market Analysis is used to study the market and competitors to identify features or gaps in a product."
+  },
+  {
+    "question": "A business analyst has created a stakeholder map and found that the estimated influence of one of the stakeholders is not what was anticipated. Now what should the business analyst do?",
+    "options": {
+      "A": "Ignore the stakeholder if the influence of the stakeholder is not significant",
+      "B": "Escalate the matter to the decision making authority to ask for more powers",
+      "C": "Conduct risk assessment and create plans to obtain the required level of support",
+      "D": "None of these"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Section 3.2.4.1 Level of power of influence Section: If there is a mismatch between the influence required and the amount of influence the stakeholder has or is perceived to have, business analysts develop risk plans, responses and other strategies that might be needed to obtain the required level of support."
+  },
+  {
+    "question": "Rahul is a key stakeholder. He is responsible for initiating the effort to define business needs and to develop a solution that meets the need. He authorizes the work to be performed, and controls the budget and scope for the initiative. Which of the following correctly describes Rahul's role?",
+    "options": {
+      "A": "Project Manager",
+      "B": "Supplier",
+      "C": "Sponsor",
+      "D": "Release Manager"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation : Sponsor is responsible for initiating the effort to define a business need and develop a solution that meets that need.He authorizes the work to be performed, and controls the budget and scope for the initiative."
+  },
+  {
+    "question": "When does a Business Analyst perform benchmarking during the elicitation process?",
+    "options": {
+      "A": "To standardize organizational business processes",
+      "B": "To compare business processes with best-in-class processes",
+      "C": "To setup organizational processes as standardized processes",
+      "D": "None of these"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: Benchmarking is a generic technique used across the industries to compare an organization's processes against the best-in-class practices. It helps to ensure the efficiency of the organization. Thus, option b is the correct answer. Section 10.4.2"
+  },
+  {
+    "question": "A business analyst is keen to understand the impact of a system (going to be implemented) on the actual users of the system. Whom should the BA talk to?",
+    "options": {
+      "A": "Project Manager",
+      "B": "Customer",
+      "C": "Business Analyst",
+      "D": "End-User"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: End user is the right answer. The customer, in this case, refers to the top management of the organization whereas the end-user is the actual user of the software system. Section 5.4.7 - Stakeholders Section"
+  },
+  {
+    "question": "Which of the following is NOT a criterion used to verify the quality of requirements?",
+    "options": {
+      "A": "Genuity",
+      "B": "Feasible",
+      "C": "Concise",
+      "D": "Testable"
+    },
+    "correct_answer": "A",
+    "explanation": "Explanation : Feasible, Concise and Testable are the three characteristics of Requirements and Designs Quality. Genuity is not correct. Section 7.2.4"
+  },
+  {
+    "question": "The business analysis performance report points to a few areas of improvement, one of them is significant defect leakage. The Team wants to take some action, which can prevent the defect leakage in the future too. Which of the following is such an action?",
+    "options": {
+      "A": "Fix the defects at high priority",
+      "B": "Escalate to the Project manager so that a specialist can be inducted",
+      "C": "Conduct regular reviews of the code to prevent defects in the future",
+      "D": "Use a functional testing team to conduct testing"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Conducting reviews is a good example of preventing defects, before they are part of code. Reviews are conducted on all the documents and code to prevent defects. Section 10.37.2."
+  },
+  {
+    "question": " In the corresponding stakeholder map, where would we put the Sponsor of a project? See the diagram and identify the correct quadrant.",
+    "options": {
+      "A": "Quad 1",
+      "B": "Quad 2",
+      "C": "Quad 3",
+      "D": "Quad 4"
+    },
+    "correct_answer": "B",
+    "image": "../file/quiz/images/ba21-1.jpeg",
+    "explanation": "Explanation: Sponsors have a high influence on the project and considerable control over the project. However, they will be hardly impacted as they are not the users or their performance does not get affected by a specific project. Thus, they should be kept in Quad 2. Refer to Figure 10.43.1."
+  },
+  {
+    "question": "Which of the following deals with organizing and coordinating the efforts of business analysts and stakeholders?",
+    "options": {
+      "A": "Requirements life cycle management",
+      "B": "Requirements analysis and design definition",
+      "C": "Strategy Analysis",
+      "D": "Business Analysis planning and monitoring"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: Business Analysis planning and monitoring knowledge area deals with all the planning, organizing and monitoring the business analysis activities. Business analysis activities include eliciting all types of requirements and verifying and validating requirements etc."
+  },
+  {
+    "question": "Identify the stakeholder, who has in-depth knowledge of processes and concepts relevant to the change initiative?",
+    "options": {
+      "A": "Implementation Subject matter expert",
+      "B": "Domain subject matter expert",
+      "C": "Project manager",
+      "D": "Business analyst"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: A domain subject matter expert is an individual with in-depth knowledge of a topic relevant to the business need or solution scope. This role is often filled by people who may be end users or people who have in-depth knowledge of the solution such as managers, process owners, legal staff, consultants, and others. Section 2.4"
+  },
+  {
+    "question": "Interaction Skills may include A. Facilitation B. Leadership and Influencing C. Teamwork D. Negotiation and Conflict Resolution",
+    "options": {
+      "A": "A&B&C",
+      "B": "B&C&D",
+      "C": "C&D&A",
+      "D": "All of the above"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: Interaction skills of BA working in an organization must include few competencies like facilitation, leadership and influencing, teamwork, negotiation and conflict resolution, and teaching. Thus, in this case, option d is the correct answer. (Refer section 9.5"
+  },
+  {
+    "question": "SWOT analysis is a simple yet effective tool used to evaluate an organization's capabilities and gaps. What does T stand for?",
+    "options": {
+      "A": "Tactics",
+      "B": "Threats",
+      "C": "Technical strength",
+      "D": "None of these"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: SWOT is an acronym for Strengths, Weaknesses, Opportunities, and Threats"
+  },
+  {
+    "question": "Data mining is a general term that covers three different techniques. Find out the correct techniques from the options given below.",
+    "options": {
+      "A": "Adaptive, Brief, Diagnostic",
+      "B": "Adaptive, Descriptive, Diagnostic",
+      "C": "Descriptive, Diagnostic, Predictive",
+      "D": "Predictive, Adaptive, Descriptive"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Data mining is a technique used to analyze large amounts of data to know the patterns and relationships among them. It involves descriptive, diagnostic, and predictive approaches as mentioned in option c. Thus, option c is the correct answer."
+  },
+  {
+    "question": "\"Have you worked on this financial accounting system to generate the balance sheet statement?\" This question was asked by a Business analyst. This question is an example of?",
+    "options": {
+      "A": "Close ended question",
+      "B": "Open ended question",
+      "C": "Business needs",
+      "D": "Transition requirement"
+    },
+    "correct_answer": "A",
+    "explanation": "Explanation: It's a close-ended question as it results in an answer in a single word. Thus, option a is the correct answer. Section 10.25.3.3."
+  },
+  {
+    "question": "Below is a simple Entity relationship diagram. What does the diagram represent? choose the best option.",
+    "options": {
+      "A": "A customer places exactly one order",
+      "B": "A customer must place more than one order",
+      "C": "A customer may place multiple orders",
+      "D": "A customer never places an order"
+    },
+    "correct_answer": "C",
+    "image": "../file/quiz/images/ba21-2.jpeg",
+    "explanation": "Explanation: Refer fig 10.51.1 The customer in this case is shown to be in an optional one to many relationships with the orders. This means customer may or may not place one or more than one orders."
+  },
+  {
+    "question": "Which of the following techniques is used to represent what an organization needs to do in order to deliver value to the customers?",
+    "options": {
+      "A": "State Modelling",
+      "B": "Value Stream Analysis",
+      "C": "Process Analysis",
+      "D": "Business Capability Analysis"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: Value stream analysis and process analysis is used for process improvement whereas State modelling is used to describe and analyse different possible states of an entity within a system. So, all these are not relevant to this question. Business capability analysis describes what an enterprise or part of an enterprise is able to do to deliver value. Thus, option d is the correct answer."
+  },
+  {
+    "question": "A Business Analyst is conducting a feasibility study. What is the BA doing?",
+    "options": {
+      "A": "The BA is building the foundation of a work breakdown structure",
+      "B": "The BA is creating a justification for the investment in a project for value creation",
+      "C": "The BA is evaluating proposed alternatives to determine whether they will provide desired business benefits",
+      "D": "The BA is creating a design for the requirements to meet the business need"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: From BABOK Glossary- Feasibility study is used to evaluate the proposed alternatives to determine if they are technically, organizationally, and economically possible within the constraints of the enterprise, and whether they will deliver the desired benefit. Thus, option c holds true in this case and is the right answer."
+  },
+  {
+    "question": "A business analyst has created visual models to represent existing business processes. What is this model also referred to as?",
+    "options": {
+      "A": "TO-BE process model",
+      "B": "AS-IS process model",
+      "C": "Transition Model",
+      "D": "Frozen Model"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: The visual modelling for the existing processes is known as AS-IS process model or Current State model"
+  },
+  {
+    "question": "Below is a list of elements of a Data flow diagram: 1) Process Steps 2) Input/output Data 3) Roles 4) Step number Choose the option which represents the elements of a Data flow diagram correctly.",
+    "options": {
+      "A": "1,2,3,4",
+      "B": "1,2",
+      "C": "1,3,4",
+      "D": "1,2,4"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation : Data flow diagrams can only demonstrate the processes, input and output data. It cannot show the roles (in the form of Swimlanes) or the Sequence of steps. Thus, points 1 and 2 are correct and hence option b is the correct answer."
+  },
+  {
+    "question": "A business analyst follows a stakeholder for a few days in order to find out what does his job entail? Which of the following describes this technique correctly?",
+    "options": {
+      "A": "Activity sampling",
+      "B": "Observation",
+      "C": "Interview",
+      "D": "Tailing"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: This represents the observation technique where requirements and nature of work is investigated by shadowing the stakeholder, as he/she performs day to day activity. Section 10.31.1"
+  },
+  {
+    "question": "Which of the following is NOT an activity of a Business Analyst as per BABOK?",
+    "options": {
+      "A": "Managing and maintaining requirements and design information from inception to retirement.",
+      "B": "Organizing and coordinating the efforts of business analysts and stakeholders.",
+      "C": "Initiating the effort to define a business need and develop a solution that meets that need.",
+      "D": "Assessing the performance of and value delivered by a solution in use by the enterprise, and to recommend removal of barriers or constraints that prevent the full realization of the value."
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Sponsor is responsible for initiating the effort to define a business need and develop a solution that meets that need. Section 2.4.9"
+  },
+  {
+    "question": "Which of the following are needed to help a Business Analyst assess the impact of a change?",
+    "options": {
+      "A": "Requirements traceability Table",
+      "B": "Requirements",
+      "C": "Both the options",
+      "D": "Only first option"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Both these documents are used to conduct the impact analysis. Section 5.4.3 lists down the input for Assessing requirements changes. Hence C is the correct answer"
+  },
+  {
+    "question": "Business analysis information is distributed to all the stakeholders. Each of the stakeholders has a different perspective. Which of the stakeholders needs to understand the requirements and designs both?",
+    "options": {
+      "A": "Customer",
+      "B": "End-user",
+      "C": "Domain subject matter expert",
+      "D": "Implementation subject matter expert"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation : Implementation SMEs are the stakeholders who are responsible for the efficient implementation of the solutions and solution components. For this purpose, they must be aware of and understand both the requirements and designs components. Thus, option d is the correct answer. (Section 4.4.7)"
+  },
+  {
+    "question": "A business analyst has assessed an Organization and has classified them as Risk-averse. What does this mean?",
+    "options": {
+      "A": "A willingness to accept or even take on more risk in return for a higher potential value.",
+      "B": "How much uncertainty a stakeholder or an enterprise is willing to take in exchange for potential value.",
+      "C": "Some level of risk is acceptable, provided the course of action does not result in a loss even if the risks occur.",
+      "D": "An unwillingness to accept much uncertainty"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: Risk Aversion is an unwillingness to accept much uncertainty. There may be a preference to either avoid a course of action which involves high level of risk or to invest more (and therefore accept a lower potential value) to reduce the risks. Section 6.3.4.4."
+  },
+  {
+    "question": "Perspectives are used within business analysis work to provide focus to tasks and techniques specific to the context of the initiative. Can more than one perspective be used for a project?",
+    "options": {
+      "A": "No",
+      "B": "Yes",
+      "C": "May Be",
+      "D": "None of the above"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: Refer section 1.4.6 Perspectives Perspectives are used within business analysis work to provide focus to tasks and techniques specific to the context of the initiative. Most initiatives are likely to engage one or more perspectives."
+  },
+  {
+    "question": "The task of classifying the Stakeholders as Responsible, Accountable, Consulted and Informed is part of which of the following techniques? ",
+    "options": {
+      "A": "Stakeholder List, Map or Personas",
+      "B": "Process Modelling",
+      "C": "Roles and Permissions Matrix",
+      "D": "Organizational Modelling"
+    },
+    "correct_answer": "A",
+    "explanation": "Explanation: These are used as roles in RACI Matrix. RACI matrix is a type of stakeholder list, map and personas technique. Thus, option a is the correct answer. Section 10.43.3.3."
+  },
+  {
+    "question": "Which of the following techniques shows how data is processed, stored, and tranformed by processes?",
+    "options": {
+      "A": "Process Diagram",
+      "B": "Data Flow Diagram",
+      "C": "Sequence Diagram",
+      "D": "None of the above"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: The correct answer is Data flow diagram. Section 10.13.1"
+  },
+  {
+    "question": "John is appointed as a Business analyst and he is creating AS-IS model to understand the current business processes. He plans to create TO-BE model. Which of the following techniques will be used by John?",
+    "options": {
+      "A": "Process modelling",
+      "B": "State modelling",
+      "C": "Concept modelling",
+      "D": "None of these"
+    },
+    "correct_answer": "A",
+    "explanation": "Explanation: As-IS and TO-BE modelling are process modelling stages. AS-IS refers to the modelling of existing processes and TO-BE modelling refers to the proposed processes. So the correct answer is process modelling."
+  },
+  {
+    "question": "In Adaptive planning approach, when does the approval of requirements happen?",
+    "options": {
+      "A": "At the end of the requirements phase",
+      "B": "At the end of an iteration",
+      "C": "Before the beginning of iteration for the specific requirements",
+      "D": "There is no explicit approval for requirements"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Refer Section 5.5.2. Adaptive approaches typically approve requirements only when construction and implementation of a solution meeting the requirement can begin."
+  },
+  {
+    "question": "Validation of requirements is conducted with the Stakeholders. What is the purpose of this task?",
+    "options": {
+      "A": "To prevent defects",
+      "B": "To ensure requirements are in line with business requirements",
+      "C": "To ensure that requirements and design specifications and models meet quality standards",
+      "D": "To ensure that the requirements collectively support one another to fully achieve the objectives"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: Requirements validation task ensures that all requirements and designs are focussed to help achieve the desired goal. In simple terms, it can be said that requirements validation validates if the gathered requirements are aligned with the business goals or not. Thus, option b is the correct answer. (Section 7.3.1)"
+  },
+  {
+    "question": "A Business Analyst is working on a solution that is going to be used by customers worldwide. What could the BA do to help determine if the solution has the desired functions to succeed?",
+    "options": {
+      "A": "Conduct Stakeholder impact analysis",
+      "B": "Conduct Workshops with a section of Customers",
+      "C": "Conduct a Survey using a questionnaire with a section of Customers",
+      "D": "Conduct Risk analysis and management to assess the risks involved"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Considering the geographic spread of potential customers sending a survey or questionnaire to members of the targeted customer segment would offer more relevant and fruitful information than conducting workshops (which will prove to be very expensive). Other options are not relevant in this case."
+  },
+  {
+    "question": "Which of the following is used if significant variance is detected in the solution vis-à-vis requirements?",
+    "options": {
+      "A": "Variance Analysis",
+      "B": "Root Cause Analysis",
+      "C": "Interface Analysis",
+      "D": "Metric Analysis"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: Refer section 8.2.4.5 - Performance Variances. Root cause analysis may be necessary to determine the underlying causes of significant variances within a solution."
+  },
+  {
+    "question": "Observation/Job shadowing is best conducted when the BA uses the following approach:",
+    "options": {
+      "A": "The BA observes the workers performing their jobs using the invisible approach and holds questions until the entire process is complete",
+      "B": "The BA observes the workers performing their jobs using the visible approach and holds questions until the entire process is complete",
+      "C": "The BA observes the workers performing their jobs and documents details about the current processes",
+      "D": "The BA observes the workers performing their jobs and documents the errors committed by the workers"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Section 10.31.2. Observation involves examining a work activity first hand as it is performed. It is done to gain knowledge on the current work scenario by observing and noting down the details either by asking questions at the same moment or later."
+  },
+  {
+    "question": "A _________package is created for the purpose of communicating the requirements and designs with the stakeholders. Which of the following is the right choice in filling up the blank space?",
+    "options": {
+      "A": "Requirements package",
+      "B": "Business analysis information",
+      "C": "Requirements management",
+      "D": "Requirements attribute"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: In BABOK 2.0, it was referred to as requirements package, however in BABOK v3.0, it is now being referred to as business analysis information package but with wider scope. Section 4.4.4.1"
+  },
+  {
+    "question": "Transition requirements are one of the types of requirements. Which of the following questions lead to the discovery of these requirements?",
+    "options": {
+      "A": "What is the need for individual stakeholders?",
+      "B": "Why do they need this software?",
+      "C": "What is needed implementing these requirements?",
+      "D": "What is needed in implementing these requirements?"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Transition requirements refer to the requirements which are needed to implement the solution. The question in option C asks the question which will lead to transition requirements. Section 2.3 BABOK"
+  },
+  {
+    "question": "Release planning is all about preparing a plan to release features to help an organization achieve its business objectives quickly. What is the role of a business analyst in release planning?",
+    "options": {
+      "A": "BA creates it",
+      "B": "BA reviews it",
+      "C": "BA facilitates it",
+      "D": "BA owns it"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Business analysts help facilitate release planning discussions to help stakeholders reach decisions on release plan. Section 6.4.4.5"
+  },
+  {
+    "question": "A business analyst wants to create a listing of stakeholders along with their level of authority in the project. Which of the following suitable choice for this purpose?",
+    "options": {
+      "A": "Stakeholder Map",
+      "B": "Stakeholder Matrix",
+      "C": "Stakeholder list",
+      "D": "RACI Matrix"
+    },
+    "correct_answer": "D",
+    "explanation": "Explanation: RACI matrix is the only artefact, which identifies the roles of each stakeholder inlcuding the authority of the role. Th option d is the correct answer. Stakeholder list is simply a listing of stakeholders whereas Stakeholder map and matrix represent stakeholders from the Influenc perspective but does not specify the influence, whereas RACI matrix does it. Section 10.43.3.3."
+  },
+  {
+    "question": "Current state and future states are defined for every change initiative. Which is one of the important elements used to describe the future state?",
+    "options": {
+      "A": "Metrics",
+      "B": "Requirements",
+      "C": "Business Goals",
+      "D": "Needs"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: Future state can be described in terms of business goals or objectives in order to guide the development of the change strategy and identify potential value. Section 6.2.4.1"
+  },
+  {
+    "question": "The use case diagram shown here is created by Arthur, a Business Analyst. Which one of the following can be inferred from the diagram?",
+    "options": {
+      "A": "Deposit funds happen only after opening the account",
+      "B": "Deposit funds can happen even without opening the account",
+      "C": "NRFC customer is not a user of the system",
+      "D": "None of these"
+    },
+    "correct_answer": "B",
+    "image": "../file/quiz/images/ba21-3.png",
+    "explanation": ""
+  },
+  {
+    "question": "Which off the following is not TRUE about Business Analysis core concepts model (BACCM)?",
+    "options": {
+      "A": "It helps in evaluating the relationships of key concepts in bussiness analysis",
+      "B": "It helps in communication about business analysis with a common terminology",
+      "C": "it guides in setting the performance criteria for evaluating the business analysis work",
+      "D": "it helps to perform better business analysis by holistically evaluating the relationships among these six concepts"
+    },
+    "correct_answer": "C",
+    "explanation": "Explanation: refer 2.1 of BABOK . Core concepts are not related to a performance evaluation rather it creates a common terminology to discuss business analysis activities. Thus, option C is not true about BACCM and is the correct answer. However, options a, b and d are valid points."
+  },
+  {
+    "question": "You, as a business analyst, are documenting the way data will be moved from a legacy system to an existing system in order to maintain continuity. What type of requirement is this?",
+    "options": {
+      "A": "Transition requirements",
+      "B": "Stakeholder requirements",
+      "C": "Business requirements",
+      "D": "Functional requirements"
+    },
+    "correct_answer": "A",
+    "explanation": "Explanation: This is an example of transition requirement. Transition requirements are one time requirements. Business requirements, functional requirements and stakeholder requirements are not one time requirements and follow complete Requirement life cycle management (A knowledge area in BABOK)"
+  },
+  {
+    "question": "A Business Analyst is studying the scope of work for a change initiative. What does the scope of work tell the BA?",
+    "options": {
+      "A": "It provides the list of requirements",
+      "B": "It provides the boundaries of the system",
+      "C": "It provides the modules & functions of the system",
+      "D": "It provides the Epics and user stories of the system"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: Scope refers to identification of the boundaries of the system. What's to be done and what is out of scope? In elicitation phase, identification of scope is an important piece of work. It's a conceptual question and does not need to have BABOK reference."
+  },
+  {
+    "question": "Robert is conducting requirements study and has started creating a use case model. He also wants to show the relationship between the use cases. How should he represent the mandatory relationship between the use cases?",
+    "options": {
+      "A": "By using a stereotype - uses",
+      "B": "By using a stereotype -Include",
+      "C": "By using an association relationship",
+      "D": "By using a stereotype -Extend"
+    },
+    "correct_answer": "B",
+    "explanation": "Explanation: A large use case can be decomposed into multiple use cases. The INCLUDE stereotype represents a relationship that is mandatory and not optional and hence, in this case, B is the correct answer. Section 10.47.3.1."
+  }
+]

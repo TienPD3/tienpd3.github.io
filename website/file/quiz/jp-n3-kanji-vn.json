@@ -1,0 +1,6578 @@
+[
+  {
+    "question": "男性",
+    "options": {
+      "A": "Nam giới"
+    },
+    "correct_answer": "A",
+    "explanation": "だんせい"
+  },
+  {
+    "question": "女性",
+    "options": {
+      "A": "Nữ giới"
+    },
+    "correct_answer": "A",
+    "explanation": "じょせい"
+  },
+  {
+    "question": "理想",
+    "options": {
+      "A": "Lý tưởng"
+    },
+    "correct_answer": "A",
+    "explanation": "りそう"
+  },
+  {
+    "question": "高齢",
+    "options": {
+      "A": "Cao tuổi"
+    },
+    "correct_answer": "A",
+    "explanation": "こうれい"
+  },
+  {
+    "question": "年上",
+    "options": {
+      "A": "Hơn tuổi"
+    },
+    "correct_answer": "A",
+    "explanation": "としうえ"
+  },
+  {
+    "question": "目上",
+    "options": {
+      "A": "Người trên"
+    },
+    "correct_answer": "A",
+    "explanation": "めうえ"
+  },
+  {
+    "question": "敬語",
+    "options": {
+      "A": "Kính ngữ"
+    },
+    "correct_answer": "A",
+    "explanation": "けいご"
+  },
+  {
+    "question": "先輩",
+    "options": {
+      "A": "Tiền bối"
+    },
+    "correct_answer": "A",
+    "explanation": "せんぱい"
+  },
+  {
+    "question": "後輩",
+    "options": {
+      "A": "Hậu bối"
+    },
+    "correct_answer": "A",
+    "explanation": "こうはい"
+  },
+  {
+    "question": "職場",
+    "options": {
+      "A": "Nơi làm việc"
+    },
+    "correct_answer": "A",
+    "explanation": "しょくば"
+  },
+  {
+    "question": "上司",
+    "options": {
+      "A": "Cấp trên"
+    },
+    "correct_answer": "A",
+    "explanation": "じょうし"
+  },
+  {
+    "question": "決定",
+    "options": {
+      "A": "Quyết định"
+    },
+    "correct_answer": "A",
+    "explanation": "けってい"
+  },
+  {
+    "question": "相手",
+    "options": {
+      "A": "Đối tác"
+    },
+    "correct_answer": "A",
+    "explanation": "あいて"
+  },
+  {
+    "question": "就職",
+    "options": {
+      "A": "Có việc làm"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅうしょく"
+  },
+  {
+    "question": "友人",
+    "options": {
+      "A": "Bạn thân"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆうじん"
+  },
+  {
+    "question": "時代",
+    "options": {
+      "A": "Thời đại"
+    },
+    "correct_answer": "A",
+    "explanation": "じだい"
+  },
+  {
+    "question": "仲",
+    "options": {
+      "A": "Quan hệ"
+    },
+    "correct_answer": "A",
+    "explanation": "なか"
+  },
+  {
+    "question": "生年月日",
+    "options": {
+      "A": "Ngày tháng năm sinh"
+    },
+    "correct_answer": "A",
+    "explanation": "せいねんがっぴ"
+  },
+  {
+    "question": "誕生",
+    "options": {
+      "A": "Ra đời"
+    },
+    "correct_answer": "A",
+    "explanation": "たんじょう"
+  },
+  {
+    "question": "出身",
+    "options": {
+      "A": "Xuất thân"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅっしん"
+  },
+  {
+    "question": "命",
+    "options": {
+      "A": "Số mệnh, cuộc sống"
+    },
+    "correct_answer": "A",
+    "explanation": "いのち"
+  },
+  {
+    "question": "計画",
+    "options": {
+      "A": "Kế hoạch"
+    },
+    "correct_answer": "A",
+    "explanation": "けいかく"
+  },
+  {
+    "question": "故郷",
+    "options": {
+      "A": "Quê hương"
+    },
+    "correct_answer": "A",
+    "explanation": "こきょう"
+  },
+  {
+    "question": "事業",
+    "options": {
+      "A": "Sự nghiệp"
+    },
+    "correct_answer": "A",
+    "explanation": "じぎょう"
+  },
+  {
+    "question": "喜ぶ",
+    "options": {
+      "A": "Hạnh phúc"
+    },
+    "correct_answer": "A",
+    "explanation": "よろこぶ"
+  },
+  {
+    "question": "記入する",
+    "options": {
+      "A": "Nhập vào"
+    },
+    "correct_answer": "A",
+    "explanation": "きにゅうする"
+  },
+  {
+    "question": "立てる",
+    "options": {
+      "A": "Lập ( kế hoạch)"
+    },
+    "correct_answer": "A",
+    "explanation": "たてる"
+  },
+  {
+    "question": "頼む",
+    "options": {
+      "A": "Nhờ vả"
+    },
+    "correct_answer": "A",
+    "explanation": "たのむ"
+  },
+  {
+    "question": "成長する",
+    "options": {
+      "A": "Trưởng thành"
+    },
+    "correct_answer": "A",
+    "explanation": "せいちょうする"
+  },
+  {
+    "question": "成人する",
+    "options": {
+      "A": "Người lớn"
+    },
+    "correct_answer": "A",
+    "explanation": "せいじんする"
+  },
+  {
+    "question": "合格する",
+    "options": {
+      "A": "Đỗ (kỳ thi)"
+    },
+    "correct_answer": "A",
+    "explanation": "ごうかくする"
+  },
+  {
+    "question": "進学する",
+    "options": {
+      "A": "Đi học"
+    },
+    "correct_answer": "A",
+    "explanation": "しんがくする"
+  },
+  {
+    "question": "退学する",
+    "options": {
+      "A": "Bỏ học"
+    },
+    "correct_answer": "A",
+    "explanation": "たいがくする"
+  },
+  {
+    "question": "就職する",
+    "options": {
+      "A": "Có việc làm"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅうしょくする"
+  },
+  {
+    "question": "介護",
+    "options": {
+      "A": "Chăm sóc"
+    },
+    "correct_answer": "A",
+    "explanation": "かいご"
+  },
+  {
+    "question": "決める",
+    "options": {
+      "A": "Quyết định"
+    },
+    "correct_answer": "A",
+    "explanation": "きめる"
+  },
+  {
+    "question": "退職する",
+    "options": {
+      "A": "Nghỉ việc"
+    },
+    "correct_answer": "A",
+    "explanation": "たいしょくする"
+  },
+  {
+    "question": "倒産する",
+    "options": {
+      "A": "Phá sản"
+    },
+    "correct_answer": "A",
+    "explanation": "とうさんする"
+  },
+  {
+    "question": "失業する",
+    "options": {
+      "A": "Thất nghiệp"
+    },
+    "correct_answer": "A",
+    "explanation": "しつぎょうする"
+  },
+  {
+    "question": "残業する",
+    "options": {
+      "A": "Làm thêm giờ"
+    },
+    "correct_answer": "A",
+    "explanation": "ざんぎょうする"
+  },
+  {
+    "question": "疲れる",
+    "options": {
+      "A": "Mệt"
+    },
+    "correct_answer": "A",
+    "explanation": "つかれる"
+  },
+  {
+    "question": "生活する",
+    "options": {
+      "A": "Cuộc sống"
+    },
+    "correct_answer": "A",
+    "explanation": "せいかつする"
+  },
+  {
+    "question": "通勤する",
+    "options": {
+      "A": "Đi làm"
+    },
+    "correct_answer": "A",
+    "explanation": "つうきんする"
+  },
+  {
+    "question": "学歴",
+    "options": {
+      "A": "Bằng cấp"
+    },
+    "correct_answer": "A",
+    "explanation": "がくれき"
+  },
+  {
+    "question": "実力",
+    "options": {
+      "A": "Thực lực"
+    },
+    "correct_answer": "A",
+    "explanation": "じつりょく"
+  },
+  {
+    "question": "給料",
+    "options": {
+      "A": "Lương"
+    },
+    "correct_answer": "A",
+    "explanation": "きゅうりょう"
+  },
+  {
+    "question": "面接する",
+    "options": {
+      "A": "Phỏng vấn"
+    },
+    "correct_answer": "A",
+    "explanation": "めんせつする"
+  },
+  {
+    "question": "休憩する",
+    "options": {
+      "A": "Nghỉ giải lao"
+    },
+    "correct_answer": "A",
+    "explanation": "きゅうけいする"
+  },
+  {
+    "question": "観光する",
+    "options": {
+      "A": "Thăm quan"
+    },
+    "correct_answer": "A",
+    "explanation": "かんこうする"
+  },
+  {
+    "question": "帰国する",
+    "options": {
+      "A": "Về nước"
+    },
+    "correct_answer": "A",
+    "explanation": "きこくする"
+  },
+  {
+    "question": "帰省する",
+    "options": {
+      "A": "Về quê"
+    },
+    "correct_answer": "A",
+    "explanation": "きせいする"
+  },
+  {
+    "question": "帰宅する",
+    "options": {
+      "A": "Về nhà"
+    },
+    "correct_answer": "A",
+    "explanation": "きたくする"
+  },
+  {
+    "question": "参加する",
+    "options": {
+      "A": "Tham gia"
+    },
+    "correct_answer": "A",
+    "explanation": "さんかする"
+  },
+  {
+    "question": "活動",
+    "options": {
+      "A": "Hoạt động"
+    },
+    "correct_answer": "A",
+    "explanation": "かつどう"
+  },
+  {
+    "question": "出席する",
+    "options": {
+      "A": "Tham gia"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅっせきする"
+  },
+  {
+    "question": "欠席する",
+    "options": {
+      "A": "Không tham gia"
+    },
+    "correct_answer": "A",
+    "explanation": "けっせきする"
+  },
+  {
+    "question": "寝坊",
+    "options": {
+      "A": "Ngủ quên"
+    },
+    "correct_answer": "A",
+    "explanation": "ねぼう"
+  },
+  {
+    "question": "遅刻する",
+    "options": {
+      "A": "Đến muộn"
+    },
+    "correct_answer": "A",
+    "explanation": "ちこくする"
+  },
+  {
+    "question": "化粧する",
+    "options": {
+      "A": "Trang điểm"
+    },
+    "correct_answer": "A",
+    "explanation": "けしょうする"
+  },
+  {
+    "question": "苦手",
+    "options": {
+      "A": "Kém"
+    },
+    "correct_answer": "A",
+    "explanation": "にがて"
+  },
+  {
+    "question": "計算する",
+    "options": {
+      "A": "Tính toán"
+    },
+    "correct_answer": "A",
+    "explanation": "けいさんする"
+  },
+  {
+    "question": "計画する",
+    "options": {
+      "A": "Kế hoạch"
+    },
+    "correct_answer": "A",
+    "explanation": "けいかくする"
+  },
+  {
+    "question": "成功する",
+    "options": {
+      "A": "Thành công"
+    },
+    "correct_answer": "A",
+    "explanation": "せいこうする"
+  },
+  {
+    "question": "失敗する",
+    "options": {
+      "A": "Thất bại"
+    },
+    "correct_answer": "A",
+    "explanation": "しっぱいする"
+  },
+  {
+    "question": "実験",
+    "options": {
+      "A": "Thực nghiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "じっけん"
+  },
+  {
+    "question": "準備する",
+    "options": {
+      "A": "Chuẩn bị"
+    },
+    "correct_answer": "A",
+    "explanation": "じゅんびする"
+  },
+  {
+    "question": "整理する",
+    "options": {
+      "A": "Sắp xếp"
+    },
+    "correct_answer": "A",
+    "explanation": "せいりする"
+  },
+  {
+    "question": "書類",
+    "options": {
+      "A": "Giấy tờ"
+    },
+    "correct_answer": "A",
+    "explanation": "しょるい"
+  },
+  {
+    "question": "品",
+    "options": {
+      "A": "Hàng hóa"
+    },
+    "correct_answer": "A",
+    "explanation": "しな"
+  },
+  {
+    "question": "届く",
+    "options": {
+      "A": "Đến nơi"
+    },
+    "correct_answer": "A",
+    "explanation": "とどく"
+  },
+  {
+    "question": "注文する",
+    "options": {
+      "A": "Đặt hàng"
+    },
+    "correct_answer": "A",
+    "explanation": "ちゅうもんする"
+  },
+  {
+    "question": "貯金する",
+    "options": {
+      "A": "Tiết kiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょきんする"
+  },
+  {
+    "question": "増える",
+    "options": {
+      "A": "Tăng"
+    },
+    "correct_answer": "A",
+    "explanation": "ふえる"
+  },
+  {
+    "question": "徹夜する",
+    "options": {
+      "A": "Thức xuyên đêm"
+    },
+    "correct_answer": "A",
+    "explanation": "てつやする"
+  },
+  {
+    "question": "身長",
+    "options": {
+      "A": "Chiều cao"
+    },
+    "correct_answer": "A",
+    "explanation": "しんちょう"
+  },
+  {
+    "question": "体重",
+    "options": {
+      "A": "Cân nặng"
+    },
+    "correct_answer": "A",
+    "explanation": "たいじゅう"
+  },
+  {
+    "question": "怪我",
+    "options": {
+      "A": "Bị thương"
+    },
+    "correct_answer": "A",
+    "explanation": "けが"
+  },
+  {
+    "question": "趣味",
+    "options": {
+      "A": "Sở thích"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅみ"
+  },
+  {
+    "question": "読書",
+    "options": {
+      "A": "Đọc sách"
+    },
+    "correct_answer": "A",
+    "explanation": "どくしょ"
+  },
+  {
+    "question": "興味",
+    "options": {
+      "A": "Hứng thú"
+    },
+    "correct_answer": "A",
+    "explanation": "きょうみ"
+  },
+  {
+    "question": "歴史",
+    "options": {
+      "A": "Lịch sử"
+    },
+    "correct_answer": "A",
+    "explanation": "れきし"
+  },
+  {
+    "question": "思い出",
+    "options": {
+      "A": "Hồi ức"
+    },
+    "correct_answer": "A",
+    "explanation": "おもいで"
+  },
+  {
+    "question": "冗談",
+    "options": {
+      "A": "Đùa cợt"
+    },
+    "correct_answer": "A",
+    "explanation": "じょうだん"
+  },
+  {
+    "question": "本気",
+    "options": {
+      "A": "Sự thật"
+    },
+    "correct_answer": "A",
+    "explanation": "ほんき"
+  },
+  {
+    "question": "目的",
+    "options": {
+      "A": "Mục đích"
+    },
+    "correct_answer": "A",
+    "explanation": "もくてき"
+  },
+  {
+    "question": "約束する",
+    "options": {
+      "A": "Lời hứa"
+    },
+    "correct_answer": "A",
+    "explanation": "やくそくする"
+  },
+  {
+    "question": "おしゃべりする",
+    "options": {
+      "A": "Nói chuyện"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "怒る",
+    "options": {
+      "A": "Tức giận"
+    },
+    "correct_answer": "A",
+    "explanation": "おこる"
+  },
+  {
+    "question": "遠慮する",
+    "options": {
+      "A": "Ngại ngần"
+    },
+    "correct_answer": "A",
+    "explanation": "えんりょ"
+  },
+  {
+    "question": "我慢する",
+    "options": {
+      "A": "Chịu đựng"
+    },
+    "correct_answer": "A",
+    "explanation": "がまんする"
+  },
+  {
+    "question": "迷惑する",
+    "options": {
+      "A": "Làm phiền"
+    },
+    "correct_answer": "A",
+    "explanation": "めいわくする"
+  },
+  {
+    "question": "捨てる",
+    "options": {
+      "A": "Vứt"
+    },
+    "correct_answer": "A",
+    "explanation": "すてる"
+  },
+  {
+    "question": "希望",
+    "options": {
+      "A": "Hi vọng"
+    },
+    "correct_answer": "A",
+    "explanation": "きぼう"
+  },
+  {
+    "question": "夢",
+    "options": {
+      "A": "Giấc mơ, ước mơ"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆめ"
+  },
+  {
+    "question": "怖い",
+    "options": {
+      "A": "Đáng sợ"
+    },
+    "correct_answer": "A",
+    "explanation": "こわい"
+  },
+  {
+    "question": "賛成する",
+    "options": {
+      "A": "Tán thành"
+    },
+    "correct_answer": "A",
+    "explanation": "さんせいする"
+  },
+  {
+    "question": "挙げる",
+    "options": {
+      "A": "Giơ tay"
+    },
+    "correct_answer": "A",
+    "explanation": "あげる"
+  },
+  {
+    "question": "反対する",
+    "options": {
+      "A": "Phản đối"
+    },
+    "correct_answer": "A",
+    "explanation": "はんたいする"
+  },
+  {
+    "question": "想像する",
+    "options": {
+      "A": "Tưởng tượng"
+    },
+    "correct_answer": "A",
+    "explanation": "そうぞう"
+  },
+  {
+    "question": "現実",
+    "options": {
+      "A": "Hiện thực, sự thật"
+    },
+    "correct_answer": "A",
+    "explanation": "げんじつ"
+  },
+  {
+    "question": "努力する",
+    "options": {
+      "A": "Nỗ lực"
+    },
+    "correct_answer": "A",
+    "explanation": "どりょくする"
+  },
+  {
+    "question": "太陽",
+    "options": {
+      "A": "Mặt trời"
+    },
+    "correct_answer": "A",
+    "explanation": "たいよう"
+  },
+  {
+    "question": "昇る",
+    "options": {
+      "A": "Lên cao, tăng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "のぼる"
+  },
+  {
+    "question": "地球",
+    "options": {
+      "A": "Trái đất"
+    },
+    "correct_answer": "A",
+    "explanation": "ちきゅう"
+  },
+  {
+    "question": "環境",
+    "options": {
+      "A": "Môi trường"
+    },
+    "correct_answer": "A",
+    "explanation": "かんきょう"
+  },
+  {
+    "question": "温度",
+    "options": {
+      "A": "Nhiệt độ"
+    },
+    "correct_answer": "A",
+    "explanation": "おんど"
+  },
+  {
+    "question": "湿度",
+    "options": {
+      "A": "Độ ẩm"
+    },
+    "correct_answer": "A",
+    "explanation": "しつど"
+  },
+  {
+    "question": "湿気",
+    "options": {
+      "A": "Hơi ẩm"
+    },
+    "correct_answer": "A",
+    "explanation": "しっけ"
+  },
+  {
+    "question": "梅雨",
+    "options": {
+      "A": "Mùa mưa"
+    },
+    "correct_answer": "A",
+    "explanation": "つゆ"
+  },
+  {
+    "question": "かび",
+    "options": {
+      "A": "Nấm mốc"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "時期",
+    "options": {
+      "A": "Thời kì"
+    },
+    "correct_answer": "A",
+    "explanation": "じき"
+  },
+  {
+    "question": "暖房",
+    "options": {
+      "A": "Thiết bị làm ấm"
+    },
+    "correct_answer": "A",
+    "explanation": "だんぼう"
+  },
+  {
+    "question": "皮",
+    "options": {
+      "A": "Vỏ, da"
+    },
+    "correct_answer": "A",
+    "explanation": "かわ"
+  },
+  {
+    "question": "画面",
+    "options": {
+      "A": "Màn hình"
+    },
+    "correct_answer": "A",
+    "explanation": "がめん"
+  },
+  {
+    "question": "番組",
+    "options": {
+      "A": "Chương trình"
+    },
+    "correct_answer": "A",
+    "explanation": "ばんぐみ"
+  },
+  {
+    "question": "記事",
+    "options": {
+      "A": "Kí sự"
+    },
+    "correct_answer": "A",
+    "explanation": "きじ"
+  },
+  {
+    "question": "近所",
+    "options": {
+      "A": "Hàng xóm, xung quanh"
+    },
+    "correct_answer": "A",
+    "explanation": "きんじょ"
+  },
+  {
+    "question": "盗む",
+    "options": {
+      "A": "Ăn trộm"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬすむ"
+  },
+  {
+    "question": "警官",
+    "options": {
+      "A": "Cảnh sát"
+    },
+    "correct_answer": "A",
+    "explanation": "けいかん"
+  },
+  {
+    "question": "犯人",
+    "options": {
+      "A": "Tội phạm"
+    },
+    "correct_answer": "A",
+    "explanation": "はんにん"
+  },
+  {
+    "question": "小銭",
+    "options": {
+      "A": "Tiền lẻ"
+    },
+    "correct_answer": "A",
+    "explanation": "こぜに"
+  },
+  {
+    "question": "お祝う",
+    "options": {
+      "A": "Chúc mừng"
+    },
+    "correct_answer": "A",
+    "explanation": "おいわう"
+  },
+  {
+    "question": "ごちそう",
+    "options": {
+      "A": "Chiêu đãi"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "作者",
+    "options": {
+      "A": "Tác giả"
+    },
+    "correct_answer": "A",
+    "explanation": "さくしゃ"
+  },
+  {
+    "question": "作品",
+    "options": {
+      "A": "Tác phẩm"
+    },
+    "correct_answer": "A",
+    "explanation": "さくひん"
+  },
+  {
+    "question": "展示",
+    "options": {
+      "A": "Trưng bày"
+    },
+    "correct_answer": "A",
+    "explanation": "てんじ"
+  },
+  {
+    "question": "制服",
+    "options": {
+      "A": "Đồng phục"
+    },
+    "correct_answer": "A",
+    "explanation": "せいふく"
+  },
+  {
+    "question": "食器",
+    "options": {
+      "A": "Bát đĩa"
+    },
+    "correct_answer": "A",
+    "explanation": "しょっき"
+  },
+  {
+    "question": "洗剤",
+    "options": {
+      "A": "Chất tẩy rửa"
+    },
+    "correct_answer": "A",
+    "explanation": "せんざい"
+  },
+  {
+    "question": "底",
+    "options": {
+      "A": "Đáy"
+    },
+    "correct_answer": "A",
+    "explanation": "そこ"
+  },
+  {
+    "question": "進む",
+    "options": {
+      "A": "Tiến lên/triển/bộ"
+    },
+    "correct_answer": "A",
+    "explanation": "すすむ"
+  },
+  {
+    "question": "開発",
+    "options": {
+      "A": "Phát triển"
+    },
+    "correct_answer": "A",
+    "explanation": "かいはつ"
+  },
+  {
+    "question": "都市",
+    "options": {
+      "A": "Thành phố"
+    },
+    "correct_answer": "A",
+    "explanation": "とし"
+  },
+  {
+    "question": "寺",
+    "options": {
+      "A": "Chùa"
+    },
+    "correct_answer": "A",
+    "explanation": "てら"
+  },
+  {
+    "question": "道路",
+    "options": {
+      "A": "Con đường"
+    },
+    "correct_answer": "A",
+    "explanation": "どうろ"
+  },
+  {
+    "question": "坂",
+    "options": {
+      "A": "Dốc"
+    },
+    "correct_answer": "A",
+    "explanation": "さか"
+  },
+  {
+    "question": "煙",
+    "options": {
+      "A": "Khói"
+    },
+    "correct_answer": "A",
+    "explanation": "けむり"
+  },
+  {
+    "question": "逃げる",
+    "options": {
+      "A": "Bỏ chạy, tẩu thoát"
+    },
+    "correct_answer": "A",
+    "explanation": "にげる"
+  },
+  {
+    "question": "火事",
+    "options": {
+      "A": "Hỏa hoạn"
+    },
+    "correct_answer": "A",
+    "explanation": "かじ"
+  },
+  {
+    "question": "灰",
+    "options": {
+      "A": "Tro tàn"
+    },
+    "correct_answer": "A",
+    "explanation": "はい"
+  },
+  {
+    "question": "判",
+    "options": {
+      "A": "Con dấu"
+    },
+    "correct_answer": "A",
+    "explanation": "はん"
+  },
+  {
+    "question": "名刺",
+    "options": {
+      "A": "Danh thiếp"
+    },
+    "correct_answer": "A",
+    "explanation": "めいし"
+  },
+  {
+    "question": "交換",
+    "options": {
+      "A": "Trao đổi"
+    },
+    "correct_answer": "A",
+    "explanation": "こうかん"
+  },
+  {
+    "question": "免許",
+    "options": {
+      "A": "Giấy phép"
+    },
+    "correct_answer": "A",
+    "explanation": "めんきょ"
+  },
+  {
+    "question": "必要（な）",
+    "options": {
+      "A": "Cần thiết"
+    },
+    "correct_answer": "A",
+    "explanation": "ひつよう"
+  },
+  {
+    "question": "調理師",
+    "options": {
+      "A": "Đầu bếp"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうりし"
+  },
+  {
+    "question": "多く",
+    "options": {
+      "A": "Nhiều"
+    },
+    "correct_answer": "A",
+    "explanation": "おおく"
+  },
+  {
+    "question": "前半",
+    "options": {
+      "A": "Phần đầu"
+    },
+    "correct_answer": "A",
+    "explanation": "ぜんはん"
+  },
+  {
+    "question": "後半",
+    "options": {
+      "A": "Phần sau"
+    },
+    "correct_answer": "A",
+    "explanation": "こうはん"
+  },
+  {
+    "question": "退屈",
+    "options": {
+      "A": "Buồn tẻ, chán ngắt"
+    },
+    "correct_answer": "A",
+    "explanation": "たいくつ"
+  },
+  {
+    "question": "最高",
+    "options": {
+      "A": "Cao nhất"
+    },
+    "correct_answer": "A",
+    "explanation": "さいこう"
+  },
+  {
+    "question": "最低",
+    "options": {
+      "A": "Thấp nhất"
+    },
+    "correct_answer": "A",
+    "explanation": "さいてい"
+  },
+  {
+    "question": "最初",
+    "options": {
+      "A": "Đầu tiên"
+    },
+    "correct_answer": "A",
+    "explanation": "さいしょ"
+  },
+  {
+    "question": "最後",
+    "options": {
+      "A": "Cuối cùng"
+    },
+    "correct_answer": "A",
+    "explanation": "さいご"
+  },
+  {
+    "question": "花束",
+    "options": {
+      "A": "Bó hoa"
+    },
+    "correct_answer": "A",
+    "explanation": "はなたば"
+  },
+  {
+    "question": "自動",
+    "options": {
+      "A": "Tự động"
+    },
+    "correct_answer": "A",
+    "explanation": "じどう"
+  },
+  {
+    "question": "種類",
+    "options": {
+      "A": "Chủng loại"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅるい"
+  },
+  {
+    "question": "性格",
+    "options": {
+      "A": "Tính cách"
+    },
+    "correct_answer": "A",
+    "explanation": "せいかく"
+  },
+  {
+    "question": "性質",
+    "options": {
+      "A": "Tính chất"
+    },
+    "correct_answer": "A",
+    "explanation": "せいしつ"
+  },
+  {
+    "question": "布",
+    "options": {
+      "A": "Vải"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬの"
+  },
+  {
+    "question": "順番",
+    "options": {
+      "A": "Thứ tự"
+    },
+    "correct_answer": "A",
+    "explanation": "じゅんばん"
+  },
+  {
+    "question": "発表",
+    "options": {
+      "A": "Phát biểu"
+    },
+    "correct_answer": "A",
+    "explanation": "はっぴょう"
+  },
+  {
+    "question": "商品",
+    "options": {
+      "A": "Phần thưởng"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうひん"
+  },
+  {
+    "question": "番",
+    "options": {
+      "A": "Lượt"
+    },
+    "correct_answer": "A",
+    "explanation": "ばん"
+  },
+  {
+    "question": "方法",
+    "options": {
+      "A": "Phương pháp"
+    },
+    "correct_answer": "A",
+    "explanation": "ほうほう"
+  },
+  {
+    "question": "検査",
+    "options": {
+      "A": "Kiểm tra"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうさ"
+  },
+  {
+    "question": "完成",
+    "options": {
+      "A": "Hoàn thành"
+    },
+    "correct_answer": "A",
+    "explanation": "かんせい"
+  },
+  {
+    "question": "製品",
+    "options": {
+      "A": "Sản phẩm, thành phẩm"
+    },
+    "correct_answer": "A",
+    "explanation": "せいひん"
+  },
+  {
+    "question": "値上がり",
+    "options": {
+      "A": "Tăng giá"
+    },
+    "correct_answer": "A",
+    "explanation": "ねあがり"
+  },
+  {
+    "question": "生",
+    "options": {
+      "A": "Tươi, mới (chưa chế biến)"
+    },
+    "correct_answer": "A",
+    "explanation": "なま"
+  },
+  {
+    "question": "渇く",
+    "options": {
+      "A": "Khát"
+    },
+    "correct_answer": "A",
+    "explanation": "かわく"
+  },
+  {
+    "question": "嗅ぐ",
+    "options": {
+      "A": "Ngửi"
+    },
+    "correct_answer": "A",
+    "explanation": "かぐ"
+  },
+  {
+    "question": "叩く",
+    "options": {
+      "A": "Vỗ, đánh, gõ"
+    },
+    "correct_answer": "A",
+    "explanation": "たたく"
+  },
+  {
+    "question": "お尻",
+    "options": {
+      "A": "Mông"
+    },
+    "correct_answer": "A",
+    "explanation": "おしり"
+  },
+  {
+    "question": "殴る",
+    "options": {
+      "A": "Đánh"
+    },
+    "correct_answer": "A",
+    "explanation": "なぐる"
+  },
+  {
+    "question": "蹴る",
+    "options": {
+      "A": "Đá"
+    },
+    "correct_answer": "A",
+    "explanation": "ける"
+  },
+  {
+    "question": "抱く",
+    "options": {
+      "A": "Ôm"
+    },
+    "correct_answer": "A",
+    "explanation": "だく"
+  },
+  {
+    "question": "両手",
+    "options": {
+      "A": "Hai tay"
+    },
+    "correct_answer": "A",
+    "explanation": "りょうて"
+  },
+  {
+    "question": "台風",
+    "options": {
+      "A": "Bão"
+    },
+    "correct_answer": "A",
+    "explanation": "たいふう"
+  },
+  {
+    "question": "倒れる",
+    "options": {
+      "A": "Bị gãy/đổ/rơi"
+    },
+    "correct_answer": "A",
+    "explanation": "たおれる"
+  },
+  {
+    "question": "倒す",
+    "options": {
+      "A": "Chặt đổ, quật ngã"
+    },
+    "correct_answer": "A",
+    "explanation": "たおす"
+  },
+  {
+    "question": "起きる",
+    "options": {
+      "A": "Thức dậy"
+    },
+    "correct_answer": "A",
+    "explanation": "おきる"
+  },
+  {
+    "question": "起こす",
+    "options": {
+      "A": "Đánh thức"
+    },
+    "correct_answer": "A",
+    "explanation": "おこす"
+  },
+  {
+    "question": "尋ねる",
+    "options": {
+      "A": "Hỏi, thăm hỏi"
+    },
+    "correct_answer": "A",
+    "explanation": "たずねる"
+  },
+  {
+    "question": "呼ぶ",
+    "options": {
+      "A": "Gọi"
+    },
+    "correct_answer": "A",
+    "explanation": "よぶ"
+  },
+  {
+    "question": "叫ぶ",
+    "options": {
+      "A": "Gào, hét, rú lên"
+    },
+    "correct_answer": "A",
+    "explanation": "さけぶ"
+  },
+  {
+    "question": "黙る",
+    "options": {
+      "A": "Im lặng"
+    },
+    "correct_answer": "A",
+    "explanation": "だまる"
+  },
+  {
+    "question": "飼う",
+    "options": {
+      "A": "Nuôi"
+    },
+    "correct_answer": "A",
+    "explanation": "かう"
+  },
+  {
+    "question": "数える",
+    "options": {
+      "A": "Đếm"
+    },
+    "correct_answer": "A",
+    "explanation": "かぞえる"
+  },
+  {
+    "question": "数",
+    "options": {
+      "A": "Số"
+    },
+    "correct_answer": "A",
+    "explanation": "かず"
+  },
+  {
+    "question": "乾く",
+    "options": {
+      "A": "Khô"
+    },
+    "correct_answer": "A",
+    "explanation": "かわく"
+  },
+  {
+    "question": "乾かす",
+    "options": {
+      "A": "Làm khô"
+    },
+    "correct_answer": "A",
+    "explanation": "かわかす"
+  },
+  {
+    "question": "濡れる",
+    "options": {
+      "A": "Ướt"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬれる"
+  },
+  {
+    "question": "畳む",
+    "options": {
+      "A": "Gấp, gập, xếp"
+    },
+    "correct_answer": "A",
+    "explanation": "たたむ"
+  },
+  {
+    "question": "畳",
+    "options": {
+      "A": "Cái chiếu"
+    },
+    "correct_answer": "A",
+    "explanation": "じょう"
+  },
+  {
+    "question": "誘う",
+    "options": {
+      "A": "Mời , rủ"
+    },
+    "correct_answer": "A",
+    "explanation": "さそう"
+  },
+  {
+    "question": "奢る",
+    "options": {
+      "A": "Chiêu đãi, khao"
+    },
+    "correct_answer": "A",
+    "explanation": "おごる"
+  },
+  {
+    "question": "預かる",
+    "options": {
+      "A": "Chăm sóc, trông nom"
+    },
+    "correct_answer": "A",
+    "explanation": "あずかる"
+  },
+  {
+    "question": "預ける",
+    "options": {
+      "A": "Giao cho, gửi"
+    },
+    "correct_answer": "A",
+    "explanation": "あずける"
+  },
+  {
+    "question": "決まる",
+    "options": {
+      "A": "Bị quyết định"
+    },
+    "correct_answer": "A",
+    "explanation": "きまる"
+  },
+  {
+    "question": "決める",
+    "options": {
+      "A": "Quyết định"
+    },
+    "correct_answer": "A",
+    "explanation": "きめる"
+  },
+  {
+    "question": "が　写る",
+    "options": {
+      "A": "Được chụp"
+    },
+    "correct_answer": "A",
+    "explanation": "うつる"
+  },
+  {
+    "question": "写す",
+    "options": {
+      "A": "Chụp lại"
+    },
+    "correct_answer": "A",
+    "explanation": "うつす"
+  },
+  {
+    "question": "思い出す",
+    "options": {
+      "A": "Nhớ nhung"
+    },
+    "correct_answer": "A",
+    "explanation": "おもいだす"
+  },
+  {
+    "question": "教わる",
+    "options": {
+      "A": "Được dạy"
+    },
+    "correct_answer": "A",
+    "explanation": "おそわる"
+  },
+  {
+    "question": "申し込む",
+    "options": {
+      "A": "Đăng kí"
+    },
+    "correct_answer": "A",
+    "explanation": "もうしこむ"
+  },
+  {
+    "question": "断る",
+    "options": {
+      "A": "Từ chối"
+    },
+    "correct_answer": "A",
+    "explanation": "ことわる"
+  },
+  {
+    "question": "指輪",
+    "options": {
+      "A": "Nhẫn"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆびわ"
+  },
+  {
+    "question": "見つかる",
+    "options": {
+      "A": "Được tìm thấy"
+    },
+    "correct_answer": "A",
+    "explanation": "みつかる"
+  },
+  {
+    "question": "見つける",
+    "options": {
+      "A": "Tìm thấy"
+    },
+    "correct_answer": "A",
+    "explanation": "みつける"
+  },
+  {
+    "question": "捕まる",
+    "options": {
+      "A": "Bị bắt, bị tóm"
+    },
+    "correct_answer": "A",
+    "explanation": "つかまる"
+  },
+  {
+    "question": "捕まえる",
+    "options": {
+      "A": "Đi bắt"
+    },
+    "correct_answer": "A",
+    "explanation": "つかまえる"
+  },
+  {
+    "question": "乗る",
+    "options": {
+      "A": "Lên"
+    },
+    "correct_answer": "A",
+    "explanation": "のる"
+  },
+  {
+    "question": "乗せる",
+    "options": {
+      "A": "Cho lên, xếp lên"
+    },
+    "correct_answer": "A",
+    "explanation": "のせる"
+  },
+  {
+    "question": "下りる/降りる",
+    "options": {
+      "A": "Xuống"
+    },
+    "correct_answer": "A",
+    "explanation": "おりる"
+  },
+  {
+    "question": "下ろす、降ろす",
+    "options": {
+      "A": "Cho xuống"
+    },
+    "correct_answer": "A",
+    "explanation": "おろす"
+  },
+  {
+    "question": "直る",
+    "options": {
+      "A": "Được sửa, sửa chữa"
+    },
+    "correct_answer": "A",
+    "explanation": "なおる"
+  },
+  {
+    "question": "直す",
+    "options": {
+      "A": "Sửa xong"
+    },
+    "correct_answer": "A",
+    "explanation": "なおす"
+  },
+  {
+    "question": "治る",
+    "options": {
+      "A": "Khôi phục"
+    },
+    "correct_answer": "A",
+    "explanation": "なおる"
+  },
+  {
+    "question": "治す",
+    "options": {
+      "A": "Chữa trị"
+    },
+    "correct_answer": "A",
+    "explanation": "なおす"
+  },
+  {
+    "question": "亡くなる",
+    "options": {
+      "A": "Chết"
+    },
+    "correct_answer": "A",
+    "explanation": "なくなる"
+  },
+  {
+    "question": "亡くす",
+    "options": {
+      "A": "Mất"
+    },
+    "correct_answer": "A",
+    "explanation": "なくす"
+  },
+  {
+    "question": "父親",
+    "options": {
+      "A": "Cha mẹ"
+    },
+    "correct_answer": "A",
+    "explanation": "ちちおや"
+  },
+  {
+    "question": "生まれる",
+    "options": {
+      "A": "Được sinh ra"
+    },
+    "correct_answer": "A",
+    "explanation": "うまれる"
+  },
+  {
+    "question": "産む",
+    "options": {
+      "A": "Sinh, đẻ"
+    },
+    "correct_answer": "A",
+    "explanation": "うむ"
+  },
+  {
+    "question": "先日",
+    "options": {
+      "A": "Mấy ngày trước"
+    },
+    "correct_answer": "A",
+    "explanation": "せんじつ"
+  },
+  {
+    "question": "出会う",
+    "options": {
+      "A": "Gặp gỡ ngẫu nhiên"
+    },
+    "correct_answer": "A",
+    "explanation": "であう"
+  },
+  {
+    "question": "訪ねる",
+    "options": {
+      "A": "Thăm, ghé thăm"
+    },
+    "correct_answer": "A",
+    "explanation": "たずねる"
+  },
+  {
+    "question": "付き合う",
+    "options": {
+      "A": "Hẹn hò"
+    },
+    "correct_answer": "A",
+    "explanation": "つきあう"
+  },
+  {
+    "question": "効く",
+    "options": {
+      "A": "Hiệu quả"
+    },
+    "correct_answer": "A",
+    "explanation": "きく"
+  },
+  {
+    "question": "頭痛",
+    "options": {
+      "A": "Đau đầu"
+    },
+    "correct_answer": "A",
+    "explanation": "ずつう"
+  },
+  {
+    "question": "流行する",
+    "options": {
+      "A": "Lưu hành"
+    },
+    "correct_answer": "A",
+    "explanation": "りゅうこうする"
+  },
+  {
+    "question": "経つ",
+    "options": {
+      "A": "Trải qua"
+    },
+    "correct_answer": "A",
+    "explanation": "たつ"
+  },
+  {
+    "question": "間に合う",
+    "options": {
+      "A": "Kịp giờ"
+    },
+    "correct_answer": "A",
+    "explanation": "まにあう"
+  },
+  {
+    "question": "間に合わせる",
+    "options": {
+      "A": "Đúng giờ"
+    },
+    "correct_answer": "A",
+    "explanation": "まにあわせる"
+  },
+  {
+    "question": "通う",
+    "options": {
+      "A": "Đi đi về về"
+    },
+    "correct_answer": "A",
+    "explanation": "かよう"
+  },
+  {
+    "question": "込む",
+    "options": {
+      "A": "Đông, tắc"
+    },
+    "correct_answer": "A",
+    "explanation": "こむ"
+  },
+  {
+    "question": "すれ違う",
+    "options": {
+      "A": "Vượt qua, lướt qua"
+    },
+    "correct_answer": "A",
+    "explanation": "すれちがう"
+  },
+  {
+    "question": "動く",
+    "options": {
+      "A": "Bị chuyển động"
+    },
+    "correct_answer": "A",
+    "explanation": "うごく"
+  },
+  {
+    "question": "動かす",
+    "options": {
+      "A": "Di chuyển"
+    },
+    "correct_answer": "A",
+    "explanation": "うごかす"
+  },
+  {
+    "question": "離れる",
+    "options": {
+      "A": "Tách rời"
+    },
+    "correct_answer": "A",
+    "explanation": "はなれる"
+  },
+  {
+    "question": "離す",
+    "options": {
+      "A": "Để xa ra, làm tránh ra"
+    },
+    "correct_answer": "A",
+    "explanation": "はなす"
+  },
+  {
+    "question": "ぶつかる",
+    "options": {
+      "A": "Bị đâm"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "ぶつける",
+    "options": {
+      "A": "Đâm vào"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "涙",
+    "options": {
+      "A": "Nước mắt"
+    },
+    "correct_answer": "A",
+    "explanation": "なみだ"
+  },
+  {
+    "question": "溢れる",
+    "options": {
+      "A": "Tràn ra"
+    },
+    "correct_answer": "A",
+    "explanation": "こぼれる"
+  },
+  {
+    "question": "溢す",
+    "options": {
+      "A": "Làm tràn ra"
+    },
+    "correct_answer": "A",
+    "explanation": "こぼす"
+  },
+  {
+    "question": "拭く",
+    "options": {
+      "A": "Lau, chùi, gạt"
+    },
+    "correct_answer": "A",
+    "explanation": "ふく"
+  },
+  {
+    "question": "片付く",
+    "options": {
+      "A": "Ngăn nắp"
+    },
+    "correct_answer": "A",
+    "explanation": "かたづく"
+  },
+  {
+    "question": "片付ける",
+    "options": {
+      "A": "Dọn dẹp"
+    },
+    "correct_answer": "A",
+    "explanation": "かたづける"
+  },
+  {
+    "question": "包む",
+    "options": {
+      "A": "Bọc"
+    },
+    "correct_answer": "A",
+    "explanation": "つつむ"
+  },
+  {
+    "question": "貼る",
+    "options": {
+      "A": "Dán"
+    },
+    "correct_answer": "A",
+    "explanation": "はる"
+  },
+  {
+    "question": "無くなる",
+    "options": {
+      "A": "Bị mất"
+    },
+    "correct_answer": "A",
+    "explanation": "なくなる"
+  },
+  {
+    "question": "無くす",
+    "options": {
+      "A": "Làm mất"
+    },
+    "correct_answer": "A",
+    "explanation": "なくす"
+  },
+  {
+    "question": "足りる",
+    "options": {
+      "A": "Đủ"
+    },
+    "correct_answer": "A",
+    "explanation": "たりる"
+  },
+  {
+    "question": "収入",
+    "options": {
+      "A": "Thu nhập"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅうにゅう"
+  },
+  {
+    "question": "残る",
+    "options": {
+      "A": "Còn lại, sót lại"
+    },
+    "correct_answer": "A",
+    "explanation": "のこる"
+  },
+  {
+    "question": "残す",
+    "options": {
+      "A": "Thừa lại, sót lại"
+    },
+    "correct_answer": "A",
+    "explanation": "のこす"
+  },
+  {
+    "question": "腐る",
+    "options": {
+      "A": "Ôi, thiu"
+    },
+    "correct_answer": "A",
+    "explanation": "くさる"
+  },
+  {
+    "question": "剥ける",
+    "options": {
+      "A": "Bóc, gọt"
+    },
+    "correct_answer": "A",
+    "explanation": "むける"
+  },
+  {
+    "question": "剥く",
+    "options": {
+      "A": "Bóc, gọt"
+    },
+    "correct_answer": "A",
+    "explanation": "むく"
+  },
+  {
+    "question": "滑る",
+    "options": {
+      "A": "Trượt"
+    },
+    "correct_answer": "A",
+    "explanation": "すべる"
+  },
+  {
+    "question": "雪",
+    "options": {
+      "A": "Tuyết"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆき"
+  },
+  {
+    "question": "積もる",
+    "options": {
+      "A": "Chất đống"
+    },
+    "correct_answer": "A",
+    "explanation": "つもる"
+  },
+  {
+    "question": "積む",
+    "options": {
+      "A": "Để lên, chất lên"
+    },
+    "correct_answer": "A",
+    "explanation": "つむ"
+  },
+  {
+    "question": "空く",
+    "options": {
+      "A": "Trống rỗng, vắng vẻ"
+    },
+    "correct_answer": "A",
+    "explanation": "あく"
+  },
+  {
+    "question": "空ける",
+    "options": {
+      "A": "Giữ chỗ"
+    },
+    "correct_answer": "A",
+    "explanation": "あける"
+  },
+  {
+    "question": "下がる",
+    "options": {
+      "A": "Giảm"
+    },
+    "correct_answer": "A",
+    "explanation": "さがる"
+  },
+  {
+    "question": "下げる",
+    "options": {
+      "A": "Hạ xuống"
+    },
+    "correct_answer": "A",
+    "explanation": "さげる"
+  },
+  {
+    "question": "冷える",
+    "options": {
+      "A": "Lạnh, cóng"
+    },
+    "correct_answer": "A",
+    "explanation": "ひえる"
+  },
+  {
+    "question": "冷やす",
+    "options": {
+      "A": "Làm lạnh"
+    },
+    "correct_answer": "A",
+    "explanation": "ひやす"
+  },
+  {
+    "question": "冷める",
+    "options": {
+      "A": "Nguội"
+    },
+    "correct_answer": "A",
+    "explanation": "さめる"
+  },
+  {
+    "question": "冷ます",
+    "options": {
+      "A": "Làm nguội"
+    },
+    "correct_answer": "A",
+    "explanation": "さます"
+  },
+  {
+    "question": "燃える",
+    "options": {
+      "A": "Cháy"
+    },
+    "correct_answer": "A",
+    "explanation": "もえる"
+  },
+  {
+    "question": "燃やす",
+    "options": {
+      "A": "Đốt cháy"
+    },
+    "correct_answer": "A",
+    "explanation": "もやす"
+  },
+  {
+    "question": "沸く",
+    "options": {
+      "A": "Nước sôi"
+    },
+    "correct_answer": "A",
+    "explanation": "わく"
+  },
+  {
+    "question": "沸かす",
+    "options": {
+      "A": "Đun sôi"
+    },
+    "correct_answer": "A",
+    "explanation": "わかす"
+  },
+  {
+    "question": "お湯",
+    "options": {
+      "A": "Nước nóng/sôi"
+    },
+    "correct_answer": "A",
+    "explanation": "おゆ"
+  },
+  {
+    "question": "鳴る",
+    "options": {
+      "A": "Kêu"
+    },
+    "correct_answer": "A",
+    "explanation": "なる"
+  },
+  {
+    "question": "鳴らす",
+    "options": {
+      "A": "Làm cho kêu"
+    },
+    "correct_answer": "A",
+    "explanation": "ならす"
+  },
+  {
+    "question": "役に立つ",
+    "options": {
+      "A": "Có tác dụng"
+    },
+    "correct_answer": "A",
+    "explanation": "やくにたつ"
+  },
+  {
+    "question": "役に立てる",
+    "options": {
+      "A": "Có tác dụng, có ích"
+    },
+    "correct_answer": "A",
+    "explanation": "やくにたてる"
+  },
+  {
+    "question": "飾る",
+    "options": {
+      "A": "Trang trí"
+    },
+    "correct_answer": "A",
+    "explanation": "かざる"
+  },
+  {
+    "question": "遊ぶ",
+    "options": {
+      "A": "Chơi"
+    },
+    "correct_answer": "A",
+    "explanation": "あそぶ"
+  },
+  {
+    "question": "集まる",
+    "options": {
+      "A": "Sưu tập"
+    },
+    "correct_answer": "A",
+    "explanation": "あつまる"
+  },
+  {
+    "question": "踊る",
+    "options": {
+      "A": "Nhảy"
+    },
+    "correct_answer": "A",
+    "explanation": "おどる"
+  },
+  {
+    "question": "思う",
+    "options": {
+      "A": "Suy nghĩ"
+    },
+    "correct_answer": "A",
+    "explanation": "おもう"
+  },
+  {
+    "question": "考える",
+    "options": {
+      "A": "Nghĩ"
+    },
+    "correct_answer": "A",
+    "explanation": "かんがえる"
+  },
+  {
+    "question": "手伝う",
+    "options": {
+      "A": "Giúp đỡ"
+    },
+    "correct_answer": "A",
+    "explanation": "てつだう"
+  },
+  {
+    "question": "働く",
+    "options": {
+      "A": "Hoạt động"
+    },
+    "correct_answer": "A",
+    "explanation": "はたらく"
+  },
+  {
+    "question": "決まる",
+    "options": {
+      "A": "Luật lệ, quy định"
+    },
+    "correct_answer": "A",
+    "explanation": "きまる"
+  },
+  {
+    "question": "騒ぐ",
+    "options": {
+      "A": "Làm ồn/rùng beng"
+    },
+    "correct_answer": "A",
+    "explanation": "さわぐ"
+  },
+  {
+    "question": "知らせる",
+    "options": {
+      "A": "Thông báo"
+    },
+    "correct_answer": "A",
+    "explanation": "しらせる"
+  },
+  {
+    "question": "頼む",
+    "options": {
+      "A": "Nhờ vả"
+    },
+    "correct_answer": "A",
+    "explanation": "たのむ"
+  },
+  {
+    "question": "疲れる",
+    "options": {
+      "A": "Mệt"
+    },
+    "correct_answer": "A",
+    "explanation": "つかれる"
+  },
+  {
+    "question": "違う",
+    "options": {
+      "A": "Khác"
+    },
+    "correct_answer": "A",
+    "explanation": "ちがう"
+  },
+  {
+    "question": "始める",
+    "options": {
+      "A": "Bắt đầu"
+    },
+    "correct_answer": "A",
+    "explanation": "はじめる"
+  },
+  {
+    "question": "続く",
+    "options": {
+      "A": "Tiếp tục"
+    },
+    "correct_answer": "A",
+    "explanation": "つづく"
+  },
+  {
+    "question": "暮れる",
+    "options": {
+      "A": "Lặn(mặt trời), hết(ngày)"
+    },
+    "correct_answer": "A",
+    "explanation": "くれる"
+  },
+  {
+    "question": "別れる",
+    "options": {
+      "A": "Chia tay, ly biệt"
+    },
+    "correct_answer": "A",
+    "explanation": "わかれる"
+  },
+  {
+    "question": "喜ぶ",
+    "options": {
+      "A": "Hạnh phúc"
+    },
+    "correct_answer": "A",
+    "explanation": "よろこぶ"
+  },
+  {
+    "question": "優勝する",
+    "options": {
+      "A": "Vô địch"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆうしょうする"
+  },
+  {
+    "question": "笑う",
+    "options": {
+      "A": "Cười"
+    },
+    "correct_answer": "A",
+    "explanation": "わらう"
+  },
+  {
+    "question": "驚く",
+    "options": {
+      "A": "Kinh ngạc"
+    },
+    "correct_answer": "A",
+    "explanation": "おどろく"
+  },
+  {
+    "question": "怒る",
+    "options": {
+      "A": "Nổi giận"
+    },
+    "correct_answer": "A",
+    "explanation": "いかる"
+  },
+  {
+    "question": "殺人",
+    "options": {
+      "A": "Sát nhân"
+    },
+    "correct_answer": "A",
+    "explanation": "さつじん"
+  },
+  {
+    "question": "幸せ（な）",
+    "options": {
+      "A": "Hạnh phúc"
+    },
+    "correct_answer": "A",
+    "explanation": "しあわせ"
+  },
+  {
+    "question": "得意（な）",
+    "options": {
+      "A": "Giỏi"
+    },
+    "correct_answer": "A",
+    "explanation": "とくい"
+  },
+  {
+    "question": "苦手（な）",
+    "options": {
+      "A": "Kém"
+    },
+    "correct_answer": "A",
+    "explanation": "にがて"
+  },
+  {
+    "question": "熱心（な）",
+    "options": {
+      "A": "Nhiệt tình"
+    },
+    "correct_answer": "A",
+    "explanation": "ねっしん"
+  },
+  {
+    "question": "認め",
+    "options": {
+      "A": "Thừa nhận"
+    },
+    "correct_answer": "A",
+    "explanation": "みとめ"
+  },
+  {
+    "question": "昇進",
+    "options": {
+      "A": "Thăng tiến"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうしん"
+  },
+  {
+    "question": "夢中（な）",
+    "options": {
+      "A": "Say mê"
+    },
+    "correct_answer": "A",
+    "explanation": "むちゅう"
+  },
+  {
+    "question": "観客",
+    "options": {
+      "A": "Khánh hàng"
+    },
+    "correct_answer": "A",
+    "explanation": "かんきゃく"
+  },
+  {
+    "question": "退屈（な）",
+    "options": {
+      "A": "Chán, tẻ nhạt"
+    },
+    "correct_answer": "A",
+    "explanation": "たいくつ"
+  },
+  {
+    "question": "健康（な）",
+    "options": {
+      "A": "Khỏe khoắn"
+    },
+    "correct_answer": "A",
+    "explanation": "けんこう"
+  },
+  {
+    "question": "育てる",
+    "options": {
+      "A": "Nuôi dạy"
+    },
+    "correct_answer": "A",
+    "explanation": "そだてる"
+  },
+  {
+    "question": "苦しい",
+    "options": {
+      "A": "Cực khổ"
+    },
+    "correct_answer": "A",
+    "explanation": "くるしい"
+  },
+  {
+    "question": "悪口",
+    "options": {
+      "A": "Nói xấu"
+    },
+    "correct_answer": "A",
+    "explanation": "わるぐち"
+  },
+  {
+    "question": "平気（な）",
+    "options": {
+      "A": "Bình thản"
+    },
+    "correct_answer": "A",
+    "explanation": "へいき"
+  },
+  {
+    "question": "悔しい",
+    "options": {
+      "A": "Đáng tiếc, đáng ân hận"
+    },
+    "correct_answer": "A",
+    "explanation": "くやしい"
+  },
+  {
+    "question": "羨ましい",
+    "options": {
+      "A": "Ghen tị"
+    },
+    "correct_answer": "A",
+    "explanation": "うらやましい"
+  },
+  {
+    "question": "才能",
+    "options": {
+      "A": "Tài năng"
+    },
+    "correct_answer": "A",
+    "explanation": "さいのう"
+  },
+  {
+    "question": "豊か",
+    "options": {
+      "A": "Phong phú"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆたか"
+  },
+  {
+    "question": "蚊",
+    "options": {
+      "A": "Muỗi"
+    },
+    "correct_answer": "A",
+    "explanation": "か"
+  },
+  {
+    "question": "首",
+    "options": {
+      "A": "Cái cổ"
+    },
+    "correct_answer": "A",
+    "explanation": "くび"
+  },
+  {
+    "question": "痒い",
+    "options": {
+      "A": "Ngứa"
+    },
+    "correct_answer": "A",
+    "explanation": "かゆい"
+  },
+  {
+    "question": "大人しい",
+    "options": {
+      "A": "Hiền lành"
+    },
+    "correct_answer": "A",
+    "explanation": "おとなしい"
+  },
+  {
+    "question": "我慢強い",
+    "options": {
+      "A": "Chịu đựng giỏi"
+    },
+    "correct_answer": "A",
+    "explanation": "がまんづよい"
+  },
+  {
+    "question": "正直（な）",
+    "options": {
+      "A": "Trung thực"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうじき"
+  },
+  {
+    "question": "けち（な）",
+    "options": {
+      "A": "Kiệt xỉ"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "我儘（な）",
+    "options": {
+      "A": "Ích kỉ"
+    },
+    "correct_answer": "A",
+    "explanation": "わがまま"
+  },
+  {
+    "question": "積極的（な）",
+    "options": {
+      "A": "Tính tích cực"
+    },
+    "correct_answer": "A",
+    "explanation": "せっきょくてき"
+  },
+  {
+    "question": "消極的（な）",
+    "options": {
+      "A": "Tính tiêu cực"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうきょくてき"
+  },
+  {
+    "question": "満足（な）",
+    "options": {
+      "A": "Mãn nguyện"
+    },
+    "correct_answer": "A",
+    "explanation": "まんぞく"
+  },
+  {
+    "question": "不満（な）",
+    "options": {
+      "A": "Bất mãn"
+    },
+    "correct_answer": "A",
+    "explanation": "ふまん"
+  },
+  {
+    "question": "不安（な）",
+    "options": {
+      "A": "Bất an"
+    },
+    "correct_answer": "A",
+    "explanation": "ふあん"
+  },
+  {
+    "question": "大変（な）",
+    "options": {
+      "A": "Vất vả"
+    },
+    "correct_answer": "A",
+    "explanation": "たいへん"
+  },
+  {
+    "question": "無理（な）",
+    "options": {
+      "A": "Vô lý"
+    },
+    "correct_answer": "A",
+    "explanation": "むり"
+  },
+  {
+    "question": "不注意（な）",
+    "options": {
+      "A": "Không chú ý"
+    },
+    "correct_answer": "A",
+    "explanation": "ふちゅうい"
+  },
+  {
+    "question": "楽（な）",
+    "options": {
+      "A": "Thoải mái, nhàn hạ"
+    },
+    "correct_answer": "A",
+    "explanation": "らく"
+  },
+  {
+    "question": "面倒（な）",
+    "options": {
+      "A": "Phiền hà, quấy rầy"
+    },
+    "correct_answer": "A",
+    "explanation": "めんどう"
+  },
+  {
+    "question": "手続き",
+    "options": {
+      "A": "Thủ tục"
+    },
+    "correct_answer": "A",
+    "explanation": "てつづき"
+  },
+  {
+    "question": "失礼（な）",
+    "options": {
+      "A": "Mất lịch sự"
+    },
+    "correct_answer": "A",
+    "explanation": "しつれい"
+  },
+  {
+    "question": "当然（な）",
+    "options": {
+      "A": "Đương nhiên"
+    },
+    "correct_answer": "A",
+    "explanation": "とうぜん"
+  },
+  {
+    "question": "意外（な）",
+    "options": {
+      "A": "Ngoài ý muốn"
+    },
+    "correct_answer": "A",
+    "explanation": "いがい"
+  },
+  {
+    "question": "調査",
+    "options": {
+      "A": "Điều tra"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうさ"
+  },
+  {
+    "question": "事故",
+    "options": {
+      "A": "Tai nạn, sự cố"
+    },
+    "correct_answer": "A",
+    "explanation": "じこ"
+  },
+  {
+    "question": "結構（な）",
+    "options": {
+      "A": "Tốt, cũng được"
+    },
+    "correct_answer": "A",
+    "explanation": "けっこう"
+  },
+  {
+    "question": "派手（な）",
+    "options": {
+      "A": "Lòe loẹt, màu mè"
+    },
+    "correct_answer": "A",
+    "explanation": "はで"
+  },
+  {
+    "question": "地味（な）",
+    "options": {
+      "A": "Giản dị, đơn giản"
+    },
+    "correct_answer": "A",
+    "explanation": "じみ"
+  },
+  {
+    "question": "お洒落（な）",
+    "options": {
+      "A": "Thời trang thịnh hành"
+    },
+    "correct_answer": "A",
+    "explanation": "おしゃれ"
+  },
+  {
+    "question": "変（な）",
+    "options": {
+      "A": "Lạ, kỳ quặc"
+    },
+    "correct_answer": "A",
+    "explanation": "へん"
+  },
+  {
+    "question": "不思議（な）",
+    "options": {
+      "A": "Bí hiểm, kỳ quái"
+    },
+    "correct_answer": "A",
+    "explanation": "ふしぎ"
+  },
+  {
+    "question": "増し（な）",
+    "options": {
+      "A": "Tốt lên"
+    },
+    "correct_answer": "A",
+    "explanation": "まし"
+  },
+  {
+    "question": "無駄（な）",
+    "options": {
+      "A": "Lãng phí"
+    },
+    "correct_answer": "A",
+    "explanation": "むだ"
+  },
+  {
+    "question": "自由（な）",
+    "options": {
+      "A": "Tự do"
+    },
+    "correct_answer": "A",
+    "explanation": "じゆう"
+  },
+  {
+    "question": "不自由（な）",
+    "options": {
+      "A": "Không tự do, tàn phế"
+    },
+    "correct_answer": "A",
+    "explanation": "ふじゆう"
+  },
+  {
+    "question": "暖まる",
+    "options": {
+      "A": "Ấm lên"
+    },
+    "correct_answer": "A",
+    "explanation": "あたたまる"
+  },
+  {
+    "question": "暖める",
+    "options": {
+      "A": "Làm ấm"
+    },
+    "correct_answer": "A",
+    "explanation": "あたためる"
+  },
+  {
+    "question": "高まる",
+    "options": {
+      "A": "Bốc lên, nâng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "たかまる"
+  },
+  {
+    "question": "高める",
+    "options": {
+      "A": "Làm cho lên, dựng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "たかめる"
+  },
+  {
+    "question": "強まる",
+    "options": {
+      "A": "Khỏe,mạnh lên"
+    },
+    "correct_answer": "A",
+    "explanation": "つよまる"
+  },
+  {
+    "question": "強める",
+    "options": {
+      "A": "Làm khỏe lên"
+    },
+    "correct_answer": "A",
+    "explanation": "つよめる"
+  },
+  {
+    "question": "弱まる",
+    "options": {
+      "A": "Yếu đi"
+    },
+    "correct_answer": "A",
+    "explanation": "よわまる"
+  },
+  {
+    "question": "弱める",
+    "options": {
+      "A": "Làm yếu đi"
+    },
+    "correct_answer": "A",
+    "explanation": "よわめる"
+  },
+  {
+    "question": "広まる",
+    "options": {
+      "A": "Được lan truyền"
+    },
+    "correct_answer": "A",
+    "explanation": "ひろまる"
+  },
+  {
+    "question": "広める",
+    "options": {
+      "A": "Loan tin, tuyên truyền"
+    },
+    "correct_answer": "A",
+    "explanation": "ひろめる"
+  },
+  {
+    "question": "深まる",
+    "options": {
+      "A": "Sâu sắc thêm"
+    },
+    "correct_answer": "A",
+    "explanation": "ふかまる"
+  },
+  {
+    "question": "深める",
+    "options": {
+      "A": "Làm sâu sắc thêm"
+    },
+    "correct_answer": "A",
+    "explanation": "ふかめる"
+  },
+  {
+    "question": "世話",
+    "options": {
+      "A": "Giúp đỡ"
+    },
+    "correct_answer": "A",
+    "explanation": "せわ"
+  },
+  {
+    "question": "家庭",
+    "options": {
+      "A": "Gia đình"
+    },
+    "correct_answer": "A",
+    "explanation": "かてい"
+  },
+  {
+    "question": "厳しい",
+    "options": {
+      "A": "Nghiêm khắc"
+    },
+    "correct_answer": "A",
+    "explanation": "きびしい"
+  },
+  {
+    "question": "易しい",
+    "options": {
+      "A": "Dễ"
+    },
+    "correct_answer": "A",
+    "explanation": "やさしい"
+  },
+  {
+    "question": "協力する",
+    "options": {
+      "A": "Hiệp lực"
+    },
+    "correct_answer": "A",
+    "explanation": "きょうりょくする"
+  },
+  {
+    "question": "介護",
+    "options": {
+      "A": "Chăm sóc"
+    },
+    "correct_answer": "A",
+    "explanation": "かいご"
+  },
+  {
+    "question": "感謝する",
+    "options": {
+      "A": "Cảm ơn, biết ơn"
+    },
+    "correct_answer": "A",
+    "explanation": "かんしゃする"
+  },
+  {
+    "question": "お詫び",
+    "options": {
+      "A": "Xin lỗi"
+    },
+    "correct_answer": "A",
+    "explanation": "おわび"
+  },
+  {
+    "question": "迷惑をかける",
+    "options": {
+      "A": "Làm phiền"
+    },
+    "correct_answer": "A",
+    "explanation": "めいわくをかける"
+  },
+  {
+    "question": "お辞儀",
+    "options": {
+      "A": "Cúi chào"
+    },
+    "correct_answer": "A",
+    "explanation": "おじぎ"
+  },
+  {
+    "question": "丁寧（な）",
+    "options": {
+      "A": "Lịch sự"
+    },
+    "correct_answer": "A",
+    "explanation": "ていねい"
+  },
+  {
+    "question": "握手",
+    "options": {
+      "A": "Bắt tay"
+    },
+    "correct_answer": "A",
+    "explanation": "あくしゅ"
+  },
+  {
+    "question": "意地悪する",
+    "options": {
+      "A": "Tâm địa xấu, xấu bụng"
+    },
+    "correct_answer": "A",
+    "explanation": "いじわるする"
+  },
+  {
+    "question": "悪戯する",
+    "options": {
+      "A": "Nghịch ngợm"
+    },
+    "correct_answer": "A",
+    "explanation": "いたずらする"
+  },
+  {
+    "question": "節約する",
+    "options": {
+      "A": "Tiết kiệm, dành dụm"
+    },
+    "correct_answer": "A",
+    "explanation": "せつやくする"
+  },
+  {
+    "question": "生活費",
+    "options": {
+      "A": "Phí sinh hoạt"
+    },
+    "correct_answer": "A",
+    "explanation": "せいかつひ"
+  },
+  {
+    "question": "経営する",
+    "options": {
+      "A": "Quản lý kinh doanh"
+    },
+    "correct_answer": "A",
+    "explanation": "けいえいする"
+  },
+  {
+    "question": "反省する",
+    "options": {
+      "A": "Kiểm điểm"
+    },
+    "correct_answer": "A",
+    "explanation": "はんせいする"
+  },
+  {
+    "question": "実行する",
+    "options": {
+      "A": "Thực hành"
+    },
+    "correct_answer": "A",
+    "explanation": "じっこうする"
+  },
+  {
+    "question": "進歩する",
+    "options": {
+      "A": "Tiến bộ"
+    },
+    "correct_answer": "A",
+    "explanation": "しんぽする"
+  },
+  {
+    "question": "変化する",
+    "options": {
+      "A": "Thay đổi"
+    },
+    "correct_answer": "A",
+    "explanation": "へんかする"
+  },
+  {
+    "question": "発達する",
+    "options": {
+      "A": "Phát triển, phát đạt"
+    },
+    "correct_answer": "A",
+    "explanation": "はったつする"
+  },
+  {
+    "question": "体力",
+    "options": {
+      "A": "Thể lực"
+    },
+    "correct_answer": "A",
+    "explanation": "たいりょく"
+  },
+  {
+    "question": "低下",
+    "options": {
+      "A": "Suy giảm"
+    },
+    "correct_answer": "A",
+    "explanation": "ていか"
+  },
+  {
+    "question": "若者",
+    "options": {
+      "A": "Giới trẻ"
+    },
+    "correct_answer": "A",
+    "explanation": "わかもの"
+  },
+  {
+    "question": "出場する",
+    "options": {
+      "A": "Ra mặt, ra mắt(trình diễn)"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅつじょうする"
+  },
+  {
+    "question": "活躍する",
+    "options": {
+      "A": "Hoạt động"
+    },
+    "correct_answer": "A",
+    "explanation": "かつやくする"
+  },
+  {
+    "question": "競争する",
+    "options": {
+      "A": "Cạnh tranh"
+    },
+    "correct_answer": "A",
+    "explanation": "きょうそうする"
+  },
+  {
+    "question": "成績",
+    "options": {
+      "A": "Thành tích"
+    },
+    "correct_answer": "A",
+    "explanation": "せいせき"
+  },
+  {
+    "question": "応援する",
+    "options": {
+      "A": "Cổ vũ, hỗ trợ"
+    },
+    "correct_answer": "A",
+    "explanation": "おうえんする"
+  },
+  {
+    "question": "拍手する",
+    "options": {
+      "A": "Vỗ tay"
+    },
+    "correct_answer": "A",
+    "explanation": "はくしゅする"
+  },
+  {
+    "question": "噂する",
+    "options": {
+      "A": "Lời đồn, bàn tán"
+    },
+    "correct_answer": "A",
+    "explanation": "うわさする"
+  },
+  {
+    "question": "情報",
+    "options": {
+      "A": "Thông tin"
+    },
+    "correct_answer": "A",
+    "explanation": "じょうほう"
+  },
+  {
+    "question": "流行する",
+    "options": {
+      "A": "Lưu hành"
+    },
+    "correct_answer": "A",
+    "explanation": "りゅうこうする"
+  },
+  {
+    "question": "交換する",
+    "options": {
+      "A": "Trao đổi"
+    },
+    "correct_answer": "A",
+    "explanation": "こうかんする"
+  },
+  {
+    "question": "宣伝する",
+    "options": {
+      "A": "Tuyền truyền"
+    },
+    "correct_answer": "A",
+    "explanation": "せんでんする"
+  },
+  {
+    "question": "広告",
+    "options": {
+      "A": "Quảng cáo"
+    },
+    "correct_answer": "A",
+    "explanation": "こうこく"
+  },
+  {
+    "question": "注目する",
+    "options": {
+      "A": "Tập trung sự chú ý"
+    },
+    "correct_answer": "A",
+    "explanation": "ちゅうもくする"
+  },
+  {
+    "question": "通訳する",
+    "options": {
+      "A": "Thông dịch"
+    },
+    "correct_answer": "A",
+    "explanation": "つうやくする"
+  },
+  {
+    "question": "翻訳する",
+    "options": {
+      "A": "Phiên dịch"
+    },
+    "correct_answer": "A",
+    "explanation": "ほんやくする"
+  },
+  {
+    "question": "伝言する",
+    "options": {
+      "A": "Nhắn tin"
+    },
+    "correct_answer": "A",
+    "explanation": "でんごんする"
+  },
+  {
+    "question": "報告する",
+    "options": {
+      "A": "Báo cáo"
+    },
+    "correct_answer": "A",
+    "explanation": "ほうこくする"
+  },
+  {
+    "question": "録画",
+    "options": {
+      "A": "Ghi hình"
+    },
+    "correct_answer": "A",
+    "explanation": "ろくが"
+  },
+  {
+    "question": "混雑する",
+    "options": {
+      "A": "Hỗn tạp, đông đúc"
+    },
+    "correct_answer": "A",
+    "explanation": "こんざつする"
+  },
+  {
+    "question": "渋滞する",
+    "options": {
+      "A": "Tắc đường, tắc nghẽn"
+    },
+    "correct_answer": "A",
+    "explanation": "じゅうたいする"
+  },
+  {
+    "question": "衝突する",
+    "options": {
+      "A": "Xung đột, va chạm"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうとつする"
+  },
+  {
+    "question": "場面",
+    "options": {
+      "A": "Hiện trường"
+    },
+    "correct_answer": "A",
+    "explanation": "ばめん"
+  },
+  {
+    "question": "被害",
+    "options": {
+      "A": "Thiệt hại"
+    },
+    "correct_answer": "A",
+    "explanation": "ひがい"
+  },
+  {
+    "question": "事故",
+    "options": {
+      "A": "Tại nạn, sự cố"
+    },
+    "correct_answer": "A",
+    "explanation": "じこ"
+  },
+  {
+    "question": "事件",
+    "options": {
+      "A": "Sự kiện"
+    },
+    "correct_answer": "A",
+    "explanation": "じけん"
+  },
+  {
+    "question": "故障する",
+    "options": {
+      "A": "Hỏng hóc, trục trặc"
+    },
+    "correct_answer": "A",
+    "explanation": "こしょうする"
+  },
+  {
+    "question": "修理する",
+    "options": {
+      "A": "Sửa chữa"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅうりする"
+  },
+  {
+    "question": "停電",
+    "options": {
+      "A": "Mất điện"
+    },
+    "correct_answer": "A",
+    "explanation": "ていでん"
+  },
+  {
+    "question": "雷",
+    "options": {
+      "A": "Sấm sét"
+    },
+    "correct_answer": "A",
+    "explanation": "かみなり"
+  },
+  {
+    "question": "調子",
+    "options": {
+      "A": "Tình trạng"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうし"
+  },
+  {
+    "question": "自信",
+    "options": {
+      "A": "Tự tin"
+    },
+    "correct_answer": "A",
+    "explanation": "じしん"
+  },
+  {
+    "question": "自慢",
+    "options": {
+      "A": "Tự mãn"
+    },
+    "correct_answer": "A",
+    "explanation": "じまん"
+  },
+  {
+    "question": "関心",
+    "options": {
+      "A": "Quan tâm"
+    },
+    "correct_answer": "A",
+    "explanation": "かんしん"
+  },
+  {
+    "question": "感動する",
+    "options": {
+      "A": "Cảm động"
+    },
+    "correct_answer": "A",
+    "explanation": "かんどうする"
+  },
+  {
+    "question": "興奮する",
+    "options": {
+      "A": "Hưng phấn"
+    },
+    "correct_answer": "A",
+    "explanation": "こうふんする"
+  },
+  {
+    "question": "感想",
+    "options": {
+      "A": "Cảm tưởng"
+    },
+    "correct_answer": "A",
+    "explanation": "かんそう"
+  },
+  {
+    "question": "予想する",
+    "options": {
+      "A": "Đoán trước, trù liệu"
+    },
+    "correct_answer": "A",
+    "explanation": "よそうする"
+  },
+  {
+    "question": "専門",
+    "options": {
+      "A": "Chuyên môn"
+    },
+    "correct_answer": "A",
+    "explanation": "せんもん"
+  },
+  {
+    "question": "研究する",
+    "options": {
+      "A": "Nghiên cứu"
+    },
+    "correct_answer": "A",
+    "explanation": "けんきゅうする"
+  },
+  {
+    "question": "調査する",
+    "options": {
+      "A": "Điều tra"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうさする"
+  },
+  {
+    "question": "原因",
+    "options": {
+      "A": "Nguyên nhân"
+    },
+    "correct_answer": "A",
+    "explanation": "げんいん"
+  },
+  {
+    "question": "結果",
+    "options": {
+      "A": "Kết quả"
+    },
+    "correct_answer": "A",
+    "explanation": "けっか"
+  },
+  {
+    "question": "解決",
+    "options": {
+      "A": "Quải quyết"
+    },
+    "correct_answer": "A",
+    "explanation": "かいけつ"
+  },
+  {
+    "question": "確かめる",
+    "options": {
+      "A": "Xác nhận, kiểm tra"
+    },
+    "correct_answer": "A",
+    "explanation": "たしかめる"
+  },
+  {
+    "question": "間違う",
+    "options": {
+      "A": "Sai"
+    },
+    "correct_answer": "A",
+    "explanation": "まちがう"
+  },
+  {
+    "question": "利用する",
+    "options": {
+      "A": "Sử dụng"
+    },
+    "correct_answer": "A",
+    "explanation": "りようする"
+  },
+  {
+    "question": "減る",
+    "options": {
+      "A": "Giảm"
+    },
+    "correct_answer": "A",
+    "explanation": "へる"
+  },
+  {
+    "question": "理解する",
+    "options": {
+      "A": "Lý giải"
+    },
+    "correct_answer": "A",
+    "explanation": "りかいする"
+  },
+  {
+    "question": "発見する",
+    "options": {
+      "A": "Phát hiện"
+    },
+    "correct_answer": "A",
+    "explanation": "はっけんする"
+  },
+  {
+    "question": "発明する",
+    "options": {
+      "A": "Phát minh"
+    },
+    "correct_answer": "A",
+    "explanation": "はつめいする"
+  },
+  {
+    "question": "関係する",
+    "options": {
+      "A": "Quan hệ"
+    },
+    "correct_answer": "A",
+    "explanation": "かんけいする"
+  },
+  {
+    "question": "団体",
+    "options": {
+      "A": "Đoàn thể, nhóm"
+    },
+    "correct_answer": "A",
+    "explanation": "だんたい"
+  },
+  {
+    "question": "博物館",
+    "options": {
+      "A": "Viện bảo tàng"
+    },
+    "correct_answer": "A",
+    "explanation": "はくぶつかん"
+  },
+  {
+    "question": "選挙",
+    "options": {
+      "A": "Bầu cử"
+    },
+    "correct_answer": "A",
+    "explanation": "せんきょ"
+  },
+  {
+    "question": "行う",
+    "options": {
+      "A": "Tổ chức"
+    },
+    "correct_answer": "A",
+    "explanation": "おこなう"
+  },
+  {
+    "question": "税金",
+    "options": {
+      "A": "Tiền thuế"
+    },
+    "correct_answer": "A",
+    "explanation": "ぜいきん"
+  },
+  {
+    "question": "責任",
+    "options": {
+      "A": "Trách nhiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "せきにん"
+  },
+  {
+    "question": "書類",
+    "options": {
+      "A": "Giấy tờ"
+    },
+    "correct_answer": "A",
+    "explanation": "しょるい"
+  },
+  {
+    "question": "題名",
+    "options": {
+      "A": "Nhan đề"
+    },
+    "correct_answer": "A",
+    "explanation": "だいめい"
+  },
+  {
+    "question": "条件",
+    "options": {
+      "A": "Điều kiện"
+    },
+    "correct_answer": "A",
+    "explanation": "じょうけん"
+  },
+  {
+    "question": "採用",
+    "options": {
+      "A": "Tuyển dụng"
+    },
+    "correct_answer": "A",
+    "explanation": "さいよう"
+  },
+  {
+    "question": "締め切り",
+    "options": {
+      "A": "Hạn cuối"
+    },
+    "correct_answer": "A",
+    "explanation": "しめきり"
+  },
+  {
+    "question": "期間",
+    "options": {
+      "A": "期間"
+    },
+    "correct_answer": "A",
+    "explanation": "きかん"
+  },
+  {
+    "question": "倍",
+    "options": {
+      "A": "Gấp đôi"
+    },
+    "correct_answer": "A",
+    "explanation": "ばい"
+  },
+  {
+    "question": "近道",
+    "options": {
+      "A": "Đường tắt"
+    },
+    "correct_answer": "A",
+    "explanation": "ちかみち"
+  },
+  {
+    "question": "中心",
+    "options": {
+      "A": "Trung tâm"
+    },
+    "correct_answer": "A",
+    "explanation": "ちゅうしん"
+  },
+  {
+    "question": "辺り",
+    "options": {
+      "A": "Xung quanh"
+    },
+    "correct_answer": "A",
+    "explanation": "あたり"
+  },
+  {
+    "question": "周り",
+    "options": {
+      "A": "Xung quanh"
+    },
+    "correct_answer": "A",
+    "explanation": "まわり"
+  },
+  {
+    "question": "穴",
+    "options": {
+      "A": "Lỗ"
+    },
+    "correct_answer": "A",
+    "explanation": "あな"
+  },
+  {
+    "question": "地面",
+    "options": {
+      "A": "Mặt đất"
+    },
+    "correct_answer": "A",
+    "explanation": "じめん"
+  },
+  {
+    "question": "掘る",
+    "options": {
+      "A": "Đào"
+    },
+    "correct_answer": "A",
+    "explanation": "ほる"
+  },
+  {
+    "question": "列",
+    "options": {
+      "A": "Hàng ( xếp hàng)"
+    },
+    "correct_answer": "A",
+    "explanation": "れつ"
+  },
+  {
+    "question": "幅",
+    "options": {
+      "A": "Chiều rộng"
+    },
+    "correct_answer": "A",
+    "explanation": "はば"
+  },
+  {
+    "question": "範囲",
+    "options": {
+      "A": "Phạm vi"
+    },
+    "correct_answer": "A",
+    "explanation": "はんい"
+  },
+  {
+    "question": "内容",
+    "options": {
+      "A": "Nội dung"
+    },
+    "correct_answer": "A",
+    "explanation": "ないよう"
+  },
+  {
+    "question": "中身",
+    "options": {
+      "A": "Nội dung bên trong"
+    },
+    "correct_answer": "A",
+    "explanation": "なかみ"
+  },
+  {
+    "question": "特徴",
+    "options": {
+      "A": "Đặc trưng"
+    },
+    "correct_answer": "A",
+    "explanation": "とくちょう"
+  },
+  {
+    "question": "普通",
+    "options": {
+      "A": "Phổ thông, thông thường"
+    },
+    "correct_answer": "A",
+    "explanation": "ふつう"
+  },
+  {
+    "question": "当たり前",
+    "options": {
+      "A": "Dĩ nhiên"
+    },
+    "correct_answer": "A",
+    "explanation": "あたりまえ"
+  },
+  {
+    "question": "偽",
+    "options": {
+      "A": "Giả (giả dối)"
+    },
+    "correct_answer": "A",
+    "explanation": "にせ"
+  },
+  {
+    "question": "別れる",
+    "options": {
+      "A": "Chia tay, ly biệt"
+    },
+    "correct_answer": "A",
+    "explanation": "わかれる"
+  },
+  {
+    "question": "国籍",
+    "options": {
+      "A": "Quốc tịch"
+    },
+    "correct_answer": "A",
+    "explanation": "こくせき"
+  },
+  {
+    "question": "東洋",
+    "options": {
+      "A": "Phương Đông"
+    },
+    "correct_answer": "A",
+    "explanation": "とうよう"
+  },
+  {
+    "question": "西洋",
+    "options": {
+      "A": "Phương Tây"
+    },
+    "correct_answer": "A",
+    "explanation": "せいよう"
+  },
+  {
+    "question": "比べる",
+    "options": {
+      "A": "So sánh"
+    },
+    "correct_answer": "A",
+    "explanation": "くらべる"
+  },
+  {
+    "question": "文化",
+    "options": {
+      "A": "Văn hóa"
+    },
+    "correct_answer": "A",
+    "explanation": "ぶんか"
+  },
+  {
+    "question": "国際",
+    "options": {
+      "A": "Quốc tế"
+    },
+    "correct_answer": "A",
+    "explanation": "こくさい"
+  },
+  {
+    "question": "支社",
+    "options": {
+      "A": "Chi nhánh"
+    },
+    "correct_answer": "A",
+    "explanation": "ししゃ"
+  },
+  {
+    "question": "企業",
+    "options": {
+      "A": "Công ty, xí nghiệp"
+    },
+    "correct_answer": "A",
+    "explanation": "きぎょう"
+  },
+  {
+    "question": "発展",
+    "options": {
+      "A": "Phát triển"
+    },
+    "correct_answer": "A",
+    "explanation": "はってん"
+  },
+  {
+    "question": "自然",
+    "options": {
+      "A": "Tự nhiên"
+    },
+    "correct_answer": "A",
+    "explanation": "しぜん"
+  },
+  {
+    "question": "景色",
+    "options": {
+      "A": "Phong cảnh"
+    },
+    "correct_answer": "A",
+    "explanation": "けしき"
+  },
+  {
+    "question": "宗教",
+    "options": {
+      "A": "Tôn giáo"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅうきょう"
+  },
+  {
+    "question": "愛",
+    "options": {
+      "A": "Yêu"
+    },
+    "correct_answer": "A",
+    "explanation": "あい"
+  },
+  {
+    "question": "が　届く",
+    "options": {
+      "A": "Được gửi đến"
+    },
+    "correct_answer": "A",
+    "explanation": "とどく"
+  },
+  {
+    "question": "届ける",
+    "options": {
+      "A": "Chuyển đến"
+    },
+    "correct_answer": "A",
+    "explanation": "とどける"
+  },
+  {
+    "question": "掻く",
+    "options": {
+      "A": "Gãi, cào, bới"
+    },
+    "correct_answer": "A",
+    "explanation": "かく"
+  },
+  {
+    "question": "掴む",
+    "options": {
+      "A": "Tóm, chộp"
+    },
+    "correct_answer": "A",
+    "explanation": "つかむ"
+  },
+  {
+    "question": "びっくりする",
+    "options": {
+      "A": "Ngạc nhiên, giật mình"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "握る",
+    "options": {
+      "A": "Bắt, bíu, nắm"
+    },
+    "correct_answer": "A",
+    "explanation": "にぎる"
+  },
+  {
+    "question": "押さえる",
+    "options": {
+      "A": "Giữ, ôm(bụng)"
+    },
+    "correct_answer": "A",
+    "explanation": "おさえる"
+  },
+  {
+    "question": "が　近づく",
+    "options": {
+      "A": "Đến gần, tới gần"
+    },
+    "correct_answer": "A",
+    "explanation": "ちかづく"
+  },
+  {
+    "question": "近づける",
+    "options": {
+      "A": "Kết thân, mang lại gần"
+    },
+    "correct_answer": "A",
+    "explanation": "ちかづける"
+  },
+  {
+    "question": "が　合う",
+    "options": {
+      "A": "Chạm mặt"
+    },
+    "correct_answer": "A",
+    "explanation": "あう"
+  },
+  {
+    "question": "不図",
+    "options": {
+      "A": "Đột nhiên"
+    },
+    "correct_answer": "A",
+    "explanation": "ふと"
+  },
+  {
+    "question": "合わせる",
+    "options": {
+      "A": "Hiệp sức"
+    },
+    "correct_answer": "A",
+    "explanation": "あわせる"
+  },
+  {
+    "question": "が　当たる",
+    "options": {
+      "A": "Bị đánh"
+    },
+    "correct_answer": "A",
+    "explanation": "あたる"
+  },
+  {
+    "question": "当てる",
+    "options": {
+      "A": "Đánh trúng"
+    },
+    "correct_answer": "A",
+    "explanation": "あてる"
+  },
+  {
+    "question": "比べる",
+    "options": {
+      "A": "So sánh"
+    },
+    "correct_answer": "A",
+    "explanation": "くらべる"
+  },
+  {
+    "question": "似合う",
+    "options": {
+      "A": "Hợp"
+    },
+    "correct_answer": "A",
+    "explanation": "にあう"
+  },
+  {
+    "question": "似る",
+    "options": {
+      "A": "Giống"
+    },
+    "correct_answer": "A",
+    "explanation": "にる"
+  },
+  {
+    "question": "似せる",
+    "options": {
+      "A": "Bắt chước"
+    },
+    "correct_answer": "A",
+    "explanation": "にせる"
+  },
+  {
+    "question": "が　分かれる",
+    "options": {
+      "A": "Phân chia"
+    },
+    "correct_answer": "A",
+    "explanation": "わかれる"
+  },
+  {
+    "question": "分ける",
+    "options": {
+      "A": "Chia "
+    },
+    "correct_answer": "A",
+    "explanation": "わける"
+  },
+  {
+    "question": "財産",
+    "options": {
+      "A": "Tài sản"
+    },
+    "correct_answer": "A",
+    "explanation": "ざいさん"
+  },
+  {
+    "question": "足す",
+    "options": {
+      "A": "Cộng vào, thêm vào"
+    },
+    "correct_answer": "A",
+    "explanation": "たす"
+  },
+  {
+    "question": "薄い",
+    "options": {
+      "A": "Nhạt, mỏng"
+    },
+    "correct_answer": "A",
+    "explanation": "うすい"
+  },
+  {
+    "question": "塩",
+    "options": {
+      "A": "Muối"
+    },
+    "correct_answer": "A",
+    "explanation": "しお"
+  },
+  {
+    "question": "引く",
+    "options": {
+      "A": "Trừ"
+    },
+    "correct_answer": "A",
+    "explanation": "ひく"
+  },
+  {
+    "question": "が　増える",
+    "options": {
+      "A": "Tăng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "ふえる"
+  },
+  {
+    "question": "増やす",
+    "options": {
+      "A": "Làm tăng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "ふやす"
+  },
+  {
+    "question": "が　減る",
+    "options": {
+      "A": "Giảm "
+    },
+    "correct_answer": "A",
+    "explanation": "へる"
+  },
+  {
+    "question": "減らす",
+    "options": {
+      "A": "Làm giảm"
+    },
+    "correct_answer": "A",
+    "explanation": "へらす"
+  },
+  {
+    "question": "店長",
+    "options": {
+      "A": "Chủ tiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "てんちょう"
+  },
+  {
+    "question": "が　返る",
+    "options": {
+      "A": "Được trả lại"
+    },
+    "correct_answer": "A",
+    "explanation": "かえる"
+  },
+  {
+    "question": "返す",
+    "options": {
+      "A": "Trả lại"
+    },
+    "correct_answer": "A",
+    "explanation": "かえす"
+  },
+  {
+    "question": "譲る",
+    "options": {
+      "A": "Nhường nhin, nhượng bộ"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆずる"
+  },
+  {
+    "question": "が　助かる",
+    "options": {
+      "A": "Được giúp"
+    },
+    "correct_answer": "A",
+    "explanation": "たすかる"
+  },
+  {
+    "question": "助ける",
+    "options": {
+      "A": "Giúp đỡ"
+    },
+    "correct_answer": "A",
+    "explanation": "たすける"
+  },
+  {
+    "question": "虐める",
+    "options": {
+      "A": "Bị bắt nạt"
+    },
+    "correct_answer": "A",
+    "explanation": "いじめる"
+  },
+  {
+    "question": "騙す",
+    "options": {
+      "A": "Lừa đảo, lạm dụng"
+    },
+    "correct_answer": "A",
+    "explanation": "だます"
+  },
+  {
+    "question": "独身",
+    "options": {
+      "A": "Độc thân"
+    },
+    "correct_answer": "A",
+    "explanation": "どくしん"
+  },
+  {
+    "question": "女性",
+    "options": {
+      "A": "Nữ giới"
+    },
+    "correct_answer": "A",
+    "explanation": "じょせい"
+  },
+  {
+    "question": "付き合う",
+    "options": {
+      "A": "Hẹn hò"
+    },
+    "correct_answer": "A",
+    "explanation": "つきあう"
+  },
+  {
+    "question": "盗む",
+    "options": {
+      "A": "Ăn trộm"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬすむ"
+  },
+  {
+    "question": "留守中",
+    "options": {
+      "A": "Trong khi vắng nhà"
+    },
+    "correct_answer": "A",
+    "explanation": "るすちゅう"
+  },
+  {
+    "question": "が　刺さる",
+    "options": {
+      "A": "Mắc, hóc"
+    },
+    "correct_answer": "A",
+    "explanation": "ささる"
+  },
+  {
+    "question": "刺す",
+    "options": {
+      "A": "Đâm, chọc"
+    },
+    "correct_answer": "A",
+    "explanation": "さす"
+  },
+  {
+    "question": "殺す",
+    "options": {
+      "A": "Giết"
+    },
+    "correct_answer": "A",
+    "explanation": "ころす"
+  },
+  {
+    "question": "が　隠れる",
+    "options": {
+      "A": "Ẩn nấp, núp"
+    },
+    "correct_answer": "A",
+    "explanation": "かくれる"
+  },
+  {
+    "question": "隠す",
+    "options": {
+      "A": "Che giấu"
+    },
+    "correct_answer": "A",
+    "explanation": "かくす"
+  },
+  {
+    "question": "が　埋まる",
+    "options": {
+      "A": "Bị lấp/chôn"
+    },
+    "correct_answer": "A",
+    "explanation": "うまる"
+  },
+  {
+    "question": "埋める",
+    "options": {
+      "A": "Chôn lấp"
+    },
+    "correct_answer": "A",
+    "explanation": "うめる"
+  },
+  {
+    "question": "囲む",
+    "options": {
+      "A": "Bao quanh, vây hãm"
+    },
+    "correct_answer": "A",
+    "explanation": "かこむ"
+  },
+  {
+    "question": "が　詰まる",
+    "options": {
+      "A": "Chặt, đầy"
+    },
+    "correct_answer": "A",
+    "explanation": "つまる"
+  },
+  {
+    "question": "詰める",
+    "options": {
+      "A": "Nhét vào, tống vào"
+    },
+    "correct_answer": "A",
+    "explanation": "つめる"
+  },
+  {
+    "question": "開く",
+    "options": {
+      "A": "Mở"
+    },
+    "correct_answer": "A",
+    "explanation": "ひらく"
+  },
+  {
+    "question": "閉じる",
+    "options": {
+      "A": "Đóng"
+    },
+    "correct_answer": "A",
+    "explanation": "とじる"
+  },
+  {
+    "question": "が　飛ぶ",
+    "options": {
+      "A": "Bay"
+    },
+    "correct_answer": "A",
+    "explanation": "とぶ"
+  },
+  {
+    "question": "飛ばす",
+    "options": {
+      "A": "Làm cho bay"
+    },
+    "correct_answer": "A",
+    "explanation": "とばす"
+  },
+  {
+    "question": "振る",
+    "options": {
+      "A": "Vẫy (tay)"
+    },
+    "correct_answer": "A",
+    "explanation": "ふる"
+  },
+  {
+    "question": "捲る",
+    "options": {
+      "A": "Xắn, quấn "
+    },
+    "correct_answer": "A",
+    "explanation": "めくる"
+  },
+  {
+    "question": "見かける",
+    "options": {
+      "A": "Tình cờ gặp"
+    },
+    "correct_answer": "A",
+    "explanation": "みかける"
+  },
+  {
+    "question": "確かめる",
+    "options": {
+      "A": "Xác nhận, kiểm tra"
+    },
+    "correct_answer": "A",
+    "explanation": "たしかめる"
+  },
+  {
+    "question": "試す",
+    "options": {
+      "A": "Mặc thử"
+    },
+    "correct_answer": "A",
+    "explanation": "ためす"
+  },
+  {
+    "question": "洋服",
+    "options": {
+      "A": "Quần áo kiểu Tây Âu"
+    },
+    "correct_answer": "A",
+    "explanation": "ようふく"
+  },
+  {
+    "question": "繰り返す",
+    "options": {
+      "A": "Lặp lại"
+    },
+    "correct_answer": "A",
+    "explanation": "くりかえす"
+  },
+  {
+    "question": "体操する",
+    "options": {
+      "A": "Tập thể dục"
+    },
+    "correct_answer": "A",
+    "explanation": "たいそうする"
+  },
+  {
+    "question": "訳す",
+    "options": {
+      "A": "Dịch"
+    },
+    "correct_answer": "A",
+    "explanation": "やくす"
+  },
+  {
+    "question": "行う",
+    "options": {
+      "A": "Tổ chức"
+    },
+    "correct_answer": "A",
+    "explanation": "おこなう"
+  },
+  {
+    "question": "が　間違う",
+    "options": {
+      "A": "Bị sai"
+    },
+    "correct_answer": "A",
+    "explanation": "まちがう"
+  },
+  {
+    "question": "間違える",
+    "options": {
+      "A": "Làm sai"
+    },
+    "correct_answer": "A",
+    "explanation": "まちがえる"
+  },
+  {
+    "question": "許す",
+    "options": {
+      "A": "Tha thứ, tha lỗi"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆるす"
+  },
+  {
+    "question": "謝る",
+    "options": {
+      "A": "Xin lỗi"
+    },
+    "correct_answer": "A",
+    "explanation": "あやまる"
+  },
+  {
+    "question": "が　慣れる",
+    "options": {
+      "A": "Quen"
+    },
+    "correct_answer": "A",
+    "explanation": "なれる"
+  },
+  {
+    "question": "慣らす",
+    "options": {
+      "A": "Làm quen, khởi động"
+    },
+    "correct_answer": "A",
+    "explanation": "ならす"
+  },
+  {
+    "question": "が　立つ",
+    "options": {
+      "A": "Bị đứng"
+    },
+    "correct_answer": "A",
+    "explanation": "たつ"
+  },
+  {
+    "question": "立てる",
+    "options": {
+      "A": "Đứng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "たてる"
+  },
+  {
+    "question": "が　建つ",
+    "options": {
+      "A": "Được xây"
+    },
+    "correct_answer": "A",
+    "explanation": "たつ"
+  },
+  {
+    "question": "建てる",
+    "options": {
+      "A": "Xây lên"
+    },
+    "correct_answer": "A",
+    "explanation": "たてる"
+  },
+  {
+    "question": "が　育つ",
+    "options": {
+      "A": "Lớn lên, khôn lớn"
+    },
+    "correct_answer": "A",
+    "explanation": "そだつ"
+  },
+  {
+    "question": "育てる",
+    "options": {
+      "A": "Nuôi, dạy"
+    },
+    "correct_answer": "A",
+    "explanation": "そだてる"
+  },
+  {
+    "question": "が　生える",
+    "options": {
+      "A": "Mọc, phát triển"
+    },
+    "correct_answer": "A",
+    "explanation": "はえる"
+  },
+  {
+    "question": "生やす",
+    "options": {
+      "A": "Để dài (râu)"
+    },
+    "correct_answer": "A",
+    "explanation": "はやす"
+  },
+  {
+    "question": "が　汚れる",
+    "options": {
+      "A": "Bị bẩn"
+    },
+    "correct_answer": "A",
+    "explanation": "よごれる"
+  },
+  {
+    "question": "汚す",
+    "options": {
+      "A": "Làm bẩn"
+    },
+    "correct_answer": "A",
+    "explanation": "よごす"
+  },
+  {
+    "question": "が　壊れる",
+    "options": {
+      "A": "Bị hỏng"
+    },
+    "correct_answer": "A",
+    "explanation": "こわれる"
+  },
+  {
+    "question": "壊す",
+    "options": {
+      "A": "Làm hỏng"
+    },
+    "correct_answer": "A",
+    "explanation": "こわす"
+  },
+  {
+    "question": "が　割れる",
+    "options": {
+      "A": "Bị vỡ"
+    },
+    "correct_answer": "A",
+    "explanation": "われる"
+  },
+  {
+    "question": "割る",
+    "options": {
+      "A": "Làm vỡ"
+    },
+    "correct_answer": "A",
+    "explanation": "わる"
+  },
+  {
+    "question": "が　折れる",
+    "options": {
+      "A": "Gãy"
+    },
+    "correct_answer": "A",
+    "explanation": "おれる"
+  },
+  {
+    "question": "折る",
+    "options": {
+      "A": "Làm gãy"
+    },
+    "correct_answer": "A",
+    "explanation": "おる"
+  },
+  {
+    "question": "が　破れる",
+    "options": {
+      "A": "Rách"
+    },
+    "correct_answer": "A",
+    "explanation": "やぶれる"
+  },
+  {
+    "question": "破る",
+    "options": {
+      "A": "Xé rách"
+    },
+    "correct_answer": "A",
+    "explanation": "やぶる"
+  },
+  {
+    "question": "が　曲がる",
+    "options": {
+      "A": "Bị gập, cong"
+    },
+    "correct_answer": "A",
+    "explanation": "まがる"
+  },
+  {
+    "question": "曲げる",
+    "options": {
+      "A": "Gập, bẻ cong"
+    },
+    "correct_answer": "A",
+    "explanation": "まげる"
+  },
+  {
+    "question": "が　外れる",
+    "options": {
+      "A": "Rời ra, tách ra"
+    },
+    "correct_answer": "A",
+    "explanation": "はずれる"
+  },
+  {
+    "question": "外す",
+    "options": {
+      "A": "Làm rời ra, tách ra"
+    },
+    "correct_answer": "A",
+    "explanation": "はずす"
+  },
+  {
+    "question": "が　揺れる",
+    "options": {
+      "A": "Bi rung"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆれる"
+  },
+  {
+    "question": "揺らす",
+    "options": {
+      "A": "Rung, đung đưa"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆらす"
+  },
+  {
+    "question": "が　流れる",
+    "options": {
+      "A": "Chảy, trôi đi"
+    },
+    "correct_answer": "A",
+    "explanation": "ながれる"
+  },
+  {
+    "question": "流す",
+    "options": {
+      "A": "Cho chảy"
+    },
+    "correct_answer": "A",
+    "explanation": "ながす"
+  },
+  {
+    "question": "都心",
+    "options": {
+      "A": "Trung tâm"
+    },
+    "correct_answer": "A",
+    "explanation": "としん"
+  },
+  {
+    "question": "が　濡れる",
+    "options": {
+      "A": "Bị ướt"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬれる"
+  },
+  {
+    "question": "濡らす",
+    "options": {
+      "A": "Làm ướt"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬらす"
+  },
+  {
+    "question": "が　迷う",
+    "options": {
+      "A": "Lạc đường"
+    },
+    "correct_answer": "A",
+    "explanation": "まよう"
+  },
+  {
+    "question": "悩む",
+    "options": {
+      "A": "Phiền muội, lo lắng"
+    },
+    "correct_answer": "A",
+    "explanation": "なやむ"
+  },
+  {
+    "question": "が　慌てる",
+    "options": {
+      "A": "Luống cuống, vội vàng"
+    },
+    "correct_answer": "A",
+    "explanation": "あわてる"
+  },
+  {
+    "question": "が　覚める",
+    "options": {
+      "A": "Tỉnh giấc, tỉnh dậy"
+    },
+    "correct_answer": "A",
+    "explanation": "さめる"
+  },
+  {
+    "question": "覚ます",
+    "options": {
+      "A": "Làm cho tỉnh lại"
+    },
+    "correct_answer": "A",
+    "explanation": "さます"
+  },
+  {
+    "question": "夜中",
+    "options": {
+      "A": "Giữa đêm"
+    },
+    "correct_answer": "A",
+    "explanation": "よなか"
+  },
+  {
+    "question": "が　眠る",
+    "options": {
+      "A": "Ngủ"
+    },
+    "correct_answer": "A",
+    "explanation": "ねむる"
+  },
+  {
+    "question": "緊張する",
+    "options": {
+      "A": "Căng thẳng, lo lắng"
+    },
+    "correct_answer": "A",
+    "explanation": "きんちょうする"
+  },
+  {
+    "question": "祈る",
+    "options": {
+      "A": "Cầu nguyện"
+    },
+    "correct_answer": "A",
+    "explanation": "いのる"
+  },
+  {
+    "question": "祝う",
+    "options": {
+      "A": "Chúc mừng"
+    },
+    "correct_answer": "A",
+    "explanation": "いわう"
+  },
+  {
+    "question": "感じる",
+    "options": {
+      "A": "Cảm thấy"
+    },
+    "correct_answer": "A",
+    "explanation": "かんじる"
+  },
+  {
+    "question": "濃い",
+    "options": {
+      "A": "Nồng, đậm"
+    },
+    "correct_answer": "A",
+    "explanation": "こい"
+  },
+  {
+    "question": "薄い",
+    "options": {
+      "A": "Nhạt"
+    },
+    "correct_answer": "A",
+    "explanation": "うすい"
+  },
+  {
+    "question": "酸っぱい",
+    "options": {
+      "A": "Chua"
+    },
+    "correct_answer": "A",
+    "explanation": "すっぱい"
+  },
+  {
+    "question": "臭い",
+    "options": {
+      "A": "Thối, tanh"
+    },
+    "correct_answer": "A",
+    "explanation": "くさい"
+  },
+  {
+    "question": "可笑しい",
+    "options": {
+      "A": "Buồn cười"
+    },
+    "correct_answer": "A",
+    "explanation": "かわいい"
+  },
+  {
+    "question": "格好いい",
+    "options": {
+      "A": "Đẹp trai, bảnh bao"
+    },
+    "correct_answer": "A",
+    "explanation": "かっこいい"
+  },
+  {
+    "question": "うまい",
+    "options": {
+      "A": "Ngon"
+    },
+    "correct_answer": "A",
+    "explanation": "うまい"
+  },
+  {
+    "question": "親しい",
+    "options": {
+      "A": "Thân thiện, gần gũi"
+    },
+    "correct_answer": "A",
+    "explanation": "したしい"
+  },
+  {
+    "question": "詳しい",
+    "options": {
+      "A": "Tường tận, tỉ mỉ"
+    },
+    "correct_answer": "A",
+    "explanation": "くわしい"
+  },
+  {
+    "question": "細かい",
+    "options": {
+      "A": "Chi tiết, chi li"
+    },
+    "correct_answer": "A",
+    "explanation": "こまかい"
+  },
+  {
+    "question": "浅い",
+    "options": {
+      "A": "Nông, cạn"
+    },
+    "correct_answer": "A",
+    "explanation": "あさい"
+  },
+  {
+    "question": "硬い/固い",
+    "options": {
+      "A": "Cứng, dai"
+    },
+    "correct_answer": "A",
+    "explanation": "かたい"
+  },
+  {
+    "question": "温い",
+    "options": {
+      "A": "Nguội"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬるい"
+  },
+  {
+    "question": "眩しい",
+    "options": {
+      "A": "Chói mắt, sáng chói"
+    },
+    "correct_answer": "A",
+    "explanation": "まぶしい"
+  },
+  {
+    "question": "蒸し暑い",
+    "options": {
+      "A": "Nóng ẩm"
+    },
+    "correct_answer": "A",
+    "explanation": "むしあつい"
+  },
+  {
+    "question": "清潔（な）",
+    "options": {
+      "A": "Thanh khiết, sạch sẽ"
+    },
+    "correct_answer": "A",
+    "explanation": "せいけつ"
+  },
+  {
+    "question": "新鮮（な）",
+    "options": {
+      "A": "Tươi, mới"
+    },
+    "correct_answer": "A",
+    "explanation": "しんせん"
+  },
+  {
+    "question": "豊か（な）",
+    "options": {
+      "A": "Giàu có"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆたか"
+  },
+  {
+    "question": "立派（な）",
+    "options": {
+      "A": "Siêu"
+    },
+    "correct_answer": "A",
+    "explanation": "りっぱい"
+  },
+  {
+    "question": "正確（な）",
+    "options": {
+      "A": "Chính xác"
+    },
+    "correct_answer": "A",
+    "explanation": "せいかく"
+  },
+  {
+    "question": "確か（な）",
+    "options": {
+      "A": "Xác thực"
+    },
+    "correct_answer": "A",
+    "explanation": "たしか"
+  },
+  {
+    "question": "重要（な）",
+    "options": {
+      "A": "Trọng yếu"
+    },
+    "correct_answer": "A",
+    "explanation": "じゅうよう"
+  },
+  {
+    "question": "必要（な）",
+    "options": {
+      "A": "Cần thiết"
+    },
+    "correct_answer": "A",
+    "explanation": "ひつよう"
+  },
+  {
+    "question": "勿体無い（な）",
+    "options": {
+      "A": "Lãng phí, hoang phí"
+    },
+    "correct_answer": "A",
+    "explanation": "もったいない"
+  },
+  {
+    "question": "凄い",
+    "options": {
+      "A": "Giỏi, xuất sắc"
+    },
+    "correct_answer": "A",
+    "explanation": "すごい"
+  },
+  {
+    "question": "酷い",
+    "options": {
+      "A": "Kinh khủng, khủng khiếp"
+    },
+    "correct_answer": "A",
+    "explanation": "ひどい"
+  },
+  {
+    "question": "激しい",
+    "options": {
+      "A": "Mãnh liệt"
+    },
+    "correct_answer": "A",
+    "explanation": "はげしい"
+  },
+  {
+    "question": "そっくり（な）",
+    "options": {
+      "A": "Giống"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "急（な）",
+    "options": {
+      "A": "Gấp"
+    },
+    "correct_answer": "A",
+    "explanation": "きゅう"
+  },
+  {
+    "question": "適当（な）",
+    "options": {
+      "A": "Thích hợp, vừa phải"
+    },
+    "correct_answer": "A",
+    "explanation": "てきとう"
+  },
+  {
+    "question": "特別（な）",
+    "options": {
+      "A": "Đặc biệt"
+    },
+    "correct_answer": "A",
+    "explanation": "とくべつ"
+  },
+  {
+    "question": "完全（な）",
+    "options": {
+      "A": "Hoàn toàn"
+    },
+    "correct_answer": "A",
+    "explanation": "かんぜん"
+  },
+  {
+    "question": "盛ん（な）",
+    "options": {
+      "A": "Thịnh vượng"
+    },
+    "correct_answer": "A",
+    "explanation": "さかん"
+  },
+  {
+    "question": "様々（な）",
+    "options": {
+      "A": "Nhiều loại"
+    },
+    "correct_answer": "A",
+    "explanation": "さまざま"
+  },
+  {
+    "question": "可能（な）",
+    "options": {
+      "A": "Khả năng"
+    },
+    "correct_answer": "A",
+    "explanation": "かのう"
+  },
+  {
+    "question": "不可能（な）",
+    "options": {
+      "A": "Không khả thi"
+    },
+    "correct_answer": "A",
+    "explanation": "ふかのう"
+  },
+  {
+    "question": "基本的（な）",
+    "options": {
+      "A": "Tính cơ bản"
+    },
+    "correct_answer": "A",
+    "explanation": "きほんてき"
+  },
+  {
+    "question": "国際的（な）",
+    "options": {
+      "A": "Tính quốc tế"
+    },
+    "correct_answer": "A",
+    "explanation": "こくさいてき"
+  },
+  {
+    "question": "ばらばら（な）",
+    "options": {
+      "A": "Bừa bộn, lung tung"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "ぼろぼろ（な）",
+    "options": {
+      "A": "Rách nát"
+    },
+    "correct_answer": "A",
+    "explanation": ""
+  },
+  {
+    "question": "読書する",
+    "options": {
+      "A": "Đọc sách"
+    },
+    "correct_answer": "A",
+    "explanation": "どくしょ"
+  },
+  {
+    "question": "演奏",
+    "options": {
+      "A": "Trình diễn, biểu diễn"
+    },
+    "correct_answer": "A",
+    "explanation": "えんそう"
+  },
+  {
+    "question": "芸術",
+    "options": {
+      "A": "Nghệ thuật"
+    },
+    "correct_answer": "A",
+    "explanation": "げいじゅつ"
+  },
+  {
+    "question": "検査する",
+    "options": {
+      "A": "Kiểm tra"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうさする"
+  },
+  {
+    "question": "胃",
+    "options": {
+      "A": "Dạ dày"
+    },
+    "correct_answer": "A",
+    "explanation": "い"
+  },
+  {
+    "question": "血液",
+    "options": {
+      "A": "Máu"
+    },
+    "correct_answer": "A",
+    "explanation": "けつえき"
+  },
+  {
+    "question": "流れる",
+    "options": {
+      "A": "Chảy, trôi đi"
+    },
+    "correct_answer": "A",
+    "explanation": "ながれる"
+  },
+  {
+    "question": "治療する",
+    "options": {
+      "A": "Trị liệu"
+    },
+    "correct_answer": "A",
+    "explanation": "ちりょうする"
+  },
+  {
+    "question": "症状",
+    "options": {
+      "A": "Triệu chứng"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうじょう"
+  },
+  {
+    "question": "鼻水",
+    "options": {
+      "A": "Nước mũi"
+    },
+    "correct_answer": "A",
+    "explanation": "はなみず"
+  },
+  {
+    "question": "予防する",
+    "options": {
+      "A": "Dự phòng"
+    },
+    "correct_answer": "A",
+    "explanation": "よぼうする"
+  },
+  {
+    "question": "栄養",
+    "options": {
+      "A": "Dinh dưỡng"
+    },
+    "correct_answer": "A",
+    "explanation": "えいよう"
+  },
+  {
+    "question": "手術",
+    "options": {
+      "A": "Phẫu thuật"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅじゅつ"
+  },
+  {
+    "question": "死亡する",
+    "options": {
+      "A": "Tử vong"
+    },
+    "correct_answer": "A",
+    "explanation": "しぼうする"
+  },
+  {
+    "question": "命",
+    "options": {
+      "A": "Cuộc sống"
+    },
+    "correct_answer": "A",
+    "explanation": "いのち"
+  },
+  {
+    "question": "一生",
+    "options": {
+      "A": "Cuộc đời, suốt đời"
+    },
+    "correct_answer": "A",
+    "explanation": "いっしょう"
+  },
+  {
+    "question": "誤解する",
+    "options": {
+      "A": "Hiểu nhầm"
+    },
+    "correct_answer": "A",
+    "explanation": "ごかいする"
+  },
+  {
+    "question": "後悔",
+    "options": {
+      "A": "Hối hận"
+    },
+    "correct_answer": "A",
+    "explanation": "こうかい"
+  },
+  {
+    "question": "訳",
+    "options": {
+      "A": "Lý do"
+    },
+    "correct_answer": "A",
+    "explanation": "わけ"
+  },
+  {
+    "question": "態度",
+    "options": {
+      "A": "Thái độ"
+    },
+    "correct_answer": "A",
+    "explanation": "たいど"
+  },
+  {
+    "question": "癖",
+    "options": {
+      "A": "Thói quen"
+    },
+    "correct_answer": "A",
+    "explanation": "くせ"
+  },
+  {
+    "question": "礼儀",
+    "options": {
+      "A": "Lễ nghi"
+    },
+    "correct_answer": "A",
+    "explanation": "れいぎ"
+  },
+  {
+    "question": "文句",
+    "options": {
+      "A": "Kêu ca, phàn nàn"
+    },
+    "correct_answer": "A",
+    "explanation": "もんく"
+  },
+  {
+    "question": "表情",
+    "options": {
+      "A": "Biểu tình"
+    },
+    "correct_answer": "A",
+    "explanation": "ひょうじょう"
+  },
+  {
+    "question": "表面",
+    "options": {
+      "A": "Bề ngoài, bề mặt"
+    },
+    "correct_answer": "A",
+    "explanation": "ひょうめん"
+  },
+  {
+    "question": "禁煙する",
+    "options": {
+      "A": "Cấm hút thuốc"
+    },
+    "correct_answer": "A",
+    "explanation": "きんえんする"
+  },
+  {
+    "question": "禁止する",
+    "options": {
+      "A": "Cấm"
+    },
+    "correct_answer": "A",
+    "explanation": "きんしする"
+  },
+  {
+    "question": "完成する",
+    "options": {
+      "A": "Hoàn thành"
+    },
+    "correct_answer": "A",
+    "explanation": "かんせいする"
+  },
+  {
+    "question": "課題",
+    "options": {
+      "A": "Chủ đề"
+    },
+    "correct_answer": "A",
+    "explanation": "かだい"
+  },
+  {
+    "question": "例外",
+    "options": {
+      "A": "Ngoại lệ"
+    },
+    "correct_answer": "A",
+    "explanation": "れいがい"
+  },
+  {
+    "question": "基本",
+    "options": {
+      "A": "Cơ bản"
+    },
+    "correct_answer": "A",
+    "explanation": "きほん"
+  },
+  {
+    "question": "記録する",
+    "options": {
+      "A": "Ghi chép, ghi lại"
+    },
+    "correct_answer": "A",
+    "explanation": "きろくする"
+  },
+  {
+    "question": "状態",
+    "options": {
+      "A": "Trạng thái"
+    },
+    "correct_answer": "A",
+    "explanation": "じょうたい"
+  },
+  {
+    "question": "出来事",
+    "options": {
+      "A": "Việc đã xảy ra"
+    },
+    "correct_answer": "A",
+    "explanation": "できごと"
+  },
+  {
+    "question": "場面",
+    "options": {
+      "A": "Hiện trường, bối cảnh"
+    },
+    "correct_answer": "A",
+    "explanation": "ばめん"
+  },
+  {
+    "question": "機会",
+    "options": {
+      "A": "Cơ hội"
+    },
+    "correct_answer": "A",
+    "explanation": "きかい"
+  },
+  {
+    "question": "距離",
+    "options": {
+      "A": "Cư ly"
+    },
+    "correct_answer": "A",
+    "explanation": "きょり"
+  },
+  {
+    "question": "提案する",
+    "options": {
+      "A": "Đề xuất"
+    },
+    "correct_answer": "A",
+    "explanation": "ていあんする"
+  },
+  {
+    "question": "やり取りする",
+    "options": {
+      "A": "Trao đổi"
+    },
+    "correct_answer": "A",
+    "explanation": "やりとりする"
+  },
+  {
+    "question": "知識",
+    "options": {
+      "A": "Tri thức"
+    },
+    "correct_answer": "A",
+    "explanation": "ちしき"
+  },
+  {
+    "question": "実力",
+    "options": {
+      "A": "Thực lực"
+    },
+    "correct_answer": "A",
+    "explanation": "じつりょく"
+  },
+  {
+    "question": "手段",
+    "options": {
+      "A": "Phương pháp, thủ đoạn"
+    },
+    "correct_answer": "A",
+    "explanation": "しゅだん"
+  },
+  {
+    "question": "代表する",
+    "options": {
+      "A": "Đại biểu"
+    },
+    "correct_answer": "A",
+    "explanation": "だいひょうする"
+  },
+  {
+    "question": "影響する",
+    "options": {
+      "A": "Ảnh hưởng"
+    },
+    "correct_answer": "A",
+    "explanation": "えいきょうする"
+  },
+  {
+    "question": "効果",
+    "options": {
+      "A": "Hiệu quả"
+    },
+    "correct_answer": "A",
+    "explanation": "こうか"
+  },
+  {
+    "question": "印象",
+    "options": {
+      "A": "Ấn tượng"
+    },
+    "correct_answer": "A",
+    "explanation": "いんしょう"
+  },
+  {
+    "question": "印",
+    "options": {
+      "A": "Dấu hiệu"
+    },
+    "correct_answer": "A",
+    "explanation": "しるし"
+  },
+  {
+    "question": "合図",
+    "options": {
+      "A": "Dấu hiệu"
+    },
+    "correct_answer": "A",
+    "explanation": "あいず"
+  },
+  {
+    "question": "共通する",
+    "options": {
+      "A": "Điểm chung"
+    },
+    "correct_answer": "A",
+    "explanation": "きょうつうする"
+  },
+  {
+    "question": "強調する",
+    "options": {
+      "A": "Nhấn mạnh"
+    },
+    "correct_answer": "A",
+    "explanation": "きょうちょうする"
+  },
+  {
+    "question": "大事",
+    "options": {
+      "A": "Quan trọng"
+    },
+    "correct_answer": "A",
+    "explanation": "だいじ"
+  },
+  {
+    "question": "説明する",
+    "options": {
+      "A": "Thuyết minh"
+    },
+    "correct_answer": "A",
+    "explanation": "せつめいする"
+  },
+  {
+    "question": "省略する",
+    "options": {
+      "A": "Lược bỏ"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうりゃくする"
+  },
+  {
+    "question": "詳しい",
+    "options": {
+      "A": "Tường tận, cụ thể"
+    },
+    "correct_answer": "A",
+    "explanation": "くわしい"
+  },
+  {
+    "question": "挑戦する",
+    "options": {
+      "A": "Khiêu chiến, thách thức"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょうせんする"
+  },
+  {
+    "question": "やる気",
+    "options": {
+      "A": "Có hứng thú làm"
+    },
+    "correct_answer": "A",
+    "explanation": "やるき"
+  },
+  {
+    "question": "勇気",
+    "options": {
+      "A": "Dũng khí"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆうき"
+  },
+  {
+    "question": "資格",
+    "options": {
+      "A": "Tư cách"
+    },
+    "correct_answer": "A",
+    "explanation": "しかく"
+  },
+  {
+    "question": "弁護士",
+    "options": {
+      "A": "Luật sư"
+    },
+    "correct_answer": "A",
+    "explanation": "べんごし"
+  },
+  {
+    "question": "申請する",
+    "options": {
+      "A": "Yêu cầu, thỉnh cầu"
+    },
+    "correct_answer": "A",
+    "explanation": "しんせいする"
+  },
+  {
+    "question": "通帳",
+    "options": {
+      "A": "Sổ tiết kiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "つうちょう"
+  },
+  {
+    "question": "貯金する",
+    "options": {
+      "A": "Tiết kiệm, dành dụm"
+    },
+    "correct_answer": "A",
+    "explanation": "ちょきんする"
+  },
+  {
+    "question": "本人",
+    "options": {
+      "A": "Người chính"
+    },
+    "correct_answer": "A",
+    "explanation": "ほんにん"
+  },
+  {
+    "question": "契約する",
+    "options": {
+      "A": "Hợp đồng"
+    },
+    "correct_answer": "A",
+    "explanation": "けいやくする"
+  },
+  {
+    "question": "証明する",
+    "options": {
+      "A": "Chứng minh"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうめいする"
+  },
+  {
+    "question": "変更する",
+    "options": {
+      "A": "Sửa đổi"
+    },
+    "correct_answer": "A",
+    "explanation": "へんこうする"
+  },
+  {
+    "question": "保存する",
+    "options": {
+      "A": "Bảo tồn"
+    },
+    "correct_answer": "A",
+    "explanation": "ほぞんする"
+  },
+  {
+    "question": "保護する",
+    "options": {
+      "A": "Bảo hộ"
+    },
+    "correct_answer": "A",
+    "explanation": "ほごする"
+  },
+  {
+    "question": "郊外",
+    "options": {
+      "A": "Ngoại ô"
+    },
+    "correct_answer": "A",
+    "explanation": "こうがい"
+  },
+  {
+    "question": "都心",
+    "options": {
+      "A": "Trung tâm"
+    },
+    "correct_answer": "A",
+    "explanation": "としん"
+  },
+  {
+    "question": "資源",
+    "options": {
+      "A": "Tài nguyên"
+    },
+    "correct_answer": "A",
+    "explanation": "しげん"
+  },
+  {
+    "question": "有効",
+    "options": {
+      "A": "Hữu hiệu"
+    },
+    "correct_answer": "A",
+    "explanation": "ゆうこう"
+  },
+  {
+    "question": "不足する",
+    "options": {
+      "A": "Không đủ"
+    },
+    "correct_answer": "A",
+    "explanation": "ふそくする"
+  },
+  {
+    "question": "平均する",
+    "options": {
+      "A": "Trung bình"
+    },
+    "correct_answer": "A",
+    "explanation": "へいきんする"
+  },
+  {
+    "question": "割合",
+    "options": {
+      "A": "Tỉ lệ"
+    },
+    "correct_answer": "A",
+    "explanation": "わりあい"
+  },
+  {
+    "question": "商売する",
+    "options": {
+      "A": "Thương mại"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうばいする"
+  },
+  {
+    "question": "商品",
+    "options": {
+      "A": "Sản phẩm"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうひん"
+  },
+  {
+    "question": "質",
+    "options": {
+      "A": "Chất"
+    },
+    "correct_answer": "A",
+    "explanation": "しつ"
+  },
+  {
+    "question": "型",
+    "options": {
+      "A": "Mẫu, khuôn"
+    },
+    "correct_answer": "A",
+    "explanation": "かた"
+  },
+  {
+    "question": "生産する",
+    "options": {
+      "A": "Sản xuất"
+    },
+    "correct_answer": "A",
+    "explanation": "せいさんする"
+  },
+  {
+    "question": "農業",
+    "options": {
+      "A": "Nông nghiệp"
+    },
+    "correct_answer": "A",
+    "explanation": "のうぎょう"
+  },
+  {
+    "question": "消費する",
+    "options": {
+      "A": "Tiêu phí"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうひする"
+  },
+  {
+    "question": "物価",
+    "options": {
+      "A": "Giá cả"
+    },
+    "correct_answer": "A",
+    "explanation": "ぶっか"
+  },
+  {
+    "question": "倒産する",
+    "options": {
+      "A": "Phá sản"
+    },
+    "correct_answer": "A",
+    "explanation": "とうさんする"
+  },
+  {
+    "question": "携帯",
+    "options": {
+      "A": "Cầm tay"
+    },
+    "correct_answer": "A",
+    "explanation": "けいたい"
+  },
+  {
+    "question": "現代",
+    "options": {
+      "A": "Hiện đại"
+    },
+    "correct_answer": "A",
+    "explanation": "げんだい"
+  },
+  {
+    "question": "情報",
+    "options": {
+      "A": "Thông tin"
+    },
+    "correct_answer": "A",
+    "explanation": "じょうほう"
+  },
+  {
+    "question": "世紀",
+    "options": {
+      "A": "Thế kỉ"
+    },
+    "correct_answer": "A",
+    "explanation": "せいき"
+  },
+  {
+    "question": "文化",
+    "options": {
+      "A": "Văn hóa"
+    },
+    "correct_answer": "A",
+    "explanation": "ぶんか"
+  },
+  {
+    "question": "都市",
+    "options": {
+      "A": "Thành phố"
+    },
+    "correct_answer": "A",
+    "explanation": "とし"
+  },
+  {
+    "question": "地方",
+    "options": {
+      "A": "Địa phương"
+    },
+    "correct_answer": "A",
+    "explanation": "ちほう"
+  },
+  {
+    "question": "戦争する",
+    "options": {
+      "A": "Chiến tranh"
+    },
+    "correct_answer": "A",
+    "explanation": "せんそうする"
+  },
+  {
+    "question": "平和",
+    "options": {
+      "A": "Hòa bình"
+    },
+    "correct_answer": "A",
+    "explanation": "へいわ"
+  },
+  {
+    "question": "が　上る",
+    "options": {
+      "A": "Leo lên"
+    },
+    "correct_answer": "A",
+    "explanation": "のぼる"
+  },
+  {
+    "question": "階段",
+    "options": {
+      "A": "Cầu thang"
+    },
+    "correct_answer": "A",
+    "explanation": "かいだん"
+  },
+  {
+    "question": "坂",
+    "options": {
+      "A": "Dốc"
+    },
+    "correct_answer": "A",
+    "explanation": "さか"
+  },
+  {
+    "question": "下る",
+    "options": {
+      "A": "Đi xuống"
+    },
+    "correct_answer": "A",
+    "explanation": "くだる"
+  },
+  {
+    "question": "が　進む",
+    "options": {
+      "A": "Tiến lên"
+    },
+    "correct_answer": "A",
+    "explanation": "すすむ"
+  },
+  {
+    "question": "進める",
+    "options": {
+      "A": "Đi tiến lên"
+    },
+    "correct_answer": "A",
+    "explanation": "すすめる"
+  },
+  {
+    "question": "が　通る",
+    "options": {
+      "A": "Đi qua"
+    },
+    "correct_answer": "A",
+    "explanation": "とおる"
+  },
+  {
+    "question": "通す",
+    "options": {
+      "A": "Xuyên qua"
+    },
+    "correct_answer": "A",
+    "explanation": "とおす"
+  },
+  {
+    "question": "光",
+    "options": {
+      "A": "Ánh sáng"
+    },
+    "correct_answer": "A",
+    "explanation": "ひかり"
+  },
+  {
+    "question": "布",
+    "options": {
+      "A": "Vải"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬの"
+  },
+  {
+    "question": "空気",
+    "options": {
+      "A": "Không khí"
+    },
+    "correct_answer": "A",
+    "explanation": "くうき"
+  },
+  {
+    "question": "が　越える/超える",
+    "options": {
+      "A": "Vượt qua"
+    },
+    "correct_answer": "A",
+    "explanation": "こえる"
+  },
+  {
+    "question": "が　過ぎる",
+    "options": {
+      "A": "Quá"
+    },
+    "correct_answer": "A",
+    "explanation": "すぎる"
+  },
+  {
+    "question": "過ごす",
+    "options": {
+      "A": "Trải qua"
+    },
+    "correct_answer": "A",
+    "explanation": "すごす"
+  },
+  {
+    "question": "が　移る",
+    "options": {
+      "A": "Di chuyển"
+    },
+    "correct_answer": "A",
+    "explanation": "うつる"
+  },
+  {
+    "question": "移す",
+    "options": {
+      "A": "Chuyển"
+    },
+    "correct_answer": "A",
+    "explanation": "うつす"
+  },
+  {
+    "question": "本社",
+    "options": {
+      "A": "Trụ sở chính"
+    },
+    "correct_answer": "A",
+    "explanation": "ほんしゃ"
+  },
+  {
+    "question": "連れる",
+    "options": {
+      "A": "Dẫn, dắt"
+    },
+    "correct_answer": "A",
+    "explanation": "つれる"
+  },
+  {
+    "question": "が　寄る",
+    "options": {
+      "A": "Ghé thăm"
+    },
+    "correct_answer": "A",
+    "explanation": "よる"
+  },
+  {
+    "question": "寄せる",
+    "options": {
+      "A": "Ghé vào"
+    },
+    "correct_answer": "A",
+    "explanation": "よせる"
+  },
+  {
+    "question": "奨学金",
+    "options": {
+      "A": "Học bổng"
+    },
+    "correct_answer": "A",
+    "explanation": "しょうがくきん"
+  },
+  {
+    "question": "成績",
+    "options": {
+      "A": "Thành tích"
+    },
+    "correct_answer": "A",
+    "explanation": "せいせき"
+  },
+  {
+    "question": "与える",
+    "options": {
+      "A": "Cung cấp, đưa"
+    },
+    "correct_answer": "A",
+    "explanation": "あたえる"
+  },
+  {
+    "question": "得る",
+    "options": {
+      "A": "Đạt được"
+    },
+    "correct_answer": "A",
+    "explanation": "える"
+  },
+  {
+    "question": "が　向く",
+    "options": {
+      "A": "Đối diện"
+    },
+    "correct_answer": "A",
+    "explanation": "むく"
+  },
+  {
+    "question": "向ける",
+    "options": {
+      "A": "Quay, hướng đến"
+    },
+    "correct_answer": "A",
+    "explanation": "むける"
+  },
+  {
+    "question": "勧める",
+    "options": {
+      "A": "Mời, rủ, gợi ý"
+    },
+    "correct_answer": "A",
+    "explanation": "すすめる"
+  },
+  {
+    "question": "薦める",
+    "options": {
+      "A": "Gợi ý, giới thiệu"
+    },
+    "correct_answer": "A",
+    "explanation": "すすめる"
+  },
+  {
+    "question": "任せる",
+    "options": {
+      "A": "Để cho ai làm gì"
+    },
+    "correct_answer": "A",
+    "explanation": "まかせる"
+  },
+  {
+    "question": "守る",
+    "options": {
+      "A": "Giữ, tuân thủ"
+    },
+    "correct_answer": "A",
+    "explanation": "まもる"
+  },
+  {
+    "question": "争う",
+    "options": {
+      "A": "Gây gổ, tranh nhau"
+    },
+    "correct_answer": "A",
+    "explanation": "あらそう"
+  },
+  {
+    "question": "望む",
+    "options": {
+      "A": "Ước"
+    },
+    "correct_answer": "A",
+    "explanation": "のぞむ"
+  },
+  {
+    "question": "信じる",
+    "options": {
+      "A": "Tin tưởng"
+    },
+    "correct_answer": "A",
+    "explanation": "しんじる"
+  },
+  {
+    "question": "が　通じる",
+    "options": {
+      "A": "Thông qua"
+    },
+    "correct_answer": "A",
+    "explanation": "つうじる"
+  },
+  {
+    "question": "飽く",
+    "options": {
+      "A": "Chán"
+    },
+    "correct_answer": "A",
+    "explanation": "あく"
+  },
+  {
+    "question": "思いつく",
+    "options": {
+      "A": "Nghĩ"
+    },
+    "correct_answer": "A",
+    "explanation": "おもいつく"
+  },
+  {
+    "question": "思いやる",
+    "options": {
+      "A": "Quan tâm, thông cảm"
+    },
+    "correct_answer": "A",
+    "explanation": "おもいやる"
+  },
+  {
+    "question": "熱中する",
+    "options": {
+      "A": "Nghiện (karaoke)"
+    },
+    "correct_answer": "A",
+    "explanation": "ねっちゅうする"
+  },
+  {
+    "question": "暮らす",
+    "options": {
+      "A": "Sinh sống"
+    },
+    "correct_answer": "A",
+    "explanation": "くらす"
+  },
+  {
+    "question": "巻く",
+    "options": {
+      "A": "Quấn"
+    },
+    "correct_answer": "A",
+    "explanation": "まく"
+  },
+  {
+    "question": "結ぶ",
+    "options": {
+      "A": "Buộc"
+    },
+    "correct_answer": "A",
+    "explanation": "むすぶ"
+  },
+  {
+    "question": "紐",
+    "options": {
+      "A": "Dây"
+    },
+    "correct_answer": "A",
+    "explanation": "ひも"
+  },
+  {
+    "question": "が　済む",
+    "options": {
+      "A": "Kết thúc"
+    },
+    "correct_answer": "A",
+    "explanation": "すむ"
+  },
+  {
+    "question": "済ます",
+    "options": {
+      "A": "Kết thúc"
+    },
+    "correct_answer": "A",
+    "explanation": "すます"
+  },
+  {
+    "question": "出来る",
+    "options": {
+      "A": "Hoàn thành, có thể"
+    },
+    "correct_answer": "A",
+    "explanation": "できる"
+  },
+  {
+    "question": "切れる",
+    "options": {
+      "A": "Cắt, hết"
+    },
+    "correct_answer": "A",
+    "explanation": "きれる"
+  },
+  {
+    "question": "切らす",
+    "options": {
+      "A": "Hết mất tiêu"
+    },
+    "correct_answer": "A",
+    "explanation": "きらす"
+  },
+  {
+    "question": "が　伝わる",
+    "options": {
+      "A": "Truyền đi"
+    },
+    "correct_answer": "A",
+    "explanation": "つたわる"
+  },
+  {
+    "question": "伝える",
+    "options": {
+      "A": "Truyền đi"
+    },
+    "correct_answer": "A",
+    "explanation": "つたえる"
+  },
+  {
+    "question": "が　続く",
+    "options": {
+      "A": "Tiếp tục"
+    },
+    "correct_answer": "A",
+    "explanation": "つづく"
+  },
+  {
+    "question": "続ける",
+    "options": {
+      "A": "Tiếp tục"
+    },
+    "correct_answer": "A",
+    "explanation": "つづける"
+  },
+  {
+    "question": "が　繋がる",
+    "options": {
+      "A": "Kết nối"
+    },
+    "correct_answer": "A",
+    "explanation": "つながる"
+  },
+  {
+    "question": "繋ぐ",
+    "options": {
+      "A": "Kết nối"
+    },
+    "correct_answer": "A",
+    "explanation": "つなぐ"
+  },
+  {
+    "question": "繋げる",
+    "options": {
+      "A": "Làm chặt thêm"
+    },
+    "correct_answer": "A",
+    "explanation": "つなげる"
+  },
+  {
+    "question": "伸びる",
+    "options": {
+      "A": "Cao lên, phát triển lên"
+    },
+    "correct_answer": "A",
+    "explanation": "のびる"
+  },
+  {
+    "question": "伸ばす",
+    "options": {
+      "A": "Làm cao/phát triển lên"
+    },
+    "correct_answer": "A",
+    "explanation": "のばす"
+  },
+  {
+    "question": "延びる",
+    "options": {
+      "A": "Trì hoãn"
+    },
+    "correct_answer": "A",
+    "explanation": "のびる"
+  },
+  {
+    "question": "延ばす",
+    "options": {
+      "A": "Hoãn"
+    },
+    "correct_answer": "A",
+    "explanation": "のばす"
+  },
+  {
+    "question": "が　重なる",
+    "options": {
+      "A": "Chồng lên"
+    },
+    "correct_answer": "A",
+    "explanation": "かさなる"
+  },
+  {
+    "question": "重ねる",
+    "options": {
+      "A": "Chồng"
+    },
+    "correct_answer": "A",
+    "explanation": "かさねる"
+  },
+  {
+    "question": "が　広がる",
+    "options": {
+      "A": "Rộng"
+    },
+    "correct_answer": "A",
+    "explanation": "ひろがる"
+  },
+  {
+    "question": "広げる",
+    "options": {
+      "A": "Mở rộng"
+    },
+    "correct_answer": "A",
+    "explanation": "ひろげる"
+  },
+  {
+    "question": "が　載る",
+    "options": {
+      "A": "Lên, vừa"
+    },
+    "correct_answer": "A",
+    "explanation": "のる"
+  },
+  {
+    "question": "載せる",
+    "options": {
+      "A": "Cho lên, cho vào"
+    },
+    "correct_answer": "A",
+    "explanation": "のせる"
+  },
+  {
+    "question": "が　揃う",
+    "options": {
+      "A": "Thu thập"
+    },
+    "correct_answer": "A",
+    "explanation": "そろう"
+  },
+  {
+    "question": "揃える",
+    "options": {
+      "A": "Tập hợp"
+    },
+    "correct_answer": "A",
+    "explanation": "そろえる"
+  },
+  {
+    "question": "が　纏まる",
+    "options": {
+      "A": "Tập hợp, thống nhất"
+    },
+    "correct_answer": "A",
+    "explanation": "まとまる"
+  },
+  {
+    "question": "纏める",
+    "options": {
+      "A": "Tập hợp"
+    },
+    "correct_answer": "A",
+    "explanation": "まとめる"
+  },
+  {
+    "question": "が　付く",
+    "options": {
+      "A": "Dính, gắn, có"
+    },
+    "correct_answer": "A",
+    "explanation": "つく"
+  },
+  {
+    "question": "付ける",
+    "options": {
+      "A": "Gắn, thêm vào"
+    },
+    "correct_answer": "A",
+    "explanation": "つける"
+  },
+  {
+    "question": "が　貯まる",
+    "options": {
+      "A": "Tiết kiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "たまる"
+  },
+  {
+    "question": "貯める",
+    "options": {
+      "A": "Tiết kiệm"
+    },
+    "correct_answer": "A",
+    "explanation": "ためる"
+  },
+  {
+    "question": "が　交じる/混じる",
+    "options": {
+      "A": "Giao vào, lẫn vào"
+    },
+    "correct_answer": "A",
+    "explanation": "まじる"
+  },
+  {
+    "question": "が　交ざる/混ざる",
+    "options": {
+      "A": "Lẫn vào"
+    },
+    "correct_answer": "A",
+    "explanation": "まざる"
+  },
+  {
+    "question": "交ぜる/混ぜる",
+    "options": {
+      "A": "Trộn vào"
+    },
+    "correct_answer": "A",
+    "explanation": "まぜる"
+  },
+  {
+    "question": "が　溶ける/解ける",
+    "options": {
+      "A": "Giải quyết, giải đông"
+    },
+    "correct_answer": "A",
+    "explanation": "とける"
+  },
+  {
+    "question": "解く/溶く/溶かす",
+    "options": {
+      "A": "Giải quyết, giải đông"
+    },
+    "correct_answer": "A",
+    "explanation": "とく/とかす"
+  },
+  {
+    "question": "含む",
+    "options": {
+      "A": "Bao gồm"
+    },
+    "correct_answer": "A",
+    "explanation": "ふくむ"
+  },
+  {
+    "question": "含める",
+    "options": {
+      "A": "Bao gồm"
+    },
+    "correct_answer": "A",
+    "explanation": "ふくめる"
+  },
+  {
+    "question": "が　抜ける",
+    "options": {
+      "A": "Tháo, tuột"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬける"
+  },
+  {
+    "question": "抜く",
+    "options": {
+      "A": "Lấy ra"
+    },
+    "correct_answer": "A",
+    "explanation": "ぬく"
+  },
+  {
+    "question": "が　現れる",
+    "options": {
+      "A": "Xuất hiện, hiện ra"
+    },
+    "correct_answer": "A",
+    "explanation": "あらわれる"
+  },
+  {
+    "question": "現す",
+    "options": {
+      "A": "Đã xuất hiện"
+    },
+    "correct_answer": "A",
+    "explanation": "あらわす"
+  },
+  {
+    "question": "が　表れる",
+    "options": {
+      "A": "Hiện ra"
+    },
+    "correct_answer": "A",
+    "explanation": "あらわれる"
+  },
+  {
+    "question": "表す",
+    "options": {
+      "A": "Biểu thị, biểu lộ"
+    },
+    "correct_answer": "A",
+    "explanation": "あらわす"
+  },
+  {
+    "question": "が　散る",
+    "options": {
+      "A": "Tàn"
+    },
+    "correct_answer": "A",
+    "explanation": "ちる"
+  },
+  {
+    "question": "散らす",
+    "options": {
+      "A": "Tàn"
+    },
+    "correct_answer": "A",
+    "explanation": "ちらす"
+  },
+  {
+    "question": "差す",
+    "options": {
+      "A": "Giương, giơ"
+    },
+    "correct_answer": "A",
+    "explanation": "さす"
+  }
+]

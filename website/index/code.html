@@ -1,0 +1,69 @@
+const vocabList = Array.from(document.querySelectorAll('.search_result tbody tr'))
+  .map(tr => {
+    const tds = tr.querySelectorAll('td');
+    // Dòng thường: 5 cột
+	const lession = document.querySelector('h2[itemprop="name"] a[itemprop="url"]').textContent.trim().match(/\b(\d+)\b/)[1];
+    if (tds.length >= 5) {
+      let [word, kanji, vietnamese_origin, audioTd, meaning] = [
+        tds[0].textContent.trim(),
+        tds[1].textContent.trim(),
+        tds[2].textContent.trim(),
+        tds[3],
+        tds[4].textContent.trim()
+      ];
+      word = word.replace(/$$.*?$$/, '').trim();
+      const audio = audioTd.querySelector('audio')?.src ?? "";
+      return {lession, word, kanji, vietnamese_origin, audio, meaning };
+    }
+	// Dòng đặc biệt: 2 cột, kanji ở cột đầu, word để rỗng
+    if (tds.length === 3) {
+	  const td = tds[0];
+	  let word = "";
+	  let rt = ""
+      const ruby = td.querySelector('ruby');
+      if (ruby) {
+        rt = ruby.querySelector('rt')?.textContent.trim() ?? "";
+        let okurigana = "";
+        let node = ruby.nextSibling;
+        while (node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            okurigana += node.textContent.trim();
+          }
+          node = node.nextSibling;
+        }
+        word = rt + okurigana;
+      }
+	  const audio = tds[1].querySelector('audio')?.src ?? "";
+      const meaning = tds[2].textContent.trim();
+	  const kanji = td.textContent.trim().replace("（" + rt + "）", "");
+      return {lession, word, kanji, vietnamese_origin: "", audio, meaning };
+    }
+    // Dòng đặc biệt: 2 cột, kanji ở cột đầu, word để rỗng
+    if (tds.length === 2) {
+	  const td = tds[0];
+	  let word = "";
+	  let rt = ""
+      const ruby = td.querySelector('ruby');
+      if (ruby) {
+        rt = ruby.querySelector('rt')?.textContent.trim() ?? "";
+        let okurigana = "";
+        let node = ruby.nextSibling;
+        while (node) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            okurigana += node.textContent.trim();
+          }
+          node = node.nextSibling;
+        }
+        word = rt + okurigana;
+      }
+      const meaning = tds[1].textContent.trim();
+	  const kanji = td.textContent.trim().replace("（" + rt + "）", "");
+      return {lession, word, kanji, vietnamese_origin: "", audio: "", meaning };
+    }
+    return null;
+  })
+  .filter(Boolean);
+ 
+console.log(JSON.stringify(vocabList, null, 2));
+
+            

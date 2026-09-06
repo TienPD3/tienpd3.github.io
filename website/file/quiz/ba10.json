@@ -1,0 +1,502 @@
+[
+  {
+    "question": "Which of the following is NOT a core component of the BACCM?",
+    "options": {
+      "A": "Change",
+      "B": "Value",
+      "C": "Need",
+      "D": "Risk"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which core concept in the BACCM represents the problem or opportunity that needs to be addressed?",
+    "options": {
+      "A": "Solution",
+      "B": "Stakeholder",
+      "C": "Need",
+      "D": "Change"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What are the three common solution approaches considered in the Define Design Options task?",
+    "options": {
+      "A": "Design, Develop, or Deploy",
+      "B": "Create, Purchase, or Combine",
+      "C": "Analyze, Evaluate, or Recommend",
+      "D": "Build, Buy, or Outsource"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "In the 'Business Analysis Planning and Monitoring' knowledge area, what is the main objective of 'Plan Business Analysis Information Management'?",
+    "options": {
+      "A": "To define how to store and access business analysis information",
+      "B": "To develop a business case",
+      "C": "To schedule project tasks",
+      "D": "To outline business analysis techniques"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "How do stakeholders typically categorize their requirements?",
+    "options": {
+      "A": "Low priority",
+      "B": "Very low priority",
+      "C": "Medium priority",
+      "D": "High priority"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What type of initiatives may business analysis be performed on?",
+    "options": {
+      "A": "Strategic, tactical, or operational initiatives",
+      "B": "Tactical initiatives only",
+      "C": "Operational initiatives only",
+      "D": "Strategic initiatives only"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which core concept of the BACCM deals with evaluating proposed changes to requirements during an initiative?",
+    "options": {
+      "A": "Need",
+      "B": "Solution",
+      "C": "Stakeholder",
+      "D": "Change"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Business Capability Analysis' helps to understand:",
+    "options": {
+      "A": "The technical capabilities of IT systems",
+      "B": "The financial strength of a company",
+      "C": "The strategic alignment of a business",
+      "D": "The abilities and processes an organization has to meet strategic objectives"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the purpose of 'requirements maintenance'?",
+    "options": {
+      "A": "To ensure requirements are updated and relevant throughout the project",
+      "B": "To document the completion of requirements",
+      "C": "To reduce the project budget",
+      "D": "To allocate resources for requirement implementation"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In the context of requirements architecture, what is a 'view'?",
+    "options": {
+      "A": "A high-level summary of the entire solution scope",
+      "B": "The actual representation of requirements from a chosen viewpoint",
+      "C": "A detailed description of a single requirement's attributes",
+      "D": "A specific stakeholder's perspective on the requirements"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What tools are used to facilitate the documentation, organization, storage, and dissemination of project details and specifications?",
+    "options": {
+      "A": "Design modeling tools",
+      "B": "Traced requirements documentation",
+      "C": "Requirements management tools",
+      "D": "Modeling standards and notations"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the primary use of Joint Application Development (JAD) sessions in business analysis?",
+    "options": {
+      "A": "When stakeholders are in different locations.",
+      "B": "When quick consensus building is needed.",
+      "C": "When detailed documentation is available.",
+      "D": "When working with a small team."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which prioritization factor assesses the consequences of not implementing a requirement?",
+    "options": {
+      "A": "Expected benefits",
+      "B": "Associated costs",
+      "C": "Stability concerns",
+      "D": "Incurred penalties"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the main objective of maintaining a requirements traceability matrix?",
+    "options": {
+      "A": "To manage the project budget",
+      "B": "To document the relationship between requirements and other project elements",
+      "C": "To establish a project timeline",
+      "D": "To track the progress of project tasks"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "How does a requirements architecture help in making trade-off decisions about requirements?",
+    "options": {
+      "A": "By providing a visual representation of the requirements hierarchy",
+      "B": "By identifying the stakeholders who are most affected by each requirement",
+      "C": "By considering the impact of each requirement on the overall business objectives",
+      "D": "By assigning a monetary value to each requirement"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following factors should NOT be considered when selecting elicitation techniques?",
+    "options": {
+      "A": "The culture of the organization",
+      "B": "Personal preferences",
+      "C": "Cost and time constraints",
+      "D": "Types of information sources and their accessibility"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "To understand the hierarchy and interactions within a company, which technique is most appropriate?",
+    "options": {
+      "A": "Survey or Questionnaire",
+      "B": "Organizational Modelling",
+      "C": "SWOT Analysis",
+      "D": "Data Mining"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the primary purpose of conducting a Cost-Benefit Analysis?",
+    "options": {
+      "A": "To evaluate the advantages and costs to determine the best option",
+      "B": "To identify the most economical option",
+      "C": "To identify the most expensive option",
+      "D": "To prepare the budget for the project"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is not a typical input to the Define Requirements Architecture task?",
+    "options": {
+      "A": "Requirements (any state)",
+      "B": "Information Management Approach",
+      "C": "Solution Scope",
+      "D": "Stakeholder Engagement Approach"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "The ability to effectively moderate discussions, encourage participation, and ensure all viewpoints are heard is a key aspect of which underlying competency?",
+    "options": {
+      "A": "Negotiation and Conflict Resolution",
+      "B": "Facilitation",
+      "C": "Leadership and Influencing",
+      "D": "Teamwork"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the purpose of securing supporting material during the Prepare for Elicitation task?",
+    "options": {
+      "A": "To evaluate the performance of the elicitation process",
+      "B": "To identify and document all the risks associated with the project",
+      "C": "To gather and prepare information and resources needed to conduct the elicitation activity",
+      "D": "To create a detailed project plan with timelines and resource allocation"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the primary purpose of 'Decision Analysis' in project management?",
+    "options": {
+      "A": "To assess the financial viability of a project",
+      "B": "To select the optimal course of action among various alternatives",
+      "C": "To determine the technical feasibility of a system",
+      "D": "To outline the organizational structure needed for a project"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following is not a common type of elicitation?",
+    "options": {
+      "A": "Research",
+      "B": "Validation",
+      "C": "Experiments",
+      "D": "Collaborative"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following techniques CANNOT be used to confirm elicitation results against source information?",
+    "options": {
+      "A": "Risk Management",
+      "B": "Decision Modelling",
+      "C": "Document Analysis",
+      "D": "Online Research"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "What is the primary role of a business analyst in requirements lifecycle management?",
+    "options": {
+      "A": "To manage the project budget",
+      "B": "To schedule project milestones",
+      "C": "To develop technical solutions",
+      "D": "To ensure requirements remain relevant and are met throughout the project"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the primary output of the Prepare for Elicitation task?",
+    "options": {
+      "A": "Requirements Document",
+      "B": "Elicitation Activity Plan",
+      "C": "Elicitation Results",
+      "D": "Stakeholder List"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What does 'Root Cause Analysis' aim to uncover?",
+    "options": {
+      "A": "The fundamental cause of a problem",
+      "B": "The project budget",
+      "C": "The project timeline",
+      "D": "The best solution to implement"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which stakeholder is responsible for authorizing the work to be performed and controlling the budget and scope of a business analysis initiative?",
+    "options": {
+      "A": "End User",
+      "B": "Project Manager",
+      "C": "Sponsor",
+      "D": "Implementation Subject Matter Expert"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which option provides a strategy to transition from the current to the future state?",
+    "options": {
+      "A": "Change strategy",
+      "B": "Business policies",
+      "C": "Business Analyst performance assessment",
+      "D": "Current state description"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which technique would a Business Analyst use to facilitate a structured approach to problem-solving?",
+    "options": {
+      "A": "Root Cause Analysis",
+      "B": "Surveys or Questionnaires",
+      "C": "Organizational Modelling",
+      "D": "Vendor Assessment"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What does 'Decision Modelling' aim to illustrate in business analysis?",
+    "options": {
+      "A": "The data structures in a database",
+      "B": "The business process workflows",
+      "C": "The decisions required within the scope of business analysis",
+      "D": "The financial implications of a solution"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Primary goal of benchmarking during Solution Evaluation:",
+    "options": {
+      "A": "Establishing financial benchmarks",
+      "B": "Comparing product market position",
+      "C": "Reviewing team performance metrics",
+      "D": "Identifying enhancement opportunities in the solution"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What risk is mitigated by effective communication of business analysis information?",
+    "options": {
+      "A": "The risk of stakeholders feeling disengaged and misinformed",
+      "B": "The risk of technical failures in the IT infrastructure",
+      "C": "The risk of over-budgeting the project",
+      "D": "The risk of regulatory non-compliance"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is NOT a quality criterion for verifying relationships between requirements in a requirements architecture?",
+    "options": {
+      "A": "Necessary",
+      "B": "Defined",
+      "C": "Consistent",
+      "D": "Prioritized"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What should a business analyst do if a requirement or design does not align with the overall solution scope while beneficial to a stakeholder during the Validate Requirements process?",
+    "options": {
+      "A": "Document the misalignment as a risk and proceed with validating other requirements",
+      "B": "Automatically eliminate the requirement or design from the project scope",
+      "C": "Document the issue and escalate it to the project manager for resolution",
+      "D": "Re-evaluate the future state and solution scope to potentially include the requirement"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Which underlying competency involves motivating and guiding stakeholders to work together towards shared goals?",
+    "options": {
+      "A": "Facilitation",
+      "B": "Teamwork",
+      "C": "Teaching",
+      "D": "Leadership and Influencing"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "What is the purpose of the Conduct Elicitation task?",
+    "options": {
+      "A": "To document and prioritize the elicited requirements",
+      "B": "To draw out, explore, and identify information relevant to the change",
+      "C": "To plan and prepare for the elicitation activities",
+      "D": "To confirm the accuracy and consistency of the elicited information"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the primary objective of conducting a post-implementation review?",
+    "options": {
+      "A": "Allocating responsibility for project issues",
+      "B": "Identifying development team errors",
+      "C": "Evaluating if the solution meets business needs and objectives",
+      "D": "Preparing for future projects"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Which of the following is NOT an example of a requirement viewpoint?",
+    "options": {
+      "A": "User interactions (use cases, user experience)",
+      "B": "Risk analysis and management",
+      "C": "Data models and information",
+      "D": "Business process models"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What critical insights does conducting a 'SWOT Analysis' provide for an organization?",
+    "options": {
+      "A": "The organization's strengths, weaknesses, opportunities, and threats",
+      "B": "Stakeholders' communication preferences",
+      "C": "The technical specifications for system requirements",
+      "D": "The financial impacts of a solution"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which of the following is NOT an output of business analysis planning and monitoring?",
+    "options": {
+      "A": "Business Analysis Governance Approach",
+      "B": "Stakeholder Engagement Plan",
+      "C": "Business Analysis Plan",
+      "D": "Requirements Traceability Matrix"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Why do organizations engage in 'Benchmarking and Market Analysis'?",
+    "options": {
+      "A": "To gain insights into competitors and prevailing market trends",
+      "B": "To gauge the organization's financial health",
+      "C": "To review internal operational processes",
+      "D": "To evaluate project management methodologies"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst is working on a project where the stakeholders are struggling to understand the long-term implications of the proposed solution. Which underlying competency would be most helpful for the business analyst to illustrate the potential future impacts and consequences of the solution on the organization?",
+    "options": {
+      "A": "Systems Thinking",
+      "B": "Decision Making",
+      "C": "Creative Thinking",
+      "D": "Problem Solving"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What technique would be most useful for a BA to represent the interaction between different parts of a system?",
+    "options": {
+      "A": "Prototyping",
+      "B": "Data Flow Diagrams",
+      "C": "Organizational Modelling",
+      "D": "SWOT Analysis"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "When is it most appropriate to use prototypes in elicitation?",
+    "options": {
+      "A": "When the budget is limited.",
+      "B": "When requirements are unclear or complex.",
+      "C": "When the project is behind schedule.",
+      "D": "When stakeholders are unavailable."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "What is the purpose of using an architectural framework in defining requirements architecture?",
+    "options": {
+      "A": "To provide a standardized starting point and set of viewpoints for the architecture",
+      "B": "To enforce strict adherence to a single, rigid structure for all projects",
+      "C": "To automate the generation of requirements architecture diagrams and models",
+      "D": "To eliminate the need for collaboration with stakeholders during architecture definition"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "A business analyst is defining the requirements architecture for a complex software project. Which of the following tools would be most helpful in managing the volume, complexity, and versions of the relationships within the architecture?",
+    "options": {
+      "A": "Architecture Management Software",
+      "B": "Microsoft Word",
+      "C": "Microsoft Excel",
+      "D": "Risk Management Tool"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the primary purpose of defining a requirements architecture in business analysis?",
+    "options": {
+      "A": "To create a visual representation of the relationships between requirements",
+      "B": "To ensure requirements collectively support objectives and work cohesively as a whole",
+      "C": "To establish a framework for prioritizing requirements based on business value",
+      "D": "To document and communicate the detailed specifications of each requirement"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Which of the following statements is true about the completeness of a requirements architecture?",
+    "options": {
+      "A": "It helps assess if the requirements are cohesive and tell a full story.",
+      "B": "It guarantees that all possible requirements have been identified.",
+      "C": "It eliminates the need for further requirements elicitation.",
+      "D": "It ensures that the requirements are perfectly aligned with the solution design."
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "In which scenario is observation most effectively used as an elicitation technique?",
+    "options": {
+      "A": "When stakeholders struggle to articulate their needs.",
+      "B": "When stakeholders are in different locations.",
+      "C": "When existing documentation is insufficient.",
+      "D": "When project requirements are already clearly defined."
+    },
+    "correct_answer": "A"
+  }
+]

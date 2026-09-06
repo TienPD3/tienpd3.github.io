@@ -1,0 +1,99 @@
+// Hàm xử lý furigana & kanji từ <ruby>
+function containsKanji(str) {
+  const kanjiRegex = /[\u4E00-\u9FAF]/;
+  return kanjiRegex.test(str);
+}
+
+function parseRubyKanji(ruby) {
+  let clone = ruby.cloneNode(true); // copy để không ảnh hưởng DOM gốc
+  // Xóa rt và rp
+  clone.querySelectorAll('rt, rp').forEach(el => el.remove());
+
+  // Thay <br> thành khoảng trắng
+  clone.querySelectorAll('br').forEach(el => el.replaceWith(' '));
+
+  return clone.textContent.trim();
+}
+
+function parseRuby(td0, td1) {
+
+  let word = td0.textContent.trim();
+  let combinedKanji = "";
+
+	if (td1 == null) {
+    if (containsKanji(word)) {
+      combinedKanji = word;
+      const rubyElements = td0.querySelectorAll('ruby');
+      if (rubyElements.length > 0) {
+        rubyElements.forEach(ruby => {
+          if (ruby) {
+            kanjiText = parseRubyKanji(ruby);
+            rt = ruby.querySelector('rt')?.textContent.trim() ?? "";
+          }
+          word = word.replace(kanjiText, "").replace("（" + rt + "）", rt);
+          combinedKanji = combinedKanji.replace("（" + rt + "）", "");
+        });
+      }
+    }
+	} else {
+    if (containsKanji(word)) {
+      combinedKanji = word;
+      const rubyElements = td0.querySelectorAll('ruby');
+      if (rubyElements.length > 0) {
+        rubyElements.forEach(ruby => {
+          if (ruby) {
+            kanjiText = parseRubyKanji(ruby);
+            rt = ruby.querySelector('rt')?.textContent.trim() ?? "";
+          }
+          word = word.replace(kanjiText, "").replace("（" + rt + "）", rt);
+          combinedKanji = combinedKanji.replace("（" + rt + "）", "");
+        });
+      }
+    } else {
+      combinedKanji = td1.textContent.trim();
+    }
+	}
+  
+  return {
+    word: word.trim(),
+    kanji: combinedKanji
+  };
+}
+
+const vocabList = Array.from(document.querySelectorAll('.search_result tbody tr'))
+  .map(tr => {
+    const tds = tr.querySelectorAll('td');
+    const lesson = document.querySelector('h2[itemprop="name"] a[itemprop="url"]').textContent.trim().match(/\b(\d+)\b/)[1];
+    
+    if (tds.length >= 5) {
+      const { word, kanji } = parseRuby(tds[0], tds[1]);
+      // if (tds[0].textContent.trim() == "佐藤（さとう）歯科（しか）") {
+      //   debugger;
+      // }
+      const vietnamese_origin = parseRubyKanji(tds[2]);
+      const audio = tds[3].querySelector('audio')?.src ?? "";
+      const meaning = tds[4].textContent.trim();
+      return { lesson, word, kanji, vietnamese_origin, audio, meaning };
+    }
+
+    if (tds.length === 3) {
+      const { word, kanji } = parseRuby(tds[0], null);
+      const audio = tds[1].querySelector('audio')?.src ?? "";
+      const meaning = tds[2].textContent.trim();
+      return { lesson, word, kanji, vietnamese_origin: "", audio, meaning };
+    }
+
+    if (tds.length === 2) {
+      const { word, kanji } = parseRuby(tds[0], null);
+      const meaning = tds[1].textContent.trim();
+      return { lesson, word, kanji, vietnamese_origin: "", audio: "", meaning };
+    }
+
+    return null;
+  })
+  .filter(Boolean);
+var json = ""
+vocabList.forEach(item => {
+  json += JSON.stringify(item, null, 2) + ","; // Output từng object riêng
+});
+console.log(json);

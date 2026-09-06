@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Text to JSON</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Convert Text to JSON</h1>
+    <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+    <button onclick="convertToJson()">Convert to JSON</button>
+    <button onclick="downloadJson()" id="downloadBtn" style="display: none;">Download JSON</button>
+    <h2>Result:</h2>
+    <pre id="result"></pre>
+
+    <script>
+        let jsonData = null;
+
+        function convertToJson() {
+            // Lấy dữ liệu từ textarea
+            const inputText = document.getElementById("inputText").value;
+
+            // Phân tích dữ liệu
+            const questions = [];
+            const blocks = inputText.split(/(Question \d+)/); // Tách dựa trên "Question X"
+
+            let currentQuestion = null;
+
+            blocks.forEach((block, index) => {
+                if (block.match(/Question \d+/)) {
+                    // Bắt đầu một câu hỏi mới
+                    if (currentQuestion) {
+                        questions.push(currentQuestion); // Lưu câu hỏi trước đó
+                    }
+                    currentQuestion = {
+                        question: "",
+                        options: {},
+                        correct_answer: ""
+                    };
+                } else if (currentQuestion) {
+                    // Xử lý nội dung của câu hỏi
+                    const lines = block.split("\n").filter(line => line.trim() !== "");
+
+                    for (let i = 0; i < lines.length; i++) {
+                        const line = lines[i];
+
+                        if (line == "Incorrect" || line == "Correct") {
+                          continue;
+                        }
+
+                        if (line.startsWith("(A)")) {
+                            currentQuestion.options.A = line.replace(/^\(A\)\s*/, "").trim();
+                        } else if (line.startsWith("(B)")) {
+                            currentQuestion.options.B = line.replace(/^\(B\)\s*/, "").trim();
+                        } else if (line.startsWith("(C)")) {
+                            currentQuestion.options.C = line.replace(/^\(C\)\s*/, "").trim();
+                        } else if (line.startsWith("(D)")) {
+                            currentQuestion.options.D = line.replace(/^\(D\)\s*/, "").trim();
+                        } else if (line.startsWith("Correct answer") || line.startsWith("Your answer is correct")) {
+                          // Lấy câu trả lời đúng từ dòng tiếp theo
+                          if (i + 1 < lines.length) {
+                            console.log(currentQuestion);
+                            currentQuestion.correct_answer = lines[i + 1].match(/\(([A-D])\)/)[1];
+                          }
+                        } else if (!currentQuestion.question) {
+                            currentQuestion.question = line.trim(); // Lấy câu hỏi
+                        }
+                      
+                    }
+
+                    // Sắp xếp lại các tùy chọn theo thứ tự A, B, C, D
+                    const orderedOptions = {};
+                    ["A", "B", "C", "D"].forEach(key => {
+                        if (currentQuestion.options[key]) {
+                            orderedOptions[key] = currentQuestion.options[key];
+                        }
+                    });
+                    currentQuestion.options = orderedOptions;
+                }
+            });
+
+            // Lưu câu hỏi cuối cùng
+            if (currentQuestion) {
+                questions.push(currentQuestion);
+            }
+
+            // Chuyển đổi sang JSON
+            jsonData = JSON.stringify(questions, null, 4);
+
+            // Hiển thị kết quả
+            document.getElementById("result").textContent = jsonData;
+            document.getElementById("downloadBtn").style.display = "block";
+        }
+
+        function downloadJson() {
+            if (!jsonData) return;
+
+            // Tạo file JSON và tải về
+            const blob = new Blob([jsonData], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "questions.json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

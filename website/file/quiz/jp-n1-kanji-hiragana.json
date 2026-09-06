@@ -1,0 +1,7954 @@
+[
+  {
+    "question": "青春",
+    "options": {
+      "A": "せいしゅん"
+    },
+    "correct_answer": "A",
+    "explanation": "thanh xuân"
+  },
+  {
+    "question": "晩年",
+    "options": {
+      "A": "ばんねん"
+    },
+    "correct_answer": "A",
+    "explanation": "cuối đời, tuổi xế bóng"
+  },
+  {
+    "question": "葬式",
+    "options": {
+      "A": "そうしき"
+    },
+    "correct_answer": "A",
+    "explanation": "tang lễ, đám tang"
+  },
+  {
+    "question": "世帯",
+    "options": {
+      "A": "せたい"
+    },
+    "correct_answer": "A",
+    "explanation": "hộ gia đình"
+  },
+  {
+    "question": "世間",
+    "options": {
+      "A": "せけん"
+    },
+    "correct_answer": "A",
+    "explanation": "thế gian, xã hội "
+  },
+  {
+    "question": "庶民",
+    "options": {
+      "A": "しょみん"
+    },
+    "correct_answer": "A",
+    "explanation": "dân đen, dân thường "
+  },
+  {
+    "question": "片言",
+    "options": {
+      "A": "かたこと"
+    },
+    "correct_answer": "A",
+    "explanation": "① nói bập bõm, nói đứt đoạn, nói không trôi chảy ② tám chuyện"
+  },
+  {
+    "question": "夜更かし",
+    "options": {
+      "A": "よふかし"
+    },
+    "correct_answer": "A",
+    "explanation": "thức khuya "
+  },
+  {
+    "question": "家出",
+    "options": {
+      "A": "いえで"
+    },
+    "correct_answer": "A",
+    "explanation": "① bỏ nhà ra đi ② đi ra khỏi nhà"
+  },
+  {
+    "question": "戸締り(を)する",
+    "options": {
+      "A": "とじまり"
+    },
+    "correct_answer": "A",
+    "explanation": "khóa cửa "
+  },
+  {
+    "question": "ずぶ濡れ",
+    "options": {
+      "A": "ずぶぬれ"
+    },
+    "correct_answer": "A",
+    "explanation": "ướt sũng"
+  },
+  {
+    "question": "顔つき",
+    "options": {
+      "A": "かおつき"
+    },
+    "correct_answer": "A",
+    "explanation": "vẻ mặt, nét mặt"
+  },
+  {
+    "question": "身なり",
+    "options": {
+      "A": "みなり"
+    },
+    "correct_answer": "A",
+    "explanation": "diện mạo "
+  },
+  {
+    "question": "身の回り",
+    "options": {
+      "A": "みのまわり"
+    },
+    "correct_answer": "A",
+    "explanation": "những thứ xung quanh bản thân"
+  },
+  {
+    "question": "身振り",
+    "options": {
+      "A": "みぶり"
+    },
+    "correct_answer": "A",
+    "explanation": "Điệu bộ, cử chỉ "
+  },
+  {
+    "question": "良心",
+    "options": {
+      "A": "りょうしん"
+    },
+    "correct_answer": "A",
+    "explanation": "lương tâm "
+  },
+  {
+    "question": "素質",
+    "options": {
+      "A": "そしつ"
+    },
+    "correct_answer": "A",
+    "explanation": "tố chất, năng khiếu （素質+努力＝才能）"
+  },
+  {
+    "question": "好意",
+    "options": {
+      "A": "こうい"
+    },
+    "correct_answer": "A",
+    "explanation": "hảo ý, lòng tốt "
+  },
+  {
+    "question": "ため息",
+    "options": {
+      "A": "ためいき"
+    },
+    "correct_answer": "A",
+    "explanation": "tiếng thở dài "
+  },
+  {
+    "question": "ど忘れ",
+    "options": {
+      "A": "どわすれ"
+    },
+    "correct_answer": "A",
+    "explanation": "sự đãng trí "
+  },
+  {
+    "question": "用心",
+    "options": {
+      "A": "ようじん"
+    },
+    "correct_answer": "A",
+    "explanation": "cẩn thận đối với nguy hiểm (cẩn thận khi đi trên đường vắng ban đêm)"
+  },
+  {
+    "question": "予感する",
+    "options": {
+      "A": "よかん"
+    },
+    "correct_answer": "A",
+    "explanation": "dự cảm, linh tính "
+  },
+  {
+    "question": "視線",
+    "options": {
+      "A": "しせん"
+    },
+    "correct_answer": "A",
+    "explanation": "ánh mắt, ánh nhìn "
+  },
+  {
+    "question": "迷信",
+    "options": {
+      "A": "めいしん"
+    },
+    "correct_answer": "A",
+    "explanation": "mê tín "
+  },
+  {
+    "question": "縁",
+    "options": {
+      "A": "えん"
+    },
+    "correct_answer": "A",
+    "explanation": "duyên nợ"
+  },
+  {
+    "question": "使い捨て",
+    "options": {
+      "A": "つかいすて"
+    },
+    "correct_answer": "A",
+    "explanation": "sử dụng 1 lần rồi bỏ"
+  },
+  {
+    "question": "下取り",
+    "options": {
+      "A": "したどり"
+    },
+    "correct_answer": "A",
+    "explanation": "đổi cũ lấy mới, có bù thêm tiền"
+  },
+  {
+    "question": "倹約",
+    "options": {
+      "A": "けんやく"
+    },
+    "correct_answer": "A",
+    "explanation": "tiết kiệm (không dùng với tài nguyên thiên nhiên, thời gian)"
+  },
+  {
+    "question": "出費する",
+    "options": {
+      "A": "しゅっぴ"
+    },
+    "correct_answer": "A",
+    "explanation": "chi tiêu、nói về mức độ (が多い、が少ない、がかさむ　tăng, を切り詰める cắt giảm)"
+  },
+  {
+    "question": "会計",
+    "options": {
+      "A": "かいけい"
+    },
+    "correct_answer": "A",
+    "explanation": "kế toán, tính tiền"
+  },
+  {
+    "question": "所得",
+    "options": {
+      "A": "しょとく"
+    },
+    "correct_answer": "A",
+    "explanation": "sau khi đã khấu trừ, thường dùng trong sổ sách, giấy tờ, tính chính xác"
+  },
+  {
+    "question": "採用する",
+    "options": {
+      "A": "さいよう"
+    },
+    "correct_answer": "A",
+    "explanation": "①thuê, mướn, tuyển dụng ②sử dụng, thừa nhận"
+  },
+  {
+    "question": "雇用する",
+    "options": {
+      "A": "こよう"
+    },
+    "correct_answer": "A",
+    "explanation": "thuê, mướn, tuyển dụng (từ này chỉ dùng cho con người )"
+  },
+  {
+    "question": "所属する",
+    "options": {
+      "A": "しょぞく"
+    },
+    "correct_answer": "A",
+    "explanation": "thường nói về tổ chức của con người, nhìn thấy được （営業部に、区のボランティア会に）"
+  },
+  {
+    "question": "待遇",
+    "options": {
+      "A": "たいぐう"
+    },
+    "correct_answer": "A",
+    "explanation": "①chế độ đãi ngộ　②tiếp đón (không dùng với đãi món ăn, dùng 接待)"
+  },
+  {
+    "question": "派遣する",
+    "options": {
+      "A": "はけん"
+    },
+    "correct_answer": "A",
+    "explanation": "sự sai bảo, sự phái đi chủ thể của hành động là bản thân → 派遣される chủ thể của hành động không phải là bản thân → 派遣する"
+  },
+  {
+    "question": "赴任する",
+    "options": {
+      "A": "ふにん"
+    },
+    "correct_answer": "A",
+    "explanation": "chuyển công tác (những người có trách nhiệm, vai trò cao như tổ trưởng, trưởng phòng,... nhận nhiệm vụ xây dựng một chi nhanh mới hoặc một trách nhiệm mới cao hơn, khó khăn hơn) chủ thể của hành động là bản thân → 赴任する hoặc 赴任させられる"
+  },
+  {
+    "question": "地元",
+    "options": {
+      "A": "じもと"
+    },
+    "correct_answer": "A",
+    "explanation": "địa phương của mình, quê nhà"
+  },
+  {
+    "question": "現役",
+    "options": {
+      "A": "げんえき"
+    },
+    "correct_answer": "A",
+    "explanation": "đang hoạt động, đang đảm nhiệm"
+  },
+  {
+    "question": "指図する",
+    "options": {
+      "A": "さしず"
+    },
+    "correct_answer": "A",
+    "explanation": "chỉ thị, hướng dẫn . "
+  },
+  {
+    "question": "操縦する",
+    "options": {
+      "A": "そうじゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "①điều khiển, vận hành (máy bay, tàu thuyền)　②điều khiển con người"
+  },
+  {
+    "question": "主食",
+    "options": {
+      "A": "しゅしょく"
+    },
+    "correct_answer": "A",
+    "explanation": "lương thực chính, thức ăn chính trong bữa ăn (gạo, cơm, v.v)"
+  },
+  {
+    "question": "食物",
+    "options": {
+      "A": "しょくもつ"
+    },
+    "correct_answer": "A",
+    "explanation": "thực phẩm"
+  },
+  {
+    "question": "穀物",
+    "options": {
+      "A": "こくもつ"
+    },
+    "correct_answer": "A",
+    "explanation": "ngũ cốc, bột mì, đậu,v.v ngoại trừ gạo"
+  },
+  {
+    "question": "豊作",
+    "options": {
+      "A": "ほうさく"
+    },
+    "correct_answer": "A",
+    "explanation": "trúng mùa, mùa màng bội thu"
+  },
+  {
+    "question": "例年",
+    "options": {
+      "A": "れいねん"
+    },
+    "correct_answer": "A",
+    "explanation": "định kì hàng năm"
+  },
+  {
+    "question": "種",
+    "options": {
+      "A": "たね"
+    },
+    "correct_answer": "A",
+    "explanation": "①hạt, hạt giống  "
+  },
+  {
+    "question": "毒",
+    "options": {
+      "A": "どく"
+    },
+    "correct_answer": "A",
+    "explanation": "①độc, chất độc, ②độc hại　③ từ ngữ có chứa chất độc, từ ngữ cay nghiệt"
+  },
+  {
+    "question": "桁",
+    "options": {
+      "A": "けた"
+    },
+    "correct_answer": "A",
+    "explanation": "chữ số "
+  },
+  {
+    "question": "単位",
+    "options": {
+      "A": "たんい"
+    },
+    "correct_answer": "A",
+    "explanation": "đơn vị (量の単位、家族の単位、数学の単位)"
+  },
+  {
+    "question": "を一括スル",
+    "options": {
+      "A": "いっかつ"
+    },
+    "correct_answer": "A",
+    "explanation": "gom lại thành 1 rồi xử lý"
+  },
+  {
+    "question": "塊/固まり",
+    "options": {
+      "A": "かたまり"
+    },
+    "correct_answer": "A",
+    "explanation": "vón cục, tảng, miếng "
+  },
+  {
+    "question": "丈",
+    "options": {
+      "A": "たけ"
+    },
+    "correct_answer": "A",
+    "explanation": "vạt(áo), chiều dài"
+  },
+  {
+    "question": "欄",
+    "options": {
+      "A": "らん"
+    },
+    "correct_answer": "A",
+    "explanation": "cột, bảng"
+  },
+  {
+    "question": "隅",
+    "options": {
+      "A": "すみ"
+    },
+    "correct_answer": "A",
+    "explanation": "góc"
+  },
+  {
+    "question": "縁",
+    "options": {
+      "A": "ふち"
+    },
+    "correct_answer": "A",
+    "explanation": "viền, mép"
+  },
+  {
+    "question": "が分裂スル",
+    "options": {
+      "A": "ぶんれつ"
+    },
+    "correct_answer": "A",
+    "explanation": "rạn nứt, chia rẽ, phân chia (政党が二つに、国、細胞 さいぼう tế bào, グループ)"
+  },
+  {
+    "question": "が振動スル",
+    "options": {
+      "A": "しんどう"
+    },
+    "correct_answer": "A",
+    "explanation": "sự chấn động, chấn động"
+  },
+  {
+    "question": "が沸騰スル",
+    "options": {
+      "A": "ふっとう"
+    },
+    "correct_answer": "A",
+    "explanation": "①sôi sục ②nóng bỏng, sôi sục (話題、世論、株価 かぶか giá cổ phiếu)"
+  },
+  {
+    "question": "が循環スル",
+    "options": {
+      "A": "じゅんかん"
+    },
+    "correct_answer": "A",
+    "explanation": "tuần hoàn, hoạt động một vòng khép kín（血液、バスは市内を、）"
+  },
+  {
+    "question": "を回収スル",
+    "options": {
+      "A": "かいしゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "thu hồi sau khi đã phát ra (ペットボトル、アンケート、テスト問題、欠陥商品、資金Tiền vốn .)"
+  },
+  {
+    "question": "を獲得スル",
+    "options": {
+      "A": "かくとく"
+    },
+    "correct_answer": "A",
+    "explanation": "thu được thành quả sau những nổ lực （政権、自由、権利、地位、メダル )"
+  },
+  {
+    "question": "区間",
+    "options": {
+      "A": "くかん"
+    },
+    "correct_answer": "A",
+    "explanation": "khu vực, đoạn"
+  },
+  {
+    "question": "施設",
+    "options": {
+      "A": "しせつ"
+    },
+    "correct_answer": "A",
+    "explanation": "cơ sở vật chất"
+  },
+  {
+    "question": "を運営スル",
+    "options": {
+      "A": "うんえい"
+    },
+    "correct_answer": "A",
+    "explanation": "quản lý, điều hành (学園祭　がくえんさい、組織、学校、会議、。。。）"
+  },
+  {
+    "question": "が面会スル",
+    "options": {
+      "A": "めんかい"
+    },
+    "correct_answer": "A",
+    "explanation": "gặp gỡ　（大統領と、学長に）"
+  },
+  {
+    "question": "を返却スル",
+    "options": {
+      "A": "へんきゃく"
+    },
+    "correct_answer": "A",
+    "explanation": "trả lại, hoàn trả　（本）"
+  },
+  {
+    "question": "が投書スル",
+    "options": {
+      "A": "とうしょ"
+    },
+    "correct_answer": "A",
+    "explanation": "thư bạn đọc (意見を新聞に)"
+  },
+  {
+    "question": "を検索スル",
+    "options": {
+      "A": "けんさく"
+    },
+    "correct_answer": "A",
+    "explanation": "tìm kiếm, tra (情報、データ、。。。)"
+  },
+  {
+    "question": "を負傷スル",
+    "options": {
+      "A": "ふしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "bị thương　（足を、。。。）"
+  },
+  {
+    "question": "が感染スル",
+    "options": {
+      "A": "かんせん"
+    },
+    "correct_answer": "A",
+    "explanation": "lây nhiễm, truyền nhiễm"
+  },
+  {
+    "question": "が作用スル",
+    "options": {
+      "A": "さよう"
+    },
+    "correct_answer": "A",
+    "explanation": "tác dụng (この薬は神経に)"
+  },
+  {
+    "question": "が依存スル",
+    "options": {
+      "A": "いぞん/いそん"
+    },
+    "correct_answer": "A",
+    "explanation": "phụ thuộc, lệ thuộc, nghiện　（親に、）"
+  },
+  {
+    "question": "が/を解消スル",
+    "options": {
+      "A": "かいしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "hủy, xóa bỏ, giải tỏa (ストレス、婚約、悩み、不安)　"
+  },
+  {
+    "question": "を促進スル",
+    "options": {
+      "A": "そくしん"
+    },
+    "correct_answer": "A",
+    "explanation": "xúc tiến, thúc đẩy, thường là nhà nước, chính quyền thực thi biện pháp để thúc đẩy những vấn đề mang tính quốc gia (buôn bán, thương mại, sử dụng năng lượng tự nhiên)"
+  },
+  {
+    "question": "意向",
+    "options": {
+      "A": "いこう"
+    },
+    "correct_answer": "A",
+    "explanation": "chí hướng; dự định; ý muốn "
+  },
+  {
+    "question": "を意図スル",
+    "options": {
+      "A": "いと"
+    },
+    "correct_answer": "A",
+    "explanation": "ý đồ, mục đích"
+  },
+  {
+    "question": "が向上スル",
+    "options": {
+      "A": "こうじょう"
+    },
+    "correct_answer": "A",
+    "explanation": "cải thiện, vươn lên　（生活水準、平均寿命、学力、技術、レベル、意識）"
+  },
+  {
+    "question": "活気",
+    "options": {
+      "A": "かっき"
+    },
+    "correct_answer": "A",
+    "explanation": "náo nhiệt　（市場、クラス、）"
+  },
+  {
+    "question": "迫力",
+    "options": {
+      "A": "はくりょく"
+    },
+    "correct_answer": "A",
+    "explanation": "mãnh liệt, sức lôi cuốn, thúc đẩy"
+  },
+  {
+    "question": "が勝利スル",
+    "options": {
+      "A": "しょうり"
+    },
+    "correct_answer": "A",
+    "explanation": "thắng lợi"
+  },
+  {
+    "question": "が適応スル",
+    "options": {
+      "A": "てきおう"
+    },
+    "correct_answer": "A",
+    "explanation": "thích ứng　（環境に、）"
+  },
+  {
+    "question": "が調和スル",
+    "options": {
+      "A": "ちょうわ"
+    },
+    "correct_answer": "A",
+    "explanation": "điều hòa, hòa hợp (全体の調和、人との調和、)"
+  },
+  {
+    "question": "権力",
+    "options": {
+      "A": "けんりょく"
+    },
+    "correct_answer": "A",
+    "explanation": "quyền lực"
+  },
+  {
+    "question": "権威",
+    "options": {
+      "A": "けんい"
+    },
+    "correct_answer": "A",
+    "explanation": "quyền uy"
+  },
+  {
+    "question": "を圧迫スル",
+    "options": {
+      "A": "あっぱく"
+    },
+    "correct_answer": "A",
+    "explanation": "áp bách, áp bức"
+  },
+  {
+    "question": "を強制スル",
+    "options": {
+      "A": "きょうせい"
+    },
+    "correct_answer": "A",
+    "explanation": "cưỡng chế, bắt người khác làm những cái mình muốn, người làm thường không muốn"
+  },
+  {
+    "question": "を規制スル",
+    "options": {
+      "A": "きせい"
+    },
+    "correct_answer": "A",
+    "explanation": "quy chế, đưa ra luật lệ, quy chế để ép người khác tuân thủ theo  (giao thông, xây dựng, cạnh tranh kinh doanh)"
+  },
+  {
+    "question": "を拒否スル",
+    "options": {
+      "A": "きょひ"
+    },
+    "correct_answer": "A",
+    "explanation": "cự phủ, cự tuyệt, thiên về không thèm quan tâm (yêu cầu, chính sách)"
+  },
+  {
+    "question": "が対抗スル",
+    "options": {
+      "A": "たいこう"
+    },
+    "correct_answer": "A",
+    "explanation": "đối kháng, cạnh tranh với nhau, chống đối lẫn nhau (クラス対抗 thi giữa các lớp, đối đầu với Aさん)"
+  },
+  {
+    "question": "が抗議スル",
+    "options": {
+      "A": "こうぎ"
+    },
+    "correct_answer": "A",
+    "explanation": "kháng nghị, phản đối (phản đối phán quyết của toà án, phản đối tăng thuế)"
+  },
+  {
+    "question": "を革新スル",
+    "options": {
+      "A": "かくしん"
+    },
+    "correct_answer": "A",
+    "explanation": "cách tân, cải cách, đổi mới, bỏ cái cũ, làm cái mới tốt hơn (không dùng với hiến pháp, pháp luật mà dùng 改正), chính trị, đảng, bộ máy nhà nước dùng được"
+  },
+  {
+    "question": "原則",
+    "options": {
+      "A": "げんそく"
+    },
+    "correct_answer": "A",
+    "explanation": "nguyên tắc"
+  },
+  {
+    "question": "が経過スル",
+    "options": {
+      "A": "けいか"
+    },
+    "correct_answer": "A",
+    "explanation": "trải qua, trôi qua(３か月が経過した、手術後の経過、交渉の経過、試合の途中経過 ）"
+  },
+  {
+    "question": "を中継スル",
+    "options": {
+      "A": "ちゅうけい"
+    },
+    "correct_answer": "A",
+    "explanation": "phát thanh, phát hình, phát sóng (từ đài truyền hình)"
+  },
+  {
+    "question": "規模",
+    "options": {
+      "A": "きぼ"
+    },
+    "correct_answer": "A",
+    "explanation": "quy mô(quy mô công ty, quy mô di tích, )"
+  },
+  {
+    "question": "を擦る",
+    "options": {
+      "A": "こする"
+    },
+    "correct_answer": "A",
+    "explanation": "dụi(mắt), cọ, chà sát(hai tay, đồ vật)"
+  },
+  {
+    "question": "を擦る",
+    "options": {
+      "A": "さする"
+    },
+    "correct_answer": "A",
+    "explanation": "massage (chà lưng, xoa lưng)"
+  },
+  {
+    "question": "を撫でる",
+    "options": {
+      "A": "なでる"
+    },
+    "correct_answer": "A",
+    "explanation": "xoa, sờ(đầu, cổ,...)"
+  },
+  {
+    "question": "をかき回す",
+    "options": {
+      "A": "かきまわす"
+    },
+    "correct_answer": "A",
+    "explanation": "khuấy, quậy, trộn (khuấy súp), khuấy tung hộc tủ để tìm đồ  "
+  },
+  {
+    "question": "を摘む",
+    "options": {
+      "A": "つむ"
+    },
+    "correct_answer": "A",
+    "explanation": "hái (hoa, trà, quả)"
+  },
+  {
+    "question": "を摘む",
+    "options": {
+      "A": "つまむ"
+    },
+    "correct_answer": "A",
+    "explanation": "gắp(thức ăn), chụp (vì mùi khó chịu nên bịt mũi),"
+  },
+  {
+    "question": "を掴む",
+    "options": {
+      "A": "つかむ"
+    },
+    "correct_answer": "A",
+    "explanation": "tóm lấy (cánh tay), lấy được (khoản tiền lớn),chiếm được (trái tim cô gái) (có hình dạng hay không có hình dạng đều dùng được)"
+  },
+  {
+    "question": "（が）捻じれる/捻れる",
+    "options": {
+      "A": "ねじれる"
+    },
+    "correct_answer": "A",
+    "explanation": "bị vặn, xoắn (cavat bị xoắn)"
+  },
+  {
+    "question": "（を）捻じる/捻る",
+    "options": {
+      "A": "ねじる"
+    },
+    "correct_answer": "A",
+    "explanation": "vặn, xoắn (vặn vòi ga, xoắn 2 đầu viên kẹo, vặn cánh tay của tên cướp) so với ひねる thì dùng sức nhiều hơn, vặn 2 đầu"
+  },
+  {
+    "question": "（を）捻る",
+    "options": {
+      "A": "ひねる"
+    },
+    "correct_answer": "A",
+    "explanation": "vặn, xoắn (蛇口 じゃぐち vòi nước, xoắn miệng túi nylon)"
+  },
+  {
+    "question": "束ねる",
+    "options": {
+      "A": "たばねる"
+    },
+    "correct_answer": "A",
+    "explanation": "buộc, cột (buộc chồng báo cũ, buộc tóc), quản lý (quản lý cấp dưới) cột nhiều thứ cùng loại lại thành một, tập hợp lại"
+  },
+  {
+    "question": "扇ぐ",
+    "options": {
+      "A": "あおぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "quạt (dùng tay quạt)"
+  },
+  {
+    "question": "（を）銜える",
+    "options": {
+      "A": "くわえる"
+    },
+    "correct_answer": "A",
+    "explanation": "ngậm (ngậm tay, điếu thuốc)"
+  },
+  {
+    "question": "（を）舐める",
+    "options": {
+      "A": "なめる"
+    },
+    "correct_answer": "A",
+    "explanation": "liếm (kem, kẹo), coi thường (coi thường đối thủ)"
+  },
+  {
+    "question": "俯く",
+    "options": {
+      "A": "うつむく"
+    },
+    "correct_answer": "A",
+    "explanation": "cuối xuống, gục đầu xuống (thể hiện sự chịu đựng), hoa héo rũ"
+  },
+  {
+    "question": "這う",
+    "options": {
+      "A": "はう"
+    },
+    "correct_answer": "A",
+    "explanation": "bò (em bé bò, côn trùng bò, cây dây leo bò lên tường)"
+  },
+  {
+    "question": "潜る",
+    "options": {
+      "A": "くぐる"
+    },
+    "correct_answer": "A",
+    "explanation": "xâm nhập vào, tiến vào (đường hầm, cuộc chiến,), trốn tránh (kẽ hở pháp luật, )"
+  },
+  {
+    "question": "囁く",
+    "options": {
+      "A": "ささやく"
+    },
+    "correct_answer": "A",
+    "explanation": "thì thầm (nói thì thầm với người khác), đồn thổi thông tin"
+  },
+  {
+    "question": "が/を喚く",
+    "options": {
+      "A": "わめく"
+    },
+    "correct_answer": "A",
+    "explanation": "gào thét"
+  },
+  {
+    "question": "打ち明ける",
+    "options": {
+      "A": "うちあける"
+    },
+    "correct_answer": "A",
+    "explanation": "tâm sự, bộc bạch, thú nhận (本心を親友に、過去の過ちを)"
+  },
+  {
+    "question": "見かける",
+    "options": {
+      "A": "みかける"
+    },
+    "correct_answer": "A",
+    "explanation": "nhìn thấy"
+  },
+  {
+    "question": "見分ける",
+    "options": {
+      "A": "みわける"
+    },
+    "correct_answer": "A",
+    "explanation": "phân biệt　（性別・性質・種類）"
+  },
+  {
+    "question": "見渡す",
+    "options": {
+      "A": "みわたす"
+    },
+    "correct_answer": "A",
+    "explanation": "nhìn tổng thể, bao quát"
+  },
+  {
+    "question": "見落とす",
+    "options": {
+      "A": "みおとす"
+    },
+    "correct_answer": "A",
+    "explanation": "bỏ sót, lỗi"
+  },
+  {
+    "question": "が乗り過ごす",
+    "options": {
+      "A": "のりすごす"
+    },
+    "correct_answer": "A",
+    "explanation": "quá trạm (xe buýt, tàu điện)"
+  },
+  {
+    "question": "を乗り越える",
+    "options": {
+      "A": "のりこえる"
+    },
+    "correct_answer": "A",
+    "explanation": "leo qua (壁を), trội hơn, giỏi hơn (業績を), vượt qua khó khăn (悲しみを)"
+  },
+  {
+    "question": "歩む",
+    "options": {
+      "A": "あゆむ"
+    },
+    "correct_answer": "A",
+    "explanation": "đi bộ (nghĩa bóng). VD: bước đi trên con đường đã chọn, bước qua nổi đau con người"
+  },
+  {
+    "question": "を保つ",
+    "options": {
+      "A": "たもつ"
+    },
+    "correct_answer": "A",
+    "explanation": "duy trì (20℃に), giữ (秩序　ちつじょ trật tự,平静 bình tĩnh, 均衡　きんこう　sự cân bằng) duy trì (スタイル、若さ、健康、。。。)"
+  },
+  {
+    "question": "を築く",
+    "options": {
+      "A": "きずく"
+    },
+    "correct_answer": "A",
+    "explanation": "①xây dựng công trình (城,　ダム、堤防　Đê điều 、建物の土台...) ②xây dựng quan hệ (信頼関係、新しい会社、富　とみ　Của cải、繁栄 はんえい　Sự phồn vinh . )"
+  },
+  {
+    "question": "が絶える",
+    "options": {
+      "A": "たえる"
+    },
+    "correct_answer": "A",
+    "explanation": "bị dừng, bị ngừng (笑い声が  ) bị mất (消息 しょうそく tin tức,連絡,子孫 しそん mất giống(động vật),家系người nối dõi )"
+  },
+  {
+    "question": "を絶つ/断つ",
+    "options": {
+      "A": "たつ"
+    },
+    "correct_answer": "A",
+    "explanation": "chấm dứt (国交、酒、タバコ、命、望み、家系、消息、連絡、退路 đường thoái lui ...)"
+  },
+  {
+    "question": "が途切れる",
+    "options": {
+      "A": "とぎれる"
+    },
+    "correct_answer": "A",
+    "explanation": "bị tạm dừng, gián đoạn (車の流れ、話、付き合い、通信、交流、連絡、記憶、人通り、)"
+  },
+  {
+    "question": "が途絶える",
+    "options": {
+      "A": "とだえる"
+    },
+    "correct_answer": "A",
+    "explanation": "ngừng, không làm nữa (連絡、人通り、送金、交流、通信、)"
+  },
+  {
+    "question": "が下る",
+    "options": {
+      "A": "くだる"
+    },
+    "correct_answer": "A",
+    "explanation": "①được đưa ra, được ban hành, được hạ lệnh (判決宣告、指令、評価、天罰 てんばつ) ②時代が下る Thời đại trong quá khứ mà tiến gần đến hiện tại ③百万円を下る　ít hơn 100 万円 ④tiêu chảy (腹が下る) ⑤を下る xuống (坂、階段、川、。。。)"
+  },
+  {
+    "question": "を下す",
+    "options": {
+      "A": "くだす"
+    },
+    "correct_answer": "A",
+    "explanation": "①đưa ra, ban hành, hạ lệnh (結論、評価、判定、解釈　かいしゃく giải thích, 判決 ) ②hạ đối thủ 相手を下す ③làm cho tiêu chảy (腹を下す)"
+  },
+  {
+    "question": "が垂れる",
+    "options": {
+      "A": "たれる"
+    },
+    "correct_answer": "A",
+    "explanation": "① trĩu xuống (柳の枝　やなぎ、電線、目、)=下がる ② nhỏ xuống, rơi xuống (水滴)＝落ちる"
+  },
+  {
+    "question": "が茂る",
+    "options": {
+      "A": "しげる"
+    },
+    "correct_answer": "A",
+    "explanation": "rậm rạp, um tùm (木, 葉,...)"
+  },
+  {
+    "question": "を耕す",
+    "options": {
+      "A": "たがやす"
+    },
+    "correct_answer": "A",
+    "explanation": "cày cấy (田畑　でんぱた　Ruộng vườn )"
+  },
+  {
+    "question": "を生かす",
+    "options": {
+      "A": "いかす"
+    },
+    "correct_answer": "A",
+    "explanation": "①gìn giữ, duy trì (英語、味、) ②giữ sự sống, không giết (giữ sự sống của con thú săn được)"
+  },
+  {
+    "question": "を拒む",
+    "options": {
+      "A": "こばむ"
+    },
+    "correct_answer": "A",
+    "explanation": "từ chối, cự tuyệt (異動、転勤、要求、申し出　Đề nghị、支払い)"
+  },
+  {
+    "question": "を強いる",
+    "options": {
+      "A": "しいる"
+    },
+    "correct_answer": "A",
+    "explanation": "cưỡng bức, ép buộc (寄付、単身赴任 たんしんふにん )"
+  },
+  {
+    "question": "を禁じる",
+    "options": {
+      "A": "きんじる"
+    },
+    "correct_answer": "A",
+    "explanation": "cấm (飲酒、運動、)"
+  },
+  {
+    "question": "を競う",
+    "options": {
+      "A": "きそう"
+    },
+    "correct_answer": "A",
+    "explanation": "cạnh tranh (技 わざ　kĩ xảo,　優劣　ゆうれつ、勝敗　しょうはい、 tay nghề 腕)"
+  },
+  {
+    "question": "を負かす",
+    "options": {
+      "A": "まかす"
+    },
+    "correct_answer": "A",
+    "explanation": "đánh bại"
+  },
+  {
+    "question": "が励む",
+    "options": {
+      "A": "はげむ"
+    },
+    "correct_answer": "A",
+    "explanation": "tự động viên bản thân cố gắng, phấn đấu (に　仕事、勉強、研究、。。。)"
+  },
+  {
+    "question": "を捉える",
+    "options": {
+      "A": "とらえる"
+    },
+    "correct_answer": "A",
+    "explanation": "nắm bắt được、chưa đạt đến 分かる (特徴、チャンス、真相 しんそう chân tướng、要点、心)"
+  },
+  {
+    "question": "を捕らえる",
+    "options": {
+      "A": "とらえる"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt giữ, tóm được (tên trộm, động vật, kẻ địch, cái chân của tội phạm)"
+  },
+  {
+    "question": "を庇う",
+    "options": {
+      "A": "かばう"
+    },
+    "correct_answer": "A",
+    "explanation": "bao che, che giấu (tội phạm, vết thương)"
+  },
+  {
+    "question": "を襲う",
+    "options": {
+      "A": "おそう"
+    },
+    "correct_answer": "A",
+    "explanation": "tấn công, xâm lược (獲物を, 地方を, )"
+  },
+  {
+    "question": "が挙がる",
+    "options": {
+      "A": "あがる"
+    },
+    "correct_answer": "A",
+    "explanation": "①được giơ, được đưa lên (手が ) ②được đưa ra (証拠が　しょうこ) ③được nêu lên (名前が) ④được nâng lên (利益が)"
+  },
+  {
+    "question": "を挙げる",
+    "options": {
+      "A": "あげる"
+    },
+    "correct_answer": "A",
+    "explanation": "①đưa lên (手を)⇔下ろす ②đưa ra （例を） ③nêu lên (名前を) ④đại diện, gánh vác (国を、一家を) ⑤bộc lộ (全力を) ⑥nâng cao (利益を) ⑦tổ chức 結婚式を、bắt giữ 犯人を、tập hợp binh lính chiến đấu 兵を"
+  },
+  {
+    "question": "を雇う",
+    "options": {
+      "A": "やとう"
+    },
+    "correct_answer": "A",
+    "explanation": "thuê người(従業員を）、thuê đồ vật（ タクシーを)"
+  },
+  {
+    "question": "を養う",
+    "options": {
+      "A": "やしなう"
+    },
+    "correct_answer": "A",
+    "explanation": "nuôi dưỡng, chăm sóc (家族を、子供を、体力を、実力を、読解力を、知力を)"
+  },
+  {
+    "question": "が交わる",
+    "options": {
+      "A": "まじわる"
+    },
+    "correct_answer": "A",
+    "explanation": "giao nhau, giao lưu (線と線が、国道と県道が、先輩と後輩が)"
+  },
+  {
+    "question": "を交える",
+    "options": {
+      "A": "まじえる"
+    },
+    "correct_answer": "A",
+    "explanation": "① trộn vào (仕事上に私情を交える  để tình cảm cá nhân vào công việc ② pha trộn (、手振り身振り động tác cơ thể, ユーモア)を交えて話す  ③ひざを交える　đầu gối sát nhau, ngồi sát nhau"
+  },
+  {
+    "question": "が/を焦る",
+    "options": {
+      "A": "あせる"
+    },
+    "correct_answer": "A",
+    "explanation": "nôn nóng trong lòng (勝利を、)"
+  },
+  {
+    "question": "（を）急かす",
+    "options": {
+      "A": "せかす"
+    },
+    "correct_answer": "A",
+    "explanation": "hối thúc, thúc giục"
+  },
+  {
+    "question": "が耐える",
+    "options": {
+      "A": "たえる"
+    },
+    "correct_answer": "A",
+    "explanation": "chịu đựng (空腹に　くうふく、訓練に、痛みに、禁断症状に　kiêng cử、重さ、アクシデント)"
+  },
+  {
+    "question": "（が）狂う",
+    "options": {
+      "A": "くるう"
+    },
+    "correct_answer": "A",
+    "explanation": "①phát điên, phát cuồng vì điều gì　（恋に、ギャンブルに） ②cảm giác kì lạ, khác lạ (勘が狂う、気が狂う、) ③sai, không chính xác (予定、順番、ペース、手元、時間)"
+  },
+  {
+    "question": "（が）照れる",
+    "options": {
+      "A": "てれる"
+    },
+    "correct_answer": "A",
+    "explanation": "xấu hổ, nhút nhát (chỉ dùng trong trường hợp mắc cỡ, e thẹn)"
+  },
+  {
+    "question": "を省みる",
+    "options": {
+      "A": "かえりみる"
+    },
+    "correct_answer": "A",
+    "explanation": "ngẫm nghĩ lại (=反省)"
+  },
+  {
+    "question": "を顧みる",
+    "options": {
+      "A": "かえりみる"
+    },
+    "correct_answer": "A",
+    "explanation": "hồi tưởng lại (青春時代を), nhìn lại (=振り向く), cân nhắc, suy nghĩ"
+  },
+  {
+    "question": "を心掛ける",
+    "options": {
+      "A": "こころがける"
+    },
+    "correct_answer": "A",
+    "explanation": "phấn đấu, cố gắng cho thói quen tốt(倹約, 早寝早起き、安全運転、整理整頓、)"
+  },
+  {
+    "question": "を試みる",
+    "options": {
+      "A": "こころみる"
+    },
+    "correct_answer": "A",
+    "explanation": "thử (説得、抵抗、脱出、新しい方法、)"
+  },
+  {
+    "question": "を案じる",
+    "options": {
+      "A": "あんじる"
+    },
+    "correct_answer": "A",
+    "explanation": "lo lắng, lo sợ (=心配する)"
+  },
+  {
+    "question": "が染みる",
+    "options": {
+      "A": "しみる"
+    },
+    "correct_answer": "A",
+    "explanation": "ngấm, thấm, ám mùi, dính (タバコの匂い、味、)"
+  },
+  {
+    "question": "が弱る",
+    "options": {
+      "A": "よわる"
+    },
+    "correct_answer": "A",
+    "explanation": "①sức khỏe trở nên yếu (足腰、体) ②gay go, khó khăn （終電に乗り遅れ、弱ってしまった）"
+  },
+  {
+    "question": "が老ける",
+    "options": {
+      "A": "ふける"
+    },
+    "correct_answer": "A",
+    "explanation": "già dặn, chững chạc (không dùng để nói tuổi già)"
+  },
+  {
+    "question": "が凍える",
+    "options": {
+      "A": "こごえる"
+    },
+    "correct_answer": "A",
+    "explanation": "đóng băng, đông cứng, dùng để ví von cơ thể khi bị lạnh (手、体)"
+  },
+  {
+    "question": "を懸ける",
+    "options": {
+      "A": "かける"
+    },
+    "correct_answer": "A",
+    "explanation": "đánh cược (命、勝負、)"
+  },
+  {
+    "question": "を交わす",
+    "options": {
+      "A": "かわす"
+    },
+    "correct_answer": "A",
+    "explanation": "trao đổi(言葉、握手、視線 ánh mắt, cái nhìn、約束、契約　)"
+  },
+  {
+    "question": "（が）賑わう",
+    "options": {
+      "A": "にぎわう"
+    },
+    "correct_answer": "A",
+    "explanation": "trở nên náo nhiệt, sôi động"
+  },
+  {
+    "question": "(を)受け入れる",
+    "options": {
+      "A": "うけいれる"
+    },
+    "correct_answer": "A",
+    "explanation": "chấp nhận, tiếp nhận(難民、提案、要求)"
+  },
+  {
+    "question": "頑丈な",
+    "options": {
+      "A": "がんじょう"
+    },
+    "correct_answer": "A",
+    "explanation": "bền vững, chắc chắn(家、ドア、体つき body)"
+  },
+  {
+    "question": "柔軟な",
+    "options": {
+      "A": "じゅうなん"
+    },
+    "correct_answer": "A",
+    "explanation": "mềm dẽo(体、考え、姿勢、)"
+  },
+  {
+    "question": "平らな",
+    "options": {
+      "A": "たいら"
+    },
+    "correct_answer": "A",
+    "explanation": "bằng phẳng、không lồi lõm　(道、石の表面、)"
+  },
+  {
+    "question": "平行な",
+    "options": {
+      "A": "へいこう"
+    },
+    "correct_answer": "A",
+    "explanation": "song hành, song song 話し合いは平行線を辿った（たどる）：sự thảo luận cứ song song, không đạt được kết quả"
+  },
+  {
+    "question": "手近な",
+    "options": {
+      "A": "てぢか"
+    },
+    "correct_answer": "A",
+    "explanation": "quen thuộc, gần tầm tay (材料、所、例、)"
+  },
+  {
+    "question": "渋い",
+    "options": {
+      "A": "しぶい"
+    },
+    "correct_answer": "A",
+    "explanation": "① chát （柿、お茶、） ② nhã nhặn, tinh tế(渋い色)＝落ち着いた ③ khuôn mặt cau có(渋い顔) ④ không trôi chảy, không thuận lợi(支払いが渋い)"
+  },
+  {
+    "question": "香ばしい",
+    "options": {
+      "A": "こうばしい"
+    },
+    "correct_answer": "A",
+    "explanation": "thơm ngát(匂い、お茶、コーヒー)"
+  },
+  {
+    "question": "華やかな",
+    "options": {
+      "A": "はなやか"
+    },
+    "correct_answer": "A",
+    "explanation": "rực rỡ, hào hoa(雰囲気、ステージ　buổi biễu diễn, 生涯　しょうがい, 衣装, パーティー)"
+  },
+  {
+    "question": "盛大な",
+    "options": {
+      "A": "せいだい"
+    },
+    "correct_answer": "A",
+    "explanation": "hoành tráng , quy mô lớn (拍手、激励会 げきれいかい　lễ xuất quân、式典、)"
+  },
+  {
+    "question": "鮮やかな",
+    "options": {
+      "A": "あざやか"
+    },
+    "correct_answer": "A",
+    "explanation": "①đẹp rực rỡ, rõ ràng(色、画像,記憶,) ②tuyệt vời　(手品　てじな　ảo thuật, 手並み てなみ kĩ năng)"
+  },
+  {
+    "question": "滑らか",
+    "options": {
+      "A": "なめらか"
+    },
+    "correct_answer": "A",
+    "explanation": "① mềm mại, mịn màng(肌, 布)＝すべすべ ② trôi chảy(英語が滑らかだ)＝ぺらぺら"
+  },
+  {
+    "question": "平凡な",
+    "options": {
+      "A": "へいぼん"
+    },
+    "correct_answer": "A",
+    "explanation": "bình thường, không khác biệt, không nổi bật(人間、人生、生活、成績、作品、。。。)"
+  },
+  {
+    "question": "素朴な",
+    "options": {
+      "A": "そぼく"
+    },
+    "correct_answer": "A",
+    "explanation": "①giữ nguyên bản sắc ban đầu (人柄,青年 tuổi thanh niên,気風 phong cách, 料理、) ② đơn giản, cơ bản （素朴な質問）"
+  },
+  {
+    "question": "精密な",
+    "options": {
+      "A": "せいみつ"
+    },
+    "correct_answer": "A",
+    "explanation": "chính xác, tỉ mỉ"
+  },
+  {
+    "question": "極端な",
+    "options": {
+      "A": "きょくたん"
+    },
+    "correct_answer": "A",
+    "explanation": "cực đoan、nhất quyết cho là như thế　（意見、思考、例、話）"
+  },
+  {
+    "question": "猛烈な",
+    "options": {
+      "A": "もうれつ"
+    },
+    "correct_answer": "A",
+    "explanation": "mãnh liệt, hung tợn (～嵐　あらし bão tố、～に忙しくなる)"
+  },
+  {
+    "question": "厳重な",
+    "options": {
+      "A": "げんじゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "nghiêm trọng, nghiêm ngặt (保管する、注意する、取り締まる kiểm soát 、。。。)"
+  },
+  {
+    "question": "十分な",
+    "options": {
+      "A": "じゅうぶん"
+    },
+    "correct_answer": "A",
+    "explanation": "đầy đủ, toàn vẹn (睡眠、栄養、)"
+  },
+  {
+    "question": "大幅な",
+    "options": {
+      "A": "おおはば"
+    },
+    "correct_answer": "A",
+    "explanation": "khá nhiều, khá lớn (値上げ、変更)"
+  },
+  {
+    "question": "膨大な",
+    "options": {
+      "A": "ぼうだい"
+    },
+    "correct_answer": "A",
+    "explanation": "lớn lên, to ra, sự phình to ra (量、エネルギー、資金、資料、データ、損害)"
+  },
+  {
+    "question": "乏しい",
+    "options": {
+      "A": "とぼしい"
+    },
+    "correct_answer": "A",
+    "explanation": "ít ỏi, thiếu thốn (地下資源、経験、資金、知識、才能、)"
+  },
+  {
+    "question": "僅かな",
+    "options": {
+      "A": "わずか"
+    },
+    "correct_answer": "A",
+    "explanation": "dùng trong những thứ thiên về cân, đo, đong, đếm ①nhỏ, ít, có thể đứng một mình không cần số từ (距離、わずかずつ、) ②chỉ (わずか５歳、わずか１割)"
+  },
+  {
+    "question": "微かな",
+    "options": {
+      "A": "かすか"
+    },
+    "correct_answer": "A",
+    "explanation": "mờ nhạt, không rõ ràng、không đếm được,thuộc về cảm nhận (音、匂い、光、記憶、息) dùng trong những thứ thiên về cảm giác, cảm nhận của các giác quan như mắt, mũi, miệng, tai, tay"
+  },
+  {
+    "question": "微妙な",
+    "options": {
+      "A": "びみょう"
+    },
+    "correct_answer": "A",
+    "explanation": "sao sao đó, không rõ ràng, khó diễn đạt về cảm giác, cảm nhận (ニュアンス sắc thái,)"
+  },
+  {
+    "question": "急激な",
+    "options": {
+      "A": "きゅうげき"
+    },
+    "correct_answer": "A",
+    "explanation": "đột ngột, nhanh chóng, nói về mức độ thay đổi lớn (変化、急激に上昇する) "
+  },
+  {
+    "question": "急速な",
+    "options": {
+      "A": "きゅうそく"
+    },
+    "correct_answer": "A",
+    "explanation": "đột ngột, nhanh chóng, nói về thời gian thay đổi nhanh (急激冷凍、発展) "
+  },
+  {
+    "question": "強硬な",
+    "options": {
+      "A": "きょうこう"
+    },
+    "correct_answer": "A",
+    "explanation": "mạnh mẽ, quyết liệt (態度、強硬に反対する)"
+  },
+  {
+    "question": "余計な",
+    "options": {
+      "A": "よけい"
+    },
+    "correct_answer": "A",
+    "explanation": "① dư thừa, hầu như không có giá trị sử dụng, quá mức cần thiết (余計なもの đồ vật không cần thiết, 余計な心配、余計に注文する) ② phần thừa ra, phần dư ra (VD cho vào hộp ko hết còn dư ra, thời gian làm thêm giờ) ③よけい見たくなる(bị cấm nhìn nhưng lại càng muốn nhìn)"
+  },
+  {
+    "question": "不審な",
+    "options": {
+      "A": "ふしん"
+    },
+    "correct_answer": "A",
+    "explanation": "đáng ngờ, đáng nghi"
+  },
+  {
+    "question": "公式な",
+    "options": {
+      "A": "こうしき"
+    },
+    "correct_answer": "A",
+    "explanation": "chính thức"
+  },
+  {
+    "question": "正当な",
+    "options": {
+      "A": "せいとう"
+    },
+    "correct_answer": "A",
+    "explanation": "chính đáng, đúng đắn （権利、報酬　ほうしゅう　thù lao、正当に評価される）"
+  },
+  {
+    "question": "正常な",
+    "options": {
+      "A": "せいじょう"
+    },
+    "correct_answer": "A",
+    "explanation": "bình thường (hành động, phát triển, tình trạng)(血圧、脈拍 みゃくはく nhịp đập mạch máu ) 正常に戻る trở về bình thường"
+  },
+  {
+    "question": "完璧な",
+    "options": {
+      "A": "かんぺき"
+    },
+    "correct_answer": "A",
+    "explanation": "hoàn hảo (演技、)"
+  },
+  {
+    "question": "簡潔な",
+    "options": {
+      "A": "かんけつ"
+    },
+    "correct_answer": "A",
+    "explanation": "thanh khiết, ngắn gọn (文章、表現、言い方)"
+  },
+  {
+    "question": "明白な",
+    "options": {
+      "A": "めいはく"
+    },
+    "correct_answer": "A",
+    "explanation": "minh bạch, trắng đen, đúng sai rõ ràng (事実、証拠、)"
+  },
+  {
+    "question": "客観的な",
+    "options": {
+      "A": "きゃっかんてき"
+    },
+    "correct_answer": "A",
+    "explanation": "một cách khách quan (事実、意見、に考える、に述べる)"
+  },
+  {
+    "question": "えん曲な",
+    "options": {
+      "A": "えんきょく"
+    },
+    "correct_answer": "A",
+    "explanation": "quanh co, vòng vo (に断る từ chối một cách vòng vo、)"
+  },
+  {
+    "question": "不可欠な",
+    "options": {
+      "A": "ふかけつ"
+    },
+    "correct_answer": "A",
+    "explanation": "không thể thiếu (不可欠な資質、)"
+  },
+  {
+    "question": "有利な",
+    "options": {
+      "A": "ゆうり"
+    },
+    "correct_answer": "A",
+    "explanation": "có lợi, thuận lợi (有利な条件、有利に có lợi cho việc gì)"
+  },
+  {
+    "question": "有望な",
+    "options": {
+      "A": "ゆうぼう"
+    },
+    "correct_answer": "A",
+    "explanation": "có triển vọng"
+  },
+  {
+    "question": "待ち遠しい",
+    "options": {
+      "A": "まちどおしい"
+    },
+    "correct_answer": "A",
+    "explanation": "mong ngóng, trông chờ(~日が待ち遠しい trông mong cái ngày mà ～)"
+  },
+  {
+    "question": "喜ばしい",
+    "options": {
+      "A": "よろこばしい"
+    },
+    "correct_answer": "A",
+    "explanation": "hạnh phúc"
+  },
+  {
+    "question": "望ましい",
+    "options": {
+      "A": "のぞましい"
+    },
+    "correct_answer": "A",
+    "explanation": "hy vọng、mong muốn đối phương làm theo"
+  },
+  {
+    "question": "疑わしい",
+    "options": {
+      "A": "うたがわしい"
+    },
+    "correct_answer": "A",
+    "explanation": "nghi ngờ, kì lạ、luôn nghĩ là không phải như thế"
+  },
+  {
+    "question": "楽観的な",
+    "options": {
+      "A": "らっかんてき"
+    },
+    "correct_answer": "A",
+    "explanation": "một cách lạc quan (性格、見方、考え、)"
+  },
+  {
+    "question": "憂鬱な",
+    "options": {
+      "A": "ゆううつ"
+    },
+    "correct_answer": "A",
+    "explanation": "u sầu, chán nản (bị công bố lỗi vi phạm, 季節 mùa không hợp với cơ thể)"
+  },
+  {
+    "question": "勤勉な",
+    "options": {
+      "A": "きんべん"
+    },
+    "correct_answer": "A",
+    "explanation": "cần cù, siêng năng (勤勉に働く、努力、勤勉な人)"
+  },
+  {
+    "question": "冷静な",
+    "options": {
+      "A": "れいせい"
+    },
+    "correct_answer": "A",
+    "explanation": "giữ cái đầu lạnh, điềm tĩnh khi suy nghĩ, hành động, phán đoán  (考え、言う、やる、判断) (冷静な態度)"
+  },
+  {
+    "question": "賢明な",
+    "options": {
+      "A": "けんめい"
+    },
+    "correct_answer": "A",
+    "explanation": "hiền minh, sáng suốt　（判断、やり方、人）"
+  },
+  {
+    "question": "温和な",
+    "options": {
+      "A": "おんわ"
+    },
+    "correct_answer": "A",
+    "explanation": "Ấm, ấm áp  　（気候, 土地 vùng, khu vực）"
+  },
+  {
+    "question": "大らかな",
+    "options": {
+      "A": "おおらか"
+    },
+    "correct_answer": "A",
+    "explanation": "hào hiệp, cao thượng, rộng lượng (性格)"
+  },
+  {
+    "question": "おおざっぱな",
+    "options": {
+      "A": "おおざっぱ"
+    },
+    "correct_answer": "A",
+    "explanation": "qua loa, đại khái (性格) (thể hiện việc thực hiện hành động một cách qua loa, chỉ thực hiện những cái chính, bỏ qua nhiều chỗ vd: nói qua loa, đọc qua loa, làm qua loa, ...)"
+  },
+  {
+    "question": "大げさな",
+    "options": {
+      "A": "おおげさ"
+    },
+    "correct_answer": "A",
+    "explanation": "làm quá, phóng đại (話、表現、しぐさ hành vi, hành động)"
+  },
+  {
+    "question": "前向きな",
+    "options": {
+      "A": "まえむき"
+    },
+    "correct_answer": "A",
+    "explanation": "tiến về phía trước (考え、姿勢)"
+  },
+  {
+    "question": "陽気な",
+    "options": {
+      "A": "ようき"
+    },
+    "correct_answer": "A",
+    "explanation": "① vui vẻ, hớn hởn (性格、音楽、仲間) ② khí hậu (いい陽気)"
+  },
+  {
+    "question": "若々しい",
+    "options": {
+      "A": "わかわかしい"
+    },
+    "correct_answer": "A",
+    "explanation": "trẻ trung, không phải nói về người trẻ tuổi (表情、声)"
+  },
+  {
+    "question": "敏感な",
+    "options": {
+      "A": "びんかん"
+    },
+    "correct_answer": "A",
+    "explanation": "nhạy cảm, mẫn cảm (体質 thể trạng. Vd: thể trạng mẫn cảm với trứng 卵に)"
+  },
+  {
+    "question": "勇敢な",
+    "options": {
+      "A": "ゆうかん"
+    },
+    "correct_answer": "A",
+    "explanation": "can đảm"
+  },
+  {
+    "question": "無口な",
+    "options": {
+      "A": "むくち"
+    },
+    "correct_answer": "A",
+    "explanation": "ít nói, lầm lì （人）"
+  },
+  {
+    "question": "利口な",
+    "options": {
+      "A": "りこう"
+    },
+    "correct_answer": "A",
+    "explanation": "① nói nhiều, thông minh (子供、動物) ② lanh lợi, mồm mép, thông minh (やり方、手口 thủ đoạn )"
+  },
+  {
+    "question": "愚かな",
+    "options": {
+      "A": "おろか"
+    },
+    "correct_answer": "A",
+    "explanation": "ngu ngốc,ngu xuẩn, (chơi cờ bạc thua hết tiền lương → 愚かなこと)"
+  },
+  {
+    "question": "臆病な",
+    "options": {
+      "A": "おくびょう"
+    },
+    "correct_answer": "A",
+    "explanation": "nhút nhát"
+  },
+  {
+    "question": "幼稚な",
+    "options": {
+      "A": "ようち"
+    },
+    "correct_answer": "A",
+    "explanation": "ấu trĩ, non nớt (考え、行動、人、文章、こと)"
+  },
+  {
+    "question": "未熟な",
+    "options": {
+      "A": "みじゅく"
+    },
+    "correct_answer": "A",
+    "explanation": "①chưa trưởng thành (技術、) ②chưa chín (果物)"
+  },
+  {
+    "question": "貧弱な",
+    "options": {
+      "A": "ひんじゃく"
+    },
+    "correct_answer": "A",
+    "explanation": "gầy gò, yếu đuối (体格), nghèo nàn  (内容)"
+  },
+  {
+    "question": "哀れな",
+    "options": {
+      "A": "あわれ"
+    },
+    "correct_answer": "A",
+    "explanation": "đáng thương、bi ai （姿、身なり）"
+  },
+  {
+    "question": "生意気な",
+    "options": {
+      "A": "なまいき"
+    },
+    "correct_answer": "A",
+    "explanation": "tự phụ, tự kiêu, tinh tướng "
+  },
+  {
+    "question": "厚かましい",
+    "options": {
+      "A": "あつかましい"
+    },
+    "correct_answer": "A",
+    "explanation": "trơ trẽn, mặt dày"
+  },
+  {
+    "question": "乱暴な",
+    "options": {
+      "A": "らんぼう"
+    },
+    "correct_answer": "A",
+    "explanation": "không đúng đắn, không tử tế (言葉、字、意見、論理)"
+  },
+  {
+    "question": "利己的な",
+    "options": {
+      "A": "りこてき"
+    },
+    "correct_answer": "A",
+    "explanation": "ích kỉ, cá nhân"
+  },
+  {
+    "question": "傲慢な",
+    "options": {
+      "A": "ごうまん"
+    },
+    "correct_answer": "A",
+    "explanation": "kiêu kì, láo xược"
+  },
+  {
+    "question": "卑怯な",
+    "options": {
+      "A": "ひきょう"
+    },
+    "correct_answer": "A",
+    "explanation": "hèn nhát, không ngay thẳng, chơi không đẹp"
+  },
+  {
+    "question": "無茶な",
+    "options": {
+      "A": "むちゃ"
+    },
+    "correct_answer": "A",
+    "explanation": "hành động lố bịch, quá mức, không hợp đạo lý(無茶な生活 sống bất cần, 無茶に忙しい、やり方、話、扱い、ダイエット)"
+  },
+  {
+    "question": "喧しい",
+    "options": {
+      "A": "やかましい"
+    },
+    "correct_answer": "A",
+    "explanation": "① ồn ào ② nghiêm khắc(時間に喧しい、喧しく注意する) ③ cầu kì, kiểu cách(ラーメンの味に喧しい)"
+  },
+  {
+    "question": "大胆な",
+    "options": {
+      "A": "だいたん"
+    },
+    "correct_answer": "A",
+    "explanation": "gan dạ, táo bạo, liều lĩnh(chống đối cấp trên, 大胆なデザイン)"
+  },
+  {
+    "question": "軽快な",
+    "options": {
+      "A": "けいかい"
+    },
+    "correct_answer": "A",
+    "explanation": "uyển chuyển, tinh tế(動き、足取り dáng đi、身のこなし dáng, 音楽 )"
+  },
+  {
+    "question": "窮屈な",
+    "options": {
+      "A": "きゅうくつ"
+    },
+    "correct_answer": "A",
+    "explanation": "① chật ních = きつい ② câu nệ, hình thức, nghiêm trọng hóa vấn đề  ③ gò bó, ngột ngạt　(đi ăn mà ngồi cùng giám đốc)"
+  },
+  {
+    "question": "忠実な",
+    "options": {
+      "A": "ちゅうじつ"
+    },
+    "correct_answer": "A",
+    "explanation": "① trung thành(主に忠実だ、忠実な部下) ② trung thực"
+  },
+  {
+    "question": "残酷な",
+    "options": {
+      "A": "ざんこく"
+    },
+    "correct_answer": "A",
+    "explanation": "tàn khốc, tàn nhẫn (残酷な場面、仕打ち thủ đoạn, hành vi, 運命)"
+  },
+  {
+    "question": "悲惨な",
+    "options": {
+      "A": "ひさん"
+    },
+    "correct_answer": "A",
+    "explanation": "bi thảm (光景、最期、)"
+  },
+  {
+    "question": "情けない",
+    "options": {
+      "A": "なさけない"
+    },
+    "correct_answer": "A",
+    "explanation": "① cảm thấy tệ hại ② cảm thấy hổ thẹn 我ながら情けない ③ vô tâm, vô cảm thiên về cảm giác [đáng lẽ có thể làm tốt rồi vậy mà cuối cùng không làm được, thật là chán]"
+  },
+  {
+    "question": "根強い",
+    "options": {
+      "A": "ねづよい"
+    },
+    "correct_answer": "A",
+    "explanation": "sâu sắc, sâu đậm  (偏見 へんけん thành kiến, 人気, 習慣)"
+  },
+  {
+    "question": "密接な",
+    "options": {
+      "A": "みっせつ"
+    },
+    "correct_answer": "A",
+    "explanation": "mật thiết (関係,)"
+  },
+  {
+    "question": "寛大な",
+    "options": {
+      "A": "かんだい"
+    },
+    "correct_answer": "A",
+    "explanation": "rộng rãi, phóng khoáng, rộng lượng (人、性格, 処置 xử lý nhẹ,)"
+  },
+  {
+    "question": "相応しい",
+    "options": {
+      "A": "ふさわしい"
+    },
+    "correct_answer": "A",
+    "explanation": "thích hợp, phù hợp (khi chọn đối tượng phù hợp với hoàn cảnh)"
+  },
+  {
+    "question": "内心",
+    "options": {
+      "A": "ないしん"
+    },
+    "correct_answer": "A",
+    "explanation": "để tâm, để trong lòng"
+  },
+  {
+    "question": "やる気",
+    "options": {
+      "A": "やりき"
+    },
+    "correct_answer": "A",
+    "explanation": "động lực, sự ham muốn làm điều gì đó"
+  },
+  {
+    "question": "優越感",
+    "options": {
+      "A": "ゆうえつかん"
+    },
+    "correct_answer": "A",
+    "explanation": "tính tự phụ"
+  },
+  {
+    "question": "誇り",
+    "options": {
+      "A": "ほこり"
+    },
+    "correct_answer": "A",
+    "explanation": "tự hào"
+  },
+  {
+    "question": "を決断する",
+    "options": {
+      "A": "けつだん"
+    },
+    "correct_answer": "A",
+    "explanation": "quyết đoán, mang tính chủ quan (chọn lựa một việc, một vấn đề gì)"
+  },
+  {
+    "question": "が苦心する",
+    "options": {
+      "A": "くしん"
+    },
+    "correct_answer": "A",
+    "explanation": "khó khăn, khổ tâm khi làm gì đó(không dùng đối với cơ thể, tính kinh tế)"
+  },
+  {
+    "question": "が嫉妬する",
+    "options": {
+      "A": "しっと"
+    },
+    "correct_answer": "A",
+    "explanation": "ghen, ghen tị, đố kị, ghen tức (弟に、ライバルの才能に、)"
+  },
+  {
+    "question": "が絶望する",
+    "options": {
+      "A": "ぜつぼう"
+    },
+    "correct_answer": "A",
+    "explanation": "tuyệt vọng (人生に絶望する tuyệt vọng với cuộc sống)"
+  },
+  {
+    "question": "を痛感する",
+    "options": {
+      "A": "つうかん"
+    },
+    "correct_answer": "A",
+    "explanation": "cảm giác đau đớn đối với ...(力不足を　ちからぶそく, 　無力さを)"
+  },
+  {
+    "question": "先入観",
+    "options": {
+      "A": "せんにゅうかん"
+    },
+    "correct_answer": "A",
+    "explanation": "quan niệm có sẵn trong suy nghĩ từ trước đối với một sự vật, sự viêc. Quan niệm đó có thể tốt, xấu, …"
+  },
+  {
+    "question": "過ち",
+    "options": {
+      "A": "あやまち"
+    },
+    "correct_answer": "A",
+    "explanation": "lỗi gây hậu quả nghiêm trọng, tội lỗi(giết người, ) "
+  },
+  {
+    "question": "欲",
+    "options": {
+      "A": "よく"
+    },
+    "correct_answer": "A",
+    "explanation": "dục, tham vọng, ham muốn"
+  },
+  {
+    "question": "恥じ",
+    "options": {
+      "A": "はじ"
+    },
+    "correct_answer": "A",
+    "explanation": "xấu hổ, hổ thẹn "
+  },
+  {
+    "question": "を罰する",
+    "options": {
+      "A": "ばっする"
+    },
+    "correct_answer": "A",
+    "explanation": "phạt, xử phạt (làm việc xấu, tội phạm)"
+  },
+  {
+    "question": "念",
+    "options": {
+      "A": "ねん"
+    },
+    "correct_answer": "A",
+    "explanation": "quan tâm, để tâm, cảm thấy (感謝の念、不安の念、尊敬の念)"
+  },
+  {
+    "question": "本音",
+    "options": {
+      "A": "ほんね"
+    },
+    "correct_answer": "A",
+    "explanation": "thực tâm　（本音を言う、本音をもらす bộc lộ tấm lòng）(bày tỏ ra thì dùng 本音)"
+  },
+  {
+    "question": "を弁解する",
+    "options": {
+      "A": "べんかい"
+    },
+    "correct_answer": "A",
+    "explanation": "biện hộ, bào chữa (遅れることを・について弁解する)"
+  },
+  {
+    "question": "が沈黙する",
+    "options": {
+      "A": "ちんもく"
+    },
+    "correct_answer": "A",
+    "explanation": "im lặng, không nói (khác với 寡黙 là ít nói, người không hay nói chuyện)"
+  },
+  {
+    "question": "が没頭する",
+    "options": {
+      "A": "ぼっとう"
+    },
+    "correct_answer": "A",
+    "explanation": "mải mê, đắm chìm (quá tập trung hầu như không thèm để ý xung quanh)（研究に、勉強に）"
+  },
+  {
+    "question": "が専念する",
+    "options": {
+      "A": "せんねん"
+    },
+    "correct_answer": "A",
+    "explanation": "dốc hết sức, chuyên tâm (thường dùng cho học hành, công việc)"
+  },
+  {
+    "question": "が充実する",
+    "options": {
+      "A": "じゅうじつ"
+    },
+    "correct_answer": "A",
+    "explanation": "sung túc, đầy đủ"
+  },
+  {
+    "question": "が自立する",
+    "options": {
+      "A": "じりつ"
+    },
+    "correct_answer": "A",
+    "explanation": "tự lập (経済的に、精神的に)　có thể vẫn sống cùng gia đình ⇔ 依存 phụ thuộc"
+  },
+  {
+    "question": "相性",
+    "options": {
+      "A": "あいしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "sự tương hợp, ăn ý"
+  },
+  {
+    "question": "が共感する",
+    "options": {
+      "A": "きょうかん"
+    },
+    "correct_answer": "A",
+    "explanation": "đồng cảm, cảm giác thấu hiểu sự việc của đối phương, nội dung gì cũng được"
+  },
+  {
+    "question": "が協調する",
+    "options": {
+      "A": "きょうちょう"
+    },
+    "correct_answer": "A",
+    "explanation": "cùng ý hướng, cùng ý kiến, cùng tâm trạng thực hiện vấn đề gì đó(問題の解決に協調する)"
+  },
+  {
+    "question": "が共同する",
+    "options": {
+      "A": "きょうどう"
+    },
+    "correct_answer": "A",
+    "explanation": "hợp tác, cùng nhau làm một việc gì đó　（＝協同する）"
+  },
+  {
+    "question": "を激励する",
+    "options": {
+      "A": "げきれい"
+    },
+    "correct_answer": "A",
+    "explanation": "cổ vũ cuồng nhiệt"
+  },
+  {
+    "question": "を支援する",
+    "options": {
+      "A": "しえん"
+    },
+    "correct_answer": "A",
+    "explanation": "chi viện, viện trợ (被害者を)"
+  },
+  {
+    "question": "を指摘する",
+    "options": {
+      "A": "してき"
+    },
+    "correct_answer": "A",
+    "explanation": "chỉ trích (誤りを)"
+  },
+  {
+    "question": "を了解する",
+    "options": {
+      "A": "りょうかい"
+    },
+    "correct_answer": "A",
+    "explanation": "① đồng ý, OK = 承知 ② hiểu rõ vấn đề = 理解"
+  },
+  {
+    "question": "を承諾する",
+    "options": {
+      "A": "しょうだく"
+    },
+    "correct_answer": "A",
+    "explanation": "sự chấp nhận, chấp thuận"
+  },
+  {
+    "question": "嫌がらせ",
+    "options": {
+      "A": "いやがらせ"
+    },
+    "correct_answer": "A",
+    "explanation": "sự phiền nhiễu"
+  },
+  {
+    "question": "を妨害する",
+    "options": {
+      "A": "ぼうがい"
+    },
+    "correct_answer": "A",
+    "explanation": "trở ngại, cản trở"
+  },
+  {
+    "question": "を説得する",
+    "options": {
+      "A": "せっとく"
+    },
+    "correct_answer": "A",
+    "explanation": "thuyết phục (親を、ほかの人を)"
+  },
+  {
+    "question": "理屈",
+    "options": {
+      "A": "りくつ"
+    },
+    "correct_answer": "A",
+    "explanation": "lý do, lý lẽ, tính logic nhưng thường dùng trong trường hợp tiêu cực"
+  },
+  {
+    "question": "論理",
+    "options": {
+      "A": "ろんり"
+    },
+    "correct_answer": "A",
+    "explanation": "logic, lý luận chặt chẽ (ý nghĩa tương đương với 理屈 nhưng mang ý nghĩa tích cực hơn)"
+  },
+  {
+    "question": "を推理する",
+    "options": {
+      "A": "すいり"
+    },
+    "correct_answer": "A",
+    "explanation": "suy luận"
+  },
+  {
+    "question": "根拠",
+    "options": {
+      "A": "こんきょ"
+    },
+    "correct_answer": "A",
+    "explanation": "căn cứ"
+  },
+  {
+    "question": "を誇張する",
+    "options": {
+      "A": "こちょう"
+    },
+    "correct_answer": "A",
+    "explanation": "phóng đại, bốc phét, khoác lác "
+  },
+  {
+    "question": "を暗示する",
+    "options": {
+      "A": "あんじ"
+    },
+    "correct_answer": "A",
+    "explanation": "ám thị, ám chỉ　（tra thêm từ điển ám thị là gì ）"
+  },
+  {
+    "question": "を錯覚する",
+    "options": {
+      "A": "さっかく"
+    },
+    "correct_answer": "A",
+    "explanation": "ảo giác"
+  },
+  {
+    "question": "視野",
+    "options": {
+      "A": "しや"
+    },
+    "correct_answer": "A",
+    "explanation": "① tầm nhìn, tầm mắt ② tầm nhìn, tầm hiểu biết"
+  },
+  {
+    "question": "空白",
+    "options": {
+      "A": "くうはく"
+    },
+    "correct_answer": "A",
+    "explanation": "để trống, khoảng để trống"
+  },
+  {
+    "question": "が接触する",
+    "options": {
+      "A": "せっしょく"
+    },
+    "correct_answer": "A",
+    "explanation": "tiếp xúc"
+  },
+  {
+    "question": "が/を交渉する",
+    "options": {
+      "A": "こうしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "① đàm phán, thương lượng (Nを/について　A社と　交渉する) ② giao du, quan hệ, qua lại (近所との交渉　giao du, qua lại với hàng xóm)"
+  },
+  {
+    "question": "が妥協する",
+    "options": {
+      "A": "だきょう"
+    },
+    "correct_answer": "A",
+    "explanation": "thỏa hiệp"
+  },
+  {
+    "question": "を更新する",
+    "options": {
+      "A": "こうしん"
+    },
+    "correct_answer": "A",
+    "explanation": "cập nhật, làm mới (記録、免許、ビザ、)"
+  },
+  {
+    "question": "を精算する",
+    "options": {
+      "A": "せいさん"
+    },
+    "correct_answer": "A",
+    "explanation": "thanh toán, tính toán lại tiền bạc"
+  },
+  {
+    "question": "損害",
+    "options": {
+      "A": "そんがい"
+    },
+    "correct_answer": "A",
+    "explanation": "tổn hại, thiệt hại"
+  },
+  {
+    "question": "利害",
+    "options": {
+      "A": "りがい"
+    },
+    "correct_answer": "A",
+    "explanation": "lợi và hại"
+  },
+  {
+    "question": "光景",
+    "options": {
+      "A": "こうけい"
+    },
+    "correct_answer": "A",
+    "explanation": "quang cảnh (cụ thể, rõ ràng, có tính chất như thế nào)"
+  },
+  {
+    "question": "を報道する",
+    "options": {
+      "A": "ほうどう"
+    },
+    "correct_answer": "A",
+    "explanation": "thông tấn, thông báo(trong tin tức, thời sự)"
+  },
+  {
+    "question": "を破壊する",
+    "options": {
+      "A": "はかい"
+    },
+    "correct_answer": "A",
+    "explanation": "phá hoại, phá hủy (建造物,システム,生活,神経,細胞,生態系 せいたいけい hệ sinh thái)"
+  },
+  {
+    "question": "を破棄する",
+    "options": {
+      "A": "はき"
+    },
+    "correct_answer": "A",
+    "explanation": "① hủy bỏ, bác bỏ những điều đã thỏa thuận(条約、婚約、契約) ② vứt bỏ, xé bỏ giấy tờ (書類、手紙、メール) ③ hủy bỏ phán quyết (判決)"
+  },
+  {
+    "question": "が対応する",
+    "options": {
+      "A": "たいおう"
+    },
+    "correct_answer": "A",
+    "explanation": "① tương ứng (tương ứng với A là B)  ② đối ứng (đối với A thì xử lý như thế nào)"
+  },
+  {
+    "question": "が対処する",
+    "options": {
+      "A": "たいしょ"
+    },
+    "correct_answer": "A",
+    "explanation": "đối xử, cư xử, xử lý (問題に、客の苦情への đối ứng với lời than phiền từ khách hàng)"
+  },
+  {
+    "question": "が取引する",
+    "options": {
+      "A": "とりひき"
+    },
+    "correct_answer": "A",
+    "explanation": "giao dịch, thông thương"
+  },
+  {
+    "question": "が独占する",
+    "options": {
+      "A": "どくせん"
+    },
+    "correct_answer": "A",
+    "explanation": "độc chiếm, độc quyền (上位 vị trí cao nhất, 市場 しじょう thị trường)"
+  },
+  {
+    "question": "が進出する",
+    "options": {
+      "A": "しんしゅつ"
+    },
+    "correct_answer": "A",
+    "explanation": "① tiến lên, tiến vào (海外市場に, 芸能界に げいのうかい showbiz, 政界 せいかい giới chính trị) ② tiến vào (決勝戦に けっしょうせん trận chung kết)"
+  },
+  {
+    "question": "が進化する",
+    "options": {
+      "A": "しんか"
+    },
+    "correct_answer": "A",
+    "explanation": "① tiến hóa, biến thành cái khác (サルから、) ② cải tiến máy móc"
+  },
+  {
+    "question": "一切",
+    "options": {
+      "A": "いっさい"
+    },
+    "correct_answer": "A",
+    "explanation": "① toàn bộ ② いっさい。。。ない  hoàn toàn không (一切関係ない)"
+  },
+  {
+    "question": "を加減する",
+    "options": {
+      "A": "かげん"
+    },
+    "correct_answer": "A",
+    "explanation": "① mức độ, trạng thái vừa đủ, phù hợp (nếu vai trò là danh từ ghép với từ khác)  ② gia giảm, điều chỉnh cho phù hợp (nếu vai trò là động từ 火の強さを加減する) ③ bước đi trong trạng thái không khỏe (うつむき加減 )"
+  },
+  {
+    "question": "を削減する",
+    "options": {
+      "A": "さくげん"
+    },
+    "correct_answer": "A",
+    "explanation": "giảm bớt "
+  },
+  {
+    "question": "余分",
+    "options": {
+      "A": "よぶん"
+    },
+    "correct_answer": "A",
+    "explanation": "① danh từ:dư thừa, vượt quá nhu cầu ② tính từ:dư thừa　（余分な言葉 từ ngữ thừa, 余分に作る làm thừa ra）"
+  },
+  {
+    "question": "余地",
+    "options": {
+      "A": "よち"
+    },
+    "correct_answer": "A",
+    "explanation": "① chỗ trống (車が入る余地がある) ② chỗ, vị trí （改善の余地 chỗ cần cải tiến、弁解の余地 chỗ để biện hộ）"
+  },
+  {
+    "question": "が発言する",
+    "options": {
+      "A": "はつげん"
+    },
+    "correct_answer": "A",
+    "explanation": "phát ngôn, ý kiến phát biểu"
+  },
+  {
+    "question": "を発行する",
+    "options": {
+      "A": "はっこう"
+    },
+    "correct_answer": "A",
+    "explanation": "① phát hành, cấp phát(パスポート、成績証明書、～カード、診断書、) ② xuất bản (書籍 しょせき　sách báo) ③ phát hành (紙幣 しへい tiền giấy, 株券 かぶけん cổ phiếu, 国債 こくさい trái phiếu nhà nước)"
+  },
+  {
+    "question": "を発信する",
+    "options": {
+      "A": "はっしん"
+    },
+    "correct_answer": "A",
+    "explanation": "phát tín, gửi thư tín, thông tin (電報　でんぽう、メール、情報)"
+  },
+  {
+    "question": "を発送する",
+    "options": {
+      "A": "はっそう"
+    },
+    "correct_answer": "A",
+    "explanation": "chuyển phát, ship hàng (荷物を)"
+  },
+  {
+    "question": "が発酵する",
+    "options": {
+      "A": "はっこう"
+    },
+    "correct_answer": "A",
+    "explanation": "lên men (生地 きじ bột làm bánh, vải)"
+  },
+  {
+    "question": "が発育する",
+    "options": {
+      "A": "はついく"
+    },
+    "correct_answer": "A",
+    "explanation": "lớn lên, phát triển　（子供は順調に、発育のいい赤ちゃん）"
+  },
+  {
+    "question": "が/を発足する",
+    "options": {
+      "A": "はっそく"
+    },
+    "correct_answer": "A",
+    "explanation": "thành lập (会、組織、団体)"
+  },
+  {
+    "question": "を確信する",
+    "options": {
+      "A": "かくしん"
+    },
+    "correct_answer": "A",
+    "explanation": "lòng tin、tin tưởng chắc chắc là như thế"
+  },
+  {
+    "question": "が/を確定する",
+    "options": {
+      "A": "かくてい"
+    },
+    "correct_answer": "A",
+    "explanation": "xác định, chọn được, quyết định được (新市長、刑 けい hình phạt, 方針 phương pháp, phương châm)"
+  },
+  {
+    "question": "を確保する",
+    "options": {
+      "A": "かくほ"
+    },
+    "correct_answer": "A",
+    "explanation": "bảo đảm, giữ gìn (食料、予算、財源、原料、エネルギー)"
+  },
+  {
+    "question": "が/を確立する",
+    "options": {
+      "A": "かくりつ"
+    },
+    "correct_answer": "A",
+    "explanation": "xác lập, thành lập, tạo nên (基礎、制度、作風、名声 めいせい danh tiếng, 信頼関係、地位)"
+  },
+  {
+    "question": "が反応する",
+    "options": {
+      "A": "はんのう"
+    },
+    "correct_answer": "A",
+    "explanation": "① phản ứng với tình huống, với hoàn cảnh (khi được gọi tên, với đồ ăn chua thì nhăn mặt,...) ② phản ứng, nhận biết, nhận tín hiệu xử lý (máy móc) ③ phản ứng khi trộn 2 thứ lại với nhau"
+  },
+  {
+    "question": "が/を 反射する",
+    "options": {
+      "A": "はんしゃ"
+    },
+    "correct_answer": "A",
+    "explanation": "① phản chiếu, phản xạ ánh sáng, âm thanh (日光が壁に、) ② phản xạ tự nhiên khi thấy trạng thái, tình huống gì đó của con người"
+  },
+  {
+    "question": "が反発する",
+    "options": {
+      "A": "はんぱつ"
+    },
+    "correct_answer": "A",
+    "explanation": "①　phản phát, bật lại, chống đối (親に、) ②　đẩy (磁石)"
+  },
+  {
+    "question": "が/を反映する",
+    "options": {
+      "A": "はんえい"
+    },
+    "correct_answer": "A",
+    "explanation": "① phản ánh (国民の声、世相　せそう tình hình xã hội, 親の行動 hành động của bố mẹ) ② phản chiếu （富士山の姿）"
+  },
+  {
+    "question": "が反則する",
+    "options": {
+      "A": "はんそく"
+    },
+    "correct_answer": "A",
+    "explanation": "phạm lỗi (thường dùng trong thể thao)"
+  },
+  {
+    "question": "特許",
+    "options": {
+      "A": "とっきょ"
+    },
+    "correct_answer": "A",
+    "explanation": "bằng sáng chế"
+  },
+  {
+    "question": "特有",
+    "options": {
+      "A": "とくゆう"
+    },
+    "correct_answer": "A",
+    "explanation": "đặc hữu, đặc thù, độc đáo (特有の匂い、特有の習慣)"
+  },
+  {
+    "question": "を特定する",
+    "options": {
+      "A": "とくてい"
+    },
+    "correct_answer": "A",
+    "explanation": "① đã định trước (条件、) ② xác định (犯人、アレルギー源 nguyên nhân, nguồn gây ra dị ứng)"
+  },
+  {
+    "question": "が復帰する",
+    "options": {
+      "A": "ふっき"
+    },
+    "correct_answer": "A",
+    "explanation": "khứ quy, quay lại, khôi phục nguyên trạng"
+  },
+  {
+    "question": "が/を復旧する",
+    "options": {
+      "A": "ふっきゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "phục hồi (công trình, đường sá)"
+  },
+  {
+    "question": "が/を復興する",
+    "options": {
+      "A": "ふっこう"
+    },
+    "correct_answer": "A",
+    "explanation": "phục hưng (đất nước, làng, xã, mang tính kinh tế xã hội...)"
+  },
+  {
+    "question": "を追及する",
+    "options": {
+      "A": "ついきゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "điều tra、truy cứu tội (責任、原因、犯人、犯行の動機、事件)"
+  },
+  {
+    "question": "を追求する",
+    "options": {
+      "A": "ついきゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "theo đuổi (理想、幸福、利益、...)"
+  },
+  {
+    "question": "を追究する",
+    "options": {
+      "A": "ついきゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "theo đuổi nghiên cứu, làm sáng tỏ (真理、真実、本質、美　び vẻ đẹp)"
+  },
+  {
+    "question": "を追跡する",
+    "options": {
+      "A": "ついせき"
+    },
+    "correct_answer": "A",
+    "explanation": "theo dấu (犯人)"
+  },
+  {
+    "question": "手本",
+    "options": {
+      "A": "てほん"
+    },
+    "correct_answer": "A",
+    "explanation": "① mẫu, vật mẫu ② hình mẫu lý tưởng, cách làm mẫu"
+  },
+  {
+    "question": "手がかり",
+    "options": {
+      "A": "てがかり"
+    },
+    "correct_answer": "A",
+    "explanation": "① dấu vết, manh mối ② chỗ bám tay"
+  },
+  {
+    "question": "が手分けする",
+    "options": {
+      "A": "てわけ"
+    },
+    "correct_answer": "A",
+    "explanation": "phân chia (みんなで　phân chia mọi người, 何の人かで chia cho mấy người)"
+  },
+  {
+    "question": "を手配する",
+    "options": {
+      "A": "てはい"
+    },
+    "correct_answer": "A",
+    "explanation": "thu xếp, chuẩn bị khi tổ chức sự kiện gì đó(人員　じんいん、物資　ぶっし、チケット、会場、)"
+  },
+  {
+    "question": "手探り",
+    "options": {
+      "A": "てさぐり"
+    },
+    "correct_answer": "A",
+    "explanation": "①dò dẫm, mò mẫn (bước đi, tiến lên, ) ② mày mò, dò dẫm học những điều cơ bản"
+  },
+  {
+    "question": "手際",
+    "options": {
+      "A": "てぎわ"
+    },
+    "correct_answer": "A",
+    "explanation": "kĩ năng, sự khéo léo"
+  },
+  {
+    "question": "人手",
+    "options": {
+      "A": "ひとで"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhân công, người làm ② người phụ giúp ③ bàn tay con người"
+  },
+  {
+    "question": "人目",
+    "options": {
+      "A": "ひとめ"
+    },
+    "correct_answer": "A",
+    "explanation": "sự chú ý của mọi người "
+  },
+  {
+    "question": "人気",
+    "options": {
+      "A": "ひとけ"
+    },
+    "correct_answer": "A",
+    "explanation": "cảm giác có người (khi đi đường vắng)"
+  },
+  {
+    "question": "が寄りかかる",
+    "options": {
+      "A": "よりかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "dựa vào, tựa vào, dựa dẫm vào (壁に、木に、親に)"
+  },
+  {
+    "question": "（が）凭れかかる",
+    "options": {
+      "A": "もたれかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "dựa vào, tựa vào, dựa dẫm vào (いすの背に、友人の肩に、親に)"
+  },
+  {
+    "question": "が突っかかる",
+    "options": {
+      "A": "つっかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "đâm vào, tấn công, gây hấn (闘牛士に　とうぎゅうし　võ sĩ đấu bò)"
+  },
+  {
+    "question": "が飛びかかる が跳びかかる",
+    "options": {
+      "A": "とびかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "nhảy vồ lấy (犯人に、獲物に)"
+  },
+  {
+    "question": "が取りかかる",
+    "options": {
+      "A": "とりかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt đầu (論文に)"
+  },
+  {
+    "question": "が暮れかかる",
+    "options": {
+      "A": "くれかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "sắp tối"
+  },
+  {
+    "question": "が落ちかかる",
+    "options": {
+      "A": "おちかかる"
+    },
+    "correct_answer": "A",
+    "explanation": "sắp rơi xuống"
+  },
+  {
+    "question": "を立てかける",
+    "options": {
+      "A": "たてかける"
+    },
+    "correct_answer": "A",
+    "explanation": "để tựa vào (壁に)"
+  },
+  {
+    "question": "が話しかける",
+    "options": {
+      "A": "はなしかける"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt chuyện, nói chuyện (妹に)"
+  },
+  {
+    "question": "が働きかける",
+    "options": {
+      "A": "はたらきかける"
+    },
+    "correct_answer": "A",
+    "explanation": "gây tác động đến, gây ảnh hưởng đến （AをBに働きかける　tác động lên B về vấn đề A）"
+  },
+  {
+    "question": "が押しかける",
+    "options": {
+      "A": "おしかける"
+    },
+    "correct_answer": "A",
+    "explanation": "đâm vào, lao vào (家に、空港に)"
+  },
+  {
+    "question": "が詰めかける",
+    "options": {
+      "A": "つめかける"
+    },
+    "correct_answer": "A",
+    "explanation": "tập trung đông ở một chỗ"
+  },
+  {
+    "question": "を見せかける",
+    "options": {
+      "A": "みせかける"
+    },
+    "correct_answer": "A",
+    "explanation": "ngụy tạo, ngụy trang (木の枝に ngụy trang vào cành cây)"
+  },
+  {
+    "question": "を言いかける",
+    "options": {
+      "A": "いいかける"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt đầu nói"
+  },
+  {
+    "question": "が溺れかける",
+    "options": {
+      "A": "おぼれかける"
+    },
+    "correct_answer": "A",
+    "explanation": "suýt chết đuối"
+  },
+  {
+    "question": "を言いつける",
+    "options": {
+      "A": "いいつける"
+    },
+    "correct_answer": "A",
+    "explanation": "① ra lệnh, sai bảo ② mách lẻo, méc"
+  },
+  {
+    "question": "が駆けつける",
+    "options": {
+      "A": "かけつける"
+    },
+    "correct_answer": "A",
+    "explanation": "chạy lao vào (病院に)"
+  },
+  {
+    "question": "を決めつける",
+    "options": {
+      "A": "きめつける"
+    },
+    "correct_answer": "A",
+    "explanation": "khẳng định (あなたが悪いと)"
+  },
+  {
+    "question": "を送り付ける",
+    "options": {
+      "A": "おくりつける"
+    },
+    "correct_answer": "A",
+    "explanation": "gửi (本を彼女に)"
+  },
+  {
+    "question": "を押し付ける",
+    "options": {
+      "A": "おしつける"
+    },
+    "correct_answer": "A",
+    "explanation": "① ép buộc (人に責任を) ② ép vào, áp vào (壁に耳を)"
+  },
+  {
+    "question": "を叩きつける",
+    "options": {
+      "A": "たたきつける"
+    },
+    "correct_answer": "A",
+    "explanation": "đập vào (机に)"
+  },
+  {
+    "question": "を怒鳴りつける",
+    "options": {
+      "A": "どなりつける"
+    },
+    "correct_answer": "A",
+    "explanation": "quát mắng (コーチは選手を)"
+  },
+  {
+    "question": "を備え付ける",
+    "options": {
+      "A": "そなえつける"
+    },
+    "correct_answer": "A",
+    "explanation": "trang bị những đồ dùng thường xuyên(部屋にエアコンを)"
+  },
+  {
+    "question": "を飾り付ける",
+    "options": {
+      "A": "かざりつける"
+    },
+    "correct_answer": "A",
+    "explanation": "trang trí (クリスマスツリーに豆電球を)"
+  },
+  {
+    "question": "をやりつける",
+    "options": {
+      "A": "そなえつける"
+    },
+    "correct_answer": "A",
+    "explanation": "quen thuộc, thường làm　（やりつけることをする）"
+  },
+  {
+    "question": "が行きつける",
+    "options": {
+      "A": "かざりつける"
+    },
+    "correct_answer": "A",
+    "explanation": "thường đi đâu đó"
+  },
+  {
+    "question": "を勝ち取る",
+    "options": {
+      "A": "かちとる"
+    },
+    "correct_answer": "A",
+    "explanation": "chiến thắng"
+  },
+  {
+    "question": "をつかみ取る",
+    "options": {
+      "A": "つかみとる"
+    },
+    "correct_answer": "A",
+    "explanation": "nắm bắt (チャンスを、勝利を)"
+  },
+  {
+    "question": "を聞き取る",
+    "options": {
+      "A": "ききとる"
+    },
+    "correct_answer": "A",
+    "explanation": "nghe tiếp thu được, nghe được"
+  },
+  {
+    "question": "を書き取る",
+    "options": {
+      "A": "かきとる"
+    },
+    "correct_answer": "A",
+    "explanation": "ghi chú"
+  },
+  {
+    "question": "を読み取る",
+    "options": {
+      "A": "よみとる"
+    },
+    "correct_answer": "A",
+    "explanation": "đọc, nắm được nội dung (表情、気持ち、カード、)"
+  },
+  {
+    "question": "を乗っ取る",
+    "options": {
+      "A": "のっとる"
+    },
+    "correct_answer": "A",
+    "explanation": "chiếm quyền kiểm soát, chiếm đoạt (飛行機を、会社を)"
+  },
+  {
+    "question": "を抜き取る",
+    "options": {
+      "A": "ぬきとる"
+    },
+    "correct_answer": "A",
+    "explanation": "móc ra (財布から紙幣を　しへい tiền giấy)"
+  },
+  {
+    "question": "を言い返す",
+    "options": {
+      "A": "いいかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "đáp trả, nói trả lại"
+  },
+  {
+    "question": "を読み返す",
+    "options": {
+      "A": "よみかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "đọc lại (母の手紙を)"
+  },
+  {
+    "question": "を聞き返す",
+    "options": {
+      "A": "ききかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "hỏi lại"
+  },
+  {
+    "question": "を思い返す",
+    "options": {
+      "A": "おもいかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "①　suy nghĩ lại, thay đổi quyết định, ② nhớ lại"
+  },
+  {
+    "question": "を見返す",
+    "options": {
+      "A": "みかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "① đọc lại, xem lại (レポートを) ② nhìn lại (bị nhìn nên nhìn lại)"
+  },
+  {
+    "question": "を使い切る",
+    "options": {
+      "A": "つかいきる"
+    },
+    "correct_answer": "A",
+    "explanation": "sử dụng hết (力、財産、食材)"
+  },
+  {
+    "question": "を出し切る",
+    "options": {
+      "A": "だしきる"
+    },
+    "correct_answer": "A",
+    "explanation": "bộc lộ ra hết (全力を)"
+  },
+  {
+    "question": "が分かり切る",
+    "options": {
+      "A": "わかりきる"
+    },
+    "correct_answer": "A",
+    "explanation": "rõ ràng, hiển nhiên"
+  },
+  {
+    "question": "が困り切る",
+    "options": {
+      "A": "こまりきる"
+    },
+    "correct_answer": "A",
+    "explanation": "rất khốn đốn"
+  },
+  {
+    "question": "が澄み切る",
+    "options": {
+      "A": "すみきる"
+    },
+    "correct_answer": "A",
+    "explanation": "hoàn toàn trong sáng, trong xanh"
+  },
+  {
+    "question": "を押し切る",
+    "options": {
+      "A": "おしきる"
+    },
+    "correct_answer": "A",
+    "explanation": "nhất quyết"
+  },
+  {
+    "question": "が言い切る",
+    "options": {
+      "A": "いいきる"
+    },
+    "correct_answer": "A",
+    "explanation": "khẳng định (本物だと)"
+  },
+  {
+    "question": "が踏み切る",
+    "options": {
+      "A": "ふみきる"
+    },
+    "correct_answer": "A",
+    "explanation": "hạ quyết tâm, quyết định làm"
+  },
+  {
+    "question": "を取り返す",
+    "options": {
+      "A": "とりかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "lấy lại (những gì đã mất)"
+  },
+  {
+    "question": "を取り立てる",
+    "options": {
+      "A": "とりたてる"
+    },
+    "correct_answer": "A",
+    "explanation": "①　đòi nợ (家賃を) ②　ưu ái bổ nhiệm (リーダーに取り立てる năng lực thực tế chưa đạt được nhưng được ưu ái cất nhắc) ③　không...lắm (＋thể phủ định = 特に) 取り立てて問題にすろことはないだろう"
+  },
+  {
+    "question": "を取り締まる",
+    "options": {
+      "A": "とりしまる"
+    },
+    "correct_answer": "A",
+    "explanation": "kiểm soát, quản lý　（スピード違反を）"
+  },
+  {
+    "question": "が取り組む",
+    "options": {
+      "A": "とりくむ"
+    },
+    "correct_answer": "A",
+    "explanation": "chuyên tâm vào （難しい問題に）"
+  },
+  {
+    "question": "が/を取り込む",
+    "options": {
+      "A": "とりこむ"
+    },
+    "correct_answer": "A",
+    "explanation": "①　mang vào, lấy vào (洗濯物を) ②　giành được, thu về phía mình (会社の金を biển thủ) ③　bận rộn (お取込み中)"
+  },
+  {
+    "question": "を取り下げる",
+    "options": {
+      "A": "とりさげる"
+    },
+    "correct_answer": "A",
+    "explanation": "rút lại, bãi bỏ phán quyết, lời nói (辞表、訴え、告訴 こくそ sự tố cáo )"
+  },
+  {
+    "question": "を取り次ぐ",
+    "options": {
+      "A": "とりつぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "chuyển lời nhắn, chuyển điện thoại (用件 lời nhắn, 電話) dùng trong giải thích hành động chứ không phải hành động trực tiếp"
+  },
+  {
+    "question": "を取り巻く",
+    "options": {
+      "A": "とりまく"
+    },
+    "correct_answer": "A",
+    "explanation": "vây quanh, bao vây (首相を, アイドル、)"
+  },
+  {
+    "question": "を取り除く",
+    "options": {
+      "A": "とりのぞく"
+    },
+    "correct_answer": "A",
+    "explanation": "loại bỏ (不純物 chất cặn bã, ごみ)"
+  },
+  {
+    "question": "を取り替える",
+    "options": {
+      "A": "とりかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "①　thay thế bằng cái mới ②　trao đổi (姉とセーターを)"
+  },
+  {
+    "question": "を取り付ける",
+    "options": {
+      "A": "とりつける"
+    },
+    "correct_answer": "A",
+    "explanation": "①　gắn, lắp đặt, trang bị (エアコンを、火災報知器を) ②　thỏa thuận (契約を)"
+  },
+  {
+    "question": "を取り扱う",
+    "options": {
+      "A": "とりあつかう"
+    },
+    "correct_answer": "A",
+    "explanation": "①　đối đãi, xử lý vật(壊れやすいものを丁寧に) ②　đối xử con người (公平に) ③　cung cấp, có (コンビニでは切手は取り扱っていない) ④　làm, thực hiện (Aではなく、Bも取り扱う)"
+  },
+  {
+    "question": "を取り決める",
+    "options": {
+      "A": "とりきめる"
+    },
+    "correct_answer": "A",
+    "explanation": "quyết định (契約条件を)"
+  },
+  {
+    "question": "を取りまとめる",
+    "options": {
+      "A": "とりまとめる"
+    },
+    "correct_answer": "A",
+    "explanation": "①　tập hợp (荷物を) ②　thu xếp　(商談　đàm phán thương mại, 縁談 えんだん dạm hỏi đám cưới)"
+  },
+  {
+    "question": "を取りやめる",
+    "options": {
+      "A": "とりやめる"
+    },
+    "correct_answer": "A",
+    "explanation": "hủy bỏ, cancel (旅行を)"
+  },
+  {
+    "question": "を取り寄せる",
+    "options": {
+      "A": "とりよせる"
+    },
+    "correct_answer": "A",
+    "explanation": "đặt mang đến nhà, order (全国からおいしいものを)"
+  },
+  {
+    "question": "を突き返す",
+    "options": {
+      "A": "つきかえす"
+    },
+    "correct_answer": "A",
+    "explanation": "không chấp nhận, bị trả lại (上司から報告書を)"
+  },
+  {
+    "question": "を突き飛ばす",
+    "options": {
+      "A": "つきとばす"
+    },
+    "correct_answer": "A",
+    "explanation": "đẩy văng ra, xô ra (警官を)"
+  },
+  {
+    "question": "を突き上げる",
+    "options": {
+      "A": "つきあげる"
+    },
+    "correct_answer": "A",
+    "explanation": "① giơ lên (こぶし nắm đấm) ② thúc đẩy, thúc ép (thúc ép ai đó) ③ sôi sục, dâng trào (怒りが)"
+  },
+  {
+    "question": "を突き出す",
+    "options": {
+      "A": "つきだす"
+    },
+    "correct_answer": "A",
+    "explanation": "① hất ra, đưa ra, chìa ra (あご　cằm) ② đưa ra, giao cho (スリを警察に giao kẻ móc túi cho cảnh sát)"
+  },
+  {
+    "question": "を突き放す",
+    "options": {
+      "A": "つきはなす"
+    },
+    "correct_answer": "A",
+    "explanation": "rời bỏ, bỏ mặc (子供を)"
+  },
+  {
+    "question": "を突きつける",
+    "options": {
+      "A": "つきつける"
+    },
+    "correct_answer": "A",
+    "explanation": "chìa ra, đưa ra (ナイフを、証拠を)"
+  },
+  {
+    "question": "を突き合わせる",
+    "options": {
+      "A": "つきあわせる"
+    },
+    "correct_answer": "A",
+    "explanation": "① đối mặt, đối đầu (膝を　ひざ) ② so sánh (原本と写本を　しゃほん bản chính và bản sao)"
+  },
+  {
+    "question": "を突き止める",
+    "options": {
+      "A": "つきとめる"
+    },
+    "correct_answer": "A",
+    "explanation": "xác định　（犯人の隠れ家　かくれが　nơi ẩn náu của tội phạm、理由、原因、責任の所在）"
+  },
+  {
+    "question": "を突き詰める",
+    "options": {
+      "A": "つきつめる"
+    },
+    "correct_answer": "A",
+    "explanation": "tìm hiểu, điều tra kĩ lưỡng　（不明な点を）"
+  },
+  {
+    "question": "が飛び降りる",
+    "options": {
+      "A": "とびおりる"
+    },
+    "correct_answer": "A",
+    "explanation": "①　nhảy xuống (高いところから) ②　nhảy ra khỏi (電車から)"
+  },
+  {
+    "question": "が飛び歩く",
+    "options": {
+      "A": "とびあるく"
+    },
+    "correct_answer": "A",
+    "explanation": "bay vòng vòng, bay đến nơi này nơi kia (đi công tác chỗ này chỗ kia)"
+  },
+  {
+    "question": "が飛び起きる",
+    "options": {
+      "A": "とびおきる"
+    },
+    "correct_answer": "A",
+    "explanation": "bật dậy (khi ngủ dậy)"
+  },
+  {
+    "question": "が飛び越える",
+    "options": {
+      "A": "とびこえる"
+    },
+    "correct_answer": "A",
+    "explanation": "nhảy vượt qua người khác, tiến bộ, vượt mặt"
+  },
+  {
+    "question": "が飛びつく",
+    "options": {
+      "A": "とびつく"
+    },
+    "correct_answer": "A",
+    "explanation": "đến mục tiêu một cách rất nhanh, bay ập tới (父親に)"
+  },
+  {
+    "question": "が飛び散る",
+    "options": {
+      "A": "とびちる"
+    },
+    "correct_answer": "A",
+    "explanation": "bắn tứ tung (汗、花火、)"
+  },
+  {
+    "question": "が飛び跳ねる",
+    "options": {
+      "A": "とびはねる"
+    },
+    "correct_answer": "A",
+    "explanation": "nhảy lên nhảy xuống, nhảy tưng tưng"
+  },
+  {
+    "question": "を差し出す",
+    "options": {
+      "A": "さしだす"
+    },
+    "correct_answer": "A",
+    "explanation": "đưa cái gì về phía đối phương (手、招待状　しょうたいじょう)"
+  },
+  {
+    "question": "を差し伸べる",
+    "options": {
+      "A": "さしのべる"
+    },
+    "correct_answer": "A",
+    "explanation": "đưa cái gì về phía đối phương nhưng thường có kèm thêm ẩn ý 手を差し伸べる đưa tay về phía đối phương nhưng thường có kèm thêm ẩn ý giúp đỡ, hỗ trợ, v.v "
+  },
+  {
+    "question": "を差し挟む",
+    "options": {
+      "A": "さしはさむ"
+    },
+    "correct_answer": "A",
+    "explanation": "nhét vào, chèn vào (本にしおりを tấm đánh dấu trang, 口を chen vào câu chuyện)"
+  },
+  {
+    "question": "を差し引く",
+    "options": {
+      "A": "さしひく"
+    },
+    "correct_answer": "A",
+    "explanation": "khấu trừ (給料から税金を)"
+  },
+  {
+    "question": "を差し控える",
+    "options": {
+      "A": "さしひかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "từ chối không nhúng tay vào"
+  },
+  {
+    "question": "を差し替える",
+    "options": {
+      "A": "さしかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "thay thế một cái xấu bằng một cái tốt (trước khi nó bắt đầu được sử dụng.) (新しいものを) 間違いがあったので、3枚目を差し替えた。"
+  },
+  {
+    "question": "が差し迫る",
+    "options": {
+      "A": "さしせまる"
+    },
+    "correct_answer": "A",
+    "explanation": "đến gần, áp sát, cận kề (締切りが、危険が)"
+  },
+  {
+    "question": "を引き上げる",
+    "options": {
+      "A": "ひきあげる"
+    },
+    "correct_answer": "A",
+    "explanation": "① kéo lên, nâng lên (沈んだ船を) ② nâng lên (消費税を) ③ nâng đỡ (部長に)"
+  },
+  {
+    "question": "が/を引き揚げる",
+    "options": {
+      "A": "ひきあげる"
+    },
+    "correct_answer": "A",
+    "explanation": "rút lui, rút binh lính　(戦地から、軍隊を)"
+  },
+  {
+    "question": "が引き下がる",
+    "options": {
+      "A": "ひきさがる"
+    },
+    "correct_answer": "A",
+    "explanation": "rời khỏi, rút lui khỏi (部屋から、会議室から、政界の第一線,)"
+  },
+  {
+    "question": "を引き止める",
+    "options": {
+      "A": "ひきとめる"
+    },
+    "correct_answer": "A",
+    "explanation": "kéo giữ lại, không để cho đi (客さんを)"
+  },
+  {
+    "question": "が/を引き取る",
+    "options": {
+      "A": "ひきとる"
+    },
+    "correct_answer": "A",
+    "explanation": "① thu lại (古い家電製品を) ② chăm sóc, nhận nuôi dưỡng (母を、野良犬　のらいぬ chó hoang)"
+  },
+  {
+    "question": "を引きずる",
+    "options": {
+      "A": "ひきずる"
+    },
+    "correct_answer": "A",
+    "explanation": "① kéo lê (荷物を) ② lôi kéo (歯医者に子供を) ③ kéo dài, giữ mãi trong lòng (過去の失敗を)"
+  },
+  {
+    "question": "を引き締める",
+    "options": {
+      "A": "ひきしめる"
+    },
+    "correct_answer": "A",
+    "explanation": "① siết chặt, thắt chặt (ウエストを siết vòng eo, làm eo thon) ② siết chặt tinh thần (気を nghiêm túc, tập trung tinh thần lại) ③ siết chặt, thắt chặt thu chi, kinh tế(家計 chi tiêu trong gia đình)"
+  },
+  {
+    "question": "が引きこもる",
+    "options": {
+      "A": "ひきこもる"
+    },
+    "correct_answer": "A",
+    "explanation": "nhốt mình ở nhà, không ra ngoài"
+  },
+  {
+    "question": "を引き伸ばす",
+    "options": {
+      "A": "ひきのばす"
+    },
+    "correct_answer": "A",
+    "explanation": "① phóng to, kéo ra (写真を) ② kéo ra, làm dài ra, kéo thẳng ra (曲がった針金を、)"
+  },
+  {
+    "question": "を引き延ばす",
+    "options": {
+      "A": "ひきのばす"
+    },
+    "correct_answer": "A",
+    "explanation": "delay, chậm trễ, trì hoãn (解決を、返事、支払い、会議、)"
+  },
+  {
+    "question": "を振り回す",
+    "options": {
+      "A": "ふりまわす"
+    },
+    "correct_answer": "A",
+    "explanation": "① vung, múa may vòng vòng (ナイフ, 棒) ② thao túng, điều khiển, khống chế (恋人を、) ③ thao túng (権力を)"
+  },
+  {
+    "question": "パネル",
+    "options": {
+      "A": "panel"
+    },
+    "correct_answer": "A",
+    "explanation": "tấm, bảng (を取り付ける、をはめる　gắn)"
+  },
+  {
+    "question": "センサー",
+    "options": {
+      "A": "censor"
+    },
+    "correct_answer": "A",
+    "explanation": "cảm biến"
+  },
+  {
+    "question": "ディスプレイ",
+    "options": {
+      "A": "display"
+    },
+    "correct_answer": "A",
+    "explanation": "① sự hiển thị (ウィンドウズのディスプレイ sự hiển thị của màn hình window máy tính) ② màn hình máy tính　(コンピューターのディスプレイ)"
+  },
+  {
+    "question": "グッズ",
+    "options": {
+      "A": "goods"
+    },
+    "correct_answer": "A",
+    "explanation": "vật phẩm, món đồ"
+  },
+  {
+    "question": "パック",
+    "options": {
+      "A": "pack"
+    },
+    "correct_answer": "A",
+    "explanation": "① gói, đóng gói (１パック 1 gói) ② trọn gói, gói (tour du lịch) ③ "
+  },
+  {
+    "question": "シングル",
+    "options": {
+      "A": "single"
+    },
+    "correct_answer": "A",
+    "explanation": "① đơn(kích thước đơn, dành cho 1 người) ② một mình, cô đơn ③ đơn, thi đấu một mình ④ đơn, một mình mình (CDシングル盤 đĩa đơn)"
+  },
+  {
+    "question": "ダブル",
+    "options": {
+      "A": "double"
+    },
+    "correct_answer": "A",
+    "explanation": "① đôi (kích thước dành cho 2 người) ② 2 lần, gấp đôi, 2 thứ ③ thi đấu đôi"
+  },
+  {
+    "question": "カタログ",
+    "options": {
+      "A": "catalog"
+    },
+    "correct_answer": "A",
+    "explanation": "catalog"
+  },
+  {
+    "question": "ブランド",
+    "options": {
+      "A": "brand"
+    },
+    "correct_answer": "A",
+    "explanation": "nhãn hiệu"
+  },
+  {
+    "question": "フリーマーケット",
+    "options": {
+      "A": "flea market"
+    },
+    "correct_answer": "A",
+    "explanation": "chợ trời, chợ đồ cũ ngoài trời"
+  },
+  {
+    "question": "スポンサー",
+    "options": {
+      "A": "sponsor"
+    },
+    "correct_answer": "A",
+    "explanation": "nhà tài trợ"
+  },
+  {
+    "question": "キャンペーン",
+    "options": {
+      "A": "campaign"
+    },
+    "correct_answer": "A",
+    "explanation": "chiến dịch (エイズ撲滅の ぼくめつ chiến dịch tiêu diệt AIDS,  新発売のビールのキャンペーン chiến dịch bán ra loại bia mới)"
+  },
+  {
+    "question": "イベント",
+    "options": {
+      "A": "event"
+    },
+    "correct_answer": "A",
+    "explanation": "sự kiện"
+  },
+  {
+    "question": "フェスティバル",
+    "options": {
+      "A": "festival"
+    },
+    "correct_answer": "A",
+    "explanation": "lễ hội　（アニメフェスティバル、フラワーフェスティバル）"
+  },
+  {
+    "question": "がパレードする",
+    "options": {
+      "A": "parade"
+    },
+    "correct_answer": "A",
+    "explanation": "diễu hành"
+  },
+  {
+    "question": "ライブ",
+    "options": {
+      "A": "live"
+    },
+    "correct_answer": "A",
+    "explanation": "① sống, làm trực tiếp(chơi nhạc sống　バンドのライブを見る) ② trực tiếp(sự kiện)"
+  },
+  {
+    "question": "アウトドア",
+    "options": {
+      "A": "outdoor"
+    },
+    "correct_answer": "A",
+    "explanation": "(hoạt động) ngoài trời"
+  },
+  {
+    "question": "リゾート",
+    "options": {
+      "A": "resort"
+    },
+    "correct_answer": "A",
+    "explanation": "khu nghỉ dưỡng"
+  },
+  {
+    "question": "スリル",
+    "options": {
+      "A": "thrill"
+    },
+    "correct_answer": "A",
+    "explanation": "gay cấn, hồi hộp, cảm giác mạnh （cảm giác không bằng ホラー）"
+  },
+  {
+    "question": "ミステリー",
+    "options": {
+      "A": "mystery"
+    },
+    "correct_answer": "A",
+    "explanation": "huyền bí, bí ẩn　（古代の）"
+  },
+  {
+    "question": "フィクション",
+    "options": {
+      "A": "fiction"
+    },
+    "correct_answer": "A",
+    "explanation": "hư cấu, viễn tưởng"
+  },
+  {
+    "question": "ヒーロー",
+    "options": {
+      "A": "hero"
+    },
+    "correct_answer": "A",
+    "explanation": "① anh hùng　（国民のヒーロー） ② nhân vật nam chính(映画の、ドラマの、小説の)"
+  },
+  {
+    "question": "ファン",
+    "options": {
+      "A": "fan"
+    },
+    "correct_answer": "A",
+    "explanation": "① người hâm mộ ② quạt, cánh quạt"
+  },
+  {
+    "question": "がデービューする",
+    "options": {
+      "A": "debut"
+    },
+    "correct_answer": "A",
+    "explanation": "ra mắt công chúng, xuất hiện lần đầu tiên"
+  },
+  {
+    "question": "プロフィール",
+    "options": {
+      "A": "profile"
+    },
+    "correct_answer": "A",
+    "explanation": "thông tin cá nhân"
+  },
+  {
+    "question": "イニシャル",
+    "options": {
+      "A": "initial"
+    },
+    "correct_answer": "A",
+    "explanation": "viết tắt tên gọi"
+  },
+  {
+    "question": "ポピュラー",
+    "options": {
+      "A": "popular"
+    },
+    "correct_answer": "A",
+    "explanation": "phổ biến"
+  },
+  {
+    "question": "ヘルシーな",
+    "options": {
+      "A": "healthy"
+    },
+    "correct_answer": "A",
+    "explanation": "tốt cho sức khỏe"
+  },
+  {
+    "question": "レシピ",
+    "options": {
+      "A": "recipe"
+    },
+    "correct_answer": "A",
+    "explanation": "công thức nấu ăn"
+  },
+  {
+    "question": "スパイス",
+    "options": {
+      "A": "spice"
+    },
+    "correct_answer": "A",
+    "explanation": "gia vị, hương liệu nói chung (thường là các loại đặc thù, tạo nên vị, mùi, màu sắc đặc biệt)"
+  },
+  {
+    "question": "ボリューム",
+    "options": {
+      "A": "volume"
+    },
+    "correct_answer": "A",
+    "explanation": "① âm lượng ② lượng, số lượng"
+  },
+  {
+    "question": "がトライする",
+    "options": {
+      "A": "try"
+    },
+    "correct_answer": "A",
+    "explanation": "thử (やったの無い方法に)"
+  },
+  {
+    "question": "がチャレンジする",
+    "options": {
+      "A": "challenge"
+    },
+    "correct_answer": "A",
+    "explanation": "thử thách"
+  },
+  {
+    "question": "マイペース",
+    "options": {
+      "A": "my pace"
+    },
+    "correct_answer": "A",
+    "explanation": "không gian của bản thân, chỉ theo ý bản thân"
+  },
+  {
+    "question": "チームワーク",
+    "options": {
+      "A": "teamwork"
+    },
+    "correct_answer": "A",
+    "explanation": "làm việc nhóm"
+  },
+  {
+    "question": "プロジェクト",
+    "options": {
+      "A": "project"
+    },
+    "correct_answer": "A",
+    "explanation": "kế hoạch"
+  },
+  {
+    "question": "パートナー",
+    "options": {
+      "A": "partner"
+    },
+    "correct_answer": "A",
+    "explanation": "cộng sự, đối tác"
+  },
+  {
+    "question": "セミナー",
+    "options": {
+      "A": "seminar"
+    },
+    "correct_answer": "A",
+    "explanation": "buổi thuyết trình, buổi diễn thuyết"
+  },
+  {
+    "question": "シンポジウム",
+    "options": {
+      "A": "symposium"
+    },
+    "correct_answer": "A",
+    "explanation": "hội thảo chuyên đề"
+  },
+  {
+    "question": "ゼミ",
+    "options": {
+      "A": "seminar"
+    },
+    "correct_answer": "A",
+    "explanation": "buổi học, nghiên cứu ở trường đại học"
+  },
+  {
+    "question": "レジュメ",
+    "options": {
+      "A": "resume"
+    },
+    "correct_answer": "A",
+    "explanation": "bảng tóm tắt (内容をレジュメにまとめる)"
+  },
+  {
+    "question": "リスト",
+    "options": {
+      "A": "list"
+    },
+    "correct_answer": "A",
+    "explanation": "danh sách　(会員のリストを作る)"
+  },
+  {
+    "question": "をランクする",
+    "options": {
+      "A": "rank"
+    },
+    "correct_answer": "A",
+    "explanation": "xếp hạng"
+  },
+  {
+    "question": "インターンシップ",
+    "options": {
+      "A": "internship"
+    },
+    "correct_answer": "A",
+    "explanation": "nhân viên thực tập"
+  },
+  {
+    "question": "リストラ",
+    "options": {
+      "A": "restructuring"
+    },
+    "correct_answer": "A",
+    "explanation": "① cơ cấu, tổ chức lại  ② giảm biên chế, bị cho nghỉ"
+  },
+  {
+    "question": "フリーター",
+    "options": {
+      "A": "free-ter"
+    },
+    "correct_answer": "A",
+    "explanation": "làm nghề tự do(＝アルバイト、パートタイマー、ニート)"
+  },
+  {
+    "question": "セクハラ",
+    "options": {
+      "A": "Sexual harassment "
+    },
+    "correct_answer": "A",
+    "explanation": "quấy rối tình dục"
+  },
+  {
+    "question": "フェアな",
+    "options": {
+      "A": "fair・fare"
+    },
+    "correct_answer": "A",
+    "explanation": "① công bằng, quang minh chính đại(フェアなやり方　cách làm quang minh chính đại,  フェアな戦う chiến đẹp) ② hội chợ (物産フェア)"
+  },
+  {
+    "question": "をボイコットする",
+    "options": {
+      "A": "boycott"
+    },
+    "correct_answer": "A",
+    "explanation": "① tẩy chay(製品のボイコット) ② tẩy chay, đình công phản đối(仕事を、卒業式を phản đối buổi lễ tốt nghiệp)"
+  },
+  {
+    "question": "アレルギー",
+    "options": {
+      "A": "allergy"
+    },
+    "correct_answer": "A",
+    "explanation": "① dị ứng thuộc về phản ứng cơ thể(卵に) ② cảm thấy khó chịu khi nghe, nhìn thấy cái gì (dị ứng với lời nói của người khác)"
+  },
+  {
+    "question": "近年",
+    "options": {
+      "A": "きんねん"
+    },
+    "correct_answer": "A",
+    "explanation": "những năm gần đây"
+  },
+  {
+    "question": "予て (より/から)",
+    "options": {
+      "A": "かねて"
+    },
+    "correct_answer": "A",
+    "explanation": "lúc nãy (quá khứ gần) ..."
+  },
+  {
+    "question": "目下",
+    "options": {
+      "A": "もっか"
+    },
+    "correct_answer": "A",
+    "explanation": "ngay tại lúc này, ngay bây giờ, now"
+  },
+  {
+    "question": "終日",
+    "options": {
+      "A": "しゅうじつ"
+    },
+    "correct_answer": "A",
+    "explanation": "cả ngày (終日欠航　けっこう ngưng phục vụ cả ngày, 終日市内観光)"
+  },
+  {
+    "question": "早急に",
+    "options": {
+      "A": "さっきゅう/そうきゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "khẩn cấp (早急に対処する、早急に受診する、早急な対処が望まれる)"
+  },
+  {
+    "question": "即座に",
+    "options": {
+      "A": "そくざ"
+    },
+    "correct_answer": "A",
+    "explanation": "ngay lập tức (即座に返事する、即座に売り切れた)"
+  },
+  {
+    "question": "不意に",
+    "options": {
+      "A": "ふい"
+    },
+    "correct_answer": "A",
+    "explanation": "bất thình lình, đột nhiên, bất ngờ (bất ngờ trời đất tối sầm lại, 相手の不意 kẻ địch bất ngờ, không để ý)"
+  },
+  {
+    "question": "突如",
+    "options": {
+      "A": "とつじょ"
+    },
+    "correct_answer": "A",
+    "explanation": "đột nhiên (地面が揺れる、体に力が入らなくなる)"
+  },
+  {
+    "question": "近々",
+    "options": {
+      "A": "ちかぢか"
+    },
+    "correct_answer": "A",
+    "explanation": "cận kề, đến gần, sắp sửa (引っ越す予定　kế hoạch chuyển nhà đã cận kề)"
+  },
+  {
+    "question": "直に",
+    "options": {
+      "A": "じきに"
+    },
+    "correct_answer": "A",
+    "explanation": "chẳng mấy chốc "
+  },
+  {
+    "question": "今どき",
+    "options": {
+      "A": "いまどき"
+    },
+    "correct_answer": "A",
+    "explanation": "hôm nay, ngày nay(thể hiện cảm xúc có tính chất phủ định, không tốt) 今どきの若者ときたら，本当に ものを 知らない。"
+  },
+  {
+    "question": "今ごろ",
+    "options": {
+      "A": "いまごろ"
+    },
+    "correct_answer": "A",
+    "explanation": "① ngay chính lúc này (bao hàm ý nghĩa không tốt) ② giờ này (明日/去年の今ごろ giờ này ngày mai, giờ này năm ngoái)"
+  },
+  {
+    "question": "今さら",
+    "options": {
+      "A": "いまさら"
+    },
+    "correct_answer": "A",
+    "explanation": "cho đến bây giờ (sự việc đã bị chậm trễ)　(đến bây giờ có vội thì cũng muộn rồi)"
+  },
+  {
+    "question": "今や",
+    "options": {
+      "A": "いまや"
+    },
+    "correct_answer": "A",
+    "explanation": "① bây giờ thì (thể hiện tình trạng, trạng thái đã khác với quá khứ)(bây giờ đã là người nổi tiếng) ② chính lúc này(chính lúc này phải đoàn kết lại)"
+  },
+  {
+    "question": "今に",
+    "options": {
+      "A": "いまに"
+    },
+    "correct_answer": "A",
+    "explanation": "sớm muộn gì, sớm xảy ra(= そのうち) "
+  },
+  {
+    "question": "頻繁に",
+    "options": {
+      "A": "ひんぱん"
+    },
+    "correct_answer": "A",
+    "explanation": "nhiều lần xảy ra cái gì đó (頻繁に事故が起こっている) vai trò là tính từ な"
+  },
+  {
+    "question": "始終",
+    "options": {
+      "A": "しじゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "thường hay (始終風邪をひいている) gần nghĩa với いつも"
+  },
+  {
+    "question": "極めて",
+    "options": {
+      "A": "きわめて"
+    },
+    "correct_answer": "A",
+    "explanation": "cực kì, rất (極めて重要、極めて順調)　＝大変、非常に、とても"
+  },
+  {
+    "question": "至って",
+    "options": {
+      "A": "いたって"
+    },
+    "correct_answer": "A",
+    "explanation": "rất(=大変、とても)"
+  },
+  {
+    "question": "人一倍",
+    "options": {
+      "A": "ひといちばい"
+    },
+    "correct_answer": "A",
+    "explanation": "rất nhiều, gấp đôi người bình thường(人一倍働く、人一倍の努力)"
+  },
+  {
+    "question": "一通り",
+    "options": {
+      "A": "ひととおり"
+    },
+    "correct_answer": "A",
+    "explanation": "① xem đại khái từ đầu đến cuối (一通り目を通す nhìn sơ qua)=ざっと、一応 ② đại khái từ đầu đến cuối (一通りできる đại khái có thể làm được)　＝だいたい、一応 ③ không phải...bình thường (dùng trong câu phủ định.) VD: あの人の日本文化に関する知識は、一通り（のもの）ではない"
+  },
+  {
+    "question": "幾分",
+    "options": {
+      "A": "いくぶん"
+    },
+    "correct_answer": "A",
+    "explanation": "hơi hơi (痛みは幾分治まった chỗ bị đau đã hơi hơi đỡ rồi)"
+  },
+  {
+    "question": "若干",
+    "options": {
+      "A": "じゃっかん"
+    },
+    "correct_answer": "A",
+    "explanation": "ít nhiều, một chút, một vài (若干遅れ気味だ cảm giác trễ một chút,  席にはまだ若干余裕がある)"
+  },
+  {
+    "question": "今一つ",
+    "options": {
+      "A": "いまひとつ"
+    },
+    "correct_answer": "A",
+    "explanation": "cảm giác thiếu thiếu gì đó khi đưa ra cảm nhận về vấn đề. VD: món ăn này vị thiếu thiếu chút gì đó. 「味は どう?」「うーん，今一つだね」"
+  },
+  {
+    "question": "散々",
+    "options": {
+      "A": "さんざん"
+    },
+    "correct_answer": "A",
+    "explanation": "mức độ cao của sự việc khiến mình kinh ngạc  (さんざん遊び回った toàn rong chơi chỗ này chỗ kia)"
+  },
+  {
+    "question": "遥かに",
+    "options": {
+      "A": "はるかに"
+    },
+    "correct_answer": "A",
+    "explanation": "hơn nhiều, rất (はるかに面白い:thú vị hơn rất nhiều)"
+  },
+  {
+    "question": "着々（と）",
+    "options": {
+      "A": "ちゃくちゃく"
+    },
+    "correct_answer": "A",
+    "explanation": "tiến triển đều đều"
+  },
+  {
+    "question": "何とぞ",
+    "options": {
+      "A": "なにとぞ"
+    },
+    "correct_answer": "A",
+    "explanation": "làm ơn、rất mong (何とぞお許しください、何とぞ宜しく)"
+  },
+  {
+    "question": "何なりと",
+    "options": {
+      "A": "なんなりと"
+    },
+    "correct_answer": "A",
+    "explanation": "bất cứ cái gì, chỗ nào (đưa ra lời đề nghị đối với đối phương) ご不明な点は、何なりとお尋ねください：hãy hỏi bất cứ điểm nào chưa rõ."
+  },
+  {
+    "question": "到底",
+    "options": {
+      "A": "とうてい"
+    },
+    "correct_answer": "A",
+    "explanation": "hoàn toàn là...(câu phủ định hoặc ý nghĩa phủ định)　ngã chạm đến đáy → ý nghĩa hoàn toàn không tốt  てうてい間に合わない、とうてい無理"
+  },
+  {
+    "question": "一見",
+    "options": {
+      "A": "いっけん"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhìn bề ngoài  (一見おとなしそうだが、気が強い) ② nhìn bề ngoài (一見して偽物だと分かる) ③ xem 1 lần (一見の価値がある đáng để đến xem 1 lần)"
+  },
+  {
+    "question": "一向に",
+    "options": {
+      "A": "いっこうに"
+    },
+    "correct_answer": "A",
+    "explanation": "hoàn toàn không muốn làm... (一向にやらない、動かない )"
+  },
+  {
+    "question": "一概に",
+    "options": {
+      "A": "いちがいに"
+    },
+    "correct_answer": "A",
+    "explanation": " không thể khẳng định là, không thể kết luận là (phủ định hoặc ý nghĩa phủ định) 一概には言えない không thể khẳng định là…"
+  },
+  {
+    "question": "何でも",
+    "options": {
+      "A": "なんでも"
+    },
+    "correct_answer": "A",
+    "explanation": "nghe nói là, theo tôi được biết là (何でも、Aさんは帰国したらしい)"
+  },
+  {
+    "question": "及び",
+    "options": {
+      "A": "および"
+    },
+    "correct_answer": "A",
+    "explanation": "và"
+  },
+  {
+    "question": "並びに",
+    "options": {
+      "A": "ならびに"
+    },
+    "correct_answer": "A",
+    "explanation": "và (dùng trong nghi thức trang trọng)"
+  },
+  {
+    "question": "但し",
+    "options": {
+      "A": "ただし"
+    },
+    "correct_answer": "A",
+    "explanation": "tuy nhiên　(đưa ra ngoại lệ so hoặc bổ sung cho điều kiện ở vế trước) VD:  rớt thi lại được nhưng tốn phí. Bệnh viện nghỉ chủ nhật nhưng cấp cứu vẫn tiếp nhận."
+  },
+  {
+    "question": "故に",
+    "options": {
+      "A": "ゆえに"
+    },
+    "correct_answer": "A",
+    "explanation": "do đó, vì lý do đó (dùng trong văn viết trang trọng, chứng minh toán học )"
+  },
+  {
+    "question": "因って",
+    "options": {
+      "A": "よって"
+    },
+    "correct_answer": "A",
+    "explanation": "do đó, vì lý do đó (dùng trong văn viết trang trong. ) VD: Aさん vì thành tích quá tốt nên được học bổng."
+  },
+  {
+    "question": "第一",
+    "options": {
+      "A": "だいいち"
+    },
+    "correct_answer": "A",
+    "explanation": "lý do trên hết là, lý do đầu tiên là "
+  },
+  {
+    "question": "が団らんする",
+    "options": {
+      "A": "だんらん"
+    },
+    "correct_answer": "A",
+    "explanation": "sum họp, đoàn viên"
+  },
+  {
+    "question": "行楽",
+    "options": {
+      "A": "こうらく"
+    },
+    "correct_answer": "A",
+    "explanation": "vui chơi, giải trí"
+  },
+  {
+    "question": "本場",
+    "options": {
+      "A": "ほんば"
+    },
+    "correct_answer": "A",
+    "explanation": "chỗ phù hợp nhất để làm gì đó　（韓国本場料理 món ăn đậm chất Hàn Quốc）"
+  },
+  {
+    "question": "相席",
+    "options": {
+      "A": "あいせき"
+    },
+    "correct_answer": "A",
+    "explanation": "ngồi chung bàn, share bàn"
+  },
+  {
+    "question": "褒美",
+    "options": {
+      "A": "ほうび"
+    },
+    "correct_answer": "A",
+    "explanation": "phần thưởng"
+  },
+  {
+    "question": "遺産",
+    "options": {
+      "A": "いさん"
+    },
+    "correct_answer": "A",
+    "explanation": "di sản (tài sản ông bà để lại, di sản quốc gia)"
+  },
+  {
+    "question": "台無し",
+    "options": {
+      "A": "だいなし"
+    },
+    "correct_answer": "A",
+    "explanation": "rối tung, lộn xộn (vì 1 lỗi,1 trạng thái xấu gì đó xảy ra làm cho mọi thứ rối tung lên) 雨のせいで運動会が台無しになった。 頑張った課題の上にお茶をこぼされて努力が台無しにされた。"
+  },
+  {
+    "question": "心構え",
+    "options": {
+      "A": "こころがまえ"
+    },
+    "correct_answer": "A",
+    "explanation": "chuẩn bị sẵn sàng hướng đến mục tiêu"
+  },
+  {
+    "question": "心地",
+    "options": {
+      "A": "ここち"
+    },
+    "correct_answer": "A",
+    "explanation": "trong lòng cảm thấy dễ chịu, thoải mái"
+  },
+  {
+    "question": "根気",
+    "options": {
+      "A": "こんき"
+    },
+    "correct_answer": "A",
+    "explanation": "kiên nhẫn"
+  },
+  {
+    "question": "意地",
+    "options": {
+      "A": "いじ"
+    },
+    "correct_answer": "A",
+    "explanation": "① tâm địa, tâm tính ② luôn muốn theo ý của bản thân"
+  },
+  {
+    "question": "を自覚する",
+    "options": {
+      "A": "じかく"
+    },
+    "correct_answer": "A",
+    "explanation": "tự giác, tự ý thức được vấn đề"
+  },
+  {
+    "question": "偏見",
+    "options": {
+      "A": "へんけん"
+    },
+    "correct_answer": "A",
+    "explanation": "thành kiến không tốt (khác với 先入観)　（～に対して偏見を持つ）"
+  },
+  {
+    "question": "を誘惑する",
+    "options": {
+      "A": "ゆうわく"
+    },
+    "correct_answer": "A",
+    "explanation": "mê hoặc, lôi cuốn, cám dỗ (男を誘惑する)　thường mang tính không tích cực"
+  },
+  {
+    "question": "を束縛する",
+    "options": {
+      "A": "そくばく"
+    },
+    "correct_answer": "A",
+    "explanation": "trói buộc, ràng buộc (相手を、自由を、)"
+  },
+  {
+    "question": "が油断する",
+    "options": {
+      "A": "ゆだん"
+    },
+    "correct_answer": "A",
+    "explanation": "lơ đễnh"
+  },
+  {
+    "question": "野心",
+    "options": {
+      "A": "やしん"
+    },
+    "correct_answer": "A",
+    "explanation": "tham vọng (トップになる野心)"
+  },
+  {
+    "question": "衝動",
+    "options": {
+      "A": "しょうどう"
+    },
+    "correct_answer": "A",
+    "explanation": "xung động, bốc đồng, bộc phát"
+  },
+  {
+    "question": "信念",
+    "options": {
+      "A": "しんねん"
+    },
+    "correct_answer": "A",
+    "explanation": "tâm niệm, lòng tin , suy nghĩ trong đầu cho đó là đúng đắn"
+  },
+  {
+    "question": "が/を配慮する",
+    "options": {
+      "A": "はいりょ"
+    },
+    "correct_answer": "A",
+    "explanation": "quan tâm, để ý"
+  },
+  {
+    "question": "包容力",
+    "options": {
+      "A": "ほうようりょく"
+    },
+    "correct_answer": "A",
+    "explanation": "tấm lòng rộng lớn, sẵn sàng tiếp nhận mọi người hoặc ý kiến của mọi người"
+  },
+  {
+    "question": "相応",
+    "options": {
+      "A": "そうおう"
+    },
+    "correct_answer": "A",
+    "explanation": "thích hợp, phù hợp (年相応 hợp tuổi trong tử vi, 相応の理由, 相応な働き)"
+  },
+  {
+    "question": "並み",
+    "options": {
+      "A": "なみ"
+    },
+    "correct_answer": "A",
+    "explanation": "① kích cỡ, trạng thái trung bình (並の成績、並の人にはできない người bình thường không làm được) Trong buôn bán 「上・中・並」 ② xếp thành dãy (古い町並み) ③ "
+  },
+  {
+    "question": "体裁",
+    "options": {
+      "A": "ていさい"
+    },
+    "correct_answer": "A",
+    "explanation": "thể diện, diện mạo (bao gồm diện mạo, hành vi, thái độ, thói quen,v.v ( ý nghĩa rộng hơn 身なり、格好,...)"
+  },
+  {
+    "question": "が背伸びする",
+    "options": {
+      "A": "せのび"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhón chân cho cao lên ② ra vẻ người lớn"
+  },
+  {
+    "question": "愚痴",
+    "options": {
+      "A": "ぐち"
+    },
+    "correct_answer": "A",
+    "explanation": "cằn nhằn, thể hiện sự bất bình　(不平を言う>文句を言う>愚痴をこぼす)"
+  },
+  {
+    "question": "野次",
+    "options": {
+      "A": "やじ"
+    },
+    "correct_answer": "A",
+    "explanation": "chế giễu, nhạo báng, la ó"
+  },
+  {
+    "question": "を差し入れする",
+    "options": {
+      "A": "さしいれ"
+    },
+    "correct_answer": "A",
+    "explanation": "lồng vào、nhét vào（ドアのすき間からビラを差し入れする）"
+  },
+  {
+    "question": "が/を声援する",
+    "options": {
+      "A": "せいえん"
+    },
+    "correct_answer": "A",
+    "explanation": "lời ủng hộ, lời động viên"
+  },
+  {
+    "question": "首脳",
+    "options": {
+      "A": "しゅのう"
+    },
+    "correct_answer": "A",
+    "explanation": "leader, người đứng đầu (国の首脳)"
+  },
+  {
+    "question": "が介入する",
+    "options": {
+      "A": "かいにゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "can thiệp, được sử dụng khi một bên thứ ba can thiệp vào tranh chấp của hai hoặc nhiều bên.  (家庭内のトラブルに)"
+  },
+  {
+    "question": "兵",
+    "options": {
+      "A": "へい"
+    },
+    "correct_answer": "A",
+    "explanation": "binh, binh lính"
+  },
+  {
+    "question": "が干渉する",
+    "options": {
+      "A": "かんしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "① can thiệp, người hay quốc gia có quyền lực can thiệp vào việc của nước khác, người khác 他国の政治に、私のすることに　đừng can thiệp vào chuyện của tôi. ② va chạm"
+  },
+  {
+    "question": "侵害する",
+    "options": {
+      "A": "しんがい"
+    },
+    "correct_answer": "A",
+    "explanation": "xâm phạm (人権を、)"
+  },
+  {
+    "question": "を警戒する",
+    "options": {
+      "A": "けいかい"
+    },
+    "correct_answer": "A",
+    "explanation": "cảnh giới, cảnh giác (津波を、知らぬ人間を cảnh giác người lạ, )"
+  },
+  {
+    "question": "危機",
+    "options": {
+      "A": "きき"
+    },
+    "correct_answer": "A",
+    "explanation": "nguy cơ, tình thế nguy hiểm, khủng hoảng "
+  },
+  {
+    "question": "衝撃",
+    "options": {
+      "A": "しょうげき"
+    },
+    "correct_answer": "A",
+    "explanation": "shock, xung kích, va đập mạnh"
+  },
+  {
+    "question": "が譲歩する",
+    "options": {
+      "A": "じょうほ"
+    },
+    "correct_answer": "A",
+    "explanation": "nhượng bộ  (労使双方の譲歩 ろうしそうほう sự nhượng bộ song phương của bên sử dụng lao động và người lao động )"
+  },
+  {
+    "question": "が貢献する",
+    "options": {
+      "A": "こうけん"
+    },
+    "correct_answer": "A",
+    "explanation": "cống hiến (世界平和に、社会、科学の進歩、優勝、。。。)"
+  },
+  {
+    "question": "を推進する",
+    "options": {
+      "A": "すいしん"
+    },
+    "correct_answer": "A",
+    "explanation": "① đẩy, thúc đẩy vật gì đó tiến lên (スクリューで船を) ② thúc đẩy quá trình gì đó (規制緩和　きせいかんわ quy chế hòa hoãn)"
+  },
+  {
+    "question": "を整備する",
+    "options": {
+      "A": "せいび"
+    },
+    "correct_answer": "A",
+    "explanation": "làm hoàn thiện sẵn sàng cho việc sử dụng"
+  },
+  {
+    "question": "歯止め",
+    "options": {
+      "A": "はどめ"
+    },
+    "correct_answer": "A",
+    "explanation": "kiềm chế, kiềm hãm"
+  },
+  {
+    "question": "成果",
+    "options": {
+      "A": "せいか"
+    },
+    "correct_answer": "A",
+    "explanation": "thành quả(努力の成果)"
+  },
+  {
+    "question": "正義",
+    "options": {
+      "A": "せいぎ"
+    },
+    "correct_answer": "A",
+    "explanation": "chính nghĩa (正義のために戦う đấu tranh vì chính nghĩa)"
+  },
+  {
+    "question": "規律",
+    "options": {
+      "A": "きりつ"
+    },
+    "correct_answer": "A",
+    "explanation": "quy luật, kỉ luật, những việc mà bản thân tự cảm thấy đúng đắn, hợp với đạo lý(社会の規律 kỉ luật xã hội, )"
+  },
+  {
+    "question": "秩序",
+    "options": {
+      "A": "ちつじょ"
+    },
+    "correct_answer": "A",
+    "explanation": "trật tự"
+  },
+  {
+    "question": "格差",
+    "options": {
+      "A": "かくさ"
+    },
+    "correct_answer": "A",
+    "explanation": "cách biệt, chênh lệch (賃金の格差 chênh lệch tiền lương, )"
+  },
+  {
+    "question": "犠牲",
+    "options": {
+      "A": "ぎせい"
+    },
+    "correct_answer": "A",
+    "explanation": "① hi sinh cái gì vì mục tiêu (家族を hi sinh gia đình để) ② hi sinh, chết(戦争の犠牲 hi sinh trong chiến tranh、交通事項の犠牲者数 số người chết vì tai nạn giao thông)"
+  },
+  {
+    "question": "が氾濫する",
+    "options": {
+      "A": "はんらん"
+    },
+    "correct_answer": "A",
+    "explanation": "tràn lan (ý nghĩa không tốt)(川が氾濫する sông bị tràn bờ、情報が　thông tin tràn lan)"
+  },
+  {
+    "question": "見込み",
+    "options": {
+      "A": "みこみ"
+    },
+    "correct_answer": "A",
+    "explanation": "① dự báo tốt (復旧の見込み dự báo về sự phục hồi ) ② được kì vọng, dự báo trong tương lai có khả năng (合格する見込み　dự báo có khả năng đậu, 回復する見込み dự báo khả năng hồi phục)"
+  },
+  {
+    "question": "見通し",
+    "options": {
+      "A": "みとおし"
+    },
+    "correct_answer": "A",
+    "explanation": "① tầm nhìn ② dự đoán, tầm nhìn đối với tương lai (将来の見通し, )"
+  },
+  {
+    "question": "見積もり",
+    "options": {
+      "A": "みつもり"
+    },
+    "correct_answer": "A",
+    "explanation": "báo giá, ước lượng giá (どれくらいかかるか見積もりを出す)"
+  },
+  {
+    "question": "が流通する",
+    "options": {
+      "A": "りゅうつう"
+    },
+    "correct_answer": "A",
+    "explanation": "phân phối hàng hóa (物資の流通　phân phối vật tư, hàng hóa, 紙幣が流通する lưu thông tiền giấy)"
+  },
+  {
+    "question": "が停滞する",
+    "options": {
+      "A": "ていたい"
+    },
+    "correct_answer": "A",
+    "explanation": "đình trệ (輸送が停滞する　ゆそう vận chuyển bị đình trệ, 景気の停滞 kinh tế đình trệ)"
+  },
+  {
+    "question": "不振",
+    "options": {
+      "A": "ふしん"
+    },
+    "correct_answer": "A",
+    "explanation": "không thuận lợi (売り上げが不振 doanh số không thuận lợi, )"
+  },
+  {
+    "question": "を廃止する",
+    "options": {
+      "A": "はいし"
+    },
+    "correct_answer": "A",
+    "explanation": "bãi bỏ, đình chỉ (制度、システム、法律、習慣を)"
+  },
+  {
+    "question": "が繁栄する",
+    "options": {
+      "A": "はんえい"
+    },
+    "correct_answer": "A",
+    "explanation": "phồn vinh (国、町、会社、家、子孫...が)"
+  },
+  {
+    "question": "が成熟する",
+    "options": {
+      "A": "せいじゅく"
+    },
+    "correct_answer": "A",
+    "explanation": "① chín (果物, ワイン) ② trưởng thành, chín chắn (子供) ③ già cỗi, có tuổi (車の成熟,成熟した市民社会)"
+  },
+  {
+    "question": "が飛躍する",
+    "options": {
+      "A": "ひやく"
+    },
+    "correct_answer": "A",
+    "explanation": "① phát triển nhảy vọt ② nhảy cóc, bỏ qua phần nào đó (結論の飛躍)"
+  },
+  {
+    "question": "が両立する",
+    "options": {
+      "A": "りょうりつ"
+    },
+    "correct_answer": "A",
+    "explanation": "cùng tồn tại, cùng đồng hành 2 thứ đối lập nhau (家庭と仕事を、趣味と実益、独裁と民主主義)"
+  },
+  {
+    "question": "統計",
+    "options": {
+      "A": "とうけい"
+    },
+    "correct_answer": "A",
+    "explanation": "sự thống kê"
+  },
+  {
+    "question": "が/を分散する",
+    "options": {
+      "A": "ぶんさん"
+    },
+    "correct_answer": "A",
+    "explanation": "phân tán (光、財産、リスク rủi ro, nguy cơ)"
+  },
+  {
+    "question": "均衡",
+    "options": {
+      "A": "きんこう"
+    },
+    "correct_answer": "A",
+    "explanation": "cân bằng (輸出と輸入の均衡を保つ、0-0の均衡が破られる)"
+  },
+  {
+    "question": "が/を蓄積する",
+    "options": {
+      "A": "ちくせき"
+    },
+    "correct_answer": "A",
+    "explanation": "tích trữ, dự trữ　(資本の しほん tiền vốn, 富 tài sản, 知識, 疲労 ひろう sự mệt mỏi ...)"
+  },
+  {
+    "question": "延べ",
+    "options": {
+      "A": "のべ"
+    },
+    "correct_answer": "A",
+    "explanation": "tổng cộng (延べ２０万人, 家の延べ床面積 tổng diện tích sàn của ngôi nhà)"
+  },
+  {
+    "question": "人材",
+    "options": {
+      "A": "じんざい"
+    },
+    "correct_answer": "A",
+    "explanation": "nhân lực, nhân viên, người làm việc"
+  },
+  {
+    "question": "公衆",
+    "options": {
+      "A": "こうしゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "công chúng, công cộng, người dân bình thường trong xã hội"
+  },
+  {
+    "question": "教養",
+    "options": {
+      "A": "きょうよう"
+    },
+    "correct_answer": "A",
+    "explanation": "giáo dưỡng, giáo dục"
+  },
+  {
+    "question": "視点",
+    "options": {
+      "A": "してん"
+    },
+    "correct_answer": "A",
+    "explanation": "① ánh nhìn, ánh mắt(視点が定まらず ánh mắt không cố định, nhìn qua nhìn lại) ② quan điểm cá nhân(新しい視点 quan điểm tiến bộ)"
+  },
+  {
+    "question": "観点",
+    "options": {
+      "A": "かんてん"
+    },
+    "correct_answer": "A",
+    "explanation": "quan điểm cá nhân"
+  },
+  {
+    "question": "を左右する",
+    "options": {
+      "A": "さゆう"
+    },
+    "correct_answer": "A",
+    "explanation": "① bên trái bên phải(左右に注意する) ② ảnh hưởng, biến động, dao động (天候に左右される bị dao động, bị ảnh hưởng tùy vào thời tiết)"
+  },
+  {
+    "question": "が直面する",
+    "options": {
+      "A": "ちょくめん"
+    },
+    "correct_answer": "A",
+    "explanation": "đối mặt (dùng trong những trường hợp xấu)"
+  },
+  {
+    "question": "を把握する",
+    "options": {
+      "A": "はあく"
+    },
+    "correct_answer": "A",
+    "explanation": "thấu hiểu, lĩnh hội"
+  },
+  {
+    "question": "を描写する",
+    "options": {
+      "A": "びょうしゃ"
+    },
+    "correct_answer": "A",
+    "explanation": "miêu tả"
+  },
+  {
+    "question": "仕掛け",
+    "options": {
+      "A": "しかけ"
+    },
+    "correct_answer": "A",
+    "explanation": "mánh khóe,những điều khác tiềm ẩn bên trong (仕掛け花火 pháo hoa mà khi nổ có nhiều hình thù đẹp mắt,)"
+  },
+  {
+    "question": "仕組み",
+    "options": {
+      "A": "しくみ"
+    },
+    "correct_answer": "A",
+    "explanation": "cơ cấu, tổ chức"
+  },
+  {
+    "question": "技",
+    "options": {
+      "A": "わざ"
+    },
+    "correct_answer": "A",
+    "explanation": "kĩ năng, kĩ thuật, kĩ xảo"
+  },
+  {
+    "question": "先",
+    "options": {
+      "A": "さき"
+    },
+    "correct_answer": "A",
+    "explanation": "① phía đầu, phía ngọn (指の先) ② vị trí đầu tiên (行列の先) ③ phía trước　（） ④ trước (về mặt thời gian) ⑤ tương lai sau này　（先のこと việc của tương lai） ⑥ địa điểm hướng đến (訪問した先で　tại nơi mà mình đến thì...)"
+  },
+  {
+    "question": "先端",
+    "options": {
+      "A": "せんたん"
+    },
+    "correct_answer": "A",
+    "explanation": "đầu mút, tiên phong"
+  },
+  {
+    "question": "過程",
+    "options": {
+      "A": "かてい"
+    },
+    "correct_answer": "A",
+    "explanation": "giai đoạn, quá trình đã xảy qua (実験の過程、成長の過程 )"
+  },
+  {
+    "question": "起源",
+    "options": {
+      "A": "きげん"
+    },
+    "correct_answer": "A",
+    "explanation": "khởi nguyên, nguồn gốc (人類の起源 nguồn gốc loài người)"
+  },
+  {
+    "question": "唯一",
+    "options": {
+      "A": "ゆいいつ"
+    },
+    "correct_answer": "A",
+    "explanation": "duy nhất"
+  },
+  {
+    "question": "恒例",
+    "options": {
+      "A": "こうれい"
+    },
+    "correct_answer": "A",
+    "explanation": "theo thông lệ (毎年恒例 thông lệ hằng năm、新春恒例 しんしゅん、年末恒例)"
+  },
+  {
+    "question": "目前",
+    "options": {
+      "A": "もくぜん"
+    },
+    "correct_answer": "A",
+    "explanation": "trước mắt (dùng cho cả thời gian và địa điểm)"
+  },
+  {
+    "question": "間際",
+    "options": {
+      "A": "まぎわ"
+    },
+    "correct_answer": "A",
+    "explanation": "ngay trước khi (試験開始の間際 ngay trước giờ bắt đầu thi)"
+  },
+  {
+    "question": "群れ",
+    "options": {
+      "A": "むれ"
+    },
+    "correct_answer": "A",
+    "explanation": "đàn (鳥の群れ, 群れをつくる)"
+  },
+  {
+    "question": "正体",
+    "options": {
+      "A": "しょうたい"
+    },
+    "correct_answer": "A",
+    "explanation": "danh tính, chân tướng, thân phận (犯人の正体)"
+  },
+  {
+    "question": "罠",
+    "options": {
+      "A": "わな"
+    },
+    "correct_answer": "A",
+    "explanation": "① cái bẫy thú ② bẫy, lừa đảo"
+  },
+  {
+    "question": "差支え",
+    "options": {
+      "A": "さしつかえ"
+    },
+    "correct_answer": "A",
+    "explanation": "không tiện (お差し支えなかったら　nếu tiện thì..., 差支えありません không có gì là không tiện, thể hiện sự đồng ý)"
+  },
+  {
+    "question": "しわ寄せ",
+    "options": {
+      "A": "しわよせ"
+    },
+    "correct_answer": "A",
+    "explanation": "trạng thái không thuận lợi, không tốt (しわ nếp nhăn)"
+  },
+  {
+    "question": "何らか",
+    "options": {
+      "A": "なんらか"
+    },
+    "correct_answer": "A",
+    "explanation": "cái gì đó (何らかの対策 đối sách gì đó, 何らかの形 kiểu gì đó)"
+  },
+  {
+    "question": "が晴れる",
+    "options": {
+      "A": "はれる"
+    },
+    "correct_answer": "A",
+    "explanation": "① điều xấu tan biến, trở nên tốt lên (疑い、気持ち、うっぷん uất hận、恨み うらみ hận thù) ② trở nên trong, tan biến (空、雲、霧、ガス,...)"
+  },
+  {
+    "question": "をすり替える",
+    "options": {
+      "A": "すりかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "①đánh tráo, tráo đổi (本物と偽物を、) ② thay đổi (話を、経済問題を国際問題に)"
+  },
+  {
+    "question": "（が）跨る",
+    "options": {
+      "A": "またがる"
+    },
+    "correct_answer": "A",
+    "explanation": "① cưỡi （バイクに,自転車に、馬に、父の肩に） ② vắt qua, trải dài qua (công trình trải dài qua...)"
+  },
+  {
+    "question": "を跨ぐ",
+    "options": {
+      "A": "またぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "băng qua, vượt qua (ガードレールを rào chắn、人を bước qua người khác)"
+  },
+  {
+    "question": "が貫く",
+    "options": {
+      "A": "つらぬく"
+    },
+    "correct_answer": "A",
+    "explanation": "xuyên qua, xuyên suốt (弾が肩を貫く 　たま、山を貫く、激痛　げきつう 、感動が体を貫く)"
+  },
+  {
+    "question": "が控える",
+    "options": {
+      "A": "ひかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "① lui vào chỗ nào đó để chờ đợi (脇に、ベンチに) ② được chuẩn bị (選挙が控える) ③ ngay sát bên (この町は後ろに山が控えている)"
+  },
+  {
+    "question": "を怠る",
+    "options": {
+      "A": "おこたる"
+    },
+    "correct_answer": "A",
+    "explanation": "① sao nhãng, bỏ bê (練習、義務、努力、報告。。。) ② sao nhãng, không chú tâm (注意を怠る、警戒　けいかい cảnh giác)"
+  },
+  {
+    "question": "が逃れる",
+    "options": {
+      "A": "のがれる"
+    },
+    "correct_answer": "A",
+    "explanation": "① trốn chạy (警察の目を、難を なん khó khăn, 苦しみを、恐怖を、飢えを、重荷を　おもにを gánh nặng ) ② trốn chạy, tránh né (責任を) (dùng を đối với đối tượng tác động)"
+  },
+  {
+    "question": "を逃す",
+    "options": {
+      "A": "のがす"
+    },
+    "correct_answer": "A",
+    "explanation": "bỏ lỡ (金メダル、チャンス、好機 こうき cơ hội tốt)"
+  },
+  {
+    "question": "が赴く",
+    "options": {
+      "A": "おもむく"
+    },
+    "correct_answer": "A",
+    "explanation": "di chuyển về phía (động tác di chuyển) 任地に赴く di chuyển đến chỗ ở mà phục vụ cho công việc、 死地に赴く đi vào chỗ chết"
+  },
+  {
+    "question": "を継ぐ",
+    "options": {
+      "A": "つぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "kế thừa (会社、家業、意志 ý chí nguyện vọng、王位、跡)"
+  },
+  {
+    "question": "を打ち切る",
+    "options": {
+      "A": "うちきる"
+    },
+    "correct_answer": "A",
+    "explanation": "dừng giữa chừng, làm gián đoạn (話、番組、契約、会議、捜査、援助、。。。)"
+  },
+  {
+    "question": "を裂く",
+    "options": {
+      "A": "さく"
+    },
+    "correct_answer": "A",
+    "explanation": "xé ra bằng tay (布、スルメ khô mực)"
+  },
+  {
+    "question": "を割く",
+    "options": {
+      "A": "さく"
+    },
+    "correct_answer": "A",
+    "explanation": "① bớt ra, dành ra (時間、人手、予算) ② cắt ra bằng dao, kéo (魚の腹を)"
+  },
+  {
+    "question": "を割り当てる",
+    "options": {
+      "A": "わりあてる"
+    },
+    "correct_answer": "A",
+    "explanation": "phân công (仕事、役 trách nhiệm)"
+  },
+  {
+    "question": "AをBと見なす",
+    "options": {
+      "A": "みなす"
+    },
+    "correct_answer": "A",
+    "explanation": "A được xem như là B"
+  },
+  {
+    "question": "を見抜く",
+    "options": {
+      "A": "みぬく"
+    },
+    "correct_answer": "A",
+    "explanation": "nhìn thấu, nhìn ra được những gì người khác che giấu (本心を)"
+  },
+  {
+    "question": "を見極める",
+    "options": {
+      "A": "みきわめる"
+    },
+    "correct_answer": "A",
+    "explanation": "xác định được, nhận ra (không liên quan lắm đến việc người khác có che giấu hay không) (本質、結果、)"
+  },
+  {
+    "question": "を見逃す",
+    "options": {
+      "A": "みのがす"
+    },
+    "correct_answer": "A",
+    "explanation": "① bỏ lỡ hết (話題の画面) ② nhìn sót, bỏ sót (道路標識、不正、) ③ để tuột mất (チャンス)"
+  },
+  {
+    "question": "を見損なう",
+    "options": {
+      "A": "みそこなう"
+    },
+    "correct_answer": "A",
+    "explanation": "① bỏ lỡ (ドラマを、) ② nhìn lầm, đánh giá sai = 見誤る"
+  },
+  {
+    "question": "を見いだす",
+    "options": {
+      "A": "みいだす"
+    },
+    "correct_answer": "A",
+    "explanation": "phát hiện ra, khám phá ra (才能、意義、活路　con đường phát triển、)"
+  },
+  {
+    "question": "を冷やかす",
+    "options": {
+      "A": "ひやかす"
+    },
+    "correct_answer": "A",
+    "explanation": "① chế nhạo, trêu chọc = からかう ② mua không mua mà cứ đi hỏi giá, rồi thử tới thử lui (土産物屋を冷やかす)"
+  },
+  {
+    "question": "が。。。に仕える",
+    "options": {
+      "A": "つかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "phục tùng (上司、国、神、主君、人のそば)"
+  },
+  {
+    "question": "を導く",
+    "options": {
+      "A": "みちびく"
+    },
+    "correct_answer": "A",
+    "explanation": "dẫn dắt, hướng dẫn (生徒、チーム)"
+  },
+  {
+    "question": "が背く",
+    "options": {
+      "A": "そむく"
+    },
+    "correct_answer": "A",
+    "explanation": "① chống đối lại （親の言いつけに、主君に） ② quay lưng lại, không đáp lại (ファンの期待に)"
+  },
+  {
+    "question": "を慕う",
+    "options": {
+      "A": "したう"
+    },
+    "correct_answer": "A",
+    "explanation": "yêu mến (先生、祖母、)"
+  },
+  {
+    "question": "を察する",
+    "options": {
+      "A": "さっする"
+    },
+    "correct_answer": "A",
+    "explanation": "① suy đoán  ② cảm nhận (気配を察する)"
+  },
+  {
+    "question": "を告げる",
+    "options": {
+      "A": "つげる"
+    },
+    "correct_answer": "A",
+    "explanation": "① nói (別れ、)　＝言う ② báo hiệu (鶏の声が朝を告げる)"
+  },
+  {
+    "question": "を促す",
+    "options": {
+      "A": "うながす"
+    },
+    "correct_answer": "A",
+    "explanation": "① hối thúc (返事、借金の返済 へんさい、) ② thúc đẩy (発展を、発汗 はっかん sự xuất mồ hôi) ③ kêu gọi (注意、再考、自粛 じしゅく sự cẩn trọng trong thái độ, hành động)"
+  },
+  {
+    "question": "を委ねる",
+    "options": {
+      "A": "ゆだねる"
+    },
+    "correct_answer": "A",
+    "explanation": "ủy thác, giao phó"
+  },
+  {
+    "question": "を訴える",
+    "options": {
+      "A": "うったえる"
+    },
+    "correct_answer": "A",
+    "explanation": "nghĩa cơ bản là truyền đạt cho người khác biết ý muốn của mình ① tố cáo (警察に、) ② bày tỏ sự khó chịu, bất mãn cho người khác biết, hiểu (不満、希望、悲惨さを) ③ kêu gọi dùng (武力, 腕力、非常手段、法に。。。) ④ thu hút, kêu gọi (視覚、感情、心、情、良心に)"
+  },
+  {
+    "question": "が親しむ",
+    "options": {
+      "A": "したしむ"
+    },
+    "correct_answer": "A",
+    "explanation": "gần gũi, thân thiết (自然に、読書に親しむ秋)"
+  },
+  {
+    "question": "が挑む",
+    "options": {
+      "A": "いどむ"
+    },
+    "correct_answer": "A",
+    "explanation": "thử thách, chiến đấu với mục tiêu (世界記録に、チャンピオン、難問、山に)"
+  },
+  {
+    "question": "を仰ぐ",
+    "options": {
+      "A": "あおぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "① ngước nhìn lên (夜空、天を、。。。） ② trông chờ vào (指示、指図、教え、寄付、) ③ kính trọng (師と)"
+  },
+  {
+    "question": "を拝む",
+    "options": {
+      "A": "おがむ"
+    },
+    "correct_answer": "A",
+    "explanation": "chắp tay cầu xin (仏様、初日の出を)"
+  },
+  {
+    "question": "を葬る",
+    "options": {
+      "A": "ほうむる"
+    },
+    "correct_answer": "A",
+    "explanation": "① chôn cất (亡くなった人を) ② chìm vào quên lãng (闇に葬る chìm vào bóng tối)"
+  },
+  {
+    "question": "が思い切る",
+    "options": {
+      "A": "おもいきる"
+    },
+    "correct_answer": "A",
+    "explanation": "① từ bỏ (夢を、) ② quyết tâm"
+  },
+  {
+    "question": "を悔いる",
+    "options": {
+      "A": "くいる"
+    },
+    "correct_answer": "A",
+    "explanation": "hối hận (những điều tội lỗi về mặt đạo đức như 過去の罪)"
+  },
+  {
+    "question": "が/を憤る",
+    "options": {
+      "A": "いきどおる"
+    },
+    "correct_answer": "A",
+    "explanation": "phẫn nộ, giận dữ (政府腐敗、社会の不公平を)"
+  },
+  {
+    "question": "を嘆く",
+    "options": {
+      "A": "なげく"
+    },
+    "correct_answer": "A",
+    "explanation": "① kêu than, than trách (不運、自分の愚かさ、身の上　số phận) ② than vãn (学生の学力低下を)"
+  },
+  {
+    "question": "が相次ぐ",
+    "options": {
+      "A": "あいつぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "xảy ra nối tiếp nhau"
+  },
+  {
+    "question": "が出回る",
+    "options": {
+      "A": "でまわる"
+    },
+    "correct_answer": "A",
+    "explanation": "có mặt trên thị trường, được lưu hành, được bán ra"
+  },
+  {
+    "question": "が富む",
+    "options": {
+      "A": "とむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① giàu có ② có nhiều(地下資源、説得力　せっとくりょく、ユーモア、機知 cơ trí, thông minh、示唆　しさ khơi gợi)"
+  },
+  {
+    "question": "が群がる",
+    "options": {
+      "A": "むらがる"
+    },
+    "correct_answer": "A",
+    "explanation": "kết thành đàn, tập hợp lại(アリが群がる)"
+  },
+  {
+    "question": "（が）はみ出る/はみ出す",
+    "options": {
+      "A": "はみでる/はみだす"
+    },
+    "correct_answer": "A",
+    "explanation": "lòi ra, dư ra, tràn ra (シャツのすそがズボンから/に、外の通路に　đứng tràn ra ngoài đường, )"
+  },
+  {
+    "question": "が弾む",
+    "options": {
+      "A": "はずむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① nảy lên, tưng lên(ボールが) ② phấn khích lên（気持ちが、会話が、話が）"
+  },
+  {
+    "question": "が粘る",
+    "options": {
+      "A": "ねばる"
+    },
+    "correct_answer": "A",
+    "explanation": "① dẻo, dính　(餅が粘る、) ② làm đến cùng, dai như đĩa (nghĩa tốt và nghĩa không tốt) 諦めずに粘る"
+  },
+  {
+    "question": "が化ける",
+    "options": {
+      "A": "ばける"
+    },
+    "correct_answer": "A",
+    "explanation": "biến hóa, biến thành (キツネは人間の姿に、出資金が利益に)"
+  },
+  {
+    "question": "が凋む",
+    "options": {
+      "A": "しぼむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① tàn, héo(花が) ② xì, xẹp (風船が)"
+  },
+  {
+    "question": "が弛む",
+    "options": {
+      "A": "たるむ"
+    },
+    "correct_answer": "A",
+    "explanation": "chảy xệ, giãn xệ (ローブが、皮膚が、精神が xuống tinh thần)"
+  },
+  {
+    "question": "を盛る",
+    "options": {
+      "A": "もる"
+    },
+    "correct_answer": "A",
+    "explanation": "① vun lên(茶碗にご飯を bới cơm vào bát, 皿に料理を、庭に土を) ② bao gồm, có chứa"
+  },
+  {
+    "question": "を設ける",
+    "options": {
+      "A": "もうける"
+    },
+    "correct_answer": "A",
+    "explanation": "① thiết đặt, lắp đặt, làm (相談窓口を、) ② tạo ra (機会が設けられる、漢字の使用基準を) ③ có con (子供をもうける)"
+  },
+  {
+    "question": "を催す",
+    "options": {
+      "A": "もよおす"
+    },
+    "correct_answer": "A",
+    "explanation": "① tổ chức (パーティーを) ② cảm giác thấy (吐き気、眠気、尿意 にょうい muốn đi tiểu,...)"
+  },
+  {
+    "question": "を閉ざす",
+    "options": {
+      "A": "とざす"
+    },
+    "correct_answer": "A",
+    "explanation": "① đóng lại (扉を、門を) ② khép mình, không mở lòng, không mở lời (心を閉ざす、口を閉ざす) ③ chắn, che (道を閉ざす、雲に閉ざされた空、氷に閉ざされた海)"
+  },
+  {
+    "question": "を埋め立てる",
+    "options": {
+      "A": "うめたてる"
+    },
+    "correct_answer": "A",
+    "explanation": "chôn lấp (海を埋め立てる)"
+  },
+  {
+    "question": "を要する",
+    "options": {
+      "A": "ようする"
+    },
+    "correct_answer": "A",
+    "explanation": "đòi hỏi, yêu cầu (ダムの建設に要する費用、危険な作業に注意を要する）"
+  },
+  {
+    "question": "が/を優先する",
+    "options": {
+      "A": "ゆうせん"
+    },
+    "correct_answer": "A",
+    "explanation": "ưu tiên (家庭より仕事を優先する、すべてにする　ưu tiên hơn hết)"
+  },
+  {
+    "question": "が遠ざかる",
+    "options": {
+      "A": "とおざかる"
+    },
+    "correct_answer": "A",
+    "explanation": "① trở nên rời xa dần (飛行機がだんだん遠ざかる、) ② trở nên xa cách, hững hờ về mặt tình cảm (政界から遠ざかる)"
+  },
+  {
+    "question": "を遠ざける",
+    "options": {
+      "A": "とおざける"
+    },
+    "correct_answer": "A",
+    "explanation": "① lấy cái gì đó ra xa (マイクを遠ざける cách xa micro) ② làm cho cái gì đó cách xa ra (息子から彼女を遠ざける làm cho cô gái rời xa cậu con trai)"
+  },
+  {
+    "question": "が浸る",
+    "options": {
+      "A": "ひたる"
+    },
+    "correct_answer": "A",
+    "explanation": "① để chìm vào, nhúng vào (温泉に浸る) =浸かる ② đắm chìm trong (昔の思い出に、新婚気分、優越感、感度、余韻 よいん dư âm,　～雰囲気に)"
+  },
+  {
+    "question": "を浸す",
+    "options": {
+      "A": "ひたす"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhúng vào (湯に体を、わかめを水に nhúng tảo vào nước) ② thả hồn vào (感動に心を浸す)"
+  },
+  {
+    "question": "が滅びる",
+    "options": {
+      "A": "ほろびる"
+    },
+    "correct_answer": "A",
+    "explanation": "bị diệt vong (種、人類、民族、国、悪 あく, ...が滅びる)"
+  },
+  {
+    "question": "を滅ぼす",
+    "options": {
+      "A": "ほろぼす"
+    },
+    "correct_answer": "A",
+    "explanation": "① hủy diệt (人類を滅ぼす) ② tàn phá cơ thể, tàn phá con người (ギャンブルで身を滅ぼす)"
+  },
+  {
+    "question": "が栄える",
+    "options": {
+      "A": "さかえる"
+    },
+    "correct_answer": "A",
+    "explanation": "phồn vinh (国、町、文化。。。が栄える)"
+  },
+  {
+    "question": "が定まる",
+    "options": {
+      "A": "さだまる"
+    },
+    "correct_answer": "A",
+    "explanation": "① được quy định, được quyết định (今後の方針が定まる、人の運命は定まる vận mệnh đã được định đoạt) ② an định, thường sử dụng cho trạng thái tự nhiên  (天候が定まる)"
+  },
+  {
+    "question": "を定める",
+    "options": {
+      "A": "さだめる"
+    },
+    "correct_answer": "A",
+    "explanation": "quyết định, quy định thường được dùng trong tổ chức, cơ cấu nhà nước ① quy định、ổn định  (今後の方針を定める、仕事を教師と定める ổn định công việc với nghề giáo viên) ② quy định (法律を定める、人権は憲法に定められている nhân quyền được quyết định trong hiến pháp)"
+  },
+  {
+    "question": "を担う",
+    "options": {
+      "A": "になう"
+    },
+    "correct_answer": "A",
+    "explanation": "thiên về gánh vác những điều mang tính trừu tượng như gánh vác đất nước, tương lai gia đình, trách nhiệm ① gánh chịu (責任を、役割、任務、) ② gánh vác (次代 thế hệ sau, 国民の期待、国の特集、国政、組織,) = 背負う、担ぐ ③ mang vác trên vai (荷物を肩に、背中に) ＝担ぐ　chỉ có nghĩa là cầm, vác đồ vật"
+  },
+  {
+    "question": "が尽きる",
+    "options": {
+      "A": "つきる"
+    },
+    "correct_answer": "A",
+    "explanation": "① cạn kiệt (お金、化石エネルギー、策、) ② kết thúc, hoàn tất (悩みが尽きる) ③ "
+  },
+  {
+    "question": "を尽くす",
+    "options": {
+      "A": "つくす"
+    },
+    "correct_answer": "A",
+    "explanation": "①　dốc hết sức lực (手を尽くす thử hết mọi cách、贅沢の限りに尽くした豪邸 ごうてい biệt thự mà đã dốc hết tất cả sự xa hoa) ② phục vụ, cống hiến (社会に尽くす、夫のために尽くす) "
+  },
+  {
+    "question": "が臨む",
+    "options": {
+      "A": "のぞむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① hướng về phía (ホテルは海に臨む) ② sẵn sàng hướng đến mục tiêu (試験、試合、式、面接、本番…　に臨む) ③ hướng đến, đương đầu với (苦難、別れ、危険 。。。に臨む) ④ đối ứng, đối xử (学生に公平な態度で臨む、厳しい方針で臨む đối ứng bằng cách nghiêm khắc nhất)"
+  },
+  {
+    "question": "を損なる",
+    "options": {
+      "A": "そこなる"
+    },
+    "correct_answer": "A",
+    "explanation": "gây thiệt hại, gây hại (健康、美観 mĩ quan, 景観、機嫌、命、器物　きぶつ 、。。。)"
+  },
+  {
+    "question": "が漂う",
+    "options": {
+      "A": "ただよう"
+    },
+    "correct_answer": "A",
+    "explanation": "① bay bồng bềnh (雲が空を、香りが) ② bộc lộ ra, bao trùm (険悪な空気、雰囲気、～ムード bầu không khí, 哀愁　あいしゅう sầu thảm,  妖気 ようき yêu khí) ③ phiêu bạt (他国に漂う trôi dạt đến nước khác)"
+  },
+  {
+    "question": "が満ちる",
+    "options": {
+      "A": "みちる"
+    },
+    "correct_answer": "A",
+    "explanation": "① tràn đầy (水が、自信に、期待に、体に活力が、活気に、) ② đầy, đủ đầy, không bị khuyết (潮が満ちる thủy triều dâng lên, 月が満ちる trăng tròn)"
+  },
+  {
+    "question": "を満たす",
+    "options": {
+      "A": "みたす"
+    },
+    "correct_answer": "A",
+    "explanation": "① làm đầy (バケツに水を、空腹を満たす、幸福感を、結婚生活に何か満たされない ) ② hội đủ, đạt đủ (条件を満たす đạt đủ điều kiện)"
+  },
+  {
+    "question": "をまかなう",
+    "options": {
+      "A": "まかなう"
+    },
+    "correct_answer": "A",
+    "explanation": "① trang trải (学費を、家計を、経費を、) ② cung cấp (学生に食事をまかなってくれる  cung cấp thức ăn cho học sinh)"
+  },
+  {
+    "question": "が匹敵する",
+    "options": {
+      "A": "ひってき"
+    },
+    "correct_answer": "A",
+    "explanation": "sánh vai, tương đương với, vế trước là từ chỉ mức độ cao  彼はまだ子供だが、大人の選手に匹敵する能力の持ち主だ。 この地震の被害の規模は、関東大震災の被害に匹敵する。"
+  },
+  {
+    "question": "が陥る",
+    "options": {
+      "A": "おちいる"
+    },
+    "correct_answer": "A",
+    "explanation": "① rơi vào (経営不振、錯覚、スランプ khủng hoảng, パニック hoảng loạn, ジレンマ　tiến thoái lưỡng nan) ② rơi vào chỗ trũng  (川の深み　rơi vào chỗ sâu của con sông)"
+  },
+  {
+    "question": "が免れる",
+    "options": {
+      "A": "まぬがれる"
+    },
+    "correct_answer": "A",
+    "explanation": "thoát khỏi, trốn khỏi (責任を　trốn tránh trách nhiệm, 罪を、被害、戦火 せんか chiến tranh, 惨事  thảm họa)"
+  },
+  {
+    "question": "が勝る",
+    "options": {
+      "A": "まさる"
+    },
+    "correct_answer": "A",
+    "explanation": "vượt trội, áp đảo (相手チームより/に　áp đảo đối thủ、)"
+  },
+  {
+    "question": "を帯びる",
+    "options": {
+      "A": "おびる"
+    },
+    "correct_answer": "A",
+    "explanation": "① có hơi hướng, có vẻ (青みを帯びた白 màu trắng có hơi xanh, 丸みを帯びた形 hình dạng hơi tròn,  酒気帯び運転　しゅき  lái xe mà có hơi rượu) ② nhận trách nhiệm, nhiệm vụ (首相の特命を nhận sứ mệnh đặc biệt của thủ tướng)"
+  },
+  {
+    "question": "が鈍る",
+    "options": {
+      "A": "にぶる"
+    },
+    "correct_answer": "A",
+    "explanation": "① trở nên cùn, không còn sắc sảo nữa (腕が鈍った tay nghề kém đi, 決心 quyết tâm giảm sút) ② cùn, không còn sắc, bén (刃物が鈍る) ③ không còn tốt nữa (伸びが鈍る sự tăng trưởng trở nên kém)"
+  },
+  {
+    "question": "（が）冴える",
+    "options": {
+      "A": "さえる"
+    },
+    "correct_answer": "A",
+    "explanation": "① trong trẻo, trong vắt (月の光、笛の音) ② minh mẫn, đưa ra những ý kiến, hành động sáng suốt (職人の技がさえる) ③ vẻ ngoài, khí sắc không tốt (dùng phủ định)(見かけはさえない、顔がさえない、表情がさえない)"
+  },
+  {
+    "question": "が際立つ",
+    "options": {
+      "A": "きわだつ"
+    },
+    "correct_answer": "A",
+    "explanation": "nổi bật (際立った特色 sự đặc sắc nổi bật, 際立った背が高い )"
+  },
+  {
+    "question": "（が）ずば抜けた+名詞",
+    "options": {
+      "A": "ずばぬける"
+    },
+    "correct_answer": "A",
+    "explanation": "xuất chúng, giỏi nổi bật (ずば抜けた才能 tài năng xuất chúng)"
+  },
+  {
+    "question": "ソフトな",
+    "options": {
+      "A": "soft"
+    },
+    "correct_answer": "A",
+    "explanation": "① xốp mềm, hòa nhã (手触り てざわり, 色、声、口調 くちょう giọng điệu, 人柄、人当たり thái độ ứng xử) ② phần mềm máy tính ソフトウェア"
+  },
+  {
+    "question": "ハードな",
+    "options": {
+      "A": "hard"
+    },
+    "correct_answer": "A",
+    "explanation": "① khó khăn, vất vả (仕事、トレーニング、) ② khó (スケジュール) ③ cứng (箱、カバー vỏ bọc) ④ phần cứng máy tính ハードウェア"
+  },
+  {
+    "question": "フォーマルな",
+    "options": {
+      "A": "formal"
+    },
+    "correct_answer": "A",
+    "explanation": "hình thức chuẩn mực đối với hoàn cảnh (ドレス cái đầm, 服装、格好、スタイル、デザイン、場、会話)"
+  },
+  {
+    "question": "カジュアルな",
+    "options": {
+      "A": "casual"
+    },
+    "correct_answer": "A",
+    "explanation": "không hợp hoàn cảnh, suồng sã, lôi thôi  (格好、スタイル、デザイン、場、会話)"
+  },
+  {
+    "question": "シンプルな",
+    "options": {
+      "A": "simple"
+    },
+    "correct_answer": "A",
+    "explanation": "đơn giản (デザイン、化粧、料理、味、考え方、シンプルに暮らす)"
+  },
+  {
+    "question": "ドライ",
+    "options": {
+      "A": "dry"
+    },
+    "correct_answer": "A",
+    "explanation": "① rõ ràng, đâu ra đó (ドライな性格、ドライに考える、ドライに処理する) ② khô (ドライフラワー　dry flower, ドライクリーニング、ドライフルーツ、ドライヤー máy sấy)"
+  },
+  {
+    "question": "シビアな",
+    "options": {
+      "A": "severe"
+    },
+    "correct_answer": "A",
+    "explanation": "nghiêm khắc (評価、状況、)"
+  },
+  {
+    "question": "ピンチ",
+    "options": {
+      "A": "pinch"
+    },
+    "correct_answer": "A",
+    "explanation": "những lúc nguy cấp (お金がピンチ khó khăn về tiền bạc, ピンチに陥る rơi vào khó khăn, nguy hiểm )"
+  },
+  {
+    "question": "セーフ",
+    "options": {
+      "A": "safe"
+    },
+    "correct_answer": "A",
+    "explanation": "an toàn, không bị trễ, không bị thi rớt "
+  },
+  {
+    "question": "マンネリ",
+    "options": {
+      "A": "mannerism"
+    },
+    "correct_answer": "A",
+    "explanation": "lặp lại, lặp đi lặp lại"
+  },
+  {
+    "question": "バラエティー",
+    "options": {
+      "A": "variety"
+    },
+    "correct_answer": "A",
+    "explanation": "đa dạng, phong phú (バラエティーのある回答)"
+  },
+  {
+    "question": "パワー",
+    "options": {
+      "A": "power"
+    },
+    "correct_answer": "A",
+    "explanation": "sức mạnh"
+  },
+  {
+    "question": "ダイナミックな",
+    "options": {
+      "A": "dynamic"
+    },
+    "correct_answer": "A",
+    "explanation": "sự năng động (技、表現、動き、筆致　ひっち　bút pháp nghệ thuật, 行動、性格)"
+  },
+  {
+    "question": "スタミナ",
+    "options": {
+      "A": "stamina"
+    },
+    "correct_answer": "A",
+    "explanation": "sức lực, thể lực, tinh lực"
+  },
+  {
+    "question": "ピーク",
+    "options": {
+      "A": "peak"
+    },
+    "correct_answer": "A",
+    "explanation": "đỉnh điểm (bao gồm cả cao và thấp)　８時頃、ラッシュはピークを迎えた"
+  },
+  {
+    "question": "クライマックス",
+    "options": {
+      "A": "climax"
+    },
+    "correct_answer": "A",
+    "explanation": "cao trào, cực điểm (ドラマ、人生、結婚式の)"
+  },
+  {
+    "question": "コントラスト",
+    "options": {
+      "A": "contrast"
+    },
+    "correct_answer": "A",
+    "explanation": "sự tương phản (パソコンの画面、)"
+  },
+  {
+    "question": "クリア",
+    "options": {
+      "A": "clear"
+    },
+    "correct_answer": "A",
+    "explanation": "① trong, trạng thái tốt (画像、頭、) ② trong, tinh khiết, không có gì ở trong (クリアな氷、クリアファイル)"
+  },
+  {
+    "question": "トーン",
+    "options": {
+      "A": "tone"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhịp điệu (声のトーン) ② sắc thái (トーンの絵)"
+  },
+  {
+    "question": "ニュアンス",
+    "options": {
+      "A": "nuance"
+    },
+    "correct_answer": "A",
+    "explanation": "sắc thái (ニュアンスを伝える、言葉のニュアンス )"
+  },
+  {
+    "question": "フィーリング",
+    "options": {
+      "A": "feeling"
+    },
+    "correct_answer": "A",
+    "explanation": "cảm thụ"
+  },
+  {
+    "question": "ギャップ",
+    "options": {
+      "A": "gap"
+    },
+    "correct_answer": "A",
+    "explanation": "sự khác nhau, sự không hòa hợp nhau giữa 2 đối tượng　（考え方に、理想と現実との）"
+  },
+  {
+    "question": "ステレオタイプな",
+    "options": {
+      "A": "stereotype"
+    },
+    "correct_answer": "A",
+    "explanation": "rập khuôn, sáo mòn　（考え方、やり方）"
+  },
+  {
+    "question": "レッテル",
+    "options": {
+      "A": "letter"
+    },
+    "correct_answer": "A",
+    "explanation": "① gắn nhãn, bị đánh giá người như thế(怠け者のレッテル nhãn người lười biếng) ② giấy nhãn trên sản phẩm"
+  },
+  {
+    "question": "フィルター",
+    "options": {
+      "A": "filter"
+    },
+    "correct_answer": "A",
+    "explanation": "① bộ lọc (カメラのレンズ) ② bộ lọc nước, bụi, đầu lọc thuốc lá  ③ sự sàng lọc"
+  },
+  {
+    "question": "ベース",
+    "options": {
+      "A": "base"
+    },
+    "correct_answer": "A",
+    "explanation": "căn cứ, căn bản, cốt lõi (小説のベース điều cốt lõi của cuốn tiểu thuyết, )"
+  },
+  {
+    "question": "インフラ",
+    "options": {
+      "A": "infrastructure"
+    },
+    "correct_answer": "A",
+    "explanation": "cơ sở hạ tầng"
+  },
+  {
+    "question": "ネットワーク",
+    "options": {
+      "A": "network"
+    },
+    "correct_answer": "A",
+    "explanation": "mạng lưới (テレビのネットワーク、いろいろなネットワークを持っている)"
+  },
+  {
+    "question": "テクノロジー",
+    "options": {
+      "A": "technology"
+    },
+    "correct_answer": "A",
+    "explanation": "công nghệ (バイオテクノロジー công nghệ sinh học, ナノテクノロジー công nghệ nano)"
+  },
+  {
+    "question": "テクニック",
+    "options": {
+      "A": "technique"
+    },
+    "correct_answer": "A",
+    "explanation": "kĩ thuật"
+  },
+  {
+    "question": "メカニズム",
+    "options": {
+      "A": "mechanism"
+    },
+    "correct_answer": "A",
+    "explanation": "① cơ cấu, cấu tạo (機械の内部のメカニズム) ② cơ chế (記憶のメカニズム、地球温暖化、地震、ガン発生)"
+  },
+  {
+    "question": "プロセス",
+    "options": {
+      "A": "process"
+    },
+    "correct_answer": "A",
+    "explanation": "quá trình"
+  },
+  {
+    "question": "をフィードバックする",
+    "options": {
+      "A": "feedback"
+    },
+    "correct_answer": "A",
+    "explanation": "đánh giá phản hồi"
+  },
+  {
+    "question": "コンセプト",
+    "options": {
+      "A": "concept"
+    },
+    "correct_answer": "A",
+    "explanation": "ý tưởng cơ sở để làm sản phẩm gì đó"
+  },
+  {
+    "question": "ポリシー",
+    "options": {
+      "A": "policy"
+    },
+    "correct_answer": "A",
+    "explanation": "chủ trương, phương châm hành động"
+  },
+  {
+    "question": "が/をアピールする",
+    "options": {
+      "A": "appeal"
+    },
+    "correct_answer": "A",
+    "explanation": "① kêu gọi (核廃絶のアピール )  ② thu hút "
+  },
+  {
+    "question": "をシミュレーションする",
+    "options": {
+      "A": "simulation"
+    },
+    "correct_answer": "A",
+    "explanation": "mô phỏng"
+  },
+  {
+    "question": "アクセス",
+    "options": {
+      "A": "access"
+    },
+    "correct_answer": "A",
+    "explanation": "① cách tiếp cận, đường vào (会場はアクセスが悪い) ② truy cập (ホームページにアクセスする)"
+  },
+  {
+    "question": "がUターンする",
+    "options": {
+      "A": "Uturn"
+    },
+    "correct_answer": "A",
+    "explanation": "① quay đầu, quay trở lại ② trở về quê làm việc"
+  },
+  {
+    "question": "が/をシフトする",
+    "options": {
+      "A": "shift"
+    },
+    "correct_answer": "A",
+    "explanation": "① làm việc theo ca (アルバイトのシフト) ② chuyển đổi hình thức (生産拠点を国内から海外へシフトする)"
+  },
+  {
+    "question": "が/をチェンジする",
+    "options": {
+      "A": "change"
+    },
+    "correct_answer": "A",
+    "explanation": "thay đổi (イメージ、モデル、メンバー、席)"
+  },
+  {
+    "question": "フォーム",
+    "options": {
+      "A": "form"
+    },
+    "correct_answer": "A",
+    "explanation": "① hình thể, tư thế  ② kiểu mẫu, mẫu đơn, form"
+  },
+  {
+    "question": "タイミング",
+    "options": {
+      "A": "timing"
+    },
+    "correct_answer": "A",
+    "explanation": "thời khắc, thời điểm (khi tiến hành một việc gì đó)"
+  },
+  {
+    "question": "ラスト",
+    "options": {
+      "A": "last"
+    },
+    "correct_answer": "A",
+    "explanation": "cuối cùng (thời gian, vị trí, thứ hạng)"
+  },
+  {
+    "question": "スムーズな",
+    "options": {
+      "A": "smooth"
+    },
+    "correct_answer": "A",
+    "explanation": "trôi chảy, thuận lợi khi làm một việc gì đó"
+  },
+  {
+    "question": "ジェンダー",
+    "options": {
+      "A": "gender"
+    },
+    "correct_answer": "A",
+    "explanation": "giới tính"
+  },
+  {
+    "question": "軽率な",
+    "options": {
+      "A": "けいそつ"
+    },
+    "correct_answer": "A",
+    "explanation": "khinh suất, không cẩn thận"
+  },
+  {
+    "question": "怠慢な",
+    "options": {
+      "A": "たいまん"
+    },
+    "correct_answer": "A",
+    "explanation": "cẩu thả, lơ đễnh"
+  },
+  {
+    "question": "投げやり",
+    "options": {
+      "A": "なげやり"
+    },
+    "correct_answer": "A",
+    "explanation": "vô trách nhiệm, bất cần, không đàng hoàng tử tế (投げやりな考え、投げやりな態度)"
+  },
+  {
+    "question": "素っ気ない",
+    "options": {
+      "A": "そっけない"
+    },
+    "correct_answer": "A",
+    "explanation": "cộc lốc, lạnh nhạt (素っ気ない返事、素っ気ない態度)"
+  },
+  {
+    "question": "冷ややか",
+    "options": {
+      "A": "ひややか"
+    },
+    "correct_answer": "A",
+    "explanation": "lạnh nhạt, thờ ơ (冷ややかに見つめる、冷ややかな態度)"
+  },
+  {
+    "question": "健やか",
+    "options": {
+      "A": "すこやか"
+    },
+    "correct_answer": "A",
+    "explanation": "khỏe mạnh (健やかに育つ、健やかな体、心)"
+  },
+  {
+    "question": "無邪気な",
+    "options": {
+      "A": "むじゃき"
+    },
+    "correct_answer": "A",
+    "explanation": "(đứa trẻ) ngây thơ, hồn nhiên (無邪気な笑顔、無邪気に遊ぶ)"
+  },
+  {
+    "question": "無神経な",
+    "options": {
+      "A": "むしんけい"
+    },
+    "correct_answer": "A",
+    "explanation": "① mặt dầy, trơ trẽn (無神経な人、言葉) ② không có cảm xúc, không nhận biết được (音に対して無神経になる)　＝鈍感"
+  },
+  {
+    "question": "無造作な",
+    "options": {
+      "A": "むぞうさ"
+    },
+    "correct_answer": "A",
+    "explanation": "không cẩn thận, hờ hững đối với những việc, vật quan trọng"
+  },
+  {
+    "question": "優雅な",
+    "options": {
+      "A": "ゆうが"
+    },
+    "correct_answer": "A",
+    "explanation": "thanh lịch, tao nhã (優雅な姿 hình dáng tao nhã, 優雅に踊る、優雅な生活)"
+  },
+  {
+    "question": "見事な",
+    "options": {
+      "A": "みごと"
+    },
+    "correct_answer": "A",
+    "explanation": "① tuyệt vời (見事な腕前 うでまえ trình độ tuyệt vời, 演奏、技術、作品、景色)　＝素晴らしい ② hoàn toàn, toàn tập, đi kèm với thất bại, thi trượt, v.v (見事に失敗する)"
+  },
+  {
+    "question": "申し分ない",
+    "options": {
+      "A": "もうしぶんない"
+    },
+    "correct_answer": "A",
+    "explanation": "tuyệt vời, không có ý kiến gì nữa (佐藤氏なら、市長候補として申し分ない、申し分ない成績)"
+  },
+  {
+    "question": "模範的な",
+    "options": {
+      "A": "もはんてき"
+    },
+    "correct_answer": "A",
+    "explanation": "gương mẫu, chuẩn mực (模範的な学生、態度、考え、。。。)"
+  },
+  {
+    "question": "まめ（な）",
+    "options": {
+      "A": "まめ"
+    },
+    "correct_answer": "A",
+    "explanation": "siêng năng, cần cù (まめに体を動かす、まめに顔を出す、)"
+  },
+  {
+    "question": "円滑な",
+    "options": {
+      "A": "えんかつ"
+    },
+    "correct_answer": "A",
+    "explanation": "trôi chảy, thuận lợi = スムーズ"
+  },
+  {
+    "question": "迅速な",
+    "options": {
+      "A": "じんそく"
+    },
+    "correct_answer": "A",
+    "explanation": "nhanh chóng, bao gồm cả 2 trường hợp 速やか và 素早い (迅速な対処、迅速に解決, )"
+  },
+  {
+    "question": "速やか",
+    "options": {
+      "A": "すみやか"
+    },
+    "correct_answer": "A",
+    "explanation": "nhanh chóng, thường dùng trong yêu cầu, đòi hỏi"
+  },
+  {
+    "question": "素早い",
+    "options": {
+      "A": "すばやい"
+    },
+    "correct_answer": "A",
+    "explanation": "nhanh chóng, thường dùng khi đánh giá kết quả đã xảy ra"
+  },
+  {
+    "question": "敏捷な",
+    "options": {
+      "A": "びんしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "nhanh nhảu, lanh lợi (敏しょうな動き)"
+  },
+  {
+    "question": "詳細な",
+    "options": {
+      "A": "しょうさい"
+    },
+    "correct_answer": "A",
+    "explanation": "chi tiết"
+  },
+  {
+    "question": "緻密な",
+    "options": {
+      "A": "ちみつ"
+    },
+    "correct_answer": "A",
+    "explanation": "thận trọng, tỉ mỉ, chỉn chu (緻密な計算、研究)"
+  },
+  {
+    "question": "細やかな",
+    "options": {
+      "A": "こまやか"
+    },
+    "correct_answer": "A",
+    "explanation": "chân thành, nồng hậu, ân cần (細やかなサービス、愛情、配慮　はいりょ sự quan tâm, 心遣い)"
+  },
+  {
+    "question": "細やかな",
+    "options": {
+      "A": "ささやか"
+    },
+    "correct_answer": "A",
+    "explanation": "nhỏ mọn, một chút (ささやかな贈り物、細やかに祝った) thể hiện sự khiêm nhường"
+  },
+  {
+    "question": "切実な",
+    "options": {
+      "A": "せつじつ"
+    },
+    "correct_answer": "A",
+    "explanation": "① cấp bách, cấp thiết (切実な問題) = 深刻　しんこく ② hệ trọng, quan trọng （～を切実を感じる cảm nhận được sự quan trọng của ~）　＝　痛切"
+  },
+  {
+    "question": "痛切な",
+    "options": {
+      "A": "つうせつ"
+    },
+    "correct_answer": "A",
+    "explanation": "hệ trọng, tầm quan trọng"
+  },
+  {
+    "question": "切ない",
+    "options": {
+      "A": "せつない"
+    },
+    "correct_answer": "A",
+    "explanation": "khổ tâm, đau khổ (切ない恋 cuộc tình đau khổ)"
+  },
+  {
+    "question": "鬱陶しい",
+    "options": {
+      "A": "うっとうしい"
+    },
+    "correct_answer": "A",
+    "explanation": "khó chịu trong người (鬱陶しい気分、髪が鬱陶しい)　＝不快"
+  },
+  {
+    "question": "煩わしい",
+    "options": {
+      "A": "わずらわしい"
+    },
+    "correct_answer": "A",
+    "explanation": "phiền phức, phiền toái (煩わしい手続き)"
+  },
+  {
+    "question": "厄介な",
+    "options": {
+      "A": "やっかい"
+    },
+    "correct_answer": "A",
+    "explanation": "① phiền phức (厄介なこと) ② làm phiền "
+  },
+  {
+    "question": "容易い",
+    "options": {
+      "A": "たやすい"
+    },
+    "correct_answer": "A",
+    "explanation": "dễ dàng, đơn giản"
+  },
+  {
+    "question": "思わしい",
+    "options": {
+      "A": "おもわしい"
+    },
+    "correct_answer": "A",
+    "explanation": "thỏa đáng, thường đi kèm với nội dung không tốt, không đạt được kết quả thỏa đáng"
+  },
+  {
+    "question": "悩ましい",
+    "options": {
+      "A": "なやましい"
+    },
+    "correct_answer": "A",
+    "explanation": "① khó khăn (悩ましい問題) ② có sức hút khiến bản thân phải lưu tâm, để ý (悩ましいポーズ tư thế chụp ảnh hấp dẫn)"
+  },
+  {
+    "question": "手持無沙汰な",
+    "options": {
+      "A": "てもちぶさた"
+    },
+    "correct_answer": "A",
+    "explanation": "không có gì để làm"
+  },
+  {
+    "question": "淡い",
+    "options": {
+      "A": "あわい"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhạt, nhẹ (色、光、香り) ② mỏng manh (期待)"
+  },
+  {
+    "question": "淡白/淡泊",
+    "options": {
+      "A": "たんぱく"
+    },
+    "correct_answer": "A",
+    "explanation": "① nhạt, đơn giản （淡泊な味） ② thẳng thắn, thật thà (淡泊な性格、淡泊な人)"
+  },
+  {
+    "question": "むなしい",
+    "options": {
+      "A": "むなしい"
+    },
+    "correct_answer": "A",
+    "explanation": "① vô vọng, vô ích (むなしい努力　nổ lực trong tuyệt vọng) ② vô vị, trống rỗng (むなしいもの、人生、言葉)"
+  },
+  {
+    "question": "緩やか",
+    "options": {
+      "A": "ゆるやか"
+    },
+    "correct_answer": "A",
+    "explanation": "① thoai thoải, góc cong thoải (緩やかなカーブ、傾斜、起伏、曲線) ② chậm chậm, từ từ (緩やかな流れ、テンポ nhịp độ, 変化) ③ lỏng, dễ dãi (ý nghĩa tích cực) ④ lỏng, rộng (緩やかな衣服)"
+  },
+  {
+    "question": "のどか",
+    "options": {
+      "A": "のどか"
+    },
+    "correct_answer": "A",
+    "explanation": "thanh bình, yên bình (のどかな春、田舎)"
+  },
+  {
+    "question": "和やか",
+    "options": {
+      "A": "なごやか"
+    },
+    "correct_answer": "A",
+    "explanation": "hòa nhã, ôn hòa (和やかな雰囲気、和やかに話し合う)"
+  },
+  {
+    "question": "格別な",
+    "options": {
+      "A": "かくべつ"
+    },
+    "correct_answer": "A",
+    "explanation": "① đặc biệt, khác biệt  ② rất tuyệt, rất tốt (味が格別)"
+  },
+  {
+    "question": "画期的な",
+    "options": {
+      "A": "かっきてき"
+    },
+    "correct_answer": "A",
+    "explanation": "tính bước ngoặc, mở ra kỉ nguyên (画期的な発明 phát minh mang tính bước ngoặc)"
+  },
+  {
+    "question": "重宝な",
+    "options": {
+      "A": "ちょうほう"
+    },
+    "correct_answer": "A",
+    "explanation": "tiện lợi, hữu dụng (重宝な調理器具 dụng cụ nấu ăn hữu ích)"
+  },
+  {
+    "question": "無難な",
+    "options": {
+      "A": "ぶなん"
+    },
+    "correct_answer": "A",
+    "explanation": "① cầu toàn, an toàn mang ý nghĩa không tốt, không làm được điều gì đặc sắc, quá an toàn ② an toàn"
+  },
+  {
+    "question": "画一的な",
+    "options": {
+      "A": "かくいつてき"
+    },
+    "correct_answer": "A",
+    "explanation": "tiêu chuẩn chung (画一的な教育、画一的な考え方)"
+  },
+  {
+    "question": "紛らわしい",
+    "options": {
+      "A": "まぎらわしい"
+    },
+    "correct_answer": "A",
+    "explanation": "bị hiểu lầm, bị nhầm (書く”れ”の字は”わ”と紛らわしい)"
+  },
+  {
+    "question": "生ぬるい",
+    "options": {
+      "A": "なまぬるい"
+    },
+    "correct_answer": "A",
+    "explanation": "① ấm ấm (生ぬるいお茶、スープ、ビール、風) ② nửa vời, nửa nóng nửa lạnh, không tốt (生ぬるいやり方)"
+  },
+  {
+    "question": "強か",
+    "options": {
+      "A": "したたか"
+    },
+    "correct_answer": "A",
+    "explanation": "cực kì mạnh mẽ mang ý nghĩa sự mạnh mẽ hơi quá mức (強かな人 người quá mạnh mẽ, 混乱の時代を強かに生き抜く )"
+  },
+  {
+    "question": "脆い",
+    "options": {
+      "A": "もろい"
+    },
+    "correct_answer": "A",
+    "explanation": "① mỏng manh, dễ vỡ (もろい石、もろい骨) ② yếu đuối, mỏng manh (情にもろい、精神的にもろい)"
+  },
+  {
+    "question": "危うい",
+    "options": {
+      "A": "あやうい"
+    },
+    "correct_answer": "A",
+    "explanation": "① nguy hiểm, không chắc chắn (危ういところ lúc nguy hiểm,当選が危うい việc trúng tuyển thì nguy, ko ổn) ② mong manh, vẫn an toàn nhưng suýt soát nguy hiểm (危うく間に合った)"
+  },
+  {
+    "question": "生々しい",
+    "options": {
+      "A": "なまなましい"
+    },
+    "correct_answer": "A",
+    "explanation": "① vẫn còn tươi nguyên, mới nguyên (まだ傷跡も生々しい  vết thương vẫn còn mới) ② sống động (生々しい記憶、映像、描写)"
+  },
+  {
+    "question": "露骨な",
+    "options": {
+      "A": "ろこつ"
+    },
+    "correct_answer": "A",
+    "explanation": "rõ ràng, không giấu diếm (露骨な敵意、描写、表現)"
+  },
+  {
+    "question": "巧妙な",
+    "options": {
+      "A": "こうみょう"
+    },
+    "correct_answer": "A",
+    "explanation": "khéo léo, tinh vi (巧妙な手口 thủ đoạn tinh vi)"
+  },
+  {
+    "question": "重厚な",
+    "options": {
+      "A": "じゅうこう"
+    },
+    "correct_answer": "A",
+    "explanation": "sang trọng, trịnh trọng (重厚な家具、デザイン、作風、映画、絵画 かいが)"
+  },
+  {
+    "question": "厳か",
+    "options": {
+      "A": "おごそか"
+    },
+    "correct_answer": "A",
+    "explanation": "nghiêm trang, trang trọng (厳かな儀式、音楽、雰囲気)"
+  },
+  {
+    "question": "希薄な",
+    "options": {
+      "A": "きはく"
+    },
+    "correct_answer": "A",
+    "explanation": "① loãng (酸素が希薄になる) ② nhạt phai (人間関係、愛情、熱意 が希薄)"
+  },
+  {
+    "question": "旺盛な",
+    "options": {
+      "A": "おうせい"
+    },
+    "correct_answer": "A",
+    "explanation": "đầy sinh lực, hăng hái làm gì đó (旺盛な食欲)"
+  },
+  {
+    "question": "圧倒的な",
+    "options": {
+      "A": "あっとうてき"
+    },
+    "correct_answer": "A",
+    "explanation": "mang tính áp đảo (圧倒的な強さ、)"
+  },
+  {
+    "question": "生理的な",
+    "options": {
+      "A": "せいりてき"
+    },
+    "correct_answer": "A",
+    "explanation": "① mang tính sinh lý tự nhiên (食欲や排泄欲は生理的な欲求 khao khát mang tính sinh lý tự nhiên) ② một cách tự nhiên (ゴキブリには生理的な嫌悪感 sự kinh tởm lũ gián một cách tự nhiên)"
+  },
+  {
+    "question": "致命的な",
+    "options": {
+      "A": "ちめいてき"
+    },
+    "correct_answer": "A",
+    "explanation": "chí mạng (致命的な打撃、失敗、重傷)"
+  },
+  {
+    "question": "著しい",
+    "options": {
+      "A": "いちじるしい"
+    },
+    "correct_answer": "A",
+    "explanation": "rõ rệt, đáng kể (著しく異なる、)"
+  },
+  {
+    "question": "顕著な",
+    "options": {
+      "A": "けんちょ"
+    },
+    "correct_answer": "A",
+    "explanation": "nổi bật, rõ rệt (顕著な効果、顕著に現われる xuất hiện rõ)"
+  },
+  {
+    "question": "莫大な",
+    "options": {
+      "A": "ばくだい"
+    },
+    "correct_answer": "A",
+    "explanation": "to lớn, khổng lồ (莫大な遺産、莫大な量)"
+  },
+  {
+    "question": "甚だしい",
+    "options": {
+      "A": "はなはだしい"
+    },
+    "correct_answer": "A",
+    "explanation": "cực kì, mạnh hơn 非常 và không dùng với ý nghĩa tốt  (甚だしい異なる, 思い上がり、勘違い、時代錯誤 さくご　sai lầm thế kỉ, 格差)"
+  },
+  {
+    "question": "端的な",
+    "options": {
+      "A": "たんてき"
+    },
+    "correct_answer": "A",
+    "explanation": "① rõ ràng (端的な例) ② rõ ràng dễ hiểu (端的に言う、述べる)"
+  },
+  {
+    "question": "堪能な",
+    "options": {
+      "A": "たんのう"
+    },
+    "correct_answer": "A",
+    "explanation": "① thành thạo, giỏi giang ② thõa ước nguyện "
+  },
+  {
+    "question": "を主催する",
+    "options": {
+      "A": "しゅさい"
+    },
+    "correct_answer": "A",
+    "explanation": "đứng ra tổ chức (会議の主催は部長、)"
+  },
+  {
+    "question": "を企画する",
+    "options": {
+      "A": "きかく"
+    },
+    "correct_answer": "A",
+    "explanation": "kế hoạch, đề án (新商品の企画、新年会を企画する)"
+  },
+  {
+    "question": "趣旨",
+    "options": {
+      "A": "しゅし"
+    },
+    "correct_answer": "A",
+    "explanation": "ý đồ, mục tiêu muốn thực hiện (会議の趣旨、会の趣旨 mục tiêu của hội nghị )"
+  },
+  {
+    "question": "要領",
+    "options": {
+      "A": "ようりょう"
+    },
+    "correct_answer": "A",
+    "explanation": "① trọng điểm, cốt lõi (要領を得る説明, 作業の要領) ② giỏi giang, có kĩ năng (仕事の要領)"
+  },
+  {
+    "question": "を融通する",
+    "options": {
+      "A": "ゆうずう"
+    },
+    "correct_answer": "A",
+    "explanation": "① sự linh hoạt, ứng biến  ② cho vay tiền, sự cho vay tiền này thực chất là không nên, không hợp lý nhưng trong lòng muốn giúp đỡ nên mới cho vay (友達に資金を融通してもらう)"
+  },
+  {
+    "question": "便宜",
+    "options": {
+      "A": "べんぎ"
+    },
+    "correct_answer": "A",
+    "explanation": "tiện lợi, tạo điều kiện thuận lợi "
+  },
+  {
+    "question": "を駆使する",
+    "options": {
+      "A": "くし"
+    },
+    "correct_answer": "A",
+    "explanation": "sử dụng một cách thuận tiện, thành thạo (５か国語を駆使する lưu loát 5 ngôn ngữ)"
+  },
+  {
+    "question": "を実践する",
+    "options": {
+      "A": "じっせん"
+    },
+    "correct_answer": "A",
+    "explanation": "thực hành, thực tiễn (理論を実践に移る、実践的研究)"
+  },
+  {
+    "question": "が着手する",
+    "options": {
+      "A": "ちゃくしゅ"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt tay vào (プロジェクトに着手する)"
+  },
+  {
+    "question": "措置",
+    "options": {
+      "A": "そち"
+    },
+    "correct_answer": "A",
+    "explanation": "biện pháp"
+  },
+  {
+    "question": "是正",
+    "options": {
+      "A": "ぜせい"
+    },
+    "correct_answer": "A",
+    "explanation": "chỉnh sửa, điều chỉnh (不合理、欠陥、謝り。。。を是正する)"
+  },
+  {
+    "question": "是非",
+    "options": {
+      "A": "ぜひ"
+    },
+    "correct_answer": "A",
+    "explanation": "thị phi, đúng sai, tán thành và phản đối"
+  },
+  {
+    "question": "を模索する",
+    "options": {
+      "A": "もさく"
+    },
+    "correct_answer": "A",
+    "explanation": "tìm hiểu, điều tra (問題の解決方法を模索する)"
+  },
+  {
+    "question": "を折衷する",
+    "options": {
+      "A": "せっちゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "hòa trộn, kết hợp (和洋折衷 pha trộn Nhật và phương Tây, 二つを折衷する hòa trộn 2 thứ lại)"
+  },
+  {
+    "question": "を許容する",
+    "options": {
+      "A": "きょよう"
+    },
+    "correct_answer": "A",
+    "explanation": "cho phép, chấp nhận "
+  },
+  {
+    "question": "が/を緩和する",
+    "options": {
+      "A": "かんわ"
+    },
+    "correct_answer": "A",
+    "explanation": "nới lỏng, hòa hoãn, xoa dịu (混乱が緩和する、痛みを緩和する、規則が緩和される)"
+  },
+  {
+    "question": "を解除する",
+    "options": {
+      "A": "かいじょ"
+    },
+    "correct_answer": "A",
+    "explanation": "bãi bỏ, chấm dứt (警戒、規制、アラーム、警報を解除する)"
+  },
+  {
+    "question": "を自粛する",
+    "options": {
+      "A": "じしゅく"
+    },
+    "correct_answer": "A",
+    "explanation": "tiết chế, tự điều tiết, mang tính chất số đông, tập thể, tổ chức 災害が起きたので派手なパーティーは自粛することにした。"
+  },
+  {
+    "question": "治安",
+    "options": {
+      "A": "ちあん"
+    },
+    "correct_answer": "A",
+    "explanation": "trị an, khu vực có trị an tốt "
+  },
+  {
+    "question": "を監視する",
+    "options": {
+      "A": "かんし"
+    },
+    "correct_answer": "A",
+    "explanation": "giám thị, giám sát (24時間監視されている được giám sát 24/24)"
+  },
+  {
+    "question": "禁物",
+    "options": {
+      "A": "きんもつ"
+    },
+    "correct_answer": "A",
+    "explanation": "kiêng kị, cấm kị điều gì, trạng thái gì (～は禁物だ)"
+  },
+  {
+    "question": "疑惑",
+    "options": {
+      "A": "ぎわく"
+    },
+    "correct_answer": "A",
+    "explanation": "nghi hoặc, hoài nghi (疑惑の人物 nhân vật đáng nghi)"
+  },
+  {
+    "question": "見解",
+    "options": {
+      "A": "けんかい"
+    },
+    "correct_answer": "A",
+    "explanation": "quan điểm, ý kiến khi xử lý vấn đề (見解に相違、見解を述べる）"
+  },
+  {
+    "question": "を認識する",
+    "options": {
+      "A": "にんしき"
+    },
+    "correct_answer": "A",
+    "explanation": "nhận thức được đầy đủ nội dung, ý nghĩa đối với tình trạng, vấn đề gì đó và có khả năng lý giải, phán đoán"
+  },
+  {
+    "question": "概念",
+    "options": {
+      "A": "がいねん"
+    },
+    "correct_answer": "A",
+    "explanation": "khái niệm"
+  },
+  {
+    "question": "架空",
+    "options": {
+      "A": "かくう"
+    },
+    "correct_answer": "A",
+    "explanation": "hư cấu, tưởng tượng"
+  },
+  {
+    "question": "神秘",
+    "options": {
+      "A": "しんぴ"
+    },
+    "correct_answer": "A",
+    "explanation": "huyền bí, thần bí (宇宙の神秘、神秘的なムード cảm giác mang tính thần bí )"
+  },
+  {
+    "question": "驚異",
+    "options": {
+      "A": "きょうい"
+    },
+    "correct_answer": "A",
+    "explanation": "phép màu, điều kì diệu (自然界の神秘、驚異的な記録)"
+  },
+  {
+    "question": "有数",
+    "options": {
+      "A": "ゆうすう"
+    },
+    "correct_answer": "A",
+    "explanation": "dẫn đầu, hàng đầu, top (有数の生物学者 nhà sinh vật học hàng đầu)"
+  },
+  {
+    "question": "兆し",
+    "options": {
+      "A": "きざし"
+    },
+    "correct_answer": "A",
+    "explanation": "dấu hiệu (回復の兆し、春の兆し）"
+  },
+  {
+    "question": "幕開け",
+    "options": {
+      "A": "まくあけ"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt đầu, mở ra (２１世紀の幕開け、ガン治療の新時代の幕開け )"
+  },
+  {
+    "question": "経緯",
+    "options": {
+      "A": "けいい"
+    },
+    "correct_answer": "A",
+    "explanation": "đầu đuôi ngọn ngành của sự việc (事件の詳しい経緯,　交渉の経緯)"
+  },
+  {
+    "question": "成り行き",
+    "options": {
+      "A": "なりゆき"
+    },
+    "correct_answer": "A",
+    "explanation": "kết quả, quá trình tiến triển của sự việc (事件の成り行き, )"
+  },
+  {
+    "question": "行き違い",
+    "options": {
+      "A": "いき/ゆき"
+    },
+    "correct_answer": "A",
+    "explanation": "① lạc nhau, sai phương hướng (người bị lạc, thư từ thất lạc) ② hiểu lầm"
+  },
+  {
+    "question": "道のり",
+    "options": {
+      "A": "みちのり"
+    },
+    "correct_answer": "A",
+    "explanation": "lộ trình, chặng đường đã đi qua (人生の今までの道のり con đường cho đến hiện tại của cuộc đời)"
+  },
+  {
+    "question": "行く手",
+    "options": {
+      "A": "ゆくて"
+    },
+    "correct_answer": "A",
+    "explanation": "con đường phát triển (彼女の行く手  con đường tiến lên của cô ấy thì …)"
+  },
+  {
+    "question": "果て",
+    "options": {
+      "A": "はて"
+    },
+    "correct_answer": "A",
+    "explanation": "tận cùng, kết thúc (宇宙の果て　tận cùng của vũ trụ, )"
+  },
+  {
+    "question": "決",
+    "options": {
+      "A": "けつ"
+    },
+    "correct_answer": "A",
+    "explanation": "vote, bầu chọn"
+  },
+  {
+    "question": "目安",
+    "options": {
+      "A": "めやす"
+    },
+    "correct_answer": "A",
+    "explanation": "① tiêu chuẩn  ② mục tiêu (毎日１万歩を目安に歩くように)"
+  },
+  {
+    "question": "目処",
+    "options": {
+      "A": "めど"
+    },
+    "correct_answer": "A",
+    "explanation": "① mục đích, mục tiêu ② viễn cảnh, triển vọng trong tương lai"
+  },
+  {
+    "question": "を宣告する",
+    "options": {
+      "A": "せんこく"
+    },
+    "correct_answer": "A",
+    "explanation": "① tuyên cáo, thông báo mang tính không tốt (tin xấu từ bác sĩ, bị trọng tài ra thông báo truất quyền thi đấu) ② tuyên cáo, tuyên án từ tòa án"
+  },
+  {
+    "question": "声明",
+    "options": {
+      "A": "せいめい"
+    },
+    "correct_answer": "A",
+    "explanation": "thông cáo, cáo thị, thông báo mang tính chính trị, liên quan đến vấn đề của nhà nước"
+  },
+  {
+    "question": "が/を樹立する",
+    "options": {
+      "A": "じゅりつ"
+    },
+    "correct_answer": "A",
+    "explanation": "① thành lập liên quan đến nhà nước, pháp luật (新政権が、新党を、国交樹立) ② lập nên kỉ lục (世界新記録を樹立する)"
+  },
+  {
+    "question": "を統率する",
+    "options": {
+      "A": "とうそつ"
+    },
+    "correct_answer": "A",
+    "explanation": "lãnh đạo (部下を)"
+  },
+  {
+    "question": "勢力",
+    "options": {
+      "A": "せいりょく"
+    },
+    "correct_answer": "A",
+    "explanation": "① sức mạnh, thế lực, quyền lực chi phối (勢力を争う cạnh tranh quyền lực, 台風の勢力) ② quyền lực chính phủ"
+  },
+  {
+    "question": "が台頭する",
+    "options": {
+      "A": "たいとう"
+    },
+    "correct_answer": "A",
+    "explanation": "xuất đầu lộ diện, nổi lên (新勢力が台頭する thế lực mới nổi lên)"
+  },
+  {
+    "question": "形勢",
+    "options": {
+      "A": "けいせい"
+    },
+    "correct_answer": "A",
+    "explanation": "tình thế, tình cảnh "
+  },
+  {
+    "question": "が突破する",
+    "options": {
+      "A": "とっぱ"
+    },
+    "correct_answer": "A",
+    "explanation": "① đột phá, có những sự tiến bộ vượt bậc ② tăng lên bất ngờ (人口は１億人を突破する）"
+  },
+  {
+    "question": "が/を展開する",
+    "options": {
+      "A": "てんかい"
+    },
+    "correct_answer": "A",
+    "explanation": "① triển khai, tiến triển (試合の展開) ② triển khai mở rộng ra (景色が展開する khung cảnh mở rông ra)"
+  },
+  {
+    "question": "を開拓する",
+    "options": {
+      "A": "かいたく"
+    },
+    "correct_answer": "A",
+    "explanation": "① khai phá (山野を開拓する) ② khai thác (新しい販路、ルート、分野を)"
+  },
+  {
+    "question": "が拡散する",
+    "options": {
+      "A": "かくさん"
+    },
+    "correct_answer": "A",
+    "explanation": "khuếch tán, lan rộng ra = 広がる"
+  },
+  {
+    "question": "が膨張する",
+    "options": {
+      "A": "ぼうちょう"
+    },
+    "correct_answer": "A",
+    "explanation": "bành trướng, căng phồng lên"
+  },
+  {
+    "question": "無数",
+    "options": {
+      "A": "むすう"
+    },
+    "correct_answer": "A",
+    "explanation": "vô số kể (無数の星 vô số các vì sao)"
+  },
+  {
+    "question": "が固執する",
+    "options": {
+      "A": "こしつ"
+    },
+    "correct_answer": "A",
+    "explanation": "cố chấp (自分の意見に固執する)"
+  },
+  {
+    "question": "を阻害する",
+    "options": {
+      "A": "そがい"
+    },
+    "correct_answer": "A",
+    "explanation": "gây trở ngại, gây cản trở sự tiến triển (子供の自立を阻害する、公平な競争を阻害する)"
+  },
+  {
+    "question": "を擁護する",
+    "options": {
+      "A": "ようご"
+    },
+    "correct_answer": "A",
+    "explanation": "bảo vệ, bệnh vực (人権を擁護する、暴力団を擁護する)"
+  },
+  {
+    "question": "を保障する",
+    "options": {
+      "A": "ほしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "bảo đảm, bảo chứng (権利、生活、平和…を保障する)"
+  },
+  {
+    "question": "を補償する",
+    "options": {
+      "A": "ほしょう"
+    },
+    "correct_answer": "A",
+    "explanation": "bảo đảm sự bồi thường nếu có xảy ra sự cố (被害者に補償する)"
+  },
+  {
+    "question": "を補足する",
+    "options": {
+      "A": "ほそく"
+    },
+    "correct_answer": "A",
+    "explanation": "bổ túc, phụ trợ thêm cho đầy đủ, liên quan đến nội dung giải thích, trình bày (説明に補足する）"
+  },
+  {
+    "question": "を補給する",
+    "options": {
+      "A": "ほきゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "bổ sung, cung cấp thêm (bị thiếu từ trước rồi thêm vào cho đủ, sự thêm vào mang tính hỗ trợ thêm) ガソリンを補給する、水分を補給する"
+  },
+  {
+    "question": "を摂取する",
+    "options": {
+      "A": "せっしゅ"
+    },
+    "correct_answer": "A",
+    "explanation": "hấp thu, tiếp thu (塩分を摂取、外国の文化を摂取する)"
+  },
+  {
+    "question": "が欠乏する",
+    "options": {
+      "A": "けつぼう"
+    },
+    "correct_answer": "A",
+    "explanation": "thiếu thốn (食糧、鉄分 てつぶん  chất sắt, 資金、物資、酸素 さんそ)"
+  },
+  {
+    "question": "を添加する",
+    "options": {
+      "A": "てんか"
+    },
+    "correct_answer": "A",
+    "explanation": "phụ gia (những chất phụ gia dùng trong thực phẩm, sản xuất chất liệu công nghiệp như sắt thép, xi măng)"
+  },
+  {
+    "question": "成分",
+    "options": {
+      "A": "せいぶん"
+    },
+    "correct_answer": "A",
+    "explanation": "thành phần"
+  },
+  {
+    "question": "内訳",
+    "options": {
+      "A": "うちわけ"
+    },
+    "correct_answer": "A",
+    "explanation": "diễn giải thành từng mục một (給与の内訳　từng mục một của tiền lương)"
+  },
+  {
+    "question": "を除外する",
+    "options": {
+      "A": "じょがい"
+    },
+    "correct_answer": "A",
+    "explanation": "ngoài trừ, không cho vào, không cho hưởng quyền lợi gì đó (未経験者を除外する)"
+  },
+  {
+    "question": "を還元する",
+    "options": {
+      "A": "かんげん"
+    },
+    "correct_answer": "A",
+    "explanation": "quay lại, trả lại trạng thái ban đầu "
+  },
+  {
+    "question": "が共存する",
+    "options": {
+      "A": "きょうそん/きょうぞん"
+    },
+    "correct_answer": "A",
+    "explanation": "cùng chung sống, cùng tồn tại (平和的に共存する cùng chung sống hòa bình,　自然と人間との共存"
+  },
+  {
+    "question": "を奨励する",
+    "options": {
+      "A": "しょうれい"
+    },
+    "correct_answer": "A",
+    "explanation": "động viên, khuyến khích (読書を奨励する)"
+  },
+  {
+    "question": "報酬",
+    "options": {
+      "A": "ほうしゅう"
+    },
+    "correct_answer": "A",
+    "explanation": "thù lao (報酬をもらう、得る、支払う)"
+  },
+  {
+    "question": "を待望する",
+    "options": {
+      "A": "たいぼう"
+    },
+    "correct_answer": "A",
+    "explanation": "điều bản thân kì vọng (待望の子供 đứa bé được kì vọng, 待望の我が家 ngôi nhà bản thân đã kì vọng )"
+  },
+  {
+    "question": "節度",
+    "options": {
+      "A": "せつど"
+    },
+    "correct_answer": "A",
+    "explanation": "chừng mực, có mức độ chừng mực (節度のある行動)"
+  },
+  {
+    "question": "義理",
+    "options": {
+      "A": "ぎり"
+    },
+    "correct_answer": "A",
+    "explanation": "① đạo nghĩa , đạo lý đối với ai đó, chữ lý trong chữ \"tình và lý\" (義理で出席する tham dự vì đạo nghĩa ) ② mối quan hệ với người thân của vợ, anh em kết nghĩa, v.v "
+  },
+  {
+    "question": "情緒",
+    "options": {
+      "A": "じょうちょ/じょうしょ"
+    },
+    "correct_answer": "A",
+    "explanation": "① cảm xúc, cảm nhận đối với điều gì đó (下町の情緒 cảm giác của khu lao động buôn bán) ② tâm hồn, linh hồn"
+  },
+  {
+    "question": "が動揺する",
+    "options": {
+      "A": "どうよう"
+    },
+    "correct_answer": "A",
+    "explanation": "tâm trạng lo âu, cảm xúc rối bời (心の動揺 trong lòng cảm thấy rối bời, hồi hộp, lo âu)"
+  },
+  {
+    "question": "風潮",
+    "options": {
+      "A": "ふうちょう"
+    },
+    "correct_answer": "A",
+    "explanation": "phong trào, trào lưu (若者の風潮 trào lưu của giới trẻ, 世の風潮)"
+  },
+  {
+    "question": "実態",
+    "options": {
+      "A": "じったい"
+    },
+    "correct_answer": "A",
+    "explanation": "thực tế, tình trạng thật sự (実態を調査する điều tra tình trạng thật sự)"
+  },
+  {
+    "question": "を暴露する",
+    "options": {
+      "A": "ばくろ"
+    },
+    "correct_answer": "A",
+    "explanation": "để lộ (不祥事 ふしょうじ scandal, 秘密、スキャンダル、悪事 を暴露する)"
+  },
+  {
+    "question": "が逃亡する",
+    "options": {
+      "A": "とうぼう"
+    },
+    "correct_answer": "A",
+    "explanation": "chạy trốn, bỏ trốn (海外へ逃亡する、５年の逃亡の末 cuối cùng sau 5 năm bỏ trốn thì...)"
+  },
+  {
+    "question": "が逃避する",
+    "options": {
+      "A": "とうひ"
+    },
+    "correct_answer": "A",
+    "explanation": "lẩn tránh, trốn tránh mang tính tinh thần, trốn tránh điều gì đó (sự việc đã xảy ra) =　逃げる  (夢の世界に逃避する lẩn tránh vào trong thế giới mơ mộng)"
+  },
+  {
+    "question": "第三者",
+    "options": {
+      "A": "だいさんしゃ"
+    },
+    "correct_answer": "A",
+    "explanation": "người thứ 3, người không liên quan"
+  },
+  {
+    "question": "言い分",
+    "options": {
+      "A": "いいぶん"
+    },
+    "correct_answer": "A",
+    "explanation": "lời phân trần, lời giãi bày (被害者と加害者の言い分 lời phân trần của người gây hại và người bị hại)"
+  },
+  {
+    "question": "言いなり",
+    "options": {
+      "A": "いいなり"
+    },
+    "correct_answer": "A",
+    "explanation": "làm theo những lời được sai bảo (父の言いなり làm theo những lời của bố) "
+  },
+  {
+    "question": "を模倣する",
+    "options": {
+      "A": "もほう"
+    },
+    "correct_answer": "A",
+    "explanation": "bắt chước, copy (子供は親の行動を模倣する)"
+  },
+  {
+    "question": "が着目する",
+    "options": {
+      "A": "ちゃくもく"
+    },
+    "correct_answer": "A",
+    "explanation": "tập trung chú ý đến (売り上げだけに着目する tập trung vào doanh số )"
+  },
+  {
+    "question": "趣",
+    "options": {
+      "A": "おもむき"
+    },
+    "correct_answer": "A",
+    "explanation": "① có hứng thú với (江戸時代に造られた庭園で趣がある) ② cảm giác, cảm nhận bầu không khí (戦前の趣 không khí, khung cảnh trước chiến tranh)"
+  },
+  {
+    "question": "渦",
+    "options": {
+      "A": "うず"
+    },
+    "correct_answer": "A",
+    "explanation": "① chỗ xoáy nước (水が渦になる) ② hình xoắn (指紋の渦　しもん　hình xoắn của dấu vân tay) ③ vòng xoáy của sự việc (事件の渦、歓喜の渦 かんき　sự hoan hỉ, 興奮の渦、怒号 どうご tiếng la hét)"
+  },
+  {
+    "question": "溝",
+    "options": {
+      "A": "みぞ"
+    },
+    "correct_answer": "A",
+    "explanation": "① rãnh (雨水を流す溝、タイヤの溝　rãnh của lốp xe、レコードの溝 rãnh trên đĩa nhạc, v.v) ② khoảng cách, sự bất đồng (夫婦の間に溝ができた giữa vợ chồng hình thành nên sự chia cách)"
+  },
+  {
+    "question": "折（り）",
+    "options": {
+      "A": "おり"
+    },
+    "correct_answer": "A",
+    "explanation": "gần nghĩa với từ 時 ① dịp, thời điểm (寒さ厳し折 thời điểm cái lạnh khắc nghiệt) ② thời điểm tốt, thời cơ tốt (折に触れて思い出す lúc nào cũng nhớ lại những cơ hội đã có)"
+  },
+  {
+    "question": "を研ぐ",
+    "options": {
+      "A": "とぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "① mài nhọn, mài sắc (包丁を研ぐ、爪を研ぐ） ② vo gạo (米を研ぐ)"
+  },
+  {
+    "question": "を揉む",
+    "options": {
+      "A": "もむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① massage, chà sát (肩をもんであげる、きゅうりを塩でもむ chà sát dưa leo bằng muối ) ② xô đẩy, va chạm, thường dùng ở thể bị động (人込みにもまれる bị xô đẩy trong đám đông, 社会にもまれる bị dòng đời xô đẩy )  ③ lo lắng (気をもむ)"
+  },
+  {
+    "question": "を揺さぶる",
+    "options": {
+      "A": "ゆさぶる"
+    },
+    "correct_answer": "A",
+    "explanation": "rung lắc (木を揺さぶる, 心/胸を揺さぶられる trái tim bị rung động)"
+  },
+  {
+    "question": "が付きまとう",
+    "options": {
+      "A": "つきまとう"
+    },
+    "correct_answer": "A",
+    "explanation": "① bám theo (好きでもない人に付きまとわれる bị bám theo bởi người không thích, ) ② đeo bám (高所での仕事には危険が付きまとう、不安に付きまとわれる)"
+  },
+  {
+    "question": "が懐く",
+    "options": {
+      "A": "なつく"
+    },
+    "correct_answer": "A",
+    "explanation": "trở nên thân thiết, gắn bó (先生に子供たちは懐いた、犬が私に懐かない )"
+  },
+  {
+    "question": "が/を構う",
+    "options": {
+      "A": "かまう"
+    },
+    "correct_answer": "A",
+    "explanation": "① quan tâm, để ý (服装に構わない、私に構わないで đừng để ý đến tôi)　＝気にかける ② liên quan, ảnh hưởng (構いません không có ảnh hưởng gì, cứ tự nhiên)"
+  },
+  {
+    "question": "を見せびらかす",
+    "options": {
+      "A": "みせびらかす"
+    },
+    "correct_answer": "A",
+    "explanation": "khoe (ゲーム機を友達に見せびらかす）"
+  },
+  {
+    "question": "をねだる",
+    "options": {
+      "A": "ねだる"
+    },
+    "correct_answer": "A",
+    "explanation": "năn nỉ, xin xỏ (小遣い、お土産をねだる）"
+  },
+  {
+    "question": "を宥める",
+    "options": {
+      "A": "なだめる"
+    },
+    "correct_answer": "A",
+    "explanation": "dỗ dành, xoa dịu (泣いている妹をなだめる、父の怒りをなだめる）"
+  },
+  {
+    "question": "が触れ合う",
+    "options": {
+      "A": "ふれあう"
+    },
+    "correct_answer": "A",
+    "explanation": "① chạm (手と手が触れ合う） ② tiếp xúc (動物と触れ合う）"
+  },
+  {
+    "question": "を脅かす",
+    "options": {
+      "A": "おびやかす"
+    },
+    "correct_answer": "A",
+    "explanation": "đe dọa, hù dọa (ひどい不況が庶民の生活を脅かす)"
+  },
+  {
+    "question": "が戸惑う",
+    "options": {
+      "A": "とまどう"
+    },
+    "correct_answer": "A",
+    "explanation": "hoang mang, lúng túng (突然指名されて戸惑った)"
+  },
+  {
+    "question": "を慎む",
+    "options": {
+      "A": "つつしむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① cẩn thận, thận trọng (言葉を慎む, 言動を慎む) ② thận trọng, cân nhắc, tránh ( 辛いものを慎む thận trọng với đồ ăn cay )"
+  },
+  {
+    "question": "を惜しむ",
+    "options": {
+      "A": "おしむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① hối tiếc, miễn cưỡng thực hiện điều gì (別れを惜しむ、早すぎる死を惜しむ, 友達となごりを dư âm ) ② tiếc nuối, dùng kiểu \"không uổng, không tiếc\" (努力を惜しんではならない không uổng công đã nổ lực )"
+  },
+  {
+    "question": "が手こずる",
+    "options": {
+      "A": "てこずる"
+    },
+    "correct_answer": "A",
+    "explanation": "khó khăn, vất vả (わがままな子供に手こずらされる bị khó khăn vất vả với lũ trẻ quậy phá )"
+  },
+  {
+    "question": "が懲りる",
+    "options": {
+      "A": "こりる"
+    },
+    "correct_answer": "A",
+    "explanation": "rút ra bài học kinh nghiệm cho bản thân (失敗に懲りる rút ra kinh nghiệm từ thất bại )"
+  },
+  {
+    "question": "を償う",
+    "options": {
+      "A": "つぐなう"
+    },
+    "correct_answer": "A",
+    "explanation": "① bồi thường (損害を償う） ② chuộc lỗi (どんな方法で罪を償えるのだろうか làm cách nào để có thể chuộc lại lỗi lầm của mình )"
+  },
+  {
+    "question": "が凝る",
+    "options": {
+      "A": "こる"
+    },
+    "correct_answer": "A",
+    "explanation": "① miệt mài, say mê (お菓子作りに凝る） ② đặc biệt, riêng biệt, độc lạ (凝った料理、凝ったデザイン、凝った装飾　そうしょく) ③ cứng đờ, ê ẩm (肩が凝る)"
+  },
+  {
+    "question": "を凝らす",
+    "options": {
+      "A": "こらす"
+    },
+    "correct_answer": "A",
+    "explanation": "① tập trung ánh mắt, hơi thở để làm gì đó ( 目を凝らす、息を凝らす) ② cất công, công phu vào điều gì (　デザインに工夫を凝らす、)"
+  },
+  {
+    "question": "が徹する",
+    "options": {
+      "A": "てっする"
+    },
+    "correct_answer": "A",
+    "explanation": "① tập trung vào, chuyên tâm vào　= 打ち込む、専念する ② xuyên suốt (夜を徹して話し合う) =貫く"
+  },
+  {
+    "question": "を極める",
+    "options": {
+      "A": "きわめる"
+    },
+    "correct_answer": "A",
+    "explanation": "① chinh phục được những thứ cực hạn, cực độ  (南極点、頂点、山頂。。。を極める） ② làm cho cái gì đó trở nên cực hạn (困難、繁栄、栄華 えいが、口を極める mồm mép quá đáng )"
+  },
+  {
+    "question": "を遂げる",
+    "options": {
+      "A": "とげる"
+    },
+    "correct_answer": "A",
+    "explanation": "đạt được、chạm đến ngưỡng  (目的、思い, 望み、志、発達、急成長、初優勝、悲惨な最期を遂げる)"
+  },
+  {
+    "question": "を掲げる",
+    "options": {
+      "A": "かかげる"
+    },
+    "correct_answer": "A",
+    "explanation": "① treo lên (看板、国旗を掲げる） ② nêu lên (理想を）"
+  },
+  {
+    "question": "を図る",
+    "options": {
+      "A": "はかる"
+    },
+    "correct_answer": "A",
+    "explanation": "tốn công sức để đưa ra ý đồ, kế hoạch hoặc thúc đẩy điều gì đó"
+  },
+  {
+    "question": "を操る",
+    "options": {
+      "A": "あやつる"
+    },
+    "correct_answer": "A",
+    "explanation": "① điều khiển, chi phối (人の心、人形を操る、運命に操られる) ② thông thạo, sử dụng khéo léo (５か国語を、道具）"
+  },
+  {
+    "question": "を仕切る",
+    "options": {
+      "A": "しきる"
+    },
+    "correct_answer": "A",
+    "explanation": "① chia ra, phân chia khu vực (部屋を仕切る） ② kiểm soát, quản lý mọi thứ trong phạm vi được giao (一人で宴会を仕切る えんかい buổi tiệc )"
+  },
+  {
+    "question": "を施す",
+    "options": {
+      "A": "ほどこす"
+    },
+    "correct_answer": "A",
+    "explanation": "① tiến hành (治療を、対策を) ② thêm vào, bổ sung (写真に修正を、装飾が施される） ③ làm cho, cho (植物に水/肥料を施す ひりょう bón phân, tưới nước cho cây、貧しい人々にお金を施す）"
+  },
+  {
+    "question": "が行き詰まる",
+    "options": {
+      "A": "いきづまる"
+    },
+    "correct_answer": "A",
+    "explanation": "bị mắc kẹt không tiến triển tiếp được (研究に行き詰まる、交渉が行き詰まる、経営が行き詰まる）"
+  },
+  {
+    "question": "が滞る",
+    "options": {
+      "A": "とどこおる"
+    },
+    "correct_answer": "A",
+    "explanation": "① tồn đọng, không tiến triển được (仕事、事務、物流が滞る） ② còn tồn đọng, còn nợ (支払い、家賃、返済 へんさい việc thanh toán tiền が滞る)"
+  },
+  {
+    "question": "を据え置く",
+    "options": {
+      "A": "すえおく"
+    },
+    "correct_answer": "A",
+    "explanation": "① dựng thẳng đứng (銅像を据え置く、据え置き型のエアコン ) ② giữ nguyên, duy trì như vậy (賃金が据え置かれる tiền công được giữ nguyên) =を維持する、を保つ"
+  },
+  {
+    "question": "が携わる",
+    "options": {
+      "A": "たずさわる"
+    },
+    "correct_answer": "A",
+    "explanation": "tham gia vào viêc gì đó, làm việc có liên quan đến ( 製薬に　bào chế thuốc、開発に khai thác phát triển)"
+  },
+  {
+    "question": "を携える",
+    "options": {
+      "A": "たずさえる"
+    },
+    "correct_answer": "A",
+    "explanation": "① cầm theo cái gì đó khi đi đâu đó (武器を身に携える cầm theo vũ khí trong người) ② dắt theo (家族を携えて赴任した）"
+  },
+  {
+    "question": "を募る",
+    "options": {
+      "A": "つのる"
+    },
+    "correct_answer": "A",
+    "explanation": "chiêu mộ, thu thập （募金を、会員を）"
+  },
+  {
+    "question": "が押し寄せる",
+    "options": {
+      "A": "おしよせる"
+    },
+    "correct_answer": "A",
+    "explanation": "dâng trào lên vây lấy …(高波が、敵の大群が城に）"
+  },
+  {
+    "question": "を探る",
+    "options": {
+      "A": "さぐる"
+    },
+    "correct_answer": "A",
+    "explanation": "① lục lọi、sờ soạng để tìm kiếm (ポケットを、手で探る sờ soạng, dò dẫm lung tung ) ② nhận ra, tìm ra ( 敵の動きを、部長の真意を） ③ tìm kiếm (新しい道、原因、解決、可能性を） ④ thám hiểm ( 洞窟を探る どうくつ thám hiểm hang động ) = を探検する たんけん"
+  },
+  {
+    "question": "を裏付ける",
+    "options": {
+      "A": "うらづける"
+    },
+    "correct_answer": "A",
+    "explanation": "xác thực, chứng minh ( 彼の犯行を裏付ける証拠はない)"
+  },
+  {
+    "question": "を謀る",
+    "options": {
+      "A": "はかる"
+    },
+    "correct_answer": "A",
+    "explanation": "âm mưu, đặt mưa tính kế ( 暗殺を、個人情報の流出を謀る âm mưa đưa thông tinh cá nhân ra ngoài)"
+  },
+  {
+    "question": "を欺く",
+    "options": {
+      "A": "あざむく"
+    },
+    "correct_answer": "A",
+    "explanation": "lừa đảo (人を、敵を）＝だます"
+  },
+  {
+    "question": "を阻む",
+    "options": {
+      "A": "はばむ"
+    },
+    "correct_answer": "A",
+    "explanation": "cản trở (行く手を、景気の回復を）"
+  },
+  {
+    "question": "を遮る",
+    "options": {
+      "A": "さえぎる"
+    },
+    "correct_answer": "A",
+    "explanation": "① ngăn chặn (ブラインドで直射日光を遮る chặn ánh sáng mặt trời bằng rèm cửa, 霧が視界を遮る) ② chặn đứng (人の話、発言、　木が道、行く手を遮る)"
+  },
+  {
+    "question": "が障る",
+    "options": {
+      "A": "さわる"
+    },
+    "correct_answer": "A",
+    "explanation": "① gây hại、gây ảnh hưởng (体に障る、仕事に障る) ② gây khó chịu (神経に障る)"
+  },
+  {
+    "question": "を蝕む",
+    "options": {
+      "A": "むしばむ"
+    },
+    "correct_answer": "A",
+    "explanation": "đục khoét, làm hao mòn, suy kiệt (病が体を蝕む、森は酸性雨に蝕まれる rừng bị mưa axit làm suy kiệt )"
+  },
+  {
+    "question": "が潜む",
+    "options": {
+      "A": "ひそむ"
+    },
+    "correct_answer": "A",
+    "explanation": "ẩn nấp, ẩn náu (犯人は知人のアパートに潜む , トラは草むらに潜む, 頭痛に悪い病気が潜む ủ bệnh)"
+  },
+  {
+    "question": "を潜める",
+    "options": {
+      "A": "ひそめる"
+    },
+    "correct_answer": "A",
+    "explanation": "① giấu diếm (身を潜める、影を潜める) ② che giấu (声を潜める nói nhỏ để người khác không nghe, 息を潜める、鳴りを潜める　che giấu sự nỗi tiếng, sống cuộc sống thanh bình)"
+  },
+  {
+    "question": "が揺らぐ",
+    "options": {
+      "A": "ゆらぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "① rung lắc, không vững (土台が揺らぐ、政権が揺らぐ chính quyền bị lay chuyển) ② đung đưa (柳の枝が風に揺らいでいる） ③ rung động trong lòng (心、気持ち、自信、決心。。。が揺らぐ)"
+  },
+  {
+    "question": "が翻る",
+    "options": {
+      "A": "ひるがえる"
+    },
+    "correct_answer": "A",
+    "explanation": "① bay phất phới (旗が風に翻っている） ② bị thay đổi nhanh chóng (考え、意見、決意、態度 が翻る）"
+  },
+  {
+    "question": "を翻す",
+    "options": {
+      "A": "ひるがえす"
+    },
+    "correct_answer": "A",
+    "explanation": "① lật lại (手のひらを翻す） ② làm cho tung bay phất phới (スカーフを風に翻す） ③ thay đổi nhanh chóng (考え、意見、決意、態度。。。を翻す）"
+  },
+  {
+    "question": "が覆る",
+    "options": {
+      "A": "くつがえる"
+    },
+    "correct_answer": "A",
+    "explanation": "① bị lật lại, bị bác bỏ (定説、判定、前提、評価。。。） ② bị lật ngược (3点差が覆る bị lật ngược 3 điểm cách biệt, 上下が覆る ) ③ bị lật (ボートが覆る thuyền bị lật) ④ bị lật đổ （国家体制が覆る）"
+  },
+  {
+    "question": "を覆す",
+    "options": {
+      "A": "くつがえす"
+    },
+    "correct_answer": "A",
+    "explanation": "① làm ngược lại với dự đoán, phán quyết (予想、判定、評価、予測、定説、常識、理論、。。。） ② lật ngược tình thế ( ５点差を覆す） ③ làm lật úp （大波がボートを覆す） ④ lật đổ chính quyền ( 政権、天下を　てんか thiên hạ, quyền cai trị ）"
+  },
+  {
+    "question": "が食い違う",
+    "options": {
+      "A": "くいちがう"
+    },
+    "correct_answer": "A",
+    "explanation": "không thống nhất, không ăn nhập gì hết (意見が食い違う）"
+  },
+  {
+    "question": "が隔たる",
+    "options": {
+      "A": "へだたる"
+    },
+    "correct_answer": "A",
+    "explanation": "xa cách (故郷から隔たった場所、考えが隔たる）　= 離れる"
+  },
+  {
+    "question": "を隔てる",
+    "options": {
+      "A": "へだてる"
+    },
+    "correct_answer": "A",
+    "explanation": "chia ra, ngăn ra (テーブルを隔てる、２０年の時を隔てる xa cách 20 năm trời, 二人の仲を隔てる)"
+  },
+  {
+    "question": "が釣り合う",
+    "options": {
+      "A": "つりあう"
+    },
+    "correct_answer": "A",
+    "explanation": "① cân bằng (収入と支出が釣り合う） ② xứng lứa vừa đôi ( 人は自分と釣り合う人を好きになる、大女優に釣り合う男性)"
+  },
+  {
+    "question": "が絡む",
+    "options": {
+      "A": "からむ"
+    },
+    "correct_answer": "A",
+    "explanation": "① xung đột (利害が絡む、この事件には政治家が絡む） ② cãi cọ, gây sự (酔うと人に絡む） ③ leo, quấn (フェンスに朝顔のつるが絡んでいる dây bìm bìm quấn quanh hàng rào)"
+  },
+  {
+    "question": "が絡まる",
+    "options": {
+      "A": "からまる"
+    },
+    "correct_answer": "A",
+    "explanation": "quấn quanh, vướng quanh ( 木の幹にツタが絡まる、毛糸が絡まっている dây bị rối, 足が絡まる）"
+  },
+  {
+    "question": "を絡める",
+    "options": {
+      "A": "からめる"
+    },
+    "correct_answer": "A",
+    "explanation": "① hòa trộn (焼いた肉のたれを絡める、) ② có liên hệ với nhau (高齢者の問題は、少子化問題と絡めて考える）"
+  },
+  {
+    "question": "が紛れる",
+    "options": {
+      "A": "まぎれる"
+    },
+    "correct_answer": "A",
+    "explanation": "① bị lẫn vào (周りの音に紛れて相手の声が聞こえない、人込みに紛れて彼女、闇に、忙しさに） ② bị sao nhãng sang hướng khác (笑顔で悲しみが紛れた、冷やすと痛みが紛れる )"
+  },
+  {
+    "question": "を紛らす",
+    "options": {
+      "A": "まぎらす"
+    },
+    "correct_answer": "A",
+    "explanation": "làm cho phân tâm để không để ý đến những sự việc không tốt (心配、痛み、空腹、悲しみ、寂しさを紛らす）"
+  },
+  {
+    "question": "が廃れる",
+    "options": {
+      "A": "すたれる"
+    },
+    "correct_answer": "A",
+    "explanation": "① lỗi mốt, lỗi thời, không còn được xem trọng nữa (流行が廃れる sự lưu hành bị quên lãng, 年長者を敬う価値観は廃れるのだろうか）trở nên phế ② trở nên suy yếu　（林業が廃れてしまった  lâm nghiệp đã trở nên suy kém, trở nên phế)"
+  },
+  {
+    "question": "が潤る",
+    "options": {
+      "A": "うるおう"
+    },
+    "correct_answer": "A",
+    "explanation": "① ẩm ướt (雨で畑が潤った、クリームを塗ると肌が潤った） ② trái tim dạt dào, xúc động (自然の中にいると、心が潤ってくる） ③ dồi dào, trở nên phong phú (財政が潤る tài chính dồi dào)"
+  },
+  {
+    "question": "を潤す",
+    "options": {
+      "A": "うるおす"
+    },
+    "correct_answer": "A",
+    "explanation": "① làm ướt (水を飲んでのどを潤す、川が畑を潤す） ② làm cho dạt dào tình cảm (芸術は人の心を潤す） ③ làm cho dạt dào （財政を潤す làm cho tài chính phong phú, nhiều lên)"
+  },
+  {
+    "question": "が和らぐ",
+    "options": {
+      "A": "やわらぐ"
+    },
+    "correct_answer": "A",
+    "explanation": "① trở nên dịu bớt, ít gay gắt (寒さ、衝撃、痛み、怒りが和らぐ） ② làm cho tình hình dịu, bớt căng thẳng (気持ち、表情、雰囲気が和らぐ）"
+  },
+  {
+    "question": "一気に",
+    "options": {
+      "A": "いっきに"
+    },
+    "correct_answer": "A",
+    "explanation": "làm 1 lần không nghỉ (階段を一気に駆け上がる、ビールを一気に飲み干す）"
+  },
+  {
+    "question": "誠に",
+    "options": {
+      "A": "まことに"
+    },
+    "correct_answer": "A",
+    "explanation": "thật sự rất … (まことにありがとうございます、まことに申し訳ありません）"
+  },
+  {
+    "question": "何しろ",
+    "options": {
+      "A": "なにしろ"
+    },
+    "correct_answer": "A",
+    "explanation": "dù có các sự tình khác nhưng muốn nhấn mạnh vào điều này, điểm này (暖房がないので、何しろ寒くて）"
+  },
+  {
+    "question": "専ら",
+    "options": {
+      "A": "もっぱら"
+    },
+    "correct_answer": "A",
+    "explanation": "chủ yếu, hầu hết (休みの日はもっぱら山歩きをしている、もっぱらのうわさ )"
+  },
+  {
+    "question": "一応",
+    "options": {
+      "A": "いちおう"
+    },
+    "correct_answer": "A",
+    "explanation": "① tạm thời, tạm (一応頼んでみた） ② ít nhiều, không phải 100% nhưng cũng 90% (一応の仕事の流れは分かった）"
+  },
+  {
+    "question": "一旦",
+    "options": {
+      "A": "いったん"
+    },
+    "correct_answer": "A",
+    "explanation": "① làm cái gì đó 1 chút xíu rồi quay lại việc chính (自転車から一旦降りて、） ② một lần (一旦引き受けておいて後で断るんなんて、無責任だ）"
+  },
+  {
+    "question": "追って",
+    "options": {
+      "A": "おって"
+    },
+    "correct_answer": "A",
+    "explanation": "sau, sẽ làm việc đó sau (追って連絡する sẽ liên lạc lại sau, 追ってお知らせする sẽ thông báo sau)"
+  },
+  {
+    "question": "現に",
+    "options": {
+      "A": "げんに"
+    },
+    "correct_answer": "A",
+    "explanation": "thực sự là (現に、今日もつまらないミスをしている)"
+  },
+  {
+    "question": "言わば",
+    "options": {
+      "A": "いわば"
+    },
+    "correct_answer": "A",
+    "explanation": "có thể nói là (成田空港は言わば日本の玄関だ）"
+  },
+  {
+    "question": "一律に",
+    "options": {
+      "A": "いちりつに"
+    },
+    "correct_answer": "A",
+    "explanation": "đồng đều ( ボーナスとして一律に一万円支給された、各社一律の値上げ）"
+  },
+  {
+    "question": "各々",
+    "options": {
+      "A": "おのおの"
+    },
+    "correct_answer": "A",
+    "explanation": "mỗi người (おのおの役割がある、おのおの準備してください）"
+  },
+  {
+    "question": "依然（として）",
+    "options": {
+      "A": "いぜん"
+    },
+    "correct_answer": "A",
+    "explanation": "vẫn, vẫn như thế (台風は依然強い勢力を保ったまま、犯人は依然捕まっていない) =まだ、今だに"
+  },
+  {
+    "question": "漠然と",
+    "options": {
+      "A": "ばくぜんと"
+    },
+    "correct_answer": "A",
+    "explanation": "ngờ ngợ, không rõ ràng ( 漠然とした不安を抱いている có cảm giác gì đó bất an)"
+  },
+  {
+    "question": "明くる",
+    "options": {
+      "A": "あくる"
+    },
+    "correct_answer": "A",
+    "explanation": "tiếp theo đó　＝翌"
+  },
+  {
+    "question": "来る+年月日",
+    "options": {
+      "A": "きたる"
+    },
+    "correct_answer": "A",
+    "explanation": "vào thời gian + mốc thời gian tương lai (来る15日、中央公園でフリーマーケットが開かれる）"
+  },
+  {
+    "question": "去る+年月日",
+    "options": {
+      "A": "さる"
+    },
+    "correct_answer": "A",
+    "explanation": "vào thời gian + mốc thời gian quá khứ (去る７月10日、創立50周年の式典が行われた）"
+  },
+  {
+    "question": "例の",
+    "options": {
+      "A": "れいの"
+    },
+    "correct_answer": "A",
+    "explanation": "đó, thể hiện người nói và người nghe rất hiểu về đối tượng đang được nhắc đến 「例の物を持ってきてくれ」 mang cái đó lại đây giúp."
+  }
+]

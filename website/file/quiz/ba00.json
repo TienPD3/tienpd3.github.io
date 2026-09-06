@@ -1,0 +1,372 @@
+[
+  {
+    "question": "Which activity is run in a series of time boxes to generate a lot of ideas and then groom them?",
+    "options": {
+      "A": "Brainstorm",
+      "B": "Collaborative game",
+      "C": "Interview",
+      "D": "Focus group"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Sally the project sponsor says: “I need you to prepare an organizational chart, it will show us the stakeholders’ involvement and interest in the project”. What would you do?",
+    "options": {
+      "A": "Run a workshop to prepare a chart",
+      "B": "Prepare a stakeholder list to build a chart based on it",
+      "C": "Prepare a chart based on data from HR system",
+      "D": "Suggest we use an onion diagram or a stakeholder matrix instead of an organizational chart"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "After performing an organizational analysis you found out that one of the business processes results in a report that is never considered in the further decision making. Essentially, the report is prepared for nothing. So you recommend to remove this process and stop spending the effort to prepare that report. Which strategy is this?",
+    "options": {
+      "A": "Do nothing",
+      "B": "Add capabilities",
+      "C": "Perform organizational change",
+      "D": "Avoid waste"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "According to the BABOK® ® Guide: “Enterprise culture is defined as the deeply rooted beliefs, values, and norms shared by the members of an enterprise.” As such, enterprise culture cannot affect the performance of the solution.",
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "If the solution does not meet the expected performance targets, it is expected that a BA recommends actions to improve the performance.",
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Imagine you are working on building a business case for a change, specifically trying to understand what the major problems the solution is going to solve and how to quantify it. Which level of requirements are you working on?",
+    "options": {
+      "A": "Business",
+      "B": "Stakeholder",
+      "C": "Solution",
+      "D": "Transition"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which definition better describes the Business Analysis Core Concept model?",
+    "options": {
+      "A": "A set of terms used in business analysis.",
+      "B": "An industry specific application of business analysis.",
+      "C": "A career development path for business analysts.",
+      "D": "A conceptual framework for business analysis."
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Imagine you are at a project milestone meeting and Claire the Project Manager says: “During this stage of the project we have identified the risks, analyzed and prioritized them and planned the preventive actions. I will add those actions into the master project plan and will report that we have finished the risk management for this project”. Do you think she is right to say so?",
+    "options": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Bob the Solution Architect suggests that based on the gap analysis between the current state and the future state the team may decide to build a bespoke system or purchase a third-party solution. What would be your recommendation for the next steps?",
+    "options": {
+      "A": "Purchase a third-party tool. It is wise to use something that the industry recognizes.",
+      "B": "Build a bespoke solution - none third-party tool will ever be fully compliant with your requirements",
+      "C": "Define a list of selection criteria and compare the options. Then recommend the one that ticks more boxes.",
+      "D": "Compare the cost of external systems vs. the cost to develop a bespoke one. Make a decision based on return on investment over 5 years time frame."
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "Organizational structure, Culture, Capabilities, Processes, Technology, Policies, and Assets are elements of:",
+    "options": {
+      "A": "Current state analysis of the organization",
+      "B": "Future state definition for the organization",
+      "C": "Both",
+      "D": "Neither"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "A group or individual with a relationship to the change, the need, or the solution is called:",
+    "options": {
+      "A": "A developer",
+      "B": "A sponsor",
+      "C": "A business analyst",
+      "D": "A stakeholder"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "A team discusses a user story:\n\n“As a loyal customer\nI want to be rewarded for my loyalty with discounts\nSo that I feel valued by the business”\n\nThe team agrees the story is too broad and decides to define the boundaries for it. They agree the scope of the user story should be to grab user’s membership ID during the checkout and give a 5% discount on the order if the user has been a member for longer than 2 years. What is the best way to capture this decision?",
+    "options": {
+      "A": "Rewrite the user story to make it precise",
+      "B": "Create another user story for the agreed scenario and link it to the current user story",
+      "C": "Call the user story an epic and create a new user story underneath it",
+      "D": "Create acceptance criteria in the form of  “given when then” scenarios to capture the scope of the story"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "The main goal of specifying and modelling of the requirements is to transform the results of your elicitation activities into the requirements and designs.",
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "“Process modelling is a standardized graphical model used to show how work is carried out and is a foundation for process analysis.” Is it true of false?",
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "During a workshop with stakeholders, Kate the BA managed to get a verbal approval of a very complicated set of requirements from some of the stakeholders. She then thanked all the participants and sent a message to the project team to start the implementation of the requirements as agreed by the stakeholders. Which step did she miss which might cause trouble in the future?",
+    "options": {
+      "A": "Update the project plan to accommodate for the approved version of requirements",
+      "B": "Obtain written confirmation that the requirements are approved and share the approved version with all of the stakeholders",
+      "C": "Create acceptance criteria based on the workshop results",
+      "D": "She did everything right"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "When explaining how to create a first persona, Terry the business consultant says: “Don’t even try to make them feel like your real customers! Personas are fictional, that is the whole point! Just make something up about them.” Do you agree?",
+    "options": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "As a part of stakeholder analysis for a contract negotiation process, you have identified that the Head of procurement is the person ultimately responsible for all the contracts to be signed on time. Which letter from RACI would you use to describe the Head of Procurement’s involvement?",
+    "options": {
+      "A": "R",
+      "B": "A",
+      "C": "C",
+      "D": "I"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Mercedes the Marketer analyses data about the sales trends. She realizes that after the new cart of the website was launched in January the sales went down dramatically. She compared the sales figures against the previous 3 months trend to ensure enough data is collected for building a trend and also double checked between the web analytics and ERP sales data to ensure accuracy. What would you recommend as a next step?",
+    "options": {
+      "A": "Bring the data to the business analyst to create new requirements",
+      "B": "Perform the rollback of the change to the state it was in December to improve the sales",
+      "C": "Run the analysis again as the data collected is probably not reliable",
+      "D": "Raise it as a concern with the product manager"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "At which moment in time does the requirements lifecycle management begin?",
+    "options": {
+      "A": "When the project is officially initiated",
+      "B": "When a business need is recognised as a requirement",
+      "C": "When a BA is assigned to a project",
+      "D": "When the development of the solution starts"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "The role of a BA during Solution Evaluation is to assess the performance of and value delivered by a solution in use by the enterprise, and to recommend removal of barriers or constraints that prevent the full realization of the value.",
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Imagine an organization has identified this risk: “It is highly likely that the operators will make mistakes when dealing with the new system - the UI is clumsy and unfamiliar. The effect of each mistake is minimal, but the potential amount of those may lead to noticeable overhead in admin time to rectify”.\n\n\n\n\nMargaret the CFO suggests they include this onto the business insurance policy and let the insurer worry about it. John the BA says: “Yes, if we can cover a risk with insurance we should always do it”. Do you think John is right?",
+    "options": {
+      "A": "Yes, if we can cover a risk with insurance we should always do it",
+      "B": "No, this doesn’t seem like the best strategy"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Jane the BA prepares to run a workshop with a distributed team of participants over a teleconference system. She has previously run the same workshop with another team in a face-to-face sessions so she is confident she can facilitate the session and does not need to revisit and review the existing materials. Do you agree with her plan?",
+    "options": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Sid the Solution Architect asks you to help scope the functionality of the system around different user roles to set up the access right accordingly. Which diagram will you use?",
+    "options": {
+      "A": "Activity diagram",
+      "B": "State machine diagram",
+      "C": "BPM diagram",
+      "D": "Use case diagram"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "“Work done to evaluate requirements to ensure they are defined correctly and are at an acceptable level of quality. It ensures the requirements are sufficiently defined and structured so that the solution development team can use them in the design, development, and implementation of the solution.” is a definition of:",
+    "options": {
+      "A": "Requirements prioritization",
+      "B": "Requirements validation",
+      "C": "Requirements verification",
+      "D": "Requirements baselining"
+    },
+    "correct_answer": "C"
+  },
+  {
+    "question": "The project team has identified two different options how a problem may be solved: they may purchase an additional module to an existing system or they may implement a manual process workaround. What is the best next step for them?",
+    "options": {
+      "A": "Consult with the project sponsor what she thinks is the best approach",
+      "B": "Analyse expected benefits and costs of each",
+      "C": "Pick one of the approaches randomly and plan the project",
+      "D": "Reach out to the vendor and ask for module demo"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "According to Business Analysis Core Concept Model, a Solution delivers Value to Stakeholders via satisfying Needs.",
+    "options": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Jane the BA is drawing diagrams of how the solution is going to integrate with a third party, including data flows and API schemas. Jane is documenting:",
+    "options": {
+      "A": "Requirements",
+      "B": "Design"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "The BABOK® Guide describes:",
+    "options": {
+      "A": "The definition of business analysis roles and responsibilities with regards to different industries and organization types",
+      "B": "The knowledge areas, tasks, underlying competencies, techniques and perspectives on how to approach business analysis.",
+      "C": "Key terms and definitions related to business analysis only",
+      "D": "The knowledge areas, tasks, underlying competencies, techniques and perspectives on how to perform agile project delivery."
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "An influencing factor that is believed to be true but has not been confirmed to be accurate, or that could be true now but may not be in the future.” is a definition of:",
+    "options": {
+      "A": "Assumption",
+      "B": "Requirement",
+      "C": "Risk",
+      "D": "Context"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the main reason to use assumptions?",
+    "options": {
+      "A": "To unblock progress",
+      "B": "To help better plan change strategies",
+      "C": "To prepare the plan in case it proves invalid",
+      "D": "All of the above"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "The purpose of preparing for elicitation activities is to understand the scope of the activity, select appropriate techniques, and plan for (or procure) appropriate supporting materials and resources.",
+    "options": {
+      "A": "Yes",
+      "B": "No"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "How can you best define “facilitation”?",
+    "options": {
+      "A": "The art of eliciting information from people without them being offended",
+      "B": "The art of communicating with the people through multiple channels",
+      "C": "It is a synonym for “management”",
+      "D": "The art of leading and encouraging people through systematic efforts toward agreed-upon objectives"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "INVEST is an example of:",
+    "options": {
+      "A": "A quality checklist",
+      "B": "A business process",
+      "C": "A modelling notation",
+      "D": "A success factor"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "What is the purpose of defining the requirements architecture?\n\nA. Define how and where to store the requirements\nB. Define how to ensure all stakeholders are satisfied\nC. Define how to produce different slices of requirements tailored to different audiences\nD. Define how to ensure the set of requirements is complete",
+    "options": {
+      "A": "A",
+      "B": "A, D",
+      "C": "A, B, D",
+      "D": "A, C, D"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "Sue the BA is preparing a set of guidelines and templates for how the requirements will be represented for the project sponsor and extended stakeholders teams, how these representations will be organised, and how they will be related. She is working on:",
+    "options": {
+      "A": "Requirements checklist",
+      "B": "Requirements design",
+      "C": "View",
+      "D": "Viewpoint"
+    },
+    "correct_answer": "D"
+  },
+  {
+    "question": "After Steven the BA identified all the requirements for a solution, the team asks which requirements are of higher importance so they need to be addressed first? Which activity will help Steven to identify the order of requirements?",
+    "options": {
+      "A": "Ranking",
+      "B": "Prioritization",
+      "C": "Approval",
+      "D": "Baselining"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Requirements are maintained so that they remain correct and current after an approved change",
+    "options": {
+      "A": "True",
+      "B": "False"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Rob the Product Owner tells the team that he cannot prioritize the requirements as he doesn’t know the estimations. So he requests the team to estimate the requirements first. Sally the Solution Architect objects saying that they need to know the priorities to know which ones to estimate first. Who would you support?",
+    "options": {
+      "A": "Rob - estimation can be used as a basis for prioritization",
+      "B": "Sally - prioritization always happens prior to estimation"
+    },
+    "correct_answer": "A"
+  },
+  {
+    "question": "Which document describes the overall method for performing business analysis work?",
+    "options": {
+      "A": "BA plan",
+      "B": "BA approach",
+      "C": "BA governance",
+      "D": "Project charter"
+    },
+    "correct_answer": "B"
+  },
+  {
+    "question": "Adaptive approach is mostly characterised by:",
+    "options": {
+      "A": "Solution is defined in iterations to arrive at the best solution or improve an existing solution. Level of formality is relatively low, and tasks are performed iteratively.",
+      "B": "Solution is defined before implementation to maximize control and minimize risk and the level of formality is pretty high. Tasks are performed in phases."
+    },
+    "correct_answer": "A"
+  }
+]

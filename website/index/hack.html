@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Học tiếng Nhật</title>
+  <style>
+    body {
+      font-family: "Noto Sans JP", sans-serif;
+      padding: 20px;
+      line-height: 2;
+    }
+
+    ruby {
+      ruby-position: over;
+    }
+
+    .text {
+      font-size: 24px; /* làm nhỏ Kanji */
+    }
+
+    ruby rt {
+      font-size: 12px; /* hoặc cùng kích thước với rb */
+      color: #666;
+    }
+  </style>
+  <script defer src="/website/scripts/kuroshiro/kuroshiro.min.js"></script>
+  <script defer src="/website/scripts/kuroshiro/kuroshiro-analyzer-kuromoji.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <h2>Ví dụ học tiếng Nhật có furigana</h2>
+
+  <p id="text-content" class="text">
+    会社まで30分かかります。<br>
+    東京にすんでいます。
+  </p>
+
+  <script>
+    $(document).ready(async function() {
+      const kuroshiro = new Kuroshiro();
+      await kuroshiro.init(new KuromojiAnalyzer());
+
+      async function convertTextToRuby(sentences) {
+        if (sentences === undefined) {
+          return $('<div></div>');
+        }
+        const hiragana = await kuroshiro.convert(sentences.trim(), { to: 'hiragana', mode: 'furigana' });
+        return hiragana;
+      }
+
+      // New function to convert passed originalText and update #text-content
+      async function convertAndDisplayText(originalText) {
+        const rubyContent = await convertTextToRuby(originalText);
+        const $p = $('#text-content');
+        $p.empty();
+        $p.append(rubyContent);
+      }
+
+      // Initial conversion on page load
+      const $p = $('#text-content');
+      const originalText = $p.html();
+      await convertAndDisplayText(originalText);
+
+      // Expose the function to global scope for external use
+      window.convertAndDisplayText = convertAndDisplayText;
+    });
+  </script>
+</body>
+</html>
