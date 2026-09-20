@@ -69,27 +69,76 @@ const Calculator = {
   },
 
   /**
+   * Tính EMA (Exponential Moving Average)
+   * @param {number[]} prices - Mảng giá từ CŨ đến MỚI
+   * @param {number} period
+   * @returns {number} Giá trị EMA tại nến cuối cùng (mới nhất)
+   */
+  calculateEMA: (prices, period) => {
+    if (!prices || prices.length < period) return null;
+    const k = 2 / (period + 1);
+    // Khởi tạo EMA đầu tiên = SMA của `period` nến đầu tiên
+    let ema = prices.slice(0, period).reduce((sum, p) => sum + p, 0) / period;
+    for (let i = period; i < prices.length; i++) {
+      ema = prices[i] * k + ema * (1 - k);
+    }
+    return ema;
+  },
+
+  /**
+   * Tính WMA (Weighted Moving Average)
+   * @param {number[]} prices - Mảng giá từ CŨ đến MỚI
+   * @param {number} period
+   * @returns {number} Giá trị WMA tại nến cuối cùng (mới nhất)
+   */
+  calculateWMA: (prices, period) => {
+    if (!prices || prices.length < period) return null;
+    const slice = prices.slice(prices.length - period);
+    let weightedSum = 0;
+    let weightTotal = 0;
+    for (let i = 0; i < period; i++) {
+      const weight = i + 1; // Trọng số tăng dần: 1, 2, 3, ... period
+      weightedSum += slice[i] * weight;
+      weightTotal += weight;
+    }
+    return weightedSum / weightTotal;
+  },
+
+  /**
    * Đánh giá Tiêu chí Sức khỏe (Checklist)
    * Trả về true/false cho từng tiêu chí để render ra YES/NO
    */
-
-
   evaluateChecklist: (data, sumLnstSau) => {
+    // Tính EMA9 & WMA45 trên khung tuần
+    const weeklyPrices = data.weeklyPrices || [];
+    const ema9 = Calculator.calculateEMA(weeklyPrices, CONST.EMA_LENGTH);
+    const wma45 = Calculator.calculateWMA(weeklyPrices, CONST.WMA_LENGTH);
+
+    let moHinhPass = null;
+    let moHinhGap = null; // % khoảng cách EMA9 so với WMA45
+    if (ema9 !== null && wma45 !== null && wma45 !== 0) {
+      moHinhGap = ((ema9 - wma45) / wma45) * 100;
+      moHinhPass = ema9 > wma45 ? 1 : 0;
+    }
+
     return {
       // Tăng đều: kiểm tra cả 4 quý liên tiếp không giảm (không dùng year-over-year)
       dtt: data.isTangDeuDtt === true,
       lng: data.isTangDeuLng === true,
-      vcsh: (function(){       let vcshTangDeu = true;
-      if (data.vcshQuarters && data.vcshQuarters.length === 4) {
+      vcsh: (function() {
+        let vcshTangDeu = true;
+        if (data.vcshQuarters && data.vcshQuarters.length === 4) {
           for (let i = 1; i < 4; i++) {
-              if (data.vcshQuarters[i] < data.vcshQuarters[i-1]) {
-                  vcshTangDeu = false;
-                  break;
-              }
+            if (data.vcshQuarters[i] < data.vcshQuarters[i - 1]) {
+              vcshTangDeu = false;
+              break;
+            }
           }
-      } else {
+        } else {
           vcshTangDeu = false;
-      } return vcshTangDeu; })(),
+        }
+        return vcshTangDeu;
+      })(),
       gos: data.tyLeLaiGop >= 15,
       npm: data.tyLeLaiRong >= 5,
       roa: data.roa >= 5,
@@ -98,7 +147,10 @@ const Calculator = {
       doe: (data.vcsh > 0) ? ((data.ndh / data.vcsh) <= 1) : false,
       pe: data.pe > 0 && data.pe <= 15,
       pb: data.pb > 0 && data.pb <= 2,
-      mh: null,
+      mh: moHinhPass,
+      mhGap: moHinhGap,
+      ema9: ema9,
+      wma45: wma45,
       bld: data.bldMuaBan === 1,
       hdkd: data.lnHdkd > 0,
       // Nợ DH / LNST 4 quý TTM (Trailing Twelve Months) – chắc hơn 1 quý đơn lẻ

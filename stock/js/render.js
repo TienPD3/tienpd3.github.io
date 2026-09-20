@@ -161,7 +161,29 @@ const Render = {
     updateRow('chk-doe', data.vcsh > 0 ? Utils.formatNumber(data.ndh / data.vcsh) : "N/A", checks.doe);
     updateRow('chk-pe', Utils.formatNumber(data.pe), checks.pe);
     updateRow('chk-pb', Utils.formatNumber(data.pb), checks.pb);
-    updateRow('chk-mh', data.moHinh !== null ? data.moHinh : "N/A", data.moHinh !== null ? checks.mh : null);
+    // Mô hình – EMA9 vs WMA45 (khung tuần)
+    let mhValText = "N/A";
+    let mhPass = null;
+    if (checks.mhGap !== null && checks.mhGap !== undefined) {
+      const sign = checks.mhGap >= 0 ? "+" : "";
+      mhValText = `${sign}${checks.mhGap.toFixed(2)}%`;
+      mhPass = checks.mh === 1;
+    }
+    updateRow('chk-mh', mhValText, mhPass);
+    // Tô màu ô CHỈ SỐ: xanh nếu dương, đỏ nếu âm
+    const mhValEl = document.getElementById('chk-mh-val');
+    if (mhValEl && checks.mhGap !== null && checks.mhGap !== undefined) {
+      mhValEl.className = checks.mhGap >= 0 ? 'text-success font-bold' : 'text-danger font-bold';
+    }
+    // Subtext: EMA9 và WMA45 thực tế (tooltip khi hover)
+    const mhDescEl = document.getElementById('chk-mh-yn');
+    if (mhDescEl && checks.ema9 !== null && checks.wma45 !== null) {
+      const parentTd = mhDescEl.closest('td');
+      if (parentTd) {
+        const fmt = (v) => Utils.formatNumber(v, 0);
+        parentTd.title = `EMA9(W): ${fmt(checks.ema9)} | WMA45(W): ${fmt(checks.wma45)}`;
+      }
+    }
     updateRow('chk-bld', data.bldMuaBan !== null ? data.bldMuaBan : "N/A", data.bldMuaBan !== null ? checks.bld : null);
     const bldDescEl = document.getElementById('chk-bld-desc');
     if (bldDescEl) bldDescEl.innerHTML = data.bldDesc.replace(/\n/g, '<br>');

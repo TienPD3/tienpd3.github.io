@@ -132,7 +132,7 @@ const API = {
     
     // Gọi song song các API cùng lúc
     const [priceData, fundData, indData, isData, bsData, cafefData, simplizeData, holderData, profileData, finData] = await Promise.all([
-      API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/historical-quotes?startDate=2020-01-01&endDate=${today}&offset=0&limit=1`, FIREANT_TOKEN),
+      API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/historical-quotes?startDate=2020-01-01&endDate=${today}&offset=0&limit=${CONST.PRICE_FETCH_LIMIT}`, FIREANT_TOKEN),
       API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/fundamental`, FIREANT_TOKEN),
       API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/financial-indicators`, FIREANT_TOKEN),
       fetchReport(
@@ -159,6 +159,26 @@ const API = {
       // 1. Thị giá & Fundamental
       const marketPrice = (priceData[0]?.priceClose || 0) * 1000;
       const slcp = (profileData?.listingVolume || fundData?.sharesOutstanding || 0) / 1000000;
+
+      // 1b. Aggregate daily prices → weekly closes (oldest → newest)
+      // priceData từ Fireant: index 0 = mới nhất, index N = cũ nhất
+      const weeklyMap = new Map();
+      for (const bar of priceData) {
+        if (!bar.date || !bar.priceClose) continue;
+        const d = new Date(bar.date);
+        // ISO week key: YYYY-Www
+        const jan4 = new Date(d.getFullYear(), 0, 4);
+        const weekNum = Math.ceil(((d - jan4) / 86400000 + jan4.getDay() + 1) / 7);
+        const weekKey = `${d.getFullYear()}-W${String(weekNum).padStart(2, '0')}`;
+        // Giữ giá mới nhất trong tuần (index nhỏ hơn = ngày mới hơn)
+        if (!weeklyMap.has(weekKey)) {
+          weeklyMap.set(weekKey, bar.priceClose * 1000);
+        }
+      }
+      // Sắp xếp từ cũ → mới để tính EMA/WMA đúng chiều
+      const weeklyPrices = Array.from(weeklyMap.entries())
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([, price]) => price);
 
       // 2. Indicators (ROE, ROA, Biên lãi)
       const getIndFlexible = (keys) => {
@@ -419,7 +439,8 @@ const API = {
         bldDesc: bldDesc,
         isVcshTangDeu: isVcshTangDeu,
         vcshDesc: vcshDesc,
-        moHinh: null // Manual criteria
+        weeklyPrices: weeklyPrices,
+        moHinh: null // Tính trong Calculator.evaluateChecklist
       };
     } catch (e) {
       console.error("Lỗi khi parse dữ liệu:", e);
