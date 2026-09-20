@@ -9,14 +9,15 @@
   <!-- App Styles -->
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-<div class="container">
-  <div class="card">
-    
-    <!-- Filters -->
-    
-    <div class="filter-container">
+<div class="app-shell">
+
+  <!-- TOP CONTROL BAR -->
+  <div class="top-bar">
+    <div class="top-bar-filters">
+
       <div class="filter-group">
         <label class="group-label">Bộ lọc chứng khoán</label>
         <div class="filter-controls">
@@ -26,7 +27,9 @@
           </label>
         </div>
       </div>
-      
+
+      <div class="top-bar-divider"></div>
+
       <div class="filter-group">
         <label class="group-label">Mã chứng khoán</label>
         <div class="filter-controls">
@@ -36,226 +39,230 @@
           </label>
         </div>
       </div>
-      
-      <button id="btnNext" class="btn-primary">
-        Kiểm tra mã tiếp theo
-      </button>
+
     </div>
 
-      
+    <button id="btnNext" class="btn-primary">
+      Kiểm tra mã tiếp theo →
+    </button>
+  </div>
 
-    
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
 
-    <!-- Top Table Split 1 (Merged for Perfect Alignment) -->
-    <div class="table-container">
-      <table class="data-table" style="width: 100%;">
-        <tr>
-          <td colspan="2" class="bg-yellow" style="width: 50%; font-size: 15px;"><span id="val-symbol">--</span></td>
-          <td colspan="2" class="right-header" style="width: 50%;" id="val-lnst-header">--</td>
-        </tr>
-        <tr class="highlight-row bg-green-light">
-          <td class="font-bold"><span id="val-lnst-truoc-lbl">LNST -- ~ -- (tỷ đồng) Trước</span></td>
-          <td class="text-right font-bold" id="val-lnst-truoc"></td>
-          <td class="text-center font-bold" style="width: 15%" id="val-q4-lbl">--</td>
-          <td class="font-bold" style="width: 35%" id="val-q4-val">--</td>
-        </tr>
-        <tr class="highlight-row bg-green-light">
-          <td class="font-bold"><span id="val-lnst-sau-lbl">LNST -- ~ -- (tỷ đồng) Sau</span></td>
-          <td class="text-right text-success font-bold" id="val-lnst-sau">--</td>
-          <td class="text-center font-bold" id="val-q3-lbl">--</td>
-          <td class="font-bold" id="val-q3-val">--</td>
-        </tr>
-        <tr class="highlight-row">
-          <td><span id="val-vcsh-lbl">VỐN CHỦ SỞ HỮU HIỆN TẠI [--] (tỷ đồng)</span></td>
-          <td class="text-right" id="val-vcsh">--</td>
-          <td class="text-center font-bold" id="val-q2-lbl">--</td>
-          <td class="font-bold" id="val-q2-val">--</td>
-        </tr>
-        <tr class="highlight-row">
-          <td>TỶ LỆ CỔ TỨC (tính theo mệnh giá)</td>
-          <td class="text-right" id="val-tlct">--</td>
-          <td class="text-center font-bold" id="val-q1-lbl">--</td>
-          <td class="font-bold" id="val-q1-val">--</td>
-        </tr>
-        <tr class="highlight-row">
-          <td>THỊ GIÁ CỔ PHIẾU (đồng/cp)</td>
-          <td class="text-right" id="val-gia">--</td>
-          <td class="text-center font-bold" id="val-q0-lbl">--</td>
-          <td class="font-bold" id="val-q0-val">--</td>
-        </tr>
-        <tr class="highlight-row">
-          <td style="border-bottom: none;">TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)</td>
-          <td class="text-right text-danger font-bold" style="border-bottom: none;" id="val-slcp">--</td>
-          <td colspan="2" class="text-center font-italic" style="border-bottom: none; font-size: 13px; color: #555;">Đơn vị: triệu</td>
-        </tr>
-      </table>
-    </div>
+    <!-- LEFT COLUMN -->
+    <div class="col-left">
 
-    <!-- Middle Table Split 2 (Merged) -->
-    <div class="table-container">
-      <table class="data-table" style="width: 100%;">
-        <tr class="bg-green-light">
-          <td class="font-bold" style="width: 35%;">GIÁ TRỊ THỰC CỔ PHIẾU (Trước, Sau)</td>
-          <td class="text-right font-bold" style="width: 15%;" id="val-gtt-truoc">--</td>
-          <td class="text-center font-bold" style="width: 15%;" id="val-gtt-sau">--</td>
-          <td class="font-bold" style="width: 35%;">Simplize: <span style="float: right;" id="val-simplize">--</span></td>
-        </tr>
-        <tr class="highlight-row bg-pink-light">
-          <td id="lbl-laivon">LÃI VỐN (Mua rẻ tài sản)</td>
-          <td class="text-right text-danger" id="val-laivon-truoc">--</td>
-          <td class="text-center" id="val-laivon-sau-box">--</td>
-          <td rowspan="4" style="vertical-align: middle; background-color: #ffffff; padding: 16px;">
-          </td>
-        </tr>
-        <tr class="highlight-row">
-          <td>DÒNG TIỀN THỰC (Cổ tức không có)</td>
-          <td class="text-right" id="val-dongtien-truoc">--</td>
-          <td class="text-center" id="val-dongtien-sau-box">--</td>
-        </tr>
-        <tr class="highlight-row">
-          <td>TĂNG GIÁ TRỊ</td>
-          <td class="text-right text-success font-bold" id="val-tanggiatri-truoc">--</td>
-          <td class="text-center text-success font-bold" id="val-tanggiatri-sau-box">--</td>
-        </tr>
-        <tr class="bg-green-light">
-          <td class="font-bold">TỔNG LỢI ÍCH</td>
-          <td class="text-right font-bold" id="val-tongloiich-truoc">--</td>
-          <td class="text-center font-bold text-success" id="val-tongloiich-sau-box">--</td>
-        </tr>
-        <tr>
-          <td class="bg-yellow font-bold">THÀNH CÔNG</td>
-          <td class="text-right text-danger font-bold bg-yellow" id="chk-thanhcong-truoc">--</td>
-          <td class="text-center text-success font-bold bg-yellow" id="chk-thanhcong-sau">--</td>
-          <td class="bg-yellow text-center font-bold">VALUE</td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Bottom Table -->
-    <div class="table-container" style="margin-bottom: 0;">
-      <table class="data-table" style="border-right: none; table-layout: fixed;">
-        <tr class="bg-green-light">
-          <td class="font-bold" style="width: 50%;">TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT</td>
-          <td class="font-bold text-center" style="width: 10%;">CHỈ SỐ</td>
-          <td class="font-bold text-center" style="width: 10%;">YES/NO</td>
-          <td class="bg-pink-light text-center text-danger font-bold" style="width: 30%;">NO</td>
-        </tr>
-        
-        <tr class="highlight-row">
-          <td>
-            Doanh thu tăng đều <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
-            <div class="text-muted" style="margin-top: 4px;"><span id="chk-dtt-desc">--</span></div>
-          </td>
-          <td class="text-center"><span id="chk-dtt-val">--</span></td>
-          <td class="bg-pink-light text-danger text-center font-bold"><span id="chk-dtt-yn">--</span></td>
-          <td rowspan="15" style="background-color: #fbfbfb; border-left: 1px solid var(--border-color);"></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>
-            Lợi nhuận gộp tăng đều <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
-            <div class="text-muted" style="margin-top: 4px;"><span id="chk-lng-desc">--</span></div>
-          </td>
-          <td class="text-center"><span id="chk-lng-val">--</span></td>
-          <td class="bg-pink-light text-danger text-center font-bold"><span id="chk-lng-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>
-            VCSH tăng đều <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
-            <div class="text-muted" style="margin-top: 4px;"><span id="chk-vcsh-desc">--</span></div>
-          </td>
-          <td class="text-center"><span id="chk-vcsh-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-vcsh-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>Tỷ lệ lãi gộp >= 15%</td>
-          <td class="text-center"><span id="chk-gos-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-gos-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>Tỷ lệ lãi ròng (>= 5)</td>
-          <td class="text-center"><span id="chk-npm-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-npm-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>ROA (>= 5%)</td>
-          <td class="text-center"><span id="chk-roa-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-roa-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>ROE (>= 15%)</td>
-          <td class="text-center"><span id="chk-roe-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-roe-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>ROIC (>= 10%)</td>
-          <td class="text-center"><span id="chk-roic-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-roic-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>Nợ/VCSH (<= 1)</td>
-          <td class="text-center"><span id="chk-doe-val">--</span></td>
-          <td class="bg-pink-light text-danger text-center font-bold"><span id="chk-doe-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>P/E < 15 (có thể 20) <= 15</td>
-          <td class="text-center"><span id="chk-pe-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-pe-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>P/B < 2 (<= 2)</td>
-          <td class="text-center"><span id="chk-pb-val">--</span></td>
-          <td class="bg-pink-light text-danger text-center font-bold"><span id="chk-pb-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>Mô hình đơn giản tập trung <span class="text-success">(Đạt = 1, Không đạt = 0)</span></td>
-          <td class="text-center text-muted"><span id="chk-mh-val">--</span></td>
-          <td class="text-center text-muted"><span id="chk-mh-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>
-            Ban lãnh đạo mua/bán cổ phần <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
-            <div class="text-muted" style="margin-top: 4px;"><span id="chk-bld-desc">--</span></div>
-          </td>
-          <td class="text-center"><span id="chk-bld-val">--</span></td>
-          <td class="bg-pink-light text-danger text-center font-bold"><span id="chk-bld-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>
-            Dòng tiền từ HĐKD dương <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
-            <div class="text-muted" style="margin-top: 4px;"><span id="chk-hdkd-desc">--</span></div>
-          </td>
-          <td class="text-center"><span id="chk-hdkd-val">--</span></td>
-          <td class="text-center text-success"><span id="chk-hdkd-yn">--</span></td>
-        </tr>
-        <tr class="highlight-row">
-          <td>
-            <span id="chk-ndh-desc">Nợ dài hạn / LNST &lt;= 5</span>
-            <div class="text-muted" style="margin-top: 4px;"><span id="chk-ndh-detail">--</span></div>
-          </td>
-          <td class="text-center"><span id="chk-ndh-val">--</span></td>
-          <td class="bg-pink-light text-danger text-center font-bold"><span id="chk-ndh-yn">--</span></td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Bottom Actions -->
-    <div class="bottom-actions">
-      <div class="status-bar">
-        Lấy dữ liệu VHM thành công
+      <!-- Table 1: Input Data -->
+      <div class="table-container">
+        <table class="data-table">
+          <tr>
+            <td colspan="2" class="cell-ticker"><span id="val-symbol">--</span></td>
+            <td colspan="2" class="cell-header-right" id="val-lnst-header">--</td>
+          </tr>
+          <tr class="highlight-row row-accent">
+            <td class="font-bold"><span id="val-lnst-truoc-lbl">LNST -- ~ -- (tỷ đồng) Trước</span></td>
+            <td class="text-right font-bold" id="val-lnst-truoc"></td>
+            <td class="text-center font-bold col-quarter" id="val-q4-lbl">--</td>
+            <td class="col-quarter-val" id="val-q4-val">--</td>
+          </tr>
+          <tr class="highlight-row row-accent">
+            <td class="font-bold"><span id="val-lnst-sau-lbl">LNST -- ~ -- (tỷ đồng) Sau</span></td>
+            <td class="text-right text-success font-bold" id="val-lnst-sau">--</td>
+            <td class="text-center font-bold col-quarter" id="val-q3-lbl">--</td>
+            <td class="col-quarter-val" id="val-q3-val">--</td>
+          </tr>
+          <tr class="highlight-row">
+            <td><span id="val-vcsh-lbl">VỐN CHỦ SỞ HỮU HIỆN TẠI [--] (tỷ đồng)</span></td>
+            <td class="text-right" id="val-vcsh">--</td>
+            <td class="text-center font-bold col-quarter" id="val-q2-lbl">--</td>
+            <td class="col-quarter-val" id="val-q2-val">--</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>TỶ LỆ CỔ TỨC (tính theo mệnh giá)</td>
+            <td class="text-right" id="val-tlct">--</td>
+            <td class="text-center font-bold col-quarter" id="val-q1-lbl">--</td>
+            <td class="col-quarter-val" id="val-q1-val">--</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>THỊ GIÁ CỔ PHIẾU (đồng/cp)</td>
+            <td class="text-right" id="val-gia">--</td>
+            <td class="text-center font-bold col-quarter" id="val-q0-lbl">--</td>
+            <td class="col-quarter-val" id="val-q0-val">--</td>
+          </tr>
+          <tr class="highlight-row row-last">
+            <td>TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)</td>
+            <td class="text-right text-danger font-bold" id="val-slcp">--</td>
+            <td colspan="2" class="text-center font-italic text-muted">Đơn vị: triệu</td>
+          </tr>
+        </table>
       </div>
-      <button id="btnNext" class="btn-next">Kiểm tra mã tiếp theo</button>
+
+      <!-- Table 2: Valuation -->
+      <div class="table-container">
+        <table class="data-table">
+          <tr class="row-accent">
+            <td class="font-bold">GIÁ TRỊ THỰC CỔ PHIẾU (Trước, Sau)</td>
+            <td class="text-right font-bold" id="val-gtt-truoc">--</td>
+            <td class="text-center font-bold" id="val-gtt-sau">--</td>
+            <td class="text-right">Simplize: <span id="val-simplize">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td id="lbl-laivon">LÃI VỐN (Mua rẻ tài sản)</td>
+            <td class="text-right text-danger" id="val-laivon-truoc">--</td>
+            <td class="text-center" id="val-laivon-sau-box">--</td>
+            <td rowspan="3" class="cell-spacer"></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>DÒNG TIỀN THỰC (Cổ tức không có)</td>
+            <td class="text-right" id="val-dongtien-truoc">--</td>
+            <td class="text-center" id="val-dongtien-sau-box">--</td>
+          </tr>
+          <tr class="highlight-row">
+            <td>TĂNG GIÁ TRỊ</td>
+            <td class="text-right text-success font-bold" id="val-tanggiatri-truoc">--</td>
+            <td class="text-center text-success font-bold" id="val-tanggiatri-sau-box">--</td>
+          </tr>
+          <tr class="row-accent">
+            <td class="font-bold">TỔNG LỢI ÍCH</td>
+            <td class="text-right font-bold" id="val-tongloiich-truoc">--</td>
+            <td class="text-center font-bold text-success" id="val-tongloiich-sau-box">--</td>
+            <td class="text-center font-bold">RESULT</td>
+          </tr>
+          <tr class="row-success-summary">
+            <td class="font-bold">THÀNH CÔNG</td>
+            <td class="text-right text-danger font-bold" id="chk-thanhcong-truoc">--</td>
+            <td class="text-center text-success font-bold" id="chk-thanhcong-sau">--</td>
+            <td class="text-center font-bold">--</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-right">
+      <div class="table-container table-full-height">
+        <table class="data-table">
+          <tr class="row-header-checklist">
+            <td class="font-bold">TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT</td>
+            <td class="text-center font-bold col-index">CHỈ SỐ</td>
+            <td class="text-center font-bold col-yn">YES/NO</td>
+          </tr>
+
+          <tr class="highlight-row">
+            <td>
+              Doanh thu tăng đều <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
+              <div class="text-muted row-subtext"><span id="chk-dtt-desc">--</span></div>
+            </td>
+            <td class="text-center"><span id="chk-dtt-val">--</span></td>
+            <td class="text-center cell-yn"><span id="chk-dtt-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>
+              Lợi nhuận gộp tăng đều <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
+              <div class="text-muted row-subtext"><span id="chk-lng-desc">--</span></div>
+            </td>
+            <td class="text-center"><span id="chk-lng-val">--</span></td>
+            <td class="text-center cell-yn"><span id="chk-lng-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>
+              VCSH tăng đều <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
+              <div class="text-muted row-subtext"><span id="chk-vcsh-desc">--</span></div>
+            </td>
+            <td class="text-center"><span id="chk-vcsh-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-vcsh-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Tỷ lệ lãi gộp &gt;= 15%</td>
+            <td class="text-center"><span id="chk-gos-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-gos-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Tỷ lệ lãi ròng (&gt;= 5)</td>
+            <td class="text-center"><span id="chk-npm-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-npm-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>ROA (&gt;= 5%)</td>
+            <td class="text-center"><span id="chk-roa-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-roa-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>ROE (&gt;= 15%)</td>
+            <td class="text-center"><span id="chk-roe-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-roe-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>ROIC (&gt;= 10%)</td>
+            <td class="text-center"><span id="chk-roic-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-roic-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Nợ/VCSH (&lt;= 1)</td>
+            <td class="text-center"><span id="chk-doe-val">--</span></td>
+            <td class="text-center cell-yn cell-yn-danger"><span id="chk-doe-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>P/E &lt; 15 (có thể 20) &lt;= 15</td>
+            <td class="text-center"><span id="chk-pe-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-pe-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>P/B &lt; 2 (&lt;= 2)</td>
+            <td class="text-center"><span id="chk-pb-val">--</span></td>
+            <td class="text-center cell-yn cell-yn-danger"><span id="chk-pb-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>Mô hình đơn giản tập trung <span class="text-success">(Đạt = 1, Không đạt = 0)</span></td>
+            <td class="text-center text-muted"><span id="chk-mh-val">--</span></td>
+            <td class="text-center text-muted"><span id="chk-mh-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>
+              Ban lãnh đạo mua/bán cổ phần <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
+              <div class="text-muted row-subtext"><span id="chk-bld-desc">--</span></div>
+            </td>
+            <td class="text-center"><span id="chk-bld-val">--</span></td>
+            <td class="text-center cell-yn cell-yn-danger"><span id="chk-bld-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>
+              Dòng tiền từ HĐKD dương <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
+              <div class="text-muted row-subtext"><span id="chk-hdkd-desc">--</span></div>
+            </td>
+            <td class="text-center"><span id="chk-hdkd-val">--</span></td>
+            <td class="text-center cell-yn text-success"><span id="chk-hdkd-yn">--</span></td>
+          </tr>
+          <tr class="highlight-row">
+            <td>
+              <span id="chk-ndh-desc">Nợ dài hạn / LNST &lt;= 5</span>
+              <div class="text-muted row-subtext"><span id="chk-ndh-detail">--</span></div>
+            </td>
+            <td class="text-center"><span id="chk-ndh-val">--</span></td>
+            <td class="text-center cell-yn cell-yn-danger"><span id="chk-ndh-yn">--</span></td>
+          </tr>
+        </table>
+      </div>
     </div>
 
   </div>
+
+  <!-- FOOTER STATUS BAR -->
+  <div class="status-footer">
+    <div class="status-bar">Đang tải dữ liệu...</div>
+    <span class="app-version">Stock Pro v2</span>
+  </div>
+
 </div>
 
-  
-  <!-- App Scripts -->
-  <script src="js/core/const.js"></script>
-  <script src="js/core/utils.js"></script>
-  <script src="js/core/api.js"></script>
-  <script src="js/calculator.js"></script>
-  <script src="js/render.js"></script>
-  <script src="js/app.js"></script>
+<!-- App Scripts -->
+<script src="js/core/const.js"></script>
+<script src="js/core/utils.js"></script>
+<script src="js/core/api.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

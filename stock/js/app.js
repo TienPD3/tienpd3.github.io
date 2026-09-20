@@ -151,57 +151,58 @@ const App = {
   loadStockData: async (symbol) => {
     const statusEl = document.querySelector(".status-bar");
     if (statusEl) {
-        statusEl.innerHTML = `Đang tải ${symbol}...`;
-        statusEl.className = "status-bar";
+      statusEl.textContent = `Đang tải ${symbol}...`;
+      statusEl.style.color = "";
     }
 
     const data = await API.getStockData(symbol);
-    
+
     // Check if error warning exists
     let warningEl = document.getElementById("mock-warning");
     if (!warningEl) {
-        warningEl = document.createElement("div");
-        warningEl.id = "mock-warning";
-        warningEl.className = "text-center p-2 mb-2 bg-pink-light text-danger font-bold border border-red rounded";
-        const tableContainer = document.querySelector(".table-container");
-        if (tableContainer) tableContainer.parentNode.insertBefore(warningEl, tableContainer);
+      warningEl = document.createElement("div");
+      warningEl.id = "mock-warning";
+      warningEl.className = "text-danger font-bold";
+      warningEl.style.cssText = "padding:6px 20px;background:var(--danger-bg);font-size:13px;";
+      const mainContent = document.querySelector(".main-content");
+      if (mainContent) mainContent.parentNode.insertBefore(warningEl, mainContent);
     }
-    
+
     if (!data) {
-        if (statusEl) {
-            statusEl.innerHTML = `Lỗi API - Không thể tải dữ liệu thực tế cho mã ${symbol}!`;
-            statusEl.className = "status-bar bg-pink-light text-danger border border-red rounded p-1 font-bold";
-        }
-        warningEl.style.display = "block";
-        warningEl.innerHTML = `⚠️ KHÔNG CÓ DỮ LIỆU HOẶC THIẾU BÁO CÁO TÀI CHÍNH CHO MÃ ${symbol}. Vui lòng bỏ qua mã này.`;
-        
-        // Vẫn kích hoạt auto next để nhảy qua mã lỗi nếu đang auto
-        App.autoNextStock(false);
-        return;
+      if (statusEl) {
+        statusEl.textContent = `Lỗi API - Không thể tải dữ liệu cho mã ${symbol}!`;
+        statusEl.style.color = "var(--danger-color)";
+      }
+      warningEl.style.display = "block";
+      warningEl.textContent = `⚠️ KHÔNG CÓ DỮ LIỆU HOẶC THIẾU BÁO CÁO TÀI CHÍNH CHO MÃ ${symbol}. Vui lòng bỏ qua mã này.`;
+
+      // Vẫn kích hoạt auto next để nhảy qua mã lỗi nếu đang auto
+      App.autoNextStock(false);
+      return;
     }
-    
+
     // Ẩn cảnh báo lỗi nếu load thành công
     warningEl.style.display = "none";
-    
+
     App.currentStockData = data;
 
     // 1. Đổ dữ liệu Bảng Đầu Vào & Lợi nhuận
     const { sumLnstTruoc, sumLnstSau } = Render.renderInputData(data);
-    
+
     // 2. Định giá & Tính trụ cột
     Render.renderValuation(data, sumLnstTruoc, sumLnstSau);
-    
+
     // 3. Đánh giá Checklist
     Render.renderChecklist(data, sumLnstSau);
 
     if (statusEl) {
-        statusEl.innerHTML = `Đã phân tích xong ${symbol}`;
-        statusEl.className = "status-bar bg-green-light text-success border border-green rounded p-1 font-bold";
+      statusEl.textContent = `Đã phân tích xong ${symbol}`;
+      statusEl.style.color = "var(--success-color)";
     }
 
     // 4. Lưu whitelist nếu được check
     App.handleWhitelist(data, sumLnstSau);
-    
+
     // 5. Tự động nhảy mã nếu bật tính năng
     const isGoodStock = document.getElementById('chk-thanhcong-sau')?.innerText === 'YES';
     App.autoNextStock(isGoodStock);
