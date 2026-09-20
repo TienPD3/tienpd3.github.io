@@ -131,7 +131,7 @@ const API = {
     };
     
     // Gọi song song các API cùng lúc
-    const [priceData, fundData, indData, isData, bsData, cafefData, simplizeData, holderData, profileData] = await Promise.all([
+    const [priceData, fundData, indData, isData, bsData, cafefData, simplizeData, holderData, profileData, finData] = await Promise.all([
       API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/historical-quotes?startDate=2020-01-01&endDate=${today}&offset=0&limit=1`, FIREANT_TOKEN),
       API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/fundamental`, FIREANT_TOKEN),
       API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/financial-indicators`, FIREANT_TOKEN),
@@ -146,7 +146,8 @@ const API = {
       API.fetchAPI(`https://e.cafef.vn/khkd.ashx?symbol=${symbol}`),
       API.fetchAPI(`https://api.simplize.vn/api/company/analysis-metrics-detail/${symbol}`, SIMPLIZE_TOKEN),
       API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/holder-transactions?startDate=&endDate=&executedOnly=false&offset=0&limit=1`, FIREANT_TOKEN),
-      API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/profile`, FIREANT_TOKEN)
+      API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/profile`, FIREANT_TOKEN),
+      API.fetchAPI(`https://restv2.fireant.vn/symbols/${symbol}/financial-data?type=Q&count=5`, FIREANT_TOKEN)
     ]);
 
     if (!priceData || !isData || isData.length === 0 || !isData.rows) {
@@ -307,6 +308,27 @@ const API = {
               const q2 = (vcshRow[periods[2].index] || 0) / 1000000000;
               const q3 = (vcshRow[periods[1].index] || 0) / 1000000000;
               const q4 = (vcshRow[periods[0].index] || 0) / 1000000000; // Newest
+              
+              isVcshTangDeu = (q1 <= q2) && (q2 <= q3) && (q3 <= q4);
+              vcshQuarters = [q1, q2, q3, q4];
+              
+              const formatNum = (num) => Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+              vcshDesc = `${formatNum(q1)} ➔ ${formatNum(q2)} ➔ ${formatNum(q3)} ➔ ${formatNum(q4)}`;
+          }
+      } else if (finData && finData.length > 0) {
+          // Fallback: Sử dụng TotalStockHolderEquity từ api financial-data
+          const dataSorted = [...finData].sort((a, b) => {
+              if (a.year !== b.year) return b.year - a.year;
+              return b.quarter - a.quarter;
+          });
+          
+          vcsh = (dataSorted[0]?.financialValues?.TotalStockHolderEquity || 0) / 1000000000;
+          
+          if (dataSorted.length >= 4) {
+              const q1 = (dataSorted[3]?.financialValues?.TotalStockHolderEquity || 0) / 1000000000;
+              const q2 = (dataSorted[2]?.financialValues?.TotalStockHolderEquity || 0) / 1000000000;
+              const q3 = (dataSorted[1]?.financialValues?.TotalStockHolderEquity || 0) / 1000000000;
+              const q4 = (dataSorted[0]?.financialValues?.TotalStockHolderEquity || 0) / 1000000000;
               
               isVcshTangDeu = (q1 <= q2) && (q2 <= q3) && (q3 <= q4);
               vcshQuarters = [q1, q2, q3, q4];

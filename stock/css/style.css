@@ -186,6 +186,10 @@
     .data-table td:last-child {
       border-right: none !important;
     }
+
+    .data-table td.border-right {
+      border-right: 1px solid var(--border-color) !important;
+    }
     
     .data-table tr:last-child td {
       border-bottom: none;
