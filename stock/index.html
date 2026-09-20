@@ -51,7 +51,7 @@
       <table class="data-table" style="width: 100%;">
         <tr>
           <td colspan="2" class="bg-yellow" style="width: 50%; font-size: 15px;"><span id="val-symbol">--</span></td>
-          <td colspan="2" class="right-header" style="width: 50%;">LNST 4 quý gần nhất</td>
+          <td colspan="2" class="right-header" style="width: 50%;" id="val-lnst-header">--</td>
         </tr>
         <tr class="highlight-row bg-green-light">
           <td class="font-bold"><span id="val-lnst-truoc-lbl">LNST Q2/2025 ~ Q1/2026 (tỷ đồng) Trước</span></td>
@@ -85,8 +85,8 @@
         </tr>
         <tr class="highlight-row">
           <td style="border-bottom: none;">TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)</td>
-          <td class="text-right" style="border-bottom: none;" id="val-slcp">--</td>
-          <td colspan="2" class="text-muted text-center" style="border-bottom: none;">Đơn vị: triệu</td>
+          <td class="text-right text-danger font-bold" style="border-bottom: none;" id="val-slcp">--</td>
+          <td colspan="2" class="text-center font-italic" style="border-bottom: none; font-size: 13px; color: #555;">Đơn vị: triệu</td>
         </tr>
       </table>
     </div>
@@ -101,14 +101,10 @@
           <td class="font-bold" style="width: 35%;">Simplize: <span style="float: right;" id="val-simplize">--</span></td>
         </tr>
         <tr class="highlight-row bg-pink-light">
-          <td>LÃI VỐN (Mua rẻ tài sản)</td>
+          <td id="lbl-laivon">LÃI VỐN (Mua rẻ tài sản)</td>
           <td class="text-right text-danger" id="val-laivon-truoc">--</td>
           <td class="text-center" id="val-laivon-sau-box">--</td>
           <td rowspan="4" style="vertical-align: middle; background-color: #ffffff; padding: 16px; border-bottom: none;">
-            <div class="info-box" style="margin: 0;">
-              <strong>Lưu ý:</strong><br><br>
-              Lãi Vốn > 50% cần xem xét kỹ. Không loại trừ khả năng đó là 1 doanh nghiệp nhỏ & tiềm ẩn nhiều rủi ro.
-            </div>
           </td>
         </tr>
         <tr class="highlight-row">
@@ -126,23 +122,23 @@
           <td class="text-right font-bold" style="border-bottom: none;" id="val-tongloiich-truoc">--</td>
           <td class="text-center font-bold text-success" style="border-bottom: none;" id="val-tongloiich-sau-box">--</td>
         </tr>
+        <tr>
+          <td class="bg-yellow font-bold">THÀNH CÔNG</td>
+          <td class="text-right text-danger font-bold bg-yellow" id="chk-thanhcong-truoc">--</td>
+          <td class="text-center text-success font-bold bg-yellow" id="chk-thanhcong-sau">--</td>
+          <td class="bg-yellow text-center font-bold" style="border-bottom: none;">VALUE</td>
+        </tr>
       </table>
     </div>
 
     <!-- Bottom Table -->
     <div class="table-container" style="margin-bottom: 0;">
       <table class="data-table" style="border-right: none; border-bottom: none; table-layout: fixed;">
-        <tr>
-          <td class="bg-yellow" style="width: 50%;">THÀNH CÔNG</td>
-          <td class="text-center text-danger" style="width: 10%;" id="chk-thanhcong-truoc">--</td>
-          <td class="text-center text-success" style="width: 10%;" id="chk-thanhcong-sau">--</td>
-          <td class="bg-yellow text-center" style="width: 30%;">VALUE</td>
-        </tr>
         <tr class="bg-green-light">
-          <td class="font-bold">TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT</td>
-          <td class="font-bold text-center">CHỈ SỐ</td>
-          <td class="font-bold text-center">YES/NO</td>
-          <td class="bg-pink-light text-center text-danger font-bold">NO</td>
+          <td class="font-bold" style="width: 50%;">TIÊU CHUẨN ĐỊNH GIÁ DOANH NGHIỆP TỐT</td>
+          <td class="font-bold text-center" style="width: 10%;">CHỈ SỐ</td>
+          <td class="font-bold text-center" style="width: 10%;">YES/NO</td>
+          <td class="bg-pink-light text-center text-danger font-bold" style="width: 30%;">NO</td>
         </tr>
         
         <tr class="highlight-row">

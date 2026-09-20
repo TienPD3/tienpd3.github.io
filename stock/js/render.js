@@ -27,12 +27,19 @@ const Render = {
     Render.setText('val-slcp', Utils.formatNumber(data.slcp));
     // Old layout uses simple text mapping for the most part
 
+    const isYearly = data.lnstLatest.quarter === 0;
+    
+    Render.setText('val-lnst-header', isYearly ? 'LNST 5 năm gần nhất' : 'LNST 5 quý gần nhất');
+    
     let sumLnstTruoc = 0;
     data.lnst4Quarters.forEach((q, index) => {
       const uiIndex = 4 - index; 
       Render.setText(`val-q${uiIndex}-lbl`, Utils.getQuarterYear(q.year, q.quarter));
       Render.setText(`val-q${uiIndex}-val`, Utils.formatNumber(q.value));
-      sumLnstTruoc += q.value;
+      // Nếu là báo cáo Quý, cộng dồn 4 quý cũ. Nếu báo cáo Năm, chỉ lấy năm liền kề (index 3)
+      if (!isYearly || index === 3) {
+          sumLnstTruoc += q.value;
+      }
     });
 
     Render.setText('val-q0-lbl', Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter));
@@ -42,12 +49,18 @@ const Render = {
     const qNewest_truoc = data.lnst4Quarters[3];
     const qOldest_sau = data.lnst4Quarters[1];
     
-    Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qOldest.year, qOldest.quarter)} ~ ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng) Trước`);
-    Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(qOldest_sau.year, qOldest_sau.quarter)} ~ ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng) Sau`);
+    if (isYearly) {
+        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng) Trước`);
+        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng) Sau`);
+    } else {
+        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qOldest.year, qOldest.quarter)} ~ ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng) Trước`);
+        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(qOldest_sau.year, qOldest_sau.quarter)} ~ ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng) Sau`);
+    }
+
     Render.setText('val-vcsh-lbl', `VỐN CHỦ SỞ HỮU HIỆN TẠI [${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)}] (tỷ đồng)`);
 
     Render.setText('val-lnst-truoc', Utils.formatNumber(sumLnstTruoc));
-    const sumLnstSau = sumLnstTruoc - data.lnst4Quarters[0].value + data.lnstLatest.value;
+    const sumLnstSau = isYearly ? data.lnstLatest.value : (sumLnstTruoc - data.lnst4Quarters[0].value + data.lnstLatest.value);
     Render.setText('val-lnst-sau', Utils.formatNumber(sumLnstSau));
 
     return { sumLnstTruoc, sumLnstSau };
@@ -78,6 +91,18 @@ const Render = {
     Render.setColorClass('val-tanggiatri-sau-box', pillarsSau.tangGiaTri);
     Render.setText('val-tongloiich-sau-box', Utils.formatPercent(pillarsSau.tong));
     Render.setColorClass('val-tongloiich-sau-box', pillarsSau.tong);
+
+    const lblLaiVon = document.getElementById('lbl-laivon');
+    if (lblLaiVon) {
+        if (pillarsSau.laiVon > 50) {
+            lblLaiVon.innerHTML = `LÃI VỐN (Mua rẻ tài sản) 
+              <span class="custom-tooltip">⚠️
+                <span class="tooltip-text"><strong>Lưu ý:</strong><br>Lãi Vốn > 50% cần xem xét kỹ. Không loại trừ khả năng đó là 1 doanh nghiệp nhỏ & tiềm ẩn nhiều rủi ro.</span>
+              </span>`;
+        } else {
+            lblLaiVon.innerHTML = `LÃI VỐN (Mua rẻ tài sản)`;
+        }
+    }
 
     // THÀNH CÔNG
     const tcTruoc = document.getElementById('chk-thanhcong-truoc');
@@ -113,15 +138,21 @@ const Render = {
 
     updateRow('chk-dtt', data.isTangDeuDtt ? "1" : "0", checks.dtt);
     const dttDescEl = document.getElementById('chk-dtt-desc');
-    if (dttDescEl) dttDescEl.innerText = data.dttDesc;
+    if (dttDescEl) dttDescEl.innerHTML = data.dttDesc;
     
     updateRow('chk-lng', data.isTangDeuLng ? "1" : "0", checks.lng);
     const lngDescEl = document.getElementById('chk-lng-desc');
-    if (lngDescEl) lngDescEl.innerText = data.lngDesc;
-    const vcshText = data.vcshQuarters && data.vcshQuarters.length > 0 ? data.vcshQuarters.map(v => Utils.formatNumber(v, 0)).join(" ➔ ") : "N/A";
+    if (lngDescEl) lngDescEl.innerHTML = data.lngDesc;
+    
+    let vcshText = "N/A";
+    if (data.vcshQuarters && data.vcshQuarters.length === 4) {
+        const fmt = (val, prev) => val < prev ? `<span class="text-danger font-bold">${Utils.formatNumber(val, 0)}</span>` : Utils.formatNumber(val, 0);
+        vcshText = `${Utils.formatNumber(data.vcshQuarters[0], 0)} ➔ ${fmt(data.vcshQuarters[1], data.vcshQuarters[0])} ➔ ${fmt(data.vcshQuarters[2], data.vcshQuarters[1])} ➔ ${fmt(data.vcshQuarters[3], data.vcshQuarters[2])}`;
+    }
+    
     updateRow('chk-vcsh', checks.vcsh ? "1" : "0", checks.vcsh);
     const vcshDescEl = document.getElementById('chk-vcsh-desc');
-    if (vcshDescEl) vcshDescEl.innerText = vcshText;
+    if (vcshDescEl) vcshDescEl.innerHTML = vcshText;
     updateRow('chk-gos', Utils.formatPercent(data.tyLeLaiGop), checks.gos);
     updateRow('chk-npm', Utils.formatPercent(data.tyLeLaiRong), checks.npm);
     updateRow('chk-roa', Utils.formatPercent(data.roa), checks.roa);
@@ -140,7 +171,22 @@ const Render = {
     if (hdkdDescEl) hdkdDescEl.innerText = `LN từ HĐKD: ${Utils.formatNumber(data.lnHdkd)} tỷ đồng`;
     
     // Nợ DH / LNST quý gần nhất (không phải tổng 4 quý)
-    const ndh_lnst_val = (data.lnstLatest && data.lnstLatest.value > 0) ? Utils.formatNumber(data.ndh / data.lnstLatest.value) : "N/A";
+    let ndh_lnst_val = "N/A";
+    if (data.lnstLatest && data.lnstLatest.value > 0) {
+        const rawVal = data.ndh / data.lnstLatest.value;
+        if (rawVal === 0) {
+            ndh_lnst_val = "0 (Không có nợ)";
+        } else {
+            let y = Math.floor(rawVal);
+            let m = Math.round((rawVal - y) * 12);
+            if (m === 12) { y += 1; m = 0; }
+            let timeStr = "";
+            if (y > 0 && m > 0) timeStr = `${y} năm ${m} tháng`;
+            else if (y > 0 && m === 0) timeStr = `${y} năm`;
+            else timeStr = `${m} tháng`;
+            ndh_lnst_val = `${timeStr} (${Utils.formatNumber(rawVal)})`;
+        }
+    }
     updateRow('chk-ndh', ndh_lnst_val, checks.ndh_lnst);
     // Chi tiết NDH: hiển thị Nợ DH / LNST quý
     const ndhDetailEl = document.getElementById('chk-ndh-detail');

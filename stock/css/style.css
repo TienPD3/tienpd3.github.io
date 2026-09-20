@@ -330,3 +330,45 @@
 }
 
 
+
+/* Custom Tooltip */
+.custom-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+.custom-tooltip .tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 9999;
+  top: 150%; 
+  bottom: auto;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 13px;
+  font-weight: normal;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+  line-height: 1.4;
+  white-space: normal;
+}
+.custom-tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  top: auto;
+  left: 10px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #333 transparent;
+}
+.custom-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

@@ -49,6 +49,6 @@ const Utils = {
 
   // Trả về Quý và Năm từ YYYY/MM (VD: Quý 2/2025)
   getQuarterYear: (year, quarter) => {
-    return `Q${quarter}/${year}`;
+    return quarter > 0 ? `Q${quarter}/${year}` : `${year}`;
   }
 };
