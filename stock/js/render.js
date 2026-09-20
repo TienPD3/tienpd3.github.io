@@ -170,28 +170,28 @@ const Render = {
     const hdkdDescEl = document.getElementById('chk-hdkd-desc');
     if (hdkdDescEl) hdkdDescEl.innerText = `LN từ HĐKD: ${Utils.formatNumber(data.lnHdkd)} tỷ đồng`;
     
-    // Nợ DH / LNST quý gần nhất (không phải tổng 4 quý)
+    // Nợ DH / LNST TTM 4 quý (Trailing Twelve Months)
     let ndh_lnst_val = "N/A";
-    if (data.lnstLatest && data.lnstLatest.value > 0) {
-        const rawVal = data.ndh / data.lnstLatest.value;
-        if (rawVal === 0) {
-            ndh_lnst_val = "0 (Không có nợ)";
-        } else {
-            let y = Math.floor(rawVal);
-            let m = Math.round((rawVal - y) * 12);
-            if (m === 12) { y += 1; m = 0; }
-            let timeStr = "";
-            if (y > 0 && m > 0) timeStr = `${y} năm ${m} tháng`;
-            else if (y > 0 && m === 0) timeStr = `${y} năm`;
-            else timeStr = `${m} tháng`;
-            ndh_lnst_val = `${timeStr} (${Utils.formatNumber(rawVal)})`;
-        }
+    if (sumLnstSau > 0) {
+      const rawVal = data.ndh / sumLnstSau;
+      if (data.ndh === 0) {
+        ndh_lnst_val = "0 (Không có nợ)";
+      } else {
+        let y = Math.floor(rawVal);
+        let m = Math.round((rawVal - y) * 12);
+        if (m === 12) { y += 1; m = 0; }
+        let timeStr = "";
+        if (y > 0 && m > 0) timeStr = `${y} năm ${m} tháng`;
+        else if (y > 0 && m === 0) timeStr = `${y} năm`;
+        else timeStr = `${m} tháng`;
+        ndh_lnst_val = `${timeStr} (${Utils.formatNumber(rawVal)})`;
+      }
     }
     updateRow('chk-ndh', ndh_lnst_val, checks.ndh_lnst);
-    // Chi tiết NDH: hiển thị Nợ DH / LNST quý
+    // Chi tiết NDH: hiển thị công thức TTM
     const ndhDetailEl = document.getElementById('chk-ndh-detail');
-    if (ndhDetailEl && data.lnstLatest) {
-      ndhDetailEl.innerText = `Nợ DH (${Utils.formatNumber(data.ndh)}) / LNST ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (${Utils.formatNumber(data.lnstLatest.value)})`;
+    if (ndhDetailEl) {
+      ndhDetailEl.innerText = `Nợ DH (${Utils.formatNumber(data.ndh)}) / LNST TTM 4Q (${Utils.formatNumber(sumLnstSau)})`;
     }
   }
 };

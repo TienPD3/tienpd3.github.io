@@ -101,8 +101,8 @@ const Calculator = {
       mh: null,
       bld: data.bldMuaBan === 1,
       hdkd: data.lnHdkd > 0,
-      // Nợ DH / LNST quý gần nhất (không phải tổng 4 quý)
-      ndh_lnst: (data.lnstLatest && data.lnstLatest.value > 0) ? ((data.ndh / data.lnstLatest.value) <= 5) : false
+      // Nợ DH / LNST 4 quý TTM (Trailing Twelve Months) – chắc hơn 1 quý đơn lẻ
+      ndh_lnst: (sumLnstSau > 0) ? ((data.ndh / sumLnstSau) <= 5) : false
     };
   }
 };
