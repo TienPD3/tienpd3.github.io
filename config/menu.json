@@ -18,6 +18,12 @@
     "icon": "bi-lightning-fill"
   },
   {
+    "name": "Stock Pro (Chứng Khoán)",
+    "id": "stock-pro",
+    "contentUrl": "stock/index.html",
+    "icon": "bi-graph-up-arrow"
+  },
+  {
     "name": "Quản Lý",
     "id": "management",
     "icon": "bi-folder",

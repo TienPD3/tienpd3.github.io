@@ -258,9 +258,13 @@ const Render = {
       const rect = canvasPrice.getBoundingClientRect();
       const w = Math.max(100, rect.width || canvasPrice.clientWidth || 250);
       const h = Math.max(80, rect.height || canvasPrice.clientHeight || 185);
-      canvasPrice.width = w * dpr;
-      canvasPrice.height = h * dpr;
-      ctx.scale(dpr, dpr);
+      const targetW = Math.round(w * dpr);
+      const targetH = Math.round(h * dpr);
+      if (canvasPrice.width !== targetW || canvasPrice.height !== targetH) {
+        canvasPrice.width = targetW;
+        canvasPrice.height = targetH;
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
 
       if (prices.length === 0) {
@@ -461,9 +465,13 @@ const Render = {
       const rect = canvasTech.getBoundingClientRect();
       const w = Math.max(100, rect.width || canvasTech.clientWidth || 250);
       const h = Math.max(80, rect.height || canvasTech.clientHeight || 185);
-      canvasTech.width = w * dpr;
-      canvasTech.height = h * dpr;
-      ctx.scale(dpr, dpr);
+      const targetW = Math.round(w * dpr);
+      const targetH = Math.round(h * dpr);
+      if (canvasTech.width !== targetW || canvasTech.height !== targetH) {
+        canvasTech.width = targetW;
+        canvasTech.height = targetH;
+      }
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
 
       if (prices.length === 0) {
