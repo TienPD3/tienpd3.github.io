@@ -648,9 +648,9 @@ const Render = {
         if (tooltipPrice) {
           let gttLine = '';
           if (gttSau && gttSau > 0) {
-            const diff = ((curPrice - gttSau) / gttSau) * 100;
-            const sign = diff >= 0 ? '+' : '';
-            const cls = diff <= 0 ? 'tooltip-gtt-cheaper' : 'tooltip-gtt-higher';
+            const diff = ((gttSau - curPrice) / gttSau) * 100;
+            const sign = diff > 0 ? '+' : '';
+            const cls = diff >= 0 ? 'tooltip-gtt-cheaper' : 'tooltip-gtt-higher';
             gttLine = `<div class="${cls}">So với GTT: ${sign}${diff.toFixed(1)}%</div>`;
           }
 
