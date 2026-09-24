@@ -6,33 +6,20 @@ $(document).ready(function () {
     const sidebarToggle = $('#sidebar-toggle');
 
     // Function to load content and set active class
-    function loadContent(url, targetLink, isIframe = false) {
+    function loadContent(url, targetLink) {
+        const paper = $('<div class="paper"></div>');
+        mainContent.html(paper); // Create the paper container
+
         if (!url) {
-            mainContent.css('padding', '20px');
-            const paper = $('<div class="paper"></div>');
-            mainContent.html(paper);
             paper.html('<h1>Lỗi</h1><p>Không tìm thấy đường dẫn cho mục này.</p>');
             return;
         }
 
-        const isStockApp = isIframe || url.startsWith('stock');
-
-        if (isStockApp) {
-            mainContent.css({ 'padding': '0', 'overflow': 'hidden' });
-            mainContent.html(`
-                <iframe src="${url}" title="Stock Pro" style="width: 100%; height: 100vh; border: none; display: block;" allowfullscreen></iframe>
-            `);
-        } else {
-            mainContent.css({ 'padding': '', 'overflow': '', 'overflow-y': '' });
-            const paper = $('<div class="paper"></div>');
-            mainContent.html(paper);
-
-            paper.load(url, function (response, status, xhr) {
-                if (status == "error") {
-                    paper.html(`<h1>Lỗi tải trang</h1><p>Không thể tải nội dung từ: ${url}</p><p>Mã lỗi: ${xhr.status} ${xhr.statusText}</p>`);
-                }
-            });
-        }
+        paper.load(url, function (response, status, xhr) {
+            if (status == "error") {
+                paper.html(`<h1>Lỗi tải trang</h1><p>Không thể tải nội dung từ: ${url}</p><p>Mã lỗi: ${xhr.status} ${xhr.statusText}</p>`);
+            }
+        });
         
         // Set active class
         menuContainer.find('a').removeClass('active');
@@ -75,7 +62,7 @@ $(document).ready(function () {
             } else {
                  a.on('click', function (e) {
                     e.preventDefault();
-                    loadContent(item.contentUrl, this, item.isIframe);
+                    loadContent(item.contentUrl, this);
                     if (window.innerWidth <= 768) {
                         sidebar.removeClass('active');
                     }
@@ -99,8 +86,7 @@ $(document).ready(function () {
             // Tìm link có URL matching
             const savedLink = menuContainer.find(`a[data-url="${savedMenuUrl}"]`);
             if (savedLink.length > 0) {
-                const isIframe = savedMenuUrl.startsWith('stock');
-                loadContent(savedMenuUrl, savedLink[0], isIframe);
+                loadContent(savedMenuUrl, savedLink[0]);
                 menuLoaded = true;
             }
         }
@@ -108,8 +94,7 @@ $(document).ready(function () {
         // Nếu không có saved menu hoặc không tìm thấy, load menu đầu tiên
         if (!menuLoaded && data.length > 0 && data[0].contentUrl) {
             const firstLink = menuContainer.find('a').first();
-            const isIframe = data[0].contentUrl.startsWith('stock') || !!data[0].isIframe;
-            loadContent(data[0].contentUrl, firstLink[0], isIframe);
+            loadContent(data[0].contentUrl, firstLink[0]);
         }
     }).fail(function() {
         mainContent.html('<h1>Lỗi</h1><p>Không thể tải file menu.json. Vui lòng kiểm tra lại đường dẫn và cấu trúc file.</p>');

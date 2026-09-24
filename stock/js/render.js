@@ -606,102 +606,160 @@ const Render = {
     drawPriceChart(null);
     drawTechChart(null);
 
-    // Đồng bộ tương tác hover giữa 2 biểu đồ
-    const syncHover = (canvasElem, isLeft) => {
-      if (canvasElem._hasSyncListener) return;
-      canvasElem._hasSyncListener = true;
+    // Cập nhật context biểu đồ hiện tại để sự kiện hover luôn trỏ đúng dữ liệu mới nhất
+    Render._activeChartContext = {
+      canvasPrice,
+      canvasTech,
+      tooltipPrice,
+      tooltipTech,
+      prices,
+      displayBars,
+      emaSeries,
+      wmaSeries,
+      rsiSeries,
+      gttSau,
+      drawPriceChart,
+      drawTechChart
+    };
 
+    // Khởi tạo sự kiện chuột riêng biệt cho Biểu đồ Giá & GTT (bên trái)
+    if (!canvasPrice._hasChartListeners) {
+      canvasPrice._hasChartListeners = true;
       const padLeft = 6;
-      const padRight = isLeft ? 42 : 36;
+      const padRight = 42;
 
-      canvasElem.addEventListener('mousemove', (e) => {
-        const rect = canvasElem.getBoundingClientRect();
+      canvasPrice.addEventListener('mousemove', (e) => {
+        const ctx = Render._activeChartContext;
+        if (!ctx || !ctx.prices || ctx.prices.length === 0) return;
+
+        const rect = ctx.canvasPrice.getBoundingClientRect();
         const plotW = Math.max(10, rect.width - padLeft - padRight);
         const mouseX = e.clientX - rect.left;
 
-        if (mouseX < padLeft || mouseX > padLeft + plotW || prices.length === 0) {
-          if (tooltipPrice) tooltipPrice.style.display = 'none';
-          if (tooltipTech) tooltipTech.style.display = 'none';
-          drawPriceChart(null);
-          drawTechChart(null);
+        if (mouseX < padLeft || mouseX > padLeft + plotW) {
+          if (ctx.tooltipPrice) ctx.tooltipPrice.style.display = 'none';
+          ctx.drawPriceChart(null);
           return;
         }
 
         const idx = Math.min(
-          prices.length - 1,
-          Math.max(0, Math.round(((mouseX - padLeft) / plotW) * (prices.length - 1)))
+          ctx.prices.length - 1,
+          Math.max(0, Math.round(((mouseX - padLeft) / plotW) * (ctx.prices.length - 1)))
         );
 
-        // Vẽ lại cả 2 biểu đồ với cùng đường gióng idx
-        drawPriceChart(idx);
-        drawTechChart(idx);
+        ctx.drawPriceChart(idx);
 
-        const curBar = displayBars[idx];
-        const curPrice = prices[idx];
-        const curEma = emaSeries[idx];
-        const curWma = wmaSeries[idx];
-        const curRsi = rsiSeries[idx];
+        const curBar = ctx.displayBars[idx];
+        const curPrice = ctx.prices[idx];
         const dateStr = curBar?.date ? curBar.date.substring(0, 10).replace(/-/g, '/') : '';
         const fmt = (v) => v !== null && v !== undefined ? Utils.formatNumber(v, 0) + ' đ' : '--';
 
-        // Tooltip bên Giá & GTT (Chỉ giá và GTT)
-        if (tooltipPrice) {
+        if (ctx.tooltipPrice) {
           let gttLine = '';
-          if (gttSau && gttSau > 0) {
-            const diff = ((gttSau - curPrice) / gttSau) * 100;
+          if (ctx.gttSau && ctx.gttSau > 0) {
+            const diff = ((ctx.gttSau - curPrice) / ctx.gttSau) * 100;
             const sign = diff > 0 ? '+' : '';
             const cls = diff >= 0 ? 'tooltip-gtt-cheaper' : 'tooltip-gtt-higher';
             gttLine = `<div class="${cls}">So với GTT: ${sign}${diff.toFixed(1)}%</div>`;
           }
 
-          tooltipPrice.innerHTML = `
+          ctx.tooltipPrice.innerHTML = `
             <div class="tooltip-title">Tuần: ${dateStr}</div>
             <div class="tooltip-price">Giá: <strong>${fmt(curPrice)}</strong></div>
             ${gttLine}
           `;
-          tooltipPrice.style.display = 'block';
+          ctx.tooltipPrice.style.display = 'block';
 
-          const cxPrice = padLeft + (idx / Math.max(1, prices.length - 1)) * (canvasPrice.clientWidth - 48);
+          const cxPrice = padLeft + (idx / Math.max(1, ctx.prices.length - 1)) * plotW;
           let tipX = cxPrice + 10;
-          if (tipX + 130 > canvasPrice.clientWidth) tipX = cxPrice - 135;
-          tooltipPrice.style.left = `${Math.max(4, tipX)}px`;
-          tooltipPrice.style.top = `10px`;
+          if (tipX + 130 > ctx.canvasPrice.clientWidth) tipX = cxPrice - 135;
+          ctx.tooltipPrice.style.left = `${Math.max(4, tipX)}px`;
+          ctx.tooltipPrice.style.top = `10px`;
+        }
+      });
+
+      canvasPrice.addEventListener('mouseleave', () => {
+        const ctx = Render._activeChartContext;
+        if (!ctx) return;
+        if (ctx.tooltipPrice) ctx.tooltipPrice.style.display = 'none';
+        ctx.drawPriceChart(null);
+      });
+    }
+
+    // Khởi tạo sự kiện chuột riêng biệt cho Biểu đồ Kỹ thuật RSI • EMA • WMA (bên phải)
+    if (!canvasTech._hasChartListeners) {
+      canvasTech._hasChartListeners = true;
+      const padLeft = 6;
+      const padRight = 36;
+
+      canvasTech.addEventListener('mousemove', (e) => {
+        const ctx = Render._activeChartContext;
+        if (!ctx || !ctx.prices || ctx.prices.length === 0) return;
+
+        const rect = ctx.canvasTech.getBoundingClientRect();
+        const plotW = Math.max(10, rect.width - padLeft - padRight);
+        const mouseX = e.clientX - rect.left;
+
+        if (mouseX < padLeft || mouseX > padLeft + plotW) {
+          if (ctx.tooltipTech) ctx.tooltipTech.style.display = 'none';
+          ctx.drawTechChart(null);
+          return;
         }
 
-        // Tooltip bên RSI14 + EMA9 + WMA45
-        if (tooltipTech) {
+        const idx = Math.min(
+          ctx.prices.length - 1,
+          Math.max(0, Math.round(((mouseX - padLeft) / plotW) * (ctx.prices.length - 1)))
+        );
+
+        ctx.drawTechChart(idx);
+
+        const curBar = ctx.displayBars[idx];
+        const curEma = ctx.emaSeries[idx];
+        const curWma = ctx.wmaSeries[idx];
+        const curRsi = ctx.rsiSeries[idx];
+        const dateStr = curBar?.date ? curBar.date.substring(0, 10).replace(/-/g, '/') : '';
+
+        if (ctx.tooltipTech) {
           let rsiDesc = '';
           if (curRsi !== null) {
             if (curRsi >= 70) rsiDesc = ' (Quá mua)';
             else if (curRsi <= 30) rsiDesc = ' (Quá bán)';
           }
 
-          tooltipTech.innerHTML = `
+          ctx.tooltipTech.innerHTML = `
             <div class="tooltip-title">Tuần: ${dateStr}</div>
-            <div class="tooltip-rsi">RSI (14): <strong>${curRsi !== null ? curRsi.toFixed(1) : '--'}${rsiDesc}</strong></div>
+            <div class="tooltip-rsi">RSI: <strong>${curRsi !== null ? curRsi.toFixed(1) : '--'}${rsiDesc}</strong></div>
             <div class="tooltip-ema">EMA9: <strong>${curEma !== null ? curEma.toFixed(1) : '--'}</strong></div>
             <div class="tooltip-wma">WMA45: <strong>${curWma !== null ? curWma.toFixed(1) : '--'}</strong></div>
           `;
-          tooltipTech.style.display = 'block';
+          ctx.tooltipTech.style.display = 'block';
 
-          const cxTech = padLeft + (idx / Math.max(1, prices.length - 1)) * (canvasTech.clientWidth - 42);
+          const cxTech = padLeft + (idx / Math.max(1, ctx.prices.length - 1)) * plotW;
           let tipX = cxTech + 10;
-          if (tipX + 130 > canvasTech.clientWidth) tipX = cxTech - 135;
-          tooltipTech.style.left = `${Math.max(4, tipX)}px`;
-          tooltipTech.style.top = `10px`;
+          if (tipX + 130 > ctx.canvasTech.clientWidth) tipX = cxTech - 135;
+          ctx.tooltipTech.style.left = `${Math.max(4, tipX)}px`;
+          ctx.tooltipTech.style.top = `10px`;
         }
       });
 
-      canvasElem.addEventListener('mouseleave', () => {
-        if (tooltipPrice) tooltipPrice.style.display = 'none';
-        if (tooltipTech) tooltipTech.style.display = 'none';
-        drawPriceChart(null);
-        drawTechChart(null);
+      canvasTech.addEventListener('mouseleave', () => {
+        const ctx = Render._activeChartContext;
+        if (!ctx) return;
+        if (ctx.tooltipTech) ctx.tooltipTech.style.display = 'none';
+        ctx.drawTechChart(null);
       });
-    };
+    }
 
-    syncHover(canvasPrice, true);
-    syncHover(canvasTech, false);
+    if (!Render._hasResizeListener) {
+      Render._hasResizeListener = true;
+      window.addEventListener('resize', () => {
+        const ctx = Render._activeChartContext;
+        if (ctx) {
+          ctx.drawPriceChart(null);
+          ctx.drawTechChart(null);
+        }
+      });
+    }
 
     Render._lastChartData = data;
     Render._lastGttSau = gttSau;
