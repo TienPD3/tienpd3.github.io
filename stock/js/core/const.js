@@ -10,7 +10,7 @@ const CONST = {
   // Phân tích kỹ thuật – khung tuần
   EMA_LENGTH: 9,
   WMA_LENGTH: 45,
-  PRICE_FETCH_LIMIT: 1500,
+  PRICE_FETCH_LIMIT: 350,
 
   // Dữ liệu fallback trống, sẽ được gán toàn bộ qua API thay vì hardcode
   WATCHLISTS: [],

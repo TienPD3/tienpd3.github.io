@@ -369,7 +369,73 @@ const Render = {
         ctx.fillText(label, getX(i), h - 5);
       }
 
-      // Đường gióng hover
+      // Điểm và Label Giá hiện tại (nến mới nhất - cố định để nhìn nhanh)
+      const currentIdx = prices.length - 1;
+      const currentPrice = prices[currentIdx];
+      const currentX = getX(currentIdx);
+      const currentY = getY(currentPrice);
+
+      // Đường dóng ngang từ Giá hiện tại sang trục Y
+      ctx.save();
+      ctx.setLineDash([2, 2]);
+      ctx.strokeStyle = 'rgba(79, 70, 229, 0.4)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(padLeft, currentY);
+      ctx.lineTo(padLeft + plotW, currentY);
+      ctx.stroke();
+      ctx.restore();
+
+      // Điểm tròn nổi bật tại Giá hiện tại
+      ctx.save();
+      ctx.fillStyle = 'rgba(79, 70, 229, 0.22)';
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#4f46e5';
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 3.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(currentX, currentY, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Label Giá hiện tại trên trục Y bên phải
+      let priceLabelY = currentY;
+      const gttLabelY = (gttSau && gttSau > 0) ? getY(gttSau) : null;
+      if (gttLabelY !== null && Math.abs(priceLabelY - gttLabelY) < 14) {
+        priceLabelY = (priceLabelY <= gttLabelY) ? (gttLabelY - 14) : (gttLabelY + 14);
+      }
+
+      ctx.save();
+      ctx.fillStyle = '#4f46e5';
+      if (ctx.roundRect) {
+        ctx.beginPath();
+        ctx.roundRect(padLeft + plotW + 2, priceLabelY - 6.5, 38, 13, 2);
+        ctx.fill();
+      } else {
+        ctx.fillRect(padLeft + plotW + 2, priceLabelY - 6.5, 38, 13);
+      }
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 9px sans-serif';
+      ctx.textAlign = 'center';
+      const priceText = currentPrice >= 1000 ? `${(currentPrice / 1000).toFixed(1)}k` : currentPrice.toFixed(0);
+      ctx.fillText(priceText, padLeft + plotW + 21, priceLabelY + 3.5);
+      ctx.restore();
+
+      // Cập nhật giá trị Giá & GTT lên header legend
+      const legendPriceEl = document.getElementById('val-chart-legend-price');
+      const legendGttEl = document.getElementById('val-chart-legend-gtt');
+      if (legendPriceEl) {
+        legendPriceEl.textContent = `${(currentPrice / 1000).toFixed(1)}k`;
+      }
+      if (legendGttEl) {
+        legendGttEl.textContent = (gttSau && gttSau > 0) ? `${(gttSau / 1000).toFixed(1)}k` : '--';
+      }
+
+      // Đường dóng dọc đơn giản khi hover
       if (hoverIdx !== null && hoverIdx >= 0 && hoverIdx < prices.length) {
         const cx = getX(hoverIdx);
         const cy = getY(prices[hoverIdx]);
@@ -383,7 +449,7 @@ const Render = {
 
         ctx.fillStyle = '#4f46e5';
         ctx.beginPath();
-        ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
+        ctx.arc(cx, cy, 3, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
@@ -515,7 +581,7 @@ const Render = {
         ctx.fillText(label, getX(i), h - 5);
       }
 
-      // Đường gióng hover
+      // Đường dóng hover đơn giản
       if (hoverIdx !== null && hoverIdx >= 0 && hoverIdx < prices.length) {
         const cx = getX(hoverIdx);
         ctx.save();
@@ -526,11 +592,10 @@ const Render = {
         ctx.lineTo(cx, padTop + plotH);
         ctx.stroke();
 
-        // Chấm tròn nổi bật cho RSI
         if (rsiSeries[hoverIdx] !== null) {
           ctx.fillStyle = '#a855f7';
           ctx.beginPath();
-          ctx.arc(cx, getY(rsiSeries[hoverIdx]), 3.5, 0, Math.PI * 2);
+          ctx.arc(cx, getY(rsiSeries[hoverIdx]), 3, 0, Math.PI * 2);
           ctx.fill();
         }
         ctx.restore();

@@ -7,7 +7,7 @@
   <title>Stock Pro - V2</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
   <!-- App Styles -->
-  <link rel="stylesheet" href="css/style.css?v=2.6">
+  <link rel="stylesheet" href="css/style.css?v=3.0">
 </head>
 
 <body>
@@ -146,8 +146,8 @@
           <div class="chart-header">
             <div class="chart-title">GIÁ &amp; GTT (TUẦN)</div>
             <div class="chart-legend">
-              <span class="legend-item"><span class="legend-dot legend-price"></span>Giá</span>
-              <span class="legend-item"><span class="legend-dot legend-gtt"></span>GTT</span>
+              <span class="legend-item"><span class="legend-dot legend-price"></span>Giá: <span id="val-chart-legend-price" class="legend-val">--</span></span>
+              <span class="legend-item"><span class="legend-dot legend-gtt"></span>GTT: <span id="val-chart-legend-gtt" class="legend-val">--</span></span>
             </div>
           </div>
           <div class="chart-canvas-wrap">
@@ -159,7 +159,7 @@
         <!-- Panel 2: RSI14 + EMA9 + WMA45 (0~100%) -->
         <div class="table-container chart-card">
           <div class="chart-header">
-            <div class="chart-title">RSI14 • EMA9 • WMA45 (0~100%)</div>
+            <div class="chart-title">RSI • EMA • WMA</div>
             <div class="chart-legend">
               <span class="legend-item"><span class="legend-dot legend-rsi"></span>RSI14</span>
               <span class="legend-item"><span class="legend-dot legend-ema"></span>EMA9</span>
@@ -297,11 +297,11 @@
 </div>
 
 <!-- App Scripts -->
-<script src="js/core/const.js?v=2.6"></script>
-<script src="js/core/utils.js?v=2.6"></script>
-<script src="js/core/api.js?v=2.6"></script>
-<script src="js/calculator.js?v=2.6"></script>
-<script src="js/render.js?v=2.6"></script>
-<script src="js/app.js?v=2.6"></script>
+<script src="js/core/const.js?v=3.0"></script>
+<script src="js/core/utils.js?v=3.0"></script>
+<script src="js/core/api.js?v=3.0"></script>
+<script src="js/calculator.js?v=3.0"></script>
+<script src="js/render.js?v=3.0"></script>
+<script src="js/app.js?v=3.0"></script>
 </body>
 </html>
