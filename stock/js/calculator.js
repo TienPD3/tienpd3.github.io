@@ -105,21 +105,209 @@ const Calculator = {
   },
 
   /**
+   * Tính chuỗi EMA cho toàn bộ mảng giá
+   * @param {number[]} prices
+   * @param {number} period
+   * @returns {(number|null)[]}
+   */
+  calculateEMASeries: (values, period) => {
+    if (!values || values.length < period) return [];
+    const series = new Array(values.length).fill(null);
+    let firstValid = -1;
+    for (let i = 0; i < values.length; i++) {
+      if (values[i] !== null && values[i] !== undefined && !isNaN(values[i])) {
+        firstValid = i;
+        break;
+      }
+    }
+    if (firstValid === -1 || values.length - firstValid < period) return series;
+
+    const k = 2 / (period + 1);
+    let ema = 0;
+    for (let i = 0; i < period; i++) {
+      ema += values[firstValid + i];
+    }
+    ema /= period;
+    series[firstValid + period - 1] = ema;
+
+    for (let i = firstValid + period; i < values.length; i++) {
+      ema = values[i] * k + ema * (1 - k);
+      series[i] = ema;
+    }
+    return series;
+  },
+
+  calculateWMASeries: (values, period) => {
+    if (!values || values.length < period) return [];
+    const series = new Array(values.length).fill(null);
+    let firstValid = -1;
+    for (let i = 0; i < values.length; i++) {
+      if (values[i] !== null && values[i] !== undefined && !isNaN(values[i])) {
+        firstValid = i;
+        break;
+      }
+    }
+    if (firstValid === -1 || values.length - firstValid < period) return series;
+
+    const weightTotal = (period * (period + 1)) / 2;
+    for (let i = firstValid + period - 1; i < values.length; i++) {
+      let weightedSum = 0;
+      for (let j = 0; j < period; j++) {
+        weightedSum += values[i - period + 1 + j] * (j + 1);
+      }
+      series[i] = weightedSum / weightTotal;
+    }
+    return series;
+  },
+
+  /**
+   * Tính chuỗi RSI (Relative Strength Index) chu kỳ 14
+   * @param {number[]} prices - Mảng giá từ CŨ đến MỚI
+   * @param {number} period - Chu kỳ (mặc định 14)
+   * @returns {(number|null)[]} Giá trị RSI từ 0 đến 100
+   */
+  calculateRSISeries: (prices, period = 14) => {
+    if (!prices || prices.length <= period) return [];
+    const rsi = new Array(prices.length).fill(null);
+
+    let gains = 0;
+    let losses = 0;
+
+    for (let i = 1; i <= period; i++) {
+      const diff = prices[i] - prices[i - 1];
+      if (diff >= 0) gains += diff;
+      else losses += Math.abs(diff);
+    }
+
+    let avgGain = gains / period;
+    let avgLoss = losses / period;
+
+    if (avgLoss === 0) rsi[period] = 100;
+    else {
+      const rs = avgGain / avgLoss;
+      rsi[period] = 100 - (100 / (1 + rs));
+    }
+
+    for (let i = period + 1; i < prices.length; i++) {
+      const diff = prices[i] - prices[i - 1];
+      const gain = diff >= 0 ? diff : 0;
+      const loss = diff < 0 ? Math.abs(diff) : 0;
+
+      avgGain = (avgGain * (period - 1) + gain) / period;
+      avgLoss = (avgLoss * (period - 1) + loss) / period;
+
+      if (avgLoss === 0) rsi[i] = 100;
+      else {
+        const rs = avgGain / avgLoss;
+        rsi[i] = 100 - (100 / (1 + rs));
+      }
+    }
+
+    return rsi;
+  },
+
+  /**
+   * Tính chuỗi SMA (Simple Moving Average) cho bất kỳ mảng số nào
+   * Dùng cho RSI-based MA (SMA 14 của RSI giống TradingView)
+   * @param {(number|null)[]} series
+   * @param {number} period
+   * @returns {(number|null)[]}
+   */
+  calculateSMASeries: (series, period = 14) => {
+    if (!series || series.length < period) return [];
+    const sma = new Array(series.length).fill(null);
+    for (let i = period - 1; i < series.length; i++) {
+      let sum = 0;
+      let valid = true;
+      for (let j = 0; j < period; j++) {
+        const val = series[i - j];
+        if (val === null || val === undefined || isNaN(val)) {
+          valid = false;
+          break;
+        }
+        sum += val;
+      }
+      if (valid) {
+        sma[i] = sum / period;
+      }
+    }
+    return sma;
+  },
+
+  /**
+   * Đánh giá Thanh khoản cổ phiếu theo GTGD bình quân/ngày (TB 20 phiên)
+   * @param {number} avgDailyValueTy - Giá trị giao dịch bình quân (Tỷ đồng)
+   * @returns {Object} Chứa trạng thái đánh giá, nhãn hiển thị và pass/fail
+   */
+  evaluateLiquidity: (avgDailyValueTy) => {
+    if (avgDailyValueTy === null || avgDailyValueTy === undefined || isNaN(avgDailyValueTy)) {
+      return {
+        status: "N/A",
+        cssClass: "text-muted",
+        bgClass: "",
+        pass: null,
+        desc: "Chưa có dữ liệu"
+      };
+    }
+
+    if (avgDailyValueTy > 100) {
+      return {
+        status: "Rất tốt",
+        cssClass: "text-success",
+        bgClass: "bg-green-light",
+        pass: true,
+        desc: "> 100 tỷ/ngày (Rất tốt)"
+      };
+    } else if (avgDailyValueTy >= 50) {
+      return {
+        status: "Tốt",
+        cssClass: "text-success",
+        bgClass: "bg-green-light",
+        pass: true,
+        desc: "50 – 100 tỷ/ngày (Tốt)"
+      };
+    } else if (avgDailyValueTy >= 30) {
+      return {
+        status: "Khá tốt",
+        cssClass: "text-success",
+        bgClass: "bg-green-light",
+        pass: true,
+        desc: "30 – 50 tỷ/ngày (Khá tốt)"
+      };
+    } else if (avgDailyValueTy >= 10) {
+      return {
+        status: "Có thể xem xét",
+        cssClass: "text-warning",
+        bgClass: "bg-warning-light",
+        pass: true,
+        desc: "10 – 30 tỷ/ngày (Có thể xem xét)"
+      };
+    } else if (avgDailyValueTy >= 5) {
+      return {
+        status: "Thấp",
+        cssClass: "text-danger",
+        bgClass: "bg-pink-light",
+        pass: false,
+        desc: "5 – 10 tỷ/ngày (Thấp)"
+      };
+    } else {
+      return {
+        status: "Rất thấp",
+        cssClass: "text-danger font-bold",
+        bgClass: "bg-pink-light",
+        pass: false,
+        desc: "< 5 tỷ/ngày (Rất thấp → nên tránh)"
+      };
+    }
+  },
+
+  /**
    * Đánh giá Tiêu chí Sức khỏe (Checklist)
    * Trả về true/false cho từng tiêu chí để render ra YES/NO
    */
   evaluateChecklist: (data, sumLnstSau) => {
-    // Tính EMA9 & WMA45 trên khung tuần
-    const weeklyPrices = data.weeklyPrices || [];
-    const ema9 = Calculator.calculateEMA(weeklyPrices, CONST.EMA_LENGTH);
-    const wma45 = Calculator.calculateWMA(weeklyPrices, CONST.WMA_LENGTH);
-
-    let moHinhPass = null;
-    let moHinhGap = null; // % khoảng cách EMA9 so với WMA45
-    if (ema9 !== null && wma45 !== null && wma45 !== 0) {
-      moHinhGap = ((ema9 - wma45) / wma45) * 100;
-      moHinhPass = ema9 > wma45 ? 1 : 0;
-    }
+    // Đánh giá thanh khoản cổ phiếu
+    const liquidity = Calculator.evaluateLiquidity(data.avgDailyValueTy);
 
     return {
       // Tăng đều: kiểm tra cả 4 quý liên tiếp không giảm (không dùng year-over-year)
@@ -147,10 +335,7 @@ const Calculator = {
       doe: (data.vcsh > 0) ? ((data.ndh / data.vcsh) <= 1) : false,
       pe: data.pe > 0 && data.pe <= 15,
       pb: data.pb > 0 && data.pb <= 2,
-      mh: moHinhPass,
-      mhGap: moHinhGap,
-      ema9: ema9,
-      wma45: wma45,
+      thanhKhoan: liquidity,
       bld: data.bldMuaBan === 1,
       hdkd: data.lnHdkd > 0,
       // Nợ DH / LNST 4 quý TTM (Trailing Twelve Months) – chắc hơn 1 quý đơn lẻ

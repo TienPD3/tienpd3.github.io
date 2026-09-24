@@ -120,7 +120,7 @@ const API = {
   getStockData: async (symbol) => {
     console.log(`Đang tải TOÀN BỘ dữ liệu thực tế cho mã ${symbol}...`);
     
-    const today = new Date().toISOString();
+    const today = new Date().toISOString().split("T")[0];
     
     const fetchReport = async (urlQ, urlY) => {
       let data = await API.fetchAPI(urlQ, FIREANT_TOKEN);
@@ -156,29 +156,99 @@ const API = {
     }
 
     try {
+      const rawQuotes = Array.isArray(priceData) ? priceData : (priceData?.data || []);
+
       // 1. Thị giá & Fundamental
-      const marketPrice = (priceData[0]?.priceClose || 0) * 1000;
+      const firstQuote = rawQuotes[0];
+      const marketPrice = ((firstQuote?.priceClose ?? firstQuote?.PriceClose) || 0) * 1000;
       const slcp = (profileData?.listingVolume || fundData?.sharesOutstanding || 0) / 1000000;
 
-      // 1b. Aggregate daily prices → weekly closes (oldest → newest)
-      // priceData từ Fireant: index 0 = mới nhất, index N = cũ nhất
-      const weeklyMap = new Map();
-      for (const bar of priceData) {
-        if (!bar.date || !bar.priceClose) continue;
-        const d = new Date(bar.date);
-        // ISO week key: YYYY-Www
-        const jan4 = new Date(d.getFullYear(), 0, 4);
-        const weekNum = Math.ceil(((d - jan4) / 86400000 + jan4.getDay() + 1) / 7);
-        const weekKey = `${d.getFullYear()}-W${String(weekNum).padStart(2, '0')}`;
-        // Giữ giá mới nhất trong tuần (index nhỏ hơn = ngày mới hơn)
-        if (!weeklyMap.has(weekKey)) {
-          weeklyMap.set(weekKey, bar.priceClose * 1000);
+      // 1b. Tính thanh khoản trung bình 20 phiên gần nhất (Khối lượng & Giá trị giao dịch)
+      const recent20Bars = rawQuotes.slice(0, 20);
+      let sumDailyVal = 0;
+      let sumDailyVol = 0;
+      let countValidBars = 0;
+      for (const bar of recent20Bars) {
+        if (!bar) continue;
+        const vol = bar.dealVolume || bar.totalVolume || bar.DealVolume || bar.TotalVolume || 0;
+        const price = (bar.priceAverage || bar.priceClose || bar.PriceAverage || bar.PriceClose || 0) * 1000;
+        const val = (bar.totalValue && bar.totalValue > 0) ? bar.totalValue : (vol * price);
+        if (val > 0 || vol > 0) {
+          sumDailyVal += val;
+          sumDailyVol += vol;
+          countValidBars++;
         }
       }
-      // Sắp xếp từ cũ → mới để tính EMA/WMA đúng chiều
-      const weeklyPrices = Array.from(weeklyMap.entries())
+      const avgDailyVolume = countValidBars > 0 ? (sumDailyVol / countValidBars) : 0;
+      const avgDailyValue = countValidBars > 0 ? (sumDailyVal / countValidBars) : 0;
+      const avgDailyValueTy = avgDailyValue / 1000000000;
+
+      // 1c. Aggregate daily prices → weekly bars (oldest → newest)
+      // priceData từ Fireant: index 0 = mới nhất, index N = cũ nhất
+      const weeklyMap = new Map();
+      for (const bar of rawQuotes) {
+        const rawDate = bar?.date || bar?.Date;
+        const rawClose = bar?.priceClose ?? bar?.PriceClose;
+        if (!rawDate || rawClose === undefined || rawClose === null) continue;
+
+        const dateStr = String(rawDate).substring(0, 10);
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) continue;
+        const [y, m, d] = dateStr.split("-").map(Number);
+        const utcDate = new Date(Date.UTC(y, m - 1, d));
+        if (isNaN(utcDate.getTime())) continue;
+
+        // Thứ 2 đầu tuần theo chuẩn UTC để không bị lệch múi giờ
+        const dayOfWeek = utcDate.getUTCDay();
+        const diffToMon = utcDate.getUTCDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+        const monday = new Date(Date.UTC(y, m - 1, diffToMon));
+        const weekKey = monday.toISOString().substring(0, 10);
+
+        const ratio = (bar?.adjRatio && bar.adjRatio > 0) ? bar.adjRatio : (bar?.AdjRatio && bar.AdjRatio > 0 ? bar.AdjRatio : 1.0);
+        const adjClose = (rawClose / ratio) * 1000;
+        const rawOpen = bar.priceOpen ?? bar.PriceOpen ?? rawClose;
+        const rawHigh = bar.priceHigh ?? bar.PriceHigh ?? rawClose;
+        const rawLow = bar.priceLow ?? bar.PriceLow ?? rawClose;
+        const adjOpen = (rawOpen / ratio) * 1000;
+        const adjHigh = (rawHigh / ratio) * 1000;
+        const adjLow = (rawLow / ratio) * 1000;
+        const rawVol = bar.dealVolume || bar.totalVolume || bar.DealVolume || bar.TotalVolume || 0;
+
+        if (!weeklyMap.has(weekKey)) {
+          // Bar mới nhất của tuần (gặp đầu tiên do duyệt từ mới -> cũ)
+          weeklyMap.set(weekKey, {
+            date: dateStr,
+            close: adjClose,
+            open: adjOpen,
+            high: adjHigh,
+            low: adjLow,
+            volume: rawVol
+          });
+        } else {
+          // Cập nhật các ngày trước đó trong cùng tuần: open của ngày cũ hơn, high/low/volume gộp
+          const barWeekly = weeklyMap.get(weekKey);
+          barWeekly.open = adjOpen;
+          barWeekly.high = Math.max(barWeekly.high, adjHigh);
+          barWeekly.low = Math.min(barWeekly.low, adjLow);
+          barWeekly.volume += rawVol;
+        }
+      }
+      // Sắp xếp từ cũ → mới để tính EMA/WMA/RSI đúng chiều
+      let weeklyBars = Array.from(weeklyMap.entries())
         .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([, price]) => price);
+        .map(([, bar]) => bar);
+
+      // Fallback nếu không có nến tuần nào nhưng có thị giá
+      if (weeklyBars.length === 0 && marketPrice > 0) {
+        weeklyBars = [{
+          date: today,
+          close: marketPrice,
+          open: marketPrice,
+          high: marketPrice,
+          low: marketPrice,
+          volume: avgDailyVolume
+        }];
+      }
+      const weeklyPrices = weeklyBars.map(b => b.close);
 
       // 2. Indicators (ROE, ROA, Biên lãi)
       const getIndFlexible = (keys) => {
@@ -439,7 +509,11 @@ const API = {
         bldDesc: bldDesc,
         isVcshTangDeu: isVcshTangDeu,
         vcshDesc: vcshDesc,
+        weeklyBars: weeklyBars,
         weeklyPrices: weeklyPrices,
+        avgDailyVolume: avgDailyVolume,
+        avgDailyValue: avgDailyValue,
+        avgDailyValueTy: avgDailyValueTy,
         moHinh: null // Tính trong Calculator.evaluateChecklist
       };
     } catch (e) {

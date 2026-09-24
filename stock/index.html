@@ -7,7 +7,7 @@
   <title>Stock Pro - V2</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
   <!-- App Styles -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2.6">
 </head>
 
 <body>
@@ -138,6 +138,42 @@
         </table>
       </div>
 
+      <!-- Charts Split Grid: Price + GTT & EMA9/WMA45/RSI14 -->
+      <div class="chart-split-grid">
+
+        <!-- Panel 1: Giá & Giá trị thực -->
+        <div class="table-container chart-card">
+          <div class="chart-header">
+            <div class="chart-title">GIÁ &amp; GTT (TUẦN)</div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot legend-price"></span>Giá</span>
+              <span class="legend-item"><span class="legend-dot legend-gtt"></span>GTT</span>
+            </div>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="val-chart-price"></canvas>
+            <div id="val-tooltip-price" class="chart-tooltip"></div>
+          </div>
+        </div>
+
+        <!-- Panel 2: RSI14 + EMA9 + WMA45 (0~100%) -->
+        <div class="table-container chart-card">
+          <div class="chart-header">
+            <div class="chart-title">RSI14 • EMA9 • WMA45 (0~100%)</div>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot legend-rsi"></span>RSI14</span>
+              <span class="legend-item"><span class="legend-dot legend-ema"></span>EMA9</span>
+              <span class="legend-item"><span class="legend-dot legend-wma"></span>WMA45</span>
+            </div>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="val-chart-tech"></canvas>
+            <div id="val-tooltip-tech" class="chart-tooltip"></div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
     <!-- RIGHT COLUMN -->
@@ -215,9 +251,12 @@
             <td class="text-center cell-yn cell-yn-danger"><span id="chk-pb-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>Xu hướng giá EMA9 / WMA45 <span class="text-success">(Khung tuần)</span></td>
-            <td class="text-center text-muted"><span id="chk-mh-val">--</span></td>
-            <td class="text-center text-muted"><span id="chk-mh-yn">--</span></td>
+            <td>
+              Thanh khoản cổ phiếu <span class="text-success">(TB 20 phiên)</span>
+              <div class="text-muted row-subtext"><span id="chk-tk-desc">--</span></div>
+            </td>
+            <td class="text-center font-bold"><span id="chk-tk-val">--</span></td>
+            <td class="text-center cell-yn"><span id="chk-tk-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
             <td>
@@ -258,11 +297,11 @@
 </div>
 
 <!-- App Scripts -->
-<script src="js/core/const.js"></script>
-<script src="js/core/utils.js"></script>
-<script src="js/core/api.js"></script>
-<script src="js/calculator.js"></script>
-<script src="js/render.js"></script>
-<script src="js/app.js"></script>
+<script src="js/core/const.js?v=2.6"></script>
+<script src="js/core/utils.js?v=2.6"></script>
+<script src="js/core/api.js?v=2.6"></script>
+<script src="js/calculator.js?v=2.6"></script>
+<script src="js/render.js?v=2.6"></script>
+<script src="js/app.js?v=2.6"></script>
 </body>
 </html>
