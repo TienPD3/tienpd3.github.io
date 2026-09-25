@@ -7,7 +7,7 @@
   <title>Stock Pro - V2</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
   <!-- App Styles -->
-  <link rel="stylesheet" href="css/style.css?v=3.3">
+  <link rel="stylesheet" href="css/style.css?v=3.7">
 </head>
 
 <body>
@@ -55,25 +55,51 @@
 
       <!-- Table 1: Input Data -->
       <div class="table-container">
-        <table class="data-table">
+        <table class="data-table table-left-fixed">
+          <colgroup>
+            <col class="col-left-label">
+            <col class="col-left-val1">
+            <col class="col-left-val2">
+            <col class="col-left-val3">
+          </colgroup>
           <tr>
             <td colspan="2" class="cell-ticker"><span id="val-symbol">--</span></td>
             <td colspan="2" class="cell-header-right" id="val-lnst-header">--</td>
           </tr>
           <tr class="highlight-row row-accent">
-            <td class="font-bold"><span id="val-lnst-truoc-lbl">LNST -- ~ -- (tỷ đồng) Trước</span></td>
+            <td class="font-bold">
+              <span id="val-lnst-truoc-lbl">LNST -- ~ -- (tỷ đồng)</span>
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">LNST (Lợi nhuận sau thuế 4 quý liên tiếp — TTM)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tổng lợi nhuận ròng (sau khi trừ mọi chi phí và thuế) của 4 quý liên tiếp. Dòng trên là 4 quý liền trước, dòng dưới là 4 quý mới nhất.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Cộng dồn 4 quý giúp loại bỏ tính mùa vụ và thấy rõ sức kiếm tiền của doanh nghiệp đang tăng trưởng hay đi lùi.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-right font-bold" id="val-lnst-truoc"></td>
             <td class="text-center font-bold col-quarter" id="val-q4-lbl">--</td>
             <td class="col-quarter-val" id="val-q4-val">--</td>
           </tr>
           <tr class="highlight-row row-accent">
-            <td class="font-bold"><span id="val-lnst-sau-lbl">LNST -- ~ -- (tỷ đồng) Sau</span></td>
+            <td class="font-bold"><span id="val-lnst-sau-lbl">LNST -- ~ -- (tỷ đồng)</span></td>
             <td class="text-right text-success font-bold" id="val-lnst-sau">--</td>
             <td class="text-center font-bold col-quarter" id="val-q3-lbl">--</td>
             <td class="col-quarter-val" id="val-q3-val">--</td>
           </tr>
           <tr class="highlight-row">
-            <td><span id="val-vcsh-lbl">VỐN CHỦ SỞ HỮU HIỆN TẠI [--] (tỷ đồng)</span></td>
+            <td>
+              <span id="val-vcsh-lbl">VỐN CHỦ SỞ HỮU HIỆN TẠI [--] (tỷ đồng)</span>
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Vốn chủ sở hữu (VCSH — Equity / Book Value)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tài sản ròng thực sự thuộc về cổ đông sau khi lấy Tổng tài sản trừ đi toàn bộ Nợ phải trả (khác với Vốn điều lệ).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Là phần "vốn gốc thực có" của công ty, làm nền tảng cốt lõi để tính Giá trị thực cổ phiếu.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-right" id="val-vcsh">--</td>
             <td class="text-center font-bold col-quarter" id="val-q2-lbl">--</td>
             <td class="col-quarter-val" id="val-q2-val">--</td>
@@ -100,26 +126,79 @@
 
       <!-- Table 2: Valuation -->
       <div class="table-container">
-        <table class="data-table">
+        <table class="data-table table-left-fixed">
+          <colgroup>
+            <col class="col-left-label">
+            <col class="col-left-val1">
+            <col class="col-left-val2">
+            <col class="col-left-val3">
+          </colgroup>
+          <tr class="row-header-checklist">
+            <td class="font-bold">ĐỊNH GIÁ CỔ PHIẾU</td>
+            <td class="text-right font-bold" id="val-col-truoc-lbl">--</td>
+            <td class="text-center font-bold text-success" id="val-col-sau-lbl">--</td>
+            <td class="text-center font-bold">Simplize</td>
+          </tr>
           <tr class="row-accent">
-            <td class="font-bold">GIÁ TRỊ THỰC CỔ PHIẾU (Trước, Sau)</td>
+            <td class="font-bold">
+              GIÁ TRỊ THỰC CỔ PHIẾU
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Giá trị thực cổ phiếu (Intrinsic Value)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Giá trị nội tại thực sự của 1 cổ phiếu, tính từ Tài sản ròng (VCSH) cộng với Năng lực tạo lợi nhuận hàng năm (LNST) trên mỗi cổ phiếu.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Là "mỏ neo" giúp bạn biết cổ phiếu đáng giá bao nhiêu để mua khi Thị giá thấp hơn Giá trị thực.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-right font-bold" id="val-gtt-truoc">--</td>
             <td class="text-center font-bold" id="val-gtt-sau">--</td>
-            <td class="text-right">Simplize: <span id="val-simplize">--</span></td>
+            <td class="text-center font-bold" id="val-simplize">--</td>
           </tr>
           <tr class="highlight-row">
-            <td id="lbl-laivon">LÃI VỐN (Mua rẻ tài sản)</td>
+            <td id="lbl-laivon">
+              LÃI VỐN (Mua rẻ tài sản)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Lãi vốn — Biên an toàn (Margin of Safety)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Phần trăm chênh lệch giữa Giá trị thực và Thị giá hiện tại: (Giá trị thực - Thị giá) / Thị giá.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Số dương (+) nghĩa là đang mua rẻ hơn giá trị thực; số âm (-) nghĩa là giá thị trường đã vượt quá giá trị thực.</span>
+                </span>
+              </span>
+              <span id="val-laivon-warn"></span>
+            </td>
             <td class="text-right text-danger" id="val-laivon-truoc">--</td>
             <td class="text-center" id="val-laivon-sau-box">--</td>
             <td rowspan="3" class="cell-spacer"></td>
           </tr>
           <tr class="highlight-row">
-            <td>DÒNG TIỀN THỰC (Cổ tức không có)</td>
+            <td>
+              DÒNG TIỀN THỰC (Cổ tức)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Dòng tiền thực — Tỷ suất cổ tức trên Thị giá</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tỷ lệ tiền cổ tức thực nhận hàng năm so với số tiền bỏ ra mua cổ phiếu ở giá hiện tại (Tiền cổ tức / Thị giá).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Cho biết nếu bỏ 100 đồng mua cổ phiếu ở giá hôm nay thì mỗi năm thu về được bao nhiêu đồng tiền mặt cổ tức.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-right" id="val-dongtien-truoc">--</td>
             <td class="text-center" id="val-dongtien-sau-box">--</td>
           </tr>
           <tr class="highlight-row">
-            <td>TĂNG GIÁ TRỊ</td>
+            <td>
+              TĂNG GIÁ TRỊ
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Tăng giá trị nội tại hàng năm</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tốc độ gia tăng tài sản nội tại mỗi năm nhờ phần lợi nhuận giữ lại tái đầu tư của doanh nghiệp.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Giúp giá trị thực của cổ phiếu tự tăng trưởng mỗi năm, tạo lãi kép dài hạn khi nắm giữ.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-right text-success font-bold" id="val-tanggiatri-truoc">--</td>
             <td class="text-center text-success font-bold" id="val-tanggiatri-sau-box">--</td>
           </tr>
@@ -159,7 +238,17 @@
         <!-- Panel 2: RSI14 + EMA9 + WMA45 (0~100%) -->
         <div class="table-container chart-card">
           <div class="chart-header">
-            <div class="chart-title">RSI • EMA • WMA</div>
+            <div class="chart-title">
+              RSI • EMA • WMA
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Bộ chỉ báo kỹ thuật RSI14 • EMA9 • WMA45 (Khung Tuần)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> RSI14 (màu tím) đo xung lực mua/bán (trên 70 là quá mua, dưới 30 là quá bán); EMA9 (xanh lá) và WMA45 (xanh dương) là 2 đường trung bình động làm mượt xu hướng của RSI.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Giúp chọn thời điểm mua/bán: điểm mua đẹp khi RSI tạo đáy đi lên và cắt vượt lên trên EMA9 &amp; WMA45; cẩn trọng chốt lời khi RSI vượt trên 70 và cắt xuống.</span>
+                </span>
+              </span>
+            </div>
             <div class="chart-legend">
               <span class="legend-item"><span class="legend-dot legend-rsi"></span>RSI14</span>
               <span class="legend-item"><span class="legend-dot legend-ema"></span>EMA9</span>
@@ -211,42 +300,122 @@
             <td class="text-center cell-yn text-success"><span id="chk-vcsh-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>Tỷ lệ lãi gộp &gt;= 15%</td>
+            <td>
+              Tỷ lệ lãi gộp &gt;= 15%
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Biên lợi nhuận gộp (Gross Profit Margin &gt;= 15%)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Phần trăm lợi nhuận còn lại sau khi lấy Doanh thu trừ trực tiếp Giá vốn hàng bán (Lợi nhuận gộp / Doanh thu).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Biên lãi gộp &gt;= 15% cho thấy sản phẩm có lợi thế cạnh tranh, định giá bán tốt và không phải bán phá giá.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-gos-val">--</span></td>
             <td class="text-center cell-yn text-success"><span id="chk-gos-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>Tỷ lệ lãi ròng (&gt;= 5)</td>
+            <td>
+              Tỷ lệ lãi ròng (&gt;= 5)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Biên lợi nhuận ròng (Net Profit Margin &gt;= 5%)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Trong 100 đồng doanh thu, doanh nghiệp cuối cùng bỏ túi được bao nhiêu đồng lãi ròng sau khi đã trừ hết mọi chi phí, lãi vay và thuế.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Biên lãi ròng &gt;= 5% đảm bảo bộ máy vận hành hiệu quả và có đệm an toàn trước biến động chi phí.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-npm-val">--</span></td>
             <td class="text-center cell-yn text-success"><span id="chk-npm-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>ROA (&gt;= 5%)</td>
+            <td>
+              ROA (&gt;= 5%)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">ROA (Return on Assets) — Tỷ suất sinh lời trên Tổng tài sản</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Đo lường 100 đồng Tổng tài sản (Vốn chủ + Nợ vay) tạo ra được bao nhiêu đồng Lợi nhuận sau thuế (LNST / Tổng tài sản).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đánh giá hiệu quả quản trị toàn bộ nguồn lực của doanh nghiệp. ROA &gt;= 5% chứng tỏ tài sản thực sự vận hành sinh lời tốt chứ không bị ứ đọng hay phình to ảo do vay nợ.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-roa-val">--</span></td>
             <td class="text-center cell-yn text-success"><span id="chk-roa-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>ROE (&gt;= 15%)</td>
+            <td>
+              ROE (&gt;= 15%)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">ROE (Return on Equity) — Tỷ suất sinh lời trên Vốn chủ sở hữu</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Cho biết 100 đồng Vốn thực của cổ đông bỏ ra thu về được bao nhiêu đồng Lợi nhuận ròng (LNST / VCSH).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Là thước đo cốt lõi nhất với cổ đông (chỉ số ưa thích của Warren Buffett). ROE &gt;= 15% đảm bảo vốn cổ đông sinh sôi vượt xa lãi suất tiết kiệm và lạm phát, tạo lãi kép dài hạn.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-roe-val">--</span></td>
             <td class="text-center cell-yn text-success"><span id="chk-roe-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>ROIC (&gt;= 10%)</td>
+            <td>
+              ROIC (&gt;= 10%)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">ROIC (Return on Invested Capital) — Sinh lời trên Vốn đầu tư</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Hiệu quả sinh lời trên tổng nguồn vốn thực tế rót vào hoạt động kinh doanh cốt lõi (Vốn chủ + Nợ vay có lãi, trừ tiền nhàn rỗi).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Khắc phục điểm mù của ROE (vì ROE có thể bị đẩy cao ảo nhờ vay nợ lớn). ROIC &gt;= 10% khẳng định doanh nghiệp có lợi thế cạnh tranh bền vững (con hào kinh tế) và tạo giá trị thực vượt chi phí vốn.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-roic-val">--</span></td>
             <td class="text-center cell-yn text-success"><span id="chk-roic-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>Nợ/VCSH (&lt;= 1)</td>
+            <td>
+              Nợ/VCSH (&lt;= 1)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Hệ số Nợ vay / Vốn chủ sở hữu (D/E &lt;= 1)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tỷ lệ giữa Nợ vay so với Vốn tự có của doanh nghiệp. Mức &lt;= 1 nghĩa là tổng nợ vay không vượt quá vốn chủ sở hữu.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Bảo vệ doanh nghiệp khỏi áp lực lãi vay ăn mòn lợi nhuận hay rủi ro mất thanh khoản khi lãi suất tăng cao.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-doe-val">--</span></td>
             <td class="text-center cell-yn cell-yn-danger"><span id="chk-doe-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>P/E &lt; 15 (có thể 20) &lt;= 15</td>
+            <td>
+              P/E &lt; 15 (có thể 20) &lt;= 15
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">P/E (Price to Earnings) — Hệ số Giá / Lợi nhuận mỗi cổ phiếu</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Số tiền nhà đầu tư sẵn sàng trả cho 1 đồng lợi nhuận, tương đương số năm cần để hoàn vốn nếu lợi nhuận giữ nguyên (Giá thị trường / EPS).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Cho biết cổ phiếu đang đắt hay rẻ so với sức kiếm tiền. P/E &lt;= 15 (tỷ suất lợi nhuận &gt;= 6.7%/năm) giúp mua được doanh nghiệp tốt ở mức giá hợp lý, tránh bẫy mua đuổi giá ảo.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-pe-val">--</span></td>
             <td class="text-center cell-yn text-success"><span id="chk-pe-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
-            <td>P/B &lt; 2 (&lt;= 2)</td>
+            <td>
+              P/B &lt; 2 (&lt;= 2)
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">P/B (Price to Book Value) — Hệ số Giá / Giá trị sổ sách</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> So sánh giá cổ phiếu trên sàn đang gấp bao nhiêu lần tài sản ròng thực tế (Vốn chủ sở hữu) của mỗi cổ phiếu (Giá thị trường / BVPS).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đo lường biên an toàn theo tài sản thực. P/B &lt;= 2 bảo vệ nhà đầu tư không trả giá quá đắt so với giá trị sổ sách, hạn chế rủi ro sụt giảm sâu khi thị trường điều chỉnh.</span>
+                </span>
+              </span>
+            </td>
             <td class="text-center"><span id="chk-pb-val">--</span></td>
             <td class="text-center cell-yn cell-yn-danger"><span id="chk-pb-yn">--</span></td>
           </tr>
@@ -269,6 +438,14 @@
           <tr class="highlight-row">
             <td>
               Dòng tiền từ HĐKD dương <span class="text-success">(Đạt = 1, Không đạt = 0)</span>
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Lưu chuyển tiền thuần từ Hoạt động kinh doanh (CFO &gt; 0)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Lượng tiền mặt thực tế thu về két từ hoạt động sản xuất kinh doanh chính (không tính tiền đi vay hay bán tài sản).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Giúp phát hiện "lợi nhuận giấy". Nếu báo lãi lớn nhưng dòng tiền HĐKD âm tức là tiền đang bị đọng ở nợ khó đòi hoặc hàng tồn kho.</span>
+                </span>
+              </span>
               <div class="text-muted row-subtext"><span id="chk-hdkd-desc">--</span></div>
             </td>
             <td class="text-center"><span id="chk-hdkd-val">--</span></td>
@@ -277,6 +454,14 @@
           <tr class="highlight-row">
             <td>
               <span id="chk-ndh-desc">Nợ dài hạn / LNST &lt;= 5</span>
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Khả năng trả nợ dài hạn bằng Lợi nhuận ròng (&lt;= 5 năm)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Số năm cần thiết để trả sạch toàn bộ Nợ vay dài hạn nếu dùng 100% Lợi nhuận sau thuế hàng năm để trả nợ.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Tiêu chuẩn an toàn của Warren Buffett: doanh nghiệp tốt chỉ nên vay nợ dài hạn ở mức mà lợi nhuận làm ra trong tối đa 3-5 năm là trả dứt điểm được.</span>
+                </span>
+              </span>
               <div class="text-muted row-subtext"><span id="chk-ndh-detail">--</span></div>
             </td>
             <td class="text-center"><span id="chk-ndh-val">--</span></td>
@@ -297,11 +482,11 @@
 </div>
 
 <!-- App Scripts -->
-<script src="js/core/const.js?v=3.3"></script>
-<script src="js/core/utils.js?v=3.3"></script>
-<script src="js/core/api.js?v=3.3"></script>
-<script src="js/calculator.js?v=3.3"></script>
-<script src="js/render.js?v=3.3"></script>
-<script src="js/app.js?v=3.3"></script>
+<script src="js/core/const.js?v=3.7"></script>
+<script src="js/core/utils.js?v=3.7"></script>
+<script src="js/core/api.js?v=3.7"></script>
+<script src="js/calculator.js?v=3.7"></script>
+<script src="js/render.js?v=3.7"></script>
+<script src="js/app.js?v=3.7"></script>
 </body>
 </html>

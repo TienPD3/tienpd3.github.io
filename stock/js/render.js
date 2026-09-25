@@ -50,11 +50,11 @@ const Render = {
     const qOldest_sau = data.lnst4Quarters[1];
     
     if (isYearly) {
-        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng) Trước`);
-        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng) Sau`);
+        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng)`);
+        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng)`);
     } else {
-        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qOldest.year, qOldest.quarter)} ~ ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng) Trước`);
-        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(qOldest_sau.year, qOldest_sau.quarter)} ~ ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng) Sau`);
+        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qOldest.year, qOldest.quarter)} ~ ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng)`);
+        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(qOldest_sau.year, qOldest_sau.quarter)} ~ ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng)`);
     }
 
     Render.setText('val-vcsh-lbl', `VỐN CHỦ SỞ HỮU HIỆN TẠI [${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)}] (tỷ đồng)`);
@@ -67,6 +67,12 @@ const Render = {
   },
 
   renderValuation: (data, sumLnstTruoc, sumLnstSau) => {
+    const qTruoc = data.lnst4Quarters && data.lnst4Quarters[3];
+    const lblTruoc = qTruoc ? Utils.getQuarterYear(qTruoc.year, qTruoc.quarter) : '--';
+    const lblSau = data.lnstLatest ? Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter) : '--';
+    Render.setText('val-col-truoc-lbl', lblTruoc);
+    Render.setText('val-col-sau-lbl', lblSau);
+
     const gttTruoc = Calculator.calculateIntrinsicValue(sumLnstTruoc, data.vcsh, data.slcp);
     const gttSau = Calculator.calculateIntrinsicValue(sumLnstSau, data.vcsh, data.slcp);
 
@@ -92,17 +98,16 @@ const Render = {
     Render.setText('val-tongloiich-sau-box', Utils.formatPercent(pillarsSau.tong));
     Render.setColorClass('val-tongloiich-sau-box', pillarsSau.tong);
 
-    const lblLaiVon = document.getElementById('lbl-laivon');
-    if (lblLaiVon) {
-        if (pillarsSau.laiVon > 50) {
-            lblLaiVon.innerHTML = `LÃI VỐN (Mua rẻ tài sản) 
-              <span class="custom-tooltip">⚠️
-                <span class="tooltip-text"><strong>Lưu ý:</strong><br>Lãi Vốn > 50% cần xem xét kỹ. Không loại trừ khả năng đó là 1 doanh nghiệp nhỏ & tiềm ẩn nhiều rủi ro.</span>
-              </span>`;
-        } else {
-            lblLaiVon.innerHTML = `LÃI VỐN (Mua rẻ tài sản)`;
-        }
+    const warnLaiVon = document.getElementById('val-laivon-warn');
+    if (warnLaiVon) {
+      if (pillarsSau.laiVon > 50) {
+        warnLaiVon.innerHTML = `<span class="custom-tooltip">⚠️<span class="tooltip-text tooltip-lg"><span class="tooltip-header">Lưu ý Lãi vốn &gt; 50%</span><span class="tooltip-item">Lãi Vốn &gt; 50% cần xem xét kỹ báo cáo tài chính. Không loại trừ khả năng đây là doanh nghiệp vốn hóa nhỏ hoặc lợi nhuận đột biến một lần tiềm ẩn rủi ro.</span></span></span>`;
+      } else {
+        warnLaiVon.innerHTML = '';
+      }
     }
+
+    Render.initTooltips();
 
     // THÀNH CÔNG
     const tcTruoc = document.getElementById('chk-thanhcong-truoc');
@@ -118,6 +123,39 @@ const Render = {
 
     // Render biểu đồ giá tuần & Giá trị thực
     Render.renderWeeklyChart(data, gttSau);
+  },
+
+  initTooltips: () => {
+    if (Render._tooltipsInitialized) return;
+    Render._tooltipsInitialized = true;
+
+    document.addEventListener('mouseover', (e) => {
+      const trigger = e.target.closest('.custom-tooltip');
+      if (!trigger) return;
+      const tip = trigger.querySelector('.tooltip-text');
+      if (!tip) return;
+
+      const rect = trigger.getBoundingClientRect();
+      const tipW = tip.offsetWidth || 320;
+      const tipH = tip.offsetHeight || 130;
+      const pad = 10;
+
+      let left = rect.right + 10;
+      if (left + tipW > window.innerWidth - pad) {
+        left = Math.max(pad, rect.left - tipW - 10);
+      }
+
+      let top = rect.top + rect.height / 2 - tipH / 2;
+      if (top < pad) top = pad;
+      if (top + tipH > window.innerHeight - pad) {
+        top = Math.max(pad, window.innerHeight - tipH - pad);
+      }
+
+      tip.style.position = 'fixed';
+      tip.style.left = `${Math.round(left)}px`;
+      tip.style.top = `${Math.round(top)}px`;
+      tip.style.transform = 'none';
+    });
   },
 
   renderChecklist: (data, sumLnstSau) => {
