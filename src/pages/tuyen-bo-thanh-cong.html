@@ -1,0 +1,826 @@
+<style>
+  .karaoke-studio {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* Header & Themes */
+  .karaoke-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed #d4c4a8;
+    margin-bottom: 15px;
+  }
+
+  .karaoke-title {
+    color: #b58900;
+    font-size: 1.45em;
+    font-weight: 700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+
+
+  /* Control Dock */
+  .control-dock {
+    background: linear-gradient(135deg, rgba(254, 252, 245, 0.98) 0%, rgba(238, 232, 213, 0.98) 100%);
+    border: 2px solid #d4c4a8;
+    border-radius: 12px;
+    padding: 14px 18px;
+    box-shadow: 0 4px 15px rgba(181, 137, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .dock-left, .dock-center, .dock-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .action-btn {
+    background-color: #b58900;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.92em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(181, 137, 0, 0.2);
+  }
+
+  .action-btn:hover {
+    background-color: #936f00;
+    transform: translateY(-1px);
+  }
+
+  .action-btn.secondary {
+    background-color: #eee8d5;
+    color: #5d4037;
+    border: 1px solid #cbbfa8;
+    box-shadow: none;
+  }
+
+  .action-btn.secondary:hover {
+    background-color: #dfd6be;
+    color: #3e2723;
+  }
+
+  .action-btn.play-btn {
+    background-color: #b58900;
+  }
+
+  .action-btn.play-btn.active {
+    background-color: #d9534f !important;
+  }
+
+  .select-styled {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #cbbfa8;
+    background: #fdf6e3;
+    color: #5d4037;
+    font-size: 0.88em;
+    outline: none;
+    cursor: pointer;
+  }
+
+  /* KHUNG NÚT BẤM TĂNG / GIẢM TỐC ĐỘ (+) (-) TÙY THÍCH */
+  .speed-stepper-box {
+    display: flex;
+    align-items: center;
+    background: #fdf6e3;
+    border: 1.5px solid #b58900;
+    border-radius: 8px;
+    padding: 3px 6px;
+    gap: 4px;
+  }
+
+  .step-btn {
+    background: #eee8d5;
+    color: #5d4037;
+    border: 1px solid #cbbfa8;
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    font-size: 1.15em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .step-btn:hover {
+    background: #b58900;
+    color: white;
+    border-color: #b58900;
+  }
+
+  .step-btn:active {
+    transform: scale(0.95);
+  }
+
+  .speed-display-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 8px;
+    min-width: 65px;
+  }
+
+  .speed-num-label {
+    font-size: 1.05em;
+    font-weight: 800;
+    color: #b58900;
+  }
+
+  .speed-sub-label {
+    font-size: 0.68em;
+    color: #8c6d46;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+
+
+  .sound-wave {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+    height: 12px;
+  }
+
+  .sound-wave span {
+    width: 2.5px;
+    background-color: #b58900;
+    border-radius: 1px;
+    height: 3px;
+  }
+
+  .sound-wave.active span:nth-child(1) { animation: waveAnim 0.7s infinite ease-in-out; }
+  .sound-wave.active span:nth-child(2) { animation: waveAnim 0.7s infinite ease-in-out 0.2s; }
+  .sound-wave.active span:nth-child(3) { animation: waveAnim 0.7s infinite ease-in-out 0.4s; }
+  .sound-wave.active span:nth-child(4) { animation: waveAnim 0.7s infinite ease-in-out 0.1s; }
+
+  @keyframes waveAnim {
+    0%, 100% { height: 3px; }
+    50% { height: 12px; }
+  }
+
+  /* ========================================================
+     KARAOKE SCREEN 2 DÒNG LIỀN MẠCH - 120 FPS
+     ======================================================== */
+  .karaoke-screen {
+    background: linear-gradient(145deg, #2b1f14 0%, #15100c 100%);
+    border: 3px solid #b58900;
+    border-radius: 16px;
+    padding: 30px 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 0 40px rgba(181, 137, 0, 0.15);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transform: translateZ(0);
+    height: 330px; /* CHIỀU CAO CỐ ĐỊNH 100% TOÀN BỘ KHUNG ĐỌC */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .karaoke-screen::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  }
+
+  .karaoke-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #e0d0b0;
+    font-size: 0.9em;
+    font-weight: 500;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .karaoke-badge {
+    background: rgba(181, 137, 0, 0.3);
+    border: 1px solid #b58900;
+    padding: 4px 14px;
+    border-radius: 20px;
+    color: #ffd54f;
+    font-size: 0.9em;
+    font-weight: 700;
+  }
+
+  .karaoke-dual-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    height: 190px; /* CỐ ĐỊNH CHIỀU CAO VÙNG CHỮ */
+    box-sizing: border-box;
+  }
+
+  /* Khung hiển thị câu đang đọc - Khóa cứng chiều cao chính xác 110px */
+  .karaoke-reading-row {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Chữ to rõ ràng cố định 1 size duy nhất (1.95em) */
+  .karaoke-dual-line {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.95em;
+    font-weight: 700;
+    line-height: 1.42;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px 12px;
+    padding: 0 16px;
+    color: #fff8e7;
+    will-change: transform;
+    transform: translateZ(0);
+    max-width: 100%;
+  }
+
+  /* Dòng kế tiếp - Khóa cứng chiều cao 45px */
+  .karaoke-upcoming-row {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px dashed rgba(212, 196, 168, 0.25);
+    padding-top: 8px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+
+  .karaoke-upcoming-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35em;
+    color: rgba(212, 196, 168, 0.45);
+    font-style: italic;
+    letter-spacing: 0.3px;
+    text-align: center;
+    line-height: 1.35;
+    max-width: 95%;
+  }
+
+  .karaoke-word {
+    display: inline-block;
+    position: relative;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: #8c7b6d;
+    transition: color 0.1s ease, text-shadow 0.1s ease;
+  }
+
+  .karaoke-word.read-done {
+    color: #ffd54f;
+    text-shadow: 0 0 10px rgba(255, 213, 79, 0.7);
+  }
+
+  .karaoke-word.singing {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 0 12px #00e676, 0 0 24px #00e676;
+  }
+
+
+
+  .sentence-progress-bar {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    margin-top: 15px;
+    overflow: hidden;
+  }
+
+  .sentence-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ffc107, #00e676);
+    box-shadow: 0 0 10px #00e676;
+    will-change: width;
+  }
+
+
+
+  /* Zen Dark Theme */
+  .karaoke-studio.dark-zen .control-dock {
+    background: linear-gradient(135deg, #182026 0%, #202b33 100%);
+    border-color: #394b59;
+  }
+  .karaoke-studio.dark-zen .speed-stepper-box {
+    background: #182026;
+    border-color: #d99b26;
+  }
+  .karaoke-studio.dark-zen .step-btn {
+    background: #202b33;
+    color: #f5f8fa;
+    border-color: #394b59;
+  }
+
+  .karaoke-studio.dark-zen .action-btn.secondary {
+    background: #293742;
+    color: #d8e1e8;
+    border-color: #394b59;
+  }
+  .karaoke-studio.dark-zen .select-styled {
+    background: #182026;
+    color: #f5f8fa;
+    border-color: #394b59;
+  }
+
+
+  @media (max-width: 600px) {
+    .karaoke-dual-line { font-size: 1.35em; }
+    .karaoke-dual-line.is-upcoming { font-size: 1.15em; }
+    .karaoke-screen { padding: 20px 12px; }
+    .control-dock { padding: 10px; gap: 8px; }
+    .action-btn { padding: 7px 12px; font-size: 0.82em; }
+  }
+</style>
+
+<div class="karaoke-studio" id="karaokeStudio">
+  <!-- Header -->
+  <div class="karaoke-header">
+    <h2 class="karaoke-title">
+      <i class="bi bi-award-fill"></i> BÀI 4: BẢN TUYÊN BỐ THÀNH CÔNG
+    </h2>
+  </div>
+
+  <!-- Dock Control -->
+  <div class="control-dock">
+    <div class="dock-left">
+      <button class="action-btn play-btn" id="btnPlayKaraoke">
+        <i class="bi bi-play-fill" id="playIcon"></i>
+        <span id="playLabel">Bắt Đầu Đọc</span>
+      </button>
+
+      <button class="action-btn secondary" id="btnRestart" title="Về câu 1">
+        <i class="bi bi-arrow-counterclockwise"></i>
+      </button>
+    </div>
+
+    <!-- BỘ NÚT TĂNG / GIẢM TỐC ĐỘ TÙY THÍCH [ - ] [ 4.5s ] [ + ] -->
+    <div class="dock-center">
+      <div class="speed-stepper-box">
+        <button class="step-btn" id="btnSpeedDown" title="Giảm thời gian (Chạy nhanh hơn)"><i class="bi bi-dash"></i></button>
+        <div class="speed-display-wrap">
+          <span class="speed-num-label" id="speedNumLabel">4.5s</span>
+          <span class="speed-sub-label">TỐC ĐỘ</span>
+        </div>
+        <button class="step-btn" id="btnSpeedUp" title="Tăng thời gian (Chạy chậm hơn)"><i class="bi bi-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="dock-right">
+      <div class="sound-wave" id="dockSoundWave">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <select class="select-styled" id="dockMusicSelect" title="Chọn loại nhạc nền">
+        <option value="synth_peace">✨ Tần Số Hòa Âm Năng Lượng (432Hz Calm)</option>
+        <option value="synth_energy">⚡ Sức Mạnh Tinh Thần Đỉnh Cao (High Energy)</option>
+        <option value="epic">🔥 Truyền Cảm Hứng (Epic Cinematic)</option>
+        <option value="meditation">🎵 Thiền Tĩnh Tâm (Soft Flow)</option>
+        <option value="rain">🌧️ Mưa Êm Dịu (Soft Rain)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- KARAOKE SCREEN 2 DÒNG SONG HÀNH -->
+  <div class="karaoke-screen">
+    <div class="karaoke-meta-row">
+      <span class="karaoke-badge" id="screenBadge">CÂU 1 / 46</span>
+      <span id="screenTimer">00:00</span>
+    </div>
+
+    <div class="karaoke-dual-stage">
+      <div class="karaoke-reading-row">
+        <div class="karaoke-dual-line" id="karaokeReadingLine"></div>
+      </div>
+      <div class="karaoke-upcoming-row">
+        <div class="karaoke-upcoming-text" id="karaokeUpcomingText"></div>
+      </div>
+    </div>
+
+    <div class="sentence-progress-bar">
+      <div class="sentence-progress-fill" id="sentenceProgressFill"></div>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+  (function () {
+    const AFFIRMATIONS = [
+      "Hôm nay là một ngày tuyệt vời",
+      "Xét trong mọi khía cạnh cuộc sống của tôi rất phong phú",
+      "Tôi thành công trong mọi việc mình làm",
+      "Cuộc sống của tôi tràn ngập tình yêu thương và những điều tốt đẹp",
+      "Tôi được chỉ dẫn và bảo vệ tuyệt đối",
+      "Tôi hấp dẫn niềm vui và tiền bạc vào cuộc sống của mình",
+      "Tôi hạnh phúc và biết ơn vì được sống",
+      "Tôi tin mọi điều tốt đẹp đang xảy đến với tôi",
+      "Tôi yêu thương và được yêu thương",
+      "Tôi có thể làm được mọi thứ",
+      "Tôi tạo ra sự khác biệt trong thế giới này",
+      "Tôi là một người tuyệt vời",
+      "Tôi là người giàu có thành công",
+      "Tôi là người vui vẻ hạnh phúc",
+      "Tôi là người khỏe mạnh tự tin",
+      "Tôi là người đẹp trai mạnh mẽ",
+      "Tôi là người tài giỏi tuyệt vời",
+      "Tôi là chuyên gia bán hàng tài giỏi thành công",
+      "Tôi có được hàng trăm đơn hàng mỗi ngày",
+      "Tôi giúp cho khách hàng của tôi có cuộc sống tốt đẹp hơn",
+      "Tôi biết ơn và yêu thương khách hàng của tôi",
+      "Tôi là một nhà quản lý tiền bạc xuất sắc",
+      "Tôi luôn chi trả cho bản thân mình trước",
+      "Tôi đặt tiền vào quỹ tự do tài chính của mình mỗi ngày.",
+      "Tiền của tôi làm việc cật lực cho tôi và tạo cho tôi thêm nhiều tiền nữa.",
+      "Tôi kiếm đủ thu nhập thụ động để chi trả cho phong cách sống của tôi mơ ước.",
+      "Tôi chọn tự do về phương diện tài chính",
+      "Tôi làm việc bởi vì tôi lựa chọn nó chứ không phải bởi vì tôi phải làm.",
+      "Công việc kinh doanh bán thời gian của tôi là quản lý và đầu tư tiền và tạo ra dòng thu nhập thụ động.",
+      "Tôi tạo lập cuộc sống của mình.",
+      "Tôi tạo lập chính xác số lượng của sự thành công về tài chính của bản thân.",
+      "Tôi chơi trò chơi tiền bạc để chiến thắng.",
+      "Mục đích của tôi là thiết lập sự giàu có và thịnh vượng.",
+      "Tôi ngưỡng mộ và bắt chước những người thành công và giàu có.",
+      "Tôi tin tiền là quan trọng, tiền là dồi dào và tiền làm cho cuộc sống thú vị hơn.",
+      "Hành động để trở nên giàu có là điều mà tôi yêu thích.",
+      "Tôi xứng đáng trở nên giàu có vì tôi làm tăng thêm giá trị cho cuộc sống của những người khác.",
+      "Tôi là người cho đi rộng lượng và đón nhận cừ khôi.",
+      "Tôi biết ơn và thực sự trân trọng tất cả số tiền tôi đang có hiện nay.",
+      "Cơ hội sinh lời luôn luôn đến với con đường của tôi.",
+      "Khả năng của tôi là để kiếm tiền, giữ tiền, gia tăng tiền bạc và mở rộng mỗi ngày.",
+      "Tiền liên tục chảy vào cuộc đời tôi như thác đổ",
+      "Sự giàu có của vũ trụ đang ở trong tôi",
+      "Sự giàu có đó tràn ngập cuộc sống của tôi",
+      "Mọi mong muốn mọi nhu cầu mọi mục tiêu của tôi được đáp ứng ngay lập tức bởi trí tuệ vô hạn.",
+      "Vũ trụ biết điều gì là tốt nhất dành cho tôi",
+      "Mỗi ngày, về mọi mặt, tôi đang trở nên tốt hơn và tốt hơn",
+      "Tôi kêu gọi sức mạnh nội tại",
+      "Tôi đánh thức con người vĩ đại của bản thân",
+      "Với niềm tin vĩ đại TÔI LÀ NGƯỜI VĨ ĐẠI."
+    ];
+
+    const AUDIO_TRACKS = {
+      meditation: "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=meditation-impromptu-01-122513.mp3",
+      epic: "https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=cinematic-time-lapse-115672.mp3",
+      rain: "https://cdn.pixabay.com/download/audio/2021/09/06/audio_73229be4d0.mp3?filename=soft-rain-ambient-111154.mp3"
+    };
+
+    // State & Lưu tốc độ
+    const SAVED_SPEED = localStorage.getItem("karaoke_speed_val") || "4.5";
+
+    let currentIndex = 0;
+    let isPlaying = false;
+    let baseSpeed = parseFloat(SAVED_SPEED);
+    let currentLineDuration = baseSpeed * 1000;
+    let animFrameId = null;
+    let lineStartTime = 0;
+    let elapsedTimer = null;
+    let totalSeconds = 0;
+
+    // Web Audio Synthesizer
+    let audioCtx = null;
+    let isSynthRunning = false;
+    let synthTimer = null;
+    let audioElem = null;
+
+    // Elements
+    const studio = document.getElementById("karaokeStudio");
+    const btnPlay = document.getElementById("btnPlayKaraoke");
+    const playIcon = document.getElementById("playIcon");
+    const playLabel = document.getElementById("playLabel");
+    const btnRestart = document.getElementById("btnRestart");
+    const musicSelect = document.getElementById("dockMusicSelect");
+    const soundWave = document.getElementById("dockSoundWave");
+    const btnSpeedDown = document.getElementById("btnSpeedDown");
+    const btnSpeedUp = document.getElementById("btnSpeedUp");
+    const speedNumLabel = document.getElementById("speedNumLabel");
+    const screenBadge = document.getElementById("screenBadge");
+    const screenTimer = document.getElementById("screenTimer");
+    const readingLine = document.getElementById("karaokeReadingLine");
+    const upcomingText = document.getElementById("karaokeUpcomingText");
+    const progressFill = document.getElementById("sentenceProgressFill");
+
+    // Khởi tạo hiển thị tốc độ
+    function updateSpeedDisplay() {
+      speedNumLabel.textContent = `${baseSpeed.toFixed(1)}s`;
+      localStorage.setItem("karaoke_speed_val", baseSpeed.toString());
+    }
+    updateSpeedDisplay();
+
+    // Audio Engine
+    function initAudioContext() {
+      if (!audioCtx) {
+        const AudioClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioClass) audioCtx = new AudioClass();
+      }
+      if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+    }
+
+    function playSynthChord(notes, duration = 4.2, type = "peace") {
+      if (!audioCtx) return;
+      const now = audioCtx.currentTime;
+      const masterGain = audioCtx.createGain();
+      masterGain.gain.setValueAtTime(0.01, now);
+      masterGain.gain.linearRampToValueAtTime(0.09, now + 1.2);
+      masterGain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+      masterGain.connect(audioCtx.destination);
+
+      notes.forEach((freq) => {
+        const osc = audioCtx.createOscillator();
+        osc.type = type === "peace" ? "sine" : "triangle";
+        osc.frequency.setValueAtTime(freq, now);
+        osc.connect(masterGain);
+        osc.start(now);
+        osc.stop(now + duration);
+      });
+    }
+
+    function startSynth(mode) {
+      initAudioContext();
+      isSynthRunning = true;
+      const peaceChords = [
+        [216, 270, 324, 432],
+        [240, 288, 360, 480],
+        [192, 240, 288, 384],
+        [264, 330, 396, 528]
+      ];
+      const energyChords = [
+        [220, 277.18, 329.63, 440],
+        [261.63, 329.63, 392.00, 523.25],
+        [174.61, 220, 261.63, 349.23],
+        [196.00, 246.94, 293.66, 392.00]
+      ];
+      const chords = mode === "synth_peace" ? peaceChords : energyChords;
+
+      let step = 0;
+      function loop() {
+        if (!isSynthRunning) return;
+        playSynthChord(chords[step % chords.length], 4.2, mode === "synth_peace" ? "peace" : "energy");
+        step++;
+        synthTimer = setTimeout(loop, 4000);
+      }
+      loop();
+    }
+
+    function stopSynth() {
+      isSynthRunning = false;
+      if (synthTimer) {
+        clearTimeout(synthTimer);
+        synthTimer = null;
+      }
+    }
+
+    function startBackgroundAudio() {
+      const mode = musicSelect.value;
+      soundWave.classList.add("active");
+
+      if (mode.startsWith("synth_")) {
+        if (audioElem) audioElem.pause();
+        startSynth(mode);
+      } else {
+        stopSynth();
+        const url = AUDIO_TRACKS[mode];
+        if (!audioElem) {
+          audioElem = new Audio();
+          audioElem.loop = true;
+          audioElem.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+          });
+        }
+        audioElem.src = url;
+        audioElem.loop = true;
+        audioElem.volume = 0.65;
+        audioElem.play().catch(() => {
+          startSynth("synth_peace");
+        });
+      }
+    }
+
+    function stopBackgroundAudio() {
+      soundWave.classList.remove("active");
+      if (audioElem) audioElem.pause();
+      stopSynth();
+    }
+
+    // TÍNH THỜI GIAN THEO TỐC ĐỘ ĐÃ CHỈNH
+    function calculateDurationForSentence() {
+      return baseSpeed * 1000;
+    }
+
+    function populateWordsToLine(lineElem, text) {
+      lineElem.innerHTML = "";
+      const words = text.split(" ");
+      words.forEach((w, idx) => {
+        const span = document.createElement("span");
+        span.className = "karaoke-word";
+        span.textContent = w;
+        span.dataset.wordIndex = idx;
+        lineElem.appendChild(span);
+      });
+    }
+
+    function changeLine(idx) {
+      if (idx < 0 || idx >= AFFIRMATIONS.length) return;
+      currentIndex = idx;
+      lineStartTime = performance.now();
+      currentLineDuration = calculateDurationForSentence();
+
+      screenBadge.textContent = `CÂU ${idx + 1} / ${AFFIRMATIONS.length}`;
+
+      // Đưa câu hiện tại vào đúng dòng đọc duy nhất (cố định trung tâm)
+      populateWordsToLine(readingLine, AFFIRMATIONS[idx]);
+
+      // Hiển thị trước câu tiếp theo ở dòng phụ bên dưới
+      if (idx < AFFIRMATIONS.length - 1) {
+        upcomingText.textContent = AFFIRMATIONS[idx + 1];
+      } else {
+        upcomingText.innerHTML = "<span style='color:#ffd54f;'>★ Bạn đã hoàn thành trọn vẹn 46 câu tuyên bố thành công!</span>";
+      }
+
+      progressFill.style.width = "0%";
+    }
+
+    function smoothAdvanceToNextLine() {
+      if (currentIndex < AFFIRMATIONS.length - 1) {
+        changeLine(currentIndex + 1);
+      } else {
+        screenBadge.textContent = "🎉 HOÀN THÀNH!";
+        pauseKaraoke();
+      }
+    }
+
+    // 120 FPS LOOP
+    function continuousKaraokeLoop(timestamp) {
+      if (!isPlaying) return;
+
+      const elapsed = timestamp - lineStartTime;
+      const progress = Math.min(elapsed / currentLineDuration, 1);
+
+      progressFill.style.width = (progress * 100).toFixed(2) + "%";
+
+      const spans = readingLine.querySelectorAll(".karaoke-word");
+      const totalWords = spans.length;
+
+      if (totalWords > 0) {
+        const activeWordIndex = Math.min(Math.floor(progress * totalWords), totalWords - 1);
+        for (let i = 0; i < totalWords; i++) {
+          const span = spans[i];
+          if (i < activeWordIndex) {
+            if (span.className !== "karaoke-word read-done") {
+              span.className = "karaoke-word read-done";
+            }
+          } else if (i === activeWordIndex) {
+            if (span.className !== "karaoke-word singing") {
+              span.className = "karaoke-word singing";
+            }
+          } else {
+            if (span.className !== "karaoke-word") {
+              span.className = "karaoke-word";
+            }
+          }
+        }
+      }
+
+      if (elapsed >= currentLineDuration) {
+        smoothAdvanceToNextLine();
+      }
+
+      animFrameId = window.requestAnimationFrame(continuousKaraokeLoop);
+    }
+
+    function startKaraoke() {
+      isPlaying = true;
+      btnPlay.classList.add("active");
+      playIcon.className = "bi bi-pause-fill";
+      playLabel.textContent = "Tạm Dừng";
+
+      startBackgroundAudio();
+      lineStartTime = performance.now();
+      currentLineDuration = calculateDurationForSentence();
+      animFrameId = window.requestAnimationFrame(continuousKaraokeLoop);
+
+      if (!elapsedTimer) {
+        elapsedTimer = setInterval(() => {
+          totalSeconds++;
+          const m = String(Math.floor(totalSeconds / 60)).padStart(2, "0");
+          const s = String(totalSeconds % 60).padStart(2, "0");
+          screenTimer.textContent = `${m}:${s}`;
+        }, 1000);
+      }
+    }
+
+    function pauseKaraoke() {
+      isPlaying = false;
+      btnPlay.classList.remove("active");
+      playIcon.className = "bi bi-play-fill";
+      playLabel.textContent = "Bắt Đầu Đọc";
+
+      if (animFrameId) {
+        window.cancelAnimationFrame(animFrameId);
+        animFrameId = null;
+      }
+      stopBackgroundAudio();
+      if (elapsedTimer) {
+        clearInterval(elapsedTimer);
+        elapsedTimer = null;
+      }
+    }
+
+    btnPlay.addEventListener("click", () => {
+      if (isPlaying) pauseKaraoke();
+      else startKaraoke();
+    });
+
+    btnRestart.addEventListener("click", () => {
+      pauseKaraoke();
+      totalSeconds = 0;
+      screenTimer.textContent = "00:00";
+      changeLine(0);
+    });
+
+    // NÚT BẤM (+) VÀ (-) TĂNG GIẢM TỐC ĐỘ THEO Ý THÍCH MỖI BƯỚC 0.1s (TỐI THIỂU 0.5s)
+    btnSpeedUp.addEventListener("click", () => {
+      baseSpeed = Math.min(15.0, +(baseSpeed + 0.1).toFixed(1));
+      currentLineDuration = baseSpeed * 1000;
+      updateSpeedDisplay();
+    });
+
+    btnSpeedDown.addEventListener("click", () => {
+      baseSpeed = Math.max(0.5, +(baseSpeed - 0.1).toFixed(1));
+      currentLineDuration = baseSpeed * 1000;
+      updateSpeedDisplay();
+    });
+
+    musicSelect.addEventListener("change", () => {
+      if (isPlaying) startBackgroundAudio();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === " " || e.code === "Space") {
+        e.preventDefault();
+        btnPlay.click();
+      } else if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+        if (currentIndex < AFFIRMATIONS.length - 1) changeLine(currentIndex + 1);
+      } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+        if (currentIndex > 0) changeLine(currentIndex - 1);
+      }
+    });
+
+    changeLine(0);
+  })();
+</script>

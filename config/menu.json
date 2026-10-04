@@ -12,6 +12,12 @@
     "icon": "bi-sunrise"
   },
   {
+    "name": "Bài 4: Bản Tuyên Bố Thành Công",
+    "id": "tuyen-bo-thanh-cong",
+    "contentUrl": "src/pages/tuyen-bo-thanh-cong.html",
+    "icon": "bi-award-fill"
+  },
+  {
     "name": "Quick Links",
     "id": "quick-links",
     "contentUrl": "src/pages/quick-links.html",
