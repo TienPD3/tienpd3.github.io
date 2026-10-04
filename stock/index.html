@@ -7,7 +7,7 @@
   <title>Stock Pro - V2</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
   <!-- App Styles -->
-  <link rel="stylesheet" href="css/style.css?v=3.7">
+  <link rel="stylesheet" href="css/style.css?v=3.8">
 </head>
 
 <body>
@@ -84,7 +84,7 @@
           </tr>
           <tr class="highlight-row row-accent">
             <td class="font-bold"><span id="val-lnst-sau-lbl">LNST -- ~ -- (tỷ đồng)</span></td>
-            <td class="text-right text-success font-bold" id="val-lnst-sau">--</td>
+            <td class="text-right font-bold" id="val-lnst-sau">--</td>
             <td class="text-center font-bold col-quarter" id="val-q3-lbl">--</td>
             <td class="col-quarter-val" id="val-q3-val">--</td>
           </tr>
@@ -118,7 +118,7 @@
           </tr>
           <tr class="highlight-row row-last">
             <td>TỔNG SỐ LƯỢNG CỔ PHIẾU (triệu cp)</td>
-            <td class="text-right text-danger font-bold" id="val-slcp">--</td>
+            <td class="text-right" id="val-slcp">--</td>
             <td colspan="2" class="text-center font-italic text-muted">Đơn vị: triệu</td>
           </tr>
         </table>
@@ -206,13 +206,38 @@
             <td class="font-bold">TỔNG LỢI ÍCH</td>
             <td class="text-right font-bold" id="val-tongloiich-truoc">--</td>
             <td class="text-center font-bold text-success" id="val-tongloiich-sau-box">--</td>
-            <td class="text-center font-bold">RESULT</td>
+            <td class="text-center font-bold">
+              RESULT
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">RESULT — Kết Quả Đầu Tư Cuối Cùng</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Đạt YES khi thỏa mãn đồng thời cả 4 tiêu chuẩn:</span></span>
+                  <span class="tooltip-subitem">• <strong>THÀNH CÔNG (quý hiện tại):</strong> YES (Tổng lợi ích ≥ 20%).</span>
+                  <span class="tooltip-subitem">• <strong>Ban lãnh đạo mua/bán:</strong> YES (Đạt = 1, BLĐ mua vào hoặc không bán).</span>
+                  <span class="tooltip-subitem">• <strong>Thanh khoản cổ phiếu:</strong> YES (TB 20 phiên ≥ 30 tỷ/ngày).</span>
+                  <span class="tooltip-subitem">• <strong>Nợ dài hạn / LNST:</strong> YES (≤ 5 năm trả hết nợ).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Khi nào là NO:</span> Không thỏa mãn bất kỳ tiêu chí nào trong 4 tiêu chí trên.</span>
+                </span>
+              </span>
+            </td>
           </tr>
           <tr class="row-success-summary">
-            <td class="font-bold">THÀNH CÔNG</td>
+            <td class="font-bold">
+              THÀNH CÔNG
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Đánh giá THÀNH CÔNG (Tiêu chuẩn 3 Trụ Cột)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Kết luận định giá cổ phiếu dựa trên kỳ vọng sinh lời tổng thể (Tổng Lợi Ích = Lãi Vốn + Dòng Tiền Cổ Tức + Tăng Giá Trị).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Khi nào là YES:</span> <strong>Tổng Lợi Ích ≥ 20%</strong>. Cổ phiếu có biên an toàn tốt, định giá hấp dẫn và tỷ suất sinh lời vượt trội so với lãi suất gửi tiết kiệm.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Khi nào là NO:</span> <strong>Tổng Lợi Ích &lt; 20%</strong>. Kỳ vọng sinh lời thấp hoặc thị giá hiện tại đang quá cao so với giá trị thực (Lãi vốn âm lớn kéo tụt tổng lợi ích).</span>
+                </span>
+              </span>
+            </td>
             <td class="text-right text-danger font-bold" id="chk-thanhcong-truoc">--</td>
             <td class="text-center text-success font-bold" id="chk-thanhcong-sau">--</td>
-            <td class="text-center font-bold">--</td>
+            <td class="text-center font-bold" id="chk-result">--</td>
           </tr>
         </table>
       </div>
@@ -301,13 +326,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              Tỷ lệ lãi gộp &gt;= 15%
+              Tỷ lệ lãi gộp ≥ 15%
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
-                  <span class="tooltip-header">Biên lợi nhuận gộp (Gross Profit Margin &gt;= 15%)</span>
+                  <span class="tooltip-header">Biên lợi nhuận gộp (Gross Profit Margin ≥ 15%)</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Phần trăm lợi nhuận còn lại sau khi lấy Doanh thu trừ trực tiếp Giá vốn hàng bán (Lợi nhuận gộp / Doanh thu).</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Biên lãi gộp &gt;= 15% cho thấy sản phẩm có lợi thế cạnh tranh, định giá bán tốt và không phải bán phá giá.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Biên lãi gộp ≥ 15% cho thấy sản phẩm có lợi thế cạnh tranh, định giá bán tốt và không phải bán phá giá.</span>
                 </span>
               </span>
             </td>
@@ -316,13 +341,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              Tỷ lệ lãi ròng (&gt;= 5)
+              Tỷ lệ lãi ròng (≥ 5%)
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
-                  <span class="tooltip-header">Biên lợi nhuận ròng (Net Profit Margin &gt;= 5%)</span>
+                  <span class="tooltip-header">Biên lợi nhuận ròng (Net Profit Margin ≥ 5%)</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Trong 100 đồng doanh thu, doanh nghiệp cuối cùng bỏ túi được bao nhiêu đồng lãi ròng sau khi đã trừ hết mọi chi phí, lãi vay và thuế.</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Biên lãi ròng &gt;= 5% đảm bảo bộ máy vận hành hiệu quả và có đệm an toàn trước biến động chi phí.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Biên lãi ròng ≥ 5% đảm bảo bộ máy vận hành hiệu quả và có đệm an toàn trước biến động chi phí.</span>
                 </span>
               </span>
             </td>
@@ -331,13 +356,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              ROA (&gt;= 5%)
+              ROA (≥ 5%)
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
                   <span class="tooltip-header">ROA (Return on Assets) — Tỷ suất sinh lời trên Tổng tài sản</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Đo lường 100 đồng Tổng tài sản (Vốn chủ + Nợ vay) tạo ra được bao nhiêu đồng Lợi nhuận sau thuế (LNST / Tổng tài sản).</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đánh giá hiệu quả quản trị toàn bộ nguồn lực của doanh nghiệp. ROA &gt;= 5% chứng tỏ tài sản thực sự vận hành sinh lời tốt chứ không bị ứ đọng hay phình to ảo do vay nợ.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đánh giá hiệu quả quản trị toàn bộ nguồn lực của doanh nghiệp. ROA ≥ 5% chứng tỏ tài sản thực sự vận hành sinh lời tốt chứ không bị ứ đọng hay phình to ảo do vay nợ.</span>
                 </span>
               </span>
             </td>
@@ -346,13 +371,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              ROE (&gt;= 15%)
+              ROE (≥ 15%)
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
                   <span class="tooltip-header">ROE (Return on Equity) — Tỷ suất sinh lời trên Vốn chủ sở hữu</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Cho biết 100 đồng Vốn thực của cổ đông bỏ ra thu về được bao nhiêu đồng Lợi nhuận ròng (LNST / VCSH).</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Là thước đo cốt lõi nhất với cổ đông (chỉ số ưa thích của Warren Buffett). ROE &gt;= 15% đảm bảo vốn cổ đông sinh sôi vượt xa lãi suất tiết kiệm và lạm phát, tạo lãi kép dài hạn.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Là thước đo cốt lõi nhất với cổ đông (chỉ số ưa thích của Warren Buffett). ROE ≥ 15% đảm bảo vốn cổ đông sinh sôi vượt xa lãi suất tiết kiệm và lạm phát, tạo lãi kép dài hạn.</span>
                 </span>
               </span>
             </td>
@@ -361,13 +386,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              ROIC (&gt;= 10%)
+              ROIC (≥ 10%)
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
                   <span class="tooltip-header">ROIC (Return on Invested Capital) — Sinh lời trên Vốn đầu tư</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Hiệu quả sinh lời trên tổng nguồn vốn thực tế rót vào hoạt động kinh doanh cốt lõi (Vốn chủ + Nợ vay có lãi, trừ tiền nhàn rỗi).</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Khắc phục điểm mù của ROE (vì ROE có thể bị đẩy cao ảo nhờ vay nợ lớn). ROIC &gt;= 10% khẳng định doanh nghiệp có lợi thế cạnh tranh bền vững (con hào kinh tế) và tạo giá trị thực vượt chi phí vốn.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Khắc phục điểm mù của ROE (vì ROE có thể bị đẩy cao ảo nhờ vay nợ lớn). ROIC ≥ 10% khẳng định doanh nghiệp có lợi thế cạnh tranh bền vững (con hào kinh tế) và tạo giá trị thực vượt chi phí vốn.</span>
                 </span>
               </span>
             </td>
@@ -376,12 +401,12 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              Nợ/VCSH (&lt;= 1)
+              Nợ/VCSH (≤ 1)
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
-                  <span class="tooltip-header">Hệ số Nợ vay / Vốn chủ sở hữu (D/E &lt;= 1)</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tỷ lệ giữa Nợ vay so với Vốn tự có của doanh nghiệp. Mức &lt;= 1 nghĩa là tổng nợ vay không vượt quá vốn chủ sở hữu.</span>
+                  <span class="tooltip-header">Hệ số Nợ vay / Vốn chủ sở hữu (D/E ≤ 1)</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Tỷ lệ giữa Nợ vay so với Vốn tự có của doanh nghiệp. Mức ≤ 1 nghĩa là tổng nợ vay không vượt quá vốn chủ sở hữu.</span>
                   <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Bảo vệ doanh nghiệp khỏi áp lực lãi vay ăn mòn lợi nhuận hay rủi ro mất thanh khoản khi lãi suất tăng cao.</span>
                 </span>
               </span>
@@ -391,13 +416,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              P/E &lt; 15 (có thể 20) &lt;= 15
+              P/E &lt; 15 (có thể 20) ≤ 15
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
                   <span class="tooltip-header">P/E (Price to Earnings) — Hệ số Giá / Lợi nhuận mỗi cổ phiếu</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Số tiền nhà đầu tư sẵn sàng trả cho 1 đồng lợi nhuận, tương đương số năm cần để hoàn vốn nếu lợi nhuận giữ nguyên (Giá thị trường / EPS).</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Cho biết cổ phiếu đang đắt hay rẻ so với sức kiếm tiền. P/E &lt;= 15 (tỷ suất lợi nhuận &gt;= 6.7%/năm) giúp mua được doanh nghiệp tốt ở mức giá hợp lý, tránh bẫy mua đuổi giá ảo.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Cho biết cổ phiếu đang đắt hay rẻ so với sức kiếm tiền. P/E ≤ 15 (tỷ suất lợi nhuận ≥ 6.7%/năm) giúp mua được doanh nghiệp tốt ở mức giá hợp lý, tránh bẫy mua đuổi giá ảo.</span>
                 </span>
               </span>
             </td>
@@ -406,13 +431,13 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              P/B &lt; 2 (&lt;= 2)
+              P/B &lt; 2 (≤ 2)
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
                   <span class="tooltip-header">P/B (Price to Book Value) — Hệ số Giá / Giá trị sổ sách</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> So sánh giá cổ phiếu trên sàn đang gấp bao nhiêu lần tài sản ròng thực tế (Vốn chủ sở hữu) của mỗi cổ phiếu (Giá thị trường / BVPS).</span>
-                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đo lường biên an toàn theo tài sản thực. P/B &lt;= 2 bảo vệ nhà đầu tư không trả giá quá đắt so với giá trị sổ sách, hạn chế rủi ro sụt giảm sâu khi thị trường điều chỉnh.</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đo lường biên an toàn theo tài sản thực. P/B ≤ 2 bảo vệ nhà đầu tư không trả giá quá đắt so với giá trị sổ sách, hạn chế rủi ro sụt giảm sâu khi thị trường điều chỉnh.</span>
                 </span>
               </span>
             </td>
@@ -422,9 +447,24 @@
           <tr class="highlight-row">
             <td>
               Thanh khoản cổ phiếu <span class="text-success">(TB 20 phiên)</span>
+              <span class="custom-tooltip">
+                <span class="info-badge">?</span>
+                <span class="tooltip-text tooltip-lg">
+                  <span class="tooltip-header">Thanh khoản cổ phiếu — GTGD bình quân 20 phiên</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Giá trị giao dịch (GTGD) khớp lệnh bình quân mỗi ngày trong 20 phiên gần nhất (tỷ đồng/ngày).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">6 Cấp độ phân loại:</span></span>
+                  <span class="tooltip-subitem">• <strong>&gt; 100 tỷ/ngày:</strong> Rất tốt [YES] (Bluechip/VN30, siêu thanh khoản).</span>
+                  <span class="tooltip-subitem">• <strong>50 – 100 tỷ/ngày:</strong> Tốt [YES] (Thanh khoản cao, an toàn vốn).</span>
+                  <span class="tooltip-subitem">• <strong>30 – 50 tỷ/ngày:</strong> Khá tốt [YES] (Midcap, khớp lệnh mượt mà).</span>
+                  <span class="tooltip-subitem">• <strong>10 – 30 tỷ/ngày:</strong> Có thể xem xét [NO] (Chưa đạt chuẩn thanh khoản an toàn, chỉ vốn nhỏ).</span>
+                  <span class="tooltip-subitem">• <strong>5 – 10 tỷ/ngày:</strong> Thấp [NO] (Thanh khoản yếu, dễ trượt giá).</span>
+                  <span class="tooltip-subitem">• <strong>&lt; 5 tỷ/ngày:</strong> Rất thấp [NO] (Nên tránh, rủi ro kẹt hàng).</span>
+                  <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Đảm bảo nguyên tắc "mua được thì phải bán được". Giúp nhà đầu tư ra vào vị thế dễ dàng mà không bị ép giá sâu hoặc mất thanh khoản khi thị trường đảo chiều.</span>
+                </span>
+              </span>
               <div class="text-muted row-subtext"><span id="chk-tk-desc">--</span></div>
             </td>
-            <td class="text-center font-bold"><span id="chk-tk-val">--</span></td>
+            <td class="text-center"><span id="chk-tk-val">--</span></td>
             <td class="text-center cell-yn"><span id="chk-tk-yn">--</span></td>
           </tr>
           <tr class="highlight-row">
@@ -453,11 +493,11 @@
           </tr>
           <tr class="highlight-row">
             <td>
-              <span id="chk-ndh-desc">Nợ dài hạn / LNST &lt;= 5</span>
+              <span id="chk-ndh-desc">Nợ dài hạn / LNST ≤ 5</span>
               <span class="custom-tooltip">
                 <span class="info-badge">?</span>
                 <span class="tooltip-text tooltip-lg">
-                  <span class="tooltip-header">Khả năng trả nợ dài hạn bằng Lợi nhuận ròng (&lt;= 5 năm)</span>
+                  <span class="tooltip-header">Khả năng trả nợ dài hạn bằng Lợi nhuận ròng (≤ 5 năm)</span>
                   <span class="tooltip-item"><span class="tooltip-label">Là gì:</span> Số năm cần thiết để trả sạch toàn bộ Nợ vay dài hạn nếu dùng 100% Lợi nhuận sau thuế hàng năm để trả nợ.</span>
                   <span class="tooltip-item"><span class="tooltip-label">Tại sao quan trọng:</span> Tiêu chuẩn an toàn của Warren Buffett: doanh nghiệp tốt chỉ nên vay nợ dài hạn ở mức mà lợi nhuận làm ra trong tối đa 3-5 năm là trả dứt điểm được.</span>
                 </span>
@@ -484,9 +524,9 @@
 <!-- App Scripts -->
 <script src="js/core/const.js?v=3.7"></script>
 <script src="js/core/utils.js?v=3.7"></script>
-<script src="js/core/api.js?v=3.7"></script>
-<script src="js/calculator.js?v=3.7"></script>
-<script src="js/render.js?v=3.7"></script>
-<script src="js/app.js?v=3.7"></script>
+<script src="js/core/api.js?v=3.8"></script>
+<script src="js/calculator.js?v=4.1"></script>
+<script src="js/render.js?v=4.6"></script>
+<script src="js/app.js?v=4.3"></script>
 </body>
 </html>

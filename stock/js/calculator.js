@@ -255,6 +255,8 @@ const Calculator = {
         status: "Rất tốt",
         cssClass: "text-success",
         bgClass: "bg-green-light",
+        levelColor: "text-success",
+        range: "> 100 tỷ/ngày",
         pass: true,
         desc: "> 100 tỷ/ngày (Rất tốt)"
       };
@@ -263,6 +265,8 @@ const Calculator = {
         status: "Tốt",
         cssClass: "text-success",
         bgClass: "bg-green-light",
+        levelColor: "text-success",
+        range: "50 – 100 tỷ/ngày",
         pass: true,
         desc: "50 – 100 tỷ/ngày (Tốt)"
       };
@@ -271,15 +275,19 @@ const Calculator = {
         status: "Khá tốt",
         cssClass: "text-success",
         bgClass: "bg-green-light",
+        levelColor: "text-success",
+        range: "30 – 50 tỷ/ngày",
         pass: true,
         desc: "30 – 50 tỷ/ngày (Khá tốt)"
       };
     } else if (avgDailyValueTy >= 10) {
       return {
         status: "Có thể xem xét",
-        cssClass: "text-warning",
-        bgClass: "bg-warning-light",
-        pass: true,
+        cssClass: "text-danger",
+        bgClass: "bg-pink-light",
+        levelColor: "text-warning",
+        range: "10 – 30 tỷ/ngày",
+        pass: false,
         desc: "10 – 30 tỷ/ngày (Có thể xem xét)"
       };
     } else if (avgDailyValueTy >= 5) {
@@ -287,6 +295,8 @@ const Calculator = {
         status: "Thấp",
         cssClass: "text-danger",
         bgClass: "bg-pink-light",
+        levelColor: "text-danger",
+        range: "5 – 10 tỷ/ngày",
         pass: false,
         desc: "5 – 10 tỷ/ngày (Thấp)"
       };
@@ -295,6 +305,8 @@ const Calculator = {
         status: "Rất thấp",
         cssClass: "text-danger font-bold",
         bgClass: "bg-pink-light",
+        levelColor: "text-danger",
+        range: "< 5 tỷ/ngày",
         pass: false,
         desc: "< 5 tỷ/ngày (Rất thấp → nên tránh)"
       };
@@ -340,6 +352,33 @@ const Calculator = {
       hdkd: data.lnHdkd > 0,
       // Nợ DH / LNST 4 quý TTM (Trailing Twelve Months) – chắc hơn 1 quý đơn lẻ
       ndh_lnst: (sumLnstSau > 0) ? ((data.ndh / sumLnstSau) <= 5) : false
+    };
+  },
+
+  /**
+   * Đánh giá Kết quả Cuối cùng (RESULT)
+   * Đạt YES khi thỏa mãn cả 4 tiêu chí:
+   * 1. THÀNH CÔNG (quý hiện tại) = YES
+   * 2. Ban lãnh đạo mua/bán cổ phần = YES (1)
+   * 3. Thanh khoản cổ phiếu = YES (>= 30 tỷ/ngày)
+   * 4. Nợ dài hạn / LNST <= 5 = YES
+   * @param {boolean} isSuccessSau
+   * @param {Object} checks
+   * @returns {Object}
+   */
+  evaluateFinalResult: (isSuccessSau, checks) => {
+    const isBldPass = checks && checks.bld === true;
+    const isTkPass = Boolean(checks && checks.thanhKhoan && checks.thanhKhoan.pass === true);
+    const isNdhPass = checks && checks.ndh_lnst === true;
+
+    const pass = isSuccessSau === true && isBldPass && isTkPass && isNdhPass;
+
+    return {
+      pass,
+      isSuccessSau,
+      isBldPass,
+      isTkPass,
+      isNdhPass
     };
   }
 };

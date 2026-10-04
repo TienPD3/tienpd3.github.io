@@ -27,40 +27,50 @@ const Render = {
     Render.setText('val-slcp', Utils.formatNumber(data.slcp));
     // Old layout uses simple text mapping for the most part
 
-    const isYearly = data.lnstLatest.quarter === 0;
+    const isYearly = data.lnstLatest?.quarter === 0;
     
     Render.setText('val-lnst-header', isYearly ? 'LNST 5 năm gần nhất' : 'LNST 5 quý gần nhất');
     
     let sumLnstTruoc = 0;
-    data.lnst4Quarters.forEach((q, index) => {
+    const quarters = data.lnst4Quarters || [];
+    quarters.forEach((q, index) => {
       const uiIndex = 4 - index; 
-      Render.setText(`val-q${uiIndex}-lbl`, Utils.getQuarterYear(q.year, q.quarter));
-      Render.setText(`val-q${uiIndex}-val`, Utils.formatNumber(q.value));
+      Render.setText(`val-q${uiIndex}-lbl`, q ? Utils.getQuarterYear(q.year, q.quarter) : '--');
+      Render.setText(`val-q${uiIndex}-val`, q ? Utils.formatNumber(q.value) : '--');
       // Nếu là báo cáo Quý, cộng dồn 4 quý cũ. Nếu báo cáo Năm, chỉ lấy năm liền kề (index 3)
       if (!isYearly || index === 3) {
-          sumLnstTruoc += q.value;
+        sumLnstTruoc += (q?.value || 0);
       }
     });
 
-    Render.setText('val-q0-lbl', Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter));
-    Render.setText('val-q0-val', Utils.formatNumber(data.lnstLatest.value));
+    Render.setText('val-q0-lbl', data.lnstLatest ? Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter) : '--');
+    Render.setText('val-q0-val', data.lnstLatest ? Utils.formatNumber(data.lnstLatest.value) : '--');
 
-    const qOldest = data.lnst4Quarters[0];
-    const qNewest_truoc = data.lnst4Quarters[3];
-    const qOldest_sau = data.lnst4Quarters[1];
+    const qOldest = quarters[0];
+    const qNewest_truoc = quarters[3];
+    const qOldest_sau = quarters[1];
     
+    const lblOldest = qOldest ? Utils.getQuarterYear(qOldest.year, qOldest.quarter) : '--';
+    const lblNewestTruoc = qNewest_truoc ? Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter) : '--';
+    const lblOldestSau = qOldest_sau ? Utils.getQuarterYear(qOldest_sau.year, qOldest_sau.quarter) : '--';
+    const lblLatest = data.lnstLatest ? Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter) : '--';
+
     if (isYearly) {
-        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng)`);
-        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng)`);
+      Render.setText('val-lnst-truoc-lbl', `LNST ${lblNewestTruoc} (tỷ đồng)`);
+      Render.setText('val-lnst-sau-lbl', `LNST ${lblLatest} (tỷ đồng)`);
     } else {
-        Render.setText('val-lnst-truoc-lbl', `LNST ${Utils.getQuarterYear(qOldest.year, qOldest.quarter)} ~ ${Utils.getQuarterYear(qNewest_truoc.year, qNewest_truoc.quarter)} (tỷ đồng)`);
-        Render.setText('val-lnst-sau-lbl', `LNST ${Utils.getQuarterYear(qOldest_sau.year, qOldest_sau.quarter)} ~ ${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)} (tỷ đồng)`);
+      Render.setText('val-lnst-truoc-lbl', `LNST ${lblOldest} ~ ${lblNewestTruoc} (tỷ đồng)`);
+      Render.setText('val-lnst-sau-lbl', `LNST ${lblOldestSau} ~ ${lblLatest} (tỷ đồng)`);
     }
 
-    Render.setText('val-vcsh-lbl', `VỐN CHỦ SỞ HỮU HIỆN TẠI [${Utils.getQuarterYear(data.lnstLatest.year, data.lnstLatest.quarter)}] (tỷ đồng)`);
+    Render.setText('val-vcsh-lbl', `VỐN CHỦ SỞ HỮU HIỆN TẠI [${lblLatest}] (tỷ đồng)`);
 
     Render.setText('val-lnst-truoc', Utils.formatNumber(sumLnstTruoc));
-    const sumLnstSau = isYearly ? data.lnstLatest.value : (sumLnstTruoc - data.lnst4Quarters[0].value + data.lnstLatest.value);
+    const sumLnstSau = isYearly 
+      ? (data.lnstLatest?.value || 0) 
+      : (quarters.length >= 4 
+          ? (sumLnstTruoc - (qOldest?.value || 0) + (data.lnstLatest?.value || 0)) 
+          : sumLnstTruoc);
     Render.setText('val-lnst-sau', Utils.formatNumber(sumLnstSau));
 
     return { sumLnstTruoc, sumLnstSau };
@@ -110,15 +120,18 @@ const Render = {
     Render.initTooltips();
 
     // THÀNH CÔNG
+    const isSuccessTruoc = pillarsTruoc.tong >= 20;
+    const isSuccessSau = pillarsSau.tong >= 20;
+
     const tcTruoc = document.getElementById('chk-thanhcong-truoc');
     if (tcTruoc) {
-        tcTruoc.innerText = pillarsTruoc.tong >= 20 ? "YES" : "NO";
-        tcTruoc.className = pillarsTruoc.tong >= 20 ? "text-center text-success font-bold" : "text-center text-danger font-bold";
+      tcTruoc.innerText = isSuccessTruoc ? "YES" : "NO";
+      tcTruoc.className = isSuccessTruoc ? "text-center text-success font-bold" : "text-center text-danger font-bold";
     }
     const tcSau = document.getElementById('chk-thanhcong-sau');
     if (tcSau) {
-        tcSau.innerText = pillarsSau.tong >= 20 ? "YES" : "NO";
-        tcSau.className = pillarsSau.tong >= 20 ? "text-center text-success font-bold" : "text-center text-danger font-bold";
+      tcSau.innerText = isSuccessSau ? "YES" : "NO";
+      tcSau.className = isSuccessSau ? "text-center text-success font-bold" : "text-center text-danger font-bold";
     }
 
     // Render biểu đồ giá tuần & Giá trị thực
@@ -161,8 +174,14 @@ const Render = {
   renderChecklist: (data, sumLnstSau) => {
     const checks = Calculator.evaluateChecklist(data, sumLnstSau);
 
-    const updateRow = (idPrefix, valueText, isPass) => {
-      Render.setText(`${idPrefix}-val`, valueText);
+    const updateRow = (idPrefix, valueText, isPass, isHtml = false) => {
+      const hasHtml = isHtml || (typeof valueText === 'string' && valueText.includes('<br>'));
+      Render.setText(`${idPrefix}-val`, valueText, hasHtml);
+      const valEl = document.getElementById(`${idPrefix}-val`);
+      if (valEl) {
+        valEl.className = "";
+      }
+
       const ynEl = document.getElementById(`${idPrefix}-yn`);
       if (ynEl) {
         if (isPass === null) {
@@ -177,11 +196,16 @@ const Render = {
       }
     };
 
-    updateRow('chk-dtt', data.isTangDeuDtt ? "1" : "0", checks.dtt);
+    const fmtBinary = (isPass) => {
+      if (isPass === null || isPass === undefined) return "N/A";
+      return isPass ? "1: Đạt" : "0: Không đạt";
+    };
+
+    updateRow('chk-dtt', fmtBinary(checks.dtt), checks.dtt);
     const dttDescEl = document.getElementById('chk-dtt-desc');
     if (dttDescEl) dttDescEl.innerHTML = data.dttDesc;
     
-    updateRow('chk-lng', data.isTangDeuLng ? "1" : "0", checks.lng);
+    updateRow('chk-lng', fmtBinary(checks.lng), checks.lng);
     const lngDescEl = document.getElementById('chk-lng-desc');
     if (lngDescEl) lngDescEl.innerHTML = data.lngDesc;
     
@@ -191,7 +215,7 @@ const Render = {
         vcshText = `${Utils.formatNumber(data.vcshQuarters[0], 0)} ➔ ${fmt(data.vcshQuarters[1], data.vcshQuarters[0])} ➔ ${fmt(data.vcshQuarters[2], data.vcshQuarters[1])} ➔ ${fmt(data.vcshQuarters[3], data.vcshQuarters[2])}`;
     }
     
-    updateRow('chk-vcsh', checks.vcsh ? "1" : "0", checks.vcsh);
+    updateRow('chk-vcsh', fmtBinary(checks.vcsh), checks.vcsh);
     const vcshDescEl = document.getElementById('chk-vcsh-desc');
     if (vcshDescEl) vcshDescEl.innerHTML = vcshText;
     updateRow('chk-gos', Utils.formatPercent(data.tyLeLaiGop), checks.gos);
@@ -208,26 +232,23 @@ const Render = {
     if (data.avgDailyValueTy !== null && data.avgDailyValueTy !== undefined) {
       tkValText = `${Utils.formatNumber(data.avgDailyValueTy, 2)} tỷ`;
     }
-    Render.setText('chk-tk-val', tkValText);
-
-    const tkYnEl = document.getElementById('chk-tk-yn');
-    if (tkYnEl) {
-      tkYnEl.innerText = tk.status;
-      const parentTd = tkYnEl.tagName === 'TD' ? tkYnEl : tkYnEl.closest('td');
-      if (parentTd) {
-        parentTd.className = `text-center font-bold ${tk.cssClass} ${tk.bgClass}`;
-      }
-    }
+    updateRow('chk-tk', tkValText, tk.pass);
 
     const tkDescEl = document.getElementById('chk-tk-desc');
     if (tkDescEl) {
       const volText = data.avgDailyVolume > 0 ? `KLGD TB: ${Utils.formatNumber(data.avgDailyVolume, 0)} cp/ngày • ` : '';
-      tkDescEl.innerText = `${volText}${tk.desc}`;
+      if (tk.range && tk.status) {
+        const statusLabel = tk.status === "Rất thấp" ? "Rất thấp → nên tránh" : tk.status;
+        tkDescEl.innerHTML = `${volText}${tk.range} (<span class="${tk.levelColor} font-bold">${statusLabel}</span>)`;
+      } else {
+        tkDescEl.innerText = `${volText}${tk.desc}`;
+      }
     }
-    updateRow('chk-bld', data.bldMuaBan !== null ? data.bldMuaBan : "N/A", data.bldMuaBan !== null ? checks.bld : null);
+    const bldValText = data.bldMuaBan !== null ? fmtBinary(checks.bld) : "N/A";
+    updateRow('chk-bld', bldValText, data.bldMuaBan !== null ? checks.bld : null);
     const bldDescEl = document.getElementById('chk-bld-desc');
     if (bldDescEl) bldDescEl.innerHTML = data.bldDesc.replace(/\n/g, '<br>');
-    updateRow('chk-hdkd', data.lnHdkd > 0 ? "1" : "0", checks.hdkd);
+    updateRow('chk-hdkd', fmtBinary(checks.hdkd), checks.hdkd);
     // Chi tiết HĐKD: hiển thị giá trị LN từ HĐKD
     const hdkdDescEl = document.getElementById('chk-hdkd-desc');
     if (hdkdDescEl) hdkdDescEl.innerText = `LN từ HĐKD: ${Utils.formatNumber(data.lnHdkd)} tỷ đồng`;
@@ -246,7 +267,7 @@ const Render = {
         if (y > 0 && m > 0) timeStr = `${y} năm ${m} tháng`;
         else if (y > 0 && m === 0) timeStr = `${y} năm`;
         else timeStr = `${m} tháng`;
-        ndh_lnst_val = `${timeStr} (${Utils.formatNumber(rawVal)})`;
+        ndh_lnst_val = `${timeStr}<br>(${Utils.formatNumber(rawVal)})`;
       }
     }
     updateRow('chk-ndh', ndh_lnst_val, checks.ndh_lnst);
@@ -254,6 +275,18 @@ const Render = {
     const ndhDetailEl = document.getElementById('chk-ndh-detail');
     if (ndhDetailEl) {
       ndhDetailEl.innerText = `Nợ DH (${Utils.formatNumber(data.ndh)}) / LNST TTM 4Q (${Utils.formatNumber(sumLnstSau)})`;
+    }
+
+    // Đánh giá RESULT (Kết quả cuối cùng)
+    // Đạt YES khi đồng thời: THÀNH CÔNG (quý hiện tại) = YES && BLĐ = YES && Thanh khoản = YES && Nợ DH / LNST <= 5 = YES
+    const isSuccessSau = document.getElementById('chk-thanhcong-sau')?.innerText === 'YES';
+    const finalResult = Calculator.evaluateFinalResult(isSuccessSau, checks);
+    const resEl = document.getElementById('chk-result');
+    if (resEl) {
+      resEl.innerText = finalResult.pass ? "YES" : "NO";
+      resEl.className = finalResult.pass
+        ? "text-center text-success font-bold"
+        : "text-center text-danger font-bold";
     }
   },
 

@@ -184,28 +184,39 @@ const App = {
     // Ẩn cảnh báo lỗi nếu load thành công
     warningEl.style.display = "none";
 
-    App.currentStockData = data;
+    try {
+      App.currentStockData = data;
 
-    // 1. Đổ dữ liệu Bảng Đầu Vào & Lợi nhuận
-    const { sumLnstTruoc, sumLnstSau } = Render.renderInputData(data);
+      // 1. Đổ dữ liệu Bảng Đầu Vào & Lợi nhuận
+      const { sumLnstTruoc, sumLnstSau } = Render.renderInputData(data);
 
-    // 2. Định giá & Tính trụ cột
-    Render.renderValuation(data, sumLnstTruoc, sumLnstSau);
+      // 2. Định giá & Tính trụ cột
+      Render.renderValuation(data, sumLnstTruoc, sumLnstSau);
 
-    // 3. Đánh giá Checklist
-    Render.renderChecklist(data, sumLnstSau);
+      // 3. Đánh giá Checklist
+      Render.renderChecklist(data, sumLnstSau);
 
-    if (statusEl) {
-      statusEl.textContent = `Đã phân tích xong ${symbol}`;
-      statusEl.style.color = "var(--success-color)";
+      if (statusEl) {
+        statusEl.textContent = `Đã phân tích xong ${symbol}`;
+        statusEl.style.color = "var(--success-color)";
+      }
+
+      // 4. Lưu whitelist nếu được check
+      App.handleWhitelist(data, sumLnstSau);
+
+      // 5. Tự động nhảy mã nếu bật tính năng
+      const isGoodStock = document.getElementById('chk-result')?.innerText === 'YES';
+      App.autoNextStock(isGoodStock);
+    } catch (err) {
+      console.error(`Lỗi phân tích mã ${symbol}:`, err);
+      if (statusEl) {
+        statusEl.textContent = `Lỗi phân tích mã ${symbol}!`;
+        statusEl.style.color = "var(--danger-color)";
+      }
+      warningEl.style.display = "block";
+      warningEl.textContent = `⚠️ DỮ LIỆU CỦA MÃ ${symbol} KHÔNG ĐẦY ĐỦ ĐỂ ĐỊNH GIÁ. Vui lòng bỏ qua mã này.`;
+      App.autoNextStock(false);
     }
-
-    // 4. Lưu whitelist nếu được check
-    App.handleWhitelist(data, sumLnstSau);
-
-    // 5. Tự động nhảy mã nếu bật tính năng
-    const isGoodStock = document.getElementById('chk-thanhcong-sau')?.innerText === 'YES';
-    App.autoNextStock(isGoodStock);
   },
 
   sleepNext: null,
@@ -220,37 +231,34 @@ const App = {
     const isLast = codeDrpd.selectedIndex >= codeDrpd.options.length - 1;
 
     if (chkAutoStockNoValue && chkAutoStockNoValue.checked) {
-      if (chkSaveWhitelist && chkSaveWhitelist.checked) {
-        let idx = 5;
+      const shouldAutoSkip = (chkSaveWhitelist && chkSaveWhitelist.checked) || !isGoodStock;
+
+      if (shouldAutoSkip) {
+        let idx = 2;
+        const msgPrefix = (isGoodStock && chkSaveWhitelist?.checked)
+          ? "Cổ phiếu cần đánh giá, tiếp tục sau"
+          : "Cổ phiếu không tốt, tiếp tục sau";
+
+        btnNext.innerHTML = `${msgPrefix} ${idx}s`;
+        btnNext.disabled = true;
+
         App.sleepNext = setInterval(() => {
+          idx--;
           if (idx <= 0) {
             clearInterval(App.sleepNext);
             if (!isLast) App.nextStock();
-            else btnNext.innerHTML = "Kiểm tra mã tiếp theo";
-          } else {
-            btnNext.innerHTML = (isGoodStock ? `Cổ phiếu cần đánh giá, tiếp tục sau ${idx}s` : `Cổ phiếu không tốt, tiếp tục sau ${idx}s`);
-            btnNext.disabled = true;
-          }
-          idx--;
-        }, 1000);
-      } else {
-        if (!isGoodStock) {
-          let idx = 5;
-          App.sleepNext = setInterval(() => {
-            if (idx <= 0) {
-              clearInterval(App.sleepNext);
-              if (!isLast) App.nextStock();
-              else btnNext.innerHTML = "Kiểm tra mã tiếp theo";
-            } else {
-              btnNext.innerHTML = `Cổ phiếu không tốt, tiếp tục sau ${idx}s`;
+            else {
+              btnNext.innerHTML = "Kiểm tra mã tiếp theo";
               btnNext.disabled = true;
             }
-            idx--;
-          }, 1000);
-        } else {
-           btnNext.innerHTML = "Kiểm tra mã tiếp theo";
-           btnNext.disabled = isLast;
-        }
+          } else {
+            btnNext.innerHTML = `${msgPrefix} ${idx}s`;
+            btnNext.disabled = true;
+          }
+        }, 1000);
+      } else {
+        btnNext.innerHTML = "Kiểm tra mã tiếp theo";
+        btnNext.disabled = isLast;
       }
     } else {
       btnNext.innerHTML = "Kiểm tra mã tiếp theo";
@@ -274,8 +282,8 @@ const App = {
     const chkSaveWhitelist = document.getElementById("chkSaveWhitelist");
     if (!chkSaveWhitelist || !chkSaveWhitelist.checked) return;
 
-    // Lưu nếu THÀNH CÔNG = YES
-    const isGoodStock = document.getElementById('chk-thanhcong-sau')?.innerText === 'YES';
+    // Lưu nếu RESULT = YES
+    const isGoodStock = document.getElementById('chk-result')?.innerText === 'YES';
     if (isGoodStock) {
       let wl = JSON.parse(localStorage.getItem('stockValue') || "[]");
       if (!wl.some(item => item.ticker === data.symbol)) {

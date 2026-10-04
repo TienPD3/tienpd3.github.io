@@ -475,10 +475,13 @@ input[type="checkbox"] {
   line-height: 1.45;
   white-space: normal;
   pointer-events: none;
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .custom-tooltip .tooltip-text.tooltip-lg {
-  width: 330px;
+  width: 340px;
   padding: 10px 14px;
 }
 
@@ -495,6 +498,14 @@ input[type="checkbox"] {
 .tooltip-item {
   display: block;
   margin-top: 5px;
+}
+
+.tooltip-subitem {
+  display: block;
+  margin-top: 2.5px;
+  padding-left: 6px;
+  font-size: 11.5px;
+  line-height: 1.4;
 }
 
 .tooltip-label {

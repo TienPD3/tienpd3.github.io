@@ -308,6 +308,11 @@ const API = {
           return b.quarter - a.quarter;
       });
 
+      if (periods.length < 5) {
+        console.error(`Mã ${symbol} không đủ 5 kỳ BCTC để phân tích (chỉ có ${periods.length}/5 kỳ). Sẽ tự động bỏ qua.`);
+        return null;
+      }
+
       const pLatest = periods[0];
       const latestLnst = {
           quarter: pLatest.quarter,
