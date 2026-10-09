@@ -153,7 +153,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0 8px;
-    min-width: 65px;
+    min-width: 72px;
   }
 
   .speed-num-label {
@@ -210,7 +210,8 @@
     overflow: hidden;
     will-change: transform;
     transform: translateZ(0);
-    height: 330px; /* CHIỀU CAO CỐ ĐỊNH 100% TOÀN BỘ KHUNG ĐỌC */
+    min-height: 330px;
+    height: auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -253,14 +254,16 @@
     align-items: center;
     width: 100%;
     flex-grow: 1;
-    height: 190px; /* CỐ ĐỊNH CHIỀU CAO VÙNG CHỮ */
+    min-height: 190px;
+    height: auto;
     box-sizing: border-box;
   }
 
-  /* Khung hiển thị câu đang đọc - Khóa cứng chiều cao chính xác 110px */
+  /* Khung hiển thị câu đang đọc */
   .karaoke-reading-row {
     width: 100%;
-    height: 110px;
+    min-height: 110px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -286,10 +289,11 @@
     max-width: 100%;
   }
 
-  /* Dòng kế tiếp - Khóa cứng chiều cao 45px */
+  /* Dòng kế tiếp */
   .karaoke-upcoming-row {
     width: 100%;
-    height: 45px;
+    min-height: 45px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -378,12 +382,122 @@
   }
 
 
+  /* Touch Optimization cho iPhone / iPad */
+  .action-btn, .step-btn, .select-styled {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  /* Tối ưu giao diện cho Điện Thoại (iPhone, Android - màn hình <= 600px) */
   @media (max-width: 600px) {
-    .karaoke-dual-line { font-size: 1.35em; }
-    .karaoke-dual-line.is-upcoming { font-size: 1.15em; }
-    .karaoke-screen { padding: 20px 12px; }
-    .control-dock { padding: 10px; gap: 8px; }
-    .action-btn { padding: 7px 12px; font-size: 0.82em; }
+    .karaoke-studio {
+      padding: 0 2px;
+    }
+    .karaoke-title {
+      font-size: 1.15em;
+      justify-content: center;
+      text-align: center;
+    }
+    .control-dock {
+      padding: 10px 8px;
+      gap: 10px 6px;
+      justify-content: center;
+    }
+    .dock-left {
+      order: 1;
+      justify-content: center;
+    }
+    .dock-center {
+      order: 2;
+      justify-content: center;
+    }
+    .dock-right {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      gap: 6px;
+    }
+    .select-styled {
+      max-width: calc(100% - 25px);
+      width: 100%;
+      font-size: 0.82em;
+      padding: 7px 8px;
+      text-overflow: ellipsis;
+    }
+    .action-btn {
+      padding: 8px 12px;
+      font-size: 0.82em;
+    }
+    .speed-stepper-box {
+      padding: 2px 4px;
+    }
+    .step-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 1.1em;
+    }
+    .speed-display-wrap {
+      min-width: 62px;
+      padding: 0 4px;
+    }
+    .speed-num-label {
+      font-size: 0.95em;
+    }
+    .speed-sub-label {
+      font-size: 0.62em;
+    }
+    .karaoke-screen {
+      padding: 16px 10px;
+      min-height: 280px;
+      border-radius: 12px;
+    }
+    .karaoke-dual-stage {
+      min-height: 170px;
+      gap: 8px;
+    }
+    .karaoke-reading-row {
+      min-height: 95px;
+      padding: 4px 0;
+    }
+    .karaoke-upcoming-row {
+      min-height: 40px;
+      padding: 4px 0;
+    }
+    .karaoke-dual-line {
+      font-size: 1.25em;
+      line-height: 1.38;
+      gap: 6px 8px;
+      padding: 0 6px;
+    }
+    .karaoke-upcoming-text {
+      font-size: 1.0em;
+      line-height: 1.35;
+    }
+  }
+
+  /* Tối ưu giao diện cho Máy Tính Bảng (iPad Mini, iPad Air, iPad Pro 768px - 1024px) */
+  @media (min-width: 601px) and (max-width: 1024px) {
+    .karaoke-dual-line {
+      font-size: 1.65em;
+      line-height: 1.4;
+    }
+    .karaoke-upcoming-text {
+      font-size: 1.2em;
+    }
+    .karaoke-screen {
+      min-height: 320px;
+      padding: 24px 20px;
+    }
+    .karaoke-dual-stage {
+      min-height: 190px;
+    }
+    .karaoke-reading-row {
+      min-height: 110px;
+    }
+    .control-dock {
+      padding: 12px 14px;
+      gap: 10px;
+    }
   }
 </style>
 
@@ -391,7 +505,7 @@
   <!-- Header -->
   <div class="karaoke-header">
     <h2 class="karaoke-title">
-      <i class="bi bi-award-fill"></i> BÀI 4: BẢN TUYÊN BỐ THÀNH CÔNG
+      <i class="bi bi-award-fill"></i>BẢN TUYÊN BỐ THÀNH CÔNG
     </h2>
   </div>
 
@@ -408,15 +522,15 @@
       </button>
     </div>
 
-    <!-- BỘ NÚT TĂNG / GIẢM TỐC ĐỘ TÙY THÍCH [ - ] [ 4.5s ] [ + ] -->
+    <!-- BỘ NÚT TĂNG / GIẢM TỐC ĐỘ TỪNG TỪ (ms/từ) [ - ] [ 450ms ] [ + ] -->
     <div class="dock-center">
       <div class="speed-stepper-box">
-        <button class="step-btn" id="btnSpeedDown" title="Giảm thời gian (Chạy nhanh hơn)"><i class="bi bi-dash"></i></button>
+        <button class="step-btn" id="btnSpeedDown" title="Đọc nhanh hơn (Giảm ms/từ)"><i class="bi bi-dash"></i></button>
         <div class="speed-display-wrap">
-          <span class="speed-num-label" id="speedNumLabel">4.5s</span>
-          <span class="speed-sub-label">TỐC ĐỘ</span>
+          <span class="speed-num-label" id="speedNumLabel">450ms</span>
+          <span class="speed-sub-label">MS / TỪ</span>
         </div>
-        <button class="step-btn" id="btnSpeedUp" title="Tăng thời gian (Chạy chậm hơn)"><i class="bi bi-plus"></i></button>
+        <button class="step-btn" id="btnSpeedUp" title="Đọc chậm hơn (Tăng ms/từ)"><i class="bi bi-plus"></i></button>
       </div>
     </div>
 
@@ -519,13 +633,28 @@
       rain: "https://cdn.pixabay.com/download/audio/2021/09/06/audio_73229be4d0.mp3?filename=soft-rain-ambient-111154.mp3"
     };
 
-    // State & Lưu tốc độ
-    const SAVED_SPEED = localStorage.getItem("karaoke_speed_val") || "4.5";
+    // State & Lưu tốc độ đọc theo từng từ (millisecond / từ)
+    const SAVED_MS_PER_WORD = localStorage.getItem("karaoke_ms_per_word");
+    let msPerWord = 450;
+    if (SAVED_MS_PER_WORD) {
+      const parsed = parseInt(SAVED_MS_PER_WORD, 10);
+      if (!isNaN(parsed) && parsed >= 10 && parsed <= 5000) {
+        msPerWord = parsed;
+      }
+    } else {
+      const oldSpeed = localStorage.getItem("karaoke_word_speed");
+      if (oldSpeed) {
+        const parsedSec = parseFloat(oldSpeed);
+        if (!isNaN(parsedSec) && parsedSec >= 0.15 && parsedSec <= 3.0) {
+          msPerWord = Math.round(parsedSec * 1000);
+        }
+      }
+    }
+    const PAUSE_END_SENTENCE = 400; // 400ms nghỉ đệm cuối mỗi câu
 
     let currentIndex = 0;
     let isPlaying = false;
-    let baseSpeed = parseFloat(SAVED_SPEED);
-    let currentLineDuration = baseSpeed * 1000;
+    let currentLineDuration = 0;
     let animFrameId = null;
     let lineStartTime = 0;
     let elapsedTimer = null;
@@ -556,19 +685,32 @@
 
     // Khởi tạo hiển thị tốc độ
     function updateSpeedDisplay() {
-      speedNumLabel.textContent = `${baseSpeed.toFixed(1)}s`;
-      localStorage.setItem("karaoke_speed_val", baseSpeed.toString());
+      speedNumLabel.textContent = `${msPerWord}ms`;
+      localStorage.setItem("karaoke_ms_per_word", msPerWord.toString());
     }
     updateSpeedDisplay();
 
-    // Audio Engine
+    // Audio Engine (Tương thích Safari trên iPhone & iPad)
     function initAudioContext() {
       if (!audioCtx) {
         const AudioClass = window.AudioContext || window.webkitAudioContext;
         if (AudioClass) audioCtx = new AudioClass();
       }
-      if (audioCtx && audioCtx.state === "suspended") audioCtx.resume();
+      if (audioCtx && audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
     }
+
+    // Tự động mở khoá AudioContext ngay từ cú chạm đầu tiên trên màn hình iPhone/iPad
+    function unlockIOSAudio() {
+      initAudioContext();
+      window.removeEventListener("touchstart", unlockIOSAudio);
+      window.removeEventListener("touchend", unlockIOSAudio);
+      window.removeEventListener("click", unlockIOSAudio);
+    }
+    window.addEventListener("touchstart", unlockIOSAudio, { passive: true });
+    window.addEventListener("touchend", unlockIOSAudio, { passive: true });
+    window.addEventListener("click", unlockIOSAudio, { passive: true });
 
     function playSynthChord(notes, duration = 4.2, type = "peace") {
       if (!audioCtx) return;
@@ -637,6 +779,9 @@
         if (!audioElem) {
           audioElem = new Audio();
           audioElem.loop = true;
+          audioElem.playsInline = true;
+          audioElem.setAttribute('playsinline', '');
+          audioElem.setAttribute('webkit-playsinline', '');
           audioElem.addEventListener('ended', function() {
             this.currentTime = 0;
             this.play();
@@ -657,14 +802,17 @@
       stopSynth();
     }
 
-    // TÍNH THỜI GIAN THEO TỐC ĐỘ ĐÃ CHỈNH
-    function calculateDurationForSentence() {
-      return baseSpeed * 1000;
+    // TÍNH THỜI GIAN THEO TỐC ĐỘ ĐỒNG NHẤT CHO MỖI TỪ (ms/từ)
+    function calculateDurationForSentence(text) {
+      if (!text) return 500;
+      const wordCount = text.trim().split(/\s+/).filter(Boolean).length;
+      const pause = Math.min(PAUSE_END_SENTENCE, msPerWord * 2);
+      return Math.max(50, wordCount * msPerWord + pause);
     }
 
     function populateWordsToLine(lineElem, text) {
       lineElem.innerHTML = "";
-      const words = text.split(" ");
+      const words = text.trim().split(/\s+/).filter(Boolean);
       words.forEach((w, idx) => {
         const span = document.createElement("span");
         span.className = "karaoke-word";
@@ -678,7 +826,7 @@
       if (idx < 0 || idx >= AFFIRMATIONS.length) return;
       currentIndex = idx;
       lineStartTime = performance.now();
-      currentLineDuration = calculateDurationForSentence();
+      currentLineDuration = calculateDurationForSentence(AFFIRMATIONS[idx]);
 
       screenBadge.textContent = `CÂU ${idx + 1} / ${AFFIRMATIONS.length}`;
 
@@ -689,7 +837,7 @@
       if (idx < AFFIRMATIONS.length - 1) {
         upcomingText.textContent = AFFIRMATIONS[idx + 1];
       } else {
-        upcomingText.innerHTML = "<span style='color:#ffd54f;'>★ Bạn đã hoàn thành trọn vẹn 46 câu tuyên bố thành công!</span>";
+        upcomingText.innerHTML = `<span style='color:#ffd54f;'>★ Bạn đã hoàn thành trọn vẹn ${AFFIRMATIONS.length} câu tuyên bố thành công!</span>`;
       }
 
       progressFill.style.width = "0%";
@@ -704,7 +852,7 @@
       }
     }
 
-    // 120 FPS LOOP
+    // 120 FPS LOOP - MỖI TỪ CHẠY ĐÚNG THỜI LƯỢNG msPerWord
     function continuousKaraokeLoop(timestamp) {
       if (!isPlaying) return;
 
@@ -717,7 +865,9 @@
       const totalWords = spans.length;
 
       if (totalWords > 0) {
-        const activeWordIndex = Math.min(Math.floor(progress * totalWords), totalWords - 1);
+        const wordDuration = msPerWord;
+        const activeWordIndex = Math.floor(elapsed / wordDuration);
+
         for (let i = 0; i < totalWords; i++) {
           const span = spans[i];
           if (i < activeWordIndex) {
@@ -751,7 +901,7 @@
 
       startBackgroundAudio();
       lineStartTime = performance.now();
-      currentLineDuration = calculateDurationForSentence();
+      currentLineDuration = calculateDurationForSentence(AFFIRMATIONS[currentIndex]);
       animFrameId = window.requestAnimationFrame(continuousKaraokeLoop);
 
       if (!elapsedTimer) {
@@ -793,17 +943,34 @@
       changeLine(0);
     });
 
-    // NÚT BẤM (+) VÀ (-) TĂNG GIẢM TỐC ĐỘ THEO Ý THÍCH MỖI BƯỚC 0.1s (TỐI THIỂU 0.5s)
-    btnSpeedUp.addEventListener("click", () => {
-      baseSpeed = Math.min(15.0, +(baseSpeed + 0.1).toFixed(1));
-      currentLineDuration = baseSpeed * 1000;
+    function applySpeedChange(newMs) {
+      const clamped = Math.max(10, Math.min(5000, Math.round(newMs)));
+      if (clamped === msPerWord) return;
+
+      const oldDuration = currentLineDuration;
+      msPerWord = clamped;
       updateSpeedDisplay();
+
+      const newDuration = calculateDurationForSentence(AFFIRMATIONS[currentIndex]);
+      if (isPlaying && oldDuration > 0) {
+        const elapsed = performance.now() - lineStartTime;
+        const progress = Math.min(elapsed / oldDuration, 1);
+        currentLineDuration = newDuration;
+        lineStartTime = performance.now() - (progress * newDuration);
+      } else {
+        currentLineDuration = newDuration;
+      }
+    }
+
+    // NÚT BẤM (+) VÀ (-) TĂNG GIẢM TỐC ĐỘ THEO TỪNG TỪ
+    btnSpeedUp.addEventListener("click", () => {
+      const step = msPerWord < 100 ? 10 : 25;
+      applySpeedChange(msPerWord + step);
     });
 
     btnSpeedDown.addEventListener("click", () => {
-      baseSpeed = Math.max(0.5, +(baseSpeed - 0.1).toFixed(1));
-      currentLineDuration = baseSpeed * 1000;
-      updateSpeedDisplay();
+      const step = msPerWord <= 100 ? 10 : 25;
+      applySpeedChange(msPerWord - step);
     });
 
     musicSelect.addEventListener("change", () => {
